@@ -1,0 +1,2396 @@
+[
+ {
+  "file": "lemmy__0001__00000000000000_diesel_initial_setup__up.sql",
+  "original_path": "migrations/00000000000000_diesel_initial_setup/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "eb822074a8788ed04790e702c7eae9d89db68229bd14a29fab85cd9b9abacadd",
+  "bytes": 1138
+ },
+ {
+  "file": "lemmy__0002__2019-02-26-002946_create_user__up.sql",
+  "original_path": "migrations/2019-02-26-002946_create_user/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a4c777342dd696120159407aa6ed7cb73369aeb1b4bf9ebc92b3f3bb83635c9d",
+  "bytes": 713
+ },
+ {
+  "file": "lemmy__0003__2019-02-27-170003_create_community__up.sql",
+  "original_path": "migrations/2019-02-27-170003_create_community/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f8383e9210d5ea735096175f8d3be2728312d63b7e55106e46fc8bb8c3635070",
+  "bytes": 2380
+ },
+ {
+  "file": "lemmy__0004__2019-03-03-163336_create_post__up.sql",
+  "original_path": "migrations/2019-03-03-163336_create_post/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "c167c8b2f8f2f1464a01278ad1b941d845cdafc8d9501f32206bf5329805c80e",
+  "bytes": 1452
+ },
+ {
+  "file": "lemmy__0005__2019-03-05-233828_create_comment__up.sql",
+  "original_path": "migrations/2019-03-05-233828_create_comment/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "75ee8f620979dbccadd201e3dbc9f689e910e20bf96aa554994ae301926a364a",
+  "bytes": 1237
+ },
+ {
+  "file": "lemmy__0006__2019-03-30-212058_create_post_view__up.sql",
+  "original_path": "migrations/2019-03-30-212058_create_post_view/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "90c7edeaa7055fc175e2cca044fa37a24d731087c748261a6da6fee55a44ae53",
+  "bytes": 2572
+ },
+ {
+  "file": "lemmy__0007__2019-04-03-155205_create_community_view__up.sql",
+  "original_path": "migrations/2019-04-03-155205_create_community_view/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "44ed6572aafde360f476f10ff40f361c6847044124e029a1b9047d53da39e580",
+  "bytes": 2979
+ },
+ {
+  "file": "lemmy__0008__2019-04-03-155309_create_comment_view__up.sql",
+  "original_path": "migrations/2019-04-03-155309_create_comment_view/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "869bb89a0c92a4c4d737b607b91ac0e0cae91bb32b60ebc0c18ae511ce87f402",
+  "bytes": 3069
+ },
+ {
+  "file": "lemmy__0009__2019-04-07-003142_create_moderation_logs__up.sql",
+  "original_path": "migrations/2019-04-07-003142_create_moderation_logs/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "5da6c9a782c9f8e44436db73790e0255c234642a4749d228c8f16688556c0015",
+  "bytes": 2858
+ },
+ {
+  "file": "lemmy__0010__2019-04-08-015947_create_user_view__up.sql",
+  "original_path": "migrations/2019-04-08-015947_create_user_view/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "c3b753e676c28aa77d6d4de868bc74fe32c7d34c997577687900ac9ae28886e3",
+  "bytes": 843
+ },
+ {
+  "file": "lemmy__0011__2019-04-11-144915_create_mod_views__up.sql",
+  "original_path": "migrations/2019-04-11-144915_create_mod_views/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "058a2853fd1e119f67791342b2d522e8618deeabc5fd6b24a141d7ef73a5d863",
+  "bytes": 5211
+ },
+ {
+  "file": "lemmy__0012__2019-04-29-175834_add_delete_columns__up.sql",
+  "original_path": "migrations/2019-04-29-175834_add_delete_columns/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "52248aaee443ce227a071713f9fad79228a9df789db7420bbaa9755af71af47b",
+  "bytes": 7114
+ },
+ {
+  "file": "lemmy__0013__2019-05-02-051656_community_view_hot_rank__up.sql",
+  "original_path": "migrations/2019-05-02-051656_community_view_hot_rank/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "28d1b97c884ad9ee40a8404fbe38e0ed54c04de0ea103aa009aa2a7d48ee55b7",
+  "bytes": 1638
+ },
+ {
+  "file": "lemmy__0014__2019-06-01-222649_remove_admin__up.sql",
+  "original_path": "migrations/2019-06-01-222649_remove_admin/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "0d4dc09126242f90f7ecb24434635597a6da6e9ec59cc707505b3113b6270a35",
+  "bytes": 44
+ },
+ {
+  "file": "lemmy__0015__2019-08-11-000918_add_nsfw_columns__up.sql",
+  "original_path": "migrations/2019-08-11-000918_add_nsfw_columns/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a2c6c5843a308f84e9dc5fc84d2742c610d77f0b9e7f56b0869b027d0974e520",
+  "bytes": 4363
+ },
+ {
+  "file": "lemmy__0016__2019-08-29-040006_add_community_count__up.sql",
+  "original_path": "migrations/2019-08-29-040006_add_community_count/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "c3c995e1b6fae5c946ec5d02d552d39ad85f6a8dbd19aa4bca50b4f5a6bd0008",
+  "bytes": 603
+ },
+ {
+  "file": "lemmy__0017__2019-09-05-230317_add_mod_ban_views__up.sql",
+  "original_path": "migrations/2019-09-05-230317_add_mod_ban_views/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "81476f11ace6abd09124ae003aa94ff869072b4d7e19301185708c02fa4d39f0",
+  "bytes": 2941
+ },
+ {
+  "file": "lemmy__0018__2019-09-09-042010_add_stickied_posts__up.sql",
+  "original_path": "migrations/2019-09-09-042010_add_stickied_posts/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4b2778de97424a355186a62eac4bd17428bfcf2bcf753e4f9c24f8d5264aa1ae",
+  "bytes": 4091
+ },
+ {
+  "file": "lemmy__0019__2019-10-15-181630_add_themes__up.sql",
+  "original_path": "migrations/2019-10-15-181630_add_themes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "2b463b51ea327318089896e4e36cfac73866bcd965b6bf5e7102e092e098b1fe",
+  "bytes": 79
+ },
+ {
+  "file": "lemmy__0020__2019-10-19-052737_create_user_mention__up.sql",
+  "original_path": "migrations/2019-10-19-052737_create_user_mention/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "fde2f01d8e4367ce2e19c09f87f539e4753b62d31c7290b3740a2ee295e6d021",
+  "bytes": 843
+ },
+ {
+  "file": "lemmy__0021__2019-10-21-011237_add_default_sorts__up.sql",
+  "original_path": "migrations/2019-10-21-011237_add_default_sorts/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "be07846cb43a4f263dfaa22badcee9d61cf1719064483c8c015eb8a69a6d52aa",
+  "bytes": 165
+ },
+ {
+  "file": "lemmy__0022__2019-10-24-002614_create_password_reset_request__up.sql",
+  "original_path": "migrations/2019-10-24-002614_create_password_reset_request/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "76f1697366f1a645c8ae602e58924390aa0bec0430cd02db362693ed9a524820",
+  "bytes": 230
+ },
+ {
+  "file": "lemmy__0023__2019-12-09-060754_add_lang__up.sql",
+  "original_path": "migrations/2019-12-09-060754_add_lang/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e4e35adcc93ca4ff6e2895d359e8ae9b08ca2f0c1e978fad1595c3755dd66abd",
+  "bytes": 79
+ },
+ {
+  "file": "lemmy__0024__2019-12-11-181820_add_site_fields__up.sql",
+  "original_path": "migrations/2019-12-11-181820_add_site_fields/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a36362c7ddb14fd364d7c476a12b8a481eb4c43859897fcb682d28a3bed53623",
+  "bytes": 879
+ },
+ {
+  "file": "lemmy__0025__2019-12-29-164820_add_avatar__up.sql",
+  "original_path": "migrations/2019-12-29-164820_add_avatar/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "0acf9e9f90011ce0e0c5962b4dde08fb2f72fddd4e31fe0c85861bbe3b5a874c",
+  "bytes": 12426
+ },
+ {
+  "file": "lemmy__0026__2020-01-01-200418_add_email_to_user_view__up.sql",
+  "original_path": "migrations/2020-01-01-200418_add_email_to_user_view/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "da4e298eb32f64f5e55dbc2ebbda6aff14f912bc05a77c244b4fcd354c7cc7b5",
+  "bytes": 896
+ },
+ {
+  "file": "lemmy__0027__2020-01-02-172755_add_show_avatar_and_email_notifications_to_user__up.sql",
+  "original_path": "migrations/2020-01-02-172755_add_show_avatar_and_email_notifications_to_user/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "9203ec36f05df0ea9387e2c71f499bfb4ffae13fa9bec54203c7719e475c94da",
+  "bytes": 1151
+ },
+ {
+  "file": "lemmy__0028__2020-01-11-012452_add_indexes__up.sql",
+  "original_path": "migrations/2020-01-11-012452_add_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "1d43c492f4db2a2884d0eeea5c6b8395d1e110c740b126ddc6995909fd698829",
+  "bytes": 783
+ },
+ {
+  "file": "lemmy__0029__2020-01-13-025151_create_materialized_views__up.sql",
+  "original_path": "migrations/2020-01-13-025151_create_materialized_views/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "2c933f7f7f52b756ca81d42ad309a7dc677eed239bd7133dfcab67de0808cd5d",
+  "bytes": 15527
+ },
+ {
+  "file": "lemmy__0030__2020-01-21-001001_create_private_message__up.sql",
+  "original_path": "migrations/2020-01-21-001001_create_private_message/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "dd4b2145d07b31163a7749de44ad7519750c329e51fa604dec956092b628db07",
+  "bytes": 3431
+ },
+ {
+  "file": "lemmy__0031__2020-01-29-011901_create_reply_materialized_view__up.sql",
+  "original_path": "migrations/2020-01-29-011901_create_reply_materialized_view/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "6bb51062299e74fb751019937f6445f6bed0ccb3119b41356f35aec0e945c1bd",
+  "bytes": 818
+ },
+ {
+  "file": "lemmy__0032__2020-01-29-030825_create_user_mention_materialized_view__up.sql",
+  "original_path": "migrations/2020-01-29-030825_create_user_mention_materialized_view/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ed5a21867cd3124a4716805f1d818b19cba043d8e3d84245b9b64b6825d585ff",
+  "bytes": 1453
+ },
+ {
+  "file": "lemmy__0033__2020-02-02-004806_add_case_insensitive_usernames__up.sql",
+  "original_path": "migrations/2020-02-02-004806_add_case_insensitive_usernames/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "01e86a9e89b12de1e414cfefc176e030287422e3d6ba1a68af6cd22e67c33c49",
+  "bytes": 710
+ },
+ {
+  "file": "lemmy__0034__2020-02-06-165953_change_post_title_length__up.sql",
+  "original_path": "migrations/2020-02-06-165953_change_post_title_length/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "018c216404f44cfd6791e81c787cef98eaa5359302db999fd1c11b1ebaaa5e55",
+  "bytes": 8391
+ },
+ {
+  "file": "lemmy__0035__2020-02-07-210055_add_comment_subscribed__up.sql",
+  "original_path": "migrations/2020-02-07-210055_add_comment_subscribed/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "541bb32897e2403236c142bb10c45bb558959cb1dfbb404fba7d67f26dd1aff8",
+  "bytes": 6676
+ },
+ {
+  "file": "lemmy__0036__2020-02-08-145624_add_post_newest_activity_time__up.sql",
+  "original_path": "migrations/2020-02-08-145624_add_post_newest_activity_time/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "898a867989a17bd9e13c92fdfb523af18c57ff06871ba7162bbb16324fb2dc30",
+  "bytes": 5035
+ },
+ {
+  "file": "lemmy__0037__2020-03-06-202329_add_post_iframely_data__up.sql",
+  "original_path": "migrations/2020-03-06-202329_add_post_iframely_data/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "1c8175e797acade67ceb953674034e945487a85fdea8bf63e04473e5b9bda6da",
+  "bytes": 5289
+ },
+ {
+  "file": "lemmy__0038__2020-03-26-192410_add_activitypub_tables__up.sql",
+  "original_path": "migrations/2020-03-26-192410_add_activitypub_tables/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "706615fcdca015c6af29d442d78279f851ec6eb78b73c1b3ce315fae048f0435",
+  "bytes": 1689
+ },
+ {
+  "file": "lemmy__0039__2020-04-03-194936_add_activitypub_for_posts_and_comments__up.sql",
+  "original_path": "migrations/2020-04-03-194936_add_activitypub_for_posts_and_comments/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "cdd35477215136c852050b61af710f758ecabc037285db092bf6091f15f32e51",
+  "bytes": 660
+ },
+ {
+  "file": "lemmy__0040__2020-04-07-135912_add_user_community_apub_constraints__up.sql",
+  "original_path": "migrations/2020-04-07-135912_add_user_community_apub_constraints/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "14004333ba59842fc634af3931d8e55a9b9f31851d99150534016f28d473bb87",
+  "bytes": 1410
+ },
+ {
+  "file": "lemmy__0041__2020-04-14-163701_update_views_for_activitypub__up.sql",
+  "original_path": "migrations/2020-04-14-163701_update_views_for_activitypub/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "1655b606238b272c330979dfdb078c2c09a838052cc481efd10ae4c3d63c33a3",
+  "bytes": 21419
+ },
+ {
+  "file": "lemmy__0042__2020-04-21-123957_remove_unique_user_constraints__up.sql",
+  "original_path": "migrations/2020-04-21-123957_remove_unique_user_constraints/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e8a424ac305af43d37b5596e70fc34843a59b8597890002dfc66e4bce0fb8537",
+  "bytes": 124
+ },
+ {
+  "file": "lemmy__0043__2020-05-05-210233_add_activitypub_for_private_messages__up.sql",
+  "original_path": "migrations/2020-05-05-210233_add_activitypub_for_private_messages/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ddbf006b13fe7606ca8fa49f8ccdf617038992d4028df22bfbd7878eeb95f17b",
+  "bytes": 946
+ },
+ {
+  "file": "lemmy__0044__2020-06-30-135809_remove_mat_views__up.sql",
+  "original_path": "migrations/2020-06-30-135809_remove_mat_views/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "fe75244b472c8e647825b036906b88ea2d812af13d9c9fafbf5e077a4fb58806",
+  "bytes": 33073
+ },
+ {
+  "file": "lemmy__0045__2020-07-08-202609_add_creator_published__up.sql",
+  "original_path": "migrations/2020-07-08-202609_add_creator_published/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "63731182c058b472e71ba1c40b95f937e1841900558502ab44c43fdafede1057",
+  "bytes": 12350
+ },
+ {
+  "file": "lemmy__0046__2020-07-12-100442_add_post_title_to_comments_view__up.sql",
+  "original_path": "migrations/2020-07-12-100442_add_post_title_to_comments_view/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "5fb1026674d7d6b95c8a2cbf94672c18af3a14b7c414e7f9777e786c5b92c1d7",
+  "bytes": 7810
+ },
+ {
+  "file": "lemmy__0047__2020-07-18-234519_add_unique_community_user_actor_ids__up.sql",
+  "original_path": "migrations/2020-07-18-234519_add_unique_community_user_actor_ids/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "c98cce35fff3f0c9f57d2af3330658c79512c59504ff302d7e6193e5bd961082",
+  "bytes": 1970
+ },
+ {
+  "file": "lemmy__0048__2020-08-03-000110_add_preferred_usernames_banners_and_icons__up.sql",
+  "original_path": "migrations/2020-08-03-000110_add_preferred_usernames_banners_and_icons/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "598b64a68487ad7514cb97996920a987bc5ea1a0f695df3e0c3411de1124d908",
+  "bytes": 24992
+ },
+ {
+  "file": "lemmy__0049__2020-08-06-205355_update_community_post_count__up.sql",
+  "original_path": "migrations/2020-08-06-205355_update_community_post_count/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "9b5ccf111a1b104d7d1f292889550557f53b345c2b14575a03cb9e3844cbb075",
+  "bytes": 2727
+ },
+ {
+  "file": "lemmy__0050__2020-08-25-132005_add_unique_ap_ids__up.sql",
+  "original_path": "migrations/2020-08-25-132005_add_unique_ap_ids/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "65a5187d350f4d6bb0eabab78026075bc1a549b078dc001c3d795bfe797018d4",
+  "bytes": 2077
+ },
+ {
+  "file": "lemmy__0051__2020-09-07-231141_add_migration_utils__up.sql",
+  "original_path": "migrations/2020-09-07-231141_add_migration_utils/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4c5a947022d98e5c8bb1f67a2f145287fe1ecbbe967c8badc640b1022b97973e",
+  "bytes": 4160
+ },
+ {
+  "file": "lemmy__0052__2020-10-07-234221_fix_fast_triggers__up.sql",
+  "original_path": "migrations/2020-10-07-234221_fix_fast_triggers/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f44614a3baebd9fc71af6f27dd63168ca6ebc8ec710556922ad21c98b3a6dc95",
+  "bytes": 7015
+ },
+ {
+  "file": "lemmy__0053__2020-10-10-035723_fix_fast_triggers_2__up.sql",
+  "original_path": "migrations/2020-10-10-035723_fix_fast_triggers_2/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "27fb6c27a0f63349487b73f79230e9fedc7f1b5d3045c5977db132ce2a888c89",
+  "bytes": 4982
+ },
+ {
+  "file": "lemmy__0054__2020-10-13-212240_create_report_tables__up.sql",
+  "original_path": "migrations/2020-10-13-212240_create_report_tables/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "6b830909f35e3b2e79c65eac3f23cc3777e60f12f0436141570c369205a1a98b",
+  "bytes": 3516
+ },
+ {
+  "file": "lemmy__0055__2020-10-23-115011_activity_ap_id_column__up.sql",
+  "original_path": "migrations/2020-10-23-115011_activity_ap_id_column/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "647520ee88266f8f4ec018a19b4000e94074171636be82d4b5dbb262b8319b01",
+  "bytes": 49
+ },
+ {
+  "file": "lemmy__0056__2020-11-05-152724_activity_remove_user_id__up.sql",
+  "original_path": "migrations/2020-11-05-152724_activity_remove_user_id/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "eded6babc24113d8af755b1ca0a22ab67bdab8fd3771a6308bbbc83b717508d1",
+  "bytes": 116
+ },
+ {
+  "file": "lemmy__0057__2020-11-10-150835_community_follower_pending__up.sql",
+  "original_path": "migrations/2020-11-10-150835_community_follower_pending/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "bdd6f275e4416248661c6ba159fe8ae07add6b826bf713c6075e638c566a599e",
+  "bytes": 78
+ },
+ {
+  "file": "lemmy__0058__2020-11-26-134531_delete_user__up.sql",
+  "original_path": "migrations/2020-11-26-134531_delete_user/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "fb9d564f0b416d6298bf5efb52d3d5286174bd628fb59d6e6c0d25f945f5c133",
+  "bytes": 74
+ },
+ {
+  "file": "lemmy__0059__2020-12-02-152437_create_site_aggregates__up.sql",
+  "original_path": "migrations/2020-12-02-152437_create_site_aggregates/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "3f75e8fd5e85e74e1d0451c633a019cfec1ec32fbabd4b3c33954dfaf6fbfbca",
+  "bytes": 4926
+ },
+ {
+  "file": "lemmy__0060__2020-12-03-035643_create_user_aggregates__up.sql",
+  "original_path": "migrations/2020-12-03-035643_create_user_aggregates/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "770e39c50503b97ab12afdd45203069ac621d900cf4a5fe1a097b95ac616077d",
+  "bytes": 6114
+ },
+ {
+  "file": "lemmy__0061__2020-12-04-183345_create_community_aggregates__up.sql",
+  "original_path": "migrations/2020-12-04-183345_create_community_aggregates/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "63d917c032c22fc580ac98727c8dc05f7b6d105ca3fa420f030d8b22e35060ba",
+  "bytes": 4775
+ },
+ {
+  "file": "lemmy__0062__2020-12-10-152350_create_post_aggregates__up.sql",
+  "original_path": "migrations/2020-12-10-152350_create_post_aggregates/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "9c66d34571e485a6110aefe03d710955a6eb5ab47dddd5d3284ed89209a6dce9",
+  "bytes": 4985
+ },
+ {
+  "file": "lemmy__0063__2020-12-14-020038_create_comment_aggregates__up.sql",
+  "original_path": "migrations/2020-12-14-020038_create_comment_aggregates/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "6d44cf8106ed26c0b50e92a02792212256f9d099bad1832c30b18e7245d72f9a",
+  "bytes": 3141
+ },
+ {
+  "file": "lemmy__0064__2020-12-17-030456_create_alias_views__up.sql",
+  "original_path": "migrations/2020-12-17-030456_create_alias_views/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "29729c2e5181e3d08ef997b26589685b353a27eb1cb1263b496a9d0c33059461",
+  "bytes": 301
+ },
+ {
+  "file": "lemmy__0065__2020-12-17-031053_remove_fast_tables_and_views__up.sql",
+  "original_path": "migrations/2020-12-17-031053_remove_fast_tables_and_views/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "340fd624b0fc2a4ef9307ea28ec0b1a1fa36f6949b5bc5e10ea3ece252683f68",
+  "bytes": 1486
+ },
+ {
+  "file": "lemmy__0066__2021-01-05-200932_add_hot_rank_indexes__up.sql",
+  "original_path": "migrations/2021-01-05-200932_add_hot_rank_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f26e4bb9c348167b42241850bf1adcda19e7e46c51788f4a47137032bc95e036",
+  "bytes": 2247
+ },
+ {
+  "file": "lemmy__0067__2021-01-26-173850_default_actor_id__up.sql",
+  "original_path": "migrations/2021-01-26-173850_default_actor_id/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "db996f446577faaecf26eff660442752b1de1f48e57979d63b7745995bc10fdb",
+  "bytes": 307
+ },
+ {
+  "file": "lemmy__0068__2021-01-27-202728_active_users_monthly__up.sql",
+  "original_path": "migrations/2021-01-27-202728_active_users_monthly/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "6b15afe7813634ed685ec3e592f0868218b9879be6822da5d97101953d3b8f10",
+  "bytes": 3600
+ },
+ {
+  "file": "lemmy__0069__2021-01-31-050334_add_forum_sort_index__up.sql",
+  "original_path": "migrations/2021-01-31-050334_add_forum_sort_index/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "5f5d8b5fa3a9b617415ba8fa07339aa7556596aa46b68a55d43608d7e91153d2",
+  "bytes": 79
+ },
+ {
+  "file": "lemmy__0070__2021-02-02-153240_apub_columns__up.sql",
+  "original_path": "migrations/2021-02-02-153240_apub_columns/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ef3423d34be0be818366660a8a3d24d9992a757556dcae77df2af7166ffbad57",
+  "bytes": 712
+ },
+ {
+  "file": "lemmy__0071__2021-02-10-164051_add_new_comments_sort_index__up.sql",
+  "original_path": "migrations/2021-02-10-164051_add_new_comments_sort_index/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b9ec744438f3648a9c9d728fae1c2a2f7a55b2f36617cf05c9ecb0b0bb14416a",
+  "bytes": 2015
+ },
+ {
+  "file": "lemmy__0072__2021-02-13-210612_set_correct_aggregates_time_columns__up.sql",
+  "original_path": "migrations/2021-02-13-210612_set_correct_aggregates_time_columns/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "c6003134f1d70a2b4d273715178491008493edc6917c4decea00baef725684dc",
+  "bytes": 1473
+ },
+ {
+  "file": "lemmy__0073__2021-02-25-112959_remove-categories__up.sql",
+  "original_path": "migrations/2021-02-25-112959_remove-categories/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "530912df9123e08907dce51912efdc5d20f5793a68739d3057b608fc52771fcd",
+  "bytes": 74
+ },
+ {
+  "file": "lemmy__0074__2021-02-28-162616_clean_empty_post_urls__up.sql",
+  "original_path": "migrations/2021-02-28-162616_clean_empty_post_urls/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4048eb4cca83789ee3e618bccf837a8c5701bf65f8148529c390e72db25d9489",
+  "bytes": 56
+ },
+ {
+  "file": "lemmy__0075__2021-03-04-040229_clean_icon_urls__up.sql",
+  "original_path": "migrations/2021-03-04-040229_clean_icon_urls/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "3c0347ef457becffec0c0135d253b3165d40539dc8bdfaac0463b85ceb4df4ac",
+  "bytes": 355
+ },
+ {
+  "file": "lemmy__0076__2021-03-09-171136_split_user_table_2__up.sql",
+  "original_path": "migrations/2021-03-09-171136_split_user_table_2/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "149b4a6ddc38a23b8a22ae3b9712955226a364e2b7c129b992c159a3870b773a",
+  "bytes": 16443
+ },
+ {
+  "file": "lemmy__0077__2021-03-19-014144_add_col_local_user_validator_time__up.sql",
+  "original_path": "migrations/2021-03-19-014144_add_col_local_user_validator_time/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b94d41315f87d7c954d6df7154ad2efe12a8c2f03097a5b0229d88633e87a3f6",
+  "bytes": 88
+ },
+ {
+  "file": "lemmy__0078__2021-03-20-185321_move_matrix_id_to_person__up.sql",
+  "original_path": "migrations/2021-03-20-185321_move_matrix_id_to_person/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "fd673866a67af9b03c486ce898f45662566d2e61c81bdef2326fcccc8bb74c1c",
+  "bytes": 574
+ },
+ {
+  "file": "lemmy__0079__2021-03-31-103917_add_show_score_setting__up.sql",
+  "original_path": "migrations/2021-03-31-103917_add_show_score_setting/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b61df6a3b88b87062e28c9e4e6fc7bc2993d56b5696ce7cae52072a320489287",
+  "bytes": 82
+ },
+ {
+  "file": "lemmy__0080__2021-03-31-105915_add_bot_account__up.sql",
+  "original_path": "migrations/2021-03-31-105915_add_bot_account/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b71a01032bbe8ff44a04e20fafcc62dc71fdaa548bd443d679e72efbd296afeb",
+  "bytes": 448
+ },
+ {
+  "file": "lemmy__0081__2021-03-31-144349_add_site_short_description__up.sql",
+  "original_path": "migrations/2021-03-31-144349_add_site_short_description/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b4acd2d7a997024056813a0b8994463b7f1abcc59ed962edb8f1cc45dc48bfab",
+  "bytes": 187
+ },
+ {
+  "file": "lemmy__0082__2021-04-01-173552_rename_preferred_username_to_display_name__up.sql",
+  "original_path": "migrations/2021-04-01-173552_rename_preferred_username_to_display_name/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "bd63a2e9bab58e7b1d9d749afa0e5cac0cab061aa163807b1f59eaf9a04faafc",
+  "bytes": 265
+ },
+ {
+  "file": "lemmy__0083__2021-04-01-181826_add_community_agg_active_monthly_index__up.sql",
+  "original_path": "migrations/2021-04-01-181826_add_community_agg_active_monthly_index/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "51215d3ad4c8d3dd7ae4516968e604681b69bad2309d78e79161a83b972e1674",
+  "bytes": 109
+ },
+ {
+  "file": "lemmy__0084__2021-04-02-021422_remove_community_creator__up.sql",
+  "original_path": "migrations/2021-04-02-021422_remove_community_creator/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a2c9e602dbd797d44b942d2d3671e58ffab1640a8a85a1d7336924694aa28726",
+  "bytes": 70
+ },
+ {
+  "file": "lemmy__0085__2021-04-20-155001_limit-admins-create-community__up.sql",
+  "original_path": "migrations/2021-04-20-155001_limit-admins-create-community/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "eea8c83b09e8db3019d6303b1e8098e7d5c65263e8980f2642dbc5911d92886d",
+  "bytes": 92
+ },
+ {
+  "file": "lemmy__0086__2021-04-24-174047_add_show_read_post_setting__up.sql",
+  "original_path": "migrations/2021-04-24-174047_add_show_read_post_setting/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "32c4736025daa210e9de0c8cc7b1d59bc664afbe114fce12f3b47267ee16c6b0",
+  "bytes": 86
+ },
+ {
+  "file": "lemmy__0087__2021-07-19-130929_add_show_new_post_notifs_setting__up.sql",
+  "original_path": "migrations/2021-07-19-130929_add_show_new_post_notifs_setting/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "753635d54b3a88bfcc890c137e328ceacbc2ed01971bdd420f29f19cbbcc15a5",
+  "bytes": 92
+ },
+ {
+  "file": "lemmy__0088__2021-07-20-102033_actor_name_length__up.sql",
+  "original_path": "migrations/2021-07-20-102033_actor_name_length/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "80b5891ee359faf29f78768745a75fbc6ba63188120a3f896cbcfd352f10aa6e",
+  "bytes": 435
+ },
+ {
+  "file": "lemmy__0089__2021-08-02-002342_comment_count_fixes__up.sql",
+  "original_path": "migrations/2021-08-02-002342_comment_count_fixes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "0dde7aaf2765407cd3a32a67c9cf657dfa63e564702961d38c59bd7b939b035a",
+  "bytes": 2228
+ },
+ {
+  "file": "lemmy__0090__2021-08-04-223559_create_user_community_block__up.sql",
+  "original_path": "migrations/2021-08-04-223559_create_user_community_block/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f92f0e7de2067bff2ed9974e5400bcf5d1f77d508412bead74c54dbeeb0b02ce",
+  "bytes": 622
+ },
+ {
+  "file": "lemmy__0091__2021-08-16-004209_fix_remove_bots_from_aggregates__up.sql",
+  "original_path": "migrations/2021-08-16-004209_fix_remove_bots_from_aggregates/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b696a12c3310efd3c92a706aa1dc46ef7ddd6fd1ffa0fa9e8616e34b5e96b039",
+  "bytes": 1831
+ },
+ {
+  "file": "lemmy__0092__2021-08-17-210508_create_mod_transfer_community__up.sql",
+  "original_path": "migrations/2021-08-17-210508_create_mod_transfer_community/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e5f716901c82cf05b2152aced81195a84292b1dd76a982f296a1c6e465426b59",
+  "bytes": 453
+ },
+ {
+  "file": "lemmy__0093__2021-09-20-112945_jwt-secret__up.sql",
+  "original_path": "migrations/2021-09-20-112945_jwt-secret/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "c1639e7e12ac6d1ba131390e66e0b02ca444b4470e8d3028e2b856d279fa0bc5",
+  "bytes": 214
+ },
+ {
+  "file": "lemmy__0094__2021-10-01-141650_create_admin_purge__up.sql",
+  "original_path": "migrations/2021-10-01-141650_create_admin_purge/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4d97a2ad7c6b69794aca6692b84151fdb3715cbb48cf5758ca557f2f8b03ee67",
+  "bytes": 1050
+ },
+ {
+  "file": "lemmy__0095__2021-11-22-135324_add_activity_ap_id_index__up.sql",
+  "original_path": "migrations/2021-11-22-135324_add_activity_ap_id_index/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "531f8901af4ef2809bbfc92a65c0821c9ed7a29a81d741afa87132df236e34a1",
+  "bytes": 540
+ },
+ {
+  "file": "lemmy__0096__2021-11-22-143904_add_required_public_key__up.sql",
+  "original_path": "migrations/2021-11-22-143904_add_required_public_key/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "9f9308ceee1d14afb44ca18b8173e0765c8c0c310ceeb11b904998ec840ea5a8",
+  "bytes": 274
+ },
+ {
+  "file": "lemmy__0097__2021-11-23-031528_add_report_published_index__up.sql",
+  "original_path": "migrations/2021-11-23-031528_add_report_published_index/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4ab023a8a4d67c342a76c4aa7a7b3e1ae0d6fa43d31a173213436a7115b6d388",
+  "bytes": 152
+ },
+ {
+  "file": "lemmy__0098__2021-11-23-132840_email_verification__up.sql",
+  "original_path": "migrations/2021-11-23-132840_email_verification/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "6ee516b3d3d9b93810b5a5279153d49931ca11d24fdd757a2debd9bc4c214547",
+  "bytes": 649
+ },
+ {
+  "file": "lemmy__0099__2021-11-23-153753_add_invite_only_columns__up.sql",
+  "original_path": "migrations/2021-11-23-153753_add_invite_only_columns/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "82e95f6a98c0f11c5e7215c7a41dbabd7197affb35f4396bdee1396a22ecc117",
+  "bytes": 832
+ },
+ {
+  "file": "lemmy__0100__2021-12-09-225529_add_published_to_email_verification__up.sql",
+  "original_path": "migrations/2021-12-09-225529_add_published_to_email_verification/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "7bee0376f5de6f62aed0d6877f72cd2e2475d6300c95152ae325368daea89e9e",
+  "bytes": 91
+ },
+ {
+  "file": "lemmy__0101__2021-12-14-181537_add_temporary_bans__up.sql",
+  "original_path": "migrations/2021-12-14-181537_add_temporary_bans/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "bcbf5ea7060cb64643df27ef5da25c322e4ee238c1537bfcf84421c047612706",
+  "bytes": 342
+ },
+ {
+  "file": "lemmy__0102__2022-01-04-034553_add_hidden_column__up.sql",
+  "original_path": "migrations/2022-01-04-034553_add_hidden_column/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4c5f74e3d37943c46ee0afe4f718b8deb4d59bd52b095c659840fb7745c6259c",
+  "bytes": 401
+ },
+ {
+  "file": "lemmy__0103__2022-01-20-160328_remove_site_creator__up.sql",
+  "original_path": "migrations/2022-01-20-160328_remove_site_creator/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "19cb81ad420902206c01aac4231c18ec4a11c69e0a8306dc522bfebe651cb640",
+  "bytes": 65
+ },
+ {
+  "file": "lemmy__0104__2022-01-28-104106_instance-actor__up.sql",
+  "original_path": "migrations/2022-01-28-104106_instance-actor/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "8939cc51055f44f819be3cbebb423585033927134f9ebe5d547cb545b14ca828",
+  "bytes": 369
+ },
+ {
+  "file": "lemmy__0105__2022-02-01-154240_add_community_title_index__up.sql",
+  "original_path": "migrations/2022-02-01-154240_add_community_title_index/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "d73b166be570e18cd3cbffb22284bb2200a28057361e91de771e903979053787",
+  "bytes": 56
+ },
+ {
+  "file": "lemmy__0106__2022-02-18-210946_default_theme__up.sql",
+  "original_path": "migrations/2022-02-18-210946_default_theme/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ac1ee2e96cf8ce67d1d74011b392c7e5b6e59b4f6a6533ac8e1ba1928be4ca36",
+  "bytes": 80
+ },
+ {
+  "file": "lemmy__0107__2022-04-04-183652_update_community_aggregates_on_soft_delete__up.sql",
+  "original_path": "migrations/2022-04-04-183652_update_community_aggregates_on_soft_delete/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "da10c0132573fa785c1163b118b44dd51253eb571964c7c4a2a601d20a69dded",
+  "bytes": 11738
+ },
+ {
+  "file": "lemmy__0108__2022-04-11-210137_fix_unique_changeme__up.sql",
+  "original_path": "migrations/2022-04-11-210137_fix_unique_changeme/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "7d49da573b01584b08f8ba4850690ae8d9064fc1c92cf2d6ea7f9e395d928c63",
+  "bytes": 189
+ },
+ {
+  "file": "lemmy__0109__2022-04-12-114352_default_post_listing_type__up.sql",
+  "original_path": "migrations/2022-04-12-114352_default_post_listing_type/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "c1cdbbad3c896b852c3706e9eea8ad1d826dca7aeeebe50ca5e9d63735e94059",
+  "bytes": 90
+ },
+ {
+  "file": "lemmy__0110__2022-04-12-185205_change_default_listing_type_to_local__up.sql",
+  "original_path": "migrations/2022-04-12-185205_change_default_listing_type_to_local/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f71b76d0f8c4e527a4c503f6b87ab875e7ac9fc78e4a81ea43927d9a5ffe5dd5",
+  "bytes": 123
+ },
+ {
+  "file": "lemmy__0111__2022-04-19-111004_default_require_application__up.sql",
+  "original_path": "migrations/2022-04-19-111004_default_require_application/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "3b700a9ff11c6d673cd9b05928f1467f9836feb86f6e90b9358ca9f2830bb29f",
+  "bytes": 236
+ },
+ {
+  "file": "lemmy__0112__2022-04-26-105145_only_mod_can_post__up.sql",
+  "original_path": "migrations/2022-04-26-105145_only_mod_can_post/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "79fb702716ccde099d7f35109db85d1d55d8fa42240fbdfab2de02a57abd13bf",
+  "bytes": 88
+ },
+ {
+  "file": "lemmy__0113__2022-05-19-153931_legal-information__up.sql",
+  "original_path": "migrations/2022-05-19-153931_legal-information/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e41b9fc75e2064315d1020e3ea7af9eb12f9cc4dffc74476f2c731266d813f58",
+  "bytes": 57
+ },
+ {
+  "file": "lemmy__0114__2022-05-20-135341_embed-url__up.sql",
+  "original_path": "migrations/2022-05-20-135341_embed-url/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "fc60f1c34285b74099b041ba3e5828de7454b9214ab19238de4e7f5dc218451d",
+  "bytes": 101
+ },
+ {
+  "file": "lemmy__0115__2022-06-12-012121_add_site_hide_modlog_names__up.sql",
+  "original_path": "migrations/2022-06-12-012121_add_site_hide_modlog_names/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "9d8f3b053f8a13cf8f9a0a38e5358a454de1993a06e32bbe3c038e40ef19d738",
+  "bytes": 86
+ },
+ {
+  "file": "lemmy__0116__2022-06-13-124806_post_report_name_length__up.sql",
+  "original_path": "migrations/2022-06-13-124806_post_report_name_length/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "36c0c1829d6d13bae50d295d521f5678386a33545500d1ca778960f747ecbd66",
+  "bytes": 122
+ },
+ {
+  "file": "lemmy__0117__2022-06-21-123144_language-tags__up.sql",
+  "original_path": "migrations/2022-06-21-123144_language-tags/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "3b30baa1db7b2ee25cd8f871c1dfd38b7e2ef66d0f5371d0dab05545d41ab9ac",
+  "bytes": 13455
+ },
+ {
+  "file": "lemmy__0118__2022-07-07-182650_comment_ltrees__up.sql",
+  "original_path": "migrations/2022-07-07-182650_comment_ltrees/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "637b3148aea11ab8cab820c1699eaa1e20d994b5af519db411316728c330556b",
+  "bytes": 4821
+ },
+ {
+  "file": "lemmy__0119__2022-08-04-150644_add_application_email_admins__up.sql",
+  "original_path": "migrations/2022-08-04-150644_add_application_email_admins/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "28b8413118ee9d2bb6bb209a5421d0c26d0b80c2bb4b9a657f8eab091890ee5e",
+  "bytes": 145
+ },
+ {
+  "file": "lemmy__0120__2022-08-04-214722_add_distinguished_comment__up.sql",
+  "original_path": "migrations/2022-08-04-214722_add_distinguished_comment/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "bc4b90574fc0eb32fd34fd661c07e8330246631375f4ff29347fc23118f9d9a1",
+  "bytes": 82
+ },
+ {
+  "file": "lemmy__0121__2022-08-05-203502_add_person_post_aggregates__up.sql",
+  "original_path": "migrations/2022-08-05-203502_add_person_post_aggregates/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a6d6d47f08c4a38eb2b64634fa557cf2f8b332525d6135b03790f628ef199382",
+  "bytes": 566
+ },
+ {
+  "file": "lemmy__0122__2022-08-22-193848_comment-language-tags__up.sql",
+  "original_path": "migrations/2022-08-22-193848_comment-language-tags/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "9d6d5f6528c3bc7488ebf1c76e1eb0b1ca0a35acc854aab24f9afa05da780129",
+  "bytes": 100
+ },
+ {
+  "file": "lemmy__0123__2022-09-07-113813_drop_ccnew_indexes_function__up.sql",
+  "original_path": "migrations/2022-09-07-113813_drop_ccnew_indexes_function/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a523f74e11d1034244a6040eefd29cec69df829dc3e65a4e17ceb555786c570a",
+  "bytes": 361
+ },
+ {
+  "file": "lemmy__0124__2022-09-07-114618_pm-reports__up.sql",
+  "original_path": "migrations/2022-09-07-114618_pm-reports/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "1059b000c3f189f854407e1934bd01f54de159a1e2a2a7bd38c1c0a278338b91",
+  "bytes": 677
+ },
+ {
+  "file": "lemmy__0125__2022-09-08-102358_site-and-community-languages__up.sql",
+  "original_path": "migrations/2022-09-08-102358_site-and-community-languages/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "1dd2816913768cf13d60f19afbd5723058787f25b2f6b7e0ec9c2913769080ce",
+  "bytes": 1562
+ },
+ {
+  "file": "lemmy__0126__2022-09-24-161829_remove_table_aliases__up.sql",
+  "original_path": "migrations/2022-09-24-161829_remove_table_aliases/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "dcf59bf901b17269e14745c467c89922d8d5ff85c18dd8cf9349f0730987ee5c",
+  "bytes": 67
+ },
+ {
+  "file": "lemmy__0127__2022-10-06-183632_move_blocklist_to_db__up.sql",
+  "original_path": "migrations/2022-10-06-183632_move_blocklist_to_db/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "244d2d1d887c194f946bfc127b6a40be894dc343d64d2b9396efc5a93a1ec29a",
+  "bytes": 6482
+ },
+ {
+  "file": "lemmy__0128__2022-11-13-181529_create_taglines__up.sql",
+  "original_path": "migrations/2022-11-13-181529_create_taglines/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ec19a13aede1753cae2fbd95f1b4e3bc4100182926a8990d1c725ca86fc711b6",
+  "bytes": 277
+ },
+ {
+  "file": "lemmy__0129__2022-11-20-032430_sticky_local__up.sql",
+  "original_path": "migrations/2022-11-20-032430_sticky_local/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f83c6ed7773b58877670c3b2e67d0f7e21068e42e1ac2374e0be6594b67af033",
+  "bytes": 1926
+ },
+ {
+  "file": "lemmy__0130__2022-11-21-143249_remove-federation-settings__up.sql",
+  "original_path": "migrations/2022-11-21-143249_remove-federation-settings/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "82d6aeac8da978a0c432df78cab8bb6b25982290626aa0726f3789ce968b4065",
+  "bytes": 144
+ },
+ {
+  "file": "lemmy__0131__2022-11-21-204256_user-following__up.sql",
+  "original_path": "migrations/2022-11-21-204256_user-following/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "9a39f9b0199c14e18a3f259efadc44fffb0cc7b1d1ff9b4a61122ad53c6d7f2f",
+  "bytes": 556
+ },
+ {
+  "file": "lemmy__0132__2022-12-05-110642_registration_mode__up.sql",
+  "original_path": "migrations/2022-12-05-110642_registration_mode/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "92a717c66487bf14111279176419221ef773b1bdd1e05c3a984ca8f6cf91dab2",
+  "bytes": 976
+ },
+ {
+  "file": "lemmy__0133__2023-01-17-165819_cleanup_post_aggregates_indexes__up.sql",
+  "original_path": "migrations/2023-01-17-165819_cleanup_post_aggregates_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4a7b338dd7d530d39406ff4a24636eba7d2d9410e09c0dcb833f52a203010ce3",
+  "bytes": 2023
+ },
+ {
+  "file": "lemmy__0134__2023-02-01-012747_fix_active_index__up.sql",
+  "original_path": "migrations/2023-02-01-012747_fix_active_index/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "55f492ba79d690c0c7ff0d24c1fc153e9ff423eb7aa072e5ce03baee1c21494f",
+  "bytes": 565
+ },
+ {
+  "file": "lemmy__0135__2023-02-05-102549_drop-site-federation-debug__up.sql",
+  "original_path": "migrations/2023-02-05-102549_drop-site-federation-debug/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "63cef3c2433e36b1438b740dd99d0b909064449a19e779e586cfa1014bec8641",
+  "bytes": 58
+ },
+ {
+  "file": "lemmy__0136__2023-02-07-030958_community-collections__up.sql",
+  "original_path": "migrations/2023-02-07-030958_community-collections/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f89a0c71be9d906358a389b4a83987b546797225a3597b342855a894ed304877",
+  "bytes": 146
+ },
+ {
+  "file": "lemmy__0137__2023-02-11-173347_custom_emojis__up.sql",
+  "original_path": "migrations/2023-02-11-173347_custom_emojis/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a502baaa1f0a0a8003c33778beb4e6d1299618899efa25e3cd011754802f706c",
+  "bytes": 697
+ },
+ {
+  "file": "lemmy__0138__2023-02-13-172528_add_report_email_admins__up.sql",
+  "original_path": "migrations/2023-02-13-172528_add_report_email_admins/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "d0220de45bd96894665b4d6c24b086d5498e371bf2bdb7c93769f8fc1b18b711",
+  "bytes": 142
+ },
+ {
+  "file": "lemmy__0139__2023-02-13-221303_add_instance_software_and_version__up.sql",
+  "original_path": "migrations/2023-02-13-221303_add_instance_software_and_version/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "3d2bebf040cbde06023267e7b2b8c087e17afaf3f17677a3f34b53fbfe320b1e",
+  "bytes": 191
+ },
+ {
+  "file": "lemmy__0140__2023-02-15-212546_add_post_comment_saved_indexes__up.sql",
+  "original_path": "migrations/2023-02-15-212546_add_post_comment_saved_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f310007b0ccbe8462cfb4817ad3bc03dc6b5a18942a44c16de557139e2bf6754",
+  "bytes": 138
+ },
+ {
+  "file": "lemmy__0141__2023-02-16-194139_add_totp_secret__up.sql",
+  "original_path": "migrations/2023-02-16-194139_add_totp_secret/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "30bb12637227bfabf05811ade5f2fd36657f57f0cf4960f8e76570fb07e0ad5e",
+  "bytes": 119
+ },
+ {
+  "file": "lemmy__0142__2023-04-14-175955_add_listingtype_sorttype_enums__up.sql",
+  "original_path": "migrations/2023-04-14-175955_add_listingtype_sorttype_enums/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f47e3b920b08a35510224a5e671f017e48ac09f431fe593906a7a5f798534669",
+  "bytes": 3228
+ },
+ {
+  "file": "lemmy__0143__2023-04-23-164732_add_person_details_indexes__up.sql",
+  "original_path": "migrations/2023-04-23-164732_add_person_details_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "6646ca1a2f5f9610b85e86206d2f49e64d0107af38db2c50449fadf81c4b12f7",
+  "bytes": 1612
+ },
+ {
+  "file": "lemmy__0144__2023-05-10-095739_force_enable_undetermined_language__up.sql",
+  "original_path": "migrations/2023-05-10-095739_force_enable_undetermined_language/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "d62f3360fd85fec6bcf9ba97699941240a18cd4de552e8a2db9ce2fa9b66e9e2",
+  "bytes": 216
+ },
+ {
+  "file": "lemmy__0145__2023-06-06-104440_index_post_url__up.sql",
+  "original_path": "migrations/2023-06-06-104440_index_post_url/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "faeaa5d9b9fc6a13a3d21f993f474f545839d1a0b9584751c0b799a90f06cd07",
+  "bytes": 310
+ },
+ {
+  "file": "lemmy__0146__2023-06-07-105918_add_hot_rank_columns__up.sql",
+  "original_path": "migrations/2023-06-07-105918_add_hot_rank_columns/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f69352236dc5ed1f2d2ec3eacf25d4bc6f542e077d4d4446c2a88fe4936aa6ff",
+  "bytes": 2871
+ },
+ {
+  "file": "lemmy__0147__2023-06-17-175955_add_listingtype_sorttype_hour_enums__up.sql",
+  "original_path": "migrations/2023-06-17-175955_add_listingtype_sorttype_hour_enums/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "d579b70cf7d196d2c36e6e95a50fe328cc358151b70c16f34789f52aacdac754",
+  "bytes": 185
+ },
+ {
+  "file": "lemmy__0148__2023-06-19-055530_add_retry_worker_setting__up.sql",
+  "original_path": "migrations/2023-06-19-055530_add_retry_worker_setting/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "c4788ea4b4ad950ae4e8a29e29eac8c4ce2592df965dd645a2b03653a7da5499",
+  "bytes": 65
+ },
+ {
+  "file": "lemmy__0149__2023-06-19-120700_no_double_deletion__up.sql",
+  "original_path": "migrations/2023-06-19-120700_no_double_deletion/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "23b46c404e8153e34c1a105b59370020737c02d56e59818f5be32cb8c088e09d",
+  "bytes": 2202
+ },
+ {
+  "file": "lemmy__0150__2023-06-20-191145_add_listingtype_sorttype_3_6_9_months_enums__up.sql",
+  "original_path": "migrations/2023-06-20-191145_add_listingtype_sorttype_3_6_9_months_enums/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4a500097993eb05d7fb5624bc3981226e6ab285ba0e0e3b1c8db52ff13beb1d2",
+  "bytes": 194
+ },
+ {
+  "file": "lemmy__0151__2023-06-21-153242_add_captcha__up.sql",
+  "original_path": "migrations/2023-06-21-153242_add_captcha/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "1398012cc5935eb3152bb9239ecc7fe3037057d85909a1848b7118f44e862975",
+  "bytes": 192
+ },
+ {
+  "file": "lemmy__0152__2023-06-22-051755_fix_local_communities_marked_non_local__up.sql",
+  "original_path": "migrations/2023-06-22-051755_fix_local_communities_marked_non_local/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f59e803882ca6d4c2bea654877fbeea2dba38b1c882d105b204b46af18094e84",
+  "bytes": 166
+ },
+ {
+  "file": "lemmy__0153__2023-06-22-101245_increase_user_theme_column_size__up.sql",
+  "original_path": "migrations/2023-06-22-101245_increase_user_theme_column_size/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "39552561b2366e77e009fb81561fb68f6fcdde91870ea37ad94d5fae2e1783cb",
+  "bytes": 144
+ },
+ {
+  "file": "lemmy__0154__2023-06-24-072904_add_open_links_in_new_tab_setting__up.sql",
+  "original_path": "migrations/2023-06-24-072904_add_open_links_in_new_tab_setting/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a4c5b2ffe79429b36cc8b3570a9e68ed918b9b0216eb01a344307c01bf3514d2",
+  "bytes": 93
+ },
+ {
+  "file": "lemmy__0155__2023-06-24-185942_aggegates_published_indexes__up.sql",
+  "original_path": "migrations/2023-06-24-185942_aggegates_published_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4df3b6ccf5f7e9acc7521e852cb7410a2dda509b7c12ce81f7888828ba1d4e1b",
+  "bytes": 243
+ },
+ {
+  "file": "lemmy__0156__2023-06-27-065106_add_ui_settings__up.sql",
+  "original_path": "migrations/2023-06-27-065106_add_ui_settings/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "816ff7e51e087c7493bd8a0996f7421237e4f70737ec21023af4f03efcbd4427",
+  "bytes": 281
+ },
+ {
+  "file": "lemmy__0157__2023-07-04-153335_add_optimized_indexes__up.sql",
+  "original_path": "migrations/2023-07-04-153335_add_optimized_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ae826d27b55f508087debed7dac5d67e79bb3e63bf9a9c75d1c36cd482ab2bcd",
+  "bytes": 2229
+ },
+ {
+  "file": "lemmy__0158__2023-07-05-000058_person-admin__up.sql",
+  "original_path": "migrations/2023-07-05-000058_person-admin/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f8c5f4c4ab1baf301242f686044c5afe4882820184cda8dc674d610c67bad6ce",
+  "bytes": 163
+ },
+ {
+  "file": "lemmy__0159__2023-07-06-151124_hot-rank-future__up.sql",
+  "original_path": "migrations/2023-07-06-151124_hot-rank-future/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "68b72daf7f03472807eb44f609927d04bddf79c8629091167387650776f1eb55",
+  "bytes": 445
+ },
+ {
+  "file": "lemmy__0160__2023-07-08-101154_fix_soft_delete_aggregates__up.sql",
+  "original_path": "migrations/2023-07-08-101154_fix_soft_delete_aggregates/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a52473e53203e9387a31e381789a6a89850f4e6da8f614313eec81a8974992f8",
+  "bytes": 2910
+ },
+ {
+  "file": "lemmy__0161__2023-07-10-075550_add-infinite-scroll-setting__up.sql",
+  "original_path": "migrations/2023-07-10-075550_add-infinite-scroll-setting/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "da5d50c6f555ae022a726f7a61fa7515a51d53dd2156e164f9e78836a354d0d6",
+  "bytes": 95
+ },
+ {
+  "file": "lemmy__0162__2023-07-11-084714_receive_activity_table__up.sql",
+  "original_path": "migrations/2023-07-11-084714_receive_activity_table/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "450759dfb901c5d364f577da3b8f9fa2f52447461e6f3336cce4b860f333a1b1",
+  "bytes": 1148
+ },
+ {
+  "file": "lemmy__0163__2023-07-14-154840_add_optimized_indexes_published__up.sql",
+  "original_path": "migrations/2023-07-14-154840_add_optimized_indexes_published/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "507d76c1ea2982eb02abdd9098833a85244bf497c04b34d9ba50d952afadbe79",
+  "bytes": 1887
+ },
+ {
+  "file": "lemmy__0164__2023-07-14-215339_aggregates_nonzero_indexes__up.sql",
+  "original_path": "migrations/2023-07-14-215339_aggregates_nonzero_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "9ca398a9dbdcd0d40ea5f7ae7da96adf13088a4b8e41ce06af1706c7ef507c8f",
+  "bytes": 385
+ },
+ {
+  "file": "lemmy__0165__2023-07-18-082614_post_aggregates_community_id__up.sql",
+  "original_path": "migrations/2023-07-18-082614_post_aggregates_community_id/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "9a1a40154d844bb67f9a5bba5d4db4cb4c92fc97398ab250d053619f88353653",
+  "bytes": 1029
+ },
+ {
+  "file": "lemmy__0166__2023-07-19-163511_comment_sort_hot_rank_then_score__up.sql",
+  "original_path": "migrations/2023-07-19-163511_comment_sort_hot_rank_then_score/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "c474c0c9a3cee521ef149995b3855c75162f5a792782e0c0a09590b0d6f0ea86",
+  "bytes": 492
+ },
+ {
+  "file": "lemmy__0167__2023-07-24-232635_trigram-index__up.sql",
+  "original_path": "migrations/2023-07-24-232635_trigram-index/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a111afe0e3d31c2463f8619e3898c59b0dd4f30f87454c4394de8c7b1987272e",
+  "bytes": 474
+ },
+ {
+  "file": "lemmy__0168__2023-07-26-000217_create_controversial_indexes__up.sql",
+  "original_path": "migrations/2023-07-26-000217_create_controversial_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "58ad4acc63cae9647870d7b4bfb45c3ef48d8244dcfa7f50e000f256b1f66203",
+  "bytes": 5503
+ },
+ {
+  "file": "lemmy__0169__2023-07-26-222023_site-aggregates-one__up.sql",
+  "original_path": "migrations/2023-07-26-222023_site-aggregates-one/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ddb4b2a73521e518f630e8bb6a79e7307f694d6b1eff9789d57baef391796853",
+  "bytes": 859
+ },
+ {
+  "file": "lemmy__0170__2023-07-27-134652_remove-expensive-broken-trigger__up.sql",
+  "original_path": "migrations/2023-07-27-134652_remove-expensive-broken-trigger/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "45f905b557f5df226b56a1e815b8de166534b517999b5793e61ef4b7e5f7d90f",
+  "bytes": 1881
+ },
+ {
+  "file": "lemmy__0171__2023-08-01-101826_admin_flag_local_user__up.sql",
+  "original_path": "migrations/2023-08-01-101826_admin_flag_local_user/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "6c4afb888d5d987a69997ec42606090118e394ad37f771de04cb1e796de2d0e4",
+  "bytes": 245
+ },
+ {
+  "file": "lemmy__0172__2023-08-01-115243_persistent-activity-queue__up.sql",
+  "original_path": "migrations/2023-08-01-115243_persistent-activity-queue/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "2ef73b7cdd20160c96cc99db501444d0a929cebc7531cd739f9b1711d5a0441c",
+  "bytes": 1146
+ },
+ {
+  "file": "lemmy__0173__2023-08-02-144930_password-reset-token__up.sql",
+  "original_path": "migrations/2023-08-02-144930_password-reset-token/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "0613c2a9ae417e30bcea9582f56a94a097488126d3812649bbf2e87780491355",
+  "bytes": 76
+ },
+ {
+  "file": "lemmy__0174__2023-08-02-174444_fix-timezones__up.sql",
+  "original_path": "migrations/2023-08-02-174444_fix-timezones/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f84529907932673a0b7c207160f5a0add98856122e53ebc89370480107f09e96",
+  "bytes": 8465
+ },
+ {
+  "file": "lemmy__0175__2023-08-08-163911_add_post_listing_mode_setting__up.sql",
+  "original_path": "migrations/2023-08-08-163911_add_post_listing_mode_setting/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "0c8d400689c3bc0a166504b0072bcf0cf45686c6204df83b82fa0bbc701bfa15",
+  "bytes": 194
+ },
+ {
+  "file": "lemmy__0176__2023-08-09-101305_user_instance_block__up.sql",
+  "original_path": "migrations/2023-08-09-101305_user_instance_block/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "3f6b68b6e69b29f09949adb3139a1c9e29afb8577c014385847f07f9dcc4689e",
+  "bytes": 1419
+ },
+ {
+  "file": "lemmy__0177__2023-08-23-182533_scaled_rank__up.sql",
+  "original_path": "migrations/2023-08-23-182533_scaled_rank/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "9e04794c620aa7f779f9f8a0daec9259f924f8da3262144c21712fff93a815b5",
+  "bytes": 2472
+ },
+ {
+  "file": "lemmy__0178__2023-08-29-183053_add_listing_type_moderator_view__up.sql",
+  "original_path": "migrations/2023-08-29-183053_add_listing_type_moderator_view/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b2803d1bdd12fc848811f816024cfe622251851b520dcb76deb263a20614a3f7",
+  "bytes": 93
+ },
+ {
+  "file": "lemmy__0179__2023-08-31-205559_add_image_upload__up.sql",
+  "original_path": "migrations/2023-08-31-205559_add_image_upload/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f8ac8586257d319c2d7c9b5ec9e992691b07f8d4fefd15a3b98cbdd91512a2c1",
+  "bytes": 354
+ },
+ {
+  "file": "lemmy__0180__2023-09-01-112158_auto_resolve_report__up.sql",
+  "original_path": "migrations/2023-09-01-112158_auto_resolve_report/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "fca352219190a9c848ce9f43bf718d6de0f749f958b1c2a9c7836944f9c2a5bd",
+  "bytes": 1171
+ },
+ {
+  "file": "lemmy__0181__2023-09-07-215546_post-queries-efficient__up.sql",
+  "original_path": "migrations/2023-09-07-215546_post-queries-efficient/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "8f7404c14f1b855ea23d21e5d86603d94f944b1690ea89d7a4ff47c291665048",
+  "bytes": 3643
+ },
+ {
+  "file": "lemmy__0182__2023-09-11-110040_rework-2fa-setup__up.sql",
+  "original_path": "migrations/2023-09-11-110040_rework-2fa-setup/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f4e9476c4e6e7a14dfd348babb689f36d4ede8af75e902c9aa2b2d0683a8ddfb",
+  "bytes": 142
+ },
+ {
+  "file": "lemmy__0183__2023-09-12-194850_add_federation_worker_index__up.sql",
+  "original_path": "migrations/2023-09-12-194850_add_federation_worker_index/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f14379d439958720299b99a989c37b3cd9bf33ded8e8fd0ada99fc5d0a200d1f",
+  "bytes": 77
+ },
+ {
+  "file": "lemmy__0184__2023-09-18-141700_login-token__up.sql",
+  "original_path": "migrations/2023-09-18-141700_login-token/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f270990eb7ca5d6edecf142f473d52b3f9e872391bdf0f5e0b5ffbe65ea1b4ae",
+  "bytes": 458
+ },
+ {
+  "file": "lemmy__0185__2023-09-20-110614_drop-show-new-post-notifs__up.sql",
+  "original_path": "migrations/2023-09-20-110614_drop-show-new-post-notifs/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f6b7a039951a43faf696fc7fa245fcaa828aaae0098cb2cd21b10a740ed867ac",
+  "bytes": 108
+ },
+ {
+  "file": "lemmy__0186__2023-09-28-084231_import_user_settings_rate_limit__up.sql",
+  "original_path": "migrations/2023-09-28-084231_import_user_settings_rate_limit/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "43f9443eabb9c26437e2a902286ee05fd8f0803524f70c2cb31e684eae980bc5",
+  "bytes": 205
+ },
+ {
+  "file": "lemmy__0187__2023-10-02-145002_community_followers_count_federated__up.sql",
+  "original_path": "migrations/2023-10-02-145002_community_followers_count_federated/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "fef8d181f4c32c408fbb69f41cd4e594fbcc2a5d6fd68aa7eded73452d2c4ded",
+  "bytes": 921
+ },
+ {
+  "file": "lemmy__0188__2023-10-06-133405_add_keyboard_navigation_setting__up.sql",
+  "original_path": "migrations/2023-10-06-133405_add_keyboard_navigation_setting/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "03605ddda475b5c921ff2cb1a7978e31f41870f2e22361ec5051a2b89f3c829e",
+  "bytes": 98
+ },
+ {
+  "file": "lemmy__0189__2023-10-13-175712_allow_animated_avatars__up.sql",
+  "original_path": "migrations/2023-10-13-175712_allow_animated_avatars/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "1415515bc987ced90eb6c83644df5c50fe3cd4e6e25664e8ae278394230fade1",
+  "bytes": 93
+ },
+ {
+  "file": "lemmy__0190__2023-10-17-181800_drop_remove_community_expires__up.sql",
+  "original_path": "migrations/2023-10-17-181800_drop_remove_community_expires/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "0d7a6d151ab5c8dce43273b425f85f172d59301565c5ee7aac75d220e93cf9a3",
+  "bytes": 59
+ },
+ {
+  "file": "lemmy__0191__2023-10-23-184941_hot_rank_greatest_fix__up.sql",
+  "original_path": "migrations/2023-10-23-184941_hot_rank_greatest_fix/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "d1f2b34c4527a645fa1a61bd53f66880c63efabfd3f8578ceb0dd81ad61b3c14",
+  "bytes": 1058
+ },
+ {
+  "file": "lemmy__0192__2023-10-24-030352_change_primary_keys_and_remove_some_id_columns__up.sql",
+  "original_path": "migrations/2023-10-24-030352_change_primary_keys_and_remove_some_id_columns/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "daad7152e60ea09979606f64c748391b3b5c49070d50c4a02f43bb8e1d62b376",
+  "bytes": 6358
+ },
+ {
+  "file": "lemmy__0193__2023-10-24-131607_proxy_links__up.sql",
+  "original_path": "migrations/2023-10-24-131607_proxy_links/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4b370850b3c4a67d81c53a3dad0ae27a47ea3e429ce8fa1cf28f0fc4221dec63",
+  "bytes": 188
+ },
+ {
+  "file": "lemmy__0194__2023-10-24-183747_autocollapse_bot_comments__up.sql",
+  "original_path": "migrations/2023-10-24-183747_autocollapse_bot_comments/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "fc991541d005aba3ee25a34faa420204317d178d02bd1df76de4a18b36b54976",
+  "bytes": 93
+ },
+ {
+  "file": "lemmy__0195__2023-10-27-142514_post_url_content_type__up.sql",
+  "original_path": "migrations/2023-10-27-142514_post_url_content_type/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "42dfc9ee226317924d9181940cb9e587b86671d591e344cc761933d43622ddd9",
+  "bytes": 56
+ },
+ {
+  "file": "lemmy__0196__2023-11-01-223740_federation-published__up.sql",
+  "original_path": "migrations/2023-11-01-223740_federation-published/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f08828f93474919c1b6095ed6c0afe010a2bb54776e8232bbbe27685c229c360",
+  "bytes": 194
+ },
+ {
+  "file": "lemmy__0197__2023-11-02-120140_apub-signed-fetch__up.sql",
+  "original_path": "migrations/2023-11-02-120140_apub-signed-fetch/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4445c336decc0da6b742163ee6fa713441c48d529c102730dcba57ececf75556",
+  "bytes": 95
+ },
+ {
+  "file": "lemmy__0198__2023-11-07-135409_inbox_unique__up.sql",
+  "original_path": "migrations/2023-11-07-135409_inbox_unique/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "8f7d5de01869229cb13a0e52f91a05b8100bedcddf8669bb48fdbfe7a5fb1e24",
+  "bytes": 765
+ },
+ {
+  "file": "lemmy__0199__2023-11-22-194806_low_rank_defaults__up.sql",
+  "original_path": "migrations/2023-11-22-194806_low_rank_defaults/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "0c1ebacf9034a93093a195b7da231829e389935ccb4a3b6de9bed8dd9cfff8c5",
+  "bytes": 591
+ },
+ {
+  "file": "lemmy__0200__2023-12-06-180359_edit_active_users__up.sql",
+  "original_path": "migrations/2023-12-06-180359_edit_active_users/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b175b0d8338d12c585eaa54de6ffff50a017c82a315b51b322b431a331885ef2",
+  "bytes": 3049
+ },
+ {
+  "file": "lemmy__0201__2023-12-19-210053_tolerable-batch-insert-speed__up.sql",
+  "original_path": "migrations/2023-12-19-210053_tolerable-batch-insert-speed/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "0d4330344ba62c6ea968682f9bd6703397b75dfbd02adcaaa2ed31d89932dc19",
+  "bytes": 4179
+ },
+ {
+  "file": "lemmy__0202__2023-12-22-040137_make-mixed-sorting-directions-work-with-tuple-comparison__up.sql",
+  "original_path": "migrations/2023-12-22-040137_make-mixed-sorting-directions-work-with-tuple-comparison/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f7b704f642169095daaf64abebc9fe41fe8b8d75e9aac53517eee0efe5ac043d",
+  "bytes": 864
+ },
+ {
+  "file": "lemmy__0203__2024-01-02-094916_site-name-not-unique__up.sql",
+  "original_path": "migrations/2024-01-02-094916_site-name-not-unique/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "38772844e49ce6daad0841f708270e627d196c97da9ffca38b9f55f041a75ed4",
+  "bytes": 53
+ },
+ {
+  "file": "lemmy__0204__2024-01-05-213000_community_aggregates_add_local_subscribers__up.sql",
+  "original_path": "migrations/2024-01-05-213000_community_aggregates_add_local_subscribers/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "1f137f8faa9ec2100ac2f48054572de5140307e873639d7c8ad07a0482d7d4a6",
+  "bytes": 2499
+ },
+ {
+  "file": "lemmy__0205__2024-01-15-100133_local-only-community__up.sql",
+  "original_path": "migrations/2024-01-15-100133_local-only-community/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4bca60d6abc3aaa45f0a083fcf1178768b5370bb03be5a6ebc18fa0718287d2b",
+  "bytes": 174
+ },
+ {
+  "file": "lemmy__0206__2024-01-22-105746_lemmynsfw-changes__up.sql",
+  "original_path": "migrations/2024-01-22-105746_lemmynsfw-changes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "784b088a511952b9ec67ecba939ebb84b7484b1e482e10f2211bfa1672a510f3",
+  "bytes": 168
+ },
+ {
+  "file": "lemmy__0207__2024-01-25-151400_remove_auto_resolve_report_trigger__up.sql",
+  "original_path": "migrations/2024-01-25-151400_remove_auto_resolve_report_trigger/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "043b44ece0f343c803c2b6c8a219a0321d409ff263e9db73c2597d773be3903f",
+  "bytes": 265
+ },
+ {
+  "file": "lemmy__0208__2024-02-12-211114_add_vote_display_mode_setting__up.sql",
+  "original_path": "migrations/2024-02-12-211114_add_vote_display_mode_setting/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e52abb024f8e07880b37bc9c01ff9d9ac82c0a9ee63143b7e09d55aa49cbf1db",
+  "bytes": 606
+ },
+ {
+  "file": "lemmy__0209__2024-02-15-171358_default_instance_sort_type__up.sql",
+  "original_path": "migrations/2024-02-15-171358_default_instance_sort_type/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ab8b64e195763a0f0f8a48f755aeaefe6f49c1ce7f43e415120b0ebe05962005",
+  "bytes": 99
+ },
+ {
+  "file": "lemmy__0210__2024-02-24-034523_replaceable-schema__up.sql",
+  "original_path": "migrations/2024-02-24-034523_replaceable-schema/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "edeeac176f29c2c31207b7badd2a6741ae54d852ec318d85a599e09fecdf0a41",
+  "bytes": 3157
+ },
+ {
+  "file": "lemmy__0211__2024-02-27-204628_add_post_alt_text__up.sql",
+  "original_path": "migrations/2024-02-27-204628_add_post_alt_text/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e63610e85084cf32e41adbe6aabaac8fdd6639a2e85f844cc4f2100c2c17c5dc",
+  "bytes": 48
+ },
+ {
+  "file": "lemmy__0212__2024-02-28-144211_hide_posts__up.sql",
+  "original_path": "migrations/2024-02-28-144211_hide_posts/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a5340b532514769458ca5b4a8268045eef18da81bdb848874079e78a78eb887a",
+  "bytes": 289
+ },
+ {
+  "file": "lemmy__0213__2024-03-06-104706_local_image_user_opt__up.sql",
+  "original_path": "migrations/2024-03-06-104706_local_image_user_opt/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "53a1bc00d63db49b620a4d6d285ee90c8d6b3568b80f8923273d89a0b0948447",
+  "bytes": 71
+ },
+ {
+  "file": "lemmy__0214__2024-03-06-201637_url_blocklist__up.sql",
+  "original_path": "migrations/2024-03-06-201637_url_blocklist/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b1bc294b8aefe909bda6fc9998f79fc0d4a8c694ea7085ee9bc5f171a3a8a4a5",
+  "bytes": 210
+ },
+ {
+  "file": "lemmy__0215__2024-04-05-153647_alter_vote_display_mode_defaults__up.sql",
+  "original_path": "migrations/2024-04-05-153647_alter_vote_display_mode_defaults/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "5c837d865d3ea83f6c6dac0c039297360eb589fb758805c5e2c1a0ecec5fe9c1",
+  "bytes": 520
+ },
+ {
+  "file": "lemmy__0216__2024-04-15-105932_community_followers_url_optional__up.sql",
+  "original_path": "migrations/2024-04-15-105932_community_followers_url_optional/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "8b380e72bf92ec5197eec7cefe6ae221d0589e4ffb3436bb80d3200339b0208b",
+  "bytes": 69
+ },
+ {
+  "file": "lemmy__0217__2024-04-23-020604_add_post_id_index__up.sql",
+  "original_path": "migrations/2024-04-23-020604_add_post_id_index/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a266ac83f6f02cd6bc18f4bfda5dd2d0b34980e1eb58c172d767cc994a4f3217",
+  "bytes": 7134
+ },
+ {
+  "file": "lemmy__0218__2024-05-04-140749_separate_triggers__up.sql",
+  "original_path": "migrations/2024-05-04-140749_separate_triggers/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f8adaacb131fc5a42451e90494f1dcf746dcade6ab80853aba3e1e90a3de4a42",
+  "bytes": 86
+ },
+ {
+  "file": "lemmy__0219__2024-05-05-162540_add_image_detail_table__up.sql",
+  "original_path": "migrations/2024-05-05-162540_add_image_detail_table/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a544487f029bb3f6966886ff4a27dd63a6daf8328a7acacd5a59f3767d5cfcd6",
+  "bytes": 512
+ },
+ {
+  "file": "lemmy__0220__2024-06-17-160323_fix_post_aggregates_featured_local__up.sql",
+  "original_path": "migrations/2024-06-17-160323_fix_post_aggregates_featured_local/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "3366457fdb68b1aef0f37532c1e3579ebdc596d70524fbdaf1aca2c4dbfbf100",
+  "bytes": 265
+ },
+ {
+  "file": "lemmy__0221__2024-06-24-000000_ap_id_triggers__up.sql",
+  "original_path": "migrations/2024-06-24-000000_ap_id_triggers/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f96a8e3c995f46de4b11552ee8cf04d557411069fdd7659b4646c9a51aa635a5",
+  "bytes": 179
+ },
+ {
+  "file": "lemmy__0222__2024-07-01-014711_exponential_controversy__up.sql",
+  "original_path": "migrations/2024-07-01-014711_exponential_controversy/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "05069d9f72bf93d9ad7984ef029fabf6baface76a7c6e2d13d41e8b36148fea2",
+  "bytes": 368
+ },
+ {
+  "file": "lemmy__0223__2024-08-03-155932_increase_post_url_max_length__up.sql",
+  "original_path": "migrations/2024-08-03-155932_increase_post_url_max_length/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "d4d25d637d2c7597c3a7bff79104968a1aa5c7f19e90592b9335dfbea01202ef",
+  "bytes": 243
+ },
+ {
+  "file": "lemmy__0224__2024-11-12-090437_move-triggers__up.sql",
+  "original_path": "migrations/2024-11-12-090437_move-triggers/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f737eec55947cb0297e155ec9058f8fbbe76747e1b4e093888b4efd453770c06",
+  "bytes": 80
+ },
+ {
+  "file": "lemmy__0225__2025-01-10-135505_donation-dialog__up.sql",
+  "original_path": "migrations/2025-01-10-135505_donation-dialog/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "28b2f4dcbec2701c33b37f93408869e1520d8477a83399de64437e6e1bcc3572",
+  "bytes": 319
+ },
+ {
+  "file": "lemmy__0226__2025-02-11-131045_ban-remove-content-pm__up.sql",
+  "original_path": "migrations/2025-02-11-131045_ban-remove-content-pm/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "81aa31aca11f02b92b97099fa751127cce534ed3abbf9862401317742e9e9657",
+  "bytes": 81
+ },
+ {
+  "file": "lemmy__0227__2025-02-24-173152_search-alt-text-of-posts__up.sql",
+  "original_path": "migrations/2025-02-24-173152_search-alt-text-of-posts/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "24479e6a0f4815659a2b50d64772860beeb91ce24d2ad11c4a844350ebc20cc4",
+  "bytes": 156
+ },
+ {
+  "file": "lemmy__0228__2025-03-07-094522_enable_english_for_all__up.sql",
+  "original_path": "migrations/2025-03-07-094522_enable_english_for_all/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "130fd26fdf33db66a66992a26ad86525dbd8c8a31b2b0de7f9756450e6686e19",
+  "bytes": 621
+ },
+ {
+  "file": "lemmy__0229__2025-04-07-100344_registration-rate-limit__up.sql",
+  "original_path": "migrations/2025-04-07-100344_registration-rate-limit/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "cc280e4e4996fed92f45f66f160f2af94b2b70b6413331a41c371f09bde86ad6",
+  "bytes": 150
+ },
+ {
+  "file": "lemmy__0230__2025-05-15-154113_missing_post_indexes__up.sql",
+  "original_path": "migrations/2025-05-15-154113_missing_post_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "26d0c74be100392dff8fb30aecfb08ee6151cb099ee2623893b8453df95d1d1c",
+  "bytes": 173
+ },
+ {
+  "file": "lemmy__0231__2025-07-29-152742_add_indexes_for_aggregates_activity__up.sql",
+  "original_path": "migrations/2025-07-29-152742_add_indexes_for_aggregates_activity/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "fb9cde1ae6f573dc5b714ca817bd033a8fcace413dbcfc1089712d8cf93edcf1",
+  "bytes": 317
+ },
+ {
+  "file": "lemmy__0232__2025-07-29-152743_post-aggregates-creator-community-indexes__up.sql",
+  "original_path": "migrations/2025-07-29-152743_post-aggregates-creator-community-indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "8227a1bc162274b095f1b94d9d0ec9a5b95d53aa166e3b3b05f95efb97b9e475",
+  "bytes": 154
+ },
+ {
+  "file": "lemmy__0233__2025-08-01-000000_enable_private_messages__up.sql",
+  "original_path": "migrations/2025-08-01-000000_enable_private_messages/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "0161d9f878be3992e014feeb0bca350e12587020f3a062d6a91e908e4a5b9c10",
+  "bytes": 94
+ },
+ {
+  "file": "lemmy__0234__2025-08-01-000002_error_if_code_migrations_needed__up.sql",
+  "original_path": "migrations/2025-08-01-000002_error_if_code_migrations_needed/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "db160ff0494c95e2a3383ca811b5b19636d4eddd2b38184a69eb54ffd7faa640",
+  "bytes": 1781
+ },
+ {
+  "file": "lemmy__0235__2025-08-01-000003_remove_show_scores_column__up.sql",
+  "original_path": "migrations/2025-08-01-000003_remove_show_scores_column/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b826a29901dfffd5bc3708e0dc13e3ce74c9df5f1c3010dbe4649ed33e24b0bf",
+  "bytes": 53
+ },
+ {
+  "file": "lemmy__0236__2025-08-01-000004_custom_emoji_tagline_changes__up.sql",
+  "original_path": "migrations/2025-08-01-000004_custom_emoji_tagline_changes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a6208bb9152823f2a47108c303c4d6182ebf61936b9c749d2d50dd4e7bfe14ec",
+  "bytes": 109
+ },
+ {
+  "file": "lemmy__0237__2025-08-01-000005_drop-enable-nsfw__up.sql",
+  "original_path": "migrations/2025-08-01-000005_drop-enable-nsfw/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ccdbae3a8c4c4fb7f406d6229a66e2743bca0ed19022333baf8ecdbfd401792f",
+  "bytes": 407
+ },
+ {
+  "file": "lemmy__0238__2025-08-01-000006_default_comment_sort_type__up.sql",
+  "original_path": "migrations/2025-08-01-000006_default_comment_sort_type/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e312bc70ef4bf129ba450e4b12297ac6d03fe170cc79eaad68262334f8fdc739",
+  "bytes": 740
+ },
+ {
+  "file": "lemmy__0239__2025-08-01-000007_schedule-post__up.sql",
+  "original_path": "migrations/2025-08-01-000007_schedule-post/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "962183fa6ef08eded9e23153fea55890df2b114150d2295eaf5572c395af246e",
+  "bytes": 149
+ },
+ {
+  "file": "lemmy__0240__2025-08-01-000008_create_oauth_provider__up.sql",
+  "original_path": "migrations/2025-08-01-000008_create_oauth_provider/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "2fd071a3c051184d06be79b018b6bdfa754e78920d816345523eb1fc1f91e19f",
+  "bytes": 1229
+ },
+ {
+  "file": "lemmy__0241__2025-08-01-000009_add_federation_vote_rejection__up.sql",
+  "original_path": "migrations/2025-08-01-000009_add_federation_vote_rejection/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "8a135c38c29c80c6de205203646cf07ef0dc7283c866da3d1c7596467d9a3907",
+  "bytes": 1222
+ },
+ {
+  "file": "lemmy__0242__2025-08-01-000010_remove_auto_expand__up.sql",
+  "original_path": "migrations/2025-08-01-000010_remove_auto_expand/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "2260a46822eafaaf7533bc81ba205ca4c3200a25f18b6fa1a35a6d7a9452771a",
+  "bytes": 53
+ },
+ {
+  "file": "lemmy__0243__2025-08-01-000011_add_short_community_description__up.sql",
+  "original_path": "migrations/2025-08-01-000011_add_short_community_description/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "51d3e528e20747229c505f12c288fc1dbecf9c8997e09d4d349517a85fbf24c0",
+  "bytes": 197
+ },
+ {
+  "file": "lemmy__0244__2025-08-01-000012_no-individual-inboxes__up.sql",
+  "original_path": "migrations/2025-08-01-000012_no-individual-inboxes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "2b284d53f190967be03e160dc708d9bf0b9eb67c88711ae22da5eb533aa40f58",
+  "bytes": 741
+ },
+ {
+  "file": "lemmy__0245__2025-08-01-000013_comment-vote-remote-postid__up.sql",
+  "original_path": "migrations/2025-08-01-000013_comment-vote-remote-postid/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b53bba4c62753ec7756bfd21b0e8f319082fee8b87ebbdf018f6267439f6a345",
+  "bytes": 44
+ },
+ {
+  "file": "lemmy__0246__2025-08-01-000014_private-community__up.sql",
+  "original_path": "migrations/2025-08-01-000014_private-community/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "8627df660d11d68e881d6d06695bf6b63006e5d18360deb6f2c7cabb119bf903",
+  "bytes": 1336
+ },
+ {
+  "file": "lemmy__0247__2025-08-01-000015_add_mark_fetched_posts_as_read__up.sql",
+  "original_path": "migrations/2025-08-01-000015_add_mark_fetched_posts_as_read/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "c3c2633c4ce7c56e0fb813658d0e79e0628edaeddc6eb173eef4f6800901d082",
+  "bytes": 103
+ },
+ {
+  "file": "lemmy__0248__2025-08-01-000016_smoosh-tables-together__up.sql",
+  "original_path": "migrations/2025-08-01-000016_smoosh-tables-together/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "034c297753ecb760b20cbaa7d839fad3cafd1404338d50d7a61135c1e13a7047",
+  "bytes": 12909
+ },
+ {
+  "file": "lemmy__0249__2025-08-01-000017_forbid_diesel_cli__up.sql",
+  "original_path": "migrations/2025-08-01-000017_forbid_diesel_cli/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ce112519d4de2c5296e7cc4c0009e5059571c0e3412d86b1c853305a09581dbb",
+  "bytes": 1447
+ },
+ {
+  "file": "lemmy__0250__2025-08-01-000018_custom_migration_runner__up.sql",
+  "original_path": "migrations/2025-08-01-000018_custom_migration_runner/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "3eae031f694106908bed28152369f710497f688ee20ecd4819c66ad22a2d4607",
+  "bytes": 273
+ },
+ {
+  "file": "lemmy__0251__2025-08-01-000019_add_report_count__up.sql",
+  "original_path": "migrations/2025-08-01-000019_add_report_count/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "14430b7b748b7307fa18f4408fdc9027fcaa002c86fae9efcf3eb4b08e9ba46a",
+  "bytes": 2828
+ },
+ {
+  "file": "lemmy__0252__2025-08-01-000020_oauth_pkce__up.sql",
+  "original_path": "migrations/2025-08-01-000020_oauth_pkce/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "0c307a7f82c6196f321400d450b6fa928dde0e64227ac21ac6f40a76bf12309a",
+  "bytes": 84
+ },
+ {
+  "file": "lemmy__0253__2025-08-01-000021_add_blurhash_to_image_details__up.sql",
+  "original_path": "migrations/2025-08-01-000021_add_blurhash_to_image_details/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "23911943abefebf9728570d5b4b40dbf694cf4367ca4876c2d971cb49db4126e",
+  "bytes": 156
+ },
+ {
+  "file": "lemmy__0254__2025-08-01-000022_instance-block-mod-log__up.sql",
+  "original_path": "migrations/2025-08-01-000022_instance-block-mod-log/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "5bd613fc80b32ceef21537f5b618689d7f7df1e7f62817930c63c1aff3b84440",
+  "bytes": 775
+ },
+ {
+  "file": "lemmy__0255__2025-08-01-000023_add_report_combined_table__up.sql",
+  "original_path": "migrations/2025-08-01-000023_add_report_combined_table/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4ca2d15c8a48b69a902353b45255bbbbfaa069a220e73193d95db59410b8f684",
+  "bytes": 1527
+ },
+ {
+  "file": "lemmy__0256__2025-08-01-000024_add_person_content_combined_table__up.sql",
+  "original_path": "migrations/2025-08-01-000024_add_person_content_combined_table/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e97b1b68410121685acb603adfe17c53e403c6be76a3097be2c0a755740f0c89",
+  "bytes": 3100
+ },
+ {
+  "file": "lemmy__0257__2025-08-01-000025_add_modlog_combined_table__up.sql",
+  "original_path": "migrations/2025-08-01-000025_add_modlog_combined_table/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f615fc3b94df5c060df676114557eca8ff17381311e6f86e51faeb8edd26d719",
+  "bytes": 7690
+ },
+ {
+  "file": "lemmy__0258__2025-08-01-000026_add_inbox_combined_table__up.sql",
+  "original_path": "migrations/2025-08-01-000026_add_inbox_combined_table/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "d36820b4d4a398796cfa0bcadca443bc1c7b97450cd45d429a0a4ce11e77b39b",
+  "bytes": 2594
+ },
+ {
+  "file": "lemmy__0259__2025-08-01-000027_add_missing_person_aggs_column__up.sql",
+  "original_path": "migrations/2025-08-01-000027_add_missing_person_aggs_column/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "07d9f34edfcd831e53f0a8b1dcd8202cbf313abcc0a01363ade0188349ec912e",
+  "bytes": 354
+ },
+ {
+  "file": "lemmy__0260__2025-08-01-000028_add_index_on_person_id_read_for_read_only_post_actions__up.sql",
+  "original_path": "migrations/2025-08-01-000028_add_index_on_person_id_read_for_read_only_post_actions/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4d42c9edd26d600ae2d49fbba7dcf9b9707ce0b5a0ab0b7853072fec48650d14",
+  "bytes": 124
+ },
+ {
+  "file": "lemmy__0261__2025-08-01-000029_community-post-tags__up.sql",
+  "original_path": "migrations/2025-08-01-000029_community-post-tags/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e01e7eb9047c243786d85ac9528987fce2881c052c3cf50f461f21bc27745fae",
+  "bytes": 1257
+ },
+ {
+  "file": "lemmy__0262__2025-08-01-000030_optimize_get_random_community__up.sql",
+  "original_path": "migrations/2025-08-01-000030_optimize_get_random_community/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e03576f32816253c477be0fbd1da76bdd953b821502665ca1563f05f1ff36d45",
+  "bytes": 924
+ },
+ {
+  "file": "lemmy__0263__2025-08-01-000031_update-replaceable-schema__up.sql",
+  "original_path": "migrations/2025-08-01-000031_update-replaceable-schema/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a22159f152f805805de4878cfbd260e04b4f3d96401255ceac50fba49d572861",
+  "bytes": 15
+ },
+ {
+  "file": "lemmy__0264__2025-08-01-000032_community_report__up.sql",
+  "original_path": "migrations/2025-08-01-000032_community_report/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b7ecfedec08de9ee49773a936caae3187eb5ffeb19d1fb193480b87ff79357b8",
+  "bytes": 1273
+ },
+ {
+  "file": "lemmy__0265__2025-08-01-000033_add_post_keyword_block_table__up.sql",
+  "original_path": "migrations/2025-08-01-000033_add_post_keyword_block_table/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "31f358995b2714d1bb32ca96d4a637fa1018f06b9574404c15a0df4172a9886a",
+  "bytes": 214
+ },
+ {
+  "file": "lemmy__0266__2025-08-01-000034_no-image-token__up.sql",
+  "original_path": "migrations/2025-08-01-000034_no-image-token/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "98408f5c2367019d1cf6d10acd0625f43fd5b3dd84956abcf56353fdcf7db45d",
+  "bytes": 62
+ },
+ {
+  "file": "lemmy__0267__2025-08-01-000035_media_filter__up.sql",
+  "original_path": "migrations/2025-08-01-000035_media_filter/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "831ab2cf42d9cac143719394521c9e192489ece23241a5a4e9b8eebb9d475814",
+  "bytes": 173
+ },
+ {
+  "file": "lemmy__0268__2025-08-01-000036_interactions_per_month_schema__up.sql",
+  "original_path": "migrations/2025-08-01-000036_interactions_per_month_schema/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "0f5b136e5310c574dbc227afa024b7dc58444b3aada04b4a88d9e725fd0b1639",
+  "bytes": 132
+ },
+ {
+  "file": "lemmy__0269__2025-08-01-000037_report_to_admins__up.sql",
+  "original_path": "migrations/2025-08-01-000037_report_to_admins/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "5bed3af358d13af48bde305021382bcd1c1b2747decd307d01613306a56439ef",
+  "bytes": 189
+ },
+ {
+  "file": "lemmy__0270__2025-08-01-000038_ap_id__up.sql",
+  "original_path": "migrations/2025-08-01-000038_ap_id/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "7fa2c3c3111938ea6f08313cdf043361045e04812b205184a1b375636840c768",
+  "bytes": 139
+ },
+ {
+  "file": "lemmy__0271__2025-08-01-000039_remove_post_sort_type_enums__up.sql",
+  "original_path": "migrations/2025-08-01-000039_remove_post_sort_type_enums/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "573edf63d5fe9b91bb46abdbd7d9d46cc4a269f69979e1061a6836aed9ae5cd9",
+  "bytes": 3294
+ },
+ {
+  "file": "lemmy__0272__2025-08-01-000040_block_nsfw__up.sql",
+  "original_path": "migrations/2025-08-01-000040_block_nsfw/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e3452dab52d928fb81a91b6b0e14ea9520862f893ff514f3378521f6dee9f9b9",
+  "bytes": 93
+ },
+ {
+  "file": "lemmy__0273__2025-08-01-000041_remove-aggregate-tables__up.sql",
+  "original_path": "migrations/2025-08-01-000041_remove-aggregate-tables/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "799ef307b5cbbe0b226c98e85178a07ffeb826e0aeec17a77c1c798c74637af5",
+  "bytes": 18315
+ },
+ {
+  "file": "lemmy__0274__2025-08-01-000042_community-hidden-visibility__up.sql",
+  "original_path": "migrations/2025-08-01-000042_community-hidden-visibility/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "5fa5fb3f055a353334f82ce573d9dc3807e20fb6f679178d94436fa50e2b99fa",
+  "bytes": 2387
+ },
+ {
+  "file": "lemmy__0275__2025-08-01-000043_community-local-removed__up.sql",
+  "original_path": "migrations/2025-08-01-000043_community-local-removed/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a33919985ea582e6dbbbe3ec646af3b581907a8571fdb47c80e7b7690cf602a3",
+  "bytes": 192
+ },
+ {
+  "file": "lemmy__0276__2025-08-01-000044_post_comment_pending__up.sql",
+  "original_path": "migrations/2025-08-01-000044_post_comment_pending/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "0a8c9aec0d9fa36eb49e539c2cc84fb283dd8efdbac02c02a9aae2d8e49e2710",
+  "bytes": 351
+ },
+ {
+  "file": "lemmy__0277__2025-08-01-000045_site_person_ban__up.sql",
+  "original_path": "migrations/2025-08-01-000045_site_person_ban/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4ae6f30e00fdf9eb1d072d69bd2ebadfb58de71b8171ef04fcda69eb9df1af92",
+  "bytes": 915
+ },
+ {
+  "file": "lemmy__0278__2025-08-01-000047_disable-email-notifications__up.sql",
+  "original_path": "migrations/2025-08-01-000047_disable-email-notifications/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b2bcc0cb7c6e8c0a7a8b9fe59782fb2f14d8d07448e037ed5ed9ca7e36580a7d",
+  "bytes": 96
+ },
+ {
+  "file": "lemmy__0279__2025-08-01-000048_cursor_pagination_indexes__up.sql",
+  "original_path": "migrations/2025-08-01-000048_cursor_pagination_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e85415057330fb68fc494f3af57e17d622e4254238a9bd6bf9ac0a5dda4f9d4e",
+  "bytes": 2285
+ },
+ {
+  "file": "lemmy__0280__2025-08-01-000049_add_liked_combined__up.sql",
+  "original_path": "migrations/2025-08-01-000049_add_liked_combined/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4a1fa4ed8b6362b20ff1be2ed28167637c30a45cd1fa021b4b13a096ac956441",
+  "bytes": 2651
+ },
+ {
+  "file": "lemmy__0281__2025-08-01-000050_show_downvotes_for_others_only__up.sql",
+  "original_path": "migrations/2025-08-01-000050_show_downvotes_for_others_only/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "3233afd4251465162ffd70f4307f91574ac83e56c18338581199dc23cc928d27",
+  "bytes": 589
+ },
+ {
+  "file": "lemmy__0282__2025-08-01-000051_local_image_person__up.sql",
+  "original_path": "migrations/2025-08-01-000051_local_image_person/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a1bd33fac98f29540c602ba57e6ed3f1b4529b26db4e0ba59a34b50b0c166d3b",
+  "bytes": 1068
+ },
+ {
+  "file": "lemmy__0283__2025-08-01-000052_lock_reason__up.sql",
+  "original_path": "migrations/2025-08-01-000052_lock_reason/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "905905feed95542115a9c0290adf763acdc1dec334488d54c37e41829b226ea2",
+  "bytes": 102
+ },
+ {
+  "file": "lemmy__0284__2025-08-01-000053_remove_hide_modlog_names__up.sql",
+  "original_path": "migrations/2025-08-01-000053_remove_hide_modlog_names/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "88cb419f962d4eee13fca9b6a47d651e860bdc103ad917ec78e6dc48ffa31a84",
+  "bytes": 63
+ },
+ {
+  "file": "lemmy__0285__2025-08-01-000054_mod-change-community-vis__up.sql",
+  "original_path": "migrations/2025-08-01-000054_mod-change-community-vis/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b8b6e2411eedfec88f5c7fff5ed6ae1e15c44ea441cb1a080cd9336aaec7d440",
+  "bytes": 69
+ },
+ {
+  "file": "lemmy__0286__2025-08-01-000055_rename_timestamp_add_at__up.sql",
+  "original_path": "migrations/2025-08-01-000055_rename_timestamp_add_at/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "d6ffc6071a29d74f26dc998f56297f91a24c3528f52d09ee0574e0f420754562",
+  "bytes": 7379
+ },
+ {
+  "file": "lemmy__0287__2025-08-01-000056_person_note__up.sql",
+  "original_path": "migrations/2025-08-01-000056_person_note/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a5803e7a3661399d5f61c66d59f709835ac9d15207d91e866fec5d72b027f4fa",
+  "bytes": 91
+ },
+ {
+  "file": "lemmy__0288__2025-08-01-000057_multi-community__up.sql",
+  "original_path": "migrations/2025-08-01-000057_multi-community/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b42a75205ad6119a22754ce673131640b3011880d47764f1b57b2a47c4014d93",
+  "bytes": 2984
+ },
+ {
+  "file": "lemmy__0289__2025-08-01-000058_instance_block_communities_persons__up.sql",
+  "original_path": "migrations/2025-08-01-000058_instance_block_communities_persons/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b5d0c5deba756ab41d6d00b504085578fc1d7285483264eab6797b2786b50b7b",
+  "bytes": 390
+ },
+ {
+  "file": "lemmy__0290__2025-08-01-000059_person_votes__up.sql",
+  "original_path": "migrations/2025-08-01-000059_person_votes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "6453229e547222315a0875dfc7b7b4c4c0d440d119f8c732fa43f04979213153",
+  "bytes": 1592
+ },
+ {
+  "file": "lemmy__0291__2025-08-01-000060_rename-rate-limit-columns__up.sql",
+  "original_path": "migrations/2025-08-01-000060_rename-rate-limit-columns/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "2e6592d90685f4e7847aacd4122de0110e7f214ce537a047993a7ad506ae950d",
+  "bytes": 1285
+ },
+ {
+  "file": "lemmy__0292__2025-08-01-000061_drop-person-ban__up.sql",
+  "original_path": "migrations/2025-08-01-000061_drop-person-ban/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ef2e812a3736d7c87ef8d9d7e9308ac7b0234043eeec913e98ef0dfdfdaf0d06",
+  "bytes": 24
+ },
+ {
+  "file": "lemmy__0293__2025-08-01-000062_username-instance-unique__up.sql",
+  "original_path": "migrations/2025-08-01-000062_username-instance-unique/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "d708eed129036b2bd44259c1f8f80e20022b1963a69b24b2d34b9a6e6052e134",
+  "bytes": 483
+ },
+ {
+  "file": "lemmy__0294__2025-08-01-000063_post-or-comment-notification__up.sql",
+  "original_path": "migrations/2025-08-01-000063_post-or-comment-notification/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "5070331c9956ff4e541dfc24d9b8754d243b1d5f716bdf39c11cf2a372e5f8c5",
+  "bytes": 3084
+ },
+ {
+  "file": "lemmy__0295__2025-08-01-000064_add_missing_foreign_key_indexes__up.sql",
+  "original_path": "migrations/2025-08-01-000064_add_missing_foreign_key_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f73a16c2bf6cab34c9ef731b0f722c9a5fe06c12e8c664ca69bc8009c3f7ff60",
+  "bytes": 5590
+ },
+ {
+  "file": "lemmy__0296__2025-08-01-000065_group-follow__up.sql",
+  "original_path": "migrations/2025-08-01-000065_group-follow/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "9d29ab3dba3fac4e0e70c8daf50f8024192eca8591031a8045835cb1866c3085",
+  "bytes": 419
+ },
+ {
+  "file": "lemmy__0297__2025-08-01-000066_modlog-rename__up.sql",
+  "original_path": "migrations/2025-08-01-000066_modlog-rename/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b7d7e45dd037df26e28c287c8f0b6c45a23fecc91bfa45b236263ec51ec8d2f5",
+  "bytes": 546
+ },
+ {
+  "file": "lemmy__0298__2025-08-01-000067_add_default_items_per_page__up.sql",
+  "original_path": "migrations/2025-08-01-000067_add_default_items_per_page/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "2c6f2cf631c8ea02058128bdddc0734ed38a03b44fb159e7b8b6c160a976f4f2",
+  "bytes": 288
+ },
+ {
+  "file": "lemmy__0299__2025-08-01-000068_local_user_trigger__up.sql",
+  "original_path": "migrations/2025-08-01-000068_local_user_trigger/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ce0ddfb6eeac7c89c617a2c107256a21ba879fa0d1decaafe7f9a5d62dcc7c06",
+  "bytes": 162
+ },
+ {
+  "file": "lemmy__0300__2025-08-06-170325_add_indexes_for_aggregates_activity_new__up.sql",
+  "original_path": "migrations/2025-08-06-170325_add_indexes_for_aggregates_activity_new/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "90eb3925e29ee78c44c07e8492dcd761bf380598ec9372a7af9537ecbd7a3ba0",
+  "bytes": 204
+ },
+ {
+  "file": "lemmy__0301__2025-08-20-000000_comment-lock__up.sql",
+  "original_path": "migrations/2025-08-20-000000_comment-lock/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "71d8a2553e0798079d42a62f2321bcb148d2b67c8ea87578f746c0d18f76bf62",
+  "bytes": 1358
+ },
+ {
+  "file": "lemmy__0302__2025-09-01-141127_local-community-collections__up.sql",
+  "original_path": "migrations/2025-09-01-141127_local-community-collections/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ecd1f31380811184b955a831050dc2a7a70892433a743d38f285d0d271e98451",
+  "bytes": 232
+ },
+ {
+  "file": "lemmy__0303__2025-09-08-000001_add-video-dimensions__up.sql",
+  "original_path": "migrations/2025-09-08-000001_add-video-dimensions/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "74fbbb83749eedb325b4771200169c5df51de8fd784c12a2a6965c05896170c1",
+  "bytes": 103
+ },
+ {
+  "file": "lemmy__0304__2025-09-08-140711_remove-actor-name-max-length__up.sql",
+  "original_path": "migrations/2025-09-08-140711_remove-actor-name-max-length/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a2efc718db2127f6c6f8493f889467218beff5a41c31324a7857eb7ef8b8726a",
+  "bytes": 513
+ },
+ {
+  "file": "lemmy__0305__2025-09-12-093537_mod-reason-mandatory__up.sql",
+  "original_path": "migrations/2025-09-12-093537_mod-reason-mandatory/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "4de42d593a2060bbfa2d08e9534b47752d0b2c9ca96849145c600801b6a8981f",
+  "bytes": 2151
+ },
+ {
+  "file": "lemmy__0306__2025-09-15-090401_remove-keyboard-nav__up.sql",
+  "original_path": "migrations/2025-09-15-090401_remove-keyboard-nav/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ea279cc0ce57b6dbad41a5c9346df4a0282989503a92556d73fcc9217286c71e",
+  "bytes": 68
+ },
+ {
+  "file": "lemmy__0307__2025-09-19-090047_notify-mod-action__up.sql",
+  "original_path": "migrations/2025-09-19-090047_notify-mod-action/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "119bba8719ff79248b98a284e43afe0c127134a7bce60548b878af752f928746",
+  "bytes": 3066
+ },
+ {
+  "file": "lemmy__0308__2025-09-19-132648-0000_theme-instance-default__up.sql",
+  "original_path": "migrations/2025-09-19-132648-0000_theme-instance-default/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e3e359a9805ba6691fc705424a9cbdd7de6cdad5e2443649b485a1efb3839ad2",
+  "bytes": 174
+ },
+ {
+  "file": "lemmy__0309__2025-10-08-084508-0000_multi-comm-index-lower__up.sql",
+  "original_path": "migrations/2025-10-08-084508-0000_multi-comm-index-lower/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "2fd243c2037f1f0da0d9586f5ed7b1fdd5977040c5d1006f8bdb3bb214f15bdf",
+  "bytes": 91
+ },
+ {
+  "file": "lemmy__0310__2025-10-09-101527-0000_community-follower-denied__up.sql",
+  "original_path": "migrations/2025-10-09-101527-0000_community-follower-denied/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "20cb8643555183a44e97a44d9800f7053902ba450d3952e3e2f8d0676527d4a1",
+  "bytes": 112
+ },
+ {
+  "file": "lemmy__0311__2025-10-15-114811-0000_merge-modlog-tables__up.sql",
+  "original_path": "migrations/2025-10-15-114811-0000_merge-modlog-tables/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "6eb78dfee1e3a334748a4d0f7bfa3584c78a34654271be4d630af9da587a3da9",
+  "bytes": 11888
+ },
+ {
+  "file": "lemmy__0312__2025-11-05-181519-0000_add_registration_application_updated_at__up.sql",
+  "original_path": "migrations/2025-11-05-181519-0000_add_registration_application_updated_at/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "1ae89cf2c2f165222994493c43f51e5e734ec8a4de4b861a793c2e1c4ba3a564",
+  "bytes": 175
+ },
+ {
+  "file": "lemmy__0313__2025-11-08-123111-0000_add_multi_community_subscribers_community_count__up.sql",
+  "original_path": "migrations/2025-11-08-123111-0000_add_multi_community_subscribers_community_count/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "6e56fd5e5e533b03fe5954b991f8c2bcba7701ba0f2a84bb914b4e6705eff146",
+  "bytes": 748
+ },
+ {
+  "file": "lemmy__0314__2026-01-08-132525-0000_community-sidebar-summary__up.sql",
+  "original_path": "migrations/2026-01-08-132525-0000_community-sidebar-summary/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "515851e1fbbf73c453bbdfff339757d7df87bc85671a3b7098789cc3ab8d64b4",
+  "bytes": 418
+ },
+ {
+  "file": "lemmy__0315__2026-01-19-122321-0000_add_community_tag_color__up.sql",
+  "original_path": "migrations/2026-01-19-122321-0000_add_community_tag_color/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "3bffdf7e0eb5005e81a9ece9547411eb2c6798d4fa39610a9ecb159fd32f6e77",
+  "bytes": 303
+ },
+ {
+  "file": "lemmy__0316__2026-01-23-094410-0000_rename-sidebar-again__up.sql",
+  "original_path": "migrations/2026-01-23-094410-0000_rename-sidebar-again/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "3e1ac92e6e0e7c12e897f9d8d489960f50b626dd91c55e69e5c40b12c28bafb9",
+  "bytes": 420
+ },
+ {
+  "file": "lemmy__0317__2026-01-23-140244-0000_rename-tag-to-community-tag__up.sql",
+  "original_path": "migrations/2026-01-23-140244-0000_rename-tag-to-community-tag/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "6311a5d7db00b5ed43e4d652e3c0e892100d42421d300291157ab7d0006327fb",
+  "bytes": 151
+ },
+ {
+  "file": "lemmy__0318__2026-01-28-115414-0000_captcha-plugin__up.sql",
+  "original_path": "migrations/2026-01-28-115414-0000_captcha-plugin/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "ea902226e27ea9ce002f96ce9394445af1b24fdc6282853a2c479684cc6ea61c",
+  "bytes": 145
+ },
+ {
+  "file": "lemmy__0319__2026-02-01-205644-0000_add_moderator_warn_modlog_kind__up.sql",
+  "original_path": "migrations/2026-02-01-205644-0000_add_moderator_warn_modlog_kind/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "849ceefa8a7ab9dabaa08ffd52659c94e2a13b9b2c2e5537c9f33efcb1752214",
+  "bytes": 109
+ },
+ {
+  "file": "lemmy__0320__2026-02-03-235249-0000_add_moderator_warn_constraint_check__up.sql",
+  "original_path": "migrations/2026-02-03-235249-0000_add_moderator_warn_constraint_check/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "eeefbe49ab51d825bbec3233c556ba673b1a8a1ea403624569dda31611ab35a3",
+  "bytes": 4109
+ },
+ {
+  "file": "lemmy__0321__2026-02-19-120000-0000_add_bulk_to_modlog__up.sql",
+  "original_path": "migrations/2026-02-19-120000-0000_add_bulk_to_modlog/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "cdc3ff003ae6cd00ce2e03ec53446644621ceb6f5365d3e83f51ccfeae0d1eff",
+  "bytes": 203
+ },
+ {
+  "file": "lemmy__0322__2026-02-19-192014-0000_rename_suggested_communities__up.sql",
+  "original_path": "migrations/2026-02-19-192014-0000_rename_suggested_communities/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "d778d3a65931af46c7b94669f97f16b09288edbcd46c695f55906fb5cb5be51b",
+  "bytes": 93
+ },
+ {
+  "file": "lemmy__0323__2026-02-24-205759-0000_add_notification_creator_id__up.sql",
+  "original_path": "migrations/2026-02-24-205759-0000_add_notification_creator_id/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "56d0e5e6aae86f49e7ce440a3641cab5e30fa1636ed6bce7689e0a2e3a73a6a7",
+  "bytes": 859
+ },
+ {
+  "file": "lemmy__0324__2026-03-02-231448-0000_add_multi_community_sidebar__up.sql",
+  "original_path": "migrations/2026-03-02-231448-0000_add_multi_community_sidebar/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "fc1983e1a7c397098831e599b4e79a3a03f21cf9268018d6e4cc6a7f10add8cb",
+  "bytes": 58
+ },
+ {
+  "file": "lemmy__0325__2026-03-03-211442-0000_move_config_pictrs_to_db__up.sql",
+  "original_path": "migrations/2026-03-03-211442-0000_move_config_pictrs_to_db/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "656a2db917798d83458b8b560744b0218d077144b9bc28c0e2304f1e4c5822ac",
+  "bytes": 791
+ },
+ {
+  "file": "lemmy__0326__2026-03-04-143123-0000_add_deleted_by_recip_to_pm__up.sql",
+  "original_path": "migrations/2026-03-04-143123-0000_add_deleted_by_recip_to_pm/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "27e800f430c5e078dcb9541d4f47bda748f39a37666c667a60a4b86885a335f9",
+  "bytes": 97
+ },
+ {
+  "file": "lemmy__0327__2026-03-08-021022-0000_fixup_post_action_indexes__up.sql",
+  "original_path": "migrations/2026-03-08-021022-0000_fixup_post_action_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b743322ced366509a628de6d06e9b4f4e7f936ff5dafbd5743a96ba73d6d649d",
+  "bytes": 514
+ },
+ {
+  "file": "lemmy__0328__2026-03-08-202630-0000_add_modlog_foreign_keys__up.sql",
+  "original_path": "migrations/2026-03-08-202630-0000_add_modlog_foreign_keys/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "8c801fdb5875b3870eab25c49b12f078986ef4dc706d38904306d6da2e55e7c4",
+  "bytes": 1655
+ },
+ {
+  "file": "lemmy__0329__2026-03-09-014616-0000_add_resolved_report_combined__up.sql",
+  "original_path": "migrations/2026-03-09-014616-0000_add_resolved_report_combined/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "22b94e79e968eea651bc85efa3c47fd157069ab71b38352c1cbd3f525e772cec",
+  "bytes": 913
+ },
+ {
+  "file": "lemmy__0330__2026-03-12-181649-0000_add_person_search_indexes__up.sql",
+  "original_path": "migrations/2026-03-12-181649-0000_add_person_search_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "0746c796c666b647a924f072b90f8cee9f854ef3353cf30786b436450bb5282d",
+  "bytes": 756
+ },
+ {
+  "file": "lemmy__0331__2026-03-13-123650-0000_fix_post_community_indexes__up.sql",
+  "original_path": "migrations/2026-03-13-123650-0000_fix_post_community_indexes/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "3598c49a2e6741b49780c266c9143bf06b8e51be06ca19cba042b187bce3e8d2",
+  "bytes": 3665
+ },
+ {
+  "file": "lemmy__0332__2026-03-19-234307-0000_same_table_joins__up.sql",
+  "original_path": "migrations/2026-03-19-234307-0000_same_table_joins/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "80586b302422013ed07624fc4f5023af5cd7b35ce6a19d3577ec633e7a54e87d",
+  "bytes": 9041
+ },
+ {
+  "file": "lemmy__0333__2026-03-24-023609-0000_rename_disable_type_columns__up.sql",
+  "original_path": "migrations/2026-03-24-023609-0000_rename_disable_type_columns/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "a90907721e1afa587bcfd51f33533e48c612ee2b7d1d30c34849e8f54e558c58",
+  "bytes": 464
+ },
+ {
+  "file": "lemmy__0334__2026-04-16-000000-0000_add_invitation_table__up.sql",
+  "original_path": "migrations/2026-04-16-000000-0000_add_invitation_table/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "b5914404e1eb12631bd614e0cbc0f60f65184604c518c6da9839fb8215b2158c",
+  "bytes": 772
+ },
+ {
+  "file": "lemmy__0335__2026-04-22-005541-0000_update_modlog_check_constraint__up.sql",
+  "original_path": "migrations/2026-04-22-005541-0000_update_modlog_check_constraint/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "f9e4f8d013f49056d1177fa4559d9af8add6efc45a51c8a4e6cb5ed6bfb4bd01",
+  "bytes": 5034
+ },
+ {
+  "file": "lemmy__0336__2026-05-22-124436-0000_import-settings-ratelimit__up.sql",
+  "original_path": "migrations/2026-05-22-124436-0000_import-settings-ratelimit/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "d06a9572dfeedaa413f12bfedd08c3ad6e349a27992a4fb2f0f848417d1925c3",
+  "bytes": 230
+ },
+ {
+  "file": "lemmy__0337__2026-06-01-130125-0000_community-title-optional__up.sql",
+  "original_path": "migrations/2026-06-01-130125-0000_community-title-optional/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "2dd003d067b7f5d53ab514520c11eaeb24d9999fa2152c3464651cb2bd92bf89",
+  "bytes": 148
+ },
+ {
+  "file": "lemmy__0338__2026-06-02-122008-0000_follow-accept-id__up.sql",
+  "original_path": "migrations/2026-06-02-122008-0000_follow-accept-id/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "d81e06dec4fecc15a8286f52be7dc75077c683f3b338bb4f41b3b3cc4c8d09a0",
+  "bytes": 71
+ },
+ {
+  "file": "lemmy__0339__2026-06-03-120211-0000_split_hide_media_settings__up.sql",
+  "original_path": "migrations/2026-06-03-120211-0000_split_hide_media_settings/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "28a0aa56b04c3555df2d396362ff317eb0fd41b93a40db5fe6a2ede2136f4545",
+  "bytes": 357
+ },
+ {
+  "file": "lemmy__0340__2026-06-03-220228-0000_add_modlog_child_count__up.sql",
+  "original_path": "migrations/2026-06-03-220228-0000_add_modlog_child_count/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "358544c394019fdc1a4d6eabec7c7a51653e8dd400b1bcc26c952b6f2ecf1503",
+  "bytes": 75
+ },
+ {
+  "file": "lemmy__0341__2026-07-08-184840-0000_add_report_resolve_reason__up.sql",
+  "original_path": "migrations/2026-07-08-184840-0000_add_report_resolve_reason/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "e03777d4884370f2a07303b8d8d10d1d38cee000fe333db4d4fc9eb90896752a",
+  "bytes": 263
+ },
+ {
+  "file": "lemmy__0342__2026-07-27-143313-0000_rename_resolve_reason_to_conclusion__up.sql",
+  "original_path": "migrations/2026-07-27-143313-0000_rename_resolve_reason_to_conclusion/up.sql",
+  "repo": "https://github.com/LemmyNet/lemmy",
+  "sha256": "655779132ddeb7416b14c9c1fa13c5802f6332564aec1c1e5a2d4b96c9bb80a1",
+  "bytes": 295
+ }
+]

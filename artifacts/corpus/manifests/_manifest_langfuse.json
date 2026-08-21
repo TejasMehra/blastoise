@@ -1,0 +1,1052 @@
+[
+ {
+  "file": "langfuse__0001__20230518191501_init.sql",
+  "original_path": "packages/shared/prisma/migrations/20230518191501_init/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "c473a492c2d6a1923ceac4b17b8e0b0a2b9481f0c07e41acd9416e8f435dd5b7",
+  "bytes": 2102
+ },
+ {
+  "file": "langfuse__0002__20230518193521_changes.sql",
+  "original_path": "packages/shared/prisma/migrations/20230518193521_changes/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "8c43569559cb29d9a39e64fc24a39147012b7823609084a796425f56851772da",
+  "bytes": 775
+ },
+ {
+  "file": "langfuse__0003__20230522131516_default_timestamp.sql",
+  "original_path": "packages/shared/prisma/migrations/20230522131516_default_timestamp/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "0486301d9fab71b9127d20e7f7384b29d313ffd604638865aeb93a28e515830e",
+  "bytes": 477
+ },
+ {
+  "file": "langfuse__0004__20230529140133_user_add_pw.sql",
+  "original_path": "packages/shared/prisma/migrations/20230529140133_user_add_pw/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "d540f11d164027777327018a2d9bbfc4d7427795cf95dfddced3a166ee08200a",
+  "bytes": 67
+ },
+ {
+  "file": "langfuse__0005__20230620181114_restructure.sql",
+  "original_path": "packages/shared/prisma/migrations/20230620181114_restructure/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "6ac05ef2ad29d60e683cbc7d1c1dc4446e1f680c8065623a0f1fb9bf8f7313d5",
+  "bytes": 877
+ },
+ {
+  "file": "langfuse__0006__20230626095337_external_trace_id.sql",
+  "original_path": "packages/shared/prisma/migrations/20230626095337_external_trace_id/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "d87546258fc30e396e0c7e2cc38a0708f01dad8c6fef5363d2882b0c90b20994",
+  "bytes": 156
+ },
+ {
+  "file": "langfuse__0007__20230707132314_traces_project_id_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20230707132314_traces_project_id_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "4f6d018efa96b1d497dc97520c7e37760068b3c8d7e0668efb93c788217810f7",
+  "bytes": 81
+ },
+ {
+  "file": "langfuse__0008__20230710114928_traces_add_user_id.sql",
+  "original_path": "packages/shared/prisma/migrations/20230710114928_traces_add_user_id/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "48037af303b72d568f8c9c60be73b46f63de49ec9129f27bba988d60231af6bf",
+  "bytes": 241
+ },
+ {
+  "file": "langfuse__0009__20230711104810_traces_add_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20230711104810_traces_add_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "d18661dbef7171665313bcd672121051507a7fca9c6f1d62290534d89bb68885",
+  "bytes": 206
+ },
+ {
+  "file": "langfuse__0010__20230717190411_users_feature_flags.sql",
+  "original_path": "packages/shared/prisma/migrations/20230717190411_users_feature_flags/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "a2683823a84a1b300e9335503f85a15fca4d8b7239652e1a4b57ed0bdea95eaf",
+  "bytes": 99
+ },
+ {
+  "file": "langfuse__0011__20230720172051_tokens_non_null.sql",
+  "original_path": "packages/shared/prisma/migrations/20230720172051_tokens_non_null/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "63a401f9449e2a5a8ace2ffd334847a391a20d8cf2c2f4aff76bb3bc644309b0",
+  "bytes": 982
+ },
+ {
+  "file": "langfuse__0012__20230803093326_add_release_and_version.sql",
+  "original_path": "packages/shared/prisma/migrations/20230803093326_add_release_and_version/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "0103d43929cb47e57fe0e4af89ce9767dfde983a4ba5e27d5583c5ca9268fd36",
+  "bytes": 176
+ },
+ {
+  "file": "langfuse__0013__20230810191452_traceid_nullable_on_observations.sql",
+  "original_path": "packages/shared/prisma/migrations/20230810191452_traceid_nullable_on_observations/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "a7b8ce179538c459855479b2717701739278a93766c558f15c154a27f19521ac",
+  "bytes": 82
+ },
+ {
+  "file": "langfuse__0014__20230901155252_add_pricings_table.sql",
+  "original_path": "packages/shared/prisma/migrations/20230901155252_add_pricings_table/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "85a422ac8bef6a799fff329aba50930836cb3453b4a2902fb355af823f2545de",
+  "bytes": 509
+ },
+ {
+  "file": "langfuse__0015__20230907225603_projects_updated_at.sql",
+  "original_path": "packages/shared/prisma/migrations/20230907225603_projects_updated_at/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "674b3212a23366271b8d775bbdd403193ab53f39c60cab62f19b36eafcc2c5a1",
+  "bytes": 116
+ },
+ {
+  "file": "langfuse__0016__20230912115644_add_trace_public_bool.sql",
+  "original_path": "packages/shared/prisma/migrations/20230912115644_add_trace_public_bool/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "764a17834f84db44c1285efb443fd158292bdba514dd6119a085f8a4d233f29e",
+  "bytes": 93
+ },
+ {
+  "file": "langfuse__0017__20230922030325_add_observation_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20230922030325_add_observation_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "3e716e1fe1a0a116da4534c68b24543afe807d0cf0de7074827ec19cd3b760bd",
+  "bytes": 93
+ },
+ {
+  "file": "langfuse__0018__20231004005909_add_parent_observation_id_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20231004005909_add_parent_observation_id_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "3e6a2e871e92965cedbc86bf2e37b79f091d0a5fa75619fdea33a316572cb986",
+  "bytes": 115
+ },
+ {
+  "file": "langfuse__0019__20231012161041_add_events_table.sql",
+  "original_path": "packages/shared/prisma/migrations/20231012161041_add_events_table/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "900142933967f2b694beb61d9733c0c2528c8850f93f2d50c2ae99893241924a",
+  "bytes": 527
+ },
+ {
+  "file": "langfuse__0020__20231019094815_add_additional_secret_key_column.sql",
+  "original_path": "packages/shared/prisma/migrations/20231019094815_add_additional_secret_key_column/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "bf6e02f1cccae47e0199ac786861e394dd56724c46b1bec3507fd54b9c450e68",
+  "bytes": 782
+ },
+ {
+  "file": "langfuse__0021__20231030184329_events_add_index_on_projectid.sql",
+  "original_path": "packages/shared/prisma/migrations/20231030184329_events_add_index_on_projectid/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "51db80eea14cde56b9e2343ec94737f4b0b205588c5eb58d102f9aeb38d41821",
+  "bytes": 81
+ },
+ {
+  "file": "langfuse__0022__20231106213824_add_openai_models.sql",
+  "original_path": "packages/shared/prisma/migrations/20231106213824_add_openai_models/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "a2bf918402f4b377cd0d5ca9aee8864b4b005787d821876a21d6c17e276bf8c9",
+  "bytes": 556
+ },
+ {
+  "file": "langfuse__0023__20231112095703_observations_add_unique_constraint.sql",
+  "original_path": "packages/shared/prisma/migrations/20231112095703_observations_add_unique_constraint/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "e12f8d1afb5c0eebfd23d29a82d0dc91eca04f4896da55fe3134d801f66a2d52",
+  "bytes": 297
+ },
+ {
+  "file": "langfuse__0024__20231119171939_cron_add_job_started_at.sql",
+  "original_path": "packages/shared/prisma/migrations/20231119171939_cron_add_job_started_at/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "7807221e014379e566d1bc0edcd5896ff83d0b0c05833363f6aab1b05061a2c8",
+  "bytes": 86
+ },
+ {
+  "file": "langfuse__0025__20231130003317_trace_session_input_output.sql",
+  "original_path": "packages/shared/prisma/migrations/20231130003317_trace_session_input_output/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "b1dbd4a53584e825933812c3a3c10f5f66cd35b96f007e22e334222c9709d391",
+  "bytes": 1303
+ },
+ {
+  "file": "langfuse__0026__20231223230008_accounts_add_cols_azure_ad_auth.sql",
+  "original_path": "packages/shared/prisma/migrations/20231223230008_accounts_add_cols_azure_ad_auth/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "691f0d666b6485315d47354fd2edddbb3d52eb15fec0197a0f9c66f3585576a3",
+  "bytes": 117
+ },
+ {
+  "file": "langfuse__0027__20240104210051_add_model_indices.sql",
+  "original_path": "packages/shared/prisma/migrations/20240104210051_add_model_indices/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "01c7ff80a32a5a14cc29e5453ab557501a24435754c0733ca58ee6a0142ce2d2",
+  "bytes": 98
+ },
+ {
+  "file": "langfuse__0028__20240105170551_index_tags_in_traces.sql",
+  "original_path": "packages/shared/prisma/migrations/20240105170551_index_tags_in_traces/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "e67d947f372029978516197650435e9bc835bc981550da4cbf3efe0e4bd656d3",
+  "bytes": 90
+ },
+ {
+  "file": "langfuse__0029__20240117151938_traces_remove_unique_id_external.sql",
+  "original_path": "packages/shared/prisma/migrations/20240117151938_traces_remove_unique_id_external/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "8722b52e56dd18c4105fc3d5c5a2d85d9d5b17d4f74cc6da3c49e79f02c1b620",
+  "bytes": 63
+ },
+ {
+  "file": "langfuse__0030__20240118204936_add_internal_model.sql",
+  "original_path": "packages/shared/prisma/migrations/20240118204936_add_internal_model/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "b62e65c6f17e8fd22da2635dc8058898e79964dffb471df8e19dd0d24b8007bf",
+  "bytes": 81
+ },
+ {
+  "file": "langfuse__0031__20240119140941_add_tokenizer_id.sql",
+  "original_path": "packages/shared/prisma/migrations/20240119140941_add_tokenizer_id/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "e0274ebba0589ced32c4b7a9eae9b6e7f324a0260e306be0eaeb8f5bd90763cd",
+  "bytes": 73
+ },
+ {
+  "file": "langfuse__0032__20240119164148_add_models.sql",
+  "original_path": "packages/shared/prisma/migrations/20240119164148_add_models/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "dc7a9acf81c2afe90af01439da2b4d4db1fe569f720b3857d356fd64b0668997",
+  "bytes": 7136
+ },
+ {
+  "file": "langfuse__0033__20240130100110_usage_unit_nullable.sql",
+  "original_path": "packages/shared/prisma/migrations/20240130100110_usage_unit_nullable/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "2c9f3ae71075e8b978f4854b64967c232bc8c16c9ee5fbf55cd7f2bb3d3180d9",
+  "bytes": 186
+ },
+ {
+  "file": "langfuse__0034__20240203184148_update_pricing.sql",
+  "original_path": "packages/shared/prisma/migrations/20240203184148_update_pricing/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "a70813c1bfb4b54f5295bc5a0d3579313a0ed45381a03586cb666cf401356434",
+  "bytes": 907
+ },
+ {
+  "file": "langfuse__0035__20240214232619_prompts_add_indicies.sql",
+  "original_path": "packages/shared/prisma/migrations/20240214232619_prompts_add_indicies/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "b6f9417cbfc78324d2f37fa54cbfde9fd261388a00ba96af25f4db378ef29f03",
+  "bytes": 177
+ },
+ {
+  "file": "langfuse__0036__20240219162415_add_prompt_config.sql",
+  "original_path": "packages/shared/prisma/migrations/20240219162415_add_prompt_config/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "dac546b68859c06e24e1370401f310ac2683a9b0b9cef76d22591bb22d4a55c3",
+  "bytes": 91
+ },
+ {
+  "file": "langfuse__0037__20240226183642_add_observations_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20240226183642_add_observations_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "b8742bdcb9c8ae9f3786dfe3a05a3934ccc99f4138c9ebda58b9b4584ff2fc9f",
+  "bytes": 177
+ },
+ {
+  "file": "langfuse__0038__20240226203642_rewrite_observations_view.sql",
+  "original_path": "packages/shared/prisma/migrations/20240226203642_rewrite_observations_view/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "9552da4a2be78dba07c796abb1c9c129a98f8ce835899b688b6a7f615748ed4a",
+  "bytes": 1934
+ },
+ {
+  "file": "langfuse__0039__20240228103642_observations_view_cte.sql",
+  "original_path": "packages/shared/prisma/migrations/20240228103642_observations_view_cte/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "ac1a69831be8ed8df9844120eed5294628b1f29af4525f59292b87a8a79c3c9d",
+  "bytes": 2056
+ },
+ {
+  "file": "langfuse__0040__20240304123642_traces_view_improvement.sql",
+  "original_path": "packages/shared/prisma/migrations/20240304123642_traces_view_improvement/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "5d6fdf09162a29e9e1e26c78c5d648074b66b922837f27b2df2ddb6fd8866e80",
+  "bytes": 526
+ },
+ {
+  "file": "langfuse__0041__20240305100713_traces_add_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20240305100713_traces_add_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "cc3cae1ec393e86b3f5674385cb4cb18d4543a776d70ab42d9349e33245312bf",
+  "bytes": 95
+ },
+ {
+  "file": "langfuse__0042__20240307185544_score_add_name_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20240307185544_score_add_name_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "f50104d30b937a1f7386b688462012196c716ef6b404e55091f3dc7d8e85bde3",
+  "bytes": 86
+ },
+ {
+  "file": "langfuse__0043__20240314090110_claude_model.sql",
+  "original_path": "packages/shared/prisma/migrations/20240314090110_claude_model/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "9c56dc98508c84ca90a95967f43b65f2dac1901c0c454648fb6fcef09481e1d9",
+  "bytes": 481
+ },
+ {
+  "file": "langfuse__0044__20240326114211_dataset_run_item_bind_to_trace.sql",
+  "original_path": "packages/shared/prisma/migrations/20240326114211_dataset_run_item_bind_to_trace/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "651c6b52f5c02c84d3c25a3037856b1f8b31ff5c54a3ff11fc79c37e434a3744",
+  "bytes": 316
+ },
+ {
+  "file": "langfuse__0045__20240326115424_dataset_run_item_index_trace.sql",
+  "original_path": "packages/shared/prisma/migrations/20240326115424_dataset_run_item_index_trace/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "a8dcc294cbbd618d41ea395e71995e7e84a6bc1d1c10fbeed562b5165fb6731f",
+  "bytes": 112
+ },
+ {
+  "file": "langfuse__0046__20240404210315_dataset_add_descriptions.sql",
+  "original_path": "packages/shared/prisma/migrations/20240404210315_dataset_add_descriptions/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "96460c970a939bdf8d44e15b528c22d02059872f6bd96cb670561a1161c11dec",
+  "bytes": 154
+ },
+ {
+  "file": "langfuse__0047__20240405124810_prompt_to_json.sql",
+  "original_path": "packages/shared/prisma/migrations/20240405124810_prompt_to_json/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "74d4795b3392906eb374a6ba1744cc27985fc0296014ff385eb645af89d86452",
+  "bytes": 372
+ },
+ {
+  "file": "langfuse__0048__20240408134330_prompt_table_add_index_to_tags.sql",
+  "original_path": "packages/shared/prisma/migrations/20240408134330_prompt_table_add_index_to_tags/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "59b3712949760661ae0d34aeed731d7d483e05d1b9c11785911d0e47ee286655",
+  "bytes": 105
+ },
+ {
+  "file": "langfuse__0049__20240411224142_update_models.sql",
+  "original_path": "packages/shared/prisma/migrations/20240411224142_update_models/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "b1939852c616e94939bac82eec4399e8452fc80da754bb1664549590affba477",
+  "bytes": 484
+ },
+ {
+  "file": "langfuse__0050__20240416173813_add_internal_model_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20240416173813_add_internal_model_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "13533ab2478ed37da48c979964ad4d17e499a716c2cce43088ed1dfb91dfda93",
+  "bytes": 114
+ },
+ {
+  "file": "langfuse__0051__20240420134232_posthog_integration_created_at.sql",
+  "original_path": "packages/shared/prisma/migrations/20240420134232_posthog_integration_created_at/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "1ac146a0500a6e54334874d29f28528fbfa87df10964b05359b811cc6bed8f62",
+  "bytes": 128
+ },
+ {
+  "file": "langfuse__0052__20240424150909_add_job_execution_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20240424150909_add_job_execution_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "0b21338801cf21cb428dde6deab83a32ad58a08d39f6c41188813a6ed859fc9f",
+  "bytes": 114
+ },
+ {
+  "file": "langfuse__0053__20240503125742_traces_add_createdat_updatedat.sql",
+  "original_path": "packages/shared/prisma/migrations/20240503125742_traces_add_createdat_updatedat/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "8ae3990cb368157bbf3c6ed164acc10ba76b0c5b3dd2a979681ca3745ae25a02",
+  "bytes": 192
+ },
+ {
+  "file": "langfuse__0054__20240503130520_traces_index_updated_at.sql",
+  "original_path": "packages/shared/prisma/migrations/20240503130520_traces_index_updated_at/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "16fdd118c337872435610fea3bb819d1c80e9a041aff63fec3758fd89bfa515e",
+  "bytes": 96
+ },
+ {
+  "file": "langfuse__0055__20240508132736_scores_backfill_project_id.sql",
+  "original_path": "packages/shared/prisma/migrations/20240508132736_scores_backfill_project_id/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "f558d363b47e7f78b3b81afa5d81b525f564b1c77192b910ece39fea992fba84",
+  "bytes": 199
+ },
+ {
+  "file": "langfuse__0056__20240512155021_add_pricing_gpt4o.sql",
+  "original_path": "packages/shared/prisma/migrations/20240512155021_add_pricing_gpt4o/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "639fbeca93713e4120f6d8dd8697e602c81905e8523644ee5a3bb35573c22657",
+  "bytes": 667
+ },
+ {
+  "file": "langfuse__0057__20240513082203_scores_unique_id_and_projectid_instead_of_id_and_traceid.sql",
+  "original_path": "packages/shared/prisma/migrations/20240513082203_scores_unique_id_and_projectid_instead_of_id_and_traceid/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "f75933aafd3ce807d9c4c6cf607bd8a1ca36d9eb9628370913c85545d23f2628",
+  "bytes": 234
+ },
+ {
+  "file": "langfuse__0058__20240522081254_scores_add_author_user_id.sql",
+  "original_path": "packages/shared/prisma/migrations/20240522081254_scores_add_author_user_id/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "27d7d55ed5031b85886cd649cf3e118ce5e79507effde8a89d743bd393fc9421",
+  "bytes": 75
+ },
+ {
+  "file": "langfuse__0059__20240523142524_scores_add_config_id_idx.sql",
+  "original_path": "packages/shared/prisma/migrations/20240523142524_scores_add_config_id_idx/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "ffca6dc28074d2279ab9e6cc1bbb61bcd4175590438afab484716e1c9f4e966e",
+  "bytes": 92
+ },
+ {
+  "file": "langfuse__0060__20240524156058_scores_source_backfill_annotation_for_review.sql",
+  "original_path": "packages/shared/prisma/migrations/20240524156058_scores_source_backfill_annotation_for_review/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "e05f80f4ef874ede3153338700315c3aa60bcb0e6ba46be4054516492f2437fd",
+  "bytes": 167
+ },
+ {
+  "file": "langfuse__0061__20240524190434_job_executions_add_fk_index_score_id.sql",
+  "original_path": "packages/shared/prisma/migrations/20240524190434_job_executions_add_fk_index_score_id/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "61c36accbaf923e3951dfcef9a922798885fbac0abd24f1d70433dd6b23b3b34",
+  "bytes": 128
+ },
+ {
+  "file": "langfuse__0062__20240524190436_job_executions_index_created_at.sql",
+  "original_path": "packages/shared/prisma/migrations/20240524190436_job_executions_index_created_at/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "41ded02c1903a2253c93a75d0d7b4c8542a0206b32cf4917b29b48b80f0a46c9",
+  "bytes": 110
+ },
+ {
+  "file": "langfuse__0063__20240528214728_add_cursor_index_01.sql",
+  "original_path": "packages/shared/prisma/migrations/20240528214728_add_cursor_index_01/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "0ae1ea53284fb50006cb004b0f943a274d9020ebee25f0485d9b292f6d899aa1",
+  "bytes": 102
+ },
+ {
+  "file": "langfuse__0064__20240528214728_add_cursor_index_04.sql",
+  "original_path": "packages/shared/prisma/migrations/20240528214728_add_cursor_index_04/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "acea7a034865bc6b3a8c32e74fb3ceac821c281ec3a6d7d8d219fec0f9bbaa58",
+  "bytes": 118
+ },
+ {
+  "file": "langfuse__0065__20240528214728_add_cursor_index_07.sql",
+  "original_path": "packages/shared/prisma/migrations/20240528214728_add_cursor_index_07/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "bb32bf325aa0049a3ee8ac6e1ec29ddf100697af66e52d179ba9bc30165d7ceb",
+  "bytes": 108
+ },
+ {
+  "file": "langfuse__0066__20240528214728_add_cursor_index_10.sql",
+  "original_path": "packages/shared/prisma/migrations/20240528214728_add_cursor_index_10/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "878728969552f53c01dd2d265073c4c02b3779653bd93c60471aae61b1be13cc",
+  "bytes": 112
+ },
+ {
+  "file": "langfuse__0067__20240528214728_add_cursor_index_13.sql",
+  "original_path": "packages/shared/prisma/migrations/20240528214728_add_cursor_index_13/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "038d783a3a2e15835902638e2a5ff9d0907b5fc3ac6e8d393ae4968c6a2b0768",
+  "bytes": 98
+ },
+ {
+  "file": "langfuse__0068__20240528214728_add_cursor_index_16.sql",
+  "original_path": "packages/shared/prisma/migrations/20240528214728_add_cursor_index_16/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "ec60ba16dfdca034ae55f10f3ad5702d59d1d2505d06614ae09a459cb66ceccb",
+  "bytes": 96
+ },
+ {
+  "file": "langfuse__0069__20240528214728_add_cursor_index_18.sql",
+  "original_path": "packages/shared/prisma/migrations/20240528214728_add_cursor_index_18/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "2456eea367573c7ca2dd5fc0bd7c253ec1f511e2dda58b02882593bd8e2398e9",
+  "bytes": 112
+ },
+ {
+  "file": "langfuse__0070__20240604133339_score_data_type_add_boolean.sql",
+  "original_path": "packages/shared/prisma/migrations/20240604133339_score_data_type_add_boolean/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "2c7c26a45dc5ad0f424245e80774f7a390775aa26eed62a8dd2d669188293629",
+  "bytes": 63
+ },
+ {
+  "file": "langfuse__0071__20240607090858_pricings_add_latest_gemini_models.sql",
+  "original_path": "packages/shared/prisma/migrations/20240607090858_pricings_add_latest_gemini_models/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "d463f1f3702160cd55ec7ff3c8902d91bc7f0ae51ed5af243f0ab40367b06f17",
+  "bytes": 659
+ },
+ {
+  "file": "langfuse__0072__20240611113517_backfill_manual_score_configs.sql",
+  "original_path": "packages/shared/prisma/migrations/20240611113517_backfill_manual_score_configs/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "481ed06669a898b0778c18cb0932923ad513b0fb2a9671bfca4a1234c09fb30a",
+  "bytes": 937
+ },
+ {
+  "file": "langfuse__0073__20240618134129_add_batch_exports_table.sql",
+  "original_path": "packages/shared/prisma/migrations/20240618134129_add_batch_exports_table/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "0192f30b888702c3d1e6d87d5660194cca5f52637a30f6843b778d143d804198",
+  "bytes": 938
+ },
+ {
+  "file": "langfuse__0074__20240618164952_drop_scores_updated_at_idx.sql",
+  "original_path": "packages/shared/prisma/migrations/20240618164952_drop_scores_updated_at_idx/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "ed306cfc028cc2b1f19508c71dca14ec7d9178924e3adea7af4efba4595c15ea",
+  "bytes": 74
+ },
+ {
+  "file": "langfuse__0075__20240618164955_drop_traces_updated_at_idx.sql",
+  "original_path": "packages/shared/prisma/migrations/20240618164955_drop_traces_updated_at_idx/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "6858ce2982e7f7d91306a4d790c77467cfea6f6d5e9f41092d80659167e4b9ce",
+  "bytes": 74
+ },
+ {
+  "file": "langfuse__0076__20240625103957_observations_add_calculated_cost_columns.sql",
+  "original_path": "packages/shared/prisma/migrations/20240625103957_observations_add_calculated_cost_columns/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "59f739c010594e459bf45672b3204072c36ee2d34cfc9f28eb870e70c489ee13",
+  "bytes": 253
+ },
+ {
+  "file": "langfuse__0077__20240703214747_models_anthropic_aws_bedrock.sql",
+  "original_path": "packages/shared/prisma/migrations/20240703214747_models_anthropic_aws_bedrock/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "309210bd9d378d031a2fdbbd9c9b7bc9ab2fd2612715e2ab1768a60a6fa2189f",
+  "bytes": 786
+ },
+ {
+  "file": "langfuse__0078__20240705152639_traces_view_add_created_at_updated_at.sql",
+  "original_path": "packages/shared/prisma/migrations/20240705152639_traces_view_add_created_at_updated_at/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "51347f6d774f0b146d1250965c0738948d2921db33705de09b8812ba1235c695",
+  "bytes": 605
+ },
+ {
+  "file": "langfuse__0079__20240710114044_add_pricing_gpt4o_mini.sql",
+  "original_path": "packages/shared/prisma/migrations/20240710114044_add_pricing_gpt4o_mini/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "5be50c2f23525f66668938a62974c6a025b95cffda5b943882aac40e2f4fe13a",
+  "bytes": 692
+ },
+ {
+  "file": "langfuse__0080__20240718011735_observation_view_add_prompt_name_and_version.sql",
+  "original_path": "packages/shared/prisma/migrations/20240718011735_observation_view_add_prompt_name_and_version/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "c00d9cc2dd72e74b9c3e3a558a60ca0a9471f1865b7035530f853b6aeca23367",
+  "bytes": 3991
+ },
+ {
+  "file": "langfuse__0081__20240814223824_model_fix_text_embedding_3_large.sql",
+  "original_path": "packages/shared/prisma/migrations/20240814223824_model_fix_text_embedding_3_large/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "fb60adcf29656a167b306d11a6af0aa476521e1a6b1b452b1aee29e79d259c6d",
+  "bytes": 172
+ },
+ {
+  "file": "langfuse__0082__20240913095558_models_add_openai_o1_2024-09-12.sql",
+  "original_path": "packages/shared/prisma/migrations/20240913095558_models_add_openai_o1_2024-09-12/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "7c211f41c1f0a6b7ae8ad35ae9783dd05f2de2b315ba062e2c47d6062d9f1776",
+  "bytes": 1116
+ },
+ {
+  "file": "langfuse__0083__20240917183002_remove_covered_indexes_02.sql",
+  "original_path": "packages/shared/prisma/migrations/20240917183002_remove_covered_indexes_02/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "98e681053c69747c55c95847382ae790dd0018b76418496c33f87de8a1e76168",
+  "bytes": 254
+ },
+ {
+  "file": "langfuse__0084__20240917183004_remove_covered_indexes_04.sql",
+  "original_path": "packages/shared/prisma/migrations/20240917183004_remove_covered_indexes_04/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "5034e3b05dba5e74c4a12a048b689d0088267a194d7eff50f2e20a747a1b35cc",
+  "bytes": 263
+ },
+ {
+  "file": "langfuse__0085__20240917183007_remove_covered_indexes_07.sql",
+  "original_path": "packages/shared/prisma/migrations/20240917183007_remove_covered_indexes_07/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "0cf687c0b5dc0dd79bd72e2ec5408c57263a1250417be2876245cfde5048df66",
+  "bytes": 283
+ },
+ {
+  "file": "langfuse__0086__20240917183010_remove_covered_indexes_10.sql",
+  "original_path": "packages/shared/prisma/migrations/20240917183010_remove_covered_indexes_10/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "e7f856c5f37fc4c46464ec204024cf68006314e50ec510ae2b0d3dd0f42177a8",
+  "bytes": 266
+ },
+ {
+  "file": "langfuse__0087__20240917183013_remove_covered_indexes_13.sql",
+  "original_path": "packages/shared/prisma/migrations/20240917183013_remove_covered_indexes_13/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "0f99a7a915cd63dde54a2c5fc2afacb2e7d23355da5f028f605ef4f13008faad",
+  "bytes": 263
+ },
+ {
+  "file": "langfuse__0088__20240917183016_remove_covered_indexes_16.sql",
+  "original_path": "packages/shared/prisma/migrations/20240917183016_remove_covered_indexes_16/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "b036469b6537fe5ec08cd1b5d80fba092e0d5bf11ae3536385a3e588f1a5c6a2",
+  "bytes": 241
+ },
+ {
+  "file": "langfuse__0089__20241009113245_add_annotation_queue.sql",
+  "original_path": "packages/shared/prisma/migrations/20241009113245_add_annotation_queue/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "350810744ccf6f9faaf91bd564b8abe3be9c34444e33eb754241e17405e691a0",
+  "bytes": 3353
+ },
+ {
+  "file": "langfuse__0090__20241022110145_add_claude_sonnet_35.sql",
+  "original_path": "packages/shared/prisma/migrations/20241022110145_add_claude_sonnet_35/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "d5502ea99e0a3ed0ad68b4638cd2cb5dd0d4393bc4f6aa7aa3bb252ac80c937e",
+  "bytes": 682
+ },
+ {
+  "file": "langfuse__0091__20241024111800_add_background_migrations_table.sql",
+  "original_path": "packages/shared/prisma/migrations/20241024111800_add_background_migrations_table/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "8dc4c6d95442fa925d11b1018d65f60acd331623a6f6d3cd268d38a8e0f77c24",
+  "bytes": 490
+ },
+ {
+  "file": "langfuse__0092__20241024173000_add_traces_pg_to_ch_background_migration.sql",
+  "original_path": "packages/shared/prisma/migrations/20241024173000_add_traces_pg_to_ch_background_migration/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "f67987e1d75e8c1450fbbcc122dfb95da7584da55345f9bd2df18ac4b09aed90",
+  "bytes": 203
+ },
+ {
+  "file": "langfuse__0093__20241029130802_prices_drop_excess_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20241029130802_prices_drop_excess_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "bdc3295a824f7cca8cd6dc6f6cbfc441bc978902f193cfac3a2d161acad1a417",
+  "bytes": 62
+ },
+ {
+  "file": "langfuse__0094__20241106122605_add_media_tables.sql",
+  "original_path": "packages/shared/prisma/migrations/20241106122605_add_media_tables/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "8961632fa9a09f312c4089b4231cbcc3a49f406b6c45b00375045714e4c50444",
+  "bytes": 2919
+ },
+ {
+  "file": "langfuse__0095__20241125124029_add_chatgpt_4o_prices.sql",
+  "original_path": "packages/shared/prisma/migrations/20241125124029_add_chatgpt_4o_prices/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "955f1acbcc8e1432b5f4a0fe7479cbb253a8370ac65a80f945a5d647df81e9ad",
+  "bytes": 663
+ },
+ {
+  "file": "langfuse__0096__20250109083346_drop_trace_tracesession_fk.sql",
+  "original_path": "packages/shared/prisma/migrations/20250109083346_drop_trace_tracesession_fk/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "15adf6fb52b27b64daad954980dd644db768f99a25fa99ce97f6e6727bb3c005",
+  "bytes": 94
+ },
+ {
+  "file": "langfuse__0097__20250123103200_add_retention_days_to_projects.sql",
+  "original_path": "packages/shared/prisma/migrations/20250123103200_add_retention_days_to_projects/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "cd90b8b27e124378eace5eb9f6e947a6d4ea9abc24bf4722c1d25f894988cce9",
+  "bytes": 81
+ },
+ {
+  "file": "langfuse__0098__20250204180200_add_event_log_table.sql",
+  "original_path": "packages/shared/prisma/migrations/20250204180200_add_event_log_table/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "e537d42fec7bd7862beaa36b5bba708f79a16aabfa163c6271f7b12cddd05770",
+  "bytes": 758
+ },
+ {
+  "file": "langfuse__0099__20250211123300_drop_events_table.sql",
+  "original_path": "packages/shared/prisma/migrations/20250211123300_drop_events_table/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "ea4f9635d51600500a341588a267b203e525eb1c66520a837d6aec4a822889cd",
+  "bytes": 34
+ },
+ {
+  "file": "langfuse__0100__20250221143400_drop_trace_view_observation_view.sql",
+  "original_path": "packages/shared/prisma/migrations/20250221143400_drop_trace_view_observation_view/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "c2d9045a95231f3a9b7f5fbecbaaffbc4e8d6ad46785080c89d782b6832d91cf",
+  "bytes": 76
+ },
+ {
+  "file": "langfuse__0101__20250321102240_drop_queue_backup_table.sql",
+  "original_path": "packages/shared/prisma/migrations/20250321102240_drop_queue_backup_table/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "c55de5c03c91d87a6bf74930b88fb920e51b0e4b372a528fb5321327de693cc1",
+  "bytes": 43
+ },
+ {
+  "file": "langfuse__0102__20250401122159_add_prompt_protected_labels_table.sql",
+  "original_path": "packages/shared/prisma/migrations/20250401122159_add_prompt_protected_labels_table/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "948c25e12768e488ce1e6a4b26eaa13c28e9a275b6d3295284a7e40617ed0354",
+  "bytes": 697
+ },
+ {
+  "file": "langfuse__0103__20250409154352_add_dashboard_data_model.sql",
+  "original_path": "packages/shared/prisma/migrations/20250409154352_add_dashboard_data_model/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "c1feebb6294b99085d8718bdfe686b327553d4d75f3e5dda121a9b4220392c46",
+  "bytes": 2476
+ },
+ {
+  "file": "langfuse__0104__20250517173700_add_event_log_migration_background_migration.sql.sql",
+  "original_path": "packages/shared/prisma/migrations/20250517173700_add_event_log_migration_background_migration.sql/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "1ebc8e0bd8fce64470ff4ddb10d6433eb7f49ca4c2592e679c3007775c9de51d",
+  "bytes": 207
+ },
+ {
+  "file": "langfuse__0105__20250519073327_add_observation_media_media_id_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20250519073327_add_observation_media_media_id_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "61f5272463981ac091ab0c2bcf738610c8af2d950b1d5df9c5d68e74107e3004",
+  "bytes": 151
+ },
+ {
+  "file": "langfuse__0106__20250519145128_resize_dashboard_y_axis_components.sql",
+  "original_path": "packages/shared/prisma/migrations/20250519145128_resize_dashboard_y_axis_components/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "a8f96a95dc8cfc8a1a2bb57467f4e512549e8872d8b75f5288ebc9e47d049cc2",
+  "bytes": 1476
+ },
+ {
+  "file": "langfuse__0107__20250522140357_remove_obsolete_observation_media_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20250522140357_remove_obsolete_observation_media_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "ca6a5d50653d7bce40c1bdab4e95d1ddac6ecf893ff0586b711e6c2742875858",
+  "bytes": 100
+ },
+ {
+  "file": "langfuse__0108__20250523120545_add_nullable_job_template_id.sql",
+  "original_path": "packages/shared/prisma/migrations/20250523120545_add_nullable_job_template_id/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "de53e0e403e1a96e781805c4d7d50e4e0a9dd7c2fa5c15d7ece5188b6a8c943b",
+  "bytes": 249
+ },
+ {
+  "file": "langfuse__0109__20250625_add_pivot_table_charttype.sql",
+  "original_path": "packages/shared/prisma/migrations/20250625_add_pivot_table_charttype/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "0f1a3c198c8e082baf7fde16b3e00afb981309e0b433dce7578c0065a38a8bf4",
+  "bytes": 482
+ },
+ {
+  "file": "langfuse__0110__20250711105322_prices_add_project_id.sql",
+  "original_path": "packages/shared/prisma/migrations/20250711105322_prices_add_project_id/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "44fb630544bc90b86d2c4ccc2e99a6c4b75f75c36a0bfe9dc463206bbff9e363",
+  "bytes": 438
+ },
+ {
+  "file": "langfuse__0111__20250714151410_remove_trace_session_created_at_idx.sql",
+  "original_path": "packages/shared/prisma/migrations/20250714151410_remove_trace_session_created_at_idx/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "da299f404334dc11d8207232cc7b8d217f0a65e569d6bc9602455b970933d9d3",
+  "bytes": 82
+ },
+ {
+  "file": "langfuse__0112__20250724114251_add_webhooks_datasets.sql",
+  "original_path": "packages/shared/prisma/migrations/20250724114251_add_webhooks_datasets/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "6161c20073ae8e43491f7fdfd80b8b6417f33b38f6ccedd020d5610edce340cc",
+  "bytes": 135
+ },
+ {
+  "file": "langfuse__0113__20250731100100_add_dataset_run_items_pg_to_ch_background_migration.sql",
+  "original_path": "packages/shared/prisma/migrations/20250731100100_add_dataset_run_items_pg_to_ch_background_migration/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "f43befc2b530a3f734a8dd76b0f42439e1d67ff935f21a17fe407249668d5d14",
+  "bytes": 216
+ },
+ {
+  "file": "langfuse__0114__20250806100613_add_annotation_queue_assignment_table.sql",
+  "original_path": "packages/shared/prisma/migrations/20250806100613_add_annotation_queue_assignment_table/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "3c0999c35bb6420a931d7e8c8a7835894a31eb150940f5367f95117d3fc4400b",
+  "bytes": 1209
+ },
+ {
+  "file": "langfuse__0115__20250814100100_add_dataset_run_items_rmt_pg_to_ch_background_migration.sql",
+  "original_path": "packages/shared/prisma/migrations/20250814100100_add_dataset_run_items_rmt_pg_to_ch_background_migration/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "d5cd06ab55f79dbb983c7cb05b1c3c0ebec6b57aef8b4e9e1f8d80e9d102cf01",
+  "bytes": 223
+ },
+ {
+  "file": "langfuse__0116__20250820143858_optimize_job_execution_indices_drop_job_executions_job_configuration_id_idx.sql",
+  "original_path": "packages/shared/prisma/migrations/20250820143858_optimize_job_execution_indices_drop_job_executions_job_configuration_id_idx/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "28b0110bca97cf2519f72427f3c0f87a4e641007c625e634822e397776d08b86",
+  "bytes": 82
+ },
+ {
+  "file": "langfuse__0117__20250820143861_optimize_job_execution_indices_drop_job_executions_updated_at_idx.sql",
+  "original_path": "packages/shared/prisma/migrations/20250820143861_optimize_job_execution_indices_drop_job_executions_updated_at_idx/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "59eadd177ec768d814204920078a07748d9b6b34b2d3f31f2d5e5b45f72288ed",
+  "bytes": 70
+ },
+ {
+  "file": "langfuse__0118__20250825100104_job_executions_add_input_trace_timestamp.sql",
+  "original_path": "packages/shared/prisma/migrations/20250825100104_job_executions_add_input_trace_timestamp/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "357f04525683ba0f338bf4b43838325e3d00f8f6abfd43c620441be2cc937eb6",
+  "bytes": 102
+ },
+ {
+  "file": "langfuse__0119__20251001161539_organization_cloud_billing_cycle_columns.sql",
+  "original_path": "packages/shared/prisma/migrations/20251001161539_organization_cloud_billing_cycle_columns/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "98c55ee874dc193ae4e8da29af6b7a9632299996b0b5e55c363ae1345790eba5",
+  "bytes": 993
+ },
+ {
+  "file": "langfuse__0120__20251006173446_optimize_cloud_spend_alerts_add_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20251006173446_optimize_cloud_spend_alerts_add_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "0c35cadbb9bf2c9da4f3d591b068efddfc55d33c9a5a44bbd19718514db5ce8a",
+  "bytes": 112
+ },
+ {
+  "file": "langfuse__0121__20251024193002_add_mixpanel_integration.sql",
+  "original_path": "packages/shared/prisma/migrations/20251024193002_add_mixpanel_integration/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "97a083477711212c9ef77e41a15ff8291cdffbdfe94dea8d732a11f59c67a875",
+  "bytes": 598
+ },
+ {
+  "file": "langfuse__0122__20251028143654_add_notification_preferences_redundant_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20251028143654_add_notification_preferences_redundant_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "753a24433bf3c1ad91286aa1386dd09adfbad07a7700181ed6bd8ffb0903f414",
+  "bytes": 190
+ },
+ {
+  "file": "langfuse__0123__20251104091248_add_dataset_schema_enforcement.sql",
+  "original_path": "packages/shared/prisma/migrations/20251104091248_add_dataset_schema_enforcement/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "4539f882a9af0a1df5648916a4dd1a696466cdb959b836671e6cf723356f19b9",
+  "bytes": 115
+ },
+ {
+  "file": "langfuse__0124__20251126000000_add_comment_search_indexes.sql",
+  "original_path": "packages/shared/prisma/migrations/20251126000000_add_comment_search_indexes/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "d34dde65b379a6c9066644d5d25f14be7e60a09fede3142c7ead7dc7cef17681",
+  "bytes": 309
+ },
+ {
+  "file": "langfuse__0125__20251201095227_dataset_items_add_version_cols.sql",
+  "original_path": "packages/shared/prisma/migrations/20251201095227_dataset_items_add_version_cols/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "b04f5357cc717c434147daab6b9a3aada5f90a5ef26785774e2bee5e5df74442",
+  "bytes": 445
+ },
+ {
+  "file": "langfuse__0126__20251210130559_add_batch_action_table.sql",
+  "original_path": "packages/shared/prisma/migrations/20251210130559_add_batch_action_table/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "5e1403468438a63b700c71f3072e38d4fbb7e2d3d0be691d1abecd2c69e0e105",
+  "bytes": 1134
+ },
+ {
+  "file": "langfuse__0127__20251215230232_dataset_items_add_idx_project_id_id_valid_from.sql",
+  "original_path": "packages/shared/prisma/migrations/20251215230232_dataset_items_add_idx_project_id_id_valid_from/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "869be9c8e198cbcdcaf7f6e19d23249fa3e9dba8ec5c3ada4f027f803f4952e7",
+  "bytes": 154
+ },
+ {
+  "file": "langfuse__0128__20251215233905_backfill_dataset_items_valid_to.sql",
+  "original_path": "packages/shared/prisma/migrations/20251215233905_backfill_dataset_items_valid_to/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "e95fafd4296d94b4fcd7f9a21cd1f9fd3a926e8f6eabfd0feb8b23da8aa312d0",
+  "bytes": 197
+ },
+ {
+  "file": "langfuse__0129__20260106120000_add_encrypt_blob_storage_secrets_background_migration.sql",
+  "original_path": "packages/shared/prisma/migrations/20260106120000_add_encrypt_blob_storage_secrets_background_migration/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "768fbea1cf6eaf62aa45b2f412b3bfc73ead616fa399d335f8ddd542ef2d800a",
+  "bytes": 186
+ },
+ {
+  "file": "langfuse__0130__20260113112907_dataset_item_events_drop_fk_datasets.sql",
+  "original_path": "packages/shared/prisma/migrations/20260113112907_dataset_item_events_drop_fk_datasets/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "5f202ec6f7a5246bea12715982ebc51de4309362b08d03b4b95eb5eb9a0639bb",
+  "bytes": 122
+ },
+ {
+  "file": "langfuse__0131__20260129183823_add_media_project_id_created_at_index.sql",
+  "original_path": "packages/shared/prisma/migrations/20260129183823_add_media_project_id_created_at_index/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "4c6109093d7af6f60e80118c830d52b021462ec3ac99476e1059a256c19c81d5",
+  "bytes": 117
+ },
+ {
+  "file": "langfuse__0132__20260203220623_pending_deletions_object_id_idx.sql",
+  "original_path": "packages/shared/prisma/migrations/20260203220623_pending_deletions_object_id_idx/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "da2a645253a47bf40a257c0ecbaa7c5afe156f9f7996111f2f907142aa0bb0f6",
+  "bytes": 284
+ },
+ {
+  "file": "langfuse__0133__20260211164349_add_default_views.sql",
+  "original_path": "packages/shared/prisma/migrations/20260211164349_add_default_views/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "da52df8ce9cb3f0d5d85e6043e935df5e1c1e5c599517aa6e3229af57188c96b",
+  "bytes": 1426
+ },
+ {
+  "file": "langfuse__0134__20260312000000_add_blob_storage_integration_error_fields.sql",
+  "original_path": "packages/shared/prisma/migrations/20260312000000_add_blob_storage_integration_error_fields/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "9162fc983fbcdb73e635c9664c8b17e06ffd48c64f51261bbae9d4ac1d9a3cbc",
+  "bytes": 181
+ },
+ {
+  "file": "langfuse__0135__20260318100001_drop_job_executions_project_id_id_idx.sql",
+  "original_path": "packages/shared/prisma/migrations/20260318100001_drop_job_executions_project_id_id_idx/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "e6b830c963ad7661a213637f7ec7554e400d80ac570aa9d75ecb14d58ac332c0",
+  "bytes": 85
+ },
+ {
+  "file": "langfuse__0136__20260327000000_add_free_form_score_config_data_type.sql",
+  "original_path": "packages/shared/prisma/migrations/20260327000000_add_free_form_score_config_data_type/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "dcffca3e2f70e83a632aea5d679d3ff0ed1b87ccf08f23112679d4d6952e7d39",
+  "bytes": 66
+ },
+ {
+  "file": "langfuse__0137__20260506000000_add_blob_storage_export_field_groups.sql",
+  "original_path": "packages/shared/prisma/migrations/20260506000000_add_blob_storage_export_field_groups/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "6983174e87fa77811aa0ef6c97c76ecb79b3ceab400250994bb04959c17c62f6",
+  "bytes": 248
+ },
+ {
+  "file": "langfuse__0138__20260518090000_add_code_eval_template_fields.sql",
+  "original_path": "packages/shared/prisma/migrations/20260518090000_add_code_eval_template_fields/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "779189634db9446ca8916de0f28f4cd8dc2dc6d1b36cbba4232bf807b5bc76c8",
+  "bytes": 523
+ },
+ {
+  "file": "langfuse__0139__20260521130000_add_in_app_agent_api_key_marker.sql",
+  "original_path": "packages/shared/prisma/migrations/20260521130000_add_in_app_agent_api_key_marker/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "5564ccf946bbc087e0ceb31eaabb4d00df806026dfc52fac9260762a14c8b05e",
+  "bytes": 89
+ },
+ {
+  "file": "langfuse__0140__20260529120000_add_organization_ai_telemetry_enabled.sql",
+  "original_path": "packages/shared/prisma/migrations/20260529120000_add_organization_ai_telemetry_enabled/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "f2c192172516a84d06fdb4440fc93567c4548a1a3d200c18a72dfe3d0512104d",
+  "bytes": 94
+ },
+ {
+  "file": "langfuse__0141__20260610000000_add_web_callout_endpoints.sql",
+  "original_path": "packages/shared/prisma/migrations/20260610000000_add_web_callout_endpoints/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "0ab624bbe15acaeb27770e29ac670c650902de86f096ad3f5a775eacf06cbaec",
+  "bytes": 1037
+ },
+ {
+  "file": "langfuse__0142__20260612000000_drop_job_executions_job_template_id_fkey.sql",
+  "original_path": "packages/shared/prisma/migrations/20260612000000_drop_job_executions_job_template_id_fkey/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "3db95e683fe4c1bcd2a0d7bb05adf4060f89e03a9589eb22fa4335b6c523551d",
+  "bytes": 114
+ },
+ {
+  "file": "langfuse__0143__20260619120000_add_blob_storage_export_tuning.sql",
+  "original_path": "packages/shared/prisma/migrations/20260619120000_add_blob_storage_export_tuning/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "eeb2562fc44636a26e92f7bd7bf3ae11a68c400583acf1d129d4862c32ea4e92",
+  "bytes": 90
+ },
+ {
+  "file": "langfuse__0144__20260623093628_add_sfdc_id_columns.sql",
+  "original_path": "packages/shared/prisma/migrations/20260623093628_add_sfdc_id_columns/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "ce3bb83cb9be031aa921255e77b836a19b439ccf96a0e4888d2fdf1028aacf06",
+  "bytes": 63
+ },
+ {
+  "file": "langfuse__0145__20260701115500_add_create_root_spans_background_migration.sql",
+  "original_path": "packages/shared/prisma/migrations/20260701115500_add_create_root_spans_background_migration/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "cba4799499c6fdc934c71d75cc51a131ed8e1d54c87432422676667fab486888",
+  "bytes": 726
+ },
+ {
+  "file": "langfuse__0146__20260701115503_add_backfill_events_full_from_dris_background_migration.sql",
+  "original_path": "packages/shared/prisma/migrations/20260701115503_add_backfill_events_full_from_dris_background_migration/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "000776c0c71901f4ea0bdbaffcab430f27b6136038b1b119b66586c2bc7dfcd3",
+  "bytes": 1448
+ },
+ {
+  "file": "langfuse__0147__20260706000000_add_api_key_created_by.sql",
+  "original_path": "packages/shared/prisma/migrations/20260706000000_add_api_key_created_by/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "82b1ad93981e64bdb69c02b006c36856a4a347878f23c2bccdd9671b6d26fc68",
+  "bytes": 629
+ },
+ {
+  "file": "langfuse__0148__20260721120000_add_boolean_score_widget_views.sql",
+  "original_path": "packages/shared/prisma/migrations/20260721120000_add_boolean_score_widget_views/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "e0a5ae87805a692c90b8d219ed0ce90ac39e1f0dd1ba499ba790d837e056928d",
+  "bytes": 119
+ },
+ {
+  "file": "langfuse__0149__20260723150000_drop_legacy_tracing_tables.sql",
+  "original_path": "packages/shared/prisma/migrations/20260723150000_drop_legacy_tracing_tables/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "d1320da380713a4bfe99fa23f672307a91f8c48267db22d727da7d28c8b2f4a3",
+  "bytes": 1054
+ },
+ {
+  "file": "langfuse__0150__20260806120000_add_in_app_agent_conversation_always_allowed_tools.sql",
+  "original_path": "packages/shared/prisma/migrations/20260806120000_add_in_app_agent_conversation_always_allowed_tools/migration.sql",
+  "repo": "https://github.com/langfuse/langfuse",
+  "sha256": "79cf93fa8dc73af6961942cf5bbfc7666ae1e0e7fe860854d2f72658df44d18d",
+  "bytes": 136
+ }
+]

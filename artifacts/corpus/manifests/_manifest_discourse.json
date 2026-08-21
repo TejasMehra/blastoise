@@ -1,0 +1,1752 @@
+[
+ {
+  "file": "discourse__0001__20000225050318_add_schema_migration_details.sql",
+  "original_path": "db/migrate/20000225050318_add_schema_migration_details.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "39228e11d4e5f908ae048d8e9d638d9e6fefa27e21ff611b46f61a4043fbe70f",
+  "bytes": 176
+ },
+ {
+  "file": "discourse__0002__20120425145456_add_display_username_to_users.sql",
+  "original_path": "db/migrate/20120425145456_add_display_username_to_users.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "e3fe24690f6f2b3418ea87ac9d4e4aca164bf492c90e0aa42dfdb301bbab3a2c",
+  "bytes": 151
+ },
+ {
+  "file": "discourse__0003__20120502192121_add_last_post_user_id_to_forum_threads.sql",
+  "original_path": "db/migrate/20120502192121_add_last_post_user_id_to_forum_threads.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "93f3b693bc34b5eac3c3d2f1c295f58800f7eef332e92e038f8f7b57c7fe97ca",
+  "bytes": 145
+ },
+ {
+  "file": "discourse__0004__20120514144549_add_reply_count_to_posts.sql",
+  "original_path": "db/migrate/20120514144549_add_reply_count_to_posts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "44d702bfcde4c554ce845b2533078a64ac42faabadc5baa907a23ab495251ab6",
+  "bytes": 132
+ },
+ {
+  "file": "discourse__0005__20120530150726_create_forum_thread_user.sql",
+  "original_path": "db/migrate/20120530150726_create_forum_thread_user.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "193047998d967383cf264677d596e8294b455cbb0937359f0866de50c1e63206",
+  "bytes": 25
+ },
+ {
+  "file": "discourse__0006__20120625145714_add_seen_notification_id_to_users.sql",
+  "original_path": "db/migrate/20120625145714_add_seen_notification_id_to_users.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "82be6c3dbc2c2d401797a5f3e300931c68186ba6ed1a4ed4bdf2e3b75dc08f49",
+  "bytes": 31
+ },
+ {
+  "file": "discourse__0007__20120629143908_rename_expression_type_id.sql",
+  "original_path": "db/migrate/20120629143908_rename_expression_type_id.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "7e8c43e3b161d1996d021910275aa72006f3c2be48f0b64bcf90577e09723913",
+  "bytes": 104
+ },
+ {
+  "file": "discourse__0008__20120704201743_add_view_count_to_posts.sql",
+  "original_path": "db/migrate/20120704201743_add_view_count_to_posts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "dc1b382cb3d50c28fc4673bcb91b5b39a58cc615433cee3272b541bff5e1868b",
+  "bytes": 160
+ },
+ {
+  "file": "discourse__0009__20120708210305_add_last_posted_at_to_users.sql",
+  "original_path": "db/migrate/20120708210305_add_last_posted_at_to_users.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "f5e368d418015c625927159e4327cec0769500193d6d1511573403def45fed90",
+  "bytes": 195
+ },
+ {
+  "file": "discourse__0010__20120712151934_add_category_id_to_forum_threads.sql",
+  "original_path": "db/migrate/20120712151934_add_category_id_to_forum_threads.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "fd70af6b340b5d495bd1cf83ad7cbe6556d6424e5b12e26496705ae18d4fa148",
+  "bytes": 144
+ },
+ {
+  "file": "discourse__0011__20120720162422_add_forum_id_to_categories.sql",
+  "original_path": "db/migrate/20120720162422_add_forum_id_to_categories.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "03dcc4f4f1a08986cb5894c02ffe1f9b4530a2ce5f110570b7841cba81fb3da4",
+  "bytes": 64
+ },
+ {
+  "file": "discourse__0012__20120727150428_rename_invisible.sql",
+  "original_path": "db/migrate/20120727150428_rename_invisible.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "45de6b9cc968abd740c78d53c58462e5a5d84a4b314c4f5990ddabfdb7241ff2",
+  "bytes": 82
+ },
+ {
+  "file": "discourse__0013__20120809053414_correct_indexing_on_posts.sql",
+  "original_path": "db/migrate/20120809053414_correct_indexing_on_posts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "9a1dbdbabd0e7b1fb3fb0939c78a9a1eaebf80ef0af55b9cfcfd75cb3186eebe",
+  "bytes": 323
+ },
+ {
+  "file": "discourse__0014__20120815004411_add_unique_index_to_forum_thread_links.sql",
+  "original_path": "db/migrate/20120815004411_add_unique_index_to_forum_thread_links.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "f68cf3b5d3ec8686ee6d69bcb0d6a586362f620898b802ec0525a0091c1f1ba6",
+  "bytes": 355
+ },
+ {
+  "file": "discourse__0015__20120816205538_add_starred_at_to_forum_thread_user.sql",
+  "original_path": "db/migrate/20120816205538_add_starred_at_to_forum_thread_user.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "fa424fe321cd410a0e0eee7558a7a964380ab7256c2db3681ce1c6b2c707d4f1",
+  "bytes": 178
+ },
+ {
+  "file": "discourse__0016__20120821191616_add_bumped_at_to_forum_threads.sql",
+  "original_path": "db/migrate/20120821191616_add_bumped_at_to_forum_threads.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "cf71bda5222853b81268773ef5bcb036ca42819f349656bb410c496fda5c8050",
+  "bytes": 54
+ },
+ {
+  "file": "discourse__0017__20120921155050_create_archetypes.sql",
+  "original_path": "db/migrate/20120921155050_create_archetypes.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "ccef4d0fe21ecd1d21616cd19644b23090992349c7f814a7f692d6f809a8de35",
+  "bytes": 231
+ },
+ {
+  "file": "discourse__0018__20120921163606_create_archetype_options.sql",
+  "original_path": "db/migrate/20120921163606_create_archetype_options.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "d0f84640ca3fae39979ac4c788a18907d7bde452663935cab532e1b346ff6269",
+  "bytes": 343
+ },
+ {
+  "file": "discourse__0019__20120925171620_remove_english_from_post_action_types.sql",
+  "original_path": "db/migrate/20120925171620_remove_english_from_post_action_types.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "b3c2837b1647912d2cdde40327276fc1a192a2520081051d6d2a4d0b88bdf990",
+  "bytes": 89
+ },
+ {
+  "file": "discourse__0020__20121018182709_fix_notification_data.sql",
+  "original_path": "db/migrate/20121018182709_fix_notification_data.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "494dfe0483ea22b8e5cc6697c7a5d1d47630e227954bb2cd38cb96da8abe9ff5",
+  "bytes": 79
+ },
+ {
+  "file": "discourse__0021__20130115012140_merge_mute_options_on_topic_users.sql",
+  "original_path": "db/migrate/20130115012140_merge_mute_options_on_topic_users.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "44d11bdaf7a479aa836ad3d00fe12926ee8d5543b1495a26f2192bbc0bf9630d",
+  "bytes": 271
+ },
+ {
+  "file": "discourse__0022__20130120222728_fix_search.sql",
+  "original_path": "db/migrate/20130120222728_fix_search.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "cda966ff3e5495929e033e860800d86443fcb4606d3cb2e1ef5e7fc6e1cebd7a",
+  "bytes": 536
+ },
+ {
+  "file": "discourse__0023__20130123070909_auto_track_all_topics_replied_to.sql",
+  "original_path": "db/migrate/20130123070909_auto_track_all_topics_replied_to.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "49025b19b7fcbd662e822c2b7292b9fbf53dad39e695f509d10497464ffbeb2a",
+  "bytes": 279
+ },
+ {
+  "file": "discourse__0024__20130129163244_add_time_read_to_users.sql",
+  "original_path": "db/migrate/20130129163244_add_time_read_to_users.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "d7d6c00923028a370e09644a0e0f90656311557bb2b34f44e4060c96d78ad60d",
+  "bytes": 53
+ },
+ {
+  "file": "discourse__0025__20130203204338_add_last_version_at_to_posts.sql",
+  "original_path": "db/migrate/20130203204338_add_last_version_at_to_posts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "5d303300b217dc2fb261e61bf3c0c8726128e37e36640a574c96025000a6665f",
+  "bytes": 283
+ },
+ {
+  "file": "discourse__0026__20130213021450_remove_topic_response_actions.sql",
+  "original_path": "db/migrate/20130213021450_remove_topic_response_actions.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "63061a01dc1f27d8c5ddb5cd56b5931503f0a9ddded6a525d0a808cf8e41ada4",
+  "bytes": 49
+ },
+ {
+  "file": "discourse__0027__20130315180637_enable_trigram_support.sql",
+  "original_path": "db/migrate/20130315180637_enable_trigram_support.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "883bdc7980664d62f9cb6d9d90d800a94fcbe80ce03015b2e1eb14f69a0ac6f7",
+  "bytes": 66
+ },
+ {
+  "file": "discourse__0028__20130320012100_add_user_indexes_to_posts_and_topics.sql",
+  "original_path": "db/migrate/20130320012100_add_user_indexes_to_posts_and_topics.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "ac3352733d2682bcb30dfa0d459a0713138f5c1381073f83b4784dce15a35ee4",
+  "bytes": 291
+ },
+ {
+  "file": "discourse__0029__20130322183614_add_percent_rank_to_posts.sql",
+  "original_path": "db/migrate/20130322183614_add_percent_rank_to_posts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "79b63994b181dce405e853b8818aa51da4da0529d7b00df856753c4c16f4bfe4",
+  "bytes": 241
+ },
+ {
+  "file": "discourse__0030__20130416170855_add_subtype_to_topics.sql",
+  "original_path": "db/migrate/20130416170855_add_subtype_to_topics.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "77de3c1ec0aee2da3e09cd5f6f577b47b0e2789e3e9e41eac823a704c69a758b",
+  "bytes": 81
+ },
+ {
+  "file": "discourse__0031__20130506020935_add_automatic_to_groups.sql",
+  "original_path": "db/migrate/20130506020935_add_automatic_to_groups.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "86b7be967d2b69da66c6bbe598a8b0e78886078e496a84e199a1dc65e0833937",
+  "bytes": 46
+ },
+ {
+  "file": "discourse__0032__20130527152648_add_like_score_to_posts.sql",
+  "original_path": "db/migrate/20130527152648_add_like_score_to_posts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "9c6ea4d99dcfcf1016fec7869583ce778f7c2fc31b477aab9193f73614093c41",
+  "bytes": 496
+ },
+ {
+  "file": "discourse__0033__20130625022454_change_ip_to_inet_in_views.sql",
+  "original_path": "db/migrate/20130625022454_change_ip_to_inet_in_views.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "8f936fe5d2f1875d131b2fe2ddcb8017ba2b9876231b7d44b1e334aa9ea1e918",
+  "bytes": 171
+ },
+ {
+  "file": "discourse__0034__20130728172550_add_url_to_optimized_images.sql",
+  "original_path": "db/migrate/20130728172550_add_url_to_optimized_images.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "a3d61189caf3cf94db560d0ffaff208b08a0c55bc30ab5caae9470cc4f09d4b6",
+  "bytes": 460
+ },
+ {
+  "file": "discourse__0035__20130828192526_fix_optimized_images_urls.sql",
+  "original_path": "db/migrate/20130828192526_fix_optimized_images_urls.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "2f9fc763cc00cc520fc289006f57d13db737b399157391581a8f92707972feb7",
+  "bytes": 533
+ },
+ {
+  "file": "discourse__0036__20130911182437_create_user_stats.sql",
+  "original_path": "db/migrate/20130911182437_create_user_stats.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "eae0bd82952a2e29fd4eadc837b6c76eb2c15e751dd6a977714f7c072bbc3e7c",
+  "bytes": 107
+ },
+ {
+  "file": "discourse__0037__20131003061137_move_columns_to_user_stats.sql",
+  "original_path": "db/migrate/20131003061137_move_columns_to_user_stats.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "08446133d7cead10bc3fc6b2ea5d5165704e165278b4e87238d411752053bad4",
+  "bytes": 880
+ },
+ {
+  "file": "discourse__0038__20131017014509_add_post_count_to_categories.sql",
+  "original_path": "db/migrate/20131017014509_add_post_count_to_categories.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "36189287b5ea40b734908459fce5126fc0bac9ae2a4e1f6fa74c62779b5bbf1b",
+  "bytes": 172
+ },
+ {
+  "file": "discourse__0039__20131022045114_add_uncategorized_category.sql",
+  "original_path": "db/migrate/20131022045114_add_uncategorized_category.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "d9a229122dc79454fa9fa3d58c6c7eb82a2a579ae72233fc27e816709d0e6e93",
+  "bytes": 703
+ },
+ {
+  "file": "discourse__0040__20131114185225_add_participant_count_to_topics.sql",
+  "original_path": "db/migrate/20131114185225_add_participant_count_to_topics.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "b856371e1f06194432c52a3b2fe0e65c917c09ee440fdace5fdf47c930afb198",
+  "bytes": 135
+ },
+ {
+  "file": "discourse__0041__20131206200009_rename_auto_close_days_to_hours.sql",
+  "original_path": "db/migrate/20131206200009_rename_auto_close_days_to_hours.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "850f5bf38530db7a54d2e79966521b8728e18573b4a8c5b7290400eff5247f4d",
+  "bytes": 128
+ },
+ {
+  "file": "discourse__0042__20131210181901_migrate_word_counts.sql",
+  "original_path": "db/migrate/20131210181901_migrate_word_counts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "1201e36ebb73c5b06023fef5415719c68922d0fc73f4b78778853ad527d20932",
+  "bytes": 234
+ },
+ {
+  "file": "discourse__0043__20131216164557_make_position_nullable_in_categories.sql",
+  "original_path": "db/migrate/20131216164557_make_position_nullable_in_categories.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "880e74c0707e2dea019d5fab1ce0ea2a7cd3feb2a590aa9c22e340ab5b4d2960",
+  "bytes": 58
+ },
+ {
+  "file": "discourse__0044__20140109205940_rename_favorites_to_starred.sql",
+  "original_path": "db/migrate/20140109205940_rename_favorites_to_starred.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "4ceaf8113b9ec9a9dc24014994d8e9f56b9ad9e24995dfb06d80e3664a701bb8",
+  "bytes": 382
+ },
+ {
+  "file": "discourse__0045__20140220163213_rename_delete_user_max_age.sql",
+  "original_path": "db/migrate/20140220163213_rename_delete_user_max_age.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "7656692fb66c158d28d0dd874d1e6839b4b83ba2452571d2d08b90bf7554cfe0",
+  "bytes": 96
+ },
+ {
+  "file": "discourse__0046__20140306223522_move_topic_revisions_to_post_revisions.sql",
+  "original_path": "db/migrate/20140306223522_move_topic_revisions_to_post_revisions.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "65e8c73abc565ff7379fe28b76c46980738dbfee26699ee574383228ccc463ec",
+  "bytes": 623
+ },
+ {
+  "file": "discourse__0047__20140318203559_add_created_at_index_to_posts.sql",
+  "original_path": "db/migrate/20140318203559_add_created_at_index_to_posts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "bc84c6ce5389006e6ee5d1894d78e1918cedc37397afee73fd9a1c0a1fe824ce",
+  "bytes": 252
+ },
+ {
+  "file": "discourse__0048__20140425135354_add_topic_custom_fields.sql",
+  "original_path": "db/migrate/20140425135354_add_topic_custom_fields.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "ee6d54cee4a5132237a431a756814c97aa2972515db74bb0ed094937c86a87cc",
+  "bytes": 171
+ },
+ {
+  "file": "discourse__0049__20140506200235_remove_seed_color_scheme.sql",
+  "original_path": "db/migrate/20140506200235_remove_seed_color_scheme.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "0bafef4ea7e53564efe062ac93d6b60cfab159712f5ba2a3c6af0c5c9c2e0f32",
+  "bytes": 101
+ },
+ {
+  "file": "discourse__0050__20140521220115_google_openid_default_has_changed.sql",
+  "original_path": "db/migrate/20140521220115_google_openid_default_has_changed.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "96a815a2aa76644a246b8a61516c983213c8a2e3ec3d62c0af60353bc0cd6882",
+  "bytes": 269
+ },
+ {
+  "file": "discourse__0051__20140527163207_create_user_profiles.sql",
+  "original_path": "db/migrate/20140527163207_create_user_profiles.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "79154e3c829708a9397cfab2ccd3c5443014ad6e5ac74880a71f7f44221c9a44",
+  "bytes": 113
+ },
+ {
+  "file": "discourse__0052__20140610034314_move_bio_to_user_profiles.sql",
+  "original_path": "db/migrate/20140610034314_move_bio_to_user_profiles.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "0a3927323596114376383409ac726f526fe4deb994ff7a5571ef552377d8c027",
+  "bytes": 407
+ },
+ {
+  "file": "discourse__0053__20140617080955_rename_registered_users.sql",
+  "original_path": "db/migrate/20140617080955_rename_registered_users.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "75e49e3778f65e3b51964b5cec5a2dd1fb1dbd1a8dd3c12e055e9f09e3e03a95",
+  "bytes": 87
+ },
+ {
+  "file": "discourse__0054__20140623195618_fix_categories_constraint.sql",
+  "original_path": "db/migrate/20140623195618_fix_categories_constraint.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "1a4aafae68c9b48d34fb5e2d2af89ad41dd03210c38da9ca0b0c4953ec02fe3c",
+  "bytes": 289
+ },
+ {
+  "file": "discourse__0055__20140710005023_add_badge_posts_and_topics_view.sql",
+  "original_path": "db/migrate/20140710005023_add_badge_posts_and_topics_view.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "b08b381a81b5b6fb0e929008ab803f63cb7f9125ce1b237a3e504ac7a75bfc7b",
+  "bytes": 297
+ },
+ {
+  "file": "discourse__0056__20140711143146_remove_not_null_from_email.sql",
+  "original_path": "db/migrate/20140711143146_remove_not_null_from_email.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "07cd5b068e2a384a0ef73d596fb7f9b283c27cd1e577c3c36827e9def0bbd311",
+  "bytes": 109
+ },
+ {
+  "file": "discourse__0057__20140715013018_correct_post_number_index.sql",
+  "original_path": "db/migrate/20140715013018_correct_post_number_index.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "054745b5872955fe4d9d13ba17cdceb8ae3791630a2576f16e73f60d2438b671",
+  "bytes": 437
+ },
+ {
+  "file": "discourse__0058__20140718041445_set_default_badge_grouping.sql",
+  "original_path": "db/migrate/20140718041445_set_default_badge_grouping.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "fb1bc613f41c823c57de0a4eb049602a6280f2d2f5573918ce61d9a04cc093c6",
+  "bytes": 74
+ },
+ {
+  "file": "discourse__0059__20140725050636_remove_invalid_incoming_links.sql",
+  "original_path": "db/migrate/20140725050636_remove_invalid_incoming_links.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "d55fc0f461dc69f7dbf570f33309248f40831b5f9cc32154d967e55755e27691",
+  "bytes": 60
+ },
+ {
+  "file": "discourse__0060__20140728144308_add_first_post_created_at_to_user_stat.sql",
+  "original_path": "db/migrate/20140728144308_add_first_post_created_at_to_user_stat.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "2cd0c2b777b1fca3812e8742a68b90565b4bcd3f4bbf83e1f8470d8008f5b284",
+  "bytes": 400
+ },
+ {
+  "file": "discourse__0061__20140731011328_add_reply_quoted_to_posts.sql",
+  "original_path": "db/migrate/20140731011328_add_reply_quoted_to_posts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "f4a4ae30613a3522f5b661b879275338e997f6e074443266064c7b5e2ba990a3",
+  "bytes": 353
+ },
+ {
+  "file": "discourse__0062__20140804010803_incoming_link_normalization.sql",
+  "original_path": "db/migrate/20140804010803_incoming_link_normalization.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "f75a3c1d6a744c3c08145a507c755e2569a566d1a416f8ae6b3cf4e136d8b54b",
+  "bytes": 1209
+ },
+ {
+  "file": "discourse__0063__20140808051823_create_topic_search_index.sql",
+  "original_path": "db/migrate/20140808051823_create_topic_search_index.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "46cee1c1cc8a52def275fbe2ad7f63d3fd24f158f37d601bea000863e0712eb2",
+  "bytes": 77
+ },
+ {
+  "file": "discourse__0064__20140815215618_add_name_lower_to_categories.sql",
+  "original_path": "db/migrate/20140815215618_add_name_lower_to_categories.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "18a5d39ffffa62a61244a7ffad8b25865390a2e5e2ac37f8069bc133b321fd0b",
+  "bytes": 49
+ },
+ {
+  "file": "discourse__0065__20140827044811_remove_nullable_dates.sql",
+  "original_path": "db/migrate/20140827044811_remove_nullable_dates.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "fc7d2ed99aa866cd6b47093fb9ac22f63c90ae426b062323c8eda0617b052fe0",
+  "bytes": 334
+ },
+ {
+  "file": "discourse__0066__20140904215629_rename_trust_level_settings.sql",
+  "original_path": "db/migrate/20140904215629_rename_trust_level_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "d866fe33841c113d3db6b1acf1dd0e579d337d06d8580246a4742273b0eccd88",
+  "bytes": 267
+ },
+ {
+  "file": "discourse__0067__20140911065449_private_messages_have_no_category_id.sql",
+  "original_path": "db/migrate/20140911065449_private_messages_have_no_category_id.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "67d879935ed58fe5f81e362fbc64ef60ef4185f0d46c3746ffa586a3e6ec3166",
+  "bytes": 222
+ },
+ {
+  "file": "discourse__0068__20140929204155_migrate_tos_setting.sql",
+  "original_path": "db/migrate/20140929204155_migrate_tos_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "0db47ae3b4a40ead064e48108df867a24a3e5a8d75b7405500692abfb43c66cb",
+  "bytes": 156
+ },
+ {
+  "file": "discourse__0069__20141007224814_add_badge_granted_title_to_user_profile.sql",
+  "original_path": "db/migrate/20141007224814_add_badge_granted_title_to_user_profile.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "6e0c2b527922e49cc70b9360f072c82540f62d90d92c183adfb7f6d999f07655",
+  "bytes": 358
+ },
+ {
+  "file": "discourse__0070__20141118011735_correct_username_search.sql",
+  "original_path": "db/migrate/20141118011735_correct_username_search.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "417bd3194cad6c566b67ffa16c85f95af28d22a3c2259e0df94499ceb50cb1bd",
+  "bytes": 198
+ },
+ {
+  "file": "discourse__0071__20150108202057_create_bookmark_actions.sql",
+  "original_path": "db/migrate/20150108202057_create_bookmark_actions.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "94d718ed74adf94254867daada69ba4c1bda284030964804985642e87d570807",
+  "bytes": 955
+ },
+ {
+  "file": "discourse__0072__20150205032808_reset_application_requests.sql",
+  "original_path": "db/migrate/20150205032808_reset_application_requests.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "e67d14e7d55822468b2062a9db0ba075fe85a427acb761b3766a9d1d77829456",
+  "bytes": 38
+ },
+ {
+  "file": "discourse__0073__20150325183400_fix_group_user_count.sql",
+  "original_path": "db/migrate/20150325183400_fix_group_user_count.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "dbaaee6a02a490e4f38a58e43cb3adabaee5e84b93185445229105a900a9836a",
+  "bytes": 104
+ },
+ {
+  "file": "discourse__0074__20150609163211_migrate_embeddable_host.sql",
+  "original_path": "db/migrate/20150609163211_migrate_embeddable_host.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "a5b0cbffd42d69239d40d233b344ad8ece614852864d051863a5c3342ff191ce",
+  "bytes": 99
+ },
+ {
+  "file": "discourse__0075__20150724165259_add_index_to_post_custom_fields.sql",
+  "original_path": "db/migrate/20150724165259_add_index_to_post_custom_fields.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "1ce3f694fc7bb51297d948b6fc22b834dcee569f77ee99d497b44c051d90bea9",
+  "bytes": 173
+ },
+ {
+  "file": "discourse__0076__20150731225331_migrate_old_moved_posts.sql",
+  "original_path": "db/migrate/20150731225331_migrate_old_moved_posts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "704d74b292a2fc443ae8b117fea9cfa39a74177a6c8e8a9a8dcc566eeb613cae",
+  "bytes": 276
+ },
+ {
+  "file": "discourse__0077__20150822141540_fix_migrated_hosts.sql",
+  "original_path": "db/migrate/20150822141540_fix_migrated_hosts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "485a1ed94d28c819de373a297932f89c73e4173bfac483a577cc8e818240f0d5",
+  "bytes": 83
+ },
+ {
+  "file": "discourse__0078__20151103233815_add_lower_title_index_on_topics.sql",
+  "original_path": "db/migrate/20151103233815_add_lower_title_index_on_topics.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "97264230e052a93d6df96e9eab662b9fdabd17f7e26d357163c38c72e95a4094",
+  "bytes": 109
+ },
+ {
+  "file": "discourse__0079__20151109124147_drop_group_managers.sql",
+  "original_path": "db/migrate/20151109124147_drop_group_managers.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "0367c75e66c47ad168706a4cfa5308a88f4b40a3567a6cf071f56a6f05136c16",
+  "bytes": 215
+ },
+ {
+  "file": "discourse__0080__20151219045559_add_has_messages_to_groups.sql",
+  "original_path": "db/migrate/20151219045559_add_has_messages_to_groups.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "ba0af5124e96fa13b38ae0f36dab496ace5168afe9643964bc7e1bf0cd72cf39",
+  "bytes": 125
+ },
+ {
+  "file": "discourse__0081__20160110053003_archive_system_messages_with_no_replies.sql",
+  "original_path": "db/migrate/20160110053003_archive_system_messages_with_no_replies.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "a6ebb581048ea60944ea3f44bf235ed37fed6ae559f51708723780cbb217386a",
+  "bytes": 554
+ },
+ {
+  "file": "discourse__0082__20160118174335_rebake_html_customizations.sql",
+  "original_path": "db/migrate/20160118174335_rebake_html_customizations.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "f6a8cd26412ed78d6caa8bb6d2261c060cef02c25727458050cc996619a6c578",
+  "bytes": 401
+ },
+ {
+  "file": "discourse__0083__20160127222802_migrate_uncategorized_description_setting.sql",
+  "original_path": "db/migrate/20160127222802_migrate_uncategorized_description_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "3ea61bbab2f353b430a92838713fc2c7352cb8e5c908c72b66ebb91523d44f62",
+  "bytes": 69
+ },
+ {
+  "file": "discourse__0084__20160206210202_remove_invalid_websites.sql",
+  "original_path": "db/migrate/20160206210202_remove_invalid_websites.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "698ef5f1a1aa1abe17e60d4e285dc334a9321959810b749f4c29b7216c2770fa",
+  "bytes": 68
+ },
+ {
+  "file": "discourse__0085__20160225050319_move_tracking_options_to_user_options.sql",
+  "original_path": "db/migrate/20160225050319_move_tracking_options_to_user_options.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "4737257e053f0093f9acd263b0bc0f52eee8ff3c11dd4911b3d0bcd34f0fbd11",
+  "bytes": 300
+ },
+ {
+  "file": "discourse__0086__20160302170230_rename_digest_after_days_to_digest_after_minutes.sql",
+  "original_path": "db/migrate/20160302170230_rename_digest_after_days_to_digest_after_minutes.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "e440b22db74d99ad2e608a79b4cb76a116ebba6fdb9d42115d56f03384715529",
+  "bytes": 505
+ },
+ {
+  "file": "discourse__0087__20160317174357_create_given_daily_likes.sql",
+  "original_path": "db/migrate/20160317174357_create_given_daily_likes.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "f92ece800bbe7029454548867042a3a0373c2c7859b36ed9e795c0385364ebdd",
+  "bytes": 67
+ },
+ {
+  "file": "discourse__0088__20160514100852_remove_invalid_topic_user.sql",
+  "original_path": "db/migrate/20160514100852_remove_invalid_topic_user.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "2e406ea844e9c1a2cf3fd40a211780d4a8f64a305d238e0f17c7a64f6d53ad2c",
+  "bytes": 162
+ },
+ {
+  "file": "discourse__0089__20160615165447_rename_num_flags_to_block_new_user.sql",
+  "original_path": "db/migrate/20160615165447_rename_num_flags_to_block_new_user.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "43292cb6915f389a7b6209a6249d71ee469a95508ba2512d06175fd2443ee0d9",
+  "bytes": 224
+ },
+ {
+  "file": "discourse__0090__20161013012136_add_scopes_to_user_api_keys.sql",
+  "original_path": "db/migrate/20161013012136_add_scopes_to_user_api_keys.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "033d762bc33a67e5e4904be39a22acc954dd223e8c24ca6f3d8140dbd9010433",
+  "bytes": 215
+ },
+ {
+  "file": "discourse__0091__20161202034856_add_uploads_to_categories.sql",
+  "original_path": "db/migrate/20161202034856_add_uploads_to_categories.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "ae02d859887456553a12ef59609eb080b4afe7352cd9dd0c963ca03650746ded",
+  "bytes": 320
+ },
+ {
+  "file": "discourse__0092__20170227211458_add_featured_topics_to_categories.sql",
+  "original_path": "db/migrate/20170227211458_add_featured_topics_to_categories.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "a0a80d5893aeddee0d8dfdba2cecf01a2e15ecad75d9ed91205ebbf3fc45cebc",
+  "bytes": 91
+ },
+ {
+  "file": "discourse__0093__20170313192741_add_themes.sql",
+  "original_path": "db/migrate/20170313192741_add_themes.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "d78c1905e2769ddd99457d038b7530f711b3e089d3432939f1a64c76301a6f85",
+  "bytes": 468
+ },
+ {
+  "file": "discourse__0094__20170330041605_add_index_to_topic_status_updates.sql",
+  "original_path": "db/migrate/20170330041605_add_index_to_topic_status_updates.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "bb32d13cb5ef860ca87ab102fbd94bb016369ea0f3655cee4f644c68ca21074b",
+  "bytes": 189
+ },
+ {
+  "file": "discourse__0095__20170505035229_migrate_mailing_list_daily_updates_users_to_daily_summary.sql",
+  "original_path": "db/migrate/20170505035229_migrate_mailing_list_daily_updates_users_to_daily_summary.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "1272e1902db5ccf4e049290a890ec8e2a2a861735ac9d6f147b5388763905fa4",
+  "bytes": 170
+ },
+ {
+  "file": "discourse__0096__20170511080007_rename_convert_pasted_images_quality_site_setting.sql",
+  "original_path": "db/migrate/20170511080007_rename_convert_pasted_images_quality_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "e5a02402cff0d3e3e3b6173319883f98a7fe8bd92997e77e76a6d709e193b32b",
+  "bytes": 200
+ },
+ {
+  "file": "discourse__0097__20170602132735_fix_group_allow_membership_requests.sql",
+  "original_path": "db/migrate/20170602132735_fix_group_allow_membership_requests.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "3c2942f4277155b6526baaa175b21742f4af421a9abc97641de347f905a907fd",
+  "bytes": 164
+ },
+ {
+  "file": "discourse__0098__20170704142141_add_visible_back_to_groups.sql",
+  "original_path": "db/migrate/20170704142141_add_visible_back_to_groups.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "389d88efe012c112fcf87e43a8cf4292853934f1d3b2a3eea8b8582a3e681e9e",
+  "bytes": 63
+ },
+ {
+  "file": "discourse__0099__20170725075535_correct_default_email_mailing_list_mode_frequency.sql",
+  "original_path": "db/migrate/20170725075535_correct_default_email_mailing_list_mode_frequency.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "93177b44cbc23f010fec8599d286d7853949446dc004222eb3673ae3361ebfb2",
+  "bytes": 112
+ },
+ {
+  "file": "discourse__0100__20170818191909_split_alias_levels.sql",
+  "original_path": "db/migrate/20170818191909_split_alias_levels.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "e7c5d609593e43769e6144c1b9b9fa6e40e490fa8d6c8ea4bce1d41a0bf7b6f1",
+  "bytes": 85
+ },
+ {
+  "file": "discourse__0101__20170824172615_add_slug_index_on_topic.sql",
+  "original_path": "db/migrate/20170824172615_add_slug_index_on_topic.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "7772d73a8b90dfe44bf97c12465840e9d355edd2b2a55a309da7b148c0b1d7e5",
+  "bytes": 116
+ },
+ {
+  "file": "discourse__0102__20171110174413_rename_blocked_silence.sql",
+  "original_path": "db/migrate/20171110174413_rename_blocked_silence.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "b7bdb7dcb37ce5960281629532ef0580c49e1d7d06a5b5f98b166559e2cdb986",
+  "bytes": 38
+ },
+ {
+  "file": "discourse__0103__20171123200157_add_trust_level_locks_to_users.sql",
+  "original_path": "db/migrate/20171123200157_add_trust_level_locks_to_users.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "29bb2d3572f0463793e95d9632b9028ed8b8ef0deba844bebc867b23d69e4da6",
+  "bytes": 464
+ },
+ {
+  "file": "discourse__0104__20171213105921_replace_invite_mailer_translation_override.sql",
+  "original_path": "db/migrate/20171213105921_replace_invite_mailer_translation_override.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "4b52e629e1fb8b9104a6608d206f7f3fe6fb493d79da656a647003bd96b222e9",
+  "bytes": 567
+ },
+ {
+  "file": "discourse__0105__20180207161422_add_skipped_created_at_user_id_index_on_email_logs.sql",
+  "original_path": "db/migrate/20180207161422_add_skipped_created_at_user_id_index_on_email_logs.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "0410133340e680bc8d347c23407ea1ed9e236eba5358a745bd814a00a61c979f",
+  "bytes": 157
+ },
+ {
+  "file": "discourse__0106__20180223222415_remove_censored_pattern_site_setting.sql",
+  "original_path": "db/migrate/20180223222415_remove_censored_pattern_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "ee39e70710b803276a8908ae4fbb2181969a0ff248f94675d837ac89426951aa",
+  "bytes": 370
+ },
+ {
+  "file": "discourse__0107__20180425152503_drop_user_card_badge_columns.sql",
+  "original_path": "db/migrate/20180425152503_drop_user_card_badge_columns.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "8e07475c222ccd5638f4f8c57714b2c9a9cf6af5e9268969223335cfbecac12b",
+  "bytes": 393
+ },
+ {
+  "file": "discourse__0108__20180607095414_migrate_disable_emails.sql",
+  "original_path": "db/migrate/20180607095414_migrate_disable_emails.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "e9d152af305c0c6ddd4beeb8ddcb953599255da14063a3cbc7903fb2218ed836",
+  "bytes": 244
+ },
+ {
+  "file": "discourse__0109__20180710172959_disallow_multi_levels_theme_components.sql",
+  "original_path": "db/migrate/20180710172959_disallow_multi_levels_theme_components.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "4a6daf9365dda4806140fa203aa1e15dc6d8be8aec76e1b2b9ca286a3143e567",
+  "bytes": 230
+ },
+ {
+  "file": "discourse__0110__20180718062728_create_post_reply_keys.sql",
+  "original_path": "db/migrate/20180718062728_create_post_reply_keys.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "8bf5bb73a441af948ed4adbf96c2db2ff2176c25ef3248af73ad192f4b9cd50d",
+  "bytes": 571
+ },
+ {
+  "file": "discourse__0111__20180813074843_add_component_to_themes.sql",
+  "original_path": "db/migrate/20180813074843_add_component_to_themes.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "9fb4566e5df06c2cb53110871e29429467d2c7b5bae48106d285e7daad4861d2",
+  "bytes": 399
+ },
+ {
+  "file": "discourse__0112__20180916195601_migrate_s3_backup_site_settings.sql",
+  "original_path": "db/migrate/20180916195601_migrate_s3_backup_site_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "ce1513bc914d3430cd3c510f358f9133a369010f54cdbead16da26fd2f195160",
+  "bytes": 498
+ },
+ {
+  "file": "discourse__0113__20180928105835_add_index_to_tags.sql",
+  "original_path": "db/migrate/20180928105835_add_index_to_tags.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "8239d2e8f438905bb8e21aa125f6570a4d9196d176bae35c428e930d174f1b5f",
+  "bytes": 143
+ },
+ {
+  "file": "discourse__0114__20181120140552_migrate_corporate_site_settings.sql",
+  "original_path": "db/migrate/20181120140552_migrate_corporate_site_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "ad5f689a0438ee6774c4940e13c64728b80dde2ee1945aaa73dafc9d48aa60c4",
+  "bytes": 198
+ },
+ {
+  "file": "discourse__0115__20181207141900_migrate_twitter_user_info.sql",
+  "original_path": "db/migrate/20181207141900_migrate_twitter_user_info.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "aa608d80216766e80289befab03c5e18dec65d4865d36d3ada151644ec5eb94f",
+  "bytes": 392
+ },
+ {
+  "file": "discourse__0116__20190110201340_remove_google_plus_from_share_links_site_setting.sql",
+  "original_path": "db/migrate/20190110201340_remove_google_plus_from_share_links_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "0a5e3c1153c3cb0082c2615842e7dfd3344c9527fd5487937a37cb785e6ceb38",
+  "bytes": 159
+ },
+ {
+  "file": "discourse__0117__20190130163001_migrate_reviewable_flagged_posts.sql",
+  "original_path": "db/migrate/20190130163001_migrate_reviewable_flagged_posts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "6f79ce1af205507f3301b9f9cc096fe64db845cf15484890bf01d77e66dcbcdd",
+  "bytes": 95
+ },
+ {
+  "file": "discourse__0118__20190227210035_add_missing_topic_id_site_settings.sql",
+  "original_path": "db/migrate/20190227210035_add_missing_topic_id_site_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "45d3d96dcac9119392a134e186fe9262bfbeaf1788d78ede329c77dc5ee73143",
+  "bytes": 1765
+ },
+ {
+  "file": "discourse__0119__20190312181641_migrate_email_user_options.sql",
+  "original_path": "db/migrate/20190312181641_migrate_email_user_options.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "c40a4e6cdddb88e7e5edbffc9e5d9392be464435ace84200d7f3c515f46f5f17",
+  "bytes": 327
+ },
+ {
+  "file": "discourse__0120__20190320104640_remove_s3_force_path_style.sql",
+  "original_path": "db/migrate/20190320104640_remove_s3_force_path_style.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "65cae0410f2db834703333598d477330f890c9375859415e820487f68cc84b62",
+  "bytes": 63
+ },
+ {
+  "file": "discourse__0121__20190325162154_make_site_settings_unique.sql",
+  "original_path": "db/migrate/20190325162154_make_site_settings_unique.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "f496d3a6ad8da56c96ff744e68213b0666f11d4aa71c654db1a69a84704617c3",
+  "bytes": 104
+ },
+ {
+  "file": "discourse__0122__20190410102915_remove_ignore_user_enabled_site_setting.sql",
+  "original_path": "db/migrate/20190410102915_remove_ignore_user_enabled_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "225d3b6978cbad9ddea6b4e51ac902e1bbcd09393ed4e13c20639baea314d17c",
+  "bytes": 63
+ },
+ {
+  "file": "discourse__0123__20190418113814_add_unique_index_to_group_requests.sql",
+  "original_path": "db/migrate/20190418113814_add_unique_index_to_group_requests.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "5ea5e40711f8bc988883515dca1cb99fc6f221a318a9164152a60f12b4945bf7",
+  "bytes": 109
+ },
+ {
+  "file": "discourse__0124__20190430135846_migrate_english_locale.sql",
+  "original_path": "db/migrate/20190430135846_migrate_english_locale.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "535e6045f11cba5014e5ab2b9941ce842dd6f9c936a87c15c69acc95a757037e",
+  "bytes": 704
+ },
+ {
+  "file": "discourse__0125__20190513143015_add_theme_id_to_javascript_cache.sql",
+  "original_path": "db/migrate/20190513143015_add_theme_id_to_javascript_cache.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "7deedb5477b4ddfdd97a56f166713d6e9068ae80afd7b99c172b706b26cee4d1",
+  "bytes": 429
+ },
+ {
+  "file": "discourse__0126__20190531101648_merge_remove_muted_tags_from_latest_site_settings.sql",
+  "original_path": "db/migrate/20190531101648_merge_remove_muted_tags_from_latest_site_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "4f4f070f2e757ecbd9e8d3bbb3e49c7c504ce9348a4ebd3aecc4ad0b1a2844ef",
+  "bytes": 307
+ },
+ {
+  "file": "discourse__0127__20190705173948_renumber_group_visibility_levels.sql",
+  "original_path": "db/migrate/20190705173948_renumber_group_visibility_levels.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "42932d3f5635ec47746db2baf18ba9f0687898fad051c9c165129ca446333a7e",
+  "bytes": 476
+ },
+ {
+  "file": "discourse__0128__20190716014949_rename_deprecated_badge_icons.sql",
+  "original_path": "db/migrate/20190716014949_rename_deprecated_badge_icons.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "7c284468209ebe055ca3813fafcdc38f0972c71136e5275a65aefabe57f7c878",
+  "bytes": 248
+ },
+ {
+  "file": "discourse__0129__20190731090219_rename_edit_notification_setting.sql",
+  "original_path": "db/migrate/20190731090219_rename_edit_notification_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "8646fe19c04895e2f70474a955855c5f7da12afd6fb9974d1a7de8735cc1a88b",
+  "bytes": 112
+ },
+ {
+  "file": "discourse__0130__20191025005204_amend_oauth2_user_info_index.sql",
+  "original_path": "db/migrate/20191025005204_amend_oauth2_user_info_index.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "576c78ae9dc886446b3e417c7fce76282f7b11a612ba49803a432819357a4a30",
+  "bytes": 61
+ },
+ {
+  "file": "discourse__0131__20191108000414_add_unique_index_to_drafts.sql",
+  "original_path": "db/migrate/20191108000414_add_unique_index_to_drafts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "eb0c881a96c8af7e436d4a4ffb427816d1a9996580ef3c3cee075af791641eb2",
+  "bytes": 303
+ },
+ {
+  "file": "discourse__0132__20191220134101_add_distinct_badge_count_to_user_stats.sql",
+  "original_path": "db/migrate/20191220134101_add_distinct_badge_count_to_user_stats.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "b9f1a73e6eada0039d57c4e7548e4f137edcd40f1f312f7f7698814846b211d9",
+  "bytes": 511
+ },
+ {
+  "file": "discourse__0133__20200117172135_add_trigger_to_sync_post_replies.sql",
+  "original_path": "db/migrate/20200117172135_add_trigger_to_sync_post_replies.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "cae53cecc2fa0dd3e5fa3bc849a0cbe9698707326ee66012ba7cadff2a68be92",
+  "bytes": 518
+ },
+ {
+  "file": "discourse__0134__20200320193612_back_fill_topic_timer_durations.sql",
+  "original_path": "db/migrate/20200320193612_back_fill_topic_timer_durations.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "0cf0edc2fecd8163044a2ea5fe35615fe76b0c4baf0bee488cece4358e579e6c",
+  "bytes": 302
+ },
+ {
+  "file": "discourse__0135__20200417183143_add_created_at_to_badge_user.sql",
+  "original_path": "db/migrate/20200417183143_add_created_at_to_badge_user.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "e0b6ad42456155e2af84901f49933f07403caf215949b55a7670356e2d398876",
+  "bytes": 74
+ },
+ {
+  "file": "discourse__0136__20200429095034_add_topic_thumbnail_information.sql",
+  "original_path": "db/migrate/20200429095034_add_topic_thumbnail_information.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "7c33f0c033f9a86b761522582a45f281b532ce8d389ad303c155e3831180afb7",
+  "bytes": 391
+ },
+ {
+  "file": "discourse__0137__20200430010528_remove_avg_time_from_topics_posts.sql",
+  "original_path": "db/migrate/20200430010528_remove_avg_time_from_topics_posts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "db483cf832684ed349eb4523efa1096972bf2654cc12f2c84505e773f3445372",
+  "bytes": 515
+ },
+ {
+  "file": "discourse__0138__20200601130900_correct_schema_discrepancies.sql",
+  "original_path": "db/migrate/20200601130900_correct_schema_discrepancies.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "bf46be417c4bfb5edbe3fdd71827103393aea9e8cbae978eac321b86be29273f",
+  "bytes": 65
+ },
+ {
+  "file": "discourse__0139__20200611104600_create_missing_badge_indexes.sql",
+  "original_path": "db/migrate/20200611104600_create_missing_badge_indexes.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "f658ba7a5a3cb53cb3ddd7bb712447f362a05d40f8a4fa271ac8f8642eee163c",
+  "bytes": 206
+ },
+ {
+  "file": "discourse__0140__20200618175923_delete_tracking_state_for_staged_users.sql",
+  "original_path": "db/migrate/20200618175923_delete_tracking_state_for_staged_users.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "b0ed2163d361f8904e339e723196339b5c889c5618481c74b72f5f8d2ccb9409",
+  "bytes": 187
+ },
+ {
+  "file": "discourse__0141__20200708035330_fix_topic_user_bookmarked_sync_issues.sql",
+  "original_path": "db/migrate/20200708035330_fix_topic_user_bookmarked_sync_issues.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "4cf9464a04b1fe1bc26d078ad2fd68c835562ee6ccab09074940d53f1a274e3e",
+  "bytes": 314
+ },
+ {
+  "file": "discourse__0142__20200714105026_delete_allow_animated_avatars_site_setting.sql",
+  "original_path": "db/migrate/20200714105026_delete_allow_animated_avatars_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "7645b82f9799414d605f08efd6f828757bd57bfd6d8f315f5f8bc3756ec7d853",
+  "bytes": 66
+ },
+ {
+  "file": "discourse__0143__20200728022830_sync_topic_user_bookmarked_column_with_bookmarks.sql",
+  "original_path": "db/migrate/20200728022830_sync_topic_user_bookmarked_column_with_bookmarks.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "9ff901fee7959fa93e9cba364f3e000bcb77ae3f0d3501de436c7d5237953860",
+  "bytes": 854
+ },
+ {
+  "file": "discourse__0144__20200805163400_rename_post_image_site_settings.sql",
+  "original_path": "db/migrate/20200805163400_rename_post_image_site_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "41034da116ec9ba25970a755de15d49e7178532667fb4b1de09255ba9df156a3",
+  "bytes": 852
+ },
+ {
+  "file": "discourse__0145__20200818084329_update_private_message_on_post_search_data.sql",
+  "original_path": "db/migrate/20200818084329_update_private_message_on_post_search_data.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "587bb772b214c527b1af25dc241afa55318c56910616cdae945739a00ad201e2",
+  "bytes": 973
+ },
+ {
+  "file": "discourse__0146__20200902054531_add_first_unread_pm_a_to_group_user.sql",
+  "original_path": "db/migrate/20200902054531_add_first_unread_pm_a_to_group_user.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "e536b249c41d4b0f3cec9a2c54e8d9178d31eeed3b53c240b1e3eb6359f17275",
+  "bytes": 68
+ },
+ {
+  "file": "discourse__0147__20200903045539_add_index_topics_on_timestamps_private.sql",
+  "original_path": "db/migrate/20200903045539_add_index_topics_on_timestamps_private.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "fcc1bb18e8cc24d0b12286c6b72c33fa04bed77ba0ff557daf602be0b320ecb1",
+  "bytes": 197
+ },
+ {
+  "file": "discourse__0148__20201103103401_add_not_null_to_ignored_users.sql",
+  "original_path": "db/migrate/20201103103401_add_not_null_to_ignored_users.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "fff4a6a946e0aeb5f4346cd6e9af79a56dee1475d067832a600e3bf97de1c755",
+  "bytes": 114
+ },
+ {
+  "file": "discourse__0149__20201116132948_set_themes_auto_update_false.sql",
+  "original_path": "db/migrate/20201116132948_set_themes_auto_update_false.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "8ee8aa5fb7b9a233bf77ec138751e78fc7b0da5f29c2d9d59463b2b13acf78e3",
+  "bytes": 79
+ },
+ {
+  "file": "discourse__0150__20201223071241_delete_stale_category_search_priorities_from_site_settings.sql",
+  "original_path": "db/migrate/20201223071241_delete_stale_category_search_priorities_from_site_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "cc1e8545bcc1590f17cf7d1ac771de7bacaf12a8785bed42f064957cd7a43470",
+  "bytes": 132
+ },
+ {
+  "file": "discourse__0151__20210201034048_move_category_last_seen_at_to_new_table.sql",
+  "original_path": "db/migrate/20210201034048_move_category_last_seen_at_to_new_table.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "cc59b269fa3aafb38fbf47918dd6a71a67dbb0b8ea5b93c93648b8227fcb6a48",
+  "bytes": 1172
+ },
+ {
+  "file": "discourse__0152__20210219171329_drop_old_sso_site_settings.sql",
+  "original_path": "db/migrate/20210219171329_drop_old_sso_site_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "2519f45766a38816aab84a7dc233dd6ace6c5071c5a96e64bb7d68ee9db22036",
+  "bytes": 696
+ },
+ {
+  "file": "discourse__0153__20210302164429_drop_flash_onebox_site_setting.sql",
+  "original_path": "db/migrate/20210302164429_drop_flash_onebox_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "35ab4ecd237aca8a1a5d965a3331366382eef997376576556effe9d820dfcdd9",
+  "bytes": 76
+ },
+ {
+  "file": "discourse__0154__20210308195916_add_unique_index_to_invited_groups.sql",
+  "original_path": "db/migrate/20210308195916_add_unique_index_to_invited_groups.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "fb82521ff91376fe22119f01854872f19960515ed9177b7fe11601ffcbd1034c",
+  "bytes": 162
+ },
+ {
+  "file": "discourse__0155__20210323142518_update_invites_redemption_count.sql",
+  "original_path": "db/migrate/20210323142518_update_invites_redemption_count.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "9915c2197ed8f82f576050afcc93ff9fbe7251234b5ec02f1bc6cdaa02f67150",
+  "bytes": 295
+ },
+ {
+  "file": "discourse__0156__20210426193009_move_approved_queued_posts_topic_and_post_data.sql",
+  "original_path": "db/migrate/20210426193009_move_approved_queued_posts_topic_and_post_data.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "7facdeadf5e77e3080dcdce42cbac4e646918f2359c603eac8e6c544ef0bc48b",
+  "bytes": 381
+ },
+ {
+  "file": "discourse__0157__20210617202227_change_automatic_on_directory_columns_to_bool.sql",
+  "original_path": "db/migrate/20210617202227_change_automatic_on_directory_columns_to_bool.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "3b0596b070fd58940ab49698d218211a10bbd76822dafa7468e014ed4e11c8d4",
+  "bytes": 67
+ },
+ {
+  "file": "discourse__0158__20210720221817_add_draft_count_to_user_stat.sql",
+  "original_path": "db/migrate/20210720221817_add_draft_count_to_user_stat.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "cb0443146f6ffa3dcbfdddbf7e0cfce4ec1d76d48070e9df9947e0c4db6329c4",
+  "bytes": 419
+ },
+ {
+  "file": "discourse__0159__20210914152002_update_value_on_theme_setting_for_upload_type.sql",
+  "original_path": "db/migrate/20210914152002_update_value_on_theme_setting_for_upload_type.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "ffb5b7ab8d3499da568eb3bf3f5383955c5b150150136fc0a4b9d3dacee3fcb2",
+  "bytes": 272
+ },
+ {
+  "file": "discourse__0160__20211013092406_add_normalized_email_to_user_email.sql",
+  "original_path": "db/migrate/20211013092406_add_normalized_email_to_user_email.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "4f4625d8177c63d3d18948bdcdc654b903aae3a7468e9e7a919bcba58d50bc26",
+  "bytes": 145
+ },
+ {
+  "file": "discourse__0161__20211123033311_reset_first_unread_pm_at_on_user_stat.sql",
+  "original_path": "db/migrate/20211123033311_reset_first_unread_pm_at_on_user_stat.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "6c4ce5646d3697983ea5ff9a8325bde0d7b4bb24ffdae485032d03e7690ea069",
+  "bytes": 113
+ },
+ {
+  "file": "discourse__0162__20211216191224_remove_advanced_editor_preview_site_setting.sql",
+  "original_path": "db/migrate/20211216191224_remove_advanced_editor_preview_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "53b3da89cba643147641c2376b9c4f7fe412ef82b98dd617aa83c1957f3727d7",
+  "bytes": 79
+ },
+ {
+  "file": "discourse__0163__20211224011511_delete_experimental_composer_upload_setting.sql",
+  "original_path": "db/migrate/20211224011511_delete_experimental_composer_upload_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "3ac439716d147355ad98510cdb0990038fdfce9a8e36bb8743ad07b5be38d6e0",
+  "bytes": 81
+ },
+ {
+  "file": "discourse__0164__20220126052157_change_segment_cjk_site_setting.sql",
+  "original_path": "db/migrate/20220126052157_change_segment_cjk_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "23814d3a86a9a3b9043c3798b97543dd8ec2c2003265bbf3840e4a1dccc85be9",
+  "bytes": 213
+ },
+ {
+  "file": "discourse__0165__20220309132719_copy_post_uploads_to_upload_references.sql",
+  "original_path": "db/migrate/20220309132719_copy_post_uploads_to_upload_references.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "232d6faf27132a4ed3c8cc4cb2e99b3e84774f4d3063665c9e3f8d066ec4e816",
+  "bytes": 312
+ },
+ {
+  "file": "discourse__0166__20220316150247_reset_bookmarks_reminder_last_sent_at.sql",
+  "original_path": "db/migrate/20220316150247_reset_bookmarks_reminder_last_sent_at.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "a7956e1275a636eacbc135cd5762aac4b730552426112c3f9907af5c97ed64fb",
+  "bytes": 108
+ },
+ {
+  "file": "discourse__0167__20220330160740_cleanup_selectable_avatars_data.sql",
+  "original_path": "db/migrate/20220330160740_cleanup_selectable_avatars_data.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "cb2d4796878d6803f8fae242d5f64796f3ede1b12dd1444d560e4ce30471600f",
+  "bytes": 74
+ },
+ {
+  "file": "discourse__0168__20220330160751_copy_badges_uploads_to_upload_references.sql",
+  "original_path": "db/migrate/20220330160751_copy_badges_uploads_to_upload_references.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "8dfb6f064b619f0e6b8c4b3f375e8fd7904a4aecfab37589b955f76d0ba54a88",
+  "bytes": 344
+ },
+ {
+  "file": "discourse__0169__20220330160757_copy_user_exports_uploads_to_upload_references.sql",
+  "original_path": "db/migrate/20220330160757_copy_user_exports_uploads_to_upload_references.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "c9559d3302789fd5e5399bc6a749a07e32b910c6ca48ed029a76f88acdde7958",
+  "bytes": 313
+ },
+ {
+  "file": "discourse__0170__20220404195635_copy_categories_uploads_to_upload_references.sql",
+  "original_path": "db/migrate/20220404195635_copy_categories_uploads_to_upload_references.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "f51baa6537687acc09424c612a267514d3ea4293fd556b7240b659a78ad4a711",
+  "bytes": 758
+ },
+ {
+  "file": "discourse__0171__20220404203356_copy_user_profiles_uploads_to_upload_references.sql",
+  "original_path": "db/migrate/20220404203356_copy_user_profiles_uploads_to_upload_references.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "37c80081b16bae6fb12a96a53187f04f01fb979c491df4118a4d63fe3da5b520",
+  "bytes": 849
+ },
+ {
+  "file": "discourse__0172__20220404212716_copy_theme_settings_uploads_to_upload_references.sql",
+  "original_path": "db/migrate/20220404212716_copy_theme_settings_uploads_to_upload_references.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "66bfa05390abb53d0352883835bec7f7f79d4817838c1d400f784d774b9a869f",
+  "bytes": 420
+ },
+ {
+  "file": "discourse__0173__20220428094027_fix_post_hotlinked_media_index.sql",
+  "original_path": "db/migrate/20220428094027_fix_post_hotlinked_media_index.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "a654874b185da73d7af9deb3a61cb34c7e1498f53225dd6eb8f48faca6745c8f",
+  "bytes": 232
+ },
+ {
+  "file": "discourse__0174__20220510131525_remove_allow_staff_to_tag_pms_site_setting.sql",
+  "original_path": "db/migrate/20220510131525_remove_allow_staff_to_tag_pms_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "4fbe4028191a3a05202850caa24ec073241973530cbc0791757c75b885d83e24",
+  "bytes": 66
+ },
+ {
+  "file": "discourse__0175__20220607150432_disallow_null_emoji_on_user_status.sql",
+  "original_path": "db/migrate/20220607150432_disallow_null_emoji_on_user_status.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "11c323be51fbc97c92c54470a942acc2e666b1e71a2553752369da17f2a0f468",
+  "bytes": 52
+ },
+ {
+  "file": "discourse__0176__20220818171849_move_tl_user_history_to_previous_and_new_value.sql",
+  "original_path": "db/migrate/20220818171849_move_tl_user_history_to_previous_and_new_value.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "b2aab81bfd519601e9b3d8dcfbfd554281dece0dfaef06607a9b4c7072c1f630",
+  "bytes": 483
+ },
+ {
+  "file": "discourse__0177__20220920044310_enforce_user_profile_max_limits.sql",
+  "original_path": "db/migrate/20220920044310_enforce_user_profile_max_limits.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "4c96b80de252f1ed9f688a44083dc4f024e6ff0b8a6bd9997589844609d10979",
+  "bytes": 224
+ },
+ {
+  "file": "discourse__0178__20221017223309_fix_general_category_id.sql",
+  "original_path": "db/migrate/20221017223309_fix_general_category_id.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "240c904c05a398a8356b05ccba369b3e2606bb475c431f6093a65a935cf009f7",
+  "bytes": 95
+ },
+ {
+  "file": "discourse__0179__20221101181505_hide_all_user_tips_for_existent_users.sql",
+  "original_path": "db/migrate/20221101181505_hide_all_user_tips_for_existent_users.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "2c9522ae6556c6a799fc95bcb0d7499eca6acdfb89fc1679cc1dc9ce85b69d31",
+  "bytes": 94
+ },
+ {
+  "file": "discourse__0180__20221125173217_remove_enable_whispers_site_setting.sql",
+  "original_path": "db/migrate/20221125173217_remove_enable_whispers_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "8f0c6a490f8ff91560ec9b3c2f1a4a9d930878cf668686700b3e5f9bd5ea9d61",
+  "bytes": 827
+ },
+ {
+  "file": "discourse__0181__20230103004613_make_experimental_hashtag_feature_default_for_new_sites.sql",
+  "original_path": "db/migrate/20230103004613_make_experimental_hashtag_feature_default_for_new_sites.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "db6b7a7cbd2a73a2a6d3aefb73739b26f15dc63bc6d19447e8a7d22dfccf733a",
+  "bytes": 188
+ },
+ {
+  "file": "discourse__0182__20230117143451_drop_invalid_drafts.sql",
+  "original_path": "db/migrate/20230117143451_drop_invalid_drafts.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "3eaa841451864b06f6ed502b8f19ad709c837200a730012623c9581fc841699e",
+  "bytes": 54
+ },
+ {
+  "file": "discourse__0183__20230119094939_remove_wildcard_from_email_domain_site_settings.sql",
+  "original_path": "db/migrate/20230119094939_remove_wildcard_from_email_domain_site_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "d27f6814ed73dbaa790914b0a8d339448a86ffca8ea4a3628aad98a272f56ab0",
+  "bytes": 225
+ },
+ {
+  "file": "discourse__0184__20230202021414_remove_enable_new_user_profile_nav_groups_site_settings.sql",
+  "original_path": "db/migrate/20230202021414_remove_enable_new_user_profile_nav_groups_site_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "42a651ad74ab144cc67a785da1e42847de75a92bfbffbdc4637a1c725641fbae",
+  "bytes": 78
+ },
+ {
+  "file": "discourse__0185__20230207042719_add_limits_to_sidebar_sections_and_sidebar_urls.sql",
+  "original_path": "db/migrate/20230207042719_add_limits_to_sidebar_sections_and_sidebar_urls.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "5449e1141383725a1629e902272cd8e6f1fcf26087c5d59edc0a86606b5df7a0",
+  "bytes": 59
+ },
+ {
+  "file": "discourse__0186__20230328034956_add_sidebar_section_id_index_to_sidebar_section_link.sql",
+  "original_path": "db/migrate/20230328034956_add_sidebar_section_id_index_to_sidebar_section_link.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "da0342a369b4e76d559a0f7108750d94358c763126897a74dc1bc75c6069a897",
+  "bytes": 391
+ },
+ {
+  "file": "discourse__0187__20230403094936_change_google_analytics_default.sql",
+  "original_path": "db/migrate/20230403094936_change_google_analytics_default.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "6c403d234b68ac405222ef8335ff9ebb690d70ad110fef379ee8124e59d14271",
+  "bytes": 168
+ },
+ {
+  "file": "discourse__0188__20230411032053_insert_community_to_sidebar_sections.sql",
+  "original_path": "db/migrate/20230411032053_insert_community_to_sidebar_sections.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "5f04841d823a123f09953136d5ef49d4c6c0b9f9ac08ed3cec4f4d7b707ea022",
+  "bytes": 283
+ },
+ {
+  "file": "discourse__0189__20230501022508_rename_notify_about_flags_after_site_setting.sql",
+  "original_path": "db/migrate/20230501022508_rename_notify_about_flags_after_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "40bea135e596ba788e99505a915a67488741c64763024c704cc3b08e26cdc570",
+  "bytes": 222
+ },
+ {
+  "file": "discourse__0190__20230509214723_separate_trusted_users_can_edit_others_site_setting.sql",
+  "original_path": "db/migrate/20230509214723_separate_trusted_users_can_edit_others_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "0391e5a877971f4dd94d948a5bd69f5f5316c9697c8abe67f2c29474f31b29a5",
+  "bytes": 406
+ },
+ {
+  "file": "discourse__0191__20230602034711_rename_everything_to_topics_link.sql",
+  "original_path": "db/migrate/20230602034711_rename_everything_to_topics_link.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "fe6492a20c6481fde97f8536d666d0ebaf7be00a6da39527015c303d597881be",
+  "bytes": 780
+ },
+ {
+  "file": "discourse__0192__20230618041001_add_sidebar_link_to_filtered_list_to_user_option.sql",
+  "original_path": "db/migrate/20230618041001_add_sidebar_link_to_filtered_list_to_user_option.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "28df327ea0ebcebe7a8e8c6b89965f45063f2991acbd49f9643074059d8d4dbc",
+  "bytes": 112
+ },
+ {
+  "file": "discourse__0193__20230620050614_remove_default_sidebar_list_destination_setting.sql",
+  "original_path": "db/migrate/20230620050614_remove_default_sidebar_list_destination_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "5f3d63ebef63264f1b6428ef1e82bd5a09dbdcdc617e165117d9ec5987a0cc29",
+  "bytes": 76
+ },
+ {
+  "file": "discourse__0194__20230728055813_delete_orphaned_draft_upload_references.sql",
+  "original_path": "db/migrate/20230728055813_delete_orphaned_draft_upload_references.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "cd7f6f543b44402439831d7186ab984c7d420b71239daf9b441356b1790069df",
+  "bytes": 227
+ },
+ {
+  "file": "discourse__0195__20230906030920_change_auto_silence_fast_typers_setting_to_enum_type.sql",
+  "original_path": "db/migrate/20230906030920_change_auto_silence_fast_typers_setting_to_enum_type.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "646dfc94d2e3bf418f53574bcc222a1173452d24d62d8cff247dcba5f818a3ba",
+  "bytes": 346
+ },
+ {
+  "file": "discourse__0196__20231004020328_migrate_legacy_navigation_menu_site_setting.sql",
+  "original_path": "db/migrate/20231004020328_migrate_legacy_navigation_menu_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "2d895d2cf90ec889be8f1ab290fce3e2081ac6d3ebd9b5a8b4aa5f0f05420222",
+  "bytes": 105
+ },
+ {
+  "file": "discourse__0197__20231111201253_rename_experimental_passkeys_site_setting.sql",
+  "original_path": "db/migrate/20231111201253_rename_experimental_passkeys_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "90fe6a6d2d7a568a992fcd418acbafe64d50b4591528fe1a656d6fab9098b37d",
+  "bytes": 178
+ },
+ {
+  "file": "discourse__0198__20240219012001_remove_enable_experimental_admin_ui_groups_site_settings.sql",
+  "original_path": "db/migrate/20240219012001_remove_enable_experimental_admin_ui_groups_site_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "9bdfe39b7d88742ea742012efccece3f31626fb183e6ae19f4430f5dbb2b7e6c",
+  "bytes": 79
+ },
+ {
+  "file": "discourse__0199__20240327000440_replace_post_reply_index.sql",
+  "original_path": "db/migrate/20240327000440_replace_post_reply_index.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "68b40786922eacc3f2cfd45274a17d5d23e4e71c630a36989c349757d3647189",
+  "bytes": 593
+ },
+ {
+  "file": "discourse__0200__20240422015830_remove_admin_guide_tooltip_from_seen_popups.sql",
+  "original_path": "db/migrate/20240422015830_remove_admin_guide_tooltip_from_seen_popups.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "768db07ea94b3fe54279f955bcae389369a5dbb04e012238ba652bb6299d3bb2",
+  "bytes": 266
+ },
+ {
+  "file": "discourse__0201__20240506035024_clear_orphaned_draft_upload_references.sql",
+  "original_path": "db/migrate/20240506035024_clear_orphaned_draft_upload_references.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "cd7f6f543b44402439831d7186ab984c7d420b71239daf9b441356b1790069df",
+  "bytes": 227
+ },
+ {
+  "file": "discourse__0202__20240610150449_limit_tag_group_name_length.sql",
+  "original_path": "db/migrate/20240610150449_limit_tag_group_name_length.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "29f77046fc1365e329229f13666b1060ad397e3d9b1ee0833b09921d3f0ace55",
+  "bytes": 87
+ },
+ {
+  "file": "discourse__0203__20240709010639_remove_cross_origin_unsafe_none_referrers_setting.sql",
+  "original_path": "db/migrate/20240709010639_remove_cross_origin_unsafe_none_referrers_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "d287187a8860654a98ab74e5e2f4158ff51786368dc847f4ffba18f516bd7d17",
+  "bytes": 92
+ },
+ {
+  "file": "discourse__0204__20240712050324_default_github_onebox_token.sql",
+  "original_path": "db/migrate/20240712050324_default_github_onebox_token.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "c826639cb79d5d21f3aa761c1c2789c477c050b8da681cfdfc359dc28e5277dc",
+  "bytes": 70
+ },
+ {
+  "file": "discourse__0205__20240717171840_rename_chat_preferred_mobile_index_setting.sql",
+  "original_path": "db/migrate/20240717171840_rename_chat_preferred_mobile_index_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "97015767362979c204b52d2c151bd3b665c4dfd40a72e878de77d2438c9103ac",
+  "bytes": 200
+ },
+ {
+  "file": "discourse__0206__20240729084803_create_user_api_key_clients.sql",
+  "original_path": "db/migrate/20240729084803_create_user_api_key_clients.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "a986c6ebbdf70c3d866d3bce07e110872285b5d286f489d4bf71d9d495247e6c",
+  "bytes": 628
+ },
+ {
+  "file": "discourse__0207__20240807024301_update_delete_merged_stub_topics_after_days_setting.sql",
+  "original_path": "db/migrate/20240807024301_update_delete_merged_stub_topics_after_days_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "fba081c467883210f2f092c765ae16e33d8042c2f694a59c6d7f0df1da73aa5c",
+  "bytes": 216
+ },
+ {
+  "file": "discourse__0208__20240820123402_add_big_int_notifications_id.sql",
+  "original_path": "db/migrate/20240820123402_add_big_int_notifications_id.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "b25c5669be0a28791ecc6431181fc1a5337958cafd04c8c6689a19ec3e89f258",
+  "bytes": 189
+ },
+ {
+  "file": "discourse__0209__20240820123404_copy_notifications_id_indexes.sql",
+  "original_path": "db/migrate/20240820123404_copy_notifications_id_indexes.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "d9a1c81d130512e227524764f03a1adb221bec2d2ad2f442288c007fac61047e",
+  "bytes": 259
+ },
+ {
+  "file": "discourse__0210__20240820123406_drop_old_notification_id_indexes.sql",
+  "original_path": "db/migrate/20240820123406_drop_old_notification_id_indexes.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "a8eb8b1777749a0721d1afa0967cccfa0f2f944268638b81ce92ac494614248a",
+  "bytes": 262
+ },
+ {
+  "file": "discourse__0211__20240826121504_swap_big_int_shelved_notifications_notification_id.sql",
+  "original_path": "db/migrate/20240826121504_swap_big_int_shelved_notifications_notification_id.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "ed6d1274a9bdef2c4c3e5290ff96c50b04f178ebe492e547d703ba9bfe6f7134",
+  "bytes": 668
+ },
+ {
+  "file": "discourse__0212__20240826121506_copy_user_badges_notification_id_values.sql",
+  "original_path": "db/migrate/20240826121506_copy_user_badges_notification_id_values.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "637b9c5b7d5c2629bc07580877ee8f468391368470599737e46edd79dd8249e3",
+  "bytes": 43
+ },
+ {
+  "file": "discourse__0213__20240827063715_add_new_seen_notification_id_to_users.sql",
+  "original_path": "db/migrate/20240827063715_add_new_seen_notification_id_to_users.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "7432f0b252e6186563aa7f4bab739d6f0f2cb2b09e35c58ac990b64910588c3b",
+  "bytes": 83
+ },
+ {
+  "file": "discourse__0214__20240828191047_create_category_moderation_groups.sql",
+  "original_path": "db/migrate/20240828191047_create_category_moderation_groups.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "8cdc9deb96e7f856568d2ca2d9d222a8baf59fbf90e7043a3acce530b64b0738",
+  "bytes": 239
+ },
+ {
+  "file": "discourse__0215__20240909121255_rebake_user_onebox.sql",
+  "original_path": "db/migrate/20240909121255_rebake_user_onebox.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "52fc640ad0408cfdad4259188162b5a9eecdbda981c047c554baeab850050946",
+  "bytes": 88
+ },
+ {
+  "file": "discourse__0216__20240912061702_drop_user_search_similar_results_site_setting.sql",
+  "original_path": "db/migrate/20240912061702_drop_user_search_similar_results_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "8e14b6e6a354f62bd253737025f4f1935957cb43f5b98456fa6dd5f3355fb227",
+  "bytes": 71
+ },
+ {
+  "file": "discourse__0217__20241030210727_split_hide_profile_and_presence.sql",
+  "original_path": "db/migrate/20241030210727_split_hide_profile_and_presence.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "12564f8e1512870a41820da573cf2da44eaeb49974d359e434322d1748230fc1",
+  "bytes": 511
+ },
+ {
+  "file": "discourse__0218__20241112145744_anonymize_normalized_email_column.sql",
+  "original_path": "db/migrate/20241112145744_anonymize_normalized_email_column.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "5cf8d5e2b82ef40c677ff27f6193f703f8bf66686555e6cb18ad411b6805c219",
+  "bytes": 119
+ },
+ {
+  "file": "discourse__0219__20241206121401_delete_categories_only_optimized_site_setting.sql",
+  "original_path": "db/migrate/20241206121401_delete_categories_only_optimized_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "0919d8de9c627f9056176739352bd964e847adb3f6c2ccc3f2c964ea3699ea4a",
+  "bytes": 111
+ },
+ {
+  "file": "discourse__0220__20250124062108_remap_deprecated_icon_names_for_seeded_badges.sql",
+  "original_path": "db/migrate/20250124062108_remap_deprecated_icon_names_for_seeded_badges.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "d14291a82d917e39bbd1fd64696de3636d2970260ddf330060e7ed5fcc55542f",
+  "bytes": 290
+ },
+ {
+  "file": "discourse__0221__20250206010037_remove_glimmer_post_menu_mode_setting.sql",
+  "original_path": "db/migrate/20250206010037_remove_glimmer_post_menu_mode_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "911c4d6907859502032db53a61350ba5ce9ed09a9a918cb396e611b7c8a88e1a",
+  "bytes": 73
+ },
+ {
+  "file": "discourse__0222__20250307034117_remove_old_admin_sidebar_enabled_groups_site_settings.sql",
+  "original_path": "db/migrate/20250307034117_remove_old_admin_sidebar_enabled_groups_site_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "d35ecae979584a65b4482e46728bb74b699d5e184a94afc8a0760c28cdfb4a8a",
+  "bytes": 72
+ },
+ {
+  "file": "discourse__0223__20250417043438_remove_old_reviewable_claimed_topics.sql",
+  "original_path": "db/migrate/20250417043438_remove_old_reviewable_claimed_topics.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "0216cd936acac46b10c52e082c5b703e9dec723100e01584c34acab3168d2364",
+  "bytes": 120
+ },
+ {
+  "file": "discourse__0224__20250513161753_rename_by_id_group.sql",
+  "original_path": "db/migrate/20250513161753_rename_by_id_group.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "cc28a9d8117eb2f56fc513c73dd0ac09980319a8067afea2d090e70e6712cc6c",
+  "bytes": 162
+ },
+ {
+  "file": "discourse__0225__20250609115711_remove_composer_tips_site_settings.sql",
+  "original_path": "db/migrate/20250609115711_remove_composer_tips_site_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "47506fbe22704bd43c290fd12ddbc00a59538e6e8b592c27f7e1226c1aab197a",
+  "bytes": 213
+ },
+ {
+  "file": "discourse__0226__20250619140551_add_user_index_to_incoming_links.sql",
+  "original_path": "db/migrate/20250619140551_add_user_index_to_incoming_links.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "000f8560ee71c13f25d1cd4ee375e92ad34989bb9548966dbe9f82b2ff3f8754",
+  "bytes": 512
+ },
+ {
+  "file": "discourse__0227__20250619140809_add_index_to_post_actions.sql",
+  "original_path": "db/migrate/20250619140809_add_index_to_post_actions.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "80c93acf769ee95752e0b2b749d37e02d0963a59ecf04fca2a5181685d604ffe",
+  "bytes": 1042
+ },
+ {
+  "file": "discourse__0228__20250620025548_add_index_to_post_actions_on_post_action_type_id.sql",
+  "original_path": "db/migrate/20250620025548_add_index_to_post_actions_on_post_action_type_id.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "25c58b10db40b443703072eeccd0321c6ce8795773c328e3a5d5af94c294a262",
+  "bytes": 173
+ },
+ {
+  "file": "discourse__0229__20250626090725_add_my_messages_link_to_sidebar.sql",
+  "original_path": "db/migrate/20250626090725_add_my_messages_link_to_sidebar.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "c004e0fff0b257c5c481de3fc9f97bd25c82415dab09e187f5a7b25b9fe1940c",
+  "bytes": 201
+ },
+ {
+  "file": "discourse__0230__20250707084732_limit_category_localization_descriptions.sql",
+  "original_path": "db/migrate/20250707084732_limit_category_localization_descriptions.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "011337da21c4d45a3b00449128e6689e2c564631497fad092032c28f51fd6371",
+  "bytes": 149
+ },
+ {
+  "file": "discourse__0231__20250709051949_disable_gravatar_enabled_if_unconfigured.sql",
+  "original_path": "db/migrate/20250709051949_disable_gravatar_enabled_if_unconfigured.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "cf06ab066fb92fa3e3476a02ef1f11172d58df6918b78a44b718e2ab8c2beb38",
+  "bytes": 369
+ },
+ {
+  "file": "discourse__0232__20250714030525_remove_experimental_system_themes_site_setting.sql",
+  "original_path": "db/migrate/20250714030525_remove_experimental_system_themes_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "5e7a9b56ec77713247d61bfe5a9f0a0a3d986285df420049c506d357275cba0a",
+  "bytes": 70
+ },
+ {
+  "file": "discourse__0233__20250804005557_enable_markdown_monospace_font_user_option.sql",
+  "original_path": "db/migrate/20250804005557_enable_markdown_monospace_font_user_option.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "979a477c0030594f6de15f7f439ac4d78e32daf095a677229db9fe3e87a8a014",
+  "bytes": 275
+ },
+ {
+  "file": "discourse__0234__20250812033430_replace_null_with_zero_in_backup_frequency.sql",
+  "original_path": "db/migrate/20250812033430_replace_null_with_zero_in_backup_frequency.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "b4a7bbab092c9a6466c9ccf20cc908302be2729bfb57700d94c3126361c75ac3",
+  "bytes": 108
+ },
+ {
+  "file": "discourse__0235__20250821150220_remove_use_overhauled_theme_color_palette_setting.sql",
+  "original_path": "db/migrate/20250821150220_remove_use_overhauled_theme_color_palette_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "bcf8cc4c2704e4fad78d550c50c39ccd11016647bf4270b3c6ca996b5d772beb",
+  "bytes": 78
+ },
+ {
+  "file": "discourse__0236__20250902072941_sync_timerable_id_topic_id.sql",
+  "original_path": "db/migrate/20250902072941_sync_timerable_id_topic_id.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "f703cd2848205a9ecdda8168f333f6b0563b98d831e65057501be5412944b34c",
+  "bytes": 44
+ },
+ {
+  "file": "discourse__0237__20250919061654_remove_floatkit_autocomplete_site_settings.sql",
+  "original_path": "db/migrate/20250919061654_remove_floatkit_autocomplete_site_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "a9e31065bcfaba1f8e518a082e2be5500c41c25791a7724bcae0f5ed99e9e8c7",
+  "bytes": 154
+ },
+ {
+  "file": "discourse__0238__20251107123438_add_index_to_tag_groups.sql",
+  "original_path": "db/migrate/20251107123438_add_index_to_tag_groups.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "2f07e6a0592eacf0d47c950150b08bc79f48f78107c23d31be9943ce8c441b8b",
+  "bytes": 167
+ },
+ {
+  "file": "discourse__0239__20251202101647_remove_experimental_lightbox_site_setting.sql",
+  "original_path": "db/migrate/20251202101647_remove_experimental_lightbox_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "5cf1197582eb6a2ba60f75d7c430e8d2407d8036f88a714dd0865ae3b92a488f",
+  "bytes": 63
+ },
+ {
+  "file": "discourse__0240__20251227224408_fix_null_targets_in_problem_check_trackers.sql",
+  "original_path": "db/migrate/20251227224408_fix_null_targets_in_problem_check_trackers.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "3b011802a25c5a9887c39e50e4ca406be75f27b54ac06ad7b87ab7faba017248",
+  "bytes": 58
+ },
+ {
+  "file": "discourse__0241__20260109041508_add_index_category_on_topics.sql",
+  "original_path": "db/migrate/20260109041508_add_index_category_on_topics.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "7c3ae4e4b2bfc1b0ccb5a138153ec1b168bf42536ed06b17aa22b208db4a7cfa",
+  "bytes": 193
+ },
+ {
+  "file": "discourse__0242__20260206000937_rename_experimental_rename_faq_to_guidelines_setting.sql",
+  "original_path": "db/migrate/20260206000937_rename_experimental_rename_faq_to_guidelines_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "88f13d9cff34c0befbe649f4b5110b7e83f765cb423113f45683fae305b29c56",
+  "bytes": 297
+ },
+ {
+  "file": "discourse__0243__20260206000939_rename_experimental_impersonation_setting.sql",
+  "original_path": "db/migrate/20260206000939_rename_experimental_impersonation_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "954e7b80de19920297473f95f726d0a667b9b57c3b60c99219b4b7bcb1b80d6e",
+  "bytes": 279
+ },
+ {
+  "file": "discourse__0244__20260217064339_remove_force_old_reviewable_ui_site_setting.sql",
+  "original_path": "db/migrate/20260217064339_remove_force_old_reviewable_ui_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "6f57defaa3dddb475e4aa5c9a438643373a8996e6151688c1bb118b91f03e59e",
+  "bytes": 67
+ },
+ {
+  "file": "discourse__0245__20260430142946_drop_powered_by_discourse_translation_override.sql",
+  "original_path": "db/migrate/20260430142946_drop_powered_by_discourse_translation_override.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "3902746f5f6e3c0232ad2dbd8f86f4dbaaa8d0cfbf7c006755a0f030c0fb1bc2",
+  "bytes": 86
+ },
+ {
+  "file": "discourse__0246__20260505161704_drop_splash_screen_site_setting.sql",
+  "original_path": "db/migrate/20260505161704_drop_splash_screen_site_setting.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "e3cafd59eba8dc8bed514252c8fe20a5b8124f8938a1e2e583860b34664e2f61",
+  "bytes": 64
+ },
+ {
+  "file": "discourse__0247__20260518104900_fixup_id_sequences.sql",
+  "original_path": "db/migrate/20260518104900_fixup_id_sequences.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "f4526bb1523ae0dde27a68b90473bc51a8bbc26818ae781bd88838a6ec6dbcc6",
+  "bytes": 602
+ },
+ {
+  "file": "discourse__0248__20260629210246_revoke_invalid_read_only_api_keys.sql",
+  "original_path": "db/migrate/20260629210246_revoke_invalid_read_only_api_keys.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "d001308f9cc73309513b52a7765ea5ec32a09a60e9aba44a76f84699724bb1c6",
+  "bytes": 599
+ },
+ {
+  "file": "discourse__0249__20260721110018_migrate_duplicate_topic_titles_settings.sql",
+  "original_path": "db/migrate/20260721110018_migrate_duplicate_topic_titles_settings.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "7842d1580cd01444e51ae85933672e7b5b6901235b2d2d7abe6d482db2f22bfb",
+  "bytes": 66
+ },
+ {
+  "file": "discourse__0250__20260728150000_alter_web_hook_events_id_sequence_to_bigint.sql",
+  "original_path": "db/migrate/20260728150000_alter_web_hook_events_id_sequence_to_bigint.rb",
+  "repo": "https://github.com/discourse/discourse",
+  "sha256": "e5ebfa03265a361069585148c91c8523fa95d4eb072dc4bd1738b9e4c3484d46",
+  "bytes": 50
+ }
+]

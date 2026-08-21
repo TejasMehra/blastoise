@@ -1,0 +1,2102 @@
+[
+ {
+  "file": "windmill__0001__20220123221901_migrate_root.up.sql",
+  "original_path": "backend/migrations/20220123221901_migrate_root.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "cff5cb8bbe35bb6785617441f7f7fee8088dd0690b1796e1796748bbc836bd03",
+  "bytes": 1060
+ },
+ {
+  "file": "windmill__0002__20220123221903_first.up.sql",
+  "original_path": "backend/migrations/20220123221903_first.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "21cd4076e612180abf5ca4f6274c383d484afe7a81c817b810299a0f7504f405",
+  "bytes": 20275
+ },
+ {
+  "file": "windmill__0003__20220320122733_schedule_flow.up.sql",
+  "original_path": "backend/migrations/20220320122733_schedule_flow.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "1caa6abc75b667289608b0d08bba4431d3a000b14da33344b9d48e62dfccc6bf",
+  "bytes": 215
+ },
+ {
+  "file": "windmill__0004__20220406141754_custom_env.up.sql",
+  "original_path": "backend/migrations/20220406141754_custom_env.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "4fab5fbeb9ac83e4872c89b766fc518da89a66559af2f7ba261f5a20309bc0fb",
+  "bytes": 202
+ },
+ {
+  "file": "windmill__0005__20220428085013_private_key.up.sql",
+  "original_path": "backend/migrations/20220428085013_private_key.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "c07737d5c37995cac0a4a10aae887e91759bb7ecc7f847af5b15c41c58f2db2b",
+  "bytes": 425
+ },
+ {
+  "file": "windmill__0006__20220504193929_typescript_support.up.sql",
+  "original_path": "backend/migrations/20220504193929_typescript_support.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "b667604290603714dba904905ba0dbde15cd7dd27ba357b94fce1b33fb26df4c",
+  "bytes": 342
+ },
+ {
+  "file": "windmill__0007__20220508152326_create_role_if_not_exists.up.sql",
+  "original_path": "backend/migrations/20220508152326_create_role_if_not_exists.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3af7bab211c72edc8c85352f36df08023903da110bc7b135e817d2d0c012e96a",
+  "bytes": 33
+ },
+ {
+  "file": "windmill__0008__20220509191845_started_at_completed_job.up.sql",
+  "original_path": "backend/migrations/20220509191845_started_at_completed_job.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "59f9abaf32b122f7ccc25e77077da1fca35aba2ad3ca9c39d82b7c88075e447c",
+  "bytes": 134
+ },
+ {
+  "file": "windmill__0009__20220610181005_add_script_hub.up.sql",
+  "original_path": "backend/migrations/20220610181005_add_script_hub.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "4c6ec9f4d469f54edb5f0de5b8abbf9d9aeda43efab90439e7e2810468376b03",
+  "bytes": 78
+ },
+ {
+  "file": "windmill__0010__20220620210708_regex_fix.up.sql",
+  "original_path": "backend/migrations/20220620210708_regex_fix.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "613eedf2fa074b258abce7f09f6b9604c0d75806c3c07aa27e15b4463b8f43b6",
+  "bytes": 1191
+ },
+ {
+  "file": "windmill__0011__20220624180013_workspace_premium_grant.up.sql",
+  "original_path": "backend/migrations/20220624180013_workspace_premium_grant.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "9d47941728752e5ea8f008c587f00731e8e0afbd2a5c9c9852c9e5cde80c2397",
+  "bytes": 35
+ },
+ {
+  "file": "windmill__0012__20220713142758_script_trigger.up.sql",
+  "original_path": "backend/migrations/20220713142758_script_trigger.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "faee2e2f2bcb19ed7db9b42e64d0901ed20ae17032f68c3b29097466a3031763",
+  "bytes": 176
+ },
+ {
+  "file": "windmill__0013__20220728222351_job_duration_ms.up.sql",
+  "original_path": "backend/migrations/20220728222351_job_duration_ms.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "f0193bb1648ca6d0e52419b75922c430ae89685f2a2e33e4df9d86385df497c3",
+  "bytes": 129
+ },
+ {
+  "file": "windmill__0014__20220818125523_longername.up.sql",
+  "original_path": "backend/migrations/20220818125523_longername.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "b82c2198ca8774df6e650bdf02f275ccfad4be1f3c4eb192097b487bf36e82ee",
+  "bytes": 165
+ },
+ {
+  "file": "windmill__0015__20220902211654_job-resume.up.sql",
+  "original_path": "backend/migrations/20220902211654_job-resume.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "73c3b53ff6a2ac7f57bc1d54cf8af7d36b0e1a8f1917f26f2f5ab14fa9a77ca4",
+  "bytes": 625
+ },
+ {
+  "file": "windmill__0016__20220904123027_script_kind.up.sql",
+  "original_path": "backend/migrations/20220904123027_script_kind.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3ac3cc85d4885eadcf1aefd19f38c649ce411d31ba24533ca2f7db111b0d53ae",
+  "bytes": 230
+ },
+ {
+  "file": "windmill__0017__20221005022757_same_worker.up.sql",
+  "original_path": "backend/migrations/20221005022757_same_worker.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "8cbb044912d230fae87f7c17d9eb7ede4012ceb3d43278d901889a081ac6c97f",
+  "bytes": 98
+ },
+ {
+  "file": "windmill__0018__20221023162721_remove_iscancel_resumejob.up.sql",
+  "original_path": "backend/migrations/20221023162721_remove_iscancel_resumejob.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "786c30f4231881e37248c5100e4816bae838e83a57fef93399187450b430bf23",
+  "bytes": 135
+ },
+ {
+  "file": "windmill__0019__20221024225533_apps.up.sql",
+  "original_path": "backend/migrations/20221024225533_apps.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "2868191d08016521794478e62d71adf5651ed69e5afb88e4c87d0a2dbaca5f1e",
+  "bytes": 969
+ },
+ {
+  "file": "windmill__0020__20221104111317_completed_job-raw_lock.up.sql",
+  "original_path": "backend/migrations/20221104111317_completed_job-raw_lock.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "5ae6a54bebda0cc729ab23b3e6294d5efcbe71e9b9e19589579634413e8299c5",
+  "bytes": 97
+ },
+ {
+  "file": "windmill__0021__20221105003256_grant_all.up.sql",
+  "original_path": "backend/migrations/20221105003256_grant_all.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3f09193da330311ab730fca0c8627c63dcbb77fabc3dabafb51ea44998ed2988",
+  "bytes": 260
+ },
+ {
+  "file": "windmill__0022__20221123151919_grant_sequence_privileges.up.sql",
+  "original_path": "backend/migrations/20221123151919_grant_sequence_privileges.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "a043e30cbf920def65d0f28ee0f50c241a9b5dd3677e01cbce3804931aba38cd",
+  "bytes": 166
+ },
+ {
+  "file": "windmill__0023__20221127093847_add_account_error.up.sql",
+  "original_path": "backend/migrations/20221127093847_add_account_error.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "8a178b871a90857187a82e6143239a41354428438f5d4803889cf2f6b335212d",
+  "bytes": 85
+ },
+ {
+  "file": "windmill__0024__20221128210151_favorites.up.sql",
+  "original_path": "backend/migrations/20221128210151_favorites.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "46c6e5c215a984105f4af7dfa16fbce7b8e4c52fb42d5c151865ea4452f345d2",
+  "bytes": 331
+ },
+ {
+  "file": "windmill__0025__20221207103910_admins_workspace.up.sql",
+  "original_path": "backend/migrations/20221207103910_admins_workspace.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "b7a62317919a5f1023292fcddf714c133feb6e394a8e0d269e84d933cc0e6c53",
+  "bytes": 291
+ },
+ {
+  "file": "windmill__0026__20221210125521_increase_variable_length.up.sql",
+  "original_path": "backend/migrations/20221210125521_increase_variable_length.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "cd93705bce5fb82e1802c316430fb475a127fb17c6a8236f54dc3c322148761c",
+  "bytes": 95
+ },
+ {
+  "file": "windmill__0027__20221211055346_emails_everywhere.up.sql",
+  "original_path": "backend/migrations/20221211055346_emails_everywhere.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "e6a9c56133ab3d993ef840a8f39acac994efcb41e3cf682d72a52777d73660bf",
+  "bytes": 366
+ },
+ {
+  "file": "windmill__0028__20221211200923_remove_admin_from_starters.up.sql",
+  "original_path": "backend/migrations/20221211200923_remove_admin_from_starters.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "82d4b3004ea21aca7940eb7b606c8423a8e86ec582d66e30e1891ce6c73044f3",
+  "bytes": 113
+ },
+ {
+  "file": "windmill__0029__20221212130731_add_autoinvite.up.sql",
+  "original_path": "backend/migrations/20221212130731_add_autoinvite.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "450567488d856169c2805818b523c7cd6a695114afb157873bcb609871ce85c6",
+  "bytes": 149
+ },
+ {
+  "file": "windmill__0030__20221214105402_first_time_users.up.sql",
+  "original_path": "backend/migrations/20221214105402_first_time_users.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "023d9a3d2318a9ff5df9fe1555e869a2f99d1773f7ae1bc30d730370ec321560",
+  "bytes": 217
+ },
+ {
+  "file": "windmill__0031__20221219032311_folders.up.sql",
+  "original_path": "backend/migrations/20221219032311_folders.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "05ac205e60bba8d4c1a10b46d72b9c152544748675af7b3046388154a6e5475f",
+  "bytes": 632
+ },
+ {
+  "file": "windmill__0032__20230101074836_sync_from_admin.up.sql",
+  "original_path": "backend/migrations/20230101074836_sync_from_admin.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "9ee328ecb0192ea27f9d0549565378a644c82719788562fe5e092e2c59864e10",
+  "bytes": 758
+ },
+ {
+  "file": "windmill__0033__20230119194229_customer_id.up.sql",
+  "original_path": "backend/migrations/20230119194229_customer_id.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "c68d6e0ef9aa31b2877f2055c7995d13a4149610219b4b5c6712f7d8ed54d4ab",
+  "bytes": 163
+ },
+ {
+  "file": "windmill__0034__20230127175428_increase_token_size.up.sql",
+  "original_path": "backend/migrations/20230127175428_increase_token_size.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "ed2e1322350b58147cd462c6494797390535fef1990cd94584edad64e920e5c8",
+  "bytes": 101
+ },
+ {
+  "file": "windmill__0035__20230131143413_more_folders_privilege.up.sql",
+  "original_path": "backend/migrations/20230131143413_more_folders_privilege.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "74b1e40a296fae2f0be172740c39f7935299cb7308fad03e965f9bc10e941074",
+  "bytes": 943
+ },
+ {
+  "file": "windmill__0036__20230204182500_add_mem_peak.up.sql",
+  "original_path": "backend/migrations/20230204182500_add_mem_peak.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "5e43563b5cc74af6a6b15de64d01f850ccf96f38bf3059b6f81241d95084edf8",
+  "bytes": 137
+ },
+ {
+  "file": "windmill__0037__20230213145545_change_admin_app.up.sql",
+  "original_path": "backend/migrations/20230213145545_change_admin_app.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "f7ec3be796b1a6b7ec5a12bc5a45cbb88b183a7f90a7a87319d1c4988e5de755",
+  "bytes": 39824
+ },
+ {
+  "file": "windmill__0038__20230214135931_migrate_hub_sync_script.up.sql",
+  "original_path": "backend/migrations/20230214135931_migrate_hub_sync_script.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "e6dc9635728f4d2ff3982793da950867a9ba825da17079578041fa203593968f",
+  "bytes": 797
+ },
+ {
+  "file": "windmill__0039__20230227131521_update_included_scripts_with_deno_changes.up.sql",
+  "original_path": "backend/migrations/20230227131521_update_included_scripts_with_deno_changes.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "709ae8d56b5419ca4df01529eebf208ef9b3dacb519a3d9fcfab304209c79d18",
+  "bytes": 766
+ },
+ {
+  "file": "windmill__0040__20230327115727_update_app_setup.up.sql",
+  "original_path": "backend/migrations/20230327115727_update_app_setup.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "fe0b4ea1baedab31cc17b32444f708c2b571cd011ec4f8fb0f09fbbaf4b24a91",
+  "bytes": 42314
+ },
+ {
+  "file": "windmill__0041__20230405071524_schedule_timezone.up.sql",
+  "original_path": "backend/migrations/20230405071524_schedule_timezone.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "2b54494a28c3b5af65eea8278cbd11998af903fb1f2b0e8e1160a5136a5fa743",
+  "bytes": 1609
+ },
+ {
+  "file": "windmill__0042__20230408203759_cache_pip_resolution.up.sql",
+  "original_path": "backend/migrations/20230408203759_cache_pip_resolution.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "2b57aed85ef67d7d934ffa527f203323194d6bf5c781e38610b3650cd50e73b0",
+  "bytes": 171
+ },
+ {
+  "file": "windmill__0043__20230414163230_input_grant.up.sql",
+  "original_path": "backend/migrations/20230414163230_input_grant.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "ce5cb884411e0099256f33310d13ab48be33fede95b3aa47e09e3182f3de925d",
+  "bytes": 110
+ },
+ {
+  "file": "windmill__0044__20230429082953_add_drafts.up.sql",
+  "original_path": "backend/migrations/20230429082953_add_drafts.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "96db1fa4aa58fb3336180e28f9ab3ba18a17acec705101039070df2385a5d082",
+  "bytes": 597
+ },
+ {
+  "file": "windmill__0045__20230509130016_raw_app_grant.up.sql",
+  "original_path": "backend/migrations/20230509130016_raw_app_grant.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "6e8f606069dba98f52c78a5ddc6912eaae9a92698c4f26f7a4e911cafc1e43cd",
+  "bytes": 112
+ },
+ {
+  "file": "windmill__0046__20230510104144_jsonb_to_json_draft.up.sql",
+  "original_path": "backend/migrations/20230510104144_jsonb_to_json_draft.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "f3f73f86c8a6672a77c8bb4f302b74bb45c1bf223c18e591a3a3bc957141d322",
+  "bytes": 81
+ },
+ {
+  "file": "windmill__0047__20230515131104_rls_raw_app.up.sql",
+  "original_path": "backend/migrations/20230515131104_rls_raw_app.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "ff1e0d12e01f46c09b82085f60113cdc5464dd5b48a18112178799bab1333698",
+  "bytes": 81
+ },
+ {
+  "file": "windmill__0048__20230516141630_capture_check_increase_2.up.sql",
+  "original_path": "backend/migrations/20230516141630_capture_check_increase_2.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "4053870c461028428dd746ffc4febf991d200d6c8d8136bd3e324425d4bbb0a1",
+  "bytes": 197
+ },
+ {
+  "file": "windmill__0049__20230524065919_fix_migration_break.up.sql",
+  "original_path": "backend/migrations/20230524065919_fix_migration_break.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "08222af10ffd62b1c443e87a2a58c35712375e298e3f51b7b0ba0b52e7425114",
+  "bytes": 354
+ },
+ {
+  "file": "windmill__0050__20230524133926_update_cli.up.sql",
+  "original_path": "backend/migrations/20230524133926_update_cli.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "b7f2ac2a1cb7b345886a24caac92857c64edd74333e234f944062a6d197e2515",
+  "bytes": 757
+ },
+ {
+  "file": "windmill__0051__20230527141935_remove_starter_policies.up.sql",
+  "original_path": "backend/migrations/20230527141935_remove_starter_policies.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "8b69fa869e4fa9a714817b8cae0eec3ab107e4626b20e7c5cec3449a1c80f8e8",
+  "bytes": 333
+ },
+ {
+  "file": "windmill__0052__20230605043929_add_envs.up.sql",
+  "original_path": "backend/migrations/20230605043929_add_envs.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "c92053a9020055636b3ec44d6e7792e7136b72324dffae2da4643309635735f0",
+  "bytes": 86
+ },
+ {
+  "file": "windmill__0053__20230625173141_add_job_kinds.up.sql",
+  "original_path": "backend/migrations/20230625173141_add_job_kinds.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "298ee4a88de4bbdf2c39f7a9c5499e96ce4785ed1393fe4353b287e5a71f9991",
+  "bytes": 199
+ },
+ {
+  "file": "windmill__0054__20230627235827_noop.up.sql",
+  "original_path": "backend/migrations/20230627235827_noop.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "04657b126450534618d7feaf5a2c79e4039cb815e2470e3d2102474416a179a5",
+  "bytes": 84
+ },
+ {
+  "file": "windmill__0055__20230701074205_nativets.up.sql",
+  "original_path": "backend/migrations/20230701074205_nativets.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "21a7aa93e4923f2352b710a93c1c363b3e32435cb64a8e188e80468c83edfe7a",
+  "bytes": 91
+ },
+ {
+  "file": "windmill__0056__20230704232924_bun.up.sql",
+  "original_path": "backend/migrations/20230704232924_bun.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "7a2c9107a73ea3c36ee2b37b3b98e679942b842eb9cac38e14461e3fcf4ae6e6",
+  "bytes": 86
+ },
+ {
+  "file": "windmill__0057__20230709151109_add_script_concurrency_limit.up.sql",
+  "original_path": "backend/migrations/20230709151109_add_script_concurrency_limit.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "5b98fa8c4217918c017511f97a2cde3b09c94b593dd62dbf4c05023436d2f9ef",
+  "bytes": 277
+ },
+ {
+  "file": "windmill__0058__20230718090041_add_openai_resource_path.up.sql",
+  "original_path": "backend/migrations/20230718090041_add_openai_resource_path.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "fa1b1deba4bf6111acd0a2e5693d03a17f7c9bda3359a0ad24c38bec82b05ceb",
+  "bytes": 166
+ },
+ {
+  "file": "windmill__0059__20230721135049_add_bigquery_lang.up.sql",
+  "original_path": "backend/migrations/20230721135049_add_bigquery_lang.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "7495860e4c740afa059bf20e674938e63ace92e283fcd84f845e2ad4ca0f80d0",
+  "bytes": 91
+ },
+ {
+  "file": "windmill__0060__20230724145302_improve_pull_with_index.up.sql",
+  "original_path": "backend/migrations/20230724145302_improve_pull_with_index.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3af7bab211c72edc8c85352f36df08023903da110bc7b135e817d2d0c012e96a",
+  "bytes": 33
+ },
+ {
+  "file": "windmill__0061__20230725060345_add_worker_tags_to_ping.up.sql",
+  "original_path": "backend/migrations/20230725060345_add_worker_tags_to_ping.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "455d1ac4fb032e4cb26d5496d61b9b29fe68397e25f36bf6815a2ff99d60acfd",
+  "bytes": 87
+ },
+ {
+  "file": "windmill__0062__20230801103814_add_snowflake_lang.up.sql",
+  "original_path": "backend/migrations/20230801103814_add_snowflake_lang.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "e9d9a514a052ceb525923958df1830fa1f2e5a7858170475e8948cefca343ded",
+  "bytes": 92
+ },
+ {
+  "file": "windmill__0063__20230807132313_add_graphql_lang.up.sql",
+  "original_path": "backend/migrations/20230807132313_add_graphql_lang.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "056e6fdabaa944052d06bd12109517239337f94f85087934edbe538a3e70d9d5",
+  "bytes": 90
+ },
+ {
+  "file": "windmill__0064__20230817204856_upgrade_hub_sync.up.sql",
+  "original_path": "backend/migrations/20230817204856_upgrade_hub_sync.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "604e5eab70273bb9a64f1592dd00928d7fe0291b42c896535df8018eb2ba814b",
+  "bytes": 757
+ },
+ {
+  "file": "windmill__0065__20230818085630_add_schedule_recovery.up.sql",
+  "original_path": "backend/migrations/20230818085630_add_schedule_recovery.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "48d29454285ba2f0db756d86f487bdb99e6ef52c1bb4f5701e5093de70104237",
+  "bytes": 91
+ },
+ {
+  "file": "windmill__0066__20230823074735_schedule_handlers_times.up.sql",
+  "original_path": "backend/migrations/20230823074735_schedule_handlers_times.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "ab93950de58ebead64bd47e4af834f85835060a0f6785cede31f7f9a2caf5747",
+  "bytes": 249
+ },
+ {
+  "file": "windmill__0067__20230828202124_add_cache_ttl.up.sql",
+  "original_path": "backend/migrations/20230828202124_add_cache_ttl.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "6a6a29c4870e1df54ecd4e882ca4cb94afa44b913f8a0d556478b38cb53cb174",
+  "bytes": 132
+ },
+ {
+  "file": "windmill__0068__20230831210028_add_q_index.up.sql",
+  "original_path": "backend/migrations/20230831210028_add_q_index.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "581f4fe5266a81278d3bea3e183a9e71c51d286644c75d20c85264549bb2c5ae",
+  "bytes": 130
+ },
+ {
+  "file": "windmill__0069__20230905170218_dedicated_worker.up.sql",
+  "original_path": "backend/migrations/20230905170218_dedicated_worker.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "5844bfb96df3e3cc548ba71befe238abcc5687bb607e93bd594510a4bf7233b1",
+  "bytes": 90
+ },
+ {
+  "file": "windmill__0070__20230914062021_fix_group_grant_roles.up.sql",
+  "original_path": "backend/migrations/20230914062021_fix_group_grant_roles.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3af7bab211c72edc8c85352f36df08023903da110bc7b135e817d2d0c012e96a",
+  "bytes": 33
+ },
+ {
+  "file": "windmill__0071__20230915084031_add_themes.up.sql",
+  "original_path": "backend/migrations/20230915084031_add_themes.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "52703b0c2301d45d5887db4ea29564b8b8184cb885a32cc9b235b0ff5b6bdf21",
+  "bytes": 451
+ },
+ {
+  "file": "windmill__0072__20230921084441_add_default_worker_groups.up.sql",
+  "original_path": "backend/migrations/20230921084441_add_default_worker_groups.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "fb68773d6ce57f6c7e01b8822e9f6ea73b29e8f522fe07f3d51a7072b45ce9df",
+  "bytes": 343
+ },
+ {
+  "file": "windmill__0073__20230929022202_tutorials.up.sql",
+  "original_path": "backend/migrations/20230929022202_tutorials.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "d128f4735c2138d2c25525a56ba718a01ac5fc4d7717570467fbbcd2df86f423",
+  "bytes": 253
+ },
+ {
+  "file": "windmill__0074__20231002123723_notify_delete_config.up.sql",
+  "original_path": "backend/migrations/20231002123723_notify_delete_config.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "e8ec1783ae25f970dc685a8a37fcc916cc4ed78cf3a888f5bc761d44cb33f14f",
+  "bytes": 404
+ },
+ {
+  "file": "windmill__0075__20231016084043_addback_bigquery.up.sql",
+  "original_path": "backend/migrations/20231016084043_addback_bigquery.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "830d59c91693f849f71eb07ed33f163941e27c63c7bb5d58f142fc4782e60126",
+  "bytes": 289
+ },
+ {
+  "file": "windmill__0076__20231017172035_disable_error_handler_columns.up.sql",
+  "original_path": "backend/migrations/20231017172035_disable_error_handler_columns.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "89f85ae43d7ad647533dae2295d6d9ba9479fef902cbddca140fa8c04ffb287a",
+  "bytes": 201
+ },
+ {
+  "file": "windmill__0077__20231020101153_queue_priority_column.up.sql",
+  "original_path": "backend/migrations/20231020101153_queue_priority_column.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "98a209cf648a8fa2379639d299abeaa5fed8600592038d4c1f850afebee005db",
+  "bytes": 548
+ },
+ {
+  "file": "windmill__0078__20231023135159_concurrency_job_uuids.up.sql",
+  "original_path": "backend/migrations/20231023135159_concurrency_job_uuids.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "c7247b695f12b1556599361feced85304cd75101c3f81bf8df0b6c77815b5003",
+  "bytes": 177
+ },
+ {
+  "file": "windmill__0079__20231105173726_add_worker_version.up.sql",
+  "original_path": "backend/migrations/20231105173726_add_worker_version.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "01446e24623f8de063c02607f9e548325d0850063131963f561dabea3e52244c",
+  "bytes": 126
+ },
+ {
+  "file": "windmill__0080__20231108200232_add_custom_components.up.sql",
+  "original_path": "backend/migrations/20231108200232_add_custom_components.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "086f8a2b9c139bdb51e10f15de0d116161a96024c9b0593be2bb6c3a534ec1a6",
+  "bytes": 234
+ },
+ {
+  "file": "windmill__0081__20231113194945_add_dedicated_workers_to_flows.up.sql",
+  "original_path": "backend/migrations/20231113194945_add_dedicated_workers_to_flows.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "dbb124d28f8785ab2a5ec67658150242a53d87887149e79c22bf1cd7f3d9bc06",
+  "bytes": 86
+ },
+ {
+  "file": "windmill__0082__20231115101254_workspace_s3_bucket_settings.up.sql",
+  "original_path": "backend/migrations/20231115101254_workspace_s3_bucket_settings.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "14c0eae069126391b7d98a857c8462f31e173c34575f6d0c65149dfdb310a06e",
+  "bytes": 114
+ },
+ {
+  "file": "windmill__0083__20231128105015_add_reports_worker_group.up.sql",
+  "original_path": "backend/migrations/20231128105015_add_reports_worker_group.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "7ec1926a6921a92c5cd7e57c8c695cda188d34a2b1fee7da1724f5c7a463679c",
+  "bytes": 309
+ },
+ {
+  "file": "windmill__0084__20231203110120_add_more_script_config.up.sql",
+  "original_path": "backend/migrations/20231203110120_add_more_script_config.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "bad09871947d7d573c8ceb4400facb66be07ccfc0ce81a987fa188f3854526e5",
+  "bytes": 249
+ },
+ {
+  "file": "windmill__0085__20231208141824_add_chromium_tag.up.sql",
+  "original_path": "backend/migrations/20231208141824_add_chromium_tag.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "ef25fc94de36db3a52685c51096fef42e0be59ffc34a04726a0255511036e0f0",
+  "bytes": 262
+ },
+ {
+  "file": "windmill__0086__20231226062524_add_schedule_summary_no_overlap.up.sql",
+  "original_path": "backend/migrations/20231226062524_add_schedule_summary_no_overlap.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "f2235e4e6967dca81cca2fde5ffb31d85d5d42c00edcbcb86f11d36c509a8cdd",
+  "bytes": 169
+ },
+ {
+  "file": "windmill__0087__20240102133412_job_stats_table.up.sql",
+  "original_path": "backend/migrations/20240102133412_job_stats_table.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "100291df522b5cfeea0e4162f2ee63d75d2e3f2ef71e450fe312227a13d13b08",
+  "bytes": 559
+ },
+ {
+  "file": "windmill__0088__20240112131322_git_sync_multi.up.sql",
+  "original_path": "backend/migrations/20240112131322_git_sync_multi.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "dc3f6752fc6d89725a0cc2a633927c79dee7d1b201fd475b0c3847a175e27624",
+  "bytes": 100
+ },
+ {
+  "file": "windmill__0089__20240119112456_add_scim_display_name.up.sql",
+  "original_path": "backend/migrations/20240119112456_add_scim_display_name.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "8230365992fed631524369fcae50ccc7b92d1e146c75cfa8760e3768fae79aa0",
+  "bytes": 189
+ },
+ {
+  "file": "windmill__0090__20240119171900_workspace_default_app.up.sql",
+  "original_path": "backend/migrations/20240119171900_workspace_default_app.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "06220139ebffd451cc4ed957eb7f7c0633acd761d6194d23d37986f6ebb31ce8",
+  "bytes": 102
+ },
+ {
+  "file": "windmill__0091__20240130175105_add_auto_add.up.sql",
+  "original_path": "backend/migrations/20240130175105_add_auto_add.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3d83773bc752c2d4096b2a34939fd63d58509733c0b521620016438ad01a4c29",
+  "bytes": 107
+ },
+ {
+  "file": "windmill__0092__20240207203435_accept_missing_config_in_policies.up.sql",
+  "original_path": "backend/migrations/20240207203435_accept_missing_config_in_policies.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3af7bab211c72edc8c85352f36df08023903da110bc7b135e817d2d0c012e96a",
+  "bytes": 33
+ },
+ {
+  "file": "windmill__0093__20240209103543_update_app_new.up.sql",
+  "original_path": "backend/migrations/20240209103543_update_app_new.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "35c81305ca8d9a3f13dd860c6f6871245b9ded8f1c01ed8d8f3f7aecfbb667fb",
+  "bytes": 42723
+ },
+ {
+  "file": "windmill__0094__20240212114028_update_hub_sync.up.sql",
+  "original_path": "backend/migrations/20240212114028_update_hub_sync.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "2649ae8a92d280590b2ba84204be17e1a9466c7b0e0ee2df92a6b55d913c5cc8",
+  "bytes": 759
+ },
+ {
+  "file": "windmill__0095__20240216100535_improve_policies.up.sql",
+  "original_path": "backend/migrations/20240216100535_improve_policies.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "fb962b1cb69021a40356c3ccb3d8f193d777eae6ce1fc47f56f9a45b3afca63f",
+  "bytes": 8508
+ },
+ {
+  "file": "windmill__0096__20240219101340_add_automatic_billing.up.sql",
+  "original_path": "backend/migrations/20240219101340_add_automatic_billing.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "eb7dec38a935b151e9ba95b8bd809b51d32091eaa9b0404310ef0a5de45ec3af",
+  "bytes": 125
+ },
+ {
+  "file": "windmill__0097__20240222074526_add_longer_limits_to_email.up.sql",
+  "original_path": "backend/migrations/20240222074526_add_longer_limits_to_email.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "de315626cc446ff3e21b0379af7135e9dffddf652475eff952f3a8a05224fff2",
+  "bytes": 271
+ },
+ {
+  "file": "windmill__0098__20240223231005_add_index_completed_job.up.sql",
+  "original_path": "backend/migrations/20240223231005_add_index_completed_job.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "54597622b3d96843499e7d90f43786cebc7cd45c9f031db715fd61f23306bba4",
+  "bytes": 204
+ },
+ {
+  "file": "windmill__0099__20240225193945_set_last_ping_null.up.sql",
+  "original_path": "backend/migrations/20240225193945_set_last_ping_null.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "98177536e917732b2ebab0a5b4bb3d0e6e45a7bd47b9314db9857690a964d6a6",
+  "bytes": 119
+ },
+ {
+  "file": "windmill__0100__20240306121903_custom_concurrency_key.up.sql",
+  "original_path": "backend/migrations/20240306121903_custom_concurrency_key.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "0e66288ebef9cf18ec0a3f5be93d01cea7ab2e4b1306c2b342fe6c00008a2b7e",
+  "bytes": 204
+ },
+ {
+  "file": "windmill__0101__20240307130500_set_automate_username_creation_setting.up.sql",
+  "original_path": "backend/migrations/20240307130500_set_automate_username_creation_setting.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "d5bbf36455f3563e09ec28fced6a4ffb0a2ed3d79bfdf96e3c5cdcb17a0068d2",
+  "bytes": 181
+ },
+ {
+  "file": "windmill__0102__20240312081949_set_admin_instance_username.up.sql",
+  "original_path": "backend/migrations/20240312081949_set_admin_instance_username.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "03f1fd935f4e9e49d6dfb0d516480ab09158dbd3ba8465e40ed2126c2143c7b5",
+  "bytes": 107
+ },
+ {
+  "file": "windmill__0103__20240315143056_longer_worker_names.up.sql",
+  "original_path": "backend/migrations/20240315143056_longer_worker_names.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "cbdd1898f2d5afd5e2e0eab824bd1d20e1c827b980ccd98d86f11da3b46f06a4",
+  "bytes": 168
+ },
+ {
+  "file": "windmill__0104__20240317084804_improve_cancelled_suspended_flow.up.sql",
+  "original_path": "backend/migrations/20240317084804_improve_cancelled_suspended_flow.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "f476e89fb1d75a3947f39f57d46f785e8439e755039177122a879dd3a2b900f6",
+  "bytes": 106
+ },
+ {
+  "file": "windmill__0105__20240322164216_add_workspace_envs.up.sql",
+  "original_path": "backend/migrations/20240322164216_add_workspace_envs.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "eea51e5f2245239a074fe9617d32de212cd431f969ff47faa9b679033e6e319d",
+  "bytes": 202
+ },
+ {
+  "file": "windmill__0106__20240328145425_remove_overquota.up.sql",
+  "original_path": "backend/migrations/20240328145425_remove_overquota.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "39ebf7ccf79c4f8f866dff3cbe8ed1d0f72a7f242acbffdd93b3a2fd038dfdfb",
+  "bytes": 80
+ },
+ {
+  "file": "windmill__0107__20240403083110_remove_team_id_constraint.up.sql",
+  "original_path": "backend/migrations/20240403083110_remove_team_id_constraint.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "cdc57da9d809c8f7ff49d77b649842e071ec8fce900f7b815694efa2986f0115",
+  "bytes": 123
+ },
+ {
+  "file": "windmill__0108__20240409181630_add_concurrency_key_to_flow.up.sql",
+  "original_path": "backend/migrations/20240409181630_add_concurrency_key_to_flow.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "330fc50b9262c42d8684e965bdebc7305dd6c46f8232559303d108886059715d",
+  "bytes": 92
+ },
+ {
+  "file": "windmill__0109__20240416175148_tighten_delete_perms2.up.sql",
+  "original_path": "backend/migrations/20240416175148_tighten_delete_perms2.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "d3de401112e5a9febd85a3247a01d044e93b4ab6f3a9d03cf482001efc5aac98",
+  "bytes": 639
+ },
+ {
+  "file": "windmill__0110__20240422144808_add_labels.up.sql",
+  "original_path": "backend/migrations/20240422144808_add_labels.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3af7bab211c72edc8c85352f36df08023903da110bc7b135e817d2d0c012e96a",
+  "bytes": 33
+ },
+ {
+  "file": "windmill__0111__20240430005030_add_codebases.up.sql",
+  "original_path": "backend/migrations/20240430005030_add_codebases.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "baa2f4e43b70b8fe4c1968815d3bb20d24b6cb1f8f713a8ad42cb33b5f274a18",
+  "bytes": 87
+ },
+ {
+  "file": "windmill__0112__20240506114033_add_metrics_table.up.sql",
+  "original_path": "backend/migrations/20240506114033_add_metrics_table.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "82b05d937ace3637feaa18f04aecaba7ac503bb5f45706f6ce399a80ff73703a",
+  "bytes": 293
+ },
+ {
+  "file": "windmill__0113__20240514091000_fix_php_migration.up.sql",
+  "original_path": "backend/migrations/20240514091000_fix_php_migration.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "71972ab6a245d8a4e5380614a33ad7be1a3365a190d2af2e58f7a7f9af32df7c",
+  "bytes": 111
+ },
+ {
+  "file": "windmill__0114__20240515093517_concurrency_key_observability.up.sql",
+  "original_path": "backend/migrations/20240515093517_concurrency_key_observability.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "1d5988bea3b495e182cd1c0e0d8636fd144e2c9c2cc16a06b85b2d3f861349d8",
+  "bytes": 282
+ },
+ {
+  "file": "windmill__0115__20240527151853_add_worker_memory_usage.up.sql",
+  "original_path": "backend/migrations/20240527151853_add_worker_memory_usage.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "6615dec6cd0e183c974276ecbf8ce7b702a6b0c4ae2ecd4e4a44f87cbed5ebcb",
+  "bytes": 88
+ },
+ {
+  "file": "windmill__0116__20240529130715_store_waiting_times.up.sql",
+  "original_path": "backend/migrations/20240529130715_store_waiting_times.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "1b9685b52b1a4b818674027d15df17a4fb2bfbd3d8eca2cec37d94840173a152",
+  "bytes": 197
+ },
+ {
+  "file": "windmill__0117__20240607113729_add_importer_node.up.sql",
+  "original_path": "backend/migrations/20240607113729_add_importer_node.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "e786b26c7693af36de6434b47f42fea81ff92fcdf85f40222898c17e4bf6434b",
+  "bytes": 309
+ },
+ {
+  "file": "windmill__0118__20240613150524_add_job_perms.up.sql",
+  "original_path": "backend/migrations/20240613150524_add_job_perms.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "20ee05f3a1d272d72dd5dc406deb186f17c74b12426872487a41be8e0c8a51c3",
+  "bytes": 406
+ },
+ {
+  "file": "windmill__0119__20240619165014_extra_metadata.up.sql",
+  "original_path": "backend/migrations/20240619165014_extra_metadata.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "0a0a09e104b0ffa11d62a186bd3ce75a0611ec9e1c83168c58198ad087bc8a42",
+  "bytes": 332
+ },
+ {
+  "file": "windmill__0120__20240630102146_flow_versioning.up.sql",
+  "original_path": "backend/migrations/20240630102146_flow_versioning.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "e3a5504a53e1224276c7b1e70e0e68235831b23f4f588a453098d4cf2ba2ff8d",
+  "bytes": 2092
+ },
+ {
+  "file": "windmill__0121__20240711065915_remove_env_id_default.up.sql",
+  "original_path": "backend/migrations/20240711065915_remove_env_id_default.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "86d80528dc26e4ff99c243eeae7fd17b8d2c5e12921e8def8491029a83b30c55",
+  "bytes": 261
+ },
+ {
+  "file": "windmill__0122__20240729064122_addbunnative.up.sql",
+  "original_path": "backend/migrations/20240729064122_addbunnative.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "177a8a7a87cf3f1bff2bdb12acc14410e24d84cca3f74d42c1bef7af504b96d5",
+  "bytes": 92
+ },
+ {
+  "file": "windmill__0123__20240731213058_improve_indices.up.sql",
+  "original_path": "backend/migrations/20240731213058_improve_indices.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "b5552e35a3d698faaed13b25dbd5bcbdc518018d7e28288bff088347b7da9d7e",
+  "bytes": 340
+ },
+ {
+  "file": "windmill__0124__20240804220655_deploy_ui_config.up.sql",
+  "original_path": "backend/migrations/20240804220655_deploy_ui_config.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "2984ec904a1800cfde5bd26e926486e4d136e53aa7ce5f9a0f7e7c512c70b0de",
+  "bytes": 107
+ },
+ {
+  "file": "windmill__0125__20240815085729_add_logfile.up.sql",
+  "original_path": "backend/migrations/20240815085729_add_logfile.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "9f7f1efb823367ba94f380ffee14c28e27daf460388e0c329c89e3a98c1cbfe5",
+  "bytes": 552
+ },
+ {
+  "file": "windmill__0126__20240906082526_add_ansible_lang.up.sql",
+  "original_path": "backend/migrations/20240906082526_add_ansible_lang.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "9a3c254d444332e645da4125342bed8fbdf58036f1b7effc1b9ca2cde0f7e61a",
+  "bytes": 434
+ },
+ {
+  "file": "windmill__0127__20240907150910_migrate_to_new_cli.up.sql",
+  "original_path": "backend/migrations/20240907150910_migrate_to_new_cli.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "d7e1dcd255e1124432432b2c54034104072606433bfd712950fb3298c4ae562a",
+  "bytes": 64771
+ },
+ {
+  "file": "windmill__0128__20240908222917_migrate_to_new_cli_3.up.sql",
+  "original_path": "backend/migrations/20240908222917_migrate_to_new_cli_3.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "36c11af4619da8cfd2271986acda6fd5d745bb83008047025d03f1c32c61bec1",
+  "bytes": 64760
+ },
+ {
+  "file": "windmill__0129__20240917172503_job_routing.up.sql",
+  "original_path": "backend/migrations/20240917172503_job_routing.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "dbbbd17c35832c51f9874dfa05403c223763b4e0b2920f4e1ac345b1f8f77340",
+  "bytes": 2732
+ },
+ {
+  "file": "windmill__0130__20240924213010_add_last_occupancy_rates.up.sql",
+  "original_path": "backend/migrations/20240924213010_add_last_occupancy_rates.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "f6124ca5da9edabb7fdecec12bb1f0d241425f1e30ad526afc9d4c8a8d79b921",
+  "bytes": 168
+ },
+ {
+  "file": "windmill__0131__20241002163207_add_websocket_triggers.up.sql",
+  "original_path": "backend/migrations/20241002163207_add_websocket_triggers.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "8efe25ee475b63beed241b11d60b98a615d3e3f19aff1f0ad127b1900892d56a",
+  "bytes": 4333
+ },
+ {
+  "file": "windmill__0132__20241008155800_concurrency_lock_table.up.sql",
+  "original_path": "backend/migrations/20241008155800_concurrency_lock_table.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "9196a523703f2c806c07ba5b9d00ff6dc24218f7fc49a16bcec3a1385d1f04b8",
+  "bytes": 164
+ },
+ {
+  "file": "windmill__0133__20241029132207_add-csharp-support.up.sql",
+  "original_path": "backend/migrations/20241029132207_add-csharp-support.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3d2056dd6e1cb0890c1707c3e1564795e62a85fabfe2e86a9c51d28c4e1ba371",
+  "bytes": 442
+ },
+ {
+  "file": "windmill__0134__20241105133531_alter_openai_resource_path_column_in_workspace_settings.up.sql",
+  "original_path": "backend/migrations/20241105133531_alter_openai_resource_path_column_in_workspace_settings.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "ea4497a7bf811c6a1b2ad09d65ce5110b570a75154fa735c302fe4b9e744f10d",
+  "bytes": 276
+ },
+ {
+  "file": "windmill__0135__20241107163553_http_route_static_asset.up.sql",
+  "original_path": "backend/migrations/20241107163553_http_route_static_asset.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "52a8cd3a7e63f0bfa2ee01e92f956db7e293f8b03813e286ecf0e5435c2bd810",
+  "bytes": 95
+ },
+ {
+  "file": "windmill__0136__20241112104946_kafka_triggers.up.sql",
+  "original_path": "backend/migrations/20241112104946_kafka_triggers.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "c55c8ce55b3d80b0ea1d0665eb458fb87262e8fbbe74c3dd831a3988c885ab58",
+  "bytes": 4318
+ },
+ {
+  "file": "windmill__0137__20241119062608_create_job_and_views.up.sql",
+  "original_path": "backend/migrations/20241119062608_create_job_and_views.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "4ca663e6cd34520c6377d0aaa1702e3063b4fe126c482697399871ea0e925a8e",
+  "bytes": 1286
+ },
+ {
+  "file": "windmill__0138__20241121071235_gc_jobs.up.sql",
+  "original_path": "backend/migrations/20241121071235_gc_jobs.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "f22ef1c084a90c8f6e437dffa246b5e16275068877415e92d30ee44213c1a513",
+  "bytes": 195
+ },
+ {
+  "file": "windmill__0139__20241122143108_flow_node_kind.up.sql",
+  "original_path": "backend/migrations/20241122143108_flow_node_kind.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "5090bb5e0f08ac03d35b9cb445e1fd03ce39572f291e2f27ad8a9d0fae34b808",
+  "bytes": 90
+ },
+ {
+  "file": "windmill__0140__20241127171723_apply_windmill_roles.up.sql",
+  "original_path": "backend/migrations/20241127171723_apply_windmill_roles.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "8700301610fd75455ea8cb90ecd420b1cc9227ae7581517e71b41db6c9026a20",
+  "bytes": 355
+ },
+ {
+  "file": "windmill__0141__20241202134622_app_custom_path.up.sql",
+  "original_path": "backend/migrations/20241202134622_app_custom_path.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "c19dd40953fd1328066cdb08c3ecc1a67328a248c556b97579da573622f39e1c",
+  "bytes": 123
+ },
+ {
+  "file": "windmill__0142__20241205135747_fix_flow_node_uniqueness.up.sql",
+  "original_path": "backend/migrations/20241205135747_fix_flow_node_uniqueness.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "07e7320b1ffdc7b2e58a8b48845dcd383a31e308c9031d530d947358b3759316",
+  "bytes": 254
+ },
+ {
+  "file": "windmill__0143__20241210184049_drop_app_lite.up.sql",
+  "original_path": "backend/migrations/20241210184049_drop_app_lite.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "62f41ae523ef6057037647e0a968510237702e2d3c2bd17ff6087033f6a6b8ac",
+  "bytes": 62
+ },
+ {
+  "file": "windmill__0144__20250102145420_more_captures.up.sql",
+  "original_path": "backend/migrations/20250102145420_more_captures.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "fdaed7a06212553716d82a42ed58bcf82486347fbb36d9167abf763f35728803",
+  "bytes": 2314
+ },
+ {
+  "file": "windmill__0145__20250107212922_workspace_color.up.sql",
+  "original_path": "backend/migrations/20250107212922_workspace_color.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "0fb9ac2bd9818f019d0d3ec905ae1ce4fc949f17135c9a760e636db4adf137e6",
+  "bytes": 74
+ },
+ {
+  "file": "windmill__0146__20250113154322_runnable_on_behalf_of.up.sql",
+  "original_path": "backend/migrations/20250113154322_runnable_on_behalf_of.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "83d371c5b75eb1758ac7e4e49d1cd0201a00a51c7c727974b624c3641f023a8a",
+  "bytes": 141
+ },
+ {
+  "file": "windmill__0147__20250116084044_fix_capture_policy.up.sql",
+  "original_path": "backend/migrations/20250116084044_fix_capture_policy.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "6e699b8a9218a46a49e154cfd86954015ed73f0262fc8ded376a09b76a8a6e4c",
+  "bytes": 3137
+ },
+ {
+  "file": "windmill__0148__20250122094704_add_nu_lang.up.sql",
+  "original_path": "backend/migrations/20250122094704_add_nu_lang.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "8d7270caf4e715b89c3faf1136ba503fe428f08708b19e9e0f782d01054be1ad",
+  "bytes": 407
+ },
+ {
+  "file": "windmill__0149__20250128154615_team_last_warning_sent.up.sql",
+  "original_path": "backend/migrations/20250128154615_team_last_warning_sent.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "2442fdaba8d5ff92c7d4b74739e9b568a4b63df7f9b753f73ff644b2b1638913",
+  "bytes": 81
+ },
+ {
+  "file": "windmill__0150__20250128201251_teams_workspace_command_script.up.sql",
+  "original_path": "backend/migrations/20250128201251_teams_workspace_command_script.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "0ccdd9c4fb7a7891d597c44070c0abbd745729a10d38cde337122c2f1a31d59a",
+  "bytes": 237
+ },
+ {
+  "file": "windmill__0151__20250131153251_ai_models.up.sql",
+  "original_path": "backend/migrations/20250131153251_ai_models.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "09d846a510200fd6bb65e6c046af610448f0b342c75912afc5dca7bed4440665",
+  "bytes": 922
+ },
+ {
+  "file": "windmill__0152__20250201124344_v2_job_runtime.up.sql",
+  "original_path": "backend/migrations/20250201124344_v2_job_runtime.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "51715c199a74b9a9e6b812a703a3b830192d1c4752a52f50b950bf2ada46f45b",
+  "bytes": 441
+ },
+ {
+  "file": "windmill__0153__20250201124409_v2_job_queue_compatiblity_view.up.sql",
+  "original_path": "backend/migrations/20250201124409_v2_job_queue_compatiblity_view.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "143407fd86aefed23124822f5ab20f8ad0cede066ce8ed1065522e5f6197eb4a",
+  "bytes": 1450
+ },
+ {
+  "file": "windmill__0154__20250201124422_v2_job_completed_compatibility_view.up.sql",
+  "original_path": "backend/migrations/20250201124422_v2_job_completed_compatibility_view.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "66b7496e6d485e14609a92f5ab5b144981f593c6cf580312158a30f4983b34f8",
+  "bytes": 1141
+ },
+ {
+  "file": "windmill__0155__20250201124430_v2_job_compatibility_view.up.sql",
+  "original_path": "backend/migrations/20250201124430_v2_job_compatibility_view.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "1baa11542cebd04871aed04aba27caace5e1373e8f536edbaf1bc0c1c5d7f82e",
+  "bytes": 188
+ },
+ {
+  "file": "windmill__0156__20250201124743_v2_job_queue_sync.up.sql",
+  "original_path": "backend/migrations/20250201124743_v2_job_queue_sync.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "e44121a28507fa0836fde14f031bf68a6ef736695d1bccf35aa7ad49a69a66b8",
+  "bytes": 10190
+ },
+ {
+  "file": "windmill__0157__20250201124748_v2_migrate_from_v1.up.sql",
+  "original_path": "backend/migrations/20250201124748_v2_migrate_from_v1.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "d302f34e1c1061c418e199d54c1aafedc79e0d466ff206e99bf72d8daadc6505",
+  "bytes": 9080
+ },
+ {
+  "file": "windmill__0158__20250201124805_v2_job_status_sync.up.sql",
+  "original_path": "backend/migrations/20250201124805_v2_job_status_sync.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "2d55ea1ea19476ddf0bf5fef36f557c4f0ed1b4409903c0ce0a31886d1a3f075",
+  "bytes": 1598
+ },
+ {
+  "file": "windmill__0159__20250201145628_v2_job_queue_constraints.up.sql",
+  "original_path": "backend/migrations/20250201145628_v2_job_queue_constraints.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "699996b4ef209a32aef80ba41a6719ebeed6e28d5fe6c6ae0343bb4401b3e289",
+  "bytes": 100
+ },
+ {
+  "file": "windmill__0160__20250201145633_v2_fix_no_runtime_2.up.sql",
+  "original_path": "backend/migrations/20250201145633_v2_fix_no_runtime_2.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "2f47c5070ac34ebaf57c1d159ab42094d1421f7b0a1f16e55a2b0bccd1c9b1c7",
+  "bytes": 413
+ },
+ {
+  "file": "windmill__0161__20250205003539_add_sqs_type_value_to_trigger_kind_type.up.sql",
+  "original_path": "backend/migrations/20250205003539_add_sqs_type_value_to_trigger_kind_type.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "7e4aa1b32ec2b18fd39a327592845b1b0d456ea74c2e1f66c2c1206af3904610",
+  "bytes": 87
+ },
+ {
+  "file": "windmill__0162__20250205131514_v2_queue_compatibility_view.up.sql",
+  "original_path": "backend/migrations/20250205131514_v2_queue_compatibility_view.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "a9ed335585d6d0c91233ca196e110eafa306d828e23500cff3f9d8f0df159978",
+  "bytes": 1550
+ },
+ {
+  "file": "windmill__0163__20250205131516_v2_grant.up.sql",
+  "original_path": "backend/migrations/20250205131516_v2_grant.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "443b46ac4243900688ef751200e8448c76021d390b9a0a433ea5d46c7357c8b5",
+  "bytes": 229
+ },
+ {
+  "file": "windmill__0164__20250205131519_windmill_admin_skip_bypassrls_on_v2_job.up.sql",
+  "original_path": "backend/migrations/20250205131519_windmill_admin_skip_bypassrls_on_v2_job.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "b29197fdae5ca1b9a4148b2335e0666121aec6f5bd70b2e3a1840d436b961391",
+  "bytes": 158
+ },
+ {
+  "file": "windmill__0165__20250205131521_clear_cache_on_webhook_changes.up.sql",
+  "original_path": "backend/migrations/20250205131521_clear_cache_on_webhook_changes.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "233e6f6fb5d2b447363018398d1c6f0624d60898af92abeb5d8c735b3bb02b87",
+  "bytes": 423
+ },
+ {
+  "file": "windmill__0166__20250205131523_grant_all_in_current_schema.up.sql",
+  "original_path": "backend/migrations/20250205131523_grant_all_in_current_schema.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "8a6d756a72d60a0782a2df4c9ed0814032da8c82fe45b84b32144c4aa655d9da",
+  "bytes": 1698
+ },
+ {
+  "file": "windmill__0167__20250207172929_mqtt_trigger.up.sql",
+  "original_path": "backend/migrations/20250207172929_mqtt_trigger.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "73101de5b585219a4e474912ae443f96fc6992ce0877d02c4cc30a9e1d02ee59",
+  "bytes": 4436
+ },
+ {
+  "file": "windmill__0168__20250224131521_flow_workspace_runnables.up.sql",
+  "original_path": "backend/migrations/20250224131521_flow_workspace_runnables.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "da38cdd410e88c7cc9ff97789a1d221a45b7e96bdee0c5012ae410487b601524",
+  "bytes": 826
+ },
+ {
+  "file": "windmill__0169__20250309165536_add_workspaced_route_column_for_http_trigger.up.sql",
+  "original_path": "backend/migrations/20250309165536_add_workspaced_route_column_for_http_trigger.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "57545d3bc075ee8ac5f29f8db168739d79e08d3cbf62b6e6e6887ed036d5a5dc",
+  "bytes": 118
+ },
+ {
+  "file": "windmill__0170__20250317145509_more_generic_workspace_runnable_usage.up.sql",
+  "original_path": "backend/migrations/20250317145509_more_generic_workspace_runnable_usage.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "f11478739c6c942d142bdd2024406804332342bd1f57340cc5bb87d55fa038c9",
+  "bytes": 1741
+ },
+ {
+  "file": "windmill__0171__20250319121050_multiple_ai_providers.up.sql",
+  "original_path": "backend/migrations/20250319121050_multiple_ai_providers.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "ed962c9ea5bfe73680905fd0f4c742dd5d546099f902c9ce2813b8a7a3722dd9",
+  "bytes": 1367
+ },
+ {
+  "file": "windmill__0172__20250320081915_longer_variable_description.up.sql",
+  "original_path": "backend/migrations/20250320081915_longer_variable_description.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "ea3390dea37368b58e085c9445c9ee3599dd79226a93f5c2f12ed67ed06a3b28",
+  "bytes": 101
+ },
+ {
+  "file": "windmill__0173__20250323131258_add-description-and-cast-extra-args-to-jsonb.up.sql",
+  "original_path": "backend/migrations/20250323131258_add-description-and-cast-extra-args-to-jsonb.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "18126233ec4493a6b5bc910fdead25d25128ddd4f43339560fe5a0cc5ff8be6b",
+  "bytes": 372
+ },
+ {
+  "file": "windmill__0174__20250323162033_add-missing-trigger-kind-to-job-trigger-kind-type.up.sql",
+  "original_path": "backend/migrations/20250323162033_add-missing-trigger-kind-to-job-trigger-kind-type.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "17ff5abe40df76ef14d0721deef2ae4da39c8985d26854872491bf0c4b457b5d",
+  "bytes": 153
+ },
+ {
+  "file": "windmill__0175__20250326105126_remove_automatic_billing_col.up.sql",
+  "original_path": "backend/migrations/20250326105126_remove_automatic_billing_col.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "d5c3ae9376fd8c58c309ddeb7ad77747e980273857b39cac512e4e21a80fe028",
+  "bytes": 61
+ },
+ {
+  "file": "windmill__0176__20250412144540_improve_perf_api_role.up.sql",
+  "original_path": "backend/migrations/20250412144540_improve_perf_api_role.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "9cbdeb0a724adcbdb8a2d4c2810a66ec0fc452a9db53b721d6b3572eb0defcbd",
+  "bytes": 697
+ },
+ {
+  "file": "windmill__0177__20250417132646_add-resource-type-column-to-sqs.up.sql",
+  "original_path": "backend/migrations/20250417132646_add-resource-type-column-to-sqs.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "ab63c475ac54f309d77b2095625d6b5367d917ec36ff1e1ba2741d41b09eaf9c",
+  "bytes": 244
+ },
+ {
+  "file": "windmill__0178__20250421120705_alter_url_column_length_on_websocket_triggers.up.sql",
+  "original_path": "backend/migrations/20250421120705_alter_url_column_length_on_websocket_triggers.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "667fc89e63bce54e78969b335a2d40ddb1f5a509f1af563e864c67f731d9fc4e",
+  "bytes": 100
+ },
+ {
+  "file": "windmill__0179__20250428170426_mcp_mode_log.up.sql",
+  "original_path": "backend/migrations/20250428170426_mcp_mode_log.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "e4b9bf1cae6e7ef21cdd17e6a02a78d3668e3863f91b89dd113a34f53fb3307e",
+  "bytes": 69
+ },
+ {
+  "file": "windmill__0180__20250429214657_create_indices_on_job_stats.up.sql",
+  "original_path": "backend/migrations/20250429214657_create_indices_on_job_stats.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "437519f6807f660f53dad7ca7baee59be13a9549f542d90ce8d243b17cc6c973",
+  "bytes": 95
+ },
+ {
+  "file": "windmill__0181__20250506151818_orderby_refactor.up.sql",
+  "original_path": "backend/migrations/20250506151818_orderby_refactor.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "d1e3525fe9696bc883675d039fe4ec7617c049edbb5c5667fcbd87ea74b01f5c",
+  "bytes": 197
+ },
+ {
+  "file": "windmill__0182__20250515084520_duckdb_support.up.sql",
+  "original_path": "backend/migrations/20250515084520_duckdb_support.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "ad941f301205e2e0612441debec79b252739ece3a3e22cc21f54ebe059deef15",
+  "bytes": 466
+ },
+ {
+  "file": "windmill__0183__20250515181903_fix_http_routers_cache.up.sql",
+  "original_path": "backend/migrations/20250515181903_fix_http_routers_cache.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "916bb52e33b7ee7e38eb95e26234f31c41a4911a1b3171a24ce8970b072ec7a8",
+  "bytes": 461
+ },
+ {
+  "file": "windmill__0184__20250526173025_http_trigger_seq_grants.up.sql",
+  "original_path": "backend/migrations/20250526173025_http_trigger_seq_grants.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "1d8471e67c13ecdab89b2801e37298ba639700cd71bc8c685d49649ea5a95b29",
+  "bytes": 164
+ },
+ {
+  "file": "windmill__0185__20250605150135_add_email_and_span_to_audit.up.sql",
+  "original_path": "backend/migrations/20250605150135_add_email_and_span_to_audit.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "1623e94d81b7cb244f7fae017405d957cfa63be73dcec734499ebfaa87ab843e",
+  "bytes": 145
+ },
+ {
+  "file": "windmill__0186__20250618164000_add_agent_token_blacklist.up.sql",
+  "original_path": "backend/migrations/20250618164000_add_agent_token_blacklist.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "5d843bd8b910292d6fca1ae63c76ca572475fed9b6ddeb61f355ceab8416e69e",
+  "bytes": 520
+ },
+ {
+  "file": "windmill__0187__20250630164531_client_credentials_oauth.up.sql",
+  "original_path": "backend/migrations/20250630164531_client_credentials_oauth.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "9bebebdcb43bdca7a3b68eff61480081c3e771c3bd7dd77aaee575f3908214f7",
+  "bytes": 589
+ },
+ {
+  "file": "windmill__0188__20250714110352_add_grant_to_asset_table.up.sql",
+  "original_path": "backend/migrations/20250714110352_add_grant_to_asset_table.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "cb8bb1e5b65ed587bd7cdf1d17062a25c48ec3777ed51737a2e2f074cd57678f",
+  "bytes": 108
+ },
+ {
+  "file": "windmill__0189__20250719095639_add_variable_asset_kind.up.sql",
+  "original_path": "backend/migrations/20250719095639_add_variable_asset_kind.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "d71eecf5606ff9d45b68cf478fd3b30a3191bff7019587d801bcfe6baa56bd5f",
+  "bytes": 76
+ },
+ {
+  "file": "windmill__0190__20250721160151_add_ruby.up.sql",
+  "original_path": "backend/migrations/20250721160151_add_ruby.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3dae280e74ba042abeaff404f3ab8d4f099c16db94a1314bfd9b1f0b0491f709",
+  "bytes": 470
+ },
+ {
+  "file": "windmill__0191__20250724084100_ducklake.up.sql",
+  "original_path": "backend/migrations/20250724084100_ducklake.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "86dcf536dc5ffa3e5cd4af408cba6e5b3ae770ee0fab69c74bd69233f9afddf0",
+  "bytes": 107
+ },
+ {
+  "file": "windmill__0192__20250731132157_ducklake_instance_settings.up.sql",
+  "original_path": "backend/migrations/20250731132157_ducklake_instance_settings.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "7ea57a9e63409b586883b71a7b56abb8b3f41ce0984bb8ce6fdf9613e4cba265",
+  "bytes": 907
+ },
+ {
+  "file": "windmill__0193__20250804221654_add_auto_acknowledge_msg_to_gcp.up.sql",
+  "original_path": "backend/migrations/20250804221654_add_auto_acknowledge_msg_to_gcp.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "c1cc4c301b64a91f98c69b6e91e3c3355293a59bd1d2b763d7fa528fdfc70a42",
+  "bytes": 110
+ },
+ {
+  "file": "windmill__0194__20250811171024_add_usr_added_via.up.sql",
+  "original_path": "backend/migrations/20250811171024_add_usr_added_via.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "416f18c002ea70a264d1a5a51c4c9c43b7e4067f8076c1ef5949b5f17d118bea",
+  "bytes": 438
+ },
+ {
+  "file": "windmill__0195__20250826120000_add_parent_to_workspace.up.sql",
+  "original_path": "backend/migrations/20250826120000_add_parent_to_workspace.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "aee9b1b77f355821d40672c72af1787d55df544887d80d327d6a7e23bfcc3ea2",
+  "bytes": 440
+ },
+ {
+  "file": "windmill__0196__20250827102435_add_team_plan_status.up.sql",
+  "original_path": "backend/migrations/20250827102435_add_team_plan_status.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "5c67209d8b8b41420ff0272724bb7b892fe0a9341c07f7714105307c16ed2ffd",
+  "bytes": 682
+ },
+ {
+  "file": "windmill__0197__20250902070305_variable_resource_cache_notifications.up.sql",
+  "original_path": "backend/migrations/20250902070305_variable_resource_cache_notifications.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "0056ac7b4b30664ff459354f4dd11177783797c66f691297c302302715f178b8",
+  "bytes": 1368
+ },
+ {
+  "file": "windmill__0198__20250902165240_flow_versions_update_notify.up.sql",
+  "original_path": "backend/migrations/20250902165240_flow_versions_update_notify.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "87706f7ff7b82423eb71b479e655d423e8d203d943addb04b519142529a3873b",
+  "bytes": 506
+ },
+ {
+  "file": "windmill__0199__20250905153025_add_email_triggers.up.sql",
+  "original_path": "backend/migrations/20250905153025_add_email_triggers.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "43927dc6e5e082b0e103dd71d6e1482386285b1174d3891364e7d0652c4960d4",
+  "bytes": 4291
+ },
+ {
+  "file": "windmill__0200__20250909102627_change_type_of_default_email_captures.up.sql",
+  "original_path": "backend/migrations/20250909102627_change_type_of_default_email_captures.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "25b9e056cf5a8a9b9483d422a8725c5982ddb70f9708a2ac7b59487844177eb2",
+  "bytes": 200
+ },
+ {
+  "file": "windmill__0201__20250924150953_new_job_result_stream_table.up.sql",
+  "original_path": "backend/migrations/20250924150953_new_job_result_stream_table.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3836e7a46fb396a8398ac254cadee5543a8dd2424526f62a573bbef4b1898d7b",
+  "bytes": 412
+ },
+ {
+  "file": "windmill__0202__20250925142554_job_debouncing.up.sql",
+  "original_path": "backend/migrations/20250925142554_job_debouncing.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "2ed22e257ca41e06093260ac1ba4212c3d48155ba3842a89d8964db1bf98f80b",
+  "bytes": 467
+ },
+ {
+  "file": "windmill__0203__20251001140645_raw_app_bundles.up.sql",
+  "original_path": "backend/migrations/20251001140645_raw_app_bundles.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "a1540498164046ac5472ba0c9619c457221287a8cf95d94d9856e6adfb87af6a",
+  "bytes": 243
+ },
+ {
+  "file": "windmill__0204__20251003145612_add_end_user_to_job_perms.up.sql",
+  "original_path": "backend/migrations/20251003145612_add_end_user_to_job_perms.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "870fb6f78b300ff27306d1bb8319d5bda926f6369067aee8a43771449e957e56",
+  "bytes": 94
+ },
+ {
+  "file": "windmill__0205__20251006143822_ducklake_instance_settings_better.up.sql",
+  "original_path": "backend/migrations/20251006143822_ducklake_instance_settings_better.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "55a98e6aa833efe31519f955ac486841b2ca6466e32946fa906d4f9c376e045d",
+  "bytes": 330
+ },
+ {
+  "file": "windmill__0206__20251014181922_backfill_instance_group_uuids.up.sql",
+  "original_path": "backend/migrations/20251014181922_backfill_instance_group_uuids.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "2ad06f9ce29729d6febcc49537817de0b39509b00212287aef2900bc04bdbcd6",
+  "bytes": 248
+ },
+ {
+  "file": "windmill__0207__20251017120625_job_debouncing_extra.up.sql",
+  "original_path": "backend/migrations/20251017120625_job_debouncing_extra.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "6666ad7bb7684b70c3487a3f4f50d7527b9f32ca68e6d2ddde1ecce1fe20cd98",
+  "bytes": 503
+ },
+ {
+  "file": "windmill__0208__20251024141453_job_debouncing_index_by_job_id.up.sql",
+  "original_path": "backend/migrations/20251024141453_job_debouncing_index_by_job_id.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "5b0f9b29c81a17d6dbe7f6799e309b1b7b5e77f0c688c219560125e924177078",
+  "bytes": 111
+ },
+ {
+  "file": "windmill__0209__20251027235539_workspace_slack_oauth.up.sql",
+  "original_path": "backend/migrations/20251027235539_workspace_slack_oauth.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "229bd70e6ae7a3b1a90fb14fa458f45e83a91d2a22bb592baf4bc5efa2eba6ca",
+  "bytes": 219
+ },
+ {
+  "file": "windmill__0210__20251028111213_allow_to_disable_http_trigger.up.sql",
+  "original_path": "backend/migrations/20251028111213_allow_to_disable_http_trigger.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "2710b7f98017c82ba2329323ed9fc31aed83dea83ea7e36b3aa71737c7baea88",
+  "bytes": 107
+ },
+ {
+  "file": "windmill__0211__20251030161900_nullify_debounce_delay.up.sql",
+  "original_path": "backend/migrations/20251030161900_nullify_debounce_delay.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "21263e172be666dbe6230e4d6d4758db6959229dd89822bb240ef129fcdb89ce",
+  "bytes": 108
+ },
+ {
+  "file": "windmill__0212__20251105100125_legacy_sql_result_flag.up.sql",
+  "original_path": "backend/migrations/20251105100125_legacy_sql_result_flag.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "0d177134b0ffcf248ead281e5b5570baafc53871358353663e35008669197059",
+  "bytes": 3193
+ },
+ {
+  "file": "windmill__0213__20251112200815_add_enable_unshare_pid.up.sql",
+  "original_path": "backend/migrations/20251112200815_add_enable_unshare_pid.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "d08ead93e885c60f99bed08bfc68e9a6a1091ba2fbe42031b5ead327e151dd24",
+  "bytes": 273
+ },
+ {
+  "file": "windmill__0214__20251118190643_unique_jwt_token.up.sql",
+  "original_path": "backend/migrations/20251118190643_unique_jwt_token.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "d78d32fd5674b6e7a7404c2efaf4b770ec73418868dab51864faddad22b9c2b8",
+  "bytes": 308
+ },
+ {
+  "file": "windmill__0215__20251121144314_migrate_instance_ducklake_catalogs.up.sql",
+  "original_path": "backend/migrations/20251121144314_migrate_instance_ducklake_catalogs.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "eb2075db57511013e40a4e4ca2184b4e0799aaf4c70faf1b3efd38e2f43fa59e",
+  "bytes": 1230
+ },
+ {
+  "file": "windmill__0216__20251127104100_add_suspended_mode_to_triggers.up.sql",
+  "original_path": "backend/migrations/20251127104100_add_suspended_mode_to_triggers.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "04a290c59b22c3f487801d121a0b627275d00b01503dba74a259e8d044033223",
+  "bytes": 3100
+ },
+ {
+  "file": "windmill__0217__20251203131741_add_skipped_all_to_tutorial_progress.up.sql",
+  "original_path": "backend/migrations/20251203131741_add_skipped_all_to_tutorial_progress.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "091723c9607a0601ea29aa4d2e354170e01d305edad5c3a3f29274140e7bbaeb",
+  "bytes": 272
+ },
+ {
+  "file": "windmill__0218__20251204094847_external_runnables_settings.up.sql",
+  "original_path": "backend/migrations/20251204094847_external_runnables_settings.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "670ecc550ff8c66ad724dd1d1b9dad1f565b32c98e759a711c1e6f3411674987",
+  "bytes": 1453
+ },
+ {
+  "file": "windmill__0219__20251208123907_safety_custom_instance_db_user_pwd.up.sql",
+  "original_path": "backend/migrations/20251208123907_safety_custom_instance_db_user_pwd.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "403c1f1171304db95cac1ff6d382dd21540a6f3574ee0837a1c829c8c0355d77",
+  "bytes": 1332
+ },
+ {
+  "file": "windmill__0220__20251216114001_v2_job_debounce_data.up.sql",
+  "original_path": "backend/migrations/20251216114001_v2_job_debounce_data.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "bcba63c40cad946114c31feb32555219a389739f7b138489493ac009abade108",
+  "bytes": 604
+ },
+ {
+  "file": "windmill__0221__20251218220000_flow_iterator_data.up.sql",
+  "original_path": "backend/migrations/20251218220000_flow_iterator_data.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3f72d7a9a9feaf38407da9b8c9475c905692f66367940cd37379882e291b832a",
+  "bytes": 481
+ },
+ {
+  "file": "windmill__0222__20251219191452_teams_team_guid.up.sql",
+  "original_path": "backend/migrations/20251219191452_teams_team_guid.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "66e740c67ebdcdb61c391129d2f2b8a7e717249b8e242bab94932d8e98fa28a1",
+  "bytes": 233
+ },
+ {
+  "file": "windmill__0223__20260109143306_fix_custom_user_instance_2.up.sql",
+  "original_path": "backend/migrations/20260109143306_fix_custom_user_instance_2.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "c7b2bd3c0d9dae11d5bccac4eb0d3ca1a4b7f333475f5c58ca7d78128472c75c",
+  "bytes": 705
+ },
+ {
+  "file": "windmill__0224__20260112100000_native_triggers.up.sql",
+  "original_path": "backend/migrations/20260112100000_native_triggers.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "7a38b7b40c7e0e608667e63188394ef6e133624431182712eb224e57ab65aa80",
+  "bytes": 1930
+ },
+ {
+  "file": "windmill__0225__20260114180000_add_protection_rules.up.sql",
+  "original_path": "backend/migrations/20260114180000_add_protection_rules.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "33e75f136727bea9bd3742655a629f40f12c0e7acb5ae708f55d9b292a76bd7a",
+  "bytes": 463
+ },
+ {
+  "file": "windmill__0226__20260120204751_custom_user_instance_createrole.up.sql",
+  "original_path": "backend/migrations/20260120204751_custom_user_instance_createrole.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "895fcffac6155b0fb1e2d84df287857219b693ba2ae2947f346c45e0fb8f0451",
+  "bytes": 234
+ },
+ {
+  "file": "windmill__0227__20260125000000_v2_finalize.up.sql",
+  "original_path": "backend/migrations/20260125000000_v2_finalize.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "74ed617a2fa7db660a5682a1ac5718771200d09d96c54f1ba376cb6003c6f9ad",
+  "bytes": 4807
+ },
+ {
+  "file": "windmill__0228__20260128194102_runtime_assets.up.sql",
+  "original_path": "backend/migrations/20260128194102_runtime_assets.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "04479020f440457eb5097d44bcf6acb46d86fcb99af1f18312e8ecd644c0aa3c",
+  "bytes": 290
+ },
+ {
+  "file": "windmill__0229__20260129161851_dedicated_workers_column.up.sql",
+  "original_path": "backend/migrations/20260129161851_dedicated_workers_column.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "be63926d71b8436368f8743bdca0dc08564eae4258348c0a68a3a6a01e4d1382",
+  "bytes": 76
+ },
+ {
+  "file": "windmill__0230__20260130150931_kafka_trigger_filters.up.sql",
+  "original_path": "backend/migrations/20260130150931_kafka_trigger_filters.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "02006146f9d5d982d261f429cfa82aab47c300822a5f03f3f68d2942f7fd8812",
+  "bytes": 77
+ },
+ {
+  "file": "windmill__0231__20260203172950_polling_based_events.up.sql",
+  "original_path": "backend/migrations/20260203172950_polling_based_events.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "c61a2f1007f10cd733fc186aacdc02e09601e0b717533ab81f76d42296458eb7",
+  "bytes": 4570
+ },
+ {
+  "file": "windmill__0232__20260204152754_add_asset_favorite_kind.up.sql",
+  "original_path": "backend/migrations/20260204152754_add_asset_favorite_kind.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3e7fad5da58672a94a9bb3c51a0c20a96db8eb64a86333d6195d1c48c4f1f043",
+  "bytes": 208
+ },
+ {
+  "file": "windmill__0233__20260205193914_grant_asset_id_seq.up.sql",
+  "original_path": "backend/migrations/20260205193914_grant_asset_id_seq.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "057707518dc9f04c5c3e77c1bff98ab0922f3a825609641beab3ba1c7ea19445",
+  "bytes": 109
+ },
+ {
+  "file": "windmill__0234__20260206060555_notify_triggers_security_definer.up.sql",
+  "original_path": "backend/migrations/20260206060555_notify_triggers_security_definer.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "1027204cdb006622c4c93eecb5df7735bbb19dc2cb965a461d31462f4757ba32",
+  "bytes": 1116
+ },
+ {
+  "file": "windmill__0235__20260207000001_concurrent_indexes_v2_job.up.sql",
+  "original_path": "backend/migrations/20260207000001_concurrent_indexes_v2_job.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "fcfd6f6def9c23ad24ff2f08e5180ac9be4a33d30a356041dac62efdd5a428c4",
+  "bytes": 1728
+ },
+ {
+  "file": "windmill__0236__20260207000003_concurrent_indexes_v2_job_queue.up.sql",
+  "original_path": "backend/migrations/20260207000003_concurrent_indexes_v2_job_queue.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "ad166f8690d9a98ec81701cfea9542104437d859b8ac5387b4211e2d622ddbb8",
+  "bytes": 443
+ },
+ {
+  "file": "windmill__0237__20260209000001_dependency_map_lockfile_hash.up.sql",
+  "original_path": "backend/migrations/20260209000001_dependency_map_lockfile_hash.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "29e9e22fc271dcccbc074fecefa6679ac54b92947987c0d79a65451c107fe4d4",
+  "bytes": 700
+ },
+ {
+  "file": "windmill__0238__20260212100000_native_trigger_oauth_to_resource.up.sql",
+  "original_path": "backend/migrations/20260212100000_native_trigger_oauth_to_resource.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "0ee55ac3fb19cdb8980d8e21e1feee3f0c41b4839493a4e326aa5babb03c2a6c",
+  "bytes": 597
+ },
+ {
+  "file": "windmill__0239__20260224000000_create_wm_deployers_group.up.sql",
+  "original_path": "backend/migrations/20260224000000_create_wm_deployers_group.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "6931ed468ff1e9072c1e9b27573cc4d6a804e8d2f1c82df329dc33a414dc3dcd",
+  "bytes": 291
+ },
+ {
+  "file": "windmill__0240__20260225100000_asset_covering_index.up.sql",
+  "original_path": "backend/migrations/20260225100000_asset_covering_index.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "28fa6429d79d65f11930fedb03d5e2999ee2943a2cfba63da335c77ac8535a70",
+  "bytes": 768
+ },
+ {
+  "file": "windmill__0241__20260228000000_v2_job_completed_failure_index.up.sql",
+  "original_path": "backend/migrations/20260228000000_v2_job_completed_failure_index.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "9919b6488a68a3f10af60931e920fa0b1099ec845738cc53a57ba723cb9220e1",
+  "bytes": 490
+ },
+ {
+  "file": "windmill__0242__20260304000000_raw_script_temp.up.sql",
+  "original_path": "backend/migrations/20260304000000_raw_script_temp.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "2eb9f91f10aad3b524488eb321ba007d880f4ddf935bcfbaadb48b203e452248",
+  "bytes": 478
+ },
+ {
+  "file": "windmill__0243__20260309000000_kafka_offset_reset.up.sql",
+  "original_path": "backend/migrations/20260309000000_kafka_offset_reset.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "eac1b5485fca3cbd025d20a2ae6992889bc14f22995d01f476b8fdcda6e1d10c",
+  "bytes": 178
+ },
+ {
+  "file": "windmill__0244__20260311100000_audit_partitioning.up.sql",
+  "original_path": "backend/migrations/20260311100000_audit_partitioning.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "e13636b94e50b1e80fbbd66b645170823047358373f604607479514408ca86c0",
+  "bytes": 2533
+ },
+ {
+  "file": "windmill__0245__20260313000000_script_auto_kind.up.sql",
+  "original_path": "backend/migrations/20260313000000_script_auto_kind.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "dc36964b9c5dc63e6bdca86a69df613d1f632c9f561c6827508c90be3d9cc0e0",
+  "bytes": 164
+ },
+ {
+  "file": "windmill__0246__20260316000001_token_hash_pk_swap.up.sql",
+  "original_path": "backend/migrations/20260316000001_token_hash_pk_swap.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "f5dc413d721abc1d67d40234c24ad189e56aa47f0d2ef578922dee6d5f972632",
+  "bytes": 933
+ },
+ {
+  "file": "windmill__0247__20260316000003_rename_token_expiry_notification_column.up.sql",
+  "original_path": "backend/migrations/20260316000003_rename_token_expiry_notification_column.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "431e40b1343070af96c0d1204b910c26b548ff71d6be309faadd0db09a64fe0e",
+  "bytes": 247
+ },
+ {
+  "file": "windmill__0248__20260316000005_instance_group_role.up.sql",
+  "original_path": "backend/migrations/20260316000005_instance_group_role.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "9d522da75304cabc2bca2fdb7dcf60542239ea6ea563800169ae73d1dfdbf6a6",
+  "bytes": 555
+ },
+ {
+  "file": "windmill__0249__20260317999999_fix_trigger_superadmin_edited_by.up.sql",
+  "original_path": "backend/migrations/20260317999999_fix_trigger_superadmin_edited_by.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "cb8a87cf1d439b265a1b0f062ab39b696662199229fbf9646ccf9845084b731c",
+  "bytes": 1623
+ },
+ {
+  "file": "windmill__0250__20260323000000_native_trigger_summary.up.sql",
+  "original_path": "backend/migrations/20260323000000_native_trigger_summary.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "82ddf7d9450bb3311d213ff8d4d8f103a9c2fd3d6b02aecea74ecc2aad4530d2",
+  "bytes": 62
+ },
+ {
+  "file": "windmill__0251__20260326000000_trashbin.up.sql",
+  "original_path": "backend/migrations/20260326000000_trashbin.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "8a474be5db6d2db74b3861f3535980af8fe1f5b7a2be2844aaf07a776734d868",
+  "bytes": 659
+ },
+ {
+  "file": "windmill__0252__20260326200000_service_accounts.up.sql",
+  "original_path": "backend/migrations/20260326200000_service_accounts.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "a4c0706fcbffecc713a74aefe325d6b82e557f2e1c42ae46ba524b547f7cadbe",
+  "bytes": 93
+ },
+ {
+  "file": "windmill__0253__20260328000000_trigger_filter_logic.up.sql",
+  "original_path": "backend/migrations/20260328000000_trigger_filter_logic.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "cde116991234286cc57e8a43da7ac89686f37ee164784987b8ca7a8d93f4f25d",
+  "bytes": 176
+ },
+ {
+  "file": "windmill__0254__20260331000000_add_rlang.up.sql",
+  "original_path": "backend/migrations/20260331000000_add_rlang.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "f3b1039ca54f9327ef035a85af10d56e5d033d65ee6ab4143431746dfb174676",
+  "bytes": 448
+ },
+ {
+  "file": "windmill__0255__20260402213045_websocket_heartbeat.up.sql",
+  "original_path": "backend/migrations/20260402213045_websocket_heartbeat.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "826c21534069deaabeb307b723cc0397a5217202ad1c5d77584a8818c6ecbe64",
+  "bytes": 64
+ },
+ {
+  "file": "windmill__0256__20260405151839_add_resource_cache_expire_index.up.sql",
+  "original_path": "backend/migrations/20260405151839_add_resource_cache_expire_index.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "d7f2887acf3380bda50146ed18274b077150110eda2562407aacce378c6e6c94",
+  "bytes": 357
+ },
+ {
+  "file": "windmill__0257__20260406104248_ci_test_references.up.sql",
+  "original_path": "backend/migrations/20260406104248_ci_test_references.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "faa05b3b425f5581aec71825de38c67284b50eea0efcc241781cdb698eec19e7",
+  "bytes": 969
+ },
+ {
+  "file": "windmill__0258__20260407154106_add_delete_after_secs.up.sql",
+  "original_path": "backend/migrations/20260407154106_add_delete_after_secs.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "d9ee9cbac81cebc603d277223a54d324efddc7da435159a6539bcc1cb2026f57",
+  "bytes": 292
+ },
+ {
+  "file": "windmill__0259__20260408151657_ws_specific_table.up.sql",
+  "original_path": "backend/migrations/20260408151657_ws_specific_table.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "1d0e64fcf4b7bbca4b97bb37c6abca42d409cbd370a2869ec31a5ec2a186c81d",
+  "bytes": 608
+ },
+ {
+  "file": "windmill__0260__20260409160116_ci_test_reference_cascade.up.sql",
+  "original_path": "backend/migrations/20260409160116_ci_test_reference_cascade.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "7fdfa986af025b4f6c9fdf97f094f2c74a35b5507c975d3e5e711d337f2b711f",
+  "bytes": 225
+ },
+ {
+  "file": "windmill__0261__20260413045437_fork_deployment_requests.up.sql",
+  "original_path": "backend/migrations/20260413045437_fork_deployment_requests.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "74122b752298c00885869ea107af65f081481e6325aa86b9140aefa2fbc671b4",
+  "bytes": 3649
+ },
+ {
+  "file": "windmill__0262__20260414202500_ws_specific_grant.up.sql",
+  "original_path": "backend/migrations/20260414202500_ws_specific_grant.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "f914725c0470fd43dc12b88540c1f96c080b02dea39f5a03ecdfece4a72437aa",
+  "bytes": 89
+ },
+ {
+  "file": "windmill__0263__20260420162905_add_azure_trigger.up.sql",
+  "original_path": "backend/migrations/20260420162905_add_azure_trigger.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "61acafc48cb86be199fc60e4c9ff27184552392c8164195e105fea55ff099234",
+  "bytes": 5713
+ },
+ {
+  "file": "windmill__0264__20260423132025_flow_conversation_message_created_seq.up.sql",
+  "original_path": "backend/migrations/20260423132025_flow_conversation_message_created_seq.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "970597c9709cae09b31949321527978afd5a270398d2e13f488d698320800ae0",
+  "bytes": 428
+ },
+ {
+  "file": "windmill__0265__20260429151017_workspace_shared_ui.up.sql",
+  "original_path": "backend/migrations/20260429151017_workspace_shared_ui.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "9688a1cc99ac2a86ee931fda52450d1b0499edd24cc575ec3e77904ef9cf7aee",
+  "bytes": 452
+ },
+ {
+  "file": "windmill__0266__20260510174213_asset_trigger_dispatch.up.sql",
+  "original_path": "backend/migrations/20260510174213_asset_trigger_dispatch.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "c01dec17b72b54c1eb667943132a984a38a2b93ba40cb3a8eb70743f98ffbbf2",
+  "bytes": 313
+ },
+ {
+  "file": "windmill__0267__20260512200642_add_edited_at_to_variable.up.sql",
+  "original_path": "backend/migrations/20260512200642_add_edited_at_to_variable.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "4c1a3b851867f72d00caf832907f8c26b21946735ad217103ffc9898506327dc",
+  "bytes": 859
+ },
+ {
+  "file": "windmill__0268__20260514130526_fix_auto_kind_lib_for_runnable_script_kinds.up.sql",
+  "original_path": "backend/migrations/20260514130526_fix_auto_kind_lib_for_runnable_script_kinds.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "8ea35520f587a87d9b3c6857530ec3b7621f91453f922da12c60899cd5a0f1ca",
+  "bytes": 458
+ },
+ {
+  "file": "windmill__0269__20260516194247_join_pending_inputs.up.sql",
+  "original_path": "backend/migrations/20260516194247_join_pending_inputs.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "6599598d4971de4b26f922448069033b6dfefb66d9e815a35f642e4b09f981e3",
+  "bytes": 1095
+ },
+ {
+  "file": "windmill__0270__20260523055641_dispatch_event.up.sql",
+  "original_path": "backend/migrations/20260523055641_dispatch_event.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "fafb5c77e53ccf63f5c7250cddd7144562544965bcfbd96dfbfcf7fe771c17f5",
+  "bytes": 3093
+ },
+ {
+  "file": "windmill__0271__20260609165313_remove_draft_only.up.sql",
+  "original_path": "backend/migrations/20260609165313_remove_draft_only.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "9faefeaf9d8367ca7521c024c0bc54d386941094b74671fa197f32dc5a4b3e64",
+  "bytes": 3964
+ },
+ {
+  "file": "windmill__0272__20260614075900_dedup_folder_labels.up.sql",
+  "original_path": "backend/migrations/20260614075900_dedup_folder_labels.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "89b3d89cd94d833a934701b99e1b7d8fb558b9203ab14a64535ed2384cdec967",
+  "bytes": 1387
+ },
+ {
+  "file": "windmill__0273__20260616090412_add_data_pipeline_draft_kind.up.sql",
+  "original_path": "backend/migrations/20260616090412_add_data_pipeline_draft_kind.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "59e89fd996b4e44f943ea15ae2e22cca688c1331883a1ac0c8339a8db2b32f93",
+  "bytes": 397
+ },
+ {
+  "file": "windmill__0274__20260616210529_cleanup_orphaned_workspace_diff.up.sql",
+  "original_path": "backend/migrations/20260616210529_cleanup_orphaned_workspace_diff.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "0c0af3e45b18778105155781e18021e50eae66983d6bfeb2ced8c25ba9f4d89d",
+  "bytes": 1775
+ },
+ {
+  "file": "windmill__0275__20260617144417_add_ai_skill.up.sql",
+  "original_path": "backend/migrations/20260617144417_add_ai_skill.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "a79709854fadc3091d2589a2860bd8c16022daeabfa653200f9020e6c1a4583a",
+  "bytes": 667
+ },
+ {
+  "file": "windmill__0276__20260619113554_scrub_draft_value_nul.up.sql",
+  "original_path": "backend/migrations/20260619113554_scrub_draft_value_nul.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "e3b375730eff7cfbed575fa8e79b288d9eb4f9420904b0adea7d421bdd823fa7",
+  "bytes": 1394
+ },
+ {
+  "file": "windmill__0277__20260619170118_add_materialized_partition.up.sql",
+  "original_path": "backend/migrations/20260619170118_add_materialized_partition.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "ba09e5590016b89cd647dcac0ae7a29f304da989eb11e12bbf12497843b5d7f5",
+  "bytes": 1544
+ },
+ {
+  "file": "windmill__0278__20260624105229_realign_legacy_raw_app_draft_kind.up.sql",
+  "original_path": "backend/migrations/20260624105229_realign_legacy_raw_app_draft_kind.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "74aee0d81017ae563e5d440fef0b24af169ece82c08a120590a9c9eb565aeae7",
+  "bytes": 1517
+ },
+ {
+  "file": "windmill__0279__20260624221000_native_retry_attempt_marker.up.sql",
+  "original_path": "backend/migrations/20260624221000_native_retry_attempt_marker.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "f0de7c618d52d6bff4ad8b66317eb22e83977497a2e09e57cc48dd4d7115ac1e",
+  "bytes": 1043
+ },
+ {
+  "file": "windmill__0280__20260625130855_index_resume_job_flow_fk.up.sql",
+  "original_path": "backend/migrations/20260625130855_index_resume_job_flow_fk.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "7a8ea515c37870d87da7874da1b8704003a741af83b29a3b4c6451d94dc65448",
+  "bytes": 428
+ },
+ {
+  "file": "windmill__0281__20260626095840_add_materialized_asset_schema.up.sql",
+  "original_path": "backend/migrations/20260626095840_add_materialized_asset_schema.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "57d87f1c606833267d2cae80f765a4fa4c2f66222b3704cbdbd2dfafdf7894dd",
+  "bytes": 2117
+ },
+ {
+  "file": "windmill__0282__20260701080313_grant_dispatch_event_to_windmill_roles.up.sql",
+  "original_path": "backend/migrations/20260701080313_grant_dispatch_event_to_windmill_roles.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "03a811226ca9cbc28aca2527ad70403563c1bb0386cac1fdd4f39796d8e827cd",
+  "bytes": 1070
+ },
+ {
+  "file": "windmill__0283__20260701123436_realign_superadmin_favorites_to_derived_username.up.sql",
+  "original_path": "backend/migrations/20260701123436_realign_superadmin_favorites_to_derived_username.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "4f336e8873891f10ab3f4e78da61767701c091375c9b9d9da2f1ce0fa159f04e",
+  "bytes": 830
+ },
+ {
+  "file": "windmill__0284__20260702095830_duckdb_macro_registry.up.sql",
+  "original_path": "backend/migrations/20260702095830_duckdb_macro_registry.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "0aad6e66ea0961a7fc6e666182e123e18cf9c6026807a54692a863d38dc8d147",
+  "bytes": 1467
+ },
+ {
+  "file": "windmill__0285__20260703165613_pipeline_freshness_watchdog.up.sql",
+  "original_path": "backend/migrations/20260703165613_pipeline_freshness_watchdog.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "3752feafab2a5222298af69139fec50e665713a05371124d2094728869af442f",
+  "bytes": 1999
+ },
+ {
+  "file": "windmill__0286__20260706094033_add_dev_workspace_label.up.sql",
+  "original_path": "backend/migrations/20260706094033_add_dev_workspace_label.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "16712323a4e83f9a26829f293124b222891930b1db5eb10f963657fe35f400ac",
+  "bytes": 374
+ },
+ {
+  "file": "windmill__0287__20260714230440_wrap_session_gucs_in_rls_policies.up.sql",
+  "original_path": "backend/migrations/20260714230440_wrap_session_gucs_in_rls_policies.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "b9b9777c1f1d566aa4757b8b8283e99deb05c03d7f331176b1901a93c9952e66",
+  "bytes": 3982
+ },
+ {
+  "file": "windmill__0288__20260716080248_widen_healthchecks_check_type.up.sql",
+  "original_path": "backend/migrations/20260716080248_widen_healthchecks_check_type.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "783167430b45125affc7fa5bd46f9a3ce750071bc5ca62327229111a10537f40",
+  "bytes": 314
+ },
+ {
+  "file": "windmill__0289__20260720050649_data_metric_catalog.up.sql",
+  "original_path": "backend/migrations/20260720050649_data_metric_catalog.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "d8ab53310e1952a195e0df80b38937ada9363334628181c3a7d5022ccdee1300",
+  "bytes": 2050
+ },
+ {
+  "file": "windmill__0290__20260720094300_drop_ai_chat_usage.up.sql",
+  "original_path": "backend/migrations/20260720094300_drop_ai_chat_usage.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "fdfd69a8bb7ee1401f1faa485fa8e640e1cbaa9b91de21ffd6be6d94bd6da6ed",
+  "bytes": 1211
+ },
+ {
+  "file": "windmill__0291__20260721082249_add_amqp_trigger.up.sql",
+  "original_path": "backend/migrations/20260721082249_add_amqp_trigger.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "40b0f046274654f223b29f9c0b1c07369d10a38a4c1907dca786531bc01099ff",
+  "bytes": 5199
+ },
+ {
+  "file": "windmill__0292__20260723215437_error_handler_fallback_to_instance_alerts.up.sql",
+  "original_path": "backend/migrations/20260723215437_error_handler_fallback_to_instance_alerts.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "84916e6c86b911bc32b55f2eb6608ab6990f3dcb4d3af1d7cead8b38f603a7cf",
+  "bytes": 136
+ },
+ {
+  "file": "windmill__0293__20260724221457_job_resolution.up.sql",
+  "original_path": "backend/migrations/20260724221457_job_resolution.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "b0f83d1a74acf909098ca0568add6aea7f0389bc46d9db5d133982473e7c1f52",
+  "bytes": 1525
+ },
+ {
+  "file": "windmill__0294__20260725084314_dbt_runtime.up.sql",
+  "original_path": "backend/migrations/20260725084314_dbt_runtime.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "9b83ffcd816e246725b8fa1b1ebc900ba5b785784ebc03576390eb121fc0ed0f",
+  "bytes": 12253
+ },
+ {
+  "file": "windmill__0295__20260727145314_materialized_partition_job_id_index.up.sql",
+  "original_path": "backend/migrations/20260727145314_materialized_partition_job_id_index.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "66ad705f89de5b2a16b1e0bf982d2dcb846729bbba5f54ffcf6b1bed278cd353",
+  "bytes": 544
+ },
+ {
+  "file": "windmill__0296__20260730080304_unify_deploy_to_into_parent.up.sql",
+  "original_path": "backend/migrations/20260730080304_unify_deploy_to_into_parent.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "1c2bc1f2512a961480e98909cd2872c224129c1fd54e3e6c65e1af63c77b90dd",
+  "bytes": 16888
+ },
+ {
+  "file": "windmill__0297__20260731161812_backfill_datatablemigration_git_sync_include_type.up.sql",
+  "original_path": "backend/migrations/20260731161812_backfill_datatablemigration_git_sync_include_type.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "6c0c92ff91bd9e24ccbc7f682e341efffbee43f230f11272c9ac54d0ed2b4a1c",
+  "bytes": 2060
+ },
+ {
+  "file": "windmill__0298__20260801043001_backfill_on_behalf_of.up.sql",
+  "original_path": "backend/migrations/20260801043001_backfill_on_behalf_of.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "e45f552975e5035c8c765b4c4433c2373f268654704cc28f4735f897198baa90",
+  "bytes": 3776
+ },
+ {
+  "file": "windmill__0299__20260801121717_dbt_editor_preview_graph.up.sql",
+  "original_path": "backend/migrations/20260801121717_dbt_editor_preview_graph.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "c59ea83b5e8ca89018f0b38991e2ba765d06410fe11aab8766583a3b6bdfa8ff",
+  "bytes": 3499
+ },
+ {
+  "file": "windmill__0300__20260807103416_resource_version.up.sql",
+  "original_path": "backend/migrations/20260807103416_resource_version.up.sql",
+  "repo": "https://github.com/windmill-labs/windmill",
+  "sha256": "39e9ce054cc2cebd5329a6596e44674f5fe34b383e97f937763c6a030608849e",
+  "bytes": 5741
+ }
+]

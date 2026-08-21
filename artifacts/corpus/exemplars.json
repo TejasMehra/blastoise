@@ -1,0 +1,426 @@
+{
+ "create_index": [
+  {
+   "file": "boundary__0004__02_oplog.up.sql",
+   "sql": "create index if not exists idx_oplog_metatadata_key on oplog_metadata(key)"
+  },
+  {
+   "file": "boundary__0004__02_oplog.up.sql",
+   "sql": "create index if not exists idx_oplog_metatadata_value on oplog_metadata(value)"
+  },
+  {
+   "file": "boundary__0023__65_wh_session_dimensions.up.sql",
+   "sql": "create unique index wh_host_dim_current_constraint\n    on wh_host_dimension (target_id, host_set_id, host_id)\n    where current_row_indicator = 'Current'"
+  },
+  {
+   "file": "boundary__0025__68_wh_session_facts.up.sql",
+   "sql": "create index on wh_session_connection_accumulating_fact(session_id)"
+  },
+  {
+   "file": "boundary__0033__04_vault_credential.up.sql",
+   "sql": "create unique index credential_vault_token_current_status_constraint\n    on credential_vault_token (store_id)\n    where status = 'current'"
+  },
+  {
+   "file": "boundary__0033__04_vault_credential.up.sql",
+   "sql": "create index credential_vault_token_expiration_time_ix\n    on credential_vault_token(expiration_time)"
+  }
+ ],
+ "add_foreign_key": [
+  {
+   "file": "boundary__0010__12_auth_password.up.sql",
+   "sql": "alter table auth_password_method\n    add constraint current_conf_fkey\n    foreign key (public_id, password_conf_id)\n    references auth_password_conf (password_method_id, private_id)\n    on delete cascade\n    on update cascade\n    deferrable initially deferred"
+  },
+  {
+   "file": "boundary__0027__01_server_tags_migrations.up.sql",
+   "sql": "alter table session\n  add constraint session_server_id_fkey\n  foreign key (server_id)\n  references server(private_id)\n  on delete set null\n  on update cascade"
+  },
+  {
+   "file": "boundary__0043__01_server_type_enum.up.sql",
+   "sql": "alter table server\n    add constraint server_type_enm_fkey\n      foreign key (type) references server_type_enm(name)\n        on update cascade\n        on delete restrict"
+  },
+  {
+   "file": "boundary__0064__06_iam.up.sql",
+   "sql": "alter table iam_scope\nadd constraint auth_method\n  foreign key (public_id, primary_auth_method_id) \n  references auth_method(scope_id, public_id)"
+  },
+  {
+   "file": "boundary__0082__02_credential_type.up.sql",
+   "sql": "alter table credential_vault_library\n    add column credential_type text not null default 'unspecified'\n      constraint credential_type_enm_fkey\n        references credential_type_enm (name)\n        on delete restrict\n        on update cascade,\n    drop constraint credential_library_fkey,\n    add constraint credential_library_fkey\n      foreign key (store_id, public_id, credential_type)\n      ref"
+  },
+  {
+   "file": "boundary__0087__01_session_valid_state.up.sql",
+   "sql": "alter table session_state\n    add constraint session_valid_state_enm_fkey\n        foreign key (prior_state, state)\n        references session_valid_state (prior_state,current_state)"
+  }
+ ],
+ "add_check": [
+  {
+   "file": "boundary__0027__01_server_tags_migrations.up.sql",
+   "sql": "alter table server\n  add constraint server_id_must_not_be_empty\n  check(length(trim(private_id)) > 0)"
+  },
+  {
+   "file": "boundary__0030__01_job_migrations.up.sql",
+   "sql": "alter table job_run\n    add constraint server_id_must_not_be_empty\n        check(length(trim(server_id)) > 0)"
+  },
+  {
+   "file": "boundary__0038__01_credential_static_password_credential.up.sql",
+   "sql": "alter table credential_type_enm\n    add constraint only_predefined_credential_types_allowed\n      check (\n        name in (\n          'unspecified',\n          'username_password',\n          'ssh_private_key',\n          'ssh_certificate',\n          'username_password_domain',\n          'password'\n        )\n      )"
+  },
+  {
+   "file": "boundary__0105__01_credential_type.up.sql",
+   "sql": "alter table credential_type_enm\n    add constraint only_predefined_credential_types_allowed\n      check (\n        name in (\n          'unspecified',\n          'username_password'\n        )\n      )"
+  },
+  {
+   "file": "boundary__0110__02_worker_controller_tables.up.sql",
+   "sql": "alter table job_run\n  add constraint controller_id_must_be_at_least_10_characters\n    check(\n      length(trim(controller_id)) > 10\n    ),\n  add constraint server_controller_fkey\n    foreign key (controller_id)\n      references server_controller (private_id)\n      on delete set null\n      on update cascade"
+  },
+  {
+   "file": "boundary__0119__01_static_ssh_private_key_creds.up.sql",
+   "sql": "alter table credential_type_enm\n    add constraint only_predefined_credential_types_allowed\n      check (\n        name in (\n          'unspecified',\n          'username_password',\n          'ssh_private_key'\n        )\n      )"
+  }
+ ],
+ "add_column": [
+  {
+   "file": "boundary__0027__01_server_tags_migrations.up.sql",
+   "sql": "alter table target_tcp\n  add column worker_filter wt_bexprfilter"
+  },
+  {
+   "file": "boundary__0027__01_server_tags_migrations.up.sql",
+   "sql": "alter table session\n  add column worker_filter wt_bexprfilter"
+  },
+  {
+   "file": "boundary__0045__01_oidc_add_claims.up.sql",
+   "sql": "alter table auth_oidc_account\n  add column token_claims text\n  constraint token_claims_must_not_be_empty\n  check(\n    length(trim(token_claims)) > 0\n  )"
+  },
+  {
+   "file": "boundary__0045__01_oidc_add_claims.up.sql",
+   "sql": "alter table auth_oidc_account\n  add column userinfo_claims text\n  constraint userinfo_claims_must_not_be_empty\n  check(\n    length(trim(userinfo_claims)) > 0\n  )"
+  },
+  {
+   "file": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "sql": "alter table wh_user_dimension\n    add column auth_method_external_id  text,\n    add column auth_account_external_id text,\n    add column auth_account_full_name   text,\n    add column auth_account_email       text"
+  },
+  {
+   "file": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "sql": "alter table wh_user_dimension\n    add column auth_method_external_id  text,\n    add column auth_account_external_id text,\n    add column auth_account_full_name   text,\n    add column auth_account_email       text"
+  }
+ ],
+ "alter_column_type": [
+  {
+   "file": "boundary__0030__01_job_migrations.up.sql",
+   "sql": "alter table job_run\n    alter column server_id type text"
+  },
+  {
+   "file": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "sql": "alter table wh_user_dimension\n    alter column auth_method_external_id  type wh_dim_text,\n    alter column auth_account_external_id type wh_dim_text,\n    alter column auth_account_full_name   type wh_dim_text,\n    alter column auth_account_email       type wh_dim_text"
+  },
+  {
+   "file": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "sql": "alter table wh_user_dimension\n    alter column auth_method_external_id  type wh_dim_text,\n    alter column auth_account_external_id type wh_dim_text,\n    alter column auth_account_full_name   type wh_dim_text,\n    alter column auth_account_email       type wh_dim_text"
+  },
+  {
+   "file": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "sql": "alter table wh_user_dimension\n    alter column auth_method_external_id  type wh_dim_text,\n    alter column auth_account_external_id type wh_dim_text,\n    alter column auth_account_full_name   type wh_dim_text,\n    alter column auth_account_email       type wh_dim_text"
+  },
+  {
+   "file": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "sql": "alter table wh_user_dimension\n    alter column auth_method_external_id  type wh_dim_text,\n    alter column auth_account_external_id type wh_dim_text,\n    alter column auth_account_full_name   type wh_dim_text,\n    alter column auth_account_email       type wh_dim_text"
+  },
+  {
+   "file": "boundary__0113__01_job_migrations.up.sql",
+   "sql": "alter table job_run\n  drop constraint controller_id_must_be_at_least_10_characters,\n  alter column controller_id type wt_controller_id"
+  }
+ ],
+ "update": [
+  {
+   "file": "boundary__0036__07_sentinels.up.sql",
+   "sql": "update credential_vault_credential\n   set external_id = concat(external_id, u&'\\ffff')\n where wt_is_sentinel(external_id)\n   and not starts_with(reverse(external_id), u&'\\ffff')"
+  },
+  {
+   "file": "boundary__0065__07_iam.up.sql",
+   "sql": "with single_authmethod (scope_id, public_id) as (\n  select \n    am.scope_id, \n    am.public_id  \n  from \n    auth_password_method am,\n    (select \n        scope_id, \n        count(public_id) as cnt \n     from \n        auth_password_method \n     group by scope_id) as singles\n    where \n      am.scope_id = singles.scope_id and\n      singles.cnt = 1\n)\nupdate \n  iam_scope\nset \n  primary_auth_method_id"
+  },
+  {
+   "file": "boundary__0066__10_auth.up.sql",
+   "sql": "update auth_method \nset name = pw.name\nfrom \n  auth_password_method pw\nwhere \n  auth_method.public_id = pw.public_id and\n  pw.name is not null"
+  },
+  {
+   "file": "boundary__0072__04_host.up.sql",
+   "sql": "update host_catalog\n  set name = st.name\n  from\n    static_host_catalog st\n  where\n    host_catalog.public_id = st.public_id and\n    st.name is not null"
+  },
+  {
+   "file": "boundary__0087__01_session_valid_state.up.sql",
+   "sql": "update session_connection\nset closed_reason='canceled' where closed_reason is null"
+  },
+  {
+   "file": "boundary__0087__01_session_valid_state.up.sql",
+   "sql": "update session\nset termination_reason='canceled' where termination_reason is null"
+  }
+ ],
+ "update_without_where": [
+  {
+   "file": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "sql": "update wh_user_dimension\n  set auth_method_type =\n        case when auth_method_id like 'ampw_%' then 'password auth method'\n             when auth_method_id like 'amoidc_%' then 'oidc auth method'\n             else 'Unknown' end,\n      auth_account_type =\n        case when auth_account_id like 'acctpw_%' then 'password auth account'\n             when auth_account_id like 'acctoidc_%' then 'oidc a"
+  },
+  {
+   "file": "boundary__0089__01_wh_network_address_dimensions.up.sql",
+   "sql": "update wh_host_dimension\n  set network_address_group_key = host_address"
+  },
+  {
+   "file": "boundary__0118__06_kms_collection_version.up.sql",
+   "sql": "update kms_schema_version set version = 'v0.0.2'"
+  },
+  {
+   "file": "boundary__0126__01_session_credentials.up.sql",
+   "sql": "update session_credential\n    set credential_sha256 = digest(credential, 'sha256')"
+  },
+  {
+   "file": "boundary__0134__01_credentials.up.sql",
+   "sql": "update credential_library\n     set (project_id) =\n         (select project_id\n            from credential_store\n           where credential_store.public_id = credential_library.store_id\n         )"
+  },
+  {
+   "file": "boundary__0134__01_credentials.up.sql",
+   "sql": "update credential_static\n     set (project_id) =\n         (select project_id\n            from credential_store\n           where credential_store.public_id = credential_static.store_id\n         )"
+  }
+ ],
+ "add_column_default_nonvolatile": [
+  {
+   "file": "boundary__0052__04_wh_credential_dimension.up.sql",
+   "sql": "alter table wh_session_accumulating_fact\n    add column credential_group_key wh_dim_key not null default 'Unknown'\n    references wh_credential_group (key)\n    on delete restrict\n    on update cascade"
+  },
+  {
+   "file": "boundary__0053__05_wh_credential_dimension.up.sql",
+   "sql": "alter table wh_session_connection_accumulating_fact\n    add column credential_group_key wh_dim_key not null default 'Unknown'\n    references wh_credential_group (key)\n    on delete restrict\n    on update cascade"
+  },
+  {
+   "file": "boundary__0056__01_nonce.up.sql",
+   "sql": "alter table nonce\n  add column purpose text not null default 'recovery'\n    constraint nonce_type_enm_fkey\n      references nonce_type_enm(name)\n      on update cascade\n      on delete restrict"
+  },
+  {
+   "file": "boundary__0063__05_authtoken.up.sql",
+   "sql": "alter table auth_token\nadd column status text not null default 'token issued' -- safest default\nreferences auth_token_status_enm(name)\n  on update cascade\n  on delete restrict"
+  },
+  {
+   "file": "boundary__0070__02_plugin.up.sql",
+   "sql": "alter table plugin\n    add column name wt_name,\n    add column scope_id wt_scope_id not null default 'global'\n      constraint iam_scope_global_fkey\n      references iam_scope_global(scope_id)\n        on delete cascade\n        on update cascade"
+  },
+  {
+   "file": "boundary__0082__02_credential_type.up.sql",
+   "sql": "alter table credential_library\n    add column credential_type text not null default 'unspecified'\n      constraint credential_type_enm_fkey\n        references credential_type_enm (name)\n        on delete restrict\n        on update cascade,\n    add constraint credential_library_store_id_public_id_credential_type_uq\n      unique(store_id, public_id, credential_type)"
+  }
+ ],
+ "add_unique": [
+  {
+   "file": "boundary__0066__10_auth.up.sql",
+   "sql": "alter table auth_method\n  add constraint auth_method_scope_id_name_uq\n    unique (scope_id, name)"
+  },
+  {
+   "file": "boundary__0070__02_plugin.up.sql",
+   "sql": "alter table plugin\n    add constraint plugin_scope_id_public_id_uq\n      unique (scope_id, public_id),\n    add constraint plugin_scope_id_name_uq\n      unique (scope_id, name)"
+  },
+  {
+   "file": "boundary__0070__02_plugin.up.sql",
+   "sql": "alter table plugin\n    add constraint plugin_scope_id_public_id_uq\n      unique (scope_id, public_id),\n    add constraint plugin_scope_id_name_uq\n      unique (scope_id, name)"
+  },
+  {
+   "file": "boundary__0072__04_host.up.sql",
+   "sql": "alter table host_catalog\n    add constraint host_catalog_scope_id_name_uq\n      unique (scope_id, name)"
+  },
+  {
+   "file": "boundary__0082__02_credential_type.up.sql",
+   "sql": "alter table credential_library\n    add column credential_type text not null default 'unspecified'\n      constraint credential_type_enm_fkey\n        references credential_type_enm (name)\n        on delete restrict\n        on update cascade,\n    add constraint credential_library_store_id_public_id_credential_type_uq\n      unique(store_id, public_id, credential_type)"
+  },
+  {
+   "file": "boundary__0087__01_session_valid_state.up.sql",
+   "sql": "alter table session_state\n    add unique (session_id, state)"
+  }
+ ],
+ "set_not_null": [
+  {
+   "file": "boundary__0134__01_credentials.up.sql",
+   "sql": "alter table credential_library\n    alter column project_id set not null,\n    drop constraint credential_store_fkey,\n    add constraint credential_store_fkey\n      foreign key (project_id, store_id)\n        references credential_store (project_id, public_id)\n        on delete cascade\n        on update cascade,\n    -- The name of this constraint does not follow our naming conventions for\n    -- uniq"
+  },
+  {
+   "file": "boundary__0134__01_credentials.up.sql",
+   "sql": "alter table credential_static\n    alter column project_id set not null,\n    drop constraint credential_store_fkey,\n    add constraint credential_store_fkey\n      foreign key (project_id, store_id)\n        references credential_store (project_id, public_id)\n        on delete cascade\n        on update cascade,\n    -- Replaces credential_static_store_id_public_id_uq\n    add constraint credential_stat"
+  },
+  {
+   "file": "boundary__0134__01_credentials.up.sql",
+   "sql": "alter table credential_vault_library\n    alter column project_id set not null,\n    drop constraint credential_library_fkey,\n    add constraint credential_library_fkey\n      foreign key (project_id, store_id, public_id, credential_type)\n        references credential_library (project_id, store_id, public_id, credential_type)\n        on delete cascade\n        on update cascade"
+  },
+  {
+   "file": "boundary__0134__01_credentials.up.sql",
+   "sql": "alter table credential_static_username_password_credential\n    alter column project_id set not null,\n    drop constraint credential_static_fkey,\n    add constraint credential_static_fkey\n      foreign key (project_id, store_id, public_id)\n        references credential_static (project_id, store_id, public_id)\n        on delete cascade\n        on update cascade"
+  },
+  {
+   "file": "boundary__0134__01_credentials.up.sql",
+   "sql": "alter table credential_static_ssh_private_key_credential\n    alter column project_id set not null,\n    drop constraint credential_static_fkey,\n    add constraint credential_static_fkey\n      foreign key (project_id, store_id, public_id)\n        references credential_static (project_id, store_id, public_id)\n        on delete cascade\n        on update cascade"
+  },
+  {
+   "file": "boundary__0135__02_hosts.up.sql",
+   "sql": "alter table host_set\n    alter column project_id set not null,\n    drop constraint host_catalog_fkey,\n    add constraint host_catalog_fkey\n      foreign key (project_id, catalog_id)\n        references host_catalog (project_id, public_id)\n        on delete cascade\n        on update cascade,\n    -- Replaces host_set_catalog_id_public_id_key\n    add constraint host_set_project_id_catalog_id_public_id"
+  }
+ ],
+ "delete_without_where": [
+  {
+   "file": "coder__0037__000037_jwt_licenses.up.sql",
+   "sql": "DELETE FROM licenses"
+  },
+  {
+   "file": "coder__0118__000118_workspace_proxy_token.up.sql",
+   "sql": "DELETE FROM workspace_proxies"
+  },
+  {
+   "file": "coder__0119__000119_workspace_proxy_name_idx.up.sql",
+   "sql": "DELETE FROM workspace_proxies"
+  },
+  {
+   "file": "discourse__0005__20120530150726_create_forum_thread_user.sql",
+   "sql": "DELETE FROM read_posts"
+  },
+  {
+   "file": "discourse__0117__20190130163001_migrate_reviewable_flagged_posts.sql",
+   "sql": "DELETE FROM reviewable_scores"
+  },
+  {
+   "file": "kratos__0064__20200812124254_add_session_token.postgres.up.sql",
+   "sql": "DELETE FROM sessions"
+  }
+ ],
+ "add_column_default_volatile": [
+  {
+   "file": "coder__0059__000059_file_id.up.sql",
+   "sql": "ALTER TABLE files ADD COLUMN\n\tid uuid NOT NULL PRIMARY KEY DEFAULT gen_random_uuid ()"
+  },
+  {
+   "file": "coder__0218__000218_org_custom_role_audit.up.sql",
+   "sql": "ALTER TABLE custom_roles ADD COLUMN id uuid DEFAULT gen_random_uuid() NOT NULL"
+  },
+  {
+   "file": "coder__0257__000257_workspace_agent_script_timings.up.sql",
+   "sql": "ALTER TABLE workspace_agent_scripts ADD COLUMN id uuid UNIQUE NOT NULL DEFAULT gen_random_uuid()"
+  },
+  {
+   "file": "coder__0302__000302_fix_app_audit_session_race.up.sql",
+   "sql": "ALTER TABLE workspace_app_audit_sessions\n\tADD COLUMN id UUID PRIMARY KEY DEFAULT gen_random_uuid()"
+  },
+  {
+   "file": "lemmy__0225__2025-01-10-135505_donation-dialog__up.sql",
+   "sql": "ALTER TABLE local_user\n    ADD COLUMN last_donation_notification timestamptz NOT NULL DEFAULT (now() - (random() * (interval '12 months')))"
+  },
+  {
+   "file": "sourcegraph__0027__1670365552_fix_scip_document_schema_counting.sql",
+   "sql": "ALTER TABLE codeintel_scip_documents ADD COLUMN IF NOT EXISTS metadata_shard_id integer NOT NULL DEFAULT floor(random() * 128 + 1)::integer"
+  }
+ ],
+ "add_column_serial": [
+  {
+   "file": "coder__0071__000071_provisioner_log_lines.up.sql",
+   "sql": "ALTER TABLE provisioner_job_logs ADD COLUMN id BIGSERIAL PRIMARY KEY"
+  },
+  {
+   "file": "coder__0087__000087_resource_metadata_order.up.sql",
+   "sql": "ALTER TABLE workspace_resource_metadata ADD COLUMN id BIGSERIAL PRIMARY KEY"
+  },
+  {
+   "file": "coder__0142__000142_proxy_derp.up.sql",
+   "sql": "ALTER TABLE workspace_proxies\n\t-- Adding a serial to a table without a default value will be filled as you\n\t-- would expect on versions of Postgres >= 9 AFAIK (which we require).\n\tADD COLUMN region_id serial NOT NULL,\n\tADD COLUMN derp_enabled boolean NOT NULL DEFAULT true,\n\tADD CONSTRAINT workspace_proxies_region_id_unique UNIQUE (region_id)"
+  },
+  {
+   "file": "formbricks__0034__20231109052945_restructure_session_action_person.sql",
+   "sql": "ALTER TABLE \"Person\" ADD COLUMN     \"userId\" SERIAL NOT NULL"
+  },
+  {
+   "file": "sourcegraph__0188__1677958359_simplify_path_ranks_table.sql",
+   "sql": "ALTER TABLE codeintel_path_ranks ADD COLUMN IF NOT EXISTS id BIGSERIAL"
+  },
+  {
+   "file": "windmill__0228__20260128194102_runtime_assets.up.sql",
+   "sql": "ALTER TABLE asset\n  ADD COLUMN created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n  ADD COLUMN id BIGSERIAL UNIQUE"
+  }
+ ],
+ "add_column_generated_stored": [
+  {
+   "file": "coder__0160__000160_provisioner_job_status.up.sql",
+   "sql": "ALTER TABLE provisioner_jobs ADD COLUMN\n    job_status provisioner_job_status NOT NULL GENERATED ALWAYS AS (\n        CASE\n            -- Completed means it is not in an \"-ing\" state\n            WHEN completed_at IS NOT NULL THEN\n                CASE\n                    -- The order of these checks are important.\n                    -- Check the error first, then cancelled, then completed.\n        "
+  },
+  {
+   "file": "coder__0449__000449_aibridge_session_indexes.up.sql",
+   "sql": "ALTER TABLE aibridge_interceptions\n    ADD COLUMN session_id TEXT NOT NULL\n        GENERATED ALWAYS AS (\n            COALESCE(\n                client_session_id,\n                thread_root_id::text,\n                id::text\n            )\n        ) STORED"
+  },
+  {
+   "file": "sourcegraph__0273__1697750425_topic_column.sql",
+   "sql": "ALTER TABLE IF EXISTS repo\nADD COLUMN IF NOT EXISTS topics text[] GENERATED ALWAYS AS (extract_topics_from_metadata(external_service_type, metadata)) STORED"
+  },
+  {
+   "file": "temporal__0030__advanced_visibility.sql",
+   "sql": "ALTER TABLE executions_visibility\n  ADD COLUMN TemporalChangeVersion      JSONB         GENERATED ALWAYS AS (search_attributes->'TemporalChangeVersion')                    STORED,\n  ADD COLUMN BinaryChecksums            JSONB         GENERATED ALWAYS AS (search_attributes->'BinaryChecksums')                          STORED,\n  ADD COLUMN BatcherUser                VARCHAR(255)  GENERATED ALWAYS AS "
+  },
+  {
+   "file": "temporal__0030__advanced_visibility.sql",
+   "sql": "ALTER TABLE executions_visibility\n  ADD COLUMN TemporalChangeVersion      JSONB         GENERATED ALWAYS AS (search_attributes->'TemporalChangeVersion')                    STORED,\n  ADD COLUMN BinaryChecksums            JSONB         GENERATED ALWAYS AS (search_attributes->'BinaryChecksums')                          STORED,\n  ADD COLUMN BatcherUser                VARCHAR(255)  GENERATED ALWAYS AS "
+  },
+  {
+   "file": "temporal__0030__advanced_visibility.sql",
+   "sql": "ALTER TABLE executions_visibility\n  ADD COLUMN TemporalChangeVersion      JSONB         GENERATED ALWAYS AS (search_attributes->'TemporalChangeVersion')                    STORED,\n  ADD COLUMN BinaryChecksums            JSONB         GENERATED ALWAYS AS (search_attributes->'BinaryChecksums')                          STORED,\n  ADD COLUMN BatcherUser                VARCHAR(255)  GENERATED ALWAYS AS "
+  }
+ ],
+ "add_foreign_key_not_valid": [
+  {
+   "file": "coder__0385__000385_aibridge_fks.up.sql",
+   "sql": "ALTER TABLE aibridge_interceptions\n    ADD CONSTRAINT aibridge_interceptions_initiator_id_fkey\n    FOREIGN KEY (initiator_id)\n    REFERENCES users(id)\n    -- We can't:\n    -- - Cascade delete because this is an auditing feature, and it also\n    --   wouldn't delete related aibridge rows since we don't FK them.\n    -- - Set null because you can't correlate to the original user ID if the\n    --   us"
+  }
+ ],
+ "validate_constraint": [
+  {
+   "file": "coder__0385__000385_aibridge_fks.up.sql",
+   "sql": "ALTER TABLE aibridge_interceptions\n    VALIDATE CONSTRAINT aibridge_interceptions_initiator_id_fkey"
+  }
+ ],
+ "reindex": [
+  {
+   "file": "lemmy__0251__2025-08-01-000019_add_report_count__up.sql",
+   "sql": "REINDEX TABLE post_aggregates"
+  },
+  {
+   "file": "lemmy__0251__2025-08-01-000019_add_report_count__up.sql",
+   "sql": "REINDEX TABLE comment_aggregates"
+  },
+  {
+   "file": "lemmy__0271__2025-08-01-000039_remove_post_sort_type_enums__up.sql",
+   "sql": "REINDEX TABLE local_user"
+  },
+  {
+   "file": "lemmy__0271__2025-08-01-000039_remove_post_sort_type_enums__up.sql",
+   "sql": "REINDEX TABLE local_site"
+  },
+  {
+   "file": "lemmy__0273__2025-08-01-000041_remove-aggregate-tables__up.sql",
+   "sql": "REINDEX TABLE comment"
+  },
+  {
+   "file": "lemmy__0273__2025-08-01-000041_remove-aggregate-tables__up.sql",
+   "sql": "REINDEX TABLE post"
+  }
+ ],
+ "add_column_identity": [
+  {
+   "file": "lemmy__0256__2025-08-01-000024_add_person_content_combined_table__up.sql",
+   "sql": "ALTER TABLE person_content_combined\n    ADD COLUMN id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n    ALTER COLUMN published SET NOT NULL,\n    ALTER COLUMN creator_id SET NOT NULL,\n    ADD CONSTRAINT person_content_combined_post_id_fkey FOREIGN KEY (post_id) REFERENCES post ON UPDATE CASCADE ON DELETE CASCADE,\n    ADD CONSTRAINT person_content_combined_comment_id_fkey FOREIGN KEY (comment_id) RE"
+  },
+  {
+   "file": "lemmy__0256__2025-08-01-000024_add_person_content_combined_table__up.sql",
+   "sql": "ALTER TABLE person_saved_combined\n    ADD COLUMN id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n    ALTER COLUMN saved SET NOT NULL,\n    ALTER COLUMN person_id SET NOT NULL,\n    ALTER COLUMN creator_id SET NOT NULL,\n    ADD CONSTRAINT person_saved_combined_person_id_fkey FOREIGN KEY (person_id) REFERENCES person ON UPDATE CASCADE ON DELETE CASCADE,\n    ADD CONSTRAINT person_saved_combined_creato"
+  },
+  {
+   "file": "lemmy__0258__2025-08-01-000026_add_inbox_combined_table__up.sql",
+   "sql": "ALTER TABLE inbox_combined\n    ADD COLUMN id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n    ALTER COLUMN published SET NOT NULL,\n    ADD CONSTRAINT inbox_combined_comment_reply_id_fkey FOREIGN KEY (comment_reply_id) REFERENCES comment_reply ON UPDATE CASCADE ON DELETE CASCADE,\n    ADD CONSTRAINT inbox_combined_person_comment_mention_id_fkey FOREIGN KEY (person_comment_mention_id) REFERENCES per"
+  },
+  {
+   "file": "windmill__0144__20250102145420_more_captures.up.sql",
+   "sql": "ALTER TABLE capture ADD COLUMN id BIGINT PRIMARY KEY GENERATED BY DEFAULT AS IDENTITY"
+  },
+  {
+   "file": "windmill__0264__20260423132025_flow_conversation_message_created_seq.up.sql",
+   "sql": "ALTER TABLE flow_conversation_message\n    ADD COLUMN created_seq BIGINT GENERATED ALWAYS AS IDENTITY"
+  }
+ ]
+}

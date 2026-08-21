@@ -1,0 +1,590 @@
+[
+ {
+  "file": "marquez__0001__V1__initial_schema.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V1__initial_schema.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "fb4c1e7b8d1a7f1961fe80b39693b2321f3bc0a5346e0584f9df30db12e05ec7",
+  "bytes": 3926
+ },
+ {
+  "file": "marquez__0002__V2__add_job_contexts.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V2__add_job_contexts.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "2b7e4ffb910587ef1f38562f4994447c31fde1419a569eb0066e0e328098af15",
+  "bytes": 216
+ },
+ {
+  "file": "marquez__0003__V2.1__alter_job_versions_to_add_job_context_uuid.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V2.1__alter_job_versions_to_add_job_context_uuid.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "94f50627679e39ce41e59a83d3cd7c16fc9b97790da3adf9b2cd2dc213cb236f",
+  "bytes": 107
+ },
+ {
+  "file": "marquez__0004__V3__drop_not_null_constraint_on_job_location.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V3__drop_not_null_constraint_on_job_location.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "2df4596a2d8d828176312af80de088d68119cd75521a1842ced63272302949e9",
+  "bytes": 108
+ },
+ {
+  "file": "marquez__0005__V4__add_dataset_fields.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V4__add_dataset_fields.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "096ff1782029c5bc8492f3638c0896461390d713e902e96bbdd75a5d0ef71fad",
+  "bytes": 601
+ },
+ {
+  "file": "marquez__0006__V5__add_tags.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V5__add_tags.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "c4fc4f50f9079954b6b7fb525a64d22e5a70598cfd6fb0773f4bb5b7d0e7caa0",
+  "bytes": 696
+ },
+ {
+  "file": "marquez__0007__V6__alter_datasets_to_add_last_modified.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V6__alter_datasets_to_add_last_modified.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "67fde731b0ab6fc61fad0db703ede73e1c731fdfe61867bc6db1b8640ad97018",
+  "bytes": 96
+ },
+ {
+  "file": "marquez__0008__V7__alter_run_args_to_change_args.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V7__alter_run_args_to_change_args.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "dd46539ca341c30379c8984a5cdb5f11d192b3597e05cf7c98c1685668efdc22",
+  "bytes": 96
+ },
+ {
+  "file": "marquez__0009__V8__alter_datasets_to_change_unique_constraint.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V8__alter_datasets_to_change_unique_constraint.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "5e1063a69931ece0dc26333ded3e62aaf8e32adc7c96dec207eea473b9883aa1",
+  "bytes": 263
+ },
+ {
+  "file": "marquez__0010__V9__alter_sources_to_drop_composite_unique_constraint.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V9__alter_sources_to_drop_composite_unique_constraint.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "aae75caa8e74a571af88e9fefecf6c2ea911215a839873210192c142081f15c4",
+  "bytes": 115
+ },
+ {
+  "file": "marquez__0011__V10__drop_unique_constraint_on_job_name.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V10__drop_unique_constraint_on_job_name.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "b0c8dc7794d0e7ae59149c229e75c256f29e7fc239804b5788b5e3667aa69990",
+  "bytes": 94
+ },
+ {
+  "file": "marquez__0012__V11__alter_datasets_to_rename_last_modified.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V11__alter_datasets_to_rename_last_modified.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "644f0b9cf7d3b767982e5bc200712c03af32fc955caf4799d68feb8656d4aa72",
+  "bytes": 109
+ },
+ {
+  "file": "marquez__0013__V12__alter_dataset_fields_to_change_unique_constraint.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V12__alter_dataset_fields_to_change_unique_constraint.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "17d9d6c71a63b569326d59ffc07c522fc726edbc80844ec449f7f0040a556ad0",
+  "bytes": 194
+ },
+ {
+  "file": "marquez__0014__V13__alter_run_add_start_end_state.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V13__alter_run_add_start_end_state.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "031de3ddb66321e41e9299d10f2a8d2d912bd101536c38ac99d73edf85907db1",
+  "bytes": 197
+ },
+ {
+  "file": "marquez__0015__V14__index_datasetversion_datasetid.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V14__index_datasetversion_datasetid.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "c05e1d3f24a48e852bc846e2468aa95ef8285fa7a2b4043ed45b140ea81760ba",
+  "bytes": 124
+ },
+ {
+  "file": "marquez__0016__V15__index_created_at_and_current_run_state_on_runs.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V15__index_created_at_and_current_run_state_on_runs.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "384de6e4d9e3099ec8e111c294bac8c27fe4cc0df22bf7ed694cd4a76d1e31b6",
+  "bytes": 150
+ },
+ {
+  "file": "marquez__0017__V16__index_created_at_on_runs.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V16__index_created_at_on_runs.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "4ab7493b5d788157f1f925dbcfe84d611a3bfc447a4c7b9c4ef7dfc15614a227",
+  "bytes": 113
+ },
+ {
+  "file": "marquez__0018__V17.1__unique_version_constraint.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V17.1__unique_version_constraint.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "e9b65644788edf4ef12b66abc73a16d419008d5533ce707f92b330870828512d",
+  "bytes": 211
+ },
+ {
+  "file": "marquez__0019__V17.2__open_lineage.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V17.2__open_lineage.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "69ecb27c477ac11163eba4b7e86e4054824b51c0c0379779d833b0918b0d9ce5",
+  "bytes": 297
+ },
+ {
+  "file": "marquez__0020__V18__drop_dataset_constraint.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V18__drop_dataset_constraint.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "a345f0518d6684c09d3640d4ee1b361c872bcfba56398c33c527ec7a6a8459f7",
+  "bytes": 123
+ },
+ {
+  "file": "marquez__0021__V19__alter_run_to_add_external_id.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V19__alter_run_to_add_external_id.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "0f1ac1ecd580f64c15b2987669bd1cfadfcdef4e6efefac5491c9063532e4ac0",
+  "bytes": 93
+ },
+ {
+  "file": "marquez__0022__V20__drop_lineage_pk.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V20__drop_lineage_pk.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "066dbd85a664a1ce4e34934bc26865a74d091261f79d644fec2bd7d49e885bba",
+  "bytes": 107
+ },
+ {
+  "file": "marquez__0023__V21__alter_jobs_to_add_namespace_name.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V21__alter_jobs_to_add_namespace_name.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "deffc6f3e1abb34b8b3d7916a5f74a69445875eebcb210833777642aa5639667",
+  "bytes": 207
+ },
+ {
+  "file": "marquez__0024__V22__alter_job_versions_to_add_namespace.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V22__alter_job_versions_to_add_namespace.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "e451fc426c33eb403fc9d57ecb52ae083f75dd499cdfb4a9aa6effe8bff97570",
+  "bytes": 481
+ },
+ {
+  "file": "marquez__0025__V23__alter_runs.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V23__alter_runs.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "36765b58dcbdd40ef2a79f47a5fe29df943b22d19704cdb87115400551a93250",
+  "bytes": 765
+ },
+ {
+  "file": "marquez__0026__V24__alter_jobs.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V24__alter_jobs.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "363b7eb49fc69ab767b36adb5ba4d3994889515f8129253b951abc80c3ce02ac",
+  "bytes": 1102
+ },
+ {
+  "file": "marquez__0027__V25__alter_datasets.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V25__alter_datasets.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "1643f0d4e2f6a65402c8fe52c09bab89429af78ad181fcbc209a90fcffc919dc",
+  "bytes": 353
+ },
+ {
+  "file": "marquez__0028__V26__alter_jobs_change_type.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V26__alter_jobs_change_type.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "37f94754dd99df78bcf52bdf54e5536046c92841ce2c7c909acf370ba24e3254",
+  "bytes": 301
+ },
+ {
+  "file": "marquez__0029__V27__alter_runs_add_context.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V27__alter_runs_add_context.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "70f7a50f194d589a9f9a3173bb5bae6ee1cff819d7a263f676a46918d550048a",
+  "bytes": 215
+ },
+ {
+  "file": "marquez__0030__V28__update_jobs_fix_inputs.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V28__update_jobs_fix_inputs.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "21e5a666ad1e6e5124c49db929dc7ab1578599f82dc3596ea8e2e24dac44d61d",
+  "bytes": 450
+ },
+ {
+  "file": "marquez__0031__V29__alter_dataset_versions_add_fields.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V29__alter_dataset_versions_add_fields.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "ee339b0ea723ddd778db8bbbc531d455451af7408d64853742c26c21ac72c93f",
+  "bytes": 2173
+ },
+ {
+  "file": "marquez__0032__V30__alter_runs_change_transitioned_at_type.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V30__alter_runs_change_transitioned_at_type.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "7931c25f1b8bb2efe10c936817fe3d40290b46864e0daf5bd660ca5e33d864c8",
+  "bytes": 182
+ },
+ {
+  "file": "marquez__0033__V31__alter_job_io_mapping.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V31__alter_job_io_mapping.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "ceb85a3420c6008997686728aa4ebb1962bf297c3b1948ecbb20138fbbea1af9",
+  "bytes": 1169
+ },
+ {
+  "file": "marquez__0034__V32__index_runs_created_at.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V32__index_runs_created_at.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "60994fe884f01b8d3990195ac0c4a8a1b258636c29b28f3d0c137664b5b982b1",
+  "bytes": 305
+ },
+ {
+  "file": "marquez__0035__V33__index_lineage_events_run_id.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V33__index_lineage_events_run_id.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "e91433f0b71ef84288521b15d88de172556f83c1309ab651ef35dbac111ff7dd",
+  "bytes": 686
+ },
+ {
+  "file": "marquez__0036__V34__drop_not_null_constraint_on_field_type.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V34__drop_not_null_constraint_on_field_type.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "0c69a12c4241bf37187f3ece647a93c4eda65b3b18e392e068ce413f828421a0",
+  "bytes": 106
+ },
+ {
+  "file": "marquez__0037__V35__drop_io_mapping_tables.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V35__drop_io_mapping_tables.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "8d4c0a7931a8cf94bf295768ca154f8b04c63ba51b2198e7a149ba8dee463d41",
+  "bytes": 134
+ },
+ {
+  "file": "marquez__0038__V36__drop_run_id_column_in_lineage_events.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V36__drop_run_id_column_in_lineage_events.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "ed6d1161dc16ecfd3c4de877e3eeaaf9f149732c68d794fd2a31ae8f2d7d8ef9",
+  "bytes": 181
+ },
+ {
+  "file": "marquez__0039__V37__alter_dataset_fields_to_change_type.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V37__alter_dataset_fields_to_change_type.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "34b21bf29433948072f8bf08eb21124844ad3e8422916d33c5091290173bca91",
+  "bytes": 102
+ },
+ {
+  "file": "marquez__0040__V38__alter_namespaces_to_resize_name.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V38__alter_namespaces_to_resize_name.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "2aa61428314e2fc4e203729c2c7380588e07ba94aeea99fa44b4c68e8851898b",
+  "bytes": 61
+ },
+ {
+  "file": "marquez__0041__V39__alter_sources_to_resize_name.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V39__alter_sources_to_resize_name.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "103134b8b7aa8de576b0f91c25949e40ce96f07a7c61c14b8bec5cb709150aaf",
+  "bytes": 58
+ },
+ {
+  "file": "marquez__0042__V40__alter_tables_resize_namespace_and_connection_url.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V40__alter_tables_resize_namespace_and_connection_url.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "c1a8b964e048a148e5deac49f5804dc6fa824f606a97009eab4064521b6bff4c",
+  "bytes": 599
+ },
+ {
+  "file": "marquez__0043__V41__add_operation_to_dataset_versions.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V41__add_operation_to_dataset_versions.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "dbadcb47b66b809620f9ab42ce10a52b883e8ab8a584ad21122d6bc63b3c0fff",
+  "bytes": 137
+ },
+ {
+  "file": "marquez__0044__V42__add_job_symlink_target.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V42__add_job_symlink_target.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "1c12d91d572149b3e2a9ff56d777dc3701060f4667accc8c92472211b9afbc6d",
+  "bytes": 222
+ },
+ {
+  "file": "marquez__0045__V43__alter_jobs_add_job_parent_uuid.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V43__alter_jobs_add_job_parent_uuid.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "6963b9ce03a2cb75d24edd749ce05007ea4d2a796fde31dd0d017bf6ed9fa3e0",
+  "bytes": 2075
+ },
+ {
+  "file": "marquez__0046__V44__runs_job_versions_add_job_uuid.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V44__runs_job_versions_add_job_uuid.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "c135b04430f26f0073ca1b13c7f9f0edc0275e6250eeaf8fe5e425dafa0359e0",
+  "bytes": 1347
+ },
+ {
+  "file": "marquez__0047__V45__update_jobs_view_rule.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V45__update_jobs_view_rule.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "66f5389f050b1424fc16acfdd628c265fa14173113bbb2b1f8614a8298175073",
+  "bytes": 3171
+ },
+ {
+  "file": "marquez__0048__V46__add_hidden_column_to_jobs_and_datasets.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V46__add_hidden_column_to_jobs_and_datasets.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "c7811b2c21772dd54b3d2637508fc2eedcc5a802f0ec694347b9f54b59b35994",
+  "bytes": 130
+ },
+ {
+  "file": "marquez__0049__V47__add_lineage_event_indexes.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V47__add_lineage_event_indexes.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "c2faf9d31f892caaaa6dfc5b355177696dd3dd4936b7cbc3c5bee5d9978c6624",
+  "bytes": 94
+ },
+ {
+  "file": "marquez__0050__V48__dataset_symlinks.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V48__dataset_symlinks.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "2b3c1e545b86e1682a629e27c6c6e5e85e2043c7541b48153bedd8bb782a946a",
+  "bytes": 816
+ },
+ {
+  "file": "marquez__0051__V49__column_lineage.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V49__column_lineage.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "9121dcf26dc3f7cfe6eeab7f9ba58aa1d828f1d687c3cad2571b1d465549ebc0",
+  "bytes": 755
+ },
+ {
+  "file": "marquez__0052__V50__index_dataset_fields.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V50__index_dataset_fields.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "d02649b1c6454817bbad202d4d3a598fa487ae07a647715dbba5af971bc4db24",
+  "bytes": 126
+ },
+ {
+  "file": "marquez__0053__V51__job_indices_for_lineage.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V51__job_indices_for_lineage.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "41940534a8bb624e7aeb7150718b0b9ada6d51988c52aab13080903fa81fc25d",
+  "bytes": 381
+ },
+ {
+  "file": "marquez__0054__V52__alter_dataset_symlinks.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V52__alter_dataset_symlinks.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "7088ba583a60e35318966951383068f4ca22a3e9b060c00535e978c9748139b5",
+  "bytes": 990
+ },
+ {
+  "file": "marquez__0055__V53__add_hidden_namespace.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V53__add_hidden_namespace.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "53c2fe2d5ce6bf798bbe96e70a01d2efa02230f16079dbeea4d3b8e07e390d01",
+  "bytes": 68
+ },
+ {
+  "file": "marquez__0056__V54__lineage_events_created_at_indexed.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V54__lineage_events_created_at_indexed.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "b494940cf2abbf1670c87009a143ea562b35cda949c8711d36c35b9b0c5bccad",
+  "bytes": 489
+ },
+ {
+  "file": "marquez__0057__V55.1__add_dataset_facets.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V55.1__add_dataset_facets.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "911f669ff7c9066c04fefb43c098b91ac9209481e4dc30a38a67145509501e27",
+  "bytes": 486
+ },
+ {
+  "file": "marquez__0058__V55.2__add_job_facets.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V55.2__add_job_facets.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "034b1399019a72eaebae348e72dd088ae55b0598506336aaef128045edce2aa5",
+  "bytes": 430
+ },
+ {
+  "file": "marquez__0059__V55.3__add_run_facets.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V55.3__add_run_facets.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "dc743293b4a3c9da32c41eb104386dab2b2d37c5ac7084f6a8d52edc54fc7fe6",
+  "bytes": 361
+ },
+ {
+  "file": "marquez__0060__V57.1__add_migration_lock.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V57.1__add_migration_lock.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "34cdc8af63680b57e0715b30e1aa37b0100030aa5a79ccd7d5d8b48d6e874eec",
+  "bytes": 89
+ },
+ {
+  "file": "marquez__0061__V58__job_fqn_name_index.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V58__job_fqn_name_index.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "c23d71e7fe5f966a65ad724ada6154d8d35ab87856206d16ca74855085dcfe5a",
+  "bytes": 53
+ },
+ {
+  "file": "marquez__0062__V59.1__column_lineage_add_indexes.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V59.1__column_lineage_add_indexes.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "9e2e55a7e5d7aa046b98568a7cdb3de957de284e3ebbc12bd8462974b6fa4f5f",
+  "bytes": 462
+ },
+ {
+  "file": "marquez__0063__V59.2__facet_tables_indexes.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V59.2__facet_tables_indexes.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "d10c7bad7449039e4c4b6ec445a2e73bd7338b0c5fa8996298d598cfaeb40f6f",
+  "bytes": 419
+ },
+ {
+  "file": "marquez__0064__V60__alter_job_versions_to_drop_job_context_uuid.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V60__alter_job_versions_to_drop_job_context_uuid.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "1a258f8e678359905d750e23101ef9081e8f9c650d8cffcb0a3460880e184a88",
+  "bytes": 116
+ },
+ {
+  "file": "marquez__0065__V61__unique_job_fqn_index.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V61__unique_job_fqn_index.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "5d73561a32bad262dbcf0bf00386dc30175215fc5e86cc1f4700a339ccb3ddbe",
+  "bytes": 2396
+ },
+ {
+  "file": "marquez__0066__V62__index_run_states_and_parent_run.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V62__index_run_states_and_parent_run.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "00d506d58d742acbbb5e51b686049d84095e5a5aa0c8aa3299ccf8081f75c024",
+  "bytes": 334
+ },
+ {
+  "file": "marquez__0067__V63__alter_tables_add_on_cascade_delete.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V63__alter_tables_add_on_cascade_delete.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "388a75fe3108543d9011b31e04902967bc3b31fd5867c8cf835d666b4f1322dc",
+  "bytes": 8534
+ },
+ {
+  "file": "marquez__0068__V64__drop_job_contexts.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V64__drop_job_contexts.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "2965666d1134e49127ce0cb378679235e773055242f35482226807cabcb270dd",
+  "bytes": 26
+ },
+ {
+  "file": "marquez__0069__V65__alter_dataset_facets_to_change_lineage_event_type_as_nullable.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V65__alter_dataset_facets_to_change_lineage_event_type_as_nullable.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "fed15660385728af5cc8340a9227816269615bb4aa772f3ee5957c9d34d60ea2",
+  "bytes": 75
+ },
+ {
+  "file": "marquez__0070__V66.1__alter_job_facets.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V66.1__alter_job_facets.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "f3c9c1a10bc5b2c574642d5f6f1855f189951e56c1b5ca4ce52e2ffcece39af9",
+  "bytes": 302
+ },
+ {
+  "file": "marquez__0071__V66.2__alter_lineage_events_add_event_type.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V66.2__alter_lineage_events_add_event_type.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "24e3b18239fd1393364d242b09bc7f0ed634c287a9eb21dac2c9c4f4a6413fd1",
+  "bytes": 140
+ },
+ {
+  "file": "marquez__0072__V67.1__job_versions_io_mapping_add_job_reference.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V67.1__job_versions_io_mapping_add_job_reference.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "2606eaa06401a4bdea55dc0edf92ccc8ff391763efd57d1c3c5af22c5fb6c972",
+  "bytes": 1078
+ },
+ {
+  "file": "marquez__0073__V68__add_jobs_tag_mapping.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V68__add_jobs_tag_mapping.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "a121e430455916b07a7270d80d3ecad9ce28a2fc65b39f7b690101b54df042e1",
+  "bytes": 242
+ },
+ {
+  "file": "marquez__0074__V69.1__dataset_schema_versions_table.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V69.1__dataset_schema_versions_table.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "a5d4c8e0183ab7a287c9a3763f743d7d7660cac15ebe7554a59c2584bb6a4a29",
+  "bytes": 229
+ },
+ {
+  "file": "marquez__0075__V69.2__dataset_schema_versions_field_mapping_table.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V69.2__dataset_schema_versions_field_mapping_table.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "c6937ae3699fa827c862982658ecb1a4599fef0f99b0b0a70eec2eaaea3057e9",
+  "bytes": 354
+ },
+ {
+  "file": "marquez__0076__V69.3__dataset_versions_new_column.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V69.3__dataset_versions_new_column.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "28b07ccf1602df1fbc24896cb8ee2962ac4b957546f60fe23d124f686088210b",
+  "bytes": 159
+ },
+ {
+  "file": "marquez__0077__V70__alter_job_facets.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V70__alter_job_facets.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "8706f036bcd20494fbe90c236afc5cb5e8355574a3149d2e4e3123827afd4004",
+  "bytes": 249
+ },
+ {
+  "file": "marquez__0078__V71__add_mat_views_lineage_metrics.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V71__add_mat_views_lineage_metrics.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "4ec49ad556e78f0c20898d675147859573b6312255c77301761e2553ceeb34e0",
+  "bytes": 1258
+ },
+ {
+  "file": "marquez__0079__V72__drop_daily_mat_view_lineage_metrics.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V72__drop_daily_mat_view_lineage_metrics.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "5211460f3d93c84ec11d2012f5b6cad7a9e31aded7c0b73ec5909b00236097d3",
+  "bytes": 69
+ },
+ {
+  "file": "marquez__0080__V73__alter_all_timestamps_to_timestamptz.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V73__alter_all_timestamps_to_timestamptz.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "d0d77a700dbb73c7618218d18d3b3ed3afa3d4ced0fe39b516c9113b8e2d0af1",
+  "bytes": 2158
+ },
+ {
+  "file": "marquez__0081__V74__alter_jobs_to_add_current_run_uuid.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/V74__alter_jobs_to_add_current_run_uuid.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "488654539920f67c2a868038f3e9a3b05ac81538cc89300b96d4f5f241798d64",
+  "bytes": 464
+ },
+ {
+  "file": "marquez__0082__R__Datasets_view.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/R__Datasets_view.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "c277eaafea228255ce546e0b2767418a44afa35318459628100e481c059ec400",
+  "bytes": 1075
+ },
+ {
+  "file": "marquez__0083__R__Jobs_view_and_rewrite_function.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/R__Jobs_view_and_rewrite_function.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "b51fc77b837b6d69aa124eb97abd612af4d6e6d89d9ff57e7e75cf6bd2c3a8f4",
+  "bytes": 5915
+ },
+ {
+  "file": "marquez__0084__R__Runs_view.sql",
+  "original_path": "api/src/main/resources/marquez/db/migration/R__Runs_view.sql",
+  "repo": "https://github.com/MarquezProject/marquez",
+  "sha256": "5aa7c3a6381a0e55ff19ff68f040c3cb74105f0ca286891aacb8fc6e0425455e",
+  "bytes": 687
+ }
+]

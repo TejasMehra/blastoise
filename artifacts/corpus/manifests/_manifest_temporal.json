@@ -1,0 +1,324 @@
+[
+ {
+  "file": "temporal__0001__schema.sql",
+  "original_path": "schema/postgresql/v12/temporal/schema.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "38d122768a40b1e37ea8db8cbfc8b14986cc8eaa352bb3f221e1ab77e3e30b1d",
+  "bytes": 12896
+ },
+ {
+  "file": "temporal__0002__schema.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.0/schema.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "bbc90002e43dc9e527dac41e4cb706dad8a79409386062ba306053b7f2cba218",
+  "bytes": 7445
+ },
+ {
+  "file": "temporal__0003__cluster_metadata.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.1/cluster_metadata.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "2f1a02d8fabc1d1d5a0d5bf1bfde83c4b8359343b4358b212479a6ed8270602c",
+  "bytes": 220
+ },
+ {
+  "file": "temporal__0004__queue.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.2/queue.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "122596d534af642595b251639165c511133a0eb872142932db0a5a3f6b037b9d",
+  "bytes": 160
+ },
+ {
+  "file": "temporal__0005__visibility_tasks.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.3/visibility_tasks.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "86b14d3aeca679cd7877d3fa137f813f4d8063f8ac70c544ded084606947a93b",
+  "bytes": 196
+ },
+ {
+  "file": "temporal__0006__cluster_metadata.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.4/cluster_metadata.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "4f8ef694d34099cbfc76dd24b7543e9d22ee01ee9758f617d7c46cd87b3b6c4b",
+  "bytes": 111
+ },
+ {
+  "file": "temporal__0007__cluster_membership.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.5/cluster_membership.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "c26ceb62681147d99cdc74dedea860d6e544d8594843404d0cbfe90f720d8143",
+  "bytes": 76
+ },
+ {
+  "file": "temporal__0008__event.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.5/event.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "b91c724c64b2881eed604e5b36462510eb56c2934cd7149c440f5a56161809d5",
+  "bytes": 69
+ },
+ {
+  "file": "temporal__0009__executions.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.5/executions.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "67a020d104d87463c8f47b598958d8762c2205fd46ed900b44908dd2610eb189",
+  "bytes": 73
+ },
+ {
+  "file": "temporal__0010__queue_metadata.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.6/queue_metadata.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "b11a3db0bbdb9c815c4d10b0803ce9288a271921d956305a376e35af6461de6a",
+  "bytes": 67
+ },
+ {
+  "file": "temporal__0011__cluster_metadata_info.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.7/cluster_metadata_info.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "ca36f8476633195a0d4313adb8767fc52f60f4c4278f82c591e880ad7378c380",
+  "bytes": 330
+ },
+ {
+  "file": "temporal__0012__no_start_version.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.7/no_start_version.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "c2071ec631e6c4edd8af07a92dfb0235b6345804fdd9d4329adab6132d8294ed",
+  "bytes": 72
+ },
+ {
+  "file": "temporal__0013__tiered_storage_tasks.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.7/tiered_storage_tasks.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "87ed7a93bb545d35e94d42bd901257b1b62553d2d8cda44c511a96749064bb64",
+  "bytes": 200
+ },
+ {
+  "file": "temporal__0014__alter_columns.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.8/alter_columns.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "99ee0cc9e14adfc86e219ce0c1847fb46227ca8e52a46ea000887ab73f605b6b",
+  "bytes": 160
+ },
+ {
+  "file": "temporal__0015__drop_unused_tasks_table.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.8/drop_unused_tasks_table.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "77fa1af4214012fe66c46f71642b9a743a73f2c5173e5dd7d5aaf8fab9dbdc7f",
+  "bytes": 32
+ },
+ {
+  "file": "temporal__0016__history_tasks_table.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.9/history_tasks_table.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "52c1b0dd3c3615513b47fccfb28cb4c3533543259e987a18de95db68a3751311",
+  "bytes": 569
+ },
+ {
+  "file": "temporal__0017__task_queue_user_data.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.10/task_queue_user_data.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "d4c2ee546d9ddc0cf3a0ac0ed973532d66c76d0c6a108757602ec3e61a97e14b",
+  "bytes": 830
+ },
+ {
+  "file": "temporal__0018__queue_v2.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.11/queue_v2.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "b11f3dcaca47360c0568fe5fa34bff5d252c568f21889599f43956f0292b49c4",
+  "bytes": 591
+ },
+ {
+  "file": "temporal__0019__nexus_incoming_services.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.12/nexus_incoming_services.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "780df099c08d3d50e7901e7229a8d7b358ef852470ee7a1baf6a2cf618018a5b",
+  "bytes": 889
+ },
+ {
+  "file": "temporal__0020__nexus_endpoints.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.13/nexus_endpoints.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "67cce1a68c154996400253ed49302c76bee464263bca3c905ab6c685252c0276",
+  "bytes": 911
+ },
+ {
+  "file": "temporal__0021__add_current_executions_start_time.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.14/add_current_executions_start_time.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "a611406fdbc67c54d448dbd29dfe4ec1fbb3449824bb8bdf358a512ac4fd553c",
+  "bytes": 68
+ },
+ {
+  "file": "temporal__0022__add_current_executions_data.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.15/add_current_executions_data.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "2efa564171d0c7706e9a2485a7a74f751e707724476f672466d1a7a1e9c00310",
+  "bytes": 109
+ },
+ {
+  "file": "temporal__0023__fix_data_encoding_column.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.16/fix_data_encoding_column.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "3ee7ca59124373833a067719248b3ee69a5b92c3b2bde20dc407ea30bc0c53e9",
+  "bytes": 149
+ },
+ {
+  "file": "temporal__0024__add_chasm_node_maps.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.17/add_chasm_node_maps.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "437c3f588b57fe64d8c577fb77bb804c008a40c2db3fcb432cf8bae641d71629",
+  "bytes": 376
+ },
+ {
+  "file": "temporal__0025__tasks_v2.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.18/tasks_v2.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "4f1279b20907a7d858e84eef2363b52e5e2d530dbc2c06d4e0fb0162e385a8c7",
+  "bytes": 778
+ },
+ {
+  "file": "temporal__0026__current_chasm_executions.sql",
+  "original_path": "schema/postgresql/v12/temporal/versioned/v1.19/current_chasm_executions.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "3a34588070d78dd41b5f499734f353d1c59af01884bf6593a188784cd76c86b8",
+  "bytes": 637
+ },
+ {
+  "file": "temporal__0027__schema.sql",
+  "original_path": "schema/postgresql/v12/visibility/schema.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "8eecc80b06451f698d16d58cea345d9e2b94496b8b476d72dc427a08f90b70dc",
+  "bytes": 22086
+ },
+ {
+  "file": "temporal__0028__schema.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.0/schema.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "22895b122cb706ffd192f5d9e6e442f685932cb56b15f253421588c53b0fc0f3",
+  "bytes": 1451
+ },
+ {
+  "file": "temporal__0029__index.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.1/index.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "4ab225b33eb66815d445e663d0095b410cae43c395a253d5d6aa71131384fa20",
+  "bytes": 112
+ },
+ {
+  "file": "temporal__0030__advanced_visibility.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.2/advanced_visibility.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "b76f75064903c7e9a967a9f2783812bd3b3da54ec516328010e18b1745c7e109",
+  "bytes": 12186
+ },
+ {
+  "file": "temporal__0031__add_build_ids_search_attribute.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.3/add_build_ids_search_attribute.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "2286ba3416b50892e30089be6009a6677f968c388c9a13e27ddb05f3f593446b",
+  "bytes": 224
+ },
+ {
+  "file": "temporal__0032__add_history_size_bytes.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.3/add_history_size_bytes.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "68c400dcd6d8b31054ea8fdffd53862d3f3aa9bbe3a5670b454ac1da919b1851",
+  "bytes": 252
+ },
+ {
+  "file": "temporal__0033__add_execution_duration.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.4/add_execution_duration.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "22b200b0b4c6b0532ad0d0ceb7460a101bd4a5a0feac5b61ba82fc65ebb42845",
+  "bytes": 252
+ },
+ {
+  "file": "temporal__0034__add_parent_workflow_info.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.4/add_parent_workflow_info.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "2ff2aff3f98b6f9b3a9887c7b543e66cda09437bbdddf440c89ac5e465381368",
+  "bytes": 518
+ },
+ {
+  "file": "temporal__0035__add_state_transition_count.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.4/add_state_transition_count.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "cbba45a863c46f8df4c3ff6a17570aa12f58cdb2975fe36274b07e2483add03a",
+  "bytes": 264
+ },
+ {
+  "file": "temporal__0036__add_root_workflow_info.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.5/add_root_workflow_info.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "027ead1bf2d8b2ad4d7c251e840950f1823fbd5c66c6978af28d7384c1ae2b95",
+  "bytes": 506
+ },
+ {
+  "file": "temporal__0037__fix_root_workflow_info.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.6/fix_root_workflow_info.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "29c538caf1eb829a4d6c69841c061ae413445bcabbe9aa321805e4a7b07211eb",
+  "bytes": 724
+ },
+ {
+  "file": "temporal__0038__add_pause_info_search_attribute.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.7/add_pause_info_search_attribute.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "0ddd50aa8686d31589eda26a115365941a88d8cd2b1ffbf2479e6f0ca085bccf",
+  "bytes": 261
+ },
+ {
+  "file": "temporal__0039__add_deployment_search_attributes.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.8/add_deployment_search_attributes.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "20d49d04e55852c0cb4a8970af58e7ae4e24261ee2476ad5a7337d80d8b1af9f",
+  "bytes": 1132
+ },
+ {
+  "file": "temporal__0040__add_version_column.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.9/add_version_column.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "ad6db1c52ce966d5e7756d7e8f0d418900f80891e67b73ffa217602faebb22f1",
+  "bytes": 82
+ },
+ {
+  "file": "temporal__0041__add_temporal_reported_columns.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.10/add_temporal_reported_columns.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "e907aab63bed1194eaa5aa827da07a39baaf3fc6bfeb0988d6cfd80575c0fd8d",
+  "bytes": 289
+ },
+ {
+  "file": "temporal__0042__add_chasm_search_attributes.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.11/add_chasm_search_attributes.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "e0ac0a3514b5fddca49b6c441ce211d5390b89f3bd84b5b4fdcea600bfdbe180",
+  "bytes": 4465
+ },
+ {
+  "file": "temporal__0043__add_low_cardinality_keyword.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.12/add_low_cardinality_keyword.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "356142f2d434733e1e4ce7e8bb10ae28febc3540cd28c590b84fcc17afd53953",
+  "bytes": 381
+ },
+ {
+  "file": "temporal__0044__add_used_deployment_versions_search_attribute.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.13/add_used_deployment_versions_search_attribute.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "4973a6f6179d17684bf4314439255a8214ee28e94909ae2e2748abdbf62ee76d",
+  "bytes": 329
+ },
+ {
+  "file": "temporal__0045__combined_v1.10_v1.13.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.13/combined_v1.10_v1.13.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "2b6856ea9a30ee415828d05d4b10b2818ba7c41d66eeb6ed2f42087a355da2f7",
+  "bytes": 7334
+ },
+ {
+  "file": "temporal__0046__add_external_payload_size_and_count_search_attributes.sql",
+  "original_path": "schema/postgresql/v12/visibility/versioned/v1.14/add_external_payload_size_and_count_search_attributes.sql",
+  "repo": "https://github.com/temporalio/temporal",
+  "sha256": "b10be744205f4b2547dfb842df9197b987122c12ff44aace8873ff579fb28af9",
+  "bytes": 1441
+ }
+]

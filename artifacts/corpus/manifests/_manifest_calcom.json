@@ -1,0 +1,1052 @@
+[
+ {
+  "file": "calcom__0001__20210605225044_init.sql",
+  "original_path": "packages/prisma/migrations/20210605225044_init/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "723cfbb814ce2d7d3457673d2d976fdffa22ffd81e4ca1e8948f34dcde19d519",
+  "bytes": 1308
+ },
+ {
+  "file": "calcom__0002__20210613133618_add_team_membership_verification.sql",
+  "original_path": "packages/prisma/migrations/20210613133618_add_team_membership_verification/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "d12c6f6474116d559b478ccf3ca9bf158dec1d98428b07b5572f92bc7357cc9f",
+  "bytes": 700
+ },
+ {
+  "file": "calcom__0003__20210615153759_add_email_verification_column.sql",
+  "original_path": "packages/prisma/migrations/20210615153759_add_email_verification_column/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "1884c0063e19772b4daf9f87102f5ee6a302fa286db5f001044c90d4ab365dfb",
+  "bytes": 642
+ },
+ {
+  "file": "calcom__0004__20210630014738_schedule_availability.sql",
+  "original_path": "packages/prisma/migrations/20210630014738_schedule_availability/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "be7f8240b731ac74a51ba778e83ee89350341d8046942bba481af935190df541",
+  "bytes": 642
+ },
+ {
+  "file": "calcom__0005__20210718184017_reminder_mails.sql",
+  "original_path": "packages/prisma/migrations/20210718184017_reminder_mails/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "6b3647b091dddd7b45fc55925268363e44be65d1283bd4aadcd8f9b839776161",
+  "bytes": 379
+ },
+ {
+  "file": "calcom__0006__20210813194355_add_slug_to_team.sql",
+  "original_path": "packages/prisma/migrations/20210813194355_add_slug_to_team/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "2e822da7f20ce0d5ed134fc06a510e486e45278e895c6fb3bce9a63671d54528",
+  "bytes": 63
+ },
+ {
+  "file": "calcom__0007__20210825004801_schedule_schema.sql",
+  "original_path": "packages/prisma/migrations/20210825004801_schedule_schema/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "0a1667bfa1c075c3a58c629ae1c9d556102260cc03ab99129d8cf9497fcd4ec4",
+  "bytes": 573
+ },
+ {
+  "file": "calcom__0008__20210902125945_user_username_unique.sql",
+  "original_path": "packages/prisma/migrations/20210902125945_user_username_unique/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "7ef87cc8bcd466be4d4860fe0615f34bea6a8bd00a83884d2aaff524e63820ae",
+  "bytes": 261
+ },
+ {
+  "file": "calcom__0009__20210908235519_undo_unique_user_id_slug.sql",
+  "original_path": "packages/prisma/migrations/20210908235519_undo_unique_user_id_slug/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "3cab0364635dc3e0ba61e2fc18d3b8280d337b5eff166365782856e41a23fd97",
+  "bytes": 58
+ },
+ {
+  "file": "calcom__0010__20210919174415_add_user_locale.sql",
+  "original_path": "packages/prisma/migrations/20210919174415_add_user_locale/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "ba646b7a00642ca93a39ee55c725376440ec50f23b658d13184eac9e3af3bf1f",
+  "bytes": 66
+ },
+ {
+  "file": "calcom__0011__20211028233838_add_user_webhooks_relation.sql",
+  "original_path": "packages/prisma/migrations/20211028233838_add_user_webhooks_relation/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "548c97fc0d1301e47c7b02ecece2993f4d589db61b8fb78c8a86c3a2bdbbf809",
+  "bytes": 130
+ },
+ {
+  "file": "calcom__0012__20211110063531_add_custom_brand_color.sql",
+  "original_path": "packages/prisma/migrations/20211110063531_add_custom_brand_color/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "58363c48b24ed6382cc3d89547b51943c13c8a746477544edcbbae12d8053546",
+  "bytes": 144
+ },
+ {
+  "file": "calcom__0013__20211115182559_availability_issue.sql",
+  "original_path": "packages/prisma/migrations/20211115182559_availability_issue/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "f032c54d3d6c6725c5fea10af2da7562e8d004798125085a4ca4c9ecccd0f205",
+  "bytes": 646
+ },
+ {
+  "file": "calcom__0014__20211210182230_add_invited_to.sql",
+  "original_path": "packages/prisma/migrations/20211210182230_add_invited_to/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "c1712a8dc8bc5a05e318c10976a275ac2dc0cd31a0afebc8000dc2befd46be38",
+  "bytes": 72
+ },
+ {
+  "file": "calcom__0015__20211222174947_placeholder.sql",
+  "original_path": "packages/prisma/migrations/20211222174947_placeholder/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "18539d4f752558df771c8ee523bd5a725ec374ebb41b8ff4638ceda8d85ce250",
+  "bytes": 1269
+ },
+ {
+  "file": "calcom__0016__20220105104913_add_away_field.sql",
+  "original_path": "packages/prisma/migrations/20220105104913_add_away_field/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "ff74578e413d25f65e8a003abd13d528b3620354711034fe6496af69230efdad",
+  "bytes": 90
+ },
+ {
+  "file": "calcom__0017__20220125035907_add_attendee_locale.sql",
+  "original_path": "packages/prisma/migrations/20220125035907_add_attendee_locale/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "42f3b5e5aa42d996ea146ed2cd2ec8e7896a18ae16d3028438206300dca46aa7",
+  "bytes": 83
+ },
+ {
+  "file": "calcom__0018__20220217093836_add_webhook_for_event.sql",
+  "original_path": "packages/prisma/migrations/20220217093836_add_webhook_for_event/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "df6f0ee1976733b75620910ba31725cbe6ca28a606bc857cd31ee4d64a1d7798",
+  "bytes": 291
+ },
+ {
+  "file": "calcom__0019__20220303171305_adds_user_trial_ends_at.sql",
+  "original_path": "packages/prisma/migrations/20220303171305_adds_user_trial_ends_at/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "939d2e786d5701f369ffe442a79c7eea0b97f55089c686bfc749f29458f2d004",
+  "bytes": 79
+ },
+ {
+  "file": "calcom__0020__20220323033335_reschedule_fields_to_bookings_table.sql",
+  "original_path": "packages/prisma/migrations/20220323033335_reschedule_fields_to_bookings_table/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "808ddf67aca8d7fbe79923bda36145dc4f44c5ab4d1e6f65403f7da313975d0a",
+  "bytes": 113
+ },
+ {
+  "file": "calcom__0021__20220404132522_redirect_url.sql",
+  "original_path": "packages/prisma/migrations/20220404132522_redirect_url/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "964a09b2d27a8341034e76a9469a115e815378533960dba0bbb378954ea86624",
+  "bytes": 82
+ },
+ {
+  "file": "calcom__0022__20220413002425_adds_api_keys.sql",
+  "original_path": "packages/prisma/migrations/20220413002425_adds_api_keys/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "3bc7ae905a0ef7a7db1fd8ee11c9f56a309eea0eb1adfed0af373c42b7d7c97a",
+  "bytes": 657
+ },
+ {
+  "file": "calcom__0023__20220420230105_rename_verification_token_unique_id.sql",
+  "original_path": "packages/prisma/migrations/20220420230105_rename_verification_token_unique_id/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "ad90f59aa535817b9ab29d89b43113df3279d0a5d1eedff78270defa3c9b6bf2",
+  "bytes": 254
+ },
+ {
+  "file": "calcom__0024__20220503183922_add_external_calendar_id_to_booking_reference.sql",
+  "original_path": "packages/prisma/migrations/20220503183922_add_external_calendar_id_to_booking_reference/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "66d9303f4e3a2ab9dadecf981a788136f673cab4b69400337064aa8c34c67d04",
+  "bytes": 89
+ },
+ {
+  "file": "calcom__0025__20220518201335_add_user_relationship_to_feedback.sql",
+  "original_path": "packages/prisma/migrations/20220518201335_add_user_relationship_to_feedback/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "d1b3e0e4d249f70adcc72c6b2a8c034dcb6e1ad5c381764956f356b99993c624",
+  "bytes": 165
+ },
+ {
+  "file": "calcom__0026__20220604144700_fixes_booking_status.sql",
+  "original_path": "packages/prisma/migrations/20220604144700_fixes_booking_status/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "687ce7b046e5b51e2f06dc63d1eedac99e7478414512ecfcaba453c31c2dde0d",
+  "bytes": 620
+ },
+ {
+  "file": "calcom__0027__20220620181226_add_all_userid_to_users.sql",
+  "original_path": "packages/prisma/migrations/20220620181226_add_all_userid_to_users/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "58401c0301dd4229d1286fc306af6a3f047d7ee044bc319d0ac62eee60ffb72b",
+  "bytes": 175
+ },
+ {
+  "file": "calcom__0028__20220628191702_adds_default_date_to_feedback.sql",
+  "original_path": "packages/prisma/migrations/20220628191702_adds_default_date_to_feedback/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "c7ac28c4e2de72fdf154ccac045632af320e87010e3dbd48cf75d7f980ce6772",
+  "bytes": 90
+ },
+ {
+  "file": "calcom__0029__20220719110415_form_submitted_webhook.sql",
+  "original_path": "packages/prisma/migrations/20220719110415_form_submitted_webhook/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "6737caed13b0044271686c47c70aa09e77cdf93ce7fa62b031d2c0301fa5290d",
+  "bytes": 77
+ },
+ {
+  "file": "calcom__0030__20220728111440_add_created_at_form_response.sql",
+  "original_path": "packages/prisma/migrations/20220728111440_add_created_at_form_response/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "005cceba79d9725d9c458da44f4c5eed6bda887116cfd70945b3a7f031a59c50",
+  "bytes": 136
+ },
+ {
+  "file": "calcom__0031__20220811234822_add_after_meeting_ends_trigger.sql",
+  "original_path": "packages/prisma/migrations/20220811234822_add_after_meeting_ends_trigger/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "f2b9ce57ae4c94444d9c6cdf14a42fdcc9e8c294eba7123201316f7cae5acf0c",
+  "bytes": 155
+ },
+ {
+  "file": "calcom__0032__20220912134714_add_automation_category.sql",
+  "original_path": "packages/prisma/migrations/20220912134714_add_automation_category/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "ee9c8ad3bfa32b8f7c1c79b7328caff9e596d95b2fab72565f434220d922e6c2",
+  "bytes": 66
+ },
+ {
+  "file": "calcom__0033__20220917201512_revert_convert_pro_plan_to_free.sql",
+  "original_path": "packages/prisma/migrations/20220917201512_revert_convert_pro_plan_to_free/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "ae5bf35311ce1f1487a148da47008eee94aa52d28e8e34982f92667f381f1c4f",
+  "bytes": 176
+ },
+ {
+  "file": "calcom__0034__20221006121954_add_after_event_ends_workflow_trigger.sql",
+  "original_path": "packages/prisma/migrations/20221006121954_add_after_event_ends_workflow_trigger/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "02636e980f4c1cf00b42b79546c616d0250c668a2434d86d473177c090765614",
+  "bytes": 75
+ },
+ {
+  "file": "calcom__0035__20221011012344_add_membership_cascade.sql",
+  "original_path": "packages/prisma/migrations/20221011012344_add_membership_cascade/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "a7022d3b55a93e661880b83993e66ad4f3cbe2df98e9a9ef914de51ed18d289b",
+  "bytes": 257
+ },
+ {
+  "file": "calcom__0036__20221107201132_add_team_subscription_cols.sql",
+  "original_path": "packages/prisma/migrations/20221107201132_add_team_subscription_cols/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "9f0a61291c21597cc7cb69e5976edd45993e3fda277b2410fb1f64a67d4be480",
+  "bytes": 181
+ },
+ {
+  "file": "calcom__0037__20221129112344_adding_radio_custom_input.sql",
+  "original_path": "packages/prisma/migrations/20221129112344_adding_radio_custom_input/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "7af1daa03501117fe768e570b69cdcf5142fd6d949df2b92d5cdf23db115cc67",
+  "bytes": 157
+ },
+ {
+  "file": "calcom__0038__20221208221811_remove_user_plan.sql",
+  "original_path": "packages/prisma/migrations/20221208221811_remove_user_plan/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "62f1e48b08ce7233867d96971b6d54b97241af484bdf2949e7ba687a8fc815a4",
+  "bytes": 227
+ },
+ {
+  "file": "calcom__0039__20230105212846_add_availability_schedule_indexes.sql",
+  "original_path": "packages/prisma/migrations/20230105212846_add_availability_schedule_indexes/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "c7297ccb1f410eceb523731892cf083524e6f843a1f9fd3c3981e444c9dac353",
+  "bytes": 269
+ },
+ {
+  "file": "calcom__0040__20230125182832_add_deployment.sql",
+  "original_path": "packages/prisma/migrations/20230125182832_add_deployment/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "216e9d73fa7361fd276be78577885c5c9a368b46b643e905829f9aba8e0665ed",
+  "bytes": 241
+ },
+ {
+  "file": "calcom__0041__20230210182245_add_verified_numbers_to_team.sql",
+  "original_path": "packages/prisma/migrations/20230210182245_add_verified_numbers_to_team/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "03a2786283f4e0b0365a0045fd91599e960e0a6299b021606ec104ccd0275568",
+  "bytes": 294
+ },
+ {
+  "file": "calcom__0042__20230217230604_add_cancelled_to_workflow_reminder.sql",
+  "original_path": "packages/prisma/migrations/20230217230604_add_cancelled_to_workflow_reminder/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "90077308dca16e4b746f814e637f988e6956b7822705b2f6db7def0f16646d61",
+  "bytes": 83
+ },
+ {
+  "file": "calcom__0043__20230303195432_add_feature_flag_default_values.sql",
+  "original_path": "packages/prisma/migrations/20230303195432_add_feature_flag_default_values/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "4221b866e2e2ac02b20954dfbd9009132b77f8ae95f38531765029311910bc7a",
+  "bytes": 561
+ },
+ {
+  "file": "calcom__0044__20230330030031_add_payment_option.sql",
+  "original_path": "packages/prisma/migrations/20230330030031_add_payment_option/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "4b87c1237de57b20a18eddc007d66ecc9378a07a69a780136188b2c49f525302",
+  "bytes": 185
+ },
+ {
+  "file": "calcom__0045__20230412094052_fix_apps.sql",
+  "original_path": "packages/prisma/migrations/20230412094052_fix_apps/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "38643cf32d643d99900ccece7c5c3454e6d198fd6bf87d9d3f216366aa70fca3",
+  "bytes": 119
+ },
+ {
+  "file": "calcom__0046__20230420222915_add_whatsapp_workflow_migrations.sql",
+  "original_path": "packages/prisma/migrations/20230420222915_add_whatsapp_workflow_migrations/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "abbc480c66ba180f478522faeaa2a60820e25d5b7b85fe58d07f3c0edc4fe26f",
+  "bytes": 627
+ },
+ {
+  "file": "calcom__0047__20230513235419_add_booking_webhooks.sql",
+  "original_path": "packages/prisma/migrations/20230513235419_add_booking_webhooks/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "ab2418a8b4549eaa887cdbbe81569d0fabed42c696a445917254c394eb6187ea",
+  "bytes": 345
+ },
+ {
+  "file": "calcom__0048__20230523101834_email_verification_feature_flag.sql",
+  "original_path": "packages/prisma/migrations/20230523101834_email_verification_feature_flag/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "25be68aec78d78e2be2c30743ca83b9a70390278d7fbbb83053ff2539c9179b0",
+  "bytes": 217
+ },
+ {
+  "file": "calcom__0049__20230601181657_disable_signup_feature_flag.sql",
+  "original_path": "packages/prisma/migrations/20230601181657_disable_signup_feature_flag/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "a08f3fffa73047a36748a3616158ed36d5a5a79b90f0a7bcb168e206a987e42c",
+  "bytes": 215
+ },
+ {
+  "file": "calcom__0050__20230622164946_remove_host_remnants_from_old_team_members.sql",
+  "original_path": "packages/prisma/migrations/20230622164946_remove_host_remnants_from_old_team_members/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "116201815e85bcd3c99f9262f3791a23677863263f8e4d79587ebd3bc8efa71e",
+  "bytes": 632
+ },
+ {
+  "file": "calcom__0051__20230712192734_fixes_team_verification_tokens.sql",
+  "original_path": "packages/prisma/migrations/20230712192734_fixes_team_verification_tokens/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "61ac3a9d1f2a28aa5eef9a58dd3c8fe1563f933c74f31465c5b48621c28241b3",
+  "bytes": 58
+ },
+ {
+  "file": "calcom__0052__20230803132959_adds_field_for_seo_indexing_checking.sql",
+  "original_path": "packages/prisma/migrations/20230803132959_adds_field_for_seo_indexing_checking/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "eb0a401d8dd6599459df33cf8181ee42e975d1855ae431d75c56907d004f6440",
+  "bytes": 92
+ },
+ {
+  "file": "calcom__0053__20230828094603_add_include_calendar_event.sql",
+  "original_path": "packages/prisma/migrations/20230828094603_add_include_calendar_event/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "2b9051365a3baf3c91ece04f3bd47210e1110af06199998da57552f73a070400",
+  "bytes": 113
+ },
+ {
+  "file": "calcom__0054__20230907002853_add_calendar_cache.sql",
+  "original_path": "packages/prisma/migrations/20230907002853_add_calendar_cache/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "1bdade8c01c8b3313c793dc87f33195f6ebc202406763e0904b0026b7a165d05",
+  "bytes": 914
+ },
+ {
+  "file": "calcom__0055__20231001101010_add_user_email_to_booking_time_status.sql",
+  "original_path": "packages/prisma/migrations/20231001101010_add_user_email_to_booking_time_status/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "da06447fa4131312a53b7fb4d83815489756f2a3335a0894af87124344f6e336",
+  "bytes": 1171
+ },
+ {
+  "file": "calcom__0056__20231020090443_add_lock_timezone_toggle.sql",
+  "original_path": "packages/prisma/migrations/20231020090443_add_lock_timezone_toggle/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "53f75bc0f949c6766a927f8b978043baba82b711505e2f91dbc3d11d198919b9",
+  "bytes": 121
+ },
+ {
+  "file": "calcom__0057__20231113202947_add_ical_columns_to_booking.sql",
+  "original_path": "packages/prisma/migrations/20231113202947_add_ical_columns_to_booking/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "b33a27f92e21b5b0c9a4a7d2b1516d5b7cd0827435f53714eae9d83ff7098bd5",
+  "bytes": 139
+ },
+ {
+  "file": "calcom__0058__20231201233433_add_new_user_field_app_theme.sql",
+  "original_path": "packages/prisma/migrations/20231201233433_add_new_user_field_app_theme/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "0d50ad2a6ee8d58750660747227bb8edddc99db213f51b9f63751455916c48c8",
+  "bytes": 68
+ },
+ {
+  "file": "calcom__0059__20231206220118_add_recurring_event_id.sql",
+  "original_path": "packages/prisma/migrations/20231206220118_add_recurring_event_id/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "8db880d3f1f3032c825ff4280d07c05f2d64ba7c03eccd5486eab1c0667a5d69",
+  "bytes": 97
+ },
+ {
+  "file": "calcom__0060__20240105110500_removed_newbooker_feature_flag.sql",
+  "original_path": "packages/prisma/migrations/20240105110500_removed_newbooker_feature_flag/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "3f14833c50defa9592a1b97dfbed4794f5be1e81484009474e232c64eccc4e0a",
+  "bytes": 140
+ },
+ {
+  "file": "calcom__0061__20240116085902_add_pending_payment_column_to_teams.sql",
+  "original_path": "packages/prisma/migrations/20240116085902_add_pending_payment_column_to_teams/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "a1ffd2ce140d4dafab9367e9204e32f491453782fef4f0b9e1742c3703bc6a9a",
+  "bytes": 99
+ },
+ {
+  "file": "calcom__0062__20240131021824_revert_20230404202721_add_feature_flag_managed_event_types.sql",
+  "original_path": "packages/prisma/migrations/20240131021824_revert_20230404202721_add_feature_flag_managed_event_types/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "e8d762be1232ac4b0b02fc3c512a5d43cf6d5c58b705712498771c09c8619085",
+  "bytes": 123
+ },
+ {
+  "file": "calcom__0063__20240208075646_use_event_type_destination_calendar.sql",
+  "original_path": "packages/prisma/migrations/20240208075646_use_event_type_destination_calendar/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "6d9f57b803ee75155ea646d21148d4224b0fc654bba8b166e009910b509d2ff1",
+  "bytes": 126
+ },
+ {
+  "file": "calcom__0064__20240214093418_add_banner_url.sql",
+  "original_path": "packages/prisma/migrations/20240214093418_add_banner_url/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "12e2de9d508e2ed8f06658f4a1fd18e4e20eafd94c4b6a226dc8b47f63e457ac",
+  "bytes": 68
+ },
+ {
+  "file": "calcom__0065__20240223033247_add_dsync_team_group_mapping.sql",
+  "original_path": "packages/prisma/migrations/20240223033247_add_dsync_team_group_mapping/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "f518534c1a800c9a4fc6f784d7b72e57bbda51774505ba3a7f36529ed021fa7d",
+  "bytes": 609
+ },
+ {
+  "file": "calcom__0066__20240305054507_add_reasons_to_out_of_office_entries.sql",
+  "original_path": "packages/prisma/migrations/20240305054507_add_reasons_to_out_of_office_entries/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "42da84ba684d516600de0d773792567e0c249badeb49194cc78f3797551bd402",
+  "bytes": 842
+ },
+ {
+  "file": "calcom__0067__20240307203026_rename_team_group_mapping_org_id_to_organization_id.sql",
+  "original_path": "packages/prisma/migrations/20240307203026_rename_team_group_mapping_org_id_to_organization_id/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "77fcb6fabc6dbaecb87fb90dddd205e14aa5842babc989d880ff2ed6f846bc9d",
+  "bytes": 432
+ },
+ {
+  "file": "calcom__0068__20240314152130_platform_wide_webhooks.sql",
+  "original_path": "packages/prisma/migrations/20240314152130_platform_wide_webhooks/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "9664fae4589239bb5daae90bc3710aa991227be7f19ffb5c3a98f861d4e20f62",
+  "bytes": 96
+ },
+ {
+  "file": "calcom__0069__20240321153033_add_travel_schedules.sql",
+  "original_path": "packages/prisma/migrations/20240321153033_add_travel_schedules/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "2cd6638c18e05318de82b3ea244f7d579baa156c09e30a0ccdb82f0984836a3e",
+  "bytes": 666
+ },
+ {
+  "file": "calcom__0070__20240327121006_added_rating_workflow_template.sql",
+  "original_path": "packages/prisma/migrations/20240327121006_added_rating_workflow_template/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "e020d1964b59ac5ec67c1d28ab07eee322e77628bfc39cff80ed954fba3623db",
+  "bytes": 66
+ },
+ {
+  "file": "calcom__0071__20240328080307_add_ai_phone_call_config.sql",
+  "original_path": "packages/prisma/migrations/20240328080307_add_ai_phone_call_config/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "7b2a64e144b0949046108454f68a62ce95d4485cab23647806b78aeb2cfb513a",
+  "bytes": 891
+ },
+ {
+  "file": "calcom__0072__20240405142908_make_guest_company_and_email_optional.sql",
+  "original_path": "packages/prisma/migrations/20240405142908_make_guest_company_and_email_optional/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "aaedae7c386198978e60c4cfaf2104e4afcd31bd3cb5e6537af7cb72fd47f492",
+  "bytes": 140
+ },
+ {
+  "file": "calcom__0073__20240419114622_add_ratings_to_insights.sql",
+  "original_path": "packages/prisma/migrations/20240419114622_add_ratings_to_insights/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "8529cffbac6c77827b819a868f44f0a1dc9da8dea7b4f26a4f876f3aea220ae2",
+  "bytes": 1138
+ },
+ {
+  "file": "calcom__0074__20240506065443_added_notifications_subscriptions_table.sql",
+  "original_path": "packages/prisma/migrations/20240506065443_added_notifications_subscriptions_table/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "865c4430fbb4acf066279fb79cd8edd3eb2a1083dbd9b2831ffb46d458a52dad",
+  "bytes": 577
+ },
+ {
+  "file": "calcom__0075__20240517144241_add_org_wide_workflows.sql",
+  "original_path": "packages/prisma/migrations/20240517144241_add_org_wide_workflows/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "b6af09745e37fcdbe03d0b6d3557230d436f55ebc8c333180df62e9474565024",
+  "bytes": 1331
+ },
+ {
+  "file": "calcom__0076__20240610084425_add_cal_ai_template.sql",
+  "original_path": "packages/prisma/migrations/20240610084425_add_cal_ai_template/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "b81f050ea69c427758c04cb885d4b1b428c4b882dad84622609bf2a3eb201ee2",
+  "bytes": 250
+ },
+ {
+  "file": "calcom__0077__20240626171118_add_weights_to_host.sql",
+  "original_path": "packages/prisma/migrations/20240626171118_add_weights_to_host/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "b6f92f66e869596a4ebdf18848a3a0331526a9b4043b5535444c7f93e55fb262",
+  "bytes": 222
+ },
+ {
+  "file": "calcom__0078__20240712162735_default_no_show_host_to_false.sql",
+  "original_path": "packages/prisma/migrations/20240712162735_default_no_show_host_to_false/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "faf7c07400a839889e61d83cb79abe5e084a8183814a11a51b0d9d387ede0340",
+  "bytes": 83
+ },
+ {
+  "file": "calcom__0079__20240730142744_delete_platform_team_when_oauth_client_deleted.sql",
+  "original_path": "packages/prisma/migrations/20240730142744_delete_platform_team_when_oauth_client_deleted/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "1b04dc3802ea1cedec9980095a89e513d766e8ca840e869e95b5a00571616d65",
+  "bytes": 296
+ },
+ {
+  "file": "calcom__0080__20240808084028_add_attribute_tables.sql",
+  "original_path": "packages/prisma/migrations/20240808084028_add_attribute_tables/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "bb4592362b91c3af0459517c6efac6bec664b74e869f5c9204e1aa4ae9a3fb59",
+  "bytes": 2133
+ },
+ {
+  "file": "calcom__0081__20240816160101_support_multiple_hashed_links_for_an_event_type.sql",
+  "original_path": "packages/prisma/migrations/20240816160101_support_multiple_hashed_links_for_an_event_type/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "823bd03ed60a08dc2ce3e6de8617df9e349a2ae74acb983af8362e37b59eb927",
+  "bytes": 56
+ },
+ {
+  "file": "calcom__0082__20240909084221_add_referal_link_id.sql",
+  "original_path": "packages/prisma/migrations/20240909084221_add_referal_link_id/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "953959cf8d9e00413727c452f7b3525fa4aa363ec3a9fd044e5a9cceb66350d7",
+  "bytes": 74
+ },
+ {
+  "file": "calcom__0083__20240918202101_adds_per_user_and_team_feature_flags.sql",
+  "original_path": "packages/prisma/migrations/20240918202101_adds_per_user_and_team_feature_flags/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "6fa82957b39b75cef4212c82c92c992d08b1ff243f3ec4e08ed79469752df3c8",
+  "bytes": 1377
+ },
+ {
+  "file": "calcom__0084__20240920195815_add_time_unit_in_webhooks.sql",
+  "original_path": "packages/prisma/migrations/20240920195815_add_time_unit_in_webhooks/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "a61f4ac8c1043513b8d32a2202595d788032457349a07927241d4ce41dc9f43b",
+  "bytes": 108
+ },
+ {
+  "file": "calcom__0085__20241003145122_add_include_managed_events_in_limits_to_teams.sql",
+  "original_path": "packages/prisma/migrations/20241003145122_add_include_managed_events_in_limits_to_teams/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "6e8ab7cf351dff51f7120df8fc4b3ec8e4849fd911f1ed2e810ee18efa332ae9",
+  "bytes": 113
+ },
+ {
+  "file": "calcom__0086__20241010171846_add_eventtype_parent_id_index.sql",
+  "original_path": "packages/prisma/migrations/20241010171846_add_eventtype_parent_id_index/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "f50b95a946182812c953866e2404d30d68880ba8346c199938ed469089ffc4c2",
+  "bytes": 83
+ },
+ {
+  "file": "calcom__0087__20241023041541_add_user_last_active_at.sql",
+  "original_path": "packages/prisma/migrations/20241023041541_add_user_last_active_at/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "e5f59c00ae0b2adf8393cac93ae906ac13b70df2dde47ceb5ea513784743d6f6",
+  "bytes": 80
+ },
+ {
+  "file": "calcom__0088__20241101180315_add_created_at_to_host.sql",
+  "original_path": "packages/prisma/migrations/20241101180315_add_created_at_to_host/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "16077889475f49068d9d93510fcc11c5e1ca40945026034bcd6d26f5080a791c",
+  "bytes": 111
+ },
+ {
+  "file": "calcom__0089__20241114210330_add_event_type_translation_model.sql",
+  "original_path": "packages/prisma/migrations/20241114210330_add_event_type_translation_model/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "f6748e00485633347b5ce2b5a2c471bfb2d294e1746ec9f24db03558cb070b32",
+  "bytes": 1237
+ },
+ {
+  "file": "calcom__0090__20241119185538_add_index_for_user_and_team_features.sql",
+  "original_path": "packages/prisma/migrations/20241119185538_add_index_for_user_and_team_features/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "30a41af4ba7d8747fd0f52d751a0e1e027e4c3fc6f869dab8eb0343962930469",
+  "bytes": 218
+ },
+ {
+  "file": "calcom__0091__20241126132214_scim_attributes_sync_related_attrs_added.sql",
+  "original_path": "packages/prisma/migrations/20241126132214_scim_attributes_sync_related_attrs_added/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "0c108982cf27a6a7e8a956f0fbb63e3d8709a9adce77a6ebde39f551dbc6471d",
+  "bytes": 1378
+ },
+ {
+  "file": "calcom__0092__20241202182411_add_watchlist.sql",
+  "original_path": "packages/prisma/migrations/20241202182411_add_watchlist/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "63b8db7fb7f54f8ef0cc43f81e90d2c6b5726a9597ce8c1dc0b9395c114db33d",
+  "bytes": 1106
+ },
+ {
+  "file": "calcom__0093__20241212164338_create_routing_form_response.sql",
+  "original_path": "packages/prisma/migrations/20241212164338_create_routing_form_response/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "890263b3af03d82a7e3495180bb6c8cb909097db2e6ed3d7e049c60ee277e665",
+  "bytes": 2106
+ },
+ {
+  "file": "calcom__0094__20241218164539_add_selected_calendar_error.sql",
+  "original_path": "packages/prisma/migrations/20241218164539_add_selected_calendar_error/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "6e20484123aa3dc896aaa6a70216f829db4e74df444b1639b5d5263fccff823d",
+  "bytes": 76
+ },
+ {
+  "file": "calcom__0095__20250101000000_add_calendar_cache_and_sync_fields.sql",
+  "original_path": "packages/prisma/migrations/20250101000000_add_calendar_cache_and_sync_fields/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "363b162caeaa32b077dd4a30a6603385c419831efb20334e8a885b73c9866638",
+  "bytes": 2215
+ },
+ {
+  "file": "calcom__0096__20250113170733_add_routingforms_incompletebooking_action_table.sql",
+  "original_path": "packages/prisma/migrations/20250113170733_add_routingforms_incompletebooking_action_table/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "b671aa26f30eeaf1460f0c576421d8430429f42eedbb22ce52f28d9b33fc687a",
+  "bytes": 716
+ },
+ {
+  "file": "calcom__0097__20250123170615_add_workflowstep_safe.sql",
+  "original_path": "packages/prisma/migrations/20250123170615_add_workflowstep_safe/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "1a0aa122b6e2fc52ac94de807cdc3fc0b05eae598907a6e0f5fe79aa1a6193ff",
+  "bytes": 196
+ },
+ {
+  "file": "calcom__0098__20250210114958_add_default_event_types_enabled_to_platform_oauth_client.sql",
+  "original_path": "packages/prisma/migrations/20250210114958_add_default_event_types_enabled_to_platform_oauth_client/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "287e509314d3899c956987dccc06d7c4df264c149b35e3cddf8d6a676ffd498c",
+  "bytes": 126
+ },
+ {
+  "file": "calcom__0099__20250213144302_add_managed_organizations_unique_constraint.sql",
+  "original_path": "packages/prisma/migrations/20250213144302_add_managed_organizations_unique_constraint/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "3752ff24ad3c3ec2ba8eedf635aa68be7a986ecb286d459947a7f1db5382890a",
+  "bytes": 404
+ },
+ {
+  "file": "calcom__0100__20250305114246_delegation_credentials_schema.sql",
+  "original_path": "packages/prisma/migrations/20250305114246_delegation_credentials_schema/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "0360db7088b375d96b0296b76ae059659c6dac84c8e20ef33aa209e9047b2869",
+  "bytes": 2375
+ },
+ {
+  "file": "calcom__0101__20250324051542_add_hide_team_profile_link_in_team.sql",
+  "original_path": "packages/prisma/migrations/20250324051542_add_hide_team_profile_link_in_team/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "6ce655f0120ab5f95b7d073aa828558d8f0eba3a288491e550839983b1dd600b",
+  "bytes": 104
+ },
+ {
+  "file": "calcom__0102__20250403094343_add_search_term_to_filter_segment.sql",
+  "original_path": "packages/prisma/migrations/20250403094343_add_search_term_to_filter_segment/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "1c523ac157b9e8267bf8fae04f3fdeb6a4455d99a4069c1271e1873e5b75e8bf",
+  "bytes": 78
+ },
+ {
+  "file": "calcom__0103__20250413115818_add_azure.sql",
+  "original_path": "packages/prisma/migrations/20250413115818_add_azure/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "7775a4a331fdce54fb673162f03629aa7b6a9ab2c3870dc352ded6321255439d",
+  "bytes": 66
+ },
+ {
+  "file": "calcom__0104__20250419103412_delegation_credential_calendar_cache.sql",
+  "original_path": "packages/prisma/migrations/20250419103412_delegation_credential_calendar_cache/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "26ddbf8c9b993ea497610472a1b4283ca505ca8496c53886fd19ade8456e2460",
+  "bytes": 484
+ },
+ {
+  "file": "calcom__0105__20250430084050_disable_org_phone_only_sms.sql",
+  "original_path": "packages/prisma/migrations/20250430084050_disable_org_phone_only_sms/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "d1c95949b6edee03ce636dbc246e29dedf5dc6fa85789e8871c2e1d925f1eada",
+  "bytes": 133
+ },
+ {
+  "file": "calcom__0106__20250502130807_create_booking_denormalized.sql",
+  "original_path": "packages/prisma/migrations/20250502130807_create_booking_denormalized/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "42b5010d21be6f0c4d2f63a04ba88428c13c0d1fa9f89cd114a607c330147db5",
+  "bytes": 2028
+ },
+ {
+  "file": "calcom__0107__20250506000000_remove_around_from_event_types.sql",
+  "original_path": "packages/prisma/migrations/20250506000000_remove_around_from_event_types/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "c2fa1de7315b89885f5100fa3a84d8c400561c7122db407b2d5dca0685c7615b",
+  "bytes": 318
+ },
+ {
+  "file": "calcom__0108__20250508131736_add_workflow_smtp_feature_flag.sql",
+  "original_path": "packages/prisma/migrations/20250508131736_add_workflow_smtp_feature_flag/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "3ea0019f8d19784a73b046b142fff79b220c6601ad157747edf3180c9d5ce9e4",
+  "bytes": 254
+ },
+ {
+  "file": "calcom__0109__20250519090442_add_schedule_restrictions.sql",
+  "original_path": "packages/prisma/migrations/20250519090442_add_schedule_restrictions/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "fc64f092ae6f4edfec60ede4db2d23c2bb8b73f1b45610957f1135c5731e1bb4",
+  "bytes": 472
+ },
+ {
+  "file": "calcom__0110__20250520103801_add_missing_default_now_to_created_at_membership.sql",
+  "original_path": "packages/prisma/migrations/20250520103801_add_missing_default_now_to_created_at_membership/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "4658bb0503a6d38773e4c673dbdf0ed71733d1c46804fb0db4dc6ccab35b7d02",
+  "bytes": 97
+ },
+ {
+  "file": "calcom__0111__20250523155738_add_cal_video_settings.sql",
+  "original_path": "packages/prisma/migrations/20250523155738_add_cal_video_settings/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "de4ecee8136322acd0c50583bd5e1ec0b72ec47ebb168602bf317fe3f8c1f81e",
+  "bytes": 629
+ },
+ {
+  "file": "calcom__0112__20250527092133_add_rr_timestamp_basis_to_team.sql",
+  "original_path": "packages/prisma/migrations/20250527092133_add_rr_timestamp_basis_to_team/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "b7344cf3492e77eef2b08233344f7966f8df9fbf5d77a5d980857d7144e1463e",
+  "bytes": 206
+ },
+ {
+  "file": "calcom__0113__20250609132708_added_bookerbookinglimit.sql",
+  "original_path": "packages/prisma/migrations/20250609132708_added_bookerbookinglimit/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "5853130e2fa9a4413bb8984ac0cceab3cd51279515dbce28e01c695f56a97db6",
+  "bytes": 93
+ },
+ {
+  "file": "calcom__0114__20250611123345_add_sms_segments_to_credit_expense_log.sql",
+  "original_path": "packages/prisma/migrations/20250611123345_add_sms_segments_to_credit_expense_log/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "3bcb0b4934ab2e359123f12993910695cce088371efedb52cb5adc991790f094",
+  "bytes": 85
+ },
+ {
+  "file": "calcom__0115__20250617070118_update_memberships_one_time.sql",
+  "original_path": "packages/prisma/migrations/20250617070118_update_memberships_one_time/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "1af34dfbfd85b5fafd37b763487b728057885db325b338404b5f063bc7447f29",
+  "bytes": 1075
+ },
+ {
+  "file": "calcom__0116__20250618093923_routing_form_response_field_backfill.sql",
+  "original_path": "packages/prisma/migrations/20250618093923_routing_form_response_field_backfill/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "1ae4a0ab7ffae7f84261d63510a7840e464619f4303855143d9f7bc816e91265",
+  "bytes": 6150
+ },
+ {
+  "file": "calcom__0117__20250627195833_add_date_fields_to_calendar_records.sql",
+  "original_path": "packages/prisma/migrations/20250627195833_add_date_fields_to_calendar_records/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "579c0d08f0b54c4490df5373a679c58a25fe19150b32b0b4afd2f4e57d1c5bc5",
+  "bytes": 317
+ },
+ {
+  "file": "calcom__0118__20250710172011_add_indexes_and_uniq_index_to_task_table.sql",
+  "original_path": "packages/prisma/migrations/20250710172011_add_indexes_and_uniq_index_to_task_table/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "36934c62aeb1133fe9857f9ebf53dc70228f4a05b6f68f7eb53af9343f365de3",
+  "bytes": 474
+ },
+ {
+  "file": "calcom__0119__20250715160635_add_calendar_cache_updated_at.sql",
+  "original_path": "packages/prisma/migrations/20250715160635_add_calendar_cache_updated_at/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "aa2b6a34525a183e5b148a24726abc4a76c13028c02f38033a3796313ea24c04",
+  "bytes": 345
+ },
+ {
+  "file": "calcom__0120__20250806093054_insert_role_permissions_for_routing_form_pbac.sql",
+  "original_path": "packages/prisma/migrations/20250806093054_insert_role_permissions_for_routing_form_pbac/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "5f896a3a21e76c0b0a59a275b6f843da916bb1177df4042ebf9e631583c8a48b",
+  "bytes": 825
+ },
+ {
+  "file": "calcom__0121__20250812101632_add_impersonate_permissions_to_admin_role.sql",
+  "original_path": "packages/prisma/migrations/20250812101632_add_impersonate_permissions_to_admin_role/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "43c33239264301c01019300d1af7215635ca2c4c48c9c619dd55b9f63b889281",
+  "bytes": 710
+ },
+ {
+  "file": "calcom__0122__20250818151914_routing_form_response_denormalized_backfill2.sql",
+  "original_path": "packages/prisma/migrations/20250818151914_routing_form_response_denormalized_backfill2/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "bbbeb7866023ad2b7d78c9c6b569b98042b0103e653990c2e5c3f49ccf781a90",
+  "bytes": 9931
+ },
+ {
+  "file": "calcom__0123__20250902070438_add_disable_autofill_org_setting.sql",
+  "original_path": "packages/prisma/migrations/20250902070438_add_disable_autofill_org_setting/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "6d1e65c82e92494f8eb122091d68f143d83a46fe11e70040e762703073195f19",
+  "bytes": 129
+ },
+ {
+  "file": "calcom__0124__20250905121358_add_feature_flag_tiered_support_chat.sql",
+  "original_path": "packages/prisma/migrations/20250905121358_add_feature_flag_tiered_support_chat/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "9c3b6dd9e67b6f5403715806ec2c0cb493715a940638d440a16650dc1b495ac0",
+  "bytes": 297
+ },
+ {
+  "file": "calcom__0125__20250919124540_booking_denormalized_starttime_endtime.sql",
+  "original_path": "packages/prisma/migrations/20250919124540_booking_denormalized_starttime_endtime/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "4e447004202f1ca29616800c2c89562c999faf89a0956e889054d0dd591904e8",
+  "bytes": 124
+ },
+ {
+  "file": "calcom__0126__20250924082337_remove_booking_read_permission_from_member.sql",
+  "original_path": "packages/prisma/migrations/20250924082337_remove_booking_read_permission_from_member/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "6e402120173eec9f232b97f25d6c4d67b6ef5c7784a9b211bad5d1acaea1b402",
+  "bytes": 169
+ },
+ {
+  "file": "calcom__0127__20250925134226_add_availability_ooo_permissions_default_roles.sql",
+  "original_path": "packages/prisma/migrations/20250925134226_add_availability_ooo_permissions_default_roles/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "861da13fb6b8801079526dd92f75c5499f7c4d103e62452e4bc44fd13be049c9",
+  "bytes": 1535
+ },
+ {
+  "file": "calcom__0128__20251002092823_add_booker_botid_feature_flag.sql",
+  "original_path": "packages/prisma/migrations/20251002092823_add_booker_botid_feature_flag/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "2db6bac1588aeaa040e5536ebb6462e5a4601001b22c6c8b49e4838064ab4cf0",
+  "bytes": 294
+ },
+ {
+  "file": "calcom__0129__20251006111422_add_requires_booker_email_verification.sql",
+  "original_path": "packages/prisma/migrations/20251006111422_add_requires_booker_email_verification/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "8c9c42a3b3c61fd2faa346e11b929d437d9c05d3645652ec03cf941c07b4f10b",
+  "bytes": 108
+ },
+ {
+  "file": "calcom__0130__20251013185902_add_booking_report.sql",
+  "original_path": "packages/prisma/migrations/20251013185902_add_booking_report/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "6c998d73a2c2a6d7f977dfba5fdda15bdcaeb6ac5543631e3dab57579a084a29",
+  "bytes": 1977
+ },
+ {
+  "file": "calcom__0131__20251023133244_add_user_uuid_column.sql",
+  "original_path": "packages/prisma/migrations/20251023133244_add_user_uuid_column/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "6459e9c804e4d2f4f4f36d11dd106da045ec089306790b670535f34d9536e6c7",
+  "bytes": 1330
+ },
+ {
+  "file": "calcom__0132__20251029103123_add_booking_calendar_view_feature_flag.sql",
+  "original_path": "packages/prisma/migrations/20251029103123_add_booking_calendar_view_feature_flag/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "1085ccd47066d40dc987adb073d5b30a996faeb8d4df46cd158f417ff890ac33",
+  "bytes": 223
+ },
+ {
+  "file": "calcom__0133__20251110160435_add_outbound_event_type_id_to_agent.sql",
+  "original_path": "packages/prisma/migrations/20251110160435_add_outbound_event_type_id_to_agent/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "9bc6b4803953e2455650b3969cb3e54e12ae4927b3e6cd882b3d861ff1d4a38c",
+  "bytes": 199
+ },
+ {
+  "file": "calcom__0134__20251115054502_insert_system_actor.sql",
+  "original_path": "packages/prisma/migrations/20251115054502_insert_system_actor/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "58067e2862854df11f7038669e80522a6247ec2261f24369fef7094c7936b38a",
+  "bytes": 385
+ },
+ {
+  "file": "calcom__0135__20251126085109_pbac_add_attributes_edit_users_permission.sql",
+  "original_path": "packages/prisma/migrations/20251126085109_pbac_add_attributes_edit_users_permission/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "8f2353c760d8894ecd9a2cf94f25722658a79852be139a209eb03fa138102343",
+  "bytes": 384
+ },
+ {
+  "file": "calcom__0136__20251202143411_add_auto_translate_title_enabled.sql",
+  "original_path": "packages/prisma/migrations/20251202143411_add_auto_translate_title_enabled/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "6326af5c096ae72932b21f515eb0f431fbfd73957576410a8139900864cf9d40",
+  "bytes": 137
+ },
+ {
+  "file": "calcom__0137__20251205111359_add_is_trust_to_o_auth_client.sql",
+  "original_path": "packages/prisma/migrations/20251205111359_add_is_trust_to_o_auth_client/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "9743f56e44cecf19d808fc6dd3af41a79544c7ed18e49dad67d06de892376120",
+  "bytes": 110
+ },
+ {
+  "file": "calcom__0138__20251216074521_enhance_booking_audit_schema.sql",
+  "original_path": "packages/prisma/migrations/20251216074521_enhance_booking_audit_schema/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "75cf3fe5dc2ac1d5dcd717ad969b181323e24e96c0e7b230ba1c642c936c17a4",
+  "bytes": 1197
+ },
+ {
+  "file": "calcom__0139__20251220034814_add_custom_calendar_reminder.sql",
+  "original_path": "packages/prisma/migrations/20251220034814_add_custom_calendar_reminder/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "b92513a8025ddb016a99ebaeb19a7c6e7055bfe6862a3898b03e597f12a69335",
+  "bytes": 108
+ },
+ {
+  "file": "calcom__0140__20260107093019_add_magic_link_source.sql",
+  "original_path": "packages/prisma/migrations/20260107093019_add_magic_link_source/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "c55ca829a96b3b71fa9108757429af2a3b874e4769271b5de4593c60a6c7adea",
+  "bytes": 80
+ },
+ {
+  "file": "calcom__0141__20260113140724_add_missing_integrationattributesync_and_credential_index.sql",
+  "original_path": "packages/prisma/migrations/20260113140724_add_missing_integrationattributesync_and_credential_index/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "ac7702a80ba476b8817a32ca345a3a5ffba8a9d8e5cf8333185d56d6e0dc2744",
+  "bytes": 130
+ },
+ {
+  "file": "calcom__0142__20260116145525_add_custom_host_location.sql",
+  "original_path": "packages/prisma/migrations/20260116145525_add_custom_host_location/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "4202e0280653072a476d6e62ab40755d2e61d0679cd80db8a8ba7bfa717fc214",
+  "bytes": 1353
+ },
+ {
+  "file": "calcom__0143__20260120093500_add_no_show_updated_audit_action.sql",
+  "original_path": "packages/prisma/migrations/20260120093500_add_no_show_updated_audit_action/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "5e8d70964998d2f77d56b3ff092f2c38b373c7e3665a05f26f894c7516a1d037",
+  "bytes": 1028
+ },
+ {
+  "file": "calcom__0144__20260122140703_add_credential_teamid_index.sql",
+  "original_path": "packages/prisma/migrations/20260122140703_add_credential_teamid_index/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "be38343644369a9cca044fb14a4f3ee577da5fa81d48c61cee51ca6aaee2c729",
+  "bytes": 90
+ },
+ {
+  "file": "calcom__0145__20260127035022_add_routing_trace_tables.sql",
+  "original_path": "packages/prisma/migrations/20260127035022_add_routing_trace_tables/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "3825f7a8770c978517fd85056e932d0f6179c66ee560e426ad41aef6b74f65a6",
+  "bytes": 3413
+ },
+ {
+  "file": "calcom__0146__20260129090913_enable_pbac_globally.sql",
+  "original_path": "packages/prisma/migrations/20260129090913_enable_pbac_globally/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "63e9359869c4f01d8ce79c21a54cd55539301e2953c430c64ee19d7561afd0d7",
+  "bytes": 98
+ },
+ {
+  "file": "calcom__0147__20260130043627_add_reviewed_fields_to_wrong_assignment_report.sql",
+  "original_path": "packages/prisma/migrations/20260130043627_add_reviewed_fields_to_wrong_assignment_report/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "cdf202a418a5445cbe569f1dba3f7ae076642afcd53aa48c21239033db6b8138",
+  "bytes": 493
+ },
+ {
+  "file": "calcom__0148__20260210142544_add_audit_logs_permissions_to_admin_role.sql",
+  "original_path": "packages/prisma/migrations/20260210142544_add_audit_logs_permissions_to_admin_role/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "89e75c1b9f42c8272924be1d64b1799db4460957eecc24c5908757b2a704d422",
+  "bytes": 369
+ },
+ {
+  "file": "calcom__0149__20260218000000_add_routing_form_fallback_hit_webhook_trigger.sql",
+  "original_path": "packages/prisma/migrations/20260218000000_add_routing_form_fallback_hit_webhook_trigger/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "c953778548dba0fc1ac854ae69e7095238298ab86c92954f211c4c883650e634",
+  "bytes": 88
+ },
+ {
+  "file": "calcom__0150__20260319000000_drop_workflow_tables.sql",
+  "original_path": "packages/prisma/migrations/20260319000000_drop_workflow_tables/migration.sql",
+  "repo": "https://github.com/calcom/cal.com",
+  "sha256": "134658d1becdd8bb2639a5d665590b64a7cd4ce5a52f74c0ac3eae1223a69cf4",
+  "bytes": 1636
+ }
+]

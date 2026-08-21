@@ -1,0 +1,226 @@
+[
+ {
+  "file": "zulip__0001__0001_initial.sql",
+  "original_path": "zerver/migrations/0001_initial.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "c48e4a6bbcb9002d570e86e942d8e77cfaf81fa449982574362ba33249d40a9d",
+  "bytes": 58
+ },
+ {
+  "file": "zulip__0002__0001_squashed_0569.sql",
+  "original_path": "zerver/migrations/0001_squashed_0569.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "659c4201e75a9eee48197e274e013645a512dbfd09f8aa5088d23c15707ad7bf",
+  "bytes": 480
+ },
+ {
+  "file": "zulip__0003__0232_make_archive_transaction_field_not_nullable.sql",
+  "original_path": "zerver/migrations/0232_make_archive_transaction_field_not_nullable.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "6fc914f9573ff8e15c10cff8ae4a45372eac93f586d85a90b4ba800a2613d20d",
+  "bytes": 366
+ },
+ {
+  "file": "zulip__0004__0239_usermessage_copy_id_to_bigint_id.sql",
+  "original_path": "zerver/migrations/0239_usermessage_copy_id_to_bigint_id.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "474ae97ee6c84f5c03f6522f2c3f9020e13403c6375e4b3737d155695bfcceca",
+  "bytes": 544
+ },
+ {
+  "file": "zulip__0005__0240_usermessage_migrate_bigint_id_into_id.sql",
+  "original_path": "zerver/migrations/0240_usermessage_migrate_bigint_id_into_id.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "59b273f76e5f6fc0e96b2a16b269f2a1c6fcd7db63052b7b62c3147d51031b8d",
+  "bytes": 1182
+ },
+ {
+  "file": "zulip__0006__0241_usermessage_bigint_id_migration_finalize.sql",
+  "original_path": "zerver/migrations/0241_usermessage_bigint_id_migration_finalize.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "c49fbf0ad0ec0300941ea0f0135716ba04bdf67d571a47eed1f094d466a8c9e5",
+  "bytes": 52
+ },
+ {
+  "file": "zulip__0007__0244_message_copy_pub_date_to_date_sent.sql",
+  "original_path": "zerver/migrations/0244_message_copy_pub_date_to_date_sent.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "d59a57af3bfff8d18f7c7215f591892be758924e1b4ad959b0e29c28c1c46d63",
+  "bytes": 450
+ },
+ {
+  "file": "zulip__0008__0245_message_date_sent_finalize_part1.sql",
+  "original_path": "zerver/migrations/0245_message_date_sent_finalize_part1.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "9dd44548c8ca9c2d23f8fc4b286b8599d7f2d63218e7fd04a4c55effba7623db",
+  "bytes": 162
+ },
+ {
+  "file": "zulip__0009__0246_message_date_sent_finalize_part2.sql",
+  "original_path": "zerver/migrations/0246_message_date_sent_finalize_part2.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "e4a425afbdc31e5c0f0a2fd79c1ca09e5c6fe88fabe652a48794174724310bbe",
+  "bytes": 117
+ },
+ {
+  "file": "zulip__0010__0256_userprofile_stream_set_recipient_column_values.sql",
+  "original_path": "zerver/migrations/0256_userprofile_stream_set_recipient_column_values.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "ad3fccea90d456480f258d6a7b5da868af1c12554f766dab3561d7de513fadfb",
+  "bytes": 416
+ },
+ {
+  "file": "zulip__0011__0267_backfill_userpresence_realm_id.sql",
+  "original_path": "zerver/migrations/0267_backfill_userpresence_realm_id.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "75f194a7cdf01bf38c0ac835a43c15d643d6b522b03da877128b2c0d41ec2f4a",
+  "bytes": 201
+ },
+ {
+  "file": "zulip__0012__0271_huddle_set_recipient_column_values.sql",
+  "original_path": "zerver/migrations/0271_huddle_set_recipient_column_values.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "5342e3ef3a5d5d5da6d77bd866370d6fe4ee3cdef20929733bb8335e89e5c458",
+  "bytes": 203
+ },
+ {
+  "file": "zulip__0013__0301_fix_unread_messages_in_deactivated_streams.sql",
+  "original_path": "zerver/migrations/0301_fix_unread_messages_in_deactivated_streams.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "ad8368f47a8e3b1386adc3e8040a6e66772acd1da3598fecc2d8ea02c73382b3",
+  "bytes": 309
+ },
+ {
+  "file": "zulip__0014__0302_case_insensitive_stream_name_index.sql",
+  "original_path": "zerver/migrations/0302_case_insensitive_stream_name_index.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "0e1859e14ce147a986b3b48045b2481e806442fa97498cdc57311abe34c5bffe",
+  "bytes": 102
+ },
+ {
+  "file": "zulip__0015__0306_custom_profile_field_date_format.sql",
+  "original_path": "zerver/migrations/0306_custom_profile_field_date_format.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "b5e778fec8c440302a246d3b180a830dd73873314a5f7affd8f30667e9f9a641",
+  "bytes": 440
+ },
+ {
+  "file": "zulip__0016__0398_tsvector_statistics.sql",
+  "original_path": "zerver/migrations/0398_tsvector_statistics.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "c4b9dcb5462e8065fc524eb78468681e2dc30731fe82e96f1fef7caaed84ca7d",
+  "bytes": 104
+ },
+ {
+  "file": "zulip__0017__0429_user_topic_case_insensitive_unique_toghether.sql",
+  "original_path": "zerver/migrations/0429_user_topic_case_insensitive_unique_toghether.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "edadce4cd4dc42d6c1472f3c437332312a5e0c1222c283cbe4031267e7eb056f",
+  "bytes": 149
+ },
+ {
+  "file": "zulip__0018__0457_backfill_scheduledmessagenotificationemail_trigger.sql",
+  "original_path": "zerver/migrations/0457_backfill_scheduledmessagenotificationemail_trigger.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "225b9bc3e0b8b8b6bc7152599505263ac088ca8a3734223eaff10b40106ba299",
+  "bytes": 343
+ },
+ {
+  "file": "zulip__0019__0465_backfill_scheduledmessagenotificationemail_trigger.sql",
+  "original_path": "zerver/migrations/0465_backfill_scheduledmessagenotificationemail_trigger.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "f94b2194d4ed348cefc9fb416b075954eaba86a0e406eef9e411a8b3f6cdc711",
+  "bytes": 141
+ },
+ {
+  "file": "zulip__0020__0472_add_message_realm_id_indexes.sql",
+  "original_path": "zerver/migrations/0472_add_message_realm_id_indexes.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "c2619065ba25854a5eb1525f9d91ebc0218194b8ef8c3528847e1cb1e51b1a78",
+  "bytes": 241
+ },
+ {
+  "file": "zulip__0021__0497_resort_edit_history.sql",
+  "original_path": "zerver/migrations/0497_resort_edit_history.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "fd8676e3a66aba13958a272f2d6cd86de93ec82a0c98c9992f63534cbdec2a30",
+  "bytes": 915
+ },
+ {
+  "file": "zulip__0022__0501_delete_dangling_usermessages.sql",
+  "original_path": "zerver/migrations/0501_delete_dangling_usermessages.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "3408fc24aa90926f040715621fabad3508d95e60f5b5c8646b7539a56ede10c1",
+  "bytes": 166
+ },
+ {
+  "file": "zulip__0023__0516_fix_confirmation_preregistrationusers.sql",
+  "original_path": "zerver/migrations/0516_fix_confirmation_preregistrationusers.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "787e394b549ab59d1b37f2f4a2c0c41a121e3093e8a87f07a5eb67f09f98de44",
+  "bytes": 268
+ },
+ {
+  "file": "zulip__0024__0529_fts_bigint_id.sql",
+  "original_path": "zerver/migrations/0529_fts_bigint_id.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "45d4385b844b683c8c543a1e95b15a2a0b7d7519b99cdddf85e62dde90b9a54c",
+  "bytes": 115
+ },
+ {
+  "file": "zulip__0025__0563_zulipinternal_can_delete.sql",
+  "original_path": "zerver/migrations/0563_zulipinternal_can_delete.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "f912a9e3152c63ed14febf504d72c8b33ddad89ec39a5976eee4c96600a87a48",
+  "bytes": 90
+ },
+ {
+  "file": "zulip__0026__0695_is_channel_message_stats.sql",
+  "original_path": "zerver/migrations/0695_is_channel_message_stats.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "6f9b568ff381fb18f76e567cf050151ffb1ee95d9a83292dfa65487b146e22d1",
+  "bytes": 233
+ },
+ {
+  "file": "zulip__0027__0718_fix_topics_for_direct_messages.sql",
+  "original_path": "zerver/migrations/0718_fix_topics_for_direct_messages.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "513370f9c0105e76a5e03db41291b5b2b4d82db07d8bebb46d055e7fff820735",
+  "bytes": 25
+ },
+ {
+  "file": "zulip__0028__0740_pushdevicetoken_apns_case_insensitive.sql",
+  "original_path": "zerver/migrations/0740_pushdevicetoken_apns_case_insensitive.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "94801d2ff2297563d45592507263b78b8294d0208dafcbf9440edb0afa0d7361",
+  "bytes": 1217
+ },
+ {
+  "file": "zulip__0029__0742_usermessage_zerver_usermessage_is_private_unread_message_id.sql",
+  "original_path": "zerver/migrations/0742_usermessage_zerver_usermessage_is_private_unread_message_id.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "db1624806219695294d9f4fdc7c8450b8e417c0a8066b1a48bab33d793be265b",
+  "bytes": 29
+ },
+ {
+  "file": "zulip__0030__0755_usermessage_zerver_usermessage_message_active_mobile_push_notification_idx.sql",
+  "original_path": "zerver/migrations/0755_usermessage_zerver_usermessage_message_active_mobile_push_notification_idx.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "db1624806219695294d9f4fdc7c8450b8e417c0a8066b1a48bab33d793be265b",
+  "bytes": 29
+ },
+ {
+  "file": "zulip__0031__0798_remove_userprofile_recipient_and_personal_recipients.sql",
+  "original_path": "zerver/migrations/0798_remove_userprofile_recipient_and_personal_recipients.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "fe90045d59a72364936bd9b4750f9107731662aa56b3a9b2660ec6151ce5de94",
+  "bytes": 68
+ },
+ {
+  "file": "zulip__0032__0807_usertopic_zerver_usertopic_user_visibility_recipient_idx.sql",
+  "original_path": "zerver/migrations/0807_usertopic_zerver_usertopic_user_visibility_recipient_idx.py",
+  "repo": "https://github.com/zulip/zulip",
+  "sha256": "849eda238a56b8b2be0ee92ba1d2c28ca4d35f2a37ba8a370479d4dd223f8b45",
+  "bytes": 27
+ }
+]

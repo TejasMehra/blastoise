@@ -1,0 +1,1493 @@
+[
+ {
+  "file": "mattermost__0001__000001_create_teams.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000001_create_teams.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "756deaa7ec61481dd86da5df296b8846801f6355cfc0bd7e691937f3975206fe",
+  "bytes": 2652
+ },
+ {
+  "file": "mattermost__0002__000002_create_team_members.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000002_create_team_members.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "033a2fbf62eb266bffa031d1f891b5e4af27a85b017036a1999171352bd5a1d5",
+  "bytes": 684
+ },
+ {
+  "file": "mattermost__0003__000003_create_cluster_discovery.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000003_create_cluster_discovery.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "a93934cd7292e4611d0d185745d6da2bae5f863ff5a8a5cd5b88352e83e77743",
+  "bytes": 254
+ },
+ {
+  "file": "mattermost__0004__000004_create_command_webhooks.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000004_create_command_webhooks.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "5405042f5112e2bae895d692e9c9217af831bdf8fb65eceaab38454b5b933579",
+  "bytes": 351
+ },
+ {
+  "file": "mattermost__0005__000005_create_compliances.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000005_create_compliances.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "f9bbf116af5a7628bed49d3c3d50341fde2d866b85340966ab9c471e9b4af4ef",
+  "bytes": 334
+ },
+ {
+  "file": "mattermost__0006__000006_create_emojis.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000006_create_emojis.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "71dae4ad59d076b802caeca8d3125d9b8011d0de51af2b2bd2a2801bf2135b6e",
+  "bytes": 499
+ },
+ {
+  "file": "mattermost__0007__000007_create_user_groups.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000007_create_user_groups.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "e8824f6077f6bf2805fd2a6695422d936df8886714349b1f40be5ba8a2651f8a",
+  "bytes": 587
+ },
+ {
+  "file": "mattermost__0008__000008_create_group_members.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000008_create_group_members.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "b2e0e4aa49bd374e70cd216fd046d885c00de05607365aee0efafd37011b4bc3",
+  "bytes": 261
+ },
+ {
+  "file": "mattermost__0009__000009_create_group_teams.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000009_create_group_teams.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "4bddf5268efc160c2ca20e264a629f63b1a4a6f5a5b9de96e51417206e9e473b",
+  "bytes": 490
+ },
+ {
+  "file": "mattermost__0010__000010_create_group_channels.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000010_create_group_channels.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "f85640d29e35688c84dc5f618ea654abb4bfb6b4a57c1b07d465c115fda51ea0",
+  "bytes": 503
+ },
+ {
+  "file": "mattermost__0011__000011_create_link_metadata.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000011_create_link_metadata.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "4e21a856812a62d0948766a9e8bcc7062005cb90c9a8e57eb2956d7081db40e0",
+  "bytes": 293
+ },
+ {
+  "file": "mattermost__0012__000012_create_commands.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000012_create_commands.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "755538c401f1118b34b281db33d67c5b6e3b09fe248c6d58b99c4bbc13138f8f",
+  "bytes": 934
+ },
+ {
+  "file": "mattermost__0013__000013_create_incoming_webhooks.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000013_create_incoming_webhooks.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "16145c601ee751375f9a78ab6de7066d58afbbb749221d2bca4800441fb2354a",
+  "bytes": 2347
+ },
+ {
+  "file": "mattermost__0014__000014_create_outgoing_webhooks.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000014_create_outgoing_webhooks.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "fb0d392bcb63f9bee2ea212cd0fed5128e93ce28715c640a9314009b3cb89e2b",
+  "bytes": 2629
+ },
+ {
+  "file": "mattermost__0015__000015_create_systems.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000015_create_systems.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "7e6c7d13ba4b0a1ebcfb2c670019dde6087a962abe522aac90982bedc3f4ab8d",
+  "bytes": 115
+ },
+ {
+  "file": "mattermost__0016__000016_create_reactions.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000016_create_reactions.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "27411c6379bf70ec54721d522e68f611848235edd2cb1c6e29b27b50f32c8ce8",
+  "bytes": 1080
+ },
+ {
+  "file": "mattermost__0017__000017_create_roles.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000017_create_roles.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "4a72c5a60e4aa26646aff1851fb6f7fcce17a1d427f4c0d26355afbe61af4261",
+  "bytes": 916
+ },
+ {
+  "file": "mattermost__0018__000018_create_schemes.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000018_create_schemes.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "af2d3a7003a406ecf250aa8196bb59fbee44b2c2f6dfb750140231db6076719d",
+  "bytes": 1036
+ },
+ {
+  "file": "mattermost__0019__000019_create_licenses.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000019_create_licenses.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "f494d82106e434d429780e224a4bbc0de47212f12471f5dee12f646814a5d1e6",
+  "bytes": 144
+ },
+ {
+  "file": "mattermost__0020__000020_create_posts.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000020_create_posts.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "ab747cd6bcb0d08e000069498f2b3d2b8a4793a8b861a6c9574af38ddb8c1d84",
+  "bytes": 1977
+ },
+ {
+  "file": "mattermost__0021__000021_create_product_notice_view_state.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000021_create_product_notice_view_state.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "e69d8b99ff136aa144d457f0c81c49860a96ad2817edf51e2b035bcd93bfd1d6",
+  "bytes": 482
+ },
+ {
+  "file": "mattermost__0022__000022_create_sessions.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000022_create_sessions.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "f795b37e9f9fe3f57e07a05bb9afdd5d2b90486206ec9933265722bdf17efc73",
+  "bytes": 1143
+ },
+ {
+  "file": "mattermost__0023__000023_create_terms_of_service.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000023_create_terms_of_service.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "5141586b4c710638b1cc442a0ba1724ac917d554ad04a195aeb7cd7deac7c5dc",
+  "bytes": 154
+ },
+ {
+  "file": "mattermost__0024__000024_create_audits.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000024_create_audits.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "4e50751c56b7fcb84f1342f150b22e0204d754ad2cda529327a6dd0d66433d10",
+  "bytes": 301
+ },
+ {
+  "file": "mattermost__0025__000025_create_oauth_access_data.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000025_create_oauth_access_data.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "21161a7aedaaaad365d22ea343c7d52425251dd07f798e0865f38668ec2d5ab6",
+  "bytes": 1171
+ },
+ {
+  "file": "mattermost__0026__000026_create_preferences.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000026_create_preferences.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "d0a67279b68470acdee9c3a15bd5bfbc0412789e2114d4d48c9ae15d7923bed7",
+  "bytes": 1678
+ },
+ {
+  "file": "mattermost__0027__000027_create_status.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000027_create_status.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "0e22ce8455138300cff3fc43711c528087ef6c870b5bd4a2e23b7c003674180b",
+  "bytes": 456
+ },
+ {
+  "file": "mattermost__0028__000028_create_tokens.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000028_create_tokens.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "4574c1e7a7d1441eeae93ec61912d0a3b268955af9d1096ac90e26fdc5e1da86",
+  "bytes": 977
+ },
+ {
+  "file": "mattermost__0029__000029_create_bots.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000029_create_bots.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "6f82c0362c09cbdbfc6092183de76dd5fde3afac42fdeff74d43356c138363d0",
+  "bytes": 268
+ },
+ {
+  "file": "mattermost__0030__000030_create_user_access_tokens.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000030_create_user_access_tokens.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "57045d32240e02611392f10e9a79ecdeb0b1cf4b25307432a09319a2ac15d303",
+  "bytes": 387
+ },
+ {
+  "file": "mattermost__0031__000031_create_remote_clusters.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000031_create_remote_clusters.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "0b62f7ea75e9ff438dd99bf39fe319b07b90ff4b85f2b9a477f635b3f07fd088",
+  "bytes": 505
+ },
+ {
+  "file": "mattermost__0032__000032_create_sharedchannels.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000032_create_sharedchannels.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "42587b36e836f9f551057493643cf6a0dfcca6fa74c7de092fdf24e5d80fb862",
+  "bytes": 521
+ },
+ {
+  "file": "mattermost__0033__000033_create_sidebar_channels.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000033_create_sidebar_channels.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "4fac9198b520dcc3e4671b454adb1518ed8a3cd5d1eedca5ebb241020743c5ca",
+  "bytes": 813
+ },
+ {
+  "file": "mattermost__0034__000034_create_oauthauthdata.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000034_create_oauthauthdata.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "6e2d864fe69a554f5ca74bc89296e6bae45631ed05a37a0b6f5cfe5234ffb5b4",
+  "bytes": 1128
+ },
+ {
+  "file": "mattermost__0035__000035_create_sharedchannelattachments.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000035_create_sharedchannelattachments.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "2fd88052cb8bec9c228331dda917f66ef0351f8b8f6affc5dcd4026abd1bf147",
+  "bytes": 241
+ },
+ {
+  "file": "mattermost__0036__000036_create_sharedchannelusers.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000036_create_sharedchannelusers.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "a6d50479e78dfdf8169320caf2d8a61738d4b891904719b4b6b7a06b7c68bd9c",
+  "bytes": 780
+ },
+ {
+  "file": "mattermost__0037__000037_create_sharedchannelremotes.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000037_create_sharedchannelremotes.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "64504222b2a0fdba9011203aeea00834951580fda2cbedf71ffd7a240bac4e7f",
+  "bytes": 567
+ },
+ {
+  "file": "mattermost__0038__000038_create_jobs.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000038_create_jobs.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "75cde726e876e3c970c0249ee2aaba167c7c7963972421506404ae1fa60ac96e",
+  "bytes": 319
+ },
+ {
+  "file": "mattermost__0039__000039_create_channel_member_history.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000039_create_channel_member_history.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "01249afaa9750968bd9b6e3371c8caffe50a3c5e116421d6bb84c3b50119d8ed",
+  "bytes": 358
+ },
+ {
+  "file": "mattermost__0040__000040_create_sidebar_categories.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000040_create_sidebar_categories.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "046560e00dd1702dfe73315fc2aea256d2154bd51ec292cde0ea216a0f8237d7",
+  "bytes": 993
+ },
+ {
+  "file": "mattermost__0041__000041_create_upload_sessions.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000041_create_upload_sessions.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "9c83f29b072dd9bad388f9e3bc1ee8f3b6f2af8516d98d9b1009580933dc9caf",
+  "bytes": 1085
+ },
+ {
+  "file": "mattermost__0042__000042_create_threads.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000042_create_threads.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "24d490c2e90c6c698282858852864368695dee75d109d51b3113ebc8afd88a5d",
+  "bytes": 718
+ },
+ {
+  "file": "mattermost__0043__000043_thread_memberships.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000043_thread_memberships.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "45c9c4b2f6fea1cb8cc15cf070f5c1f46295b119d742e2754ed5e7e8baf3a8f9",
+  "bytes": 597
+ },
+ {
+  "file": "mattermost__0044__000044_create_user_terms_of_service.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000044_create_user_terms_of_service.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "88c6264bfd30955f03a2f5555198e339d316e54c739143f2517706689c388cb2",
+  "bytes": 850
+ },
+ {
+  "file": "mattermost__0045__000045_create_plugin_key_value_store.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000045_create_plugin_key_value_store.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "6e30a4b68c29e4a642b81d2b64cf98afb259465a3f9595afdad410deb91757c8",
+  "bytes": 612
+ },
+ {
+  "file": "mattermost__0046__000046_create_users.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000046_create_users.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "287f20791e3fef7ca1ab74fce7d7191abea77867ec2d2a353a8ef9fc73748ffe",
+  "bytes": 3597
+ },
+ {
+  "file": "mattermost__0047__000047_create_file_info.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000047_create_file_info.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "b8b72559209b8329e5127a8874ad754948096acdc05e04bd554328aceaf304ed",
+  "bytes": 1409
+ },
+ {
+  "file": "mattermost__0048__000048_create_oauth_apps.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000048_create_oauth_apps.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "7c4d54c299b03b9c1fd89fb1063e1d1879e54e15ec402202a0502721f11f8198",
+  "bytes": 515
+ },
+ {
+  "file": "mattermost__0049__000049_create_channels.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000049_create_channels.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "2828c1780e0136a27e8be9c4bb744560d6c0d6bb510425cbab63698de5483e04",
+  "bytes": 2890
+ },
+ {
+  "file": "mattermost__0050__000050_create_channelmembers.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000050_create_channelmembers.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "abc9cd8589e35fa0c3667fb16119a4671747f9b6e687ea829b32adf49768b6e2",
+  "bytes": 677
+ },
+ {
+  "file": "mattermost__0051__000051_create_msg_root_count.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000051_create_msg_root_count.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "a5b154ce9bba4a33242ee33d20a3db4206b75b7bb7dd20b75e023813123b648d",
+  "bytes": 2369
+ },
+ {
+  "file": "mattermost__0052__000052_create_public_channels.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000052_create_public_channels.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "7244c7332636e4ae58444c1ddf899cd1c966453140786eb2d227dfe37247defa",
+  "bytes": 1361
+ },
+ {
+  "file": "mattermost__0053__000053_create_retention_policies.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000053_create_retention_policies.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "f82b414fd29ec0ee3a440c284e0ce6ca7c28fc947b84bd813b86e8f7627d179d",
+  "bytes": 1522
+ },
+ {
+  "file": "mattermost__0054__000054_create_crt_channelmembership_count.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000054_create_crt_channelmembership_count.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "9422ff4f47c91b991d972709eb9c6836959aea732f1f86296255d39e4f7bf6a8",
+  "bytes": 962
+ },
+ {
+  "file": "mattermost__0055__000055_create_crt_thread_count_and_unreads.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000055_create_crt_thread_count_and_unreads.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "ce15e568f5ab1d7ebd3f2f944b71685d433970c91915a14cb85869d97bb5000b",
+  "bytes": 1215
+ },
+ {
+  "file": "mattermost__0056__000056_upgrade_channels_v6.0.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000056_upgrade_channels_v6.0.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "10204eac15a61697334c9455062fbc12a984ef044f736387be7f4407721422da",
+  "bytes": 223
+ },
+ {
+  "file": "mattermost__0057__000057_upgrade_command_webhooks_v6.0.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000057_upgrade_command_webhooks_v6.0.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "4d036926a5117aa51813d012784fc78461f661b100bc12d5cd7ea16db214d7cd",
+  "bytes": 527
+ },
+ {
+  "file": "mattermost__0058__000058_upgrade_channelmembers_v6.0.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000058_upgrade_channelmembers_v6.0.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "be0b77596904ee58df0e67e079aaf7b4c5e9ce5a78786c5a7da47501965e92f7",
+  "bytes": 407
+ },
+ {
+  "file": "mattermost__0059__000059_upgrade_users_v6.0.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000059_upgrade_users_v6.0.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "a21564e35e9d15969527b38a11c86b05ce6e56dab8b83b9804ec5a38e4a5e2be",
+  "bytes": 280
+ },
+ {
+  "file": "mattermost__0060__000060_upgrade_jobs_v6.0.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000060_upgrade_jobs_v6.0.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "37f0c60900055beabe89b95da0cd16fde19cd794e87004a27551554d366ea4e3",
+  "bytes": 66
+ },
+ {
+  "file": "mattermost__0061__000061_upgrade_link_metadata_v6.0.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000061_upgrade_link_metadata_v6.0.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "14647c6c6c2aee101199434ed3bd34fc428f52e9aef256c04bd4ef147d66ec8a",
+  "bytes": 74
+ },
+ {
+  "file": "mattermost__0062__000062_upgrade_sessions_v6.0.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000062_upgrade_sessions_v6.0.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "35d4a40e28031917d0572c76732ee2ef0e0072c7420823ade21b00b3759e0e10",
+  "bytes": 72
+ },
+ {
+  "file": "mattermost__0063__000063_upgrade_threads_v6.0.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000063_upgrade_threads_v6.0.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "c835b51e65c55bb9f50681e5571660f0325a8f6452737a1fd559f603d0cbc820",
+  "bytes": 232
+ },
+ {
+  "file": "mattermost__0064__000064_upgrade_status_v6.0.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000064_upgrade_status_v6.0.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "e888c391ff046f0f04a623bda03c206c48d870ba8df830b171f6a4d5e5040932",
+  "bytes": 129
+ },
+ {
+  "file": "mattermost__0065__000065_upgrade_groupchannels_v6.0.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000065_upgrade_groupchannels_v6.0.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "2a95ee0cdf92c1c1bcb251a3efeeadd80f5b0f77ee42a622bf024702c17488d6",
+  "bytes": 89
+ },
+ {
+  "file": "mattermost__0066__000066_upgrade_posts_v6.0.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000066_upgrade_posts_v6.0.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "676d78c1bd7b87902e4f70e961e585712a4f2f6df76ae20c180b23f60958a8ce",
+  "bytes": 1414
+ },
+ {
+  "file": "mattermost__0067__000067_upgrade_channelmembers_v6.1.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000067_upgrade_channelmembers_v6.1.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "29352af4f1fa0260f4b0ded977a2c70dfff934c84bc28ccd48cc6f617fc43b6d",
+  "bytes": 401
+ },
+ {
+  "file": "mattermost__0068__000068_upgrade_teammembers_v6.1.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000068_upgrade_teammembers_v6.1.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "b2ad8a097d66f5b4963ee3d11626f64084c42788cdf65e34a5676a9506fed5e2",
+  "bytes": 395
+ },
+ {
+  "file": "mattermost__0069__000069_upgrade_jobs_v6.1.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000069_upgrade_jobs_v6.1.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "c48ede6b50e59ba906e635c4430e4ee659917d0f76c2fe9eb71fdfa96c646495",
+  "bytes": 72
+ },
+ {
+  "file": "mattermost__0070__000070_upgrade_cte_v6.1.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000070_upgrade_cte_v6.1.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "679245021348c7eaebfc79fe49a0d1b1c6e22fd770912e10f86c8238dd8a5352",
+  "bytes": 762
+ },
+ {
+  "file": "mattermost__0071__000071_upgrade_sessions_v6.1.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000071_upgrade_sessions_v6.1.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "893431e7b6f0389d346da56278a6b97f4be885f68835fa6f1bd6095dd05ffd57",
+  "bytes": 389
+ },
+ {
+  "file": "mattermost__0072__000072_upgrade_schemes_v6.3.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000072_upgrade_schemes_v6.3.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "c70f670f55fa1692ec3992a0651a58ee4e3f8d8b26233bdea5e53fe6bff07bfe",
+  "bytes": 448
+ },
+ {
+  "file": "mattermost__0073__000073_upgrade_plugin_key_value_store_v6.3.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000073_upgrade_plugin_key_value_store_v6.3.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "09fae275fd1abc27e7807e4e265ccb12234fc2acbf4f7ca31691e6b6d10aae2f",
+  "bytes": 409
+ },
+ {
+  "file": "mattermost__0074__000074_upgrade_users_v6.3.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000074_upgrade_users_v6.3.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "333a9693aa15a8f0328ba4005f30cc9eae06ede585480edd20333ede5ab55400",
+  "bytes": 67
+ },
+ {
+  "file": "mattermost__0075__000075_alter_upload_sessions_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000075_alter_upload_sessions_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "f146b54a21972a03f4a17324f45be8dc5f6b0292d75ff57b7e05ef0257a50851",
+  "bytes": 595
+ },
+ {
+  "file": "mattermost__0076__000076_upgrade_lastrootpostat.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000076_upgrade_lastrootpostat.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "5864a7d9b862c75569cdf8e8ef03bcd5e0c45ee336b313f938c81c95d9026209",
+  "bytes": 1120
+ },
+ {
+  "file": "mattermost__0077__000077_upgrade_users_v6.5.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000077_upgrade_users_v6.5.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "5910a1ec7f370d34ca5febd0c94f0ec4ee793e29167df6e4ecac920425562ed2",
+  "bytes": 65
+ },
+ {
+  "file": "mattermost__0078__000078_create_oauth_mattermost_app_id.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000078_create_oauth_mattermost_app_id.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "54f8923114bea1198b1c14101209a3cf1fa28efb27dabb0079bbe23e292c77d2",
+  "bytes": 77
+ },
+ {
+  "file": "mattermost__0079__000079_usergroups_displayname_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000079_usergroups_displayname_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "716809ad00fd9da7dba5a86421433db30d08a7cff42c3b920dbfc8bf11db2ffb",
+  "bytes": 81
+ },
+ {
+  "file": "mattermost__0080__000080_posts_createat_id.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000080_posts_createat_id.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "6e2266f3ed825cde5795659009a04c21f3a7b61a88093774e085b1b9742f257b",
+  "bytes": 73
+ },
+ {
+  "file": "mattermost__0081__000081_threads_deleteat.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000081_threads_deleteat.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "1ae6adb4f1f0d2b073927d62cbc38b8b19af5a3821f1c05d477fd56c1a657938",
+  "bytes": 53
+ },
+ {
+  "file": "mattermost__0082__000082_upgrade_oauth_mattermost_app_id.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000082_upgrade_oauth_mattermost_app_id.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "26e126afbda3ba3e2f3129aa787c723f1d8c2a20a8cf07c646730c1ec37b7b8a",
+  "bytes": 515
+ },
+ {
+  "file": "mattermost__0083__000083_threads_threaddeleteat.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000083_threads_threaddeleteat.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "2163c686f3f9297dca664095dfb712a7c9e2cc51e3f9a35c5071867b5cf775b3",
+  "bytes": 329
+ },
+ {
+  "file": "mattermost__0084__000084_recent_searches.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000084_recent_searches.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "289636ba845feab3c1808e38a143de06fe735277e10b03c27b503e8858607690",
+  "bytes": 248
+ },
+ {
+  "file": "mattermost__0085__000085_fileinfo_add_archived_column.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000085_fileinfo_add_archived_column.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "c85057f3a782eebfa96edf36a0330441893776ee86a2a0092875fd61aac517d7",
+  "bytes": 88
+ },
+ {
+  "file": "mattermost__0086__000086_add_cloud_limits_archived.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000086_add_cloud_limits_archived.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "cbb48540c4f5a66a1322c1d0e99c81d10e15699f445da7e09b9bbd0fd16e951a",
+  "bytes": 93
+ },
+ {
+  "file": "mattermost__0087__000087_sidebar_categories_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000087_sidebar_categories_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "89d73b5f52b6f497c9c7b3a35cc33ac8b12d896e4af7b11892ee21897a0d858c",
+  "bytes": 101
+ },
+ {
+  "file": "mattermost__0088__000088_remaining_migrations.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000088_remaining_migrations.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "0a1fe341e4f23f0d4cfb2cb08f3bf3111d46fe23cf816ad1a8a7c8494f80b133",
+  "bytes": 614
+ },
+ {
+  "file": "mattermost__0089__000089_add-channelid-to-reaction.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000089_add-channelid-to-reaction.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "a38466486cc9740fe1da7154f772627a4b340f589cb531fbe6ffb468c6246e32",
+  "bytes": 302
+ },
+ {
+  "file": "mattermost__0090__000090_create_enums.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000090_create_enums.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "05ce2c45e1490311585cc2102da4b09685c58a6e66c3028e8f2a5fc7588514d1",
+  "bytes": 1403
+ },
+ {
+  "file": "mattermost__0091__000091_create_post_reminder.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000091_create_post_reminder.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "6f838ed3a1e2b0e4662a463ded774e9ddcb5a8e2cdf0dc0b421f0f03c0f6c254",
+  "bytes": 261
+ },
+ {
+  "file": "mattermost__0092__000092_add_createat_to_teamembers.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000092_add_createat_to_teamembers.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "c40b2b0aa34a5af804235b61fe1ed752d8204444aa1267c4e8ff7fc289855324",
+  "bytes": 157
+ },
+ {
+  "file": "mattermost__0093__000093_notify_admin.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000093_notify_admin.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "1bf55fdf600eb4722216278cb410da6539317a2faefe5d5267e363ad026d95db",
+  "bytes": 285
+ },
+ {
+  "file": "mattermost__0094__000094_threads_teamid.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000094_threads_teamid.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "f0c97d893da3a86a47c79bdcc38b2b7ab7915bab02a7edac6b13f0e5f00fe90b",
+  "bytes": 51
+ },
+ {
+  "file": "mattermost__0095__000095_remove_posts_parentid.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000095_remove_posts_parentid.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "ba71df567c3693d21635a6e54e8470fe6be1c4cb695cc4c69275d00769cd79b3",
+  "bytes": 227
+ },
+ {
+  "file": "mattermost__0096__000096_threads_threadteamid.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000096_threads_threadteamid.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "7bcff30af40719d93b5ec3bc4baac4697bbcd80abe98057e33914eb00e21f11d",
+  "bytes": 333
+ },
+ {
+  "file": "mattermost__0097__000097_create_posts_priority.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000097_create_posts_priority.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "e5894309c66fc7de07d4c58dd349e12301141b694f2bcafb4133be4dbf84878f",
+  "bytes": 304
+ },
+ {
+  "file": "mattermost__0098__000098_create_post_acknowledgements.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000098_create_post_acknowledgements.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "ef42cae3b40dcdff014047b0323cb5d55fddbdc4f40d9460551e65effb08ad74",
+  "bytes": 184
+ },
+ {
+  "file": "mattermost__0099__000099_create_drafts.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000099_create_drafts.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "05fb32ac782ccbccfdfb90595ced6c9f6f90fbd9b99bf8aa6a299bda1b053360",
+  "bytes": 323
+ },
+ {
+  "file": "mattermost__0100__000100_add_draft_priority_column.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000100_add_draft_priority_column.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "42046b14659704192deeb7438970a62ba1e1bfa2777e7173e5ce3187cb0b21c4",
+  "bytes": 60
+ },
+ {
+  "file": "mattermost__0101__000101_create_true_up_review_history.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000101_create_true_up_review_history.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "c5420e58a29e2b67ab998f6862c32956b0a10dc0f356ed7b12f8f0d242ec9815",
+  "bytes": 120
+ },
+ {
+  "file": "mattermost__0102__000102_posts_originalid_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000102_posts_originalid_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "2ffebe39fe04d57c17ed05b129de17fb427ac8684300d4251d8a962a40bb1ae4",
+  "bytes": 72
+ },
+ {
+  "file": "mattermost__0103__000103_add_sentat_to_notifyadmin.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000103_add_sentat_to_notifyadmin.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "43a3f56802852ea5d58fa00a3cac8eb0d63f519f5ced598b87af03adc98425d8",
+  "bytes": 78
+ },
+ {
+  "file": "mattermost__0104__000104_upgrade_notifyadmin.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000104_upgrade_notifyadmin.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "bc35561b774e279a71d125dc03254992c931b0858f6355852e663d24792b226a",
+  "bytes": 143
+ },
+ {
+  "file": "mattermost__0105__000105_remove_tokens.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000105_remove_tokens.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "a910978191ac678b01cc749a63454962e412c01da1b93e9ebd32ca0da0b4fd68",
+  "bytes": 327
+ },
+ {
+  "file": "mattermost__0106__000106_fileinfo_channelid.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000106_fileinfo_channelid.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "cfe0b9c09208d3bc3ebf8b27006ddb36b9993db319007e04e2812dc8611ba64d",
+  "bytes": 291
+ },
+ {
+  "file": "mattermost__0107__000107_threadmemberships_cleanup.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000107_threadmemberships_cleanup.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "3f64185f9a73e069d31b878e80d4b98a692550f6fc12a4bea03ec70598aacc2a",
+  "bytes": 449
+ },
+ {
+  "file": "mattermost__0108__000108_remove_orphaned_oauth_preferences.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000108_remove_orphaned_oauth_preferences.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "82f98de49129f87b77d6d4526cf10304c746c75be25c2e3b4a4822c79940865c",
+  "bytes": 1051
+ },
+ {
+  "file": "mattermost__0109__000109_create_persistent_notifications.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000109_create_persistent_notifications.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "6f05c02efa7527a6656e07d77caf804260a99fdf596d3c520a645cace4e1356f",
+  "bytes": 187
+ },
+ {
+  "file": "mattermost__0110__000111_update_vacuuming.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000111_update_vacuuming.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "b729bcfef3ac518787d425e6e59b41665e88aa10b91d04d75d7f8d234fa79d0a",
+  "bytes": 433
+ },
+ {
+  "file": "mattermost__0111__000112_rework_desktop_tokens.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000112_rework_desktop_tokens.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "4e564f91451dd76e60bcfc7cb247df8478d055f0684ce07eeb82b054f9ea9403",
+  "bytes": 361
+ },
+ {
+  "file": "mattermost__0112__000113_create_retentionidsfordeletion_table.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000113_create_retentionidsfordeletion_table.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "3b52eedb58b5e47ed1e1c768b689f2f8234d860c3fc1e891aa93433e38c265e2",
+  "bytes": 250
+ },
+ {
+  "file": "mattermost__0113__000114_sharedchannelremotes_drop_nextsyncat_description.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000114_sharedchannelremotes_drop_nextsyncat_description.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "1e9619c396b44a3652677513a2e61f04c41f5d6f971eccc890191339e2c51c21",
+  "bytes": 137
+ },
+ {
+  "file": "mattermost__0114__000115_user_reporting_changes.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000115_user_reporting_changes.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "eb726d632b5bf97d78579b757dbd91e4dbad43c025bdc562b9711b67abf81a48",
+  "bytes": 284
+ },
+ {
+  "file": "mattermost__0115__000116_create_outgoing_oauth_connections.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000116_create_outgoing_oauth_connections.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "5cdb6da8f91d9819442619d140af212a0a95327643e5388d4520fe5ce5561a32",
+  "bytes": 653
+ },
+ {
+  "file": "mattermost__0116__000117_msteams_shared_channels.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000117_msteams_shared_channels.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "2dc1617755e93a53e85fa5efb01bbb0e80e87f2f047c42cbb7b40bcbc5dc8689",
+  "bytes": 294
+ },
+ {
+  "file": "mattermost__0117__000118_create_index_poststats.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000118_create_index_poststats.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "8c91e640264db418432a919caf72db77f2bdc67dfc4cd369c70d0a5396524d5c",
+  "bytes": 108
+ },
+ {
+  "file": "mattermost__0118__000119_msteams_shared_channels_opts.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000119_msteams_shared_channels_opts.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "39c8957cf1183c6a25c8df0aa1d5bbf101027bc56850fa251877652ae9f30398",
+  "bytes": 92
+ },
+ {
+  "file": "mattermost__0119__000120_create_channelbookmarks_table.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000120_create_channelbookmarks_table.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "d675d1a15d7d6a02d0381d601e9136faffb09b3ca3587bf87656b3c04a221605",
+  "bytes": 1261
+ },
+ {
+  "file": "mattermost__0120__000121_remove_true_up_review_history.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000121_remove_true_up_review_history.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "36051c0ff5112de453e41180cfedb7c96d1960230818945e221b6c98735b6449",
+  "bytes": 41
+ },
+ {
+  "file": "mattermost__0121__000122_preferences_value_length.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000122_preferences_value_length.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "6d7847125457978c352dcd903a93196289dd399fa14be3c7da00ff39f8fd08d8",
+  "bytes": 55
+ },
+ {
+  "file": "mattermost__0122__000123_remove_upload_file_permission.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000123_remove_upload_file_permission.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "e435559ef417ff078fb869d71e6dd7576810f3cc1d6e2d038aa74026cab3055f",
+  "bytes": 560
+ },
+ {
+  "file": "mattermost__0123__000124_remove_manage_team_permission.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000124_remove_manage_team_permission.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "b959051a09aa871738c5f5c45e6f5f8c3e4cc80232186a00ccaabdaa2be8b7aa",
+  "bytes": 751
+ },
+ {
+  "file": "mattermost__0124__000125_remoteclusters_add_default_team_id.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000125_remoteclusters_add_default_team_id.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "4a2f636b7126e88ca792e5de4957b14f817ea46eaa0924861d45e65701d1544f",
+  "bytes": 101
+ },
+ {
+  "file": "mattermost__0125__000126_sharedchannels_remotes_add_deleteat.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000126_sharedchannels_remotes_add_deleteat.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "c3465e0a5c63e4f0e88515b0258427a2fcbff6f7c600d77ba560f92dda582bda",
+  "bytes": 223
+ },
+ {
+  "file": "mattermost__0126__000127_add_mfa_used_ts_to_users.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000127_add_mfa_used_ts_to_users.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "a102b041c67293e84fd81f93402d0b6d2cc0986d79493b30ed58c3a02cc437a6",
+  "bytes": 74
+ },
+ {
+  "file": "mattermost__0127__000128_create_scheduled_posts.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000128_create_scheduled_posts.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "95b8236ce57c52ab87fd339bb74aca0b57d3f5ec1708d3242982628653307b29",
+  "bytes": 504
+ },
+ {
+  "file": "mattermost__0128__000129_add_property_system_architecture.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000129_add_property_system_architecture.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "c12a9647910d69a51a1e146508a2e9fd8314ee38de3feb73551ecf509239037a",
+  "bytes": 1621
+ },
+ {
+  "file": "mattermost__0129__000130_system_console_stats.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000130_system_console_stats.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "df17ddfdeaeec8bfe9ce0dc276ab0ef836a1a7ee96ad204b268ce42a618c9efb",
+  "bytes": 616
+ },
+ {
+  "file": "mattermost__0130__000131_create_index_pagination_on_property_values.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000131_create_index_pagination_on_property_values.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "af220c93a8acb8c28aea4326eb59d826eaccc84f0a11354670ad33950586e4c0",
+  "bytes": 132
+ },
+ {
+  "file": "mattermost__0131__000132_create_index_pagination_on_property_fields.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000132_create_index_pagination_on_property_fields.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "5b4d79f9e5ec03c6443efa7557a1eac506096969e2010d86976032f1d7b18a7b",
+  "bytes": 132
+ },
+ {
+  "file": "mattermost__0132__000133_add_channel_banner_fields.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000133_add_channel_banner_fields.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "0066cfa6be58da63941bfbfefa4ef8bef677b0a6873c8361c0ee5e72f3ecad01",
+  "bytes": 65
+ },
+ {
+  "file": "mattermost__0133__000134_create_access_control_policies.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000134_create_access_control_policies.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "ff9685aa0a6f9a3c58f5eb78d9baa2721a6f9a6944c8a00d557b72544a4c5b04",
+  "bytes": 628
+ },
+ {
+  "file": "mattermost__0134__000135_sidebarchannels_categoryid.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000135_sidebarchannels_categoryid.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "38d8218c7503a1860a89455dbc947205af3392b9873e226da7ff8e6ab059c752",
+  "bytes": 131
+ },
+ {
+  "file": "mattermost__0135__000136_create_attribute_view.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000136_create_attribute_view.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "879392a29e3ef7d1fcead30657cc1d66a19a62d39a0a4c01156ef8161a612f97",
+  "bytes": 165
+ },
+ {
+  "file": "mattermost__0136__000137_update_attribute_view.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000137_update_attribute_view.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "32c9732c1e1bd3efcffdc629e489648ebdb99901afba525fd711ee4644c92edb",
+  "bytes": 1465
+ },
+ {
+  "file": "mattermost__0137__000138_add_default_category_name_to_channel.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000138_add_default_category_name_to_channel.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "e4025249a53ff434ec3aac2f23a8bb2dc3cd3c05df1061a7865495be50daedcc",
+  "bytes": 98
+ },
+ {
+  "file": "mattermost__0138__000139_remoteclusters_add_last_global_user_sync_at.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000139_remoteclusters_add_last_global_user_sync_at.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "0a727d5e9c93e37dd02891c273eaa3217f1235ccd45ef8350da0163d13020c95",
+  "bytes": 90
+ },
+ {
+  "file": "mattermost__0139__000140_add_lastmemberssyncat_to_sharedchannelremotes.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000140_add_lastmemberssyncat_to_sharedchannelremotes.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "db085c2a9952092322b84117119341086b6fa274b832aed7040ed3bb23ea2fc1",
+  "bytes": 189
+ },
+ {
+  "file": "mattermost__0140__000141_add_remoteid_channelid_to_post_acknowledgements.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000141_add_remoteid_channelid_to_post_acknowledgements.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "8cbab0fdf4818fcb59d8c94567d5dda47f3d1f31f6ffc4073642fd3bcbb32c6c",
+  "bytes": 183
+ },
+ {
+  "file": "mattermost__0141__000142_create_content_flagging_tables.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000142_create_content_flagging_tables.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "6bf3d07424008a23c0fc38d06b87d0b2bf45132bc99140c6d53f5b1cae2c0c32",
+  "bytes": 354
+ },
+ {
+  "file": "mattermost__0142__000143_content_flagging_table_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000143_content_flagging_table_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "fc04dd502ed543376599b346aefb5c1373f6feae9f64ed53065495107bc28608",
+  "bytes": 150
+ },
+ {
+  "file": "mattermost__0143__000144_add_dcr_fields_to_oauth_apps.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000144_add_dcr_fields_to_oauth_apps.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "586737972aa18f75854fb2c52b350a5fcd7c35a57493b794a6c7080b4231c4b3",
+  "bytes": 165
+ },
+ {
+  "file": "mattermost__0144__000145_add_pkce_to_oauthauthdata.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000145_add_pkce_to_oauthauthdata.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "9d5a617883c69b171bec377e3b8fa0bef2a2dd604fb7b60ac3ca4e74ab53d05e",
+  "bytes": 187
+ },
+ {
+  "file": "mattermost__0145__000146_add_audience_and_resource_to_oauth.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000146_add_audience_and_resource_to_oauth.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "30b97950e056bbf1d51597e7221620d8926b095bae8d5feaaf520b01cbfb588f",
+  "bytes": 174
+ },
+ {
+  "file": "mattermost__0146__000147_create_autotranslation_tables.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000147_create_autotranslation_tables.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "1e47e97f2393cbe0f0c0fab64349d3e658182634162b68c2d41fccb431d7f903",
+  "bytes": 2045
+ },
+ {
+  "file": "mattermost__0147__000148_add_burn_on_read_messages.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000148_add_burn_on_read_messages.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "b982abf9c67cd41359650e81d34fb1dac1ce5b23897fbe866205cd8111703e23",
+  "bytes": 793
+ },
+ {
+  "file": "mattermost__0148__000149_create_recaps.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000149_create_recaps.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "569078bab220203faf0bd759cf954043e2f0fc10cc9aa156746ef360438a5bf4",
+  "bytes": 1390
+ },
+ {
+  "file": "mattermost__0149__000150_add_translation_state.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000150_add_translation_state.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "94e75ea402144899620464759e645f7771215a6549ac040244767e7499b08205",
+  "bytes": 397
+ },
+ {
+  "file": "mattermost__0150__000151_add_autotranslationdisabled_to_channelmembers.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000151_add_autotranslationdisabled_to_channelmembers.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "131cce0a133e7736d360c49f6ee7af32d51426f9a6d5e5cac5738bf43255cc7b",
+  "bytes": 239
+ },
+ {
+  "file": "mattermost__0151__000152_translations_primary_key_change.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000152_translations_primary_key_change.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "aee7bd6d276f98e831d473f94e636b1c289d05ea1ac81b762d6734961d1ce611",
+  "bytes": 428
+ },
+ {
+  "file": "mattermost__0152__000153_add_translation_channel_id.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000153_add_translation_channel_id.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "47ad6b02bc143b51ced7bdf778ad140d0eeca56dfec5a051548392768544248d",
+  "bytes": 74
+ },
+ {
+  "file": "mattermost__0153__000154_drop_translation_updateat_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000154_drop_translation_updateat_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "4f08e9113a48957496d29653ce01821a1f74afafd3328182a79b6a969062c73c",
+  "bytes": 89
+ },
+ {
+  "file": "mattermost__0154__000155_create_translation_channel_updateat_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000155_create_translation_channel_updateat_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "94c401f7e3272455a02b98e55270f0db4210091347cb8f13bccef1ef982dc626",
+  "bytes": 171
+ },
+ {
+  "file": "mattermost__0155__000156_add_schemeid_to_roles.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000156_add_schemeid_to_roles.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "76410082ef383cca2bbe29f95d152b016c557667aa67b00028c2473ba2d13a05",
+  "bytes": 66
+ },
+ {
+  "file": "mattermost__0156__000157_backfill_roles_schemeid.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000157_backfill_roles_schemeid.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "4f06a78312d4d664ac2a753ab0d93f057d0852717b5fab55c06afb9b1ff8b34f",
+  "bytes": 724
+ },
+ {
+  "file": "mattermost__0157__000158_add_roles_schemeid_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000158_add_roles_schemeid_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "ac2839d031fc42fe2b0f54e2a6e22d546335820fe49529d7686e12b3fd555470",
+  "bytes": 108
+ },
+ {
+  "file": "mattermost__0158__000159_deduplicate_policy_names.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000159_deduplicate_policy_names.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "c36ff582873af2b7967b476f6c6fb6576589e95b38b9f650181574aec0f752f4",
+  "bytes": 628
+ },
+ {
+  "file": "mattermost__0159__000160_add_user_tracking_to_properties.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000160_add_user_tracking_to_properties.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "8017a39c26b66d25c907f30db47e06ef67f67977adfe9b837da360501895cf5b",
+  "bytes": 254
+ },
+ {
+  "file": "mattermost__0160__000161_add_object_type_to_property_fields.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000161_add_object_type_to_property_fields.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "37760c512a5c55d281230cfab7a31706f1ae28a58efc173e99dbec0a8f74814e",
+  "bytes": 98
+ },
+ {
+  "file": "mattermost__0161__000162_drop_property_fields_old_unique_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000162_drop_property_fields_old_unique_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "76a8adb405130f0193b59ac4d00ebb3ae7a3e2db9c9b0dcd6cca363017685886",
+  "bytes": 89
+ },
+ {
+  "file": "mattermost__0162__000163_create_property_fields_legacy_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000163_create_property_fields_legacy_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "50a201153e5f61868e956b85eb3e423d50b74b7e362291ef44df4aa1a1bb2435",
+  "bytes": 199
+ },
+ {
+  "file": "mattermost__0163__000164_create_property_fields_typed_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000164_create_property_fields_typed_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "fb9ea45c090b56de3ee6592d6a89e8b11238cf8c40d8783085c7a1c1dccf3c8f",
+  "bytes": 223
+ },
+ {
+  "file": "mattermost__0164__000165_add_protected_and_permissions_to_property_fields.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000165_add_protected_and_permissions_to_property_fields.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "f4d4085ab5f1db538827253d081d4aadb32140e8267bf97cac45d17dfacb8e93",
+  "bytes": 674
+ },
+ {
+  "file": "mattermost__0165__000166_create_views.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000166_create_views.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "924a683bc3f780b562f71226bc951ac9abb05ac7530f2f6716f54739f025e1ab",
+  "bytes": 469
+ },
+ {
+  "file": "mattermost__0166__000167_create_views_channel_id_delete_at_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000167_create_views_channel_id_delete_at_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "5d8556401c6e82879eb6009a377937b3083701e608edb96fe70d5ac32a80163f",
+  "bytes": 130
+ },
+ {
+  "file": "mattermost__0167__000168_add_linked_field_id_to_property_fields.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000168_add_linked_field_id_to_property_fields.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "95c3420dbb99acebc3eea53d7bc0a60d4fc31dbadcc3083f6fef6e797bac4a53",
+  "bytes": 80
+ },
+ {
+  "file": "mattermost__0168__000169_create_linked_field_id_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000169_create_linked_field_id_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "0e11aee7a88ff93cb60bb773524934b97220062eeccbb1a4ea98bfe0ef361e42",
+  "bytes": 190
+ },
+ {
+  "file": "mattermost__0169__000170_add_property_groups_version.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000170_add_property_groups_version.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "3e57cc60125853b31044f071b17f64c1846058857ca7f6a6043c8464e0d3babe",
+  "bytes": 89
+ },
+ {
+  "file": "mattermost__0170__000171_drop_property_fields_protected_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000171_drop_property_fields_protected_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "23d0e7398d4bcd77ac8a7e900abce29d2f84cd0ff7906ac0e71e8c5a5911fddd",
+  "bytes": 92
+ },
+ {
+  "file": "mattermost__0171__000172_add_recaps_viewed_at.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000172_add_recaps_viewed_at.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "abec6df3dd7e2d679f90d36a0cb83959e899b23b525b12580af8a98a858f68f0",
+  "bytes": 81
+ },
+ {
+  "file": "mattermost__0172__000173_create_recaps_user_id_viewed_at_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000173_create_recaps_user_id_viewed_at_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "03992cf81f31fbe681eabbdbe0103c3049a21205ca0b9f0954a11cac4b6c1899",
+  "bytes": 126
+ },
+ {
+  "file": "mattermost__0173__000174_set_posts_statistics_targets.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000174_set_posts_statistics_targets.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "cb31bcd3e8c672a12a80222082ae52802a6ddb1dcf4fb3465089eba8b94d275f",
+  "bytes": 159
+ },
+ {
+  "file": "mattermost__0174__000175_add_board_channel_types.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000175_add_board_channel_types.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "c42c609625d6df61c67e467465bffa66438973b2845da245995cf1247099c532",
+  "bytes": 110
+ },
+ {
+  "file": "mattermost__0175__000176_migrate_cpa_to_access_control.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000176_migrate_cpa_to_access_control.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "e31ae391ef2d2231b23ad936b40d9194560a0c231884061a680964a2df0e6fbf",
+  "bytes": 1057
+ },
+ {
+  "file": "mattermost__0176__000177_filter_attribute_view_by_object_type.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000177_filter_attribute_view_by_object_type.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "fd4e2c8c8842d8d124b9f68fc9b4f95d1e5d17119242fe08e4fbd4cf7aa694be",
+  "bytes": 1482
+ },
+ {
+  "file": "mattermost__0177__000178_add_discoverable_to_channels.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000178_add_discoverable_to_channels.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "87b0d04f090e7fbf675f601df1621d31cd7094b6a5043508809c045e68d431b1",
+  "bytes": 92
+ },
+ {
+  "file": "mattermost__0178__000179_add_channels_discoverable_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000179_add_channels_discoverable_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "5e0c3eae1f7034d47b8a9d8a0e98a82cc7b9cb8608dea5394cd3c755651afe3c",
+  "bytes": 189
+ },
+ {
+  "file": "mattermost__0179__000180_create_channel_join_requests.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000180_create_channel_join_requests.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "e9032ea252c537796a12115a95b70386a7f5d0b1803c3818467b14f17c62664a",
+  "bytes": 527
+ },
+ {
+  "file": "mattermost__0180__000181_create_channel_join_requests_pending_unique_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000181_create_channel_join_requests_pending_unique_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "d137c24c413d8658a4f1f5465769a20623418f9d5bac1022d7c5ef7eb4c9a415",
+  "bytes": 193
+ },
+ {
+  "file": "mattermost__0181__000182_create_channel_join_requests_channel_status_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000182_create_channel_join_requests_channel_status_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "6de0d400701c6f28c316e9ed70bba8a137960e3b2a9b7f27a77d536c538c9c51",
+  "bytes": 180
+ },
+ {
+  "file": "mattermost__0182__000183_create_channel_join_requests_user_status_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000183_create_channel_join_requests_user_status_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "3fb5983d4a52d42d55d3f3b6d2f047d44bf4ae21cfc7569d871ea68145084df3",
+  "bytes": 174
+ },
+ {
+  "file": "mattermost__0183__000184_add_admin_to_permission_level.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000184_add_admin_to_permission_level.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "d8e5c31c64738ac15a7aa1ac6cec99a0f6f5691c9bf8fde4f587a015603eb93b",
+  "bytes": 62
+ },
+ {
+  "file": "mattermost__0184__000185_create_channel_guards.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000185_create_channel_guards.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "d42af06903d2d2ad430b7efe289fb1c281efd98404c57d1fc6c46e450d09b505",
+  "bytes": 201
+ },
+ {
+  "file": "mattermost__0185__000186_create_channel_guards_plugin_id_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000186_create_channel_guards_plugin_id_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "71062e8bc5313c1fedabfa6cf75e2a404e6ef666ff63474717e1edd3e4407ac9",
+  "bytes": 125
+ },
+ {
+  "file": "mattermost__0186__000187_add_expiresat_to_user_access_tokens.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000187_add_expiresat_to_user_access_tokens.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "fc2204ddb3106eeb765059aff4faa05127921848473346ba6e052cb52ca34d01",
+  "bytes": 92
+ },
+ {
+  "file": "mattermost__0187__000188_add_expiresat_index_to_user_access_tokens.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000188_add_expiresat_index_to_user_access_tokens.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "f20f832e0b6c670924cb39ce20c5971b53aebd0caf29d84c0d01d87b02d8c619",
+  "bytes": 162
+ },
+ {
+  "file": "mattermost__0188__000190_channel_bookmarks_board_target_id.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000190_channel_bookmarks_board_target_id.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "f2c0a2aab0d773861e9fc9960023c9384ed59bc573d6a04b37dee33f63873ea0",
+  "bytes": 162
+ },
+ {
+  "file": "mattermost__0189__000191_channel_bookmarks_target_id_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000191_channel_bookmarks_target_id_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "19aabc12c298795d33253c52d24f433902400f01b888425e76dbb8e9c21e2dc1",
+  "bytes": 178
+ },
+ {
+  "file": "mattermost__0190__000192_add_voip_device_id_to_sessions.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000192_add_voip_device_id_to_sessions.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "8cf072061f132c6dbcf59b19cb8979a493a3856090220f12760bdece3496de65",
+  "bytes": 94
+ },
+ {
+  "file": "mattermost__0191__000193_add_property_groups_schema_version.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000193_add_property_groups_schema_version.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "3b05198cbcf2469b7586d95025ae9635a52fe8e3acc1f914f236a12e9e13777c",
+  "bytes": 95
+ },
+ {
+  "file": "mattermost__0192__000194_add_type_id_index_to_access_control_policies.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000194_add_type_id_index_to_access_control_policies.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "262581fd727b21b5d3e5f3152618218b6f4a1991ff81b1a2490556c180b74538",
+  "bytes": 140
+ },
+ {
+  "file": "mattermost__0193__000195_threadmemberships_cleanup_v2.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000195_threadmemberships_cleanup_v2.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "b201b2a46558853221dbf8b81d00bc14d147542b21682b97bc68a2a0bcabddd9",
+  "bytes": 538
+ },
+ {
+  "file": "mattermost__0194__000196_add_lastused_to_incoming_webhooks.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000196_add_lastused_to_incoming_webhooks.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "407edd6dc16a0fd118cf89f86ce00ea845e3d1a14c146cd52da07f4dc3d5fdf6",
+  "bytes": 91
+ },
+ {
+  "file": "mattermost__0195__000197_add_rank_to_property_field_type.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000197_add_rank_to_property_field_type.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "4fd26ffefc0bb3e588ac0851c078d559e2c35cc4eb72292c46295b27cdeff434",
+  "bytes": 64
+ },
+ {
+  "file": "mattermost__0196__000198_convert_classification_fields_to_rank.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000198_convert_classification_fields_to_rank.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "7a63ea61b71cc9e4a7a296dac9695cb920ab13db4cd1c1243d02cd813b6617e3",
+  "bytes": 2488
+ },
+ {
+  "file": "mattermost__0197__000199_rename_classification_linked_fields.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000199_rename_classification_linked_fields.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "55822f735907368fe4a5f62e433a2a6ef5408d21ffd19bff64b1f4ff272a669d",
+  "bytes": 613
+ },
+ {
+  "file": "mattermost__0198__000200_add_rank_to_attribute_view.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000200_add_rank_to_attribute_view.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "95a02ae075c0a11deab951a35e700650da9365fc5352b5700f28ebbf03677382",
+  "bytes": 1821
+ },
+ {
+  "file": "mattermost__0199__000201_create_property_fields_groupid_updateat_id_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000201_create_property_fields_groupid_updateat_id_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "19008a22edafa4767fb3016e0d82078046f4f69adc160bc062f34cb54dfbe44a",
+  "bytes": 149
+ },
+ {
+  "file": "mattermost__0200__000202_create_property_values_groupid_updateat_id_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000202_create_property_values_groupid_updateat_id_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "770a5b82a618e26f0b6a71e8b57e9bfa23b825b493bc587a22bfd3e0ed18f379",
+  "bytes": 149
+ },
+ {
+  "file": "mattermost__0201__000203_add_lastnotifiedat_to_user_access_tokens.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000203_add_lastnotifiedat_to_user_access_tokens.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "09a94cb702dab9c77cd8d4e48d730ed2993d90c4bc983979b01a6a42c216e832",
+  "bytes": 78
+ },
+ {
+  "file": "mattermost__0202__000204_add_channel_type_space_enum.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000204_add_channel_type_space_enum.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "eb216d54ce28ca018325fbeb2ee514fe702abeea0cbe79c73441ee0cef76433f",
+  "bytes": 54
+ },
+ {
+  "file": "mattermost__0203__000205_create_scheduled_recaps.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000205_create_scheduled_recaps.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "5d39787ff1018758ae03b3691e4594dd58ed9543aed989721c060733c07fe280",
+  "bytes": 1034
+ },
+ {
+  "file": "mattermost__0204__000206_create_scheduled_recaps_user_id_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000206_create_scheduled_recaps_user_id_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "6d6787d86f4af4eef9c162aeceee8ba10a533e57be89618fcd7151ce061fd7ff",
+  "bytes": 125
+ },
+ {
+  "file": "mattermost__0205__000207_create_scheduled_recaps_next_run_at_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000207_create_scheduled_recaps_next_run_at_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "6dd13047fa628719f35cf1ecdb304228945668de14e803ea7465ea0710cf0486",
+  "bytes": 132
+ },
+ {
+  "file": "mattermost__0206__000208_create_scheduled_recaps_enabled_next_run_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000208_create_scheduled_recaps_enabled_next_run_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "5e8fe01f04e5685c1acaac6af997d4261119ec94852f3488411a34f13f9aaa67",
+  "bytes": 156
+ },
+ {
+  "file": "mattermost__0207__000209_create_scheduled_recaps_user_delete_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000209_create_scheduled_recaps_user_delete_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "623b9e11a13f55b117921624aec258ba958fdddb66fbe04a4a0cccd25b6e1b04",
+  "bytes": 139
+ },
+ {
+  "file": "mattermost__0208__000210_add_recap_skip_fields.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000210_add_recap_skip_fields.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "a1e06ca8d8b43609f5bd6415806cf46ae9626ebff8ff00c7f860a0bfd2ab6ab8",
+  "bytes": 317
+ },
+ {
+  "file": "mattermost__0209__000211_add_recaps_scheduled_recap_id_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000211_add_recaps_scheduled_recap_id_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "6f689d3767246b321d13c84c0b3bf92b81ca42b974e40af4af125ded112c2d9f",
+  "bytes": 127
+ },
+ {
+  "file": "mattermost__0210__000212_add_scheduled_post_recurrence.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000212_add_scheduled_post_recurrence.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "fa34d690d975b782d97b34c66fce9f7c5c2e2d7ea0dbb66523027a3a98e6973e",
+  "bytes": 199
+ },
+ {
+  "file": "mattermost__0211__000213_add_scheduled_post_pending_index.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000213_add_scheduled_post_pending_index.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "0311f7bdaec18612cf90ab9ea15e5201dd584917c627baf4753830180d7578f5",
+  "bytes": 184
+ },
+ {
+  "file": "mattermost__0212__000214_drop_channelmembers_autotranslation.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000214_drop_channelmembers_autotranslation.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "dbd38e2ead11f4735724a6552f85fd28b92175180f9e59c438f63232c8e1c198",
+  "bytes": 338
+ },
+ {
+  "file": "mattermost__0213__000215_drop_channelmembers_autotranslation_column.up.sql",
+  "original_path": "server/channels/db/migrations/postgres/000215_drop_channelmembers_autotranslation_column.up.sql",
+  "repo": "https://github.com/mattermost/mattermost",
+  "sha256": "6841cf0411a54605086f49c186b4f75829b874820ade075fe576a4abc245a2e9",
+  "bytes": 295
+ }
+]

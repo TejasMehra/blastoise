@@ -1,0 +1,2032 @@
+[
+ {
+  "file": "boundary__0001__01_boundary_schema_version.up.sql",
+  "original_path": "internal/db/schema/migrations/base/postgres/01_boundary_schema_version.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "9c679ff3081229fa691a47a1bab8e2db02c04bec2ca206100fb7c12d098ed437",
+  "bytes": 192
+ },
+ {
+  "file": "boundary__0002__02_log_migration.up.sql",
+  "original_path": "internal/db/schema/migrations/base/postgres/02_log_migration.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "2d7f3fd7f164d086d9d4ae29e2a12a581ebae7998ff557021bc35a399c78adf7",
+  "bytes": 1219
+ },
+ {
+  "file": "boundary__0003__01_domain_types.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/01_domain_types.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "2c90e01ec37e86575f8628b9abaa85a518727981fe575215414433fd391ebd8a",
+  "bytes": 4646
+ },
+ {
+  "file": "boundary__0004__02_oplog.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/02_oplog.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "d27bff08efaaba28e1fa0ebca4ae67181e8dfd3806875c498a66f48379313c03",
+  "bytes": 2982
+ },
+ {
+  "file": "boundary__0005__03_db.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/03_db.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "b5f5b8ebfde20f43d3a09dd7240b9e329b5a9ad7551aeded7a2efa2e12894d1a",
+  "bytes": 3373
+ },
+ {
+  "file": "boundary__0006__06_iam.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/06_iam.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "5694182215ad3d00fff34d0def23de161bd08c7107b1a97f074eb3ab010e2629",
+  "bytes": 20182
+ },
+ {
+  "file": "boundary__0007__07_auth.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/07_auth.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "0680cc43ada795ca687759dcfb42199ae65401bb965a81e2b93feab0a7709498",
+  "bytes": 6519
+ },
+ {
+  "file": "boundary__0008__08_servers.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/08_servers.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "8b0430c09193f236b30f704bd45d16b1788ecde6f63b3a650642c28c2b093d74",
+  "bytes": 1320
+ },
+ {
+  "file": "boundary__0009__11_auth_token.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/11_auth_token.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "0312cb1d84833969b257493bbbfe6e2793fc2e8676cd347a503225e7d37a6d84",
+  "bytes": 4220
+ },
+ {
+  "file": "boundary__0010__12_auth_password.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/12_auth_password.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "142d0063ce6a34840e58a3d64ab21ee2e306f137f031a3bf5379b5cba8cf5b61",
+  "bytes": 12165
+ },
+ {
+  "file": "boundary__0011__13_auth_password_argon.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/13_auth_password_argon.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "ea4190d67d7685e1e1b246869084a79e32a1c7d134c8ffba75d9d27f0c0765af",
+  "bytes": 5085
+ },
+ {
+  "file": "boundary__0012__14_auth_password_views.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/14_auth_password_views.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "2da84170090e782d61b7dbd5745664d695d2947f1184537ab52538983b2c8972",
+  "bytes": 1335
+ },
+ {
+  "file": "boundary__0013__20_host.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/20_host.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "46f68c760954d00f550116fd7100853157f922c7b44539cd4187bae7300a42fe",
+  "bytes": 5965
+ },
+ {
+  "file": "boundary__0014__22_static_host.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/22_static_host.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "08ea01fbe0bdc1f49aaf94960aea414ccdf31343222f3e90745cbf5b76993355",
+  "bytes": 9782
+ },
+ {
+  "file": "boundary__0015__30_keys.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/30_keys.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "57e4cac93e89fd70bc728cef69eed066e1c5b85e0441c8af0cc773aed119f56e",
+  "bytes": 915
+ },
+ {
+  "file": "boundary__0016__31_keys.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/31_keys.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "069aae53b9a38513fb4bf4f185af7e463af8606e49efd2b4031ab6692d141ea1",
+  "bytes": 16982
+ },
+ {
+  "file": "boundary__0017__40_targets.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/40_targets.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "ea1835993c3cdfccccd43f3f5a855cf144c85e0cefcd3a4a958f1553b5dbb6e0",
+  "bytes": 1858
+ },
+ {
+  "file": "boundary__0018__41_targets.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/41_targets.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "642b4ad112a6016e28a193f5834b55d6dafe5585b893c9c0d1542a65f02aeb52",
+  "bytes": 6427
+ },
+ {
+  "file": "boundary__0019__50_session.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/50_session.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c51919427b56182ec4729469ee2b54972143fd9749a7fdbc2a89ea837baee920",
+  "bytes": 20642
+ },
+ {
+  "file": "boundary__0020__51_connection.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/51_connection.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "ecc06b67a9b7205815faa8f8ffcbe6102ddee55b627c876364a2837256f75d62",
+  "bytes": 14020
+ },
+ {
+  "file": "boundary__0021__60_wh_domain_types.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/60_wh_domain_types.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "e8320558a26a61e4ed54937e03ebf0e1ed6029c253be434124da4326fa19ad4c",
+  "bytes": 2430
+ },
+ {
+  "file": "boundary__0022__62_wh_datetime.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/62_wh_datetime.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "bf15a441eb20cac3a3e8afcafcb2f74ab112b53b83036b6852cb85f3df55df8d",
+  "bytes": 3988
+ },
+ {
+  "file": "boundary__0023__65_wh_session_dimensions.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/65_wh_session_dimensions.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "1c0a702106ef62d28795c5a75a9700ff0bfac1116fd4c8a606569e51c31c4385",
+  "bytes": 10252
+ },
+ {
+  "file": "boundary__0024__66_wh_session_dimensions.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/66_wh_session_dimensions.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "fbc85dfbc1ae48eecb93e6055ea616e1022851facd75589670d7e16129cfaa0c",
+  "bytes": 7009
+ },
+ {
+  "file": "boundary__0025__68_wh_session_facts.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/68_wh_session_facts.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "b14b1f051104de23f821f6301f16e6655da8a937d38917144732faa31cf27163",
+  "bytes": 7819
+ },
+ {
+  "file": "boundary__0026__69_wh_session_facts.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/0/69_wh_session_facts.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "0d89e501fc7c9b8cf67fa9dcda4afa5df0d8a1978eaa1e6aaa776fab479aa43b",
+  "bytes": 9815
+ },
+ {
+  "file": "boundary__0027__01_server_tags_migrations.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/1/01_server_tags_migrations.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "62a98b3fdbc928fe7ce1d5693bba3e3d67a78ff1af75869fc88da2090f5449cc",
+  "bytes": 3215
+ },
+ {
+  "file": "boundary__0028__02_domains.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/1/02_domains.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "23170bba7f0c383c664f2aae31652af5a88a6358953afdae22285183c79223e8",
+  "bytes": 2406
+ },
+ {
+  "file": "boundary__0029__03_kms.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/1/03_kms.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "f5f38e81140ca6defb058aa6f5b23dad672384b1db592ea3836aeec2b083b6bd",
+  "bytes": 2097
+ },
+ {
+  "file": "boundary__0030__01_job_migrations.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/10/01_job_migrations.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "7c532e7e54cffb40d344793a4a90676eecc085a8bc206d828e30a61b17c3aa01",
+  "bytes": 270
+ },
+ {
+  "file": "boundary__0031__02_sentinels.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/10/02_sentinels.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "ee602db21c327b8845e66febb86b71f0cf50da15cf2c2c5003eb379902bc4299",
+  "bytes": 1074
+ },
+ {
+  "file": "boundary__0032__03_credential.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/10/03_credential.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "150932c572c883c12dd442e949dcf336c9c9c0a1184d5e07e760e99e8c298afb",
+  "bytes": 9037
+ },
+ {
+  "file": "boundary__0033__04_vault_credential.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/10/04_vault_credential.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "3855eea41b80e7ce2bc695382bc130336c2288ce0b9540c1fa356bdd96f3b2aa",
+  "bytes": 29367
+ },
+ {
+  "file": "boundary__0034__05_target.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/10/05_target.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "5ece86d08ba661b618734782dc9a1ef60771711bd795c1e1c63fd12c0b49ab8e",
+  "bytes": 1804
+ },
+ {
+  "file": "boundary__0035__06_session.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/10/06_session.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "07475b83e125d03281ecd9bce9503bcd1ceb3704a97756d017a127b4c053a610",
+  "bytes": 2230
+ },
+ {
+  "file": "boundary__0036__07_sentinels.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/10/07_sentinels.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "5e8c6e06d7ec00664a2b7f2b798c80325cc6ef2464742a4cf5a1cb66457772b3",
+  "bytes": 1201
+ },
+ {
+  "file": "boundary__0037__01_credential_vault_ldap_library.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/100/01_credential_vault_ldap_library.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "8d9d59c8f8ad09f9404418d11cead68321f51d3da2ddab156d8255486f0d47a5",
+  "bytes": 28250
+ },
+ {
+  "file": "boundary__0038__01_credential_static_password_credential.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/101/01_credential_static_password_credential.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "478bb0c90c0ed47effb94d9014864d1e7be087b7910f558c26cf4b0a33eec07c",
+  "bytes": 9852
+ },
+ {
+  "file": "boundary__0039__02_credential_vault_password_library.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/101/02_credential_vault_password_library.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "e78502c5cafbea3ee283ba30aa346f4c2f7f5b0fc6a38873187a4e9e41da2f6a",
+  "bytes": 14594
+ },
+ {
+  "file": "boundary__0040__01_credential_vault_library_deleted_purge_job.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/102/01_credential_vault_library_deleted_purge_job.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "ad5240c619ca21eb0ced9f8dce7219f1cb1dcfe8bc4431030aea875fb48863c5",
+  "bytes": 564
+ },
+ {
+  "file": "boundary__0041__01_credential_vault_token_renewal_revocation_view.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/103/01_credential_vault_token_renewal_revocation_view.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "48673d5c7a2b1a77205a872de38cb21b83922b4f3341fe04f02b05e5d48fb8a7",
+  "bytes": 2482
+ },
+ {
+  "file": "boundary__0042__01_iam_acct_info_ldap.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/104/01_iam_acct_info_ldap.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "da06c9daef2c65514f9eacf87fa0c42f0ec404d28f302b0f6e175291e89f4008",
+  "bytes": 2020
+ },
+ {
+  "file": "boundary__0043__01_server_type_enum.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/11/01_server_type_enum.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "01bbe55ebb845e15996ffd21e56e87ece2fd9b482978efa979a4258b95a0255b",
+  "bytes": 749
+ },
+ {
+  "file": "boundary__0044__01_timestamp_sub_funcs.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/12/01_timestamp_sub_funcs.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "008113abe7329e17e07be6a901aa24eefcde6e32b0162e2c9fc97fde2183e670",
+  "bytes": 1010
+ },
+ {
+  "file": "boundary__0045__01_oidc_add_claims.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/13/01_oidc_add_claims.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "d679b13d4e2676c6fcbbe7e73a2517f8c7dcd61033929c869733d28f689eb846",
+  "bytes": 423
+ },
+ {
+  "file": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/14/01_wh_user_dimension_oidc.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "d2c391becce14698e3a314f7789ca8dfef83761929bfa3dc718679481f9f95c4",
+  "bytes": 9378
+ },
+ {
+  "file": "boundary__0047__01_wh_rename_key_columns.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/15/01_wh_rename_key_columns.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "3ad9490206835e514fceb74c76fa50f14b339e0860df580d245ba8efb16bd466",
+  "bytes": 18244
+ },
+ {
+  "file": "boundary__0048__02_wh_rename_host_dimension_org.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/15/02_wh_rename_host_dimension_org.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "4ea647e8beb0b8339dd529e684c86e03ec9d2cc9b239484643efc0dfa74e563d",
+  "bytes": 7331
+ },
+ {
+  "file": "boundary__0049__01_wh_credential_dimension.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/16/01_wh_credential_dimension.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "5fc168aa45109ebf3f20866de616ae4d5662158eb780c4a2e464852ff8970b44",
+  "bytes": 7034
+ },
+ {
+  "file": "boundary__0050__02_wh_credential_dimension.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/16/02_wh_credential_dimension.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "871fa232ecf4f04418d4eab6b07fb632038531e4b7d62decbdc9625f6e37f0d5",
+  "bytes": 5165
+ },
+ {
+  "file": "boundary__0051__03_wh_credential_dimension.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/16/03_wh_credential_dimension.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "f1304658fa84f1b1005952478b8e8348fb835975611bfbe663dee8c3c00b43f2",
+  "bytes": 8673
+ },
+ {
+  "file": "boundary__0052__04_wh_credential_dimension.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/16/04_wh_credential_dimension.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "171312e7862c9572530d887e2cb828b95ae758a7084ff66a20203521e5656e8d",
+  "bytes": 1922
+ },
+ {
+  "file": "boundary__0053__05_wh_credential_dimension.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/16/05_wh_credential_dimension.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "f81d004f00b198c7057e0581bdb918d218270fc1e575cedf465ba8a5b249d3dd",
+  "bytes": 2719
+ },
+ {
+  "file": "boundary__0054__01_servers.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/17/01_servers.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "5246a30c0703276e3e59d24016a3ec1fae082d14968fb3b8fb5fcb3923fcefd0",
+  "bytes": 565
+ },
+ {
+  "file": "boundary__0055__02_wh_primary_key.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/17/02_wh_primary_key.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "754f7f0815ae022ff42135657a6b083d001c9aed8a6dec9f34ccf82b36773c08",
+  "bytes": 203
+ },
+ {
+  "file": "boundary__0056__01_nonce.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/18/01_nonce.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "6ce5029cb14fa358fd4609652451f4b53b72040d72c38083c3c6ba5c412eb797",
+  "bytes": 1499
+ },
+ {
+  "file": "boundary__0057__01_db.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/19/01_db.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "14466a200d64f48ef8e550b91042bd39684b3d1a3a61d3ea5f300b03d7ed24a4",
+  "bytes": 1429
+ },
+ {
+  "file": "boundary__0058__02_kms_audit.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/19/02_kms_audit.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "2b10a71d1860ad65e0a529dcb2f97a2d1fd63981d5e1b01afc729f1a144601f8",
+  "bytes": 2202
+ },
+ {
+  "file": "boundary__0059__03_db.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/19/03_db.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "3ccb730be6aa2b7bef2fc0dbc8f41c194f5738e0730b6a716fe85982b0167e2d",
+  "bytes": 631
+ },
+ {
+  "file": "boundary__0060__01_log.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/2/01_log.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "dd0d81eb22cf489cff6677ac667fd8c650770ff229e639de58ee0d1d97cb90be",
+  "bytes": 1955
+ },
+ {
+  "file": "boundary__0061__03_oidc_enm.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/2/03_oidc_enm.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "77f9420a6f89a30b30926d9a264c8fdb3e310b8f91389a30382a32fc0c1e267c",
+  "bytes": 1775
+ },
+ {
+  "file": "boundary__0062__04_oidc.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/2/04_oidc.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "bfcd4583c1ae58b29dd482518cf19842c308c4ce27249cc33d8cba76a3d93397",
+  "bytes": 16202
+ },
+ {
+  "file": "boundary__0063__05_authtoken.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/2/05_authtoken.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "206381021fb4ab0f6919a51176befe8e3783fbf8a14a7e75e420ac9bbc437a00",
+  "bytes": 1395
+ },
+ {
+  "file": "boundary__0064__06_iam.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/2/06_iam.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "8156ea6b8d9e1320cb6205d4bfe87fdac7d496a7c2bbfa4664362d8b785f9aa6",
+  "bytes": 2228
+ },
+ {
+  "file": "boundary__0065__07_iam.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/2/07_iam.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "8de222fe009af28f091897f7e29ac84d3bd473399d0b0b5aba9ba60d91906148",
+  "bytes": 1870
+ },
+ {
+  "file": "boundary__0066__10_auth.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/2/10_auth.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "156c1f964ae1d626fe80449182d5dd02708cbc2ef1a3a8ed0c9ca4f326512393",
+  "bytes": 3278
+ },
+ {
+  "file": "boundary__0067__15_oidc.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/2/15_oidc.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c38fe886603aca174f1b4f2972b4401da2ea23c6536428eb676feda983db2a79",
+  "bytes": 2092
+ },
+ {
+  "file": "boundary__0068__20_pass.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/2/20_pass.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "25fed6e5ab40e7007e12313f9944c6a3ed73be78227938613a00d947f98b3d64",
+  "bytes": 859
+ },
+ {
+  "file": "boundary__0069__01_domain_types.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/20/01_domain_types.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "562f85420c59bdb39702d1c2491331550381cec838829f70d1e783408cb37613",
+  "bytes": 651
+ },
+ {
+  "file": "boundary__0070__02_plugin.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/20/02_plugin.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "682849069966a4b51f17e3cb29ec2d0d0083612b8bc4e62ccddec50b147dcc42",
+  "bytes": 2691
+ },
+ {
+  "file": "boundary__0071__03_host_plugin.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/20/03_host_plugin.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "d11f0a6d11266cefaa7a0a33fb6baff71c5c73f1143676c0507a27a85b2a7290",
+  "bytes": 2483
+ },
+ {
+  "file": "boundary__0072__04_host.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/20/04_host.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "925d99c47630e1876d7d7c1741135dc840329bde3a56cc3e973bb550367d07ed",
+  "bytes": 2454
+ },
+ {
+  "file": "boundary__0073__05_plugin_host.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/20/05_plugin_host.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "d1d6dae7bea8bd6f004024cf648c94fe3a2f44c7d01e091e68e8f96e5a6f862c",
+  "bytes": 15908
+ },
+ {
+  "file": "boundary__0074__06_plugin_host_views.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/20/06_plugin_host_views.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "b70e0c0e8df0f623d61fc249117fe22b00e0ee63775bce7f4440a7ec8e5a5df2",
+  "bytes": 3025
+ },
+ {
+  "file": "boundary__0075__07_wh_session_dimensions.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/20/07_wh_session_dimensions.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "1684ba2aa9db30aac2df144c96e0be455bd8a41e94ad1c28e1d42433be789986",
+  "bytes": 4882
+ },
+ {
+  "file": "boundary__0076__08_plugin_host_views.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/20/08_plugin_host_views.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "2491e07bc4c5501418883c9dc0c0924c390b0c40dd638c5d4ad74f8801da83d7",
+  "bytes": 1706
+ },
+ {
+  "file": "boundary__0077__09_session_list_view.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/20/09_session_list_view.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "e73e119c42c10a7709c5e94397a0c2f7e1a96c5a42174821047f9c5ea4e38f59",
+  "bytes": 1124
+ },
+ {
+  "file": "boundary__0078__10_plugin_host_secrets_hmac.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/20/10_plugin_host_secrets_hmac.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "075177ea118090f94e787afb916e6968f47a65a3952648bcdfe921d367773049",
+  "bytes": 1049
+ },
+ {
+  "file": "boundary__0079__01_default_time.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/21/01_default_time.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "3dd009a7584e61fdae8bf42bac98b43d57a1283c83a19a7b35d9fee0ad19ea67",
+  "bytes": 362
+ },
+ {
+  "file": "boundary__0080__02_session.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/21/02_session.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "adfdceda228cde746d8d5ace974b48c7856f5eda45a060ab2c9a73f1aa30cfa0",
+  "bytes": 388
+ },
+ {
+  "file": "boundary__0081__01_sentinel.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/22/01_sentinel.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "0a5872a239e4f95373f04176d5ceb2a0cf388f991944269743aaeeb4e7e6d326",
+  "bytes": 483
+ },
+ {
+  "file": "boundary__0082__02_credential_type.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/22/02_credential_type.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "4e83c649b789adf9952c0e09840bf6d920f84e47ce3ffd3e0dbcede6477ea5ba",
+  "bytes": 2831
+ },
+ {
+  "file": "boundary__0083__03_vault_library_map.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/22/03_vault_library_map.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "421f5c090d526ac5b74fcdb00398c0bfada59fa1a616eb681f505d527a61600b",
+  "bytes": 1816
+ },
+ {
+  "file": "boundary__0084__04_vault_library_map_user_password.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/22/04_vault_library_map_user_password.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "3d6a9c9f7136849351f776e6a111a7c27c0614442df685082de5f868b23f0d51",
+  "bytes": 1731
+ },
+ {
+  "file": "boundary__0085__05_vault_private_library.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/22/05_vault_private_library.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "2bc746cec7b3612fb337e66cf49cb15aae87341fb31c6421e873023cb52570a4",
+  "bytes": 3458
+ },
+ {
+  "file": "boundary__0086__01_session_credential.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/23/01_session_credential.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "b7a91026b7ad0c977205763ee0d2ac701b72b6bc48f8f208d63de765a0ccce4f",
+  "bytes": 1787
+ },
+ {
+  "file": "boundary__0087__01_session_valid_state.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/24/01_session_valid_state.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "1524c6efd3f4df381743825fe01bcb10eb9447ccd9afb2e582bf4c1d0e7e6169",
+  "bytes": 3381
+ },
+ {
+  "file": "boundary__0088__01_static_host_view.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/25/01_static_host_view.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "1bb9d3df40fa3d68a03d8d9e3e55fe109e4ebffaf5e271d3a0e7cd2c507f5771",
+  "bytes": 816
+ },
+ {
+  "file": "boundary__0089__01_wh_network_address_dimensions.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/26/01_wh_network_address_dimensions.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "3b869b0d3e5e63c7e713e33022fb7e99b81c5cb1f58e49b7517493841a081bfa",
+  "bytes": 5816
+ },
+ {
+  "file": "boundary__0090__02_wh_network_address_dimensions.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/26/02_wh_network_address_dimensions.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "a1816b0a4d9a91f9a9e65b41f47432f498674736d351948f369e2486a37df4c5",
+  "bytes": 8408
+ },
+ {
+  "file": "boundary__0091__03_wh_network_address_dimensions.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/26/03_wh_network_address_dimensions.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c401361102402f931242b60c9ab0a0db48832c1258a4c3c3e0db5e521b497662",
+  "bytes": 6456
+ },
+ {
+  "file": "boundary__0092__01_disable_terminate_session.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/27/01_disable_terminate_session.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "ed36696978440e11b55d491f938f5c1cf9d7f87d152b4bf913f2f993f8460077",
+  "bytes": 1376
+ },
+ {
+  "file": "boundary__0093__02_wh_session_facts.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/27/02_wh_session_facts.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "5682f44d1b3cc085f1775c88fab1fa0c19db8842ed89f9b265fdd655b8e41574",
+  "bytes": 3874
+ },
+ {
+  "file": "boundary__0094__01_session_create_time_idx.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/28/01_session_create_time_idx.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "0cce50fee20e9b69f5bcebc4b456a339d1ef9c7501f56eddbc06018f100045fa",
+  "bytes": 354
+ },
+ {
+  "file": "boundary__0095__02_prior_session_trigger.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/28/02_prior_session_trigger.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "b41a4fc199dcd13921946e6bd6d12a8df0d11807ae092ad1504d1996c0240f88",
+  "bytes": 5288
+ },
+ {
+  "file": "boundary__0096__01_cancel_session_null_fkey.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/29/01_cancel_session_null_fkey.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "3c19c01b18b45c35d5eed4e07e811e178b04a2852cfe4652fc8314f04d39d8eb",
+  "bytes": 1254
+ },
+ {
+  "file": "boundary__0097__01_auth.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/3/01_auth.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "e9aac0ae5138f7ac0125336e9051749f4a079f492f2c105f27c6ddb33d48d7d4",
+  "bytes": 983
+ },
+ {
+  "file": "boundary__0098__02_iam.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/3/02_iam.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "7a992e4e60a443de425e9d7514449f1105a73ffda5496fae8940ff44de43b38a",
+  "bytes": 1578
+ },
+ {
+  "file": "boundary__0099__01_kms_domain_types.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/30/01_kms_domain_types.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "159e3f91ac4a728e6ac1b71038f18edb1a43ecfd23d1ddfd1cb5e58bbedcbeac",
+  "bytes": 2671
+ },
+ {
+  "file": "boundary__0100__02_kms_version.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/30/02_kms_version.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "fde2c4a508577b62d8bde67af9364a5b5b00bf4ef1d5240fc706b9b917587dbc",
+  "bytes": 1370
+ },
+ {
+  "file": "boundary__0101__03_kms_keys.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/30/03_kms_keys.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "4ce409d2a51bb8d808b8014b98ec01bab2571b1cea2c68d380a0e7a98c4aee13",
+  "bytes": 1286
+ },
+ {
+  "file": "boundary__0102__04_kms_keys.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/30/04_kms_keys.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "3df1c733adaa790ac42edf1741ab19ed18977277f2e26cb0c5f84a1824776282",
+  "bytes": 11180
+ },
+ {
+  "file": "boundary__0103__01_delete_termianted_sessions.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/31/01_delete_termianted_sessions.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "aa648165b3b1d9dc32921d6bdd4414b1d6151b62a0f971ee8e79ad3f44ef6fe6",
+  "bytes": 328
+ },
+ {
+  "file": "boundary__0104__02_session_list_no_connections.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/31/02_session_list_no_connections.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c38a80caf26f3fb88df8d2ec48afa21ffda4a7439798d7cddeaf9e7759c5b030",
+  "bytes": 778
+ },
+ {
+  "file": "boundary__0105__01_credential_type.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/32/01_credential_type.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "df0f1508e5ca9de93a76f2ec640eea3e012c91f765e5554e5e2ad46326fe2d93",
+  "bytes": 848
+ },
+ {
+  "file": "boundary__0106__01_static_credential.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/33/01_static_credential.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "6ad602c0fc20d126c439d7b7470f31c7d45be5e252d1349a2875377fcf386a60",
+  "bytes": 5298
+ },
+ {
+  "file": "boundary__0107__02_target.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/33/02_target.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c86904d18850ff8e801e90441483044e61ae6a7ad7e5bcc44d24cf10f33405b1",
+  "bytes": 3157
+ },
+ {
+  "file": "boundary__0108__03_session.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/33/03_session.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "90633edb806f01476e872f268570b46c0c419757050f3ee48a96c194d26244b0",
+  "bytes": 1370
+ },
+ {
+  "file": "boundary__0109__01_domain_types.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/34/01_domain_types.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "6af61ae851b4e414ecb2e6c5a7d39a9de7261da464b68780146ffbff9ff351de",
+  "bytes": 550
+ },
+ {
+  "file": "boundary__0110__02_worker_controller_tables.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/34/02_worker_controller_tables.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "58c559720f0c5f351b13c02d42843c40e8ff3f60b38c5b570e98943aa6f56cd0",
+  "bytes": 10202
+ },
+ {
+  "file": "boundary__0111__03_worker_authentication.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/34/03_worker_authentication.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "143eacb98623246103f61c8195aa5c9baedea1b7fb5b27cc54c68688d2e888d6",
+  "bytes": 6623
+ },
+ {
+  "file": "boundary__0112__04_views.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/34/04_views.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "87750716127ed0a0648da86a9c2fe87f2532f3d54229a7e47f2ef5a516e09bd6",
+  "bytes": 2638
+ },
+ {
+  "file": "boundary__0113__01_job_migrations.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/35/01_job_migrations.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "bf0cdb5fa65dc9f19ce0b32217a0904c1b2457b20d0726de87cf5db7f93c4d83",
+  "bytes": 1064
+ },
+ {
+  "file": "boundary__0114__02_cleanup.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/35/02_cleanup.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "cf3b2d2aff3dd85ce713840857ac89c0ff81848864dfb494816d6834c2974e2a",
+  "bytes": 2412
+ },
+ {
+  "file": "boundary__0115__01_vault_library_map_username_password.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/36/01_vault_library_map_username_password.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "190974ab9e19ae95cc5f26b71934342c59fbd182553f710a58e1a82206dc5b3f",
+  "bytes": 739
+ },
+ {
+  "file": "boundary__0116__02_vault_private_library.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/36/02_vault_private_library.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "382276762a1b927a610a4ba6c0e4f540f1fb41bd441b33f412fbcf2650507631",
+  "bytes": 3538
+ },
+ {
+  "file": "boundary__0117__01_set_unlimited_connections_limit.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/37/01_set_unlimited_connections_limit.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "e6123770c8921bbe3cb7d717e6cd94a0ea159bad06a30ddcae02adbe586e854b",
+  "bytes": 239
+ },
+ {
+  "file": "boundary__0118__06_kms_collection_version.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/38/06_kms_collection_version.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "7fa814ae20c29eb28a5a4822c155f11aa0d7a05079e1c62a8d7f640d51d410a2",
+  "bytes": 1115
+ },
+ {
+  "file": "boundary__0119__01_static_ssh_private_key_creds.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/39/01_static_ssh_private_key_creds.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "ebd3394b2f18c82111fe7975a82b4af3e6ac164b224980f7ef424b2b3b7317ca",
+  "bytes": 4005
+ },
+ {
+  "file": "boundary__0120__02_vault_ssh_private_key_override.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/39/02_vault_ssh_private_key_override.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "60920b934f4c0cae5e84bd3ab0ee13ca7827d164d4b3d3d4d6e6e51c0fdfa325",
+  "bytes": 5824
+ },
+ {
+  "file": "boundary__0121__01_iam.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/4/01_iam.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "a149ff78ae0d933c28c81b4104c9559f5a81c0a9580a5cd87a2c8ac858eca41d",
+  "bytes": 1355
+ },
+ {
+  "file": "boundary__0122__01_credential.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/40/01_credential.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "2bce94576f1d7ae6f6d3a046812a645591614177715e9d582f74f62f492da301",
+  "bytes": 2461
+ },
+ {
+  "file": "boundary__0123__02_wh_credential.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/40/02_wh_credential.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "f0cef333c99ed9ceb1b62c14a9d7dd9fd5c4ccbc1ec2a9f0c7a34e88b5009756",
+  "bytes": 430
+ },
+ {
+  "file": "boundary__0124__01_worker_filter_vault_cred_store.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/41/01_worker_filter_vault_cred_store.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "106ce85dc036911e4f900467be601f211e99cb70dd1b80a06479108482494036",
+  "bytes": 10995
+ },
+ {
+  "file": "boundary__0125__01_ssh_private_key_passphrase.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/42/01_ssh_private_key_passphrase.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "dde74eb7ccd6fd7c85f324a89860b49d22238ba69203123a973143a33d32e8a3",
+  "bytes": 5089
+ },
+ {
+  "file": "boundary__0126__01_session_credentials.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/43/01_session_credentials.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "cc49e90b15e1a8830871619616e2999a02ffa6b1b347a2787082cc9dc53e4c90",
+  "bytes": 1452
+ },
+ {
+  "file": "boundary__0127__01_credentials.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/44/01_credentials.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "78d1d36b1f673bd31d3ea6724a350bb4aa46f290c15cbb0902d8edb870b4a6b8",
+  "bytes": 13492
+ },
+ {
+  "file": "boundary__0128__02_hosts.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/44/02_hosts.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "b430a2fbedcc92d3b302eda956ca98b0e1daec07af9e3faee8b3dacd3980aeb6",
+  "bytes": 5416
+ },
+ {
+  "file": "boundary__0129__03_targets.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/44/03_targets.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "23b68a6d6f9e54281cf10fab5bac3781047137ab51a7817e2d2b9a48b2317428",
+  "bytes": 11705
+ },
+ {
+  "file": "boundary__0130__04_sessions.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/44/04_sessions.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "5c50445ce7abd6af1ef27f61d6c91b027ffd905ad7c313de2f0cfeddf40bfd43",
+  "bytes": 2946
+ },
+ {
+  "file": "boundary__0131__01_credentials.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/45/01_credentials.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "30524f3c66322f38c95cad2e2fdf0e98d2cf555cf64067575beadb4fcba401fe",
+  "bytes": 348
+ },
+ {
+  "file": "boundary__0132__02_hosts.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/45/02_hosts.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "f323e0a9e602078a5266d84b5d6d64bdd69f60da67c53ba2f88b4e90464333ec",
+  "bytes": 933
+ },
+ {
+  "file": "boundary__0133__03_targets.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/45/03_targets.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "a9422410036886eba6013c907d798b2ef0b62055891c0cd0822b5f3119a3f855",
+  "bytes": 655
+ },
+ {
+  "file": "boundary__0134__01_credentials.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/46/01_credentials.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "0a8acbaa7b440ed2438efe34cd27faecf3885cb4843896025a0ec85a3dd1ad0d",
+  "bytes": 7716
+ },
+ {
+  "file": "boundary__0135__02_hosts.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/46/02_hosts.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "a0ca4418b8a33491c412c5bb12e2a1cb3f035c3e8e32a881c0a625f7de4bf205",
+  "bytes": 3632
+ },
+ {
+  "file": "boundary__0136__03_targets.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/46/03_targets.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "5d384b0907fc65837c1dd018cee81dafd0c12478a5fe910df3e28d2937638716",
+  "bytes": 5039
+ },
+ {
+  "file": "boundary__0137__01_key_rewrap.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/47/01_key_rewrap.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "90605513d300f3751a4414afc5817a52b734c712fedcf86076343a87ce427848",
+  "bytes": 1140
+ },
+ {
+  "file": "boundary__0138__01_worker_auth_activation_token.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/48/01_worker_auth_activation_token.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "6aca813e2314f4a9bee74fc590ea43e324bf6597999e79911e0b85b8a6e82ea7",
+  "bytes": 1408
+ },
+ {
+  "file": "boundary__0139__01_vault_credentials.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/49/01_vault_credentials.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "9e670b4a11f29087462e50f7c0de98ba968b0e190ed1ee4f92569aebbdf444c4",
+  "bytes": 11874
+ },
+ {
+  "file": "boundary__0140__01_oidc.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/5/01_oidc.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "b3defb7e2d65b44d8d572ceb5629e8634c46e5c3c71436f593a665f910c3993a",
+  "bytes": 3727
+ },
+ {
+  "file": "boundary__0141__01_session_list_index.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/50/01_session_list_index.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "fa2b816fb20ebc3f73f6867776d131e9e43c4e2dadaa395e74e7b833b1128980",
+  "bytes": 629
+ },
+ {
+  "file": "boundary__0142__01_server_worker_release_version.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/51/01_server_worker_release_version.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "88f63ecc09389155d127cbbb82c3142879e9c9aa9f9f50a7aadbcf6e4f5576d0",
+  "bytes": 1934
+ },
+ {
+  "file": "boundary__0143__01_worker_operational_state.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/52/01_worker_operational_state.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "929c403ab62ec2c570453aa5ec2484f07b65b4ac31f4bf5d0b7529de1ad942ac",
+  "bytes": 2512
+ },
+ {
+  "file": "boundary__0144__01_roles.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/53/01_roles.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "30297ccab8fff66255656d7643106127000f99aae6a0333b3a8fe9d9d3276b89",
+  "bytes": 2294
+ },
+ {
+  "file": "boundary__0145__01_static_json_creds.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/54/01_static_json_creds.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "6042f30e54ba3261e2fb42ad98a6277c1a06e1fc942d4a87f6c8378fcaa76522",
+  "bytes": 2800
+ },
+ {
+  "file": "boundary__0146__02_session_defer.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/54/02_session_defer.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "b7ee00e68a010523ffbfa694b131d39194a1e256e28c4f695072c00a33945ae8",
+  "bytes": 677
+ },
+ {
+  "file": "boundary__0147__01_worker_auth_create_time.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/55/01_worker_auth_create_time.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "e16f92c53aef34f6f04d5acb3664bd2a622e911f222ee8fb1be40183f9283dcd",
+  "bytes": 6026
+ },
+ {
+  "file": "boundary__0148__01_oplog_key_id_scope_id_truncation.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/56/01_oplog_key_id_scope_id_truncation.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "a439965d27f6bac8821cba17aa8b0e98413177c9b1d165473622c9596bee2c98",
+  "bytes": 1327
+ },
+ {
+  "file": "boundary__0149__02_add_data_key_foreign_key_references.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/56/02_add_data_key_foreign_key_references.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "ecde412b3528f9d80addc6e6ed559ca8436c824ce18a771c25f9224163a8f6c7",
+  "bytes": 16026
+ },
+ {
+  "file": "boundary__0150__03_create_kms_key_destructions.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/56/03_create_kms_key_destructions.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "84d7bbe902e4d5a32d00ead7d2521c387abb402c037c655d03d97b457ae699a9",
+  "bytes": 5041
+ },
+ {
+  "file": "boundary__0151__04_mutable_root_key_version.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/56/04_mutable_root_key_version.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "38828a98c8f345e857624242c47a6cea5be0bafeb7a3e9935278a4d34a2874c3",
+  "bytes": 600
+ },
+ {
+  "file": "boundary__0152__05_mutable_ciphertext_columns.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/56/05_mutable_ciphertext_columns.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "92b657df76beabe9f11f90494ddf3f6141799aeca1e973b597fbfca2275a7293",
+  "bytes": 1887
+ },
+ {
+  "file": "boundary__0153__06_add_session_private_key_column.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/56/06_add_session_private_key_column.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "4e7cd4ea4fc7b31d4560e827bdee4969256cc7780cb463c8b575fef6433e5cf8",
+  "bytes": 1317
+ },
+ {
+  "file": "boundary__0154__01_auth.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/57/01_auth.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "e6ca31ffb74cec96b81532309580fb3d039f7db7b849a26ecfeade8304173f2d",
+  "bytes": 1242
+ },
+ {
+  "file": "boundary__0155__01_fix_comments.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/58/01_fix_comments.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "f761b84675829bfb78d875adc90edd9735ddefca6e3024302f671a324908563c",
+  "bytes": 1776
+ },
+ {
+  "file": "boundary__0156__01_target_ingress_egress_worker_filters.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/59/01_target_ingress_egress_worker_filters.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "5990a04207fb4170a7cce141f8a05cd24c592a3c6ae544cb6869df076450d549",
+  "bytes": 11349
+ },
+ {
+  "file": "boundary__0157__01_oidc.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/6/01_oidc.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "230a4e2c9f930b3bfb2e75fc39cbe9bd8ccf1519ac74aa883a4038859dbd4269",
+  "bytes": 4192
+ },
+ {
+  "file": "boundary__0158__01_targets.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/60/01_targets.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "548b4d5fbdb32874d40a651abf9898f46b1ba6ccfb31aeca7af81673eda8caf9",
+  "bytes": 1068
+ },
+ {
+  "file": "boundary__0159__02_sessions.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/60/02_sessions.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "35dd9da17a3689f2c183af6430121f95de2fedfcc608b901491d314c0f234375",
+  "bytes": 7664
+ },
+ {
+  "file": "boundary__0160__03_wh_sessions.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/60/03_wh_sessions.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "b379888b78ee68b71bab93caa61c3b94b8886739858c42d80b1640fcf9bf58d1",
+  "bytes": 20637
+ },
+ {
+  "file": "boundary__0161__01_fix_wh_upsert_credential_group.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/61/01_fix_wh_upsert_credential_group.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "23921fecf553fded5f505a1e324370956d5647ea20c98e128f8529d50a251cd4",
+  "bytes": 2993
+ },
+ {
+  "file": "boundary__0162__01_job_run_index.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/62/01_job_run_index.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "ebc74b10f539f078ca5676ac26c35e9654a7cfa6bf53bd7efb96c6cc9e905733",
+  "bytes": 476
+ },
+ {
+  "file": "boundary__0163__01_credential_vault_ssh_cert_library.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/63/01_credential_vault_ssh_cert_library.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c4edfa6d4ca5dabe495df91807b15a0e6ea49e516e52a3bcf6d8969641ee9709",
+  "bytes": 6706
+ },
+ {
+  "file": "boundary__0164__02_add_ssh_cert_to_vault_cred_library_view.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/63/02_add_ssh_cert_to_vault_cred_library_view.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "34b7c533aff79bbc84f34d1d060d35560ac9118dbf0864fd2bccebeec77ba9c7",
+  "bytes": 5754
+ },
+ {
+  "file": "boundary__0165__03_wh_ssh_cert_library.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/63/03_wh_ssh_cert_library.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "ec6e5cab98cdb287fbf6b04f61d8d1e00fd788c47ded28fe25afd80dc84cf5fe",
+  "bytes": 14928
+ },
+ {
+  "file": "boundary__0166__01_ssh_targets.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/64/01_ssh_targets.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "2fc2dc07031d4e676d5ff800aa73a94e3c450f794206dbcd24d5904a6b729314",
+  "bytes": 19107
+ },
+ {
+  "file": "boundary__0167__02_hcp_billing_hourly.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/64/02_hcp_billing_hourly.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "01c4b45fc1c34090d72d870b022d58ab782cbd8992c6d6f4b9d3ff9c057c8192",
+  "bytes": 7327
+ },
+ {
+  "file": "boundary__0168__03_hcp_billing_monthly.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/64/03_hcp_billing_monthly.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "e08107a688912846d99a6ac10b5c708044918e529aafcbeafc8894c434331ed2",
+  "bytes": 4984
+ },
+ {
+  "file": "boundary__0169__04_session_list.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/64/04_session_list.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "1493881946fb57635fb6af9524088d211d507af54436784d5206cbbea9d86d47",
+  "bytes": 1132
+ },
+ {
+  "file": "boundary__0170__01_ldap.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/65/01_ldap.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "63388a5d86fc95f63637e88a0a0eb22a51c48055aa2469e387164894983d657d",
+  "bytes": 27212
+ },
+ {
+  "file": "boundary__0171__02_wh_user_dimension_ldap.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/65/02_wh_user_dimension_ldap.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "fc7cc7046a931c4be73688c882052d67732abf8fa58ed503d469b4dd3c4b1aba",
+  "bytes": 5346
+ },
+ {
+  "file": "boundary__0172__01_add_set_once_columns.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/66/01_add_set_once_columns.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "82313516c682709d60b667ebb0cf37770fbfa9570ceabf47d444fc7557f4686f",
+  "bytes": 952
+ },
+ {
+  "file": "boundary__0173__02_use_set_once_columns.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/66/02_use_set_once_columns.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "6b19dca087d09a839af1ad22597a9e5523cb99dde5c7a36b286917fa8f435ab9",
+  "bytes": 387
+ },
+ {
+  "file": "boundary__0174__01_plugin_host_external_name.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/67/01_plugin_host_external_name.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c35f4ce3f4281f606e842ae3f42fd82ef6518c5768bbee49509eb5a13d175fe6",
+  "bytes": 2209
+ },
+ {
+  "file": "boundary__0175__01_target_default_client_port.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/68/01_target_default_client_port.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "9e9093508b30eb47c345626a4790563d0f5fa8db0aebb4aa3b462ba09d8604ec",
+  "bytes": 1025
+ },
+ {
+  "file": "boundary__0176__01_rename_constraints.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/69/01_rename_constraints.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "4a00a7afc3e76b468f97c515d79a6d82c3f5e7901fca65a3aaa590f27f2afc99",
+  "bytes": 4466
+ },
+ {
+  "file": "boundary__0177__02_session_worker_protocol.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/69/02_session_worker_protocol.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "0de53bd7e22ce888aac29f74ac6aca19e9d211f5d78a010873cf2172a8675e71",
+  "bytes": 1737
+ },
+ {
+  "file": "boundary__0178__01_functions.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/7/01_functions.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "49a43b6958ee750be6524d5ac356c9fe8177477d826e5a64d01bb107da06804f",
+  "bytes": 917
+ },
+ {
+  "file": "boundary__0179__02_plugin.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/7/02_plugin.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "8073759f575282b1f258be363feb456cac44a9ed265f417d1722811366ab6b56",
+  "bytes": 1212
+ },
+ {
+  "file": "boundary__0180__03_job.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/7/03_job.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c19b830eee52fae0a3c68c438e6ba51e56bdd70df964e341142575ea569717a4",
+  "bytes": 4032
+ },
+ {
+  "file": "boundary__0181__01_hcp_billing_daily.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/70/01_hcp_billing_daily.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "554f68962d5814f04d104a2fe0d842de8a8b9954b42d3af00329cf50a3f7e738",
+  "bytes": 3353
+ },
+ {
+  "file": "boundary__0182__02_hcp_billing_hourly.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/70/02_hcp_billing_hourly.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "5e440625218fdd803740f691de0bbb44ca6e022e80b7f1005dcf3fd2d359eb3f",
+  "bytes": 1455
+ },
+ {
+  "file": "boundary__0183__03_hcp_billing_monthly.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/70/03_hcp_billing_monthly.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "f99f75bc5c1fe54a3e86a2bc6f3dab8f60ea9db7adf069395ccb234c58a3cac2",
+  "bytes": 4316
+ },
+ {
+  "file": "boundary__0184__01_add_session_connection_uq.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/01_add_session_connection_uq.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c37f2cc1ff65d0b38d899ca848c412fca9efaf9444bb409f4b84853333c265ed",
+  "bytes": 352
+ },
+ {
+  "file": "boundary__0185__02_plugins_restructure.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/02_plugins_restructure.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "9083354125b1a937eeee0239db549f8a76db537c260261e581233671b49c376e",
+  "bytes": 2272
+ },
+ {
+  "file": "boundary__0186__03_storage_bucket.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/03_storage_bucket.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "b95242344f09b50b67125a839d29bca49c2ea418023a1715d150477c52753a28",
+  "bytes": 4778
+ },
+ {
+  "file": "boundary__0187__04_history_domain.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/04_history_domain.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "597875d27d5de1f6cfd7be9d43aa0008351c583d36bffe2087a9adc6c021a1f3",
+  "bytes": 2744
+ },
+ {
+  "file": "boundary__0188__05_history_triggers.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/05_history_triggers.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c284e450155b00377efb6bafe94e01899c5d4db19fa732308f0ea414e697021c",
+  "bytes": 4573
+ },
+ {
+  "file": "boundary__0189__06_iam_history.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/06_iam_history.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "9acf31d64fc8df13e2aa94a33e26627883d811888fa82471d05e8582d1f9297f",
+  "bytes": 2614
+ },
+ {
+  "file": "boundary__0190__07_targets.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/07_targets.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "d2dbf26b3661b679943b8e8ef1d09b6831f83e41f6fe3b722c1da1a03dc2c6ea",
+  "bytes": 18514
+ },
+ {
+  "file": "boundary__0191__08_target_history.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/08_target_history.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "0376534185de1c21e1bffe01d9e9f1fa0916a6b49daf8fcbdfb69ee7051046ba",
+  "bytes": 2175
+ },
+ {
+  "file": "boundary__0192__09_host_catalog_history.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/09_host_catalog_history.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "f8e66bdf8c514c79bcde648cffb51220886ed6c26a66013314ec950a71e7ce77",
+  "bytes": 5534
+ },
+ {
+  "file": "boundary__0193__10_host_history.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/10_host_history.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "1fba7b469b4f30a9a5a65bf4a74b0e035f12660f63db6380d8052896894353d8",
+  "bytes": 5180
+ },
+ {
+  "file": "boundary__0194__11_session_recording.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/11_session_recording.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "33630f48a0e3933b14358c2150f107bd4f8a6f4ad55c4960d3830d92183f5fce",
+  "bytes": 27991
+ },
+ {
+  "file": "boundary__0195__12_session_recording_views.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/12_session_recording_views.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "d36231a5d620a5b3d57d8fba8a54623c46feba4d9bfa89898e5bac1397136254",
+  "bytes": 4949
+ },
+ {
+  "file": "boundary__0196__13_static_credential_history.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/13_static_credential_history.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "73c7b39c7ed7cc9abbf41826008cce0ab47d6deec6f7db44fdd3c4a73384940e",
+  "bytes": 9193
+ },
+ {
+  "file": "boundary__0197__14_recording_static_credential.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/14_recording_static_credential.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "422e4ca48a13517f078be26c18e9dca875237bc592b583b1ef202e6a17078bd3",
+  "bytes": 3906
+ },
+ {
+  "file": "boundary__0198__15_dynamic_credential_history.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/15_dynamic_credential_history.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "33a63926e9fe5b9d9d3264cf1d4585d5accdfd651ee9024e667b1e7d6282aa34",
+  "bytes": 7786
+ },
+ {
+  "file": "boundary__0199__16_recording_dynamic_credential.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/16_recording_dynamic_credential.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "d397e05642999c8f1e9d45d9dfa4012256710763ad1024c898c5c5c4299b9330",
+  "bytes": 3763
+ },
+ {
+  "file": "boundary__0200__17_credential_history_views.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/71/17_credential_history_views.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "1cfb722a61638514c415db36103303a026c1e163075c0d8cfb49ecd69b67a62f",
+  "bytes": 5535
+ },
+ {
+  "file": "boundary__0201__01_census.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/72/01_census.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "285ea2f0092f1884ce55c68f9d6300963fe19ee6c6da2a9d72b2bc71670c6938",
+  "bytes": 757
+ },
+ {
+  "file": "boundary__0202__02_session_connection_index.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/72/02_session_connection_index.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "a6cf6df1dd63fd50311e8319fe884c18fcd709c3b683b9c6de8684c06209185a",
+  "bytes": 227
+ },
+ {
+  "file": "boundary__0203__03_session_list_perf_fix.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/72/03_session_list_perf_fix.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "6427c282bc8c5f4e2db7d7cacba83e51618e4a0945611556fd217a175e5cf57c",
+  "bytes": 1312
+ },
+ {
+  "file": "boundary__0204__01_census_logging.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/73/01_census_logging.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "87ad9332f2920b0fd822fddd24bcf353cd515855857920eb65125672dff49487",
+  "bytes": 710
+ },
+ {
+  "file": "boundary__0205__01_hcp_update_sessions_function.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/74/01_hcp_update_sessions_function.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "cdac4b835ddf79cc71cb6bb25c251b9fa2b01357072efa00958161bdead6e4b4",
+  "bytes": 3160
+ },
+ {
+  "file": "boundary__0206__01_storage_bucket.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/75/01_storage_bucket.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c5181b641007459889e40c689f3df992d5b8379b38cd467a236556e6fe8b667d",
+  "bytes": 1182
+ },
+ {
+  "file": "boundary__0207__01_ldap.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/76/01_ldap.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "7de1a5519069a48e7ac402cb93d4427ec72cf77f6814dfdd171e93b506984b98",
+  "bytes": 5757
+ },
+ {
+  "file": "boundary__0208__01_kms_oplog_schema_version.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/77/01_kms_oplog_schema_version.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "eda4da66f3c211470a24c159dde73f509dfd6214e27f632b407d0f2b7cf7e9de",
+  "bytes": 1042
+ },
+ {
+  "file": "boundary__0209__02_kms_oplog_collection_version.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/77/02_kms_oplog_collection_version.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "fb553a9f34337093ac2cdb89d8adb9a78ac6e629cb7371dd0421287f2d6b8c82",
+  "bytes": 1046
+ },
+ {
+  "file": "boundary__0210__03_kms_oplog.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/77/03_kms_oplog.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "f5af6d83cd6d6418eb32866de79f1d3ca474e3edb934d6466088933780907621",
+  "bytes": 6838
+ },
+ {
+  "file": "boundary__0211__04_alter_oplog_entry.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/77/04_alter_oplog_entry.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "aa989da3147b099027e3485c9df379742b210acf8aead87b50764201829f99b5",
+  "bytes": 1248
+ },
+ {
+  "file": "boundary__0212__01_ssh_signed_certs_additional_valid_principals.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/78/01_ssh_signed_certs_additional_valid_principals.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "a66590caf2f3c6c49732ab8900dfab9bed7594081b87f9cced41b9d3ac5870da",
+  "bytes": 6111
+ },
+ {
+  "file": "boundary__0213__01_auth_oidc_prompt.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/79/01_auth_oidc_prompt.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "b8662d29f53651dbbf3eab78eb383d990963f931eeb493a25dc0e3411388416e",
+  "bytes": 4403
+ },
+ {
+  "file": "boundary__0214__01_connection.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/8/01_connection.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c7994460b980e8c1ffad376404ac3a60579a04ca449b50e78568d312a2d53015",
+  "bytes": 736
+ },
+ {
+  "file": "boundary__0215__01_storage_bucket.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/80/01_storage_bucket.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "8db16433d7188cd854c5b8576ab5bc735a37421f65d244dc91fa87130ae669c9",
+  "bytes": 368
+ },
+ {
+  "file": "boundary__0216__01_deleted_tables_and_triggers.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/01_deleted_tables_and_triggers.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c13beeb99534282e01bcec836a1c9e9de25df4f13b1736ac974b98d24d6ee28d",
+  "bytes": 14926
+ },
+ {
+  "file": "boundary__0217__02_target_base_table_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/02_target_base_table_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "0eaf3ef3796101aff41b8dc6bad4a084b54cfa807d97b2035cad9f0955192e5d",
+  "bytes": 1772
+ },
+ {
+  "file": "boundary__0218__03_credential_static_base_table_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/03_credential_static_base_table_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "095cae2232b03250bf23f982a812c883a6df78784709b3fb0f29ed7c73ea96ac",
+  "bytes": 3299
+ },
+ {
+  "file": "boundary__0219__04_credential_library_base_table_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/04_credential_library_base_table_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "1b88d8264b17a6113e95f1d42e194e6a86f9304a56660a1519b04ce97e89d09e",
+  "bytes": 3009
+ },
+ {
+  "file": "boundary__0220__05_session_base_table_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/05_session_base_table_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "85ceeeff18f0fbb357a59fc975425d61605c16ce47ae9b874de16aea0605b117",
+  "bytes": 1373
+ },
+ {
+  "file": "boundary__0221__06_auth_token_base_table_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/06_auth_token_base_table_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "1697e5eab5f85d8e5ed36e62eec8cb6d29ec354f339b24b8e301bedc4a92722d",
+  "bytes": 408
+ },
+ {
+  "file": "boundary__0222__07_credential_store_base_table_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/07_credential_store_base_table_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "8caff2b752aa481ecbbd36841aade01162a49221ee565aadd4281e20956b8044",
+  "bytes": 2740
+ },
+ {
+  "file": "boundary__0223__08_iam_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/08_iam_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "814dfd9d96fb4b53f8f868bedaa4cc81a5a6b3b3a6ecb81581bbbded4d8cdcf3",
+  "bytes": 1111
+ },
+ {
+  "file": "boundary__0224__09_host_table_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/09_host_table_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "bf715a16a03048cec25c6e3f1d200174f2fcbfe87c641a9274c7e6f1d925e0fc",
+  "bytes": 849
+ },
+ {
+  "file": "boundary__0225__10_host_set_table_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/10_host_set_table_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "10c5b37d329c83e6382afe5b8839f20718771f13af7612fb61e197847ad21f8d",
+  "bytes": 772
+ },
+ {
+  "file": "boundary__0226__11_auth_method_base_table_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/11_auth_method_base_table_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "8d7ce182d7be69e5005cde0058d6d85a9737b77e2ab435ad364707261fb17739",
+  "bytes": 6969
+ },
+ {
+  "file": "boundary__0227__12_host_catalog_base_table_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/12_host_catalog_base_table_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "7fb40969da4e90f25161a9f5b4ce406faf98fcc5e1d89e6577c89b08a6915939",
+  "bytes": 2647
+ },
+ {
+  "file": "boundary__0228__13_recording_session_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/13_recording_session_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c03db86bf1b13be46ca0f673de6e0107345bd2fd171337994efbda34ae07d9fd",
+  "bytes": 443
+ },
+ {
+  "file": "boundary__0229__14_account_table_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/14_account_table_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "2f9a68f634bfb0e6d07228f5f5e956234c1d9df5fb7e5cac6bae51ec022b7ec4",
+  "bytes": 1159
+ },
+ {
+  "file": "boundary__0230__15_managed_group_table_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/15_managed_group_table_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "a74a5877f2861faab6c2ef97eb51b303e45352a29e11aff0a147d9f5277a4f9b",
+  "bytes": 850
+ },
+ {
+  "file": "boundary__0231__16_storage_bucket_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/81/16_storage_bucket_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "21e12301f138e5e3da05c8ecfeb85854d8078501d046942ac8fabb0a759546a9",
+  "bytes": 503
+ },
+ {
+  "file": "boundary__0232__01_storage_policies.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/82/01_storage_policies.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "1c50b1030cc405b40ec5e4913d9064eb6d0c05ee6bb1330747f89e60a9e19484",
+  "bytes": 7076
+ },
+ {
+  "file": "boundary__0233__02_recording_session.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/82/02_recording_session.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "57d676889a8b6e6aaa24b4482caaa851721327e3cc4aeef1106abbdcdcf11b4b",
+  "bytes": 8764
+ },
+ {
+  "file": "boundary__0234__03_storage_policy_updates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/82/03_storage_policy_updates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "5ff6607d18626dcc0f5dcbde4fade89b4819c1480a4421b87e80fff9cfecaa0b",
+  "bytes": 1103
+ },
+ {
+  "file": "boundary__0235__04_find_session_recordings_for_delete.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/82/04_find_session_recordings_for_delete.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "597683dab700f4d80f3dd8901146da706f61e4d0156f212f14af433208a6e81a",
+  "bytes": 1779
+ },
+ {
+  "file": "boundary__0236__05_storage_policy_override.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/82/05_storage_policy_override.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c18d9c817507e3135870b47cfb71779ecc8b6af0c2a76000e9bb585e22b43198",
+  "bytes": 265
+ },
+ {
+  "file": "boundary__0237__06_storage_policy_max_days.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/82/06_storage_policy_max_days.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "7aa180efb64bd40f7bee0fcf71596e38d3a114dff20cbd48f972e37cd85450b4",
+  "bytes": 329
+ },
+ {
+  "file": "boundary__0238__01_iam_role_grant_scope.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/83/01_iam_role_grant_scope.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c5b08b071f104f9263502d63361e81489ae3aec9d69becbff919fe9f9337bdb8",
+  "bytes": 9586
+ },
+ {
+  "file": "boundary__0239__01_wh_auth_token.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/84/01_wh_auth_token.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "da5063e7620140bbc0b6de211cf1afde43931b377e4c8245f6b3618e6f98a18f",
+  "bytes": 4201
+ },
+ {
+  "file": "boundary__0240__02_wh_upsert_user_refact.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/84/02_wh_upsert_user_refact.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "bfca1388bef1c7ec4a5b4ef70ab0c6d111936c056aaa0d04ccda5b9a6a4baf48",
+  "bytes": 4351
+ },
+ {
+  "file": "boundary__0241__03_auth_token_issued.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/84/03_auth_token_issued.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "ba2371c9b47fc737ec46fec6f164b0d1ed36d646beb0a8900b2962c901530f07",
+  "bytes": 599
+ },
+ {
+  "file": "boundary__0242__04_wh_auth_token_insert.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/84/04_wh_auth_token_insert.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "70cf79eb7d087c338bad57fc03cdd8fc9e3f5ac1f33bf89288a19a3fbbf194e2",
+  "bytes": 1996
+ },
+ {
+  "file": "boundary__0243__05_wh_auth_token_update.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/84/05_wh_auth_token_update.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "4434c6fd2de9a0181fc5e14dc08ff481256c58dadc18cd782dfd3b51dad92547",
+  "bytes": 1629
+ },
+ {
+  "file": "boundary__0244__06_wh_auth_token_delete.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/84/06_wh_auth_token_delete.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "843a99531069fc36eb4cb57457370e580771ac46b09e2b802dfe7f805a1ee061",
+  "bytes": 1155
+ },
+ {
+  "file": "boundary__0245__07_vault_ssh_cert_default.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/84/07_vault_ssh_cert_default.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "1def0923413e9d49a9aba38096bdf527083a9ab5b6616b1f9235aa4fcdc89cae",
+  "bytes": 951
+ },
+ {
+  "file": "boundary__0246__08_hcp_user_billing_view.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/84/08_hcp_user_billing_view.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "d5ee4ae4accc5f2ea991311f50ca739400030dd1af1604fbea4fe63f69e059f5",
+  "bytes": 5486
+ },
+ {
+  "file": "boundary__0247__09_cenus_add_metric.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/84/09_cenus_add_metric.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "f58f9735ba7c14041e9fd66f2241afb886a0db57d775d9b8bd1df90feaca13fd",
+  "bytes": 1587
+ },
+ {
+  "file": "boundary__0248__01_citext_extension.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/85/01_citext_extension.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "2ba98302c97fbaec4d4a0c4e49bf7ef244e8c25a4ab1e2bb1e041eb7054975d9",
+  "bytes": 284
+ },
+ {
+  "file": "boundary__0249__02_alias_domain.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/85/02_alias_domain.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "bc00d7a078a483d3fedf656224e4c01c861063db9bebae9fcc414b0f0bb2f43b",
+  "bytes": 2387
+ },
+ {
+  "file": "boundary__0250__03_alias_base_table.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/85/03_alias_base_table.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "6dd8c22fd69a3298cf4b0e199939f01475ecae96912375b6d7082d4bd7b227ab",
+  "bytes": 2307
+ },
+ {
+  "file": "boundary__0251__04_alias_target.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/85/04_alias_target.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "17c6409d50df1c45f12cb18a67a9306559ca9dcad0b6fcb4e3a4fec36e007a44",
+  "bytes": 4127
+ },
+ {
+  "file": "boundary__0252__05_alias_view.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/85/05_alias_view.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "494461f5df771497349380ce1d5ddb965b8377a2061a049ff70003db171bfb78",
+  "bytes": 332
+ },
+ {
+  "file": "boundary__0253__01_server_worker_local_storage_state.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/86/01_server_worker_local_storage_state.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "0592827f00b42136f0a5c839323a4e11361bec5ab5af3efeb0f92a2278c8d826",
+  "bytes": 2660
+ },
+ {
+  "file": "boundary__0254__01_session.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/87/01_session.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "d2a083bb2e1b3b8b9fceba798083e26eb0911a228836e6e5aa8f91a7a90f4ee1",
+  "bytes": 3524
+ },
+ {
+  "file": "boundary__0255__01_storage_bucket_credential.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/88/01_storage_bucket_credential.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "91db7676ee7f05bf29985a7baca6c31da4210099563164b451dccf76ef96daf5",
+  "bytes": 9546
+ },
+ {
+  "file": "boundary__0256__02_worker_storage_bucket_credential_state.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/88/02_worker_storage_bucket_credential_state.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "4e8c536c5af7318197dee937e2c7c4a5bb268ef9fcc1212fba603e984252be55",
+  "bytes": 2724
+ },
+ {
+  "file": "boundary__0257__03_update_storage_bucket_credentials.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/88/03_update_storage_bucket_credentials.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "09528935824145ce4ace6cc5380aec7f59cc3a187eb50d63a2650bc9a719d037",
+  "bytes": 1019
+ },
+ {
+  "file": "boundary__0258__01_remove_session_connection_state.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/89/01_remove_session_connection_state.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "54d12a900450b8d31e32ae55132652b385196396d7710245bb595775fa91b3bb",
+  "bytes": 10468
+ },
+ {
+  "file": "boundary__0259__01_managed_groups.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/9/01_managed_groups.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "b5614a99ef5ff82356be8ae49223e1acfc42b301a111331a7a1198e773a963a0",
+  "bytes": 1759
+ },
+ {
+  "file": "boundary__0260__02_oidc_managed_group.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/9/02_oidc_managed_group.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "9ef7fbe2f9a150cb8581a0d2ea97b5a9e9aba49efc98699e1956701333bb16d6",
+  "bytes": 2610
+ },
+ {
+  "file": "boundary__0261__03_oidc_managed_group_member.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/9/03_oidc_managed_group_member.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "2b3ccec5cf62fa754207f333b1c39275cd8113b03bab4348dcf67ec0b122b922",
+  "bytes": 1803
+ },
+ {
+  "file": "boundary__0262__04_oidc_managed_group_principal_role.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/9/04_oidc_managed_group_principal_role.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "fb1323dc2848b98f813528ab6b523dabff1c50ccb556fb0cd8a03fb44c8a91e3",
+  "bytes": 2426
+ },
+ {
+  "file": "boundary__0263__01_drop_kms_rewrapping_table.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/90/01_drop_kms_rewrapping_table.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "c0ba71d2865022fc51923caaf81ca9983d201b731f5ccd39dbdcba20d4c862f4",
+  "bytes": 481
+ },
+ {
+  "file": "boundary__0264__01_storage_policies.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/91/01_storage_policies.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "7041ade9f3e9f2a998e06eb5f83aad0a1f61b237ad030cd097963ced984e81a9",
+  "bytes": 753
+ },
+ {
+  "file": "boundary__0265__02_indexes_fk_delete.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/91/02_indexes_fk_delete.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "be03fd8aa7e90522a2609f020f9c344e90db9e533b4a4a20a8ba1632e3f8450c",
+  "bytes": 1888
+ },
+ {
+  "file": "boundary__0266__03_indexes_grants_query.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/91/03_indexes_grants_query.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "f3df600909e3f511303d02efae7cb00edb4939c3f7d67c1cf7801273648852cc",
+  "bytes": 1385
+ },
+ {
+  "file": "boundary__0267__04_insert_session_delete_on_statement.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/91/04_insert_session_delete_on_statement.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "862cc6f2d52ba0f365a94435bdec8356e747c2c95802ca6773af4116b7777efd",
+  "bytes": 939
+ },
+ {
+  "file": "boundary__0268__05_deletion_tables_view.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/91/05_deletion_tables_view.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "243a81e8bccb5424cfc6e683ec2f308dd4d3cdfae4fe09dc3e5b54cbbe929378",
+  "bytes": 797
+ },
+ {
+  "file": "boundary__0269__01_host_plugin_catalog_worker_filter.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/92/01_host_plugin_catalog_worker_filter.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "16071a20bb05ee9d2c4e3dcd01ee7a68a4f8ce2f30c9c7465513a2fb59c2e891",
+  "bytes": 6369
+ },
+ {
+  "file": "boundary__0270__02_session_state_tstzrange.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/92/02_session_state_tstzrange.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "490295102251d2d7f67dca7e73cf102f3e9b6e270113a7320bf1cd2a3f59f5e5",
+  "bytes": 6836
+ },
+ {
+  "file": "boundary__0271__03_cancel_session_trigger.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/92/03_cancel_session_trigger.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "ebf450c5c04aabe3ec395e25cb6a76419f66be2f3c9f2fe4be1852d61a42bca9",
+  "bytes": 756
+ },
+ {
+  "file": "boundary__0272__04_add_column_to_job_run.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/92/04_add_column_to_job_run.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "d7903c3f03528930f0fcbe3ba8e1f0e753bed72a1e0e255bba11687a6e808232",
+  "bytes": 264
+ },
+ {
+  "file": "boundary__0273__05_delete_terminated_session_job.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/92/05_delete_terminated_session_job.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "f5cfea360af6d7c5041f45cdfbf2072b7ff220406850401df8b53b9235522417",
+  "bytes": 1314
+ },
+ {
+  "file": "boundary__0274__01_job_run_clean.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/93/01_job_run_clean.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "cdf83fd91a646137f251f9acdeed501637c1a746cdec73d9b8d6cdaee07de5d6",
+  "bytes": 1542
+ },
+ {
+  "file": "boundary__0275__02_drop_job_jobs_to_run.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/93/02_drop_job_jobs_to_run.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "2de996489c9105bc5ff82352b6ff0d347b6e9996c0a95d5aa233741375d1f6db",
+  "bytes": 277
+ },
+ {
+  "file": "boundary__0276__01_split_worker_tag_table.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/94/01_split_worker_tag_table.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "321276f9a7f034fd9e1c761e951b4196423e2096438ec813970078dacf5bb0db",
+  "bytes": 1844
+ },
+ {
+  "file": "boundary__0277__01_server_worker_session_info.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/95/01_server_worker_session_info.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "a68c995e99b40ce970a05a893d0ee2c743948c73fb69a75626587acb22a9d881",
+  "bytes": 586
+ },
+ {
+  "file": "boundary__0278__01_update_wt_alias_constraints.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/96/01_update_wt_alias_constraints.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "bac7c639e17ca2cf94b364f85f91bdcf0f795bf6d1be1e470a9054e76988e4e2",
+  "bytes": 839
+ },
+ {
+  "file": "boundary__0279__01_iam_role_tables.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/97/01_iam_role_tables.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "8c3cd1d00cbefb2ae48e87306fec0b3759623740f315be39f7aa0f1d3039e508",
+  "bytes": 11623
+ },
+ {
+  "file": "boundary__0280__02_iam_role_functions.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/97/02_iam_role_functions.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "e9236c42951510ee266d840340d3c2d3807a8d7be9d0547c43ffe75f470a9082",
+  "bytes": 5169
+ },
+ {
+  "file": "boundary__0281__03_iam_role_data_migration.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/97/03_iam_role_data_migration.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "bc95580b5cdf9256077ebe5babaf35d8a7af7ed95d05bc7654e0f51ee1833573",
+  "bytes": 13192
+ },
+ {
+  "file": "boundary__0282__04_iam_role_triggers.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/97/04_iam_role_triggers.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "a456282f3d4307d741271c4ccac7ecce5fd8fec8fdbb561906322f3b5fc7e15e",
+  "bytes": 6379
+ },
+ {
+  "file": "boundary__0283__05_table_cleanup.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/97/05_table_cleanup.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "32649ca9dc0c202d48edfc0248094a3ab6017c7deafb9e04e0c27323532dd893",
+  "bytes": 1154
+ },
+ {
+  "file": "boundary__0284__01_credential_static_username_password_domain_credential.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/98/01_credential_static_username_password_domain_credential.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "06afda6b4a2d100cc64ed7459c152a709db49ab4a63b289c9c4ded3bea5801de",
+  "bytes": 11134
+ },
+ {
+  "file": "boundary__0285__02_username_password_domain_vault.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/98/02_username_password_domain_vault.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "ba848f77bbf272a101b065f794b2517a0c2568a6ecc9852d4919201000971037",
+  "bytes": 11644
+ },
+ {
+  "file": "boundary__0286__03_target_history_base.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/98/03_target_history_base.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "6ee58cfaeb3c3d8c35d92b0ad25dc35bd9aeadb858affa10cccb0254f3b1bb10",
+  "bytes": 2400
+ },
+ {
+  "file": "boundary__0287__04_rdp_targets.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/98/04_rdp_targets.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "2ec2b6d7305b31256c00a5d8fa16e268630b32a7f19060c10f85dbf8862abba8",
+  "bytes": 23068
+ },
+ {
+  "file": "boundary__0288__05_alias_target_constraint.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/98/05_alias_target_constraint.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "560929dab27c64a7efd285cffc56758d0eb3e9c073511508c0382e78a4d14e5e",
+  "bytes": 305
+ },
+ {
+  "file": "boundary__0289__06_target_credential_injection_certificates.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/98/06_target_credential_injection_certificates.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "8b9adbec247c8970f7b86404751fb30a953662bd7cc6d2dcd3b651fc0ea8b165",
+  "bytes": 6547
+ },
+ {
+  "file": "boundary__0290__01_credential_vault_library_refactor.up.sql",
+  "original_path": "internal/db/schema/migrations/oss/postgres/99/01_credential_vault_library_refactor.up.sql",
+  "repo": "https://github.com/hashicorp/boundary",
+  "sha256": "d9a6f3b019c6ae1ae22eba04c66f6446035d74cf352a6ab181a2e0ce2bd08f8f",
+  "bytes": 43568
+ }
+]

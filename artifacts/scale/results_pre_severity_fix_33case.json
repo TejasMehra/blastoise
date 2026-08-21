@@ -1,0 +1,6266 @@
+{
+ "heap_bytes": {
+  "t_1k": 311296,
+  "t_100k": 31424512,
+  "t_1m": 314998784,
+  "t_10m": 3150692352
+ },
+ "results": [
+  {
+   "case": "add_column_bare",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ADD COLUMN worker_filter text",
+   "source": "boundary__0027__01_server_tags_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "proven",
+    "rationale": "add_column is catalog-only but takes a read-and-write-blocking lock on t_1k; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "proven"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 30,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_attribute:RowExclusiveLock",
+     "pg_attribute_relid_attnam_index:RowExclusiveLock",
+     "pg_attribute_relid_attnum_index:RowExclusiveLock",
+     "pg_class:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_default_const",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ADD COLUMN purpose text NOT NULL DEFAULT 'recovery'",
+   "source": "boundary__0056__01_nonce.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "add_column_default_nonvolatile is catalog-only but takes a read-and-write-blocking lock on t_1k; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_default_nonvolatile",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: type 'text' is not a domain \u2014 the fast default path applies (value stored in attmissingval, no rewrite)"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 35,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock",
+     "pg_depend_depender_index:RowExclusiveLock",
+     "pg_depend_reference_index:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_fk_not_valid",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ADD CONSTRAINT t_1k_account_fk2 FOREIGN KEY (account_id) REFERENCES accounts(id) NOT VALID",
+   "source": "coder__0385__000385_aibridge_fks.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "proven",
+    "rationale": "add_foreign_key_not_valid is catalog-only; writers stall only briefly",
+    "conditions": [],
+    "statement_lock_mode": "SHARE ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_foreign_key_not_valid",
+      "lock_mode": "SHARE ROW EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "proven"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 20,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareRowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE ROW EXCLUSIVE",
+    "other_locks": [
+     "accounts:ShareRowExclusiveLock",
+     "pg_constraint:RowExclusiveLock",
+     "pg_constraint_conname_nsp_index:RowExclusiveLock",
+     "pg_constraint_conparentid_index:RowExclusiveLock",
+     "pg_constraint_conrelid_contypid_conname_index:RowExclusiveLock",
+     "pg_constraint_contypid_index:RowExclusiveLock",
+     "pg_constraint_oid_index:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_varchar_widen",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ALTER COLUMN status TYPE varchar(64)",
+   "source": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "alter_column_type is catalog-only but takes a read-and-write-blocking lock on t_1k; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: no table rewrite \u2014 varchar: the typmod change is non-lossy, so the coercion simplifies to a no-op"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 41,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16471:AccessExclusiveLock",
+     "pg_depend:RowExclusiveLock",
+     "pg_index:RowExclusiveLock",
+     "pg_index_indexrelid_index:RowExclusiveLock",
+     "pg_index_indrelid_index:RowExclusiveLock",
+     "pg_inherits:RowExclusiveLock",
+     "t_1k_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_varchar_text",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ALTER COLUMN title TYPE text",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "alter_column_type is catalog-only but takes a read-and-write-blocking lock on t_1k; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: no table rewrite \u2014 binary coercible (pg_cast.castmethod = 'b' on the connected server) and the target carries no typmod: a pure relabel"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 0,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_numeric_widen",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ALTER COLUMN amount TYPE numeric(14,2)",
+   "source": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "alter_column_type is catalog-only but takes a read-and-write-blocking lock on t_1k; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: no table rewrite \u2014 numeric: the typmod change is non-lossy, so the coercion simplifies to a no-op"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 1,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_ts_tstz",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ALTER COLUMN updated_at TYPE timestamptz",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "alter_column_type blocks reads and writes for an estimated 10ms (at most ~80ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 80,
+      "confidence": "low",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: conditional rewrite \u2014 binary compatible when the migration session runs with TimeZone=UTC; any other zone rewrites (the server's configured TimeZone is in ServerFacts.timezone as evidence, but t"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 2,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "set_not_null_proving_check",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ALTER COLUMN body SET NOT NULL",
+   "source": "boundary__0134__01_credentials.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "set_not_null is catalog-only but takes a read-and-write-blocking lock on t_1k; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "set_not_null",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: valid constraint 't_1k_body_check' already proves 'body' NOT NULL \u2014 the verification scan is skipped (NotNullImpliedByRelConstraints, PG 12+)"
+    ]
+   },
+   "measured": {
+    "ms": 2,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "create_index_single",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "CREATE INDEX t_1k_user_id_idx ON t_1k (user_id)",
+   "source": "boundary__0004__02_oplog.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 4ms (at most ~32ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 4,
+      "low_ms": 0,
+      "high_ms": 32,
+      "confidence": "low",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 8,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16472:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_composite",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "CREATE INDEX t_1k_acct_created_idx ON t_1k (account_id, created_at)",
+   "source": "boundary__0023__65_wh_session_dimensions.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 4ms (at most ~32ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 4,
+      "low_ms": 0,
+      "high_ms": 32,
+      "confidence": "low",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 6,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16473:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_expr",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "CREATE INDEX t_1k_title_lower_idx ON t_1k (lower(title))",
+   "source": "discourse (fix_search migration)",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 4ms (at most ~32ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 4,
+      "low_ms": 0,
+      "high_ms": 32,
+      "confidence": "low",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 7,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16474:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_partial",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "CREATE INDEX t_1k_created_active_idx ON t_1k (created_at) WHERE is_active",
+   "source": "boundary__0023__65_wh_session_dimensions.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 4ms (at most ~32ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 4,
+      "low_ms": 0,
+      "high_ms": 32,
+      "confidence": "low",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 4,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16475:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_gin",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "CREATE INDEX t_1k_payload_gin ON t_1k USING gin (payload)",
+   "source": "coder__0451__000451_chat_labels.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 4ms (at most ~32ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 4,
+      "low_ms": 0,
+      "high_ms": 32,
+      "confidence": "low",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 6,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16476:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_unique_index",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "CREATE UNIQUE INDEX t_1k_external_id_uq ON t_1k (external_id)",
+   "source": "boundary__0023__65_wh_session_dimensions.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 4ms (at most ~32ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 4,
+      "low_ms": 0,
+      "high_ms": 32,
+      "confidence": "low",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 3,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16477:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_unique_constraint",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ADD CONSTRAINT t_1k_ext_uq UNIQUE (external_id)",
+   "source": "boundary__0066__10_auth.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "add_unique blocks reads and writes for an estimated 4ms (at most ~32ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_unique",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 4,
+      "low_ms": 0,
+      "high_ms": 32,
+      "confidence": "low",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 3,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16478:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "validate_fk",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k VALIDATE CONSTRAINT t_1k_account_fk_nv",
+   "source": "coder__0385__000385_aibridge_fks.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "observed",
+    "rationale": "validate_constraint holds no lock that blocks reads or writes on a pre-existing relation (runs for an estimated 10ms)",
+    "conditions": [],
+    "statement_lock_mode": "SHARE UPDATE EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "validate_constraint",
+      "lock_mode": "SHARE UPDATE EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 80,
+      "confidence": "low",
+      "constant_key": "fk_validation",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: 't_1k_account_fk_nv' is a FOREIGN KEY \u2014 validation scans this table and takes ROW SHARE on the referenced table (public.accounts)"
+    ]
+   },
+   "measured": {
+    "ms": 14,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareUpdateExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareUpdateExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE UPDATE EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "add_check",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ADD CONSTRAINT t_1k_note_not_empty CHECK (length(trim(note)) > 0)",
+   "source": "boundary__0027__01_server_tags_migrations.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "add_check blocks reads and writes for an estimated 2ms (at most ~16ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_check",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 2,
+      "low_ms": 0,
+      "high_ms": 16,
+      "confidence": "low",
+      "constant_key": "validation_scan",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 2,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "set_not_null_plain",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ALTER COLUMN note SET NOT NULL",
+   "source": "boundary__0134__01_credentials.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "set_not_null blocks reads and writes for an estimated 2ms (at most ~16ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "set_not_null",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 2,
+      "low_ms": 0,
+      "high_ms": 16,
+      "confidence": "low",
+      "constant_key": "validation_scan",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: no valid constraint proves 'note' NOT NULL \u2014 the full verification scan runs under ACCESS EXCLUSIVE"
+    ]
+   },
+   "measured": {
+    "ms": 1,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "add_fk_plain",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ADD CONSTRAINT t_1k_account_fk FOREIGN KEY (account_id) REFERENCES accounts(id)",
+   "source": "boundary__0043__01_server_type_enum.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "add_foreign_key blocks writes for an estimated 10ms (at most ~80ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_foreign_key",
+      "lock_mode": "SHARE ROW EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 80,
+      "confidence": "low",
+      "constant_key": "fk_validation",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 2,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE ROW EXCLUSIVE",
+    "other_locks": [
+     "accounts:ShareRowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_fk_cascade",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ADD CONSTRAINT t_1k_account_fk3 FOREIGN KEY (account_id) REFERENCES accounts(id) ON DELETE CASCADE ON UPDATE CASCADE",
+   "source": "boundary__0027__01_server_tags_migrations.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "add_foreign_key blocks writes for an estimated 10ms (at most ~80ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_foreign_key",
+      "lock_mode": "SHARE ROW EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 80,
+      "confidence": "low",
+      "constant_key": "fk_validation",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 3,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE ROW EXCLUSIVE",
+    "other_locks": [
+     "accounts:ShareRowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "reindex_index",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "REINDEX INDEX t_1k_account_id_idx",
+   "source": "lemmy__0251__2025-08-01-000019_add_report_count__up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "reindex blocks reads and writes for an estimated 1ms (at most ~4ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "reindex",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 1,
+      "low_ms": 0,
+      "high_ms": 4,
+      "confidence": "medium",
+      "constant_key": "index_bytes",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "index_bytes": 40960,
+   "measured": {
+    "ms": 2,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "t_1k_account_id_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "reindex_table",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "REINDEX TABLE t_1k",
+   "source": "lemmy__0251__2025-08-01-000019_add_report_count__up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "reindex blocks reads and writes for an estimated 4ms (at most ~32ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "reindex",
+      "lock_mode": "SHARE",
+      "point_ms": 4,
+      "low_ms": 0,
+      "high_ms": 32,
+      "confidence": "low",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 9,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "pg_toast_16397:ShareLock",
+     "pg_toast_16397_index:AccessExclusiveLock",
+     "t_1k_account_id_idx:AccessExclusiveLock",
+     "t_1k_created_at_idx:AccessExclusiveLock",
+     "t_1k_pkey:AccessExclusiveLock",
+     "t_1k_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_int_bigint",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ALTER COLUMN user_id TYPE bigint",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "alter_column_type blocks reads and writes for an estimated 10ms (at most ~80ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 80,
+      "confidence": "low",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: the table is rewritten \u2014 the cast uses a conversion function (pg_cast.castmethod = 'f'); every row is converted (verified live: integer->bigint rewrites)"
+    ]
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 39,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16497:AccessExclusiveLock",
+     "16500:AccessExclusiveLock",
+     "16500:ShareLock",
+     "16501:AccessExclusiveLock",
+     "16501:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_depend:RowExclusiveLock",
+     "pg_toast_16397:AccessExclusiveLock",
+     "pg_toast_16397_index:AccessExclusiveLock",
+     "pg_type:RowExclusiveLock",
+     "pg_type_oid_index:RowExclusiveLock",
+     "pg_type_typname_nsp_index:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_text_varchar",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ALTER COLUMN body TYPE varchar(2000)",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "alter_column_type blocks reads and writes for an estimated 10ms (at most ~80ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 80,
+      "confidence": "low",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: the table is rewritten \u2014 binary coercible, but the target's typmod applies a length/precision coercion to every row (verified live: text->varchar(10) rewrites)"
+    ]
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 15,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16507:AccessExclusiveLock",
+     "16510:AccessExclusiveLock",
+     "16510:ShareLock",
+     "16511:AccessExclusiveLock",
+     "16511:ShareUpdateExclusiveLock",
+     "pg_depend:RowExclusiveLock",
+     "pg_toast_16397:AccessExclusiveLock",
+     "pg_toast_16397_index:AccessExclusiveLock",
+     "t_1k_account_id_idx:AccessExclusiveLock",
+     "t_1k_created_at_idx:AccessExclusiveLock",
+     "t_1k_pkey:AccessExclusiveLock",
+     "t_1k_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_default_volatile",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ADD COLUMN new_id uuid NOT NULL DEFAULT gen_random_uuid()",
+   "source": "coder__0218__000218_org_custom_role_audit.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "add_column_default_volatile blocks reads and writes for an estimated 10ms (at most ~80ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_default_volatile",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 80,
+      "confidence": "low",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 15,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16517:AccessExclusiveLock",
+     "16520:AccessExclusiveLock",
+     "16520:ShareLock",
+     "16521:AccessExclusiveLock",
+     "16521:ShareUpdateExclusiveLock",
+     "pg_toast_16397:AccessExclusiveLock",
+     "pg_toast_16397_index:AccessExclusiveLock",
+     "t_1k_account_id_idx:AccessExclusiveLock",
+     "t_1k_created_at_idx:AccessExclusiveLock",
+     "t_1k_pkey:AccessExclusiveLock",
+     "t_1k_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_serial",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ADD COLUMN seq_id BIGSERIAL",
+   "source": "coder__0071__000071_provisioner_log_lines.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "add_column_serial blocks reads and writes for an estimated 10ms (at most ~80ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_serial",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 80,
+      "confidence": "low",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 38,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16526:AccessExclusiveLock",
+     "16526:RowExclusiveLock",
+     "16526:ShareRowExclusiveLock",
+     "16528:AccessExclusiveLock",
+     "16531:AccessExclusiveLock",
+     "16531:ShareLock",
+     "16532:AccessExclusiveLock",
+     "16532:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16397:AccessExclusiveLock",
+     "pg_toast_16397_index:AccessExclusiveLock",
+     "t_1k_account_id_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_identity",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ADD COLUMN row_num bigint GENERATED ALWAYS AS IDENTITY",
+   "source": "lemmy__0256__2025-08-01-000024_add_person_content_combined_table__up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "add_column_identity blocks reads and writes for an estimated 10ms (at most ~80ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_identity",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 80,
+      "confidence": "low",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 21,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16537:AccessExclusiveLock",
+     "16537:RowExclusiveLock",
+     "16537:ShareRowExclusiveLock",
+     "16538:AccessExclusiveLock",
+     "16541:AccessExclusiveLock",
+     "16541:ShareLock",
+     "16542:AccessExclusiveLock",
+     "16542:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16397:AccessExclusiveLock",
+     "pg_toast_16397_index:AccessExclusiveLock",
+     "t_1k_account_id_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_generated_stored",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ADD COLUMN score_band text GENERATED ALWAYS AS (CASE WHEN score > 500 THEN 'high' ELSE 'low' END) STORED",
+   "source": "coder__0160__000160_provisioner_job_status.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "add_column_generated_stored blocks reads and writes for an estimated 10ms (at most ~80ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_generated_stored",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 80,
+      "confidence": "low",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 14,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16548:AccessExclusiveLock",
+     "16551:AccessExclusiveLock",
+     "16551:ShareLock",
+     "16552:AccessExclusiveLock",
+     "16552:ShareUpdateExclusiveLock",
+     "pg_toast_16397:AccessExclusiveLock",
+     "pg_toast_16397_index:AccessExclusiveLock",
+     "t_1k_account_id_idx:AccessExclusiveLock",
+     "t_1k_created_at_idx:AccessExclusiveLock",
+     "t_1k_pkey:AccessExclusiveLock",
+     "t_1k_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_domain_default",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "ALTER TABLE t_1k ADD COLUMN region label_domain NOT NULL DEFAULT 'us-east-1'",
+   "source": "boundary__0052__04_wh_credential_dimension.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "add_column_default_nonvolatile blocks reads and writes for an estimated 10ms (at most ~80ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_default_nonvolatile",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 80,
+      "confidence": "low",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: type 'label_domain' is a domain with 1 CHECK constraint(s) \u2014 the fast path is disabled and the table is rewritten"
+    ]
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 24,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16558:AccessExclusiveLock",
+     "16561:AccessExclusiveLock",
+     "16561:ShareLock",
+     "16562:AccessExclusiveLock",
+     "16562:ShareUpdateExclusiveLock",
+     "pg_toast_16397:AccessExclusiveLock",
+     "pg_toast_16397_index:AccessExclusiveLock",
+     "t_1k_account_id_idx:AccessExclusiveLock",
+     "t_1k_created_at_idx:AccessExclusiveLock",
+     "t_1k_pkey:AccessExclusiveLock",
+     "t_1k_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "update_matched",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "UPDATE t_1k SET status = 'archived' WHERE status = 'deleted'",
+   "source": "boundary__0066__10_auth.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "row locks only, and even if every row of t_1k matched, the statement runs ~20ms (at most ~160ms)",
+    "conditions": [
+     "irreversible once committed: the pre-update values of every matched row \u2014 confirm this is intended"
+    ],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "update",
+      "lock_mode": "ROW EXCLUSIVE",
+      "cannot_estimate": "rows matched by the WHERE clause are not statically knowable (the catalog row says: do not guess)"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 11,
+    "rowcount": 167,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_1k_account_id_idx:RowExclusiveLock",
+     "t_1k_created_at_idx:RowExclusiveLock",
+     "t_1k_pkey:RowExclusiveLock",
+     "t_1k_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 0
+  },
+  {
+   "case": "update_backfill_null",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "UPDATE t_1k SET title = note WHERE title IS NULL",
+   "source": "boundary__0089__01_wh_network_address_dimensions.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "row locks only, and even if every row of t_1k matched, the statement runs ~20ms (at most ~80ms)",
+    "conditions": [
+     "irreversible once committed: the pre-update values of every matched row \u2014 confirm this is intended"
+    ],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "update",
+      "lock_mode": "ROW EXCLUSIVE",
+      "cannot_estimate": "rows matched by the WHERE clause are not statically knowable (the catalog row says: do not guess)"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 6,
+    "rowcount": 90,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_1k_account_id_idx:RowExclusiveLock",
+     "t_1k_created_at_idx:RowExclusiveLock",
+     "t_1k_pkey:RowExclusiveLock",
+     "t_1k_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 0
+  },
+  {
+   "case": "update_without_where",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "UPDATE t_1k SET score = score + 1",
+   "source": "boundary__0118__06_kms_collection_version.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "rewrites every row of t_1k, but the table is small: ~20ms (at most ~80ms)",
+    "conditions": [
+     "irreversible once committed: the pre-update values of every row in the table \u2014 confirm this is intended"
+    ],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "update_without_where",
+      "lock_mode": "ROW EXCLUSIVE",
+      "point_ms": 20,
+      "low_ms": 5,
+      "high_ms": 80,
+      "confidence": "medium",
+      "constant_key": "dml_update",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 13,
+    "rowcount": 1000,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_1k_account_id_idx:RowExclusiveLock",
+     "t_1k_created_at_idx:RowExclusiveLock",
+     "t_1k_pkey:RowExclusiveLock",
+     "t_1k_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 0
+  },
+  {
+   "case": "delete_without_where",
+   "table": "t_1k",
+   "rows": 1000,
+   "sql": "DELETE FROM t_1k",
+   "source": "coder__0037__000037_jwt_licenses.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "deletes every row of t_1k, but the table is small: ~10ms (at most ~40ms)",
+    "conditions": [
+     "irreversible once committed: every row of the table \u2014 confirm this is intended"
+    ],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "delete_without_where",
+      "lock_mode": "ROW EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 2,
+      "high_ms": 40,
+      "confidence": "medium",
+      "constant_key": "dml_delete",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 4,
+    "rowcount": 1000,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_1k_account_id_idx:RowExclusiveLock",
+     "t_1k_created_at_idx:RowExclusiveLock",
+     "t_1k_pkey:RowExclusiveLock",
+     "t_1k_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 0
+  },
+  {
+   "case": "add_column_bare",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ADD COLUMN worker_filter text",
+   "source": "boundary__0027__01_server_tags_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "proven",
+    "rationale": "add_column is catalog-only but takes a read-and-write-blocking lock on t_100k; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "proven"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 4,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "add_column_default_const",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ADD COLUMN purpose text NOT NULL DEFAULT 'recovery'",
+   "source": "boundary__0056__01_nonce.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "add_column_default_nonvolatile is catalog-only but takes a read-and-write-blocking lock on t_100k; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_default_nonvolatile",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: type 'text' is not a domain \u2014 the fast default path applies (value stored in attmissingval, no rewrite)"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 2,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "add_fk_not_valid",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ADD CONSTRAINT t_100k_account_fk2 FOREIGN KEY (account_id) REFERENCES accounts(id) NOT VALID",
+   "source": "coder__0385__000385_aibridge_fks.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "proven",
+    "rationale": "add_foreign_key_not_valid is catalog-only; writers stall only briefly",
+    "conditions": [],
+    "statement_lock_mode": "SHARE ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_foreign_key_not_valid",
+      "lock_mode": "SHARE ROW EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "proven"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 2,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE ROW EXCLUSIVE",
+    "other_locks": [
+     "accounts:ShareRowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_varchar_widen",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ALTER COLUMN status TYPE varchar(64)",
+   "source": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "alter_column_type is catalog-only but takes a read-and-write-blocking lock on t_100k; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: no table rewrite \u2014 varchar: the typmod change is non-lossy, so the coercion simplifies to a no-op"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 255,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16573:AccessExclusiveLock",
+     "pg_depend:RowExclusiveLock",
+     "t_100k_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_varchar_text",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ALTER COLUMN title TYPE text",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "alter_column_type is catalog-only but takes a read-and-write-blocking lock on t_100k; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: no table rewrite \u2014 binary coercible (pg_cast.castmethod = 'b' on the connected server) and the target carries no typmod: a pure relabel"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 0,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_numeric_widen",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ALTER COLUMN amount TYPE numeric(14,2)",
+   "source": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "alter_column_type is catalog-only but takes a read-and-write-blocking lock on t_100k; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: no table rewrite \u2014 numeric: the typmod change is non-lossy, so the coercion simplifies to a no-op"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 0,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_ts_tstz",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ALTER COLUMN updated_at TYPE timestamptz",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "alter_column_type blocks reads and writes for an estimated 1s (up to ~4s)",
+    "conditions": [
+     "the migration session must run with TimeZone=UTC; under any other zone the whole table is rewritten",
+     "needs a low-traffic window or an aggressive lock_timeout with retries: reads and writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 1000,
+      "low_ms": 250,
+      "high_ms": 4000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: conditional rewrite \u2014 binary compatible when the migration session runs with TimeZone=UTC; any other zone rewrites (the server's configured TimeZone is in ServerFacts.timezone as evidence, but t"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 0,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "set_not_null_proving_check",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ALTER COLUMN body SET NOT NULL",
+   "source": "boundary__0134__01_credentials.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "set_not_null is catalog-only but takes a read-and-write-blocking lock on t_100k; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "set_not_null",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: valid constraint 't_100k_body_check' already proves 'body' NOT NULL \u2014 the verification scan is skipped (NotNullImpliedByRelConstraints, PG 12+)"
+    ]
+   },
+   "measured": {
+    "ms": 0,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "create_index_single",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "CREATE INDEX t_100k_user_id_idx ON t_100k (user_id)",
+   "source": "boundary__0004__02_oplog.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 400ms (at most ~1s): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 400,
+      "low_ms": 100,
+      "high_ms": 1600,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 129,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16574:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_composite",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "CREATE INDEX t_100k_acct_created_idx ON t_100k (account_id, created_at)",
+   "source": "boundary__0023__65_wh_session_dimensions.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 400ms (at most ~1s): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 400,
+      "low_ms": 100,
+      "high_ms": 1600,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 148,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16575:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_expr",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "CREATE INDEX t_100k_title_lower_idx ON t_100k (lower(title))",
+   "source": "discourse (fix_search migration)",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 400ms (at most ~1s): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 400,
+      "low_ms": 100,
+      "high_ms": 1600,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 569,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16576:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_partial",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "CREATE INDEX t_100k_created_active_idx ON t_100k (created_at) WHERE is_active",
+   "source": "boundary__0023__65_wh_session_dimensions.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 400ms (at most ~1s): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 400,
+      "low_ms": 100,
+      "high_ms": 1600,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 137,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16577:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_gin",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "CREATE INDEX t_100k_payload_gin ON t_100k USING gin (payload)",
+   "source": "coder__0451__000451_chat_labels.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 400ms (at most ~1s): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 400,
+      "low_ms": 100,
+      "high_ms": 1600,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 136,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16578:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_unique_index",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "CREATE UNIQUE INDEX t_100k_external_id_uq ON t_100k (external_id)",
+   "source": "boundary__0023__65_wh_session_dimensions.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 400ms (at most ~1s): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 400,
+      "low_ms": 100,
+      "high_ms": 1600,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 267,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16579:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_unique_constraint",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ADD CONSTRAINT t_100k_ext_uq UNIQUE (external_id)",
+   "source": "boundary__0066__10_auth.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "add_unique blocks reads and writes for an estimated 400ms (at most ~1s): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_unique",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 400,
+      "low_ms": 100,
+      "high_ms": 1600,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 165,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16580:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "validate_fk",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k VALIDATE CONSTRAINT t_100k_account_fk_nv",
+   "source": "coder__0385__000385_aibridge_fks.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "observed",
+    "rationale": "validate_constraint holds no lock that blocks reads or writes on a pre-existing relation (runs for an estimated 1s)",
+    "conditions": [],
+    "statement_lock_mode": "SHARE UPDATE EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "validate_constraint",
+      "lock_mode": "SHARE UPDATE EXCLUSIVE",
+      "point_ms": 1000,
+      "low_ms": 250,
+      "high_ms": 4000,
+      "confidence": "medium",
+      "constant_key": "fk_validation",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: 't_100k_account_fk_nv' is a FOREIGN KEY \u2014 validation scans this table and takes ROW SHARE on the referenced table (public.accounts)"
+    ]
+   },
+   "measured": {
+    "ms": 26,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareUpdateExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareUpdateExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE UPDATE EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "add_check",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ADD CONSTRAINT t_100k_note_not_empty CHECK (length(trim(note)) > 0)",
+   "source": "boundary__0027__01_server_tags_migrations.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "add_check blocks reads and writes for an estimated 200ms (at most ~800ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_check",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 200,
+      "low_ms": 50,
+      "high_ms": 800,
+      "confidence": "medium",
+      "constant_key": "validation_scan",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 29,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "set_not_null_plain",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ALTER COLUMN note SET NOT NULL",
+   "source": "boundary__0134__01_credentials.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "set_not_null blocks reads and writes for an estimated 200ms (at most ~800ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "set_not_null",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 200,
+      "low_ms": 50,
+      "high_ms": 800,
+      "confidence": "medium",
+      "constant_key": "validation_scan",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: no valid constraint proves 'note' NOT NULL \u2014 the full verification scan runs under ACCESS EXCLUSIVE"
+    ]
+   },
+   "measured": {
+    "ms": 18,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "add_fk_plain",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ADD CONSTRAINT t_100k_account_fk FOREIGN KEY (account_id) REFERENCES accounts(id)",
+   "source": "boundary__0043__01_server_type_enum.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "add_foreign_key blocks writes for an estimated 1s (at most ~4s): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_foreign_key",
+      "lock_mode": "SHARE ROW EXCLUSIVE",
+      "point_ms": 1000,
+      "low_ms": 250,
+      "high_ms": 4000,
+      "confidence": "medium",
+      "constant_key": "fk_validation",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 18,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE ROW EXCLUSIVE",
+    "other_locks": [
+     "accounts:ShareRowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_fk_cascade",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ADD CONSTRAINT t_100k_account_fk3 FOREIGN KEY (account_id) REFERENCES accounts(id) ON DELETE CASCADE ON UPDATE CASCADE",
+   "source": "boundary__0027__01_server_tags_migrations.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "add_foreign_key blocks writes for an estimated 1s (at most ~4s): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_foreign_key",
+      "lock_mode": "SHARE ROW EXCLUSIVE",
+      "point_ms": 1000,
+      "low_ms": 250,
+      "high_ms": 4000,
+      "confidence": "medium",
+      "constant_key": "fk_validation",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 18,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE ROW EXCLUSIVE",
+    "other_locks": [
+     "accounts:ShareRowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "reindex_index",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "REINDEX INDEX t_100k_account_id_idx",
+   "source": "lemmy__0251__2025-08-01-000019_add_report_count__up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "reindex blocks reads and writes for an estimated 19ms (at most ~76ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "reindex",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 19,
+      "low_ms": 4,
+      "high_ms": 76,
+      "confidence": "medium",
+      "constant_key": "index_bytes",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "index_bytes": 958464,
+   "measured": {
+    "ms": 139,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "t_100k_account_id_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "reindex_table",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "REINDEX TABLE t_100k",
+   "source": "lemmy__0251__2025-08-01-000019_add_report_count__up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "reindex blocks reads and writes for an estimated 400ms (at most ~1s): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "reindex",
+      "lock_mode": "SHARE",
+      "point_ms": 400,
+      "low_ms": 100,
+      "high_ms": 1600,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 793,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "pg_toast_16414:ShareLock",
+     "pg_toast_16414_index:AccessExclusiveLock",
+     "t_100k_account_id_idx:AccessExclusiveLock",
+     "t_100k_created_at_idx:AccessExclusiveLock",
+     "t_100k_pkey:AccessExclusiveLock",
+     "t_100k_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_int_bigint",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ALTER COLUMN user_id TYPE bigint",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "alter_column_type blocks reads and writes for an estimated 1s (up to ~4s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: reads and writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 1000,
+      "low_ms": 250,
+      "high_ms": 4000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: the table is rewritten \u2014 the cast uses a conversion function (pg_cast.castmethod = 'f'); every row is converted (verified live: integer->bigint rewrites)"
+    ]
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 1019,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16599:AccessExclusiveLock",
+     "16602:AccessExclusiveLock",
+     "16602:ShareLock",
+     "16603:AccessExclusiveLock",
+     "16603:ShareUpdateExclusiveLock",
+     "pg_depend:RowExclusiveLock",
+     "pg_toast_16414:AccessExclusiveLock",
+     "pg_toast_16414_index:AccessExclusiveLock",
+     "t_100k_account_id_idx:AccessExclusiveLock",
+     "t_100k_created_at_idx:AccessExclusiveLock",
+     "t_100k_pkey:AccessExclusiveLock",
+     "t_100k_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_text_varchar",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ALTER COLUMN body TYPE varchar(2000)",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "alter_column_type blocks reads and writes for an estimated 1s (up to ~4s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: reads and writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 1000,
+      "low_ms": 250,
+      "high_ms": 4000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: the table is rewritten \u2014 binary coercible, but the target's typmod applies a length/precision coercion to every row (verified live: text->varchar(10) rewrites)"
+    ]
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 857,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16609:AccessExclusiveLock",
+     "16612:AccessExclusiveLock",
+     "16612:ShareLock",
+     "16613:AccessExclusiveLock",
+     "16613:ShareUpdateExclusiveLock",
+     "pg_depend:RowExclusiveLock",
+     "pg_toast_16414:AccessExclusiveLock",
+     "pg_toast_16414_index:AccessExclusiveLock",
+     "t_100k_account_id_idx:AccessExclusiveLock",
+     "t_100k_created_at_idx:AccessExclusiveLock",
+     "t_100k_pkey:AccessExclusiveLock",
+     "t_100k_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_default_volatile",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ADD COLUMN new_id uuid NOT NULL DEFAULT gen_random_uuid()",
+   "source": "coder__0218__000218_org_custom_role_audit.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "add_column_default_volatile blocks reads and writes for an estimated 1s (up to ~4s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: reads and writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_default_volatile",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 1000,
+      "low_ms": 250,
+      "high_ms": 4000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 1161,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16619:AccessExclusiveLock",
+     "16622:AccessExclusiveLock",
+     "16622:ShareLock",
+     "16623:AccessExclusiveLock",
+     "16623:ShareUpdateExclusiveLock",
+     "pg_toast_16414:AccessExclusiveLock",
+     "pg_toast_16414_index:AccessExclusiveLock",
+     "t_100k_account_id_idx:AccessExclusiveLock",
+     "t_100k_created_at_idx:AccessExclusiveLock",
+     "t_100k_pkey:AccessExclusiveLock",
+     "t_100k_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_serial",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ADD COLUMN seq_id BIGSERIAL",
+   "source": "coder__0071__000071_provisioner_log_lines.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "add_column_serial blocks reads and writes for an estimated 1s (up to ~4s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: reads and writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_serial",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 1000,
+      "low_ms": 250,
+      "high_ms": 4000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 1045,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16628:AccessExclusiveLock",
+     "16628:RowExclusiveLock",
+     "16628:ShareRowExclusiveLock",
+     "16630:AccessExclusiveLock",
+     "16633:AccessExclusiveLock",
+     "16633:ShareLock",
+     "16634:AccessExclusiveLock",
+     "16634:ShareUpdateExclusiveLock",
+     "pg_toast_16414:AccessExclusiveLock",
+     "pg_toast_16414_index:AccessExclusiveLock",
+     "t_100k_account_id_idx:AccessExclusiveLock",
+     "t_100k_created_at_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_identity",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ADD COLUMN row_num bigint GENERATED ALWAYS AS IDENTITY",
+   "source": "lemmy__0256__2025-08-01-000024_add_person_content_combined_table__up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "add_column_identity blocks reads and writes for an estimated 1s (up to ~4s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: reads and writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_identity",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 1000,
+      "low_ms": 250,
+      "high_ms": 4000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 1048,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16639:AccessExclusiveLock",
+     "16639:RowExclusiveLock",
+     "16639:ShareRowExclusiveLock",
+     "16640:AccessExclusiveLock",
+     "16643:AccessExclusiveLock",
+     "16643:ShareLock",
+     "16644:AccessExclusiveLock",
+     "16644:ShareUpdateExclusiveLock",
+     "pg_toast_16414:AccessExclusiveLock",
+     "pg_toast_16414_index:AccessExclusiveLock",
+     "t_100k_account_id_idx:AccessExclusiveLock",
+     "t_100k_created_at_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_generated_stored",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ADD COLUMN score_band text GENERATED ALWAYS AS (CASE WHEN score > 500 THEN 'high' ELSE 'low' END) STORED",
+   "source": "coder__0160__000160_provisioner_job_status.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "add_column_generated_stored blocks reads and writes for an estimated 1s (up to ~4s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: reads and writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_generated_stored",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 1000,
+      "low_ms": 250,
+      "high_ms": 4000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 994,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16650:AccessExclusiveLock",
+     "16653:AccessExclusiveLock",
+     "16653:ShareLock",
+     "16654:AccessExclusiveLock",
+     "16654:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16414:AccessExclusiveLock",
+     "pg_toast_16414_index:AccessExclusiveLock",
+     "t_100k_account_id_idx:AccessExclusiveLock",
+     "t_100k_created_at_idx:AccessExclusiveLock",
+     "t_100k_pkey:AccessExclusiveLock",
+     "t_100k_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_domain_default",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "ALTER TABLE t_100k ADD COLUMN region label_domain NOT NULL DEFAULT 'us-east-1'",
+   "source": "boundary__0052__04_wh_credential_dimension.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "add_column_default_nonvolatile blocks reads and writes for an estimated 1s (up to ~4s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: reads and writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_default_nonvolatile",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 1000,
+      "low_ms": 250,
+      "high_ms": 4000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: type 'label_domain' is a domain with 1 CHECK constraint(s) \u2014 the fast path is disabled and the table is rewritten"
+    ]
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 902,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16660:AccessExclusiveLock",
+     "16663:AccessExclusiveLock",
+     "16663:ShareLock",
+     "16664:AccessExclusiveLock",
+     "16664:ShareUpdateExclusiveLock",
+     "pg_toast_16414:AccessExclusiveLock",
+     "pg_toast_16414_index:AccessExclusiveLock",
+     "t_100k_account_id_idx:AccessExclusiveLock",
+     "t_100k_created_at_idx:AccessExclusiveLock",
+     "t_100k_pkey:AccessExclusiveLock",
+     "t_100k_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "update_matched",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "UPDATE t_100k SET status = 'archived' WHERE status = 'deleted'",
+   "source": "boundary__0066__10_auth.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "row locks only \u2014 no table-wide block \u2014 but the matched-row count is not statically knowable",
+    "conditions": [
+     "the WHERE clause must match a bounded number of rows: matched rows hold row locks, produce dead tuples, and extend the transaction \u2014 worst case (every row of t_100k) is ~2s (up to ~8s)",
+     "consider batching (LIMIT-bounded loops or key windows)"
+    ],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "update",
+      "lock_mode": "ROW EXCLUSIVE",
+      "cannot_estimate": "rows matched by the WHERE clause are not statically knowable (the catalog row says: do not guess)"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 663,
+    "rowcount": 16667,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_100k_account_id_idx:RowExclusiveLock",
+     "t_100k_created_at_idx:RowExclusiveLock",
+     "t_100k_pkey:RowExclusiveLock",
+     "t_100k_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 1
+  },
+  {
+   "case": "update_backfill_null",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "UPDATE t_100k SET title = note WHERE title IS NULL",
+   "source": "boundary__0089__01_wh_network_address_dimensions.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "row locks only \u2014 no table-wide block \u2014 but the matched-row count is not statically knowable",
+    "conditions": [
+     "the WHERE clause must match a bounded number of rows: matched rows hold row locks, produce dead tuples, and extend the transaction \u2014 worst case (every row of t_100k) is ~2s (up to ~8s)",
+     "consider batching (LIMIT-bounded loops or key windows)"
+    ],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "update",
+      "lock_mode": "ROW EXCLUSIVE",
+      "cannot_estimate": "rows matched by the WHERE clause are not statically knowable (the catalog row says: do not guess)"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 359,
+    "rowcount": 9090,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_100k_account_id_idx:RowExclusiveLock",
+     "t_100k_created_at_idx:RowExclusiveLock",
+     "t_100k_pkey:RowExclusiveLock",
+     "t_100k_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 1
+  },
+  {
+   "case": "update_without_where",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "UPDATE t_100k SET score = score + 1",
+   "source": "boundary__0118__06_kms_collection_version.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "rewrites every row of t_100k in one transaction: every row is locked, ~2s of runtime (up to ~8s), dead tuples for the whole table, and a matching WAL/replication burst",
+    "conditions": [
+     "acceptable only in a low-traffic window; prefer batching"
+    ],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "update_without_where",
+      "lock_mode": "ROW EXCLUSIVE",
+      "point_ms": 2000,
+      "low_ms": 500,
+      "high_ms": 8000,
+      "confidence": "medium",
+      "constant_key": "dml_update",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 3428,
+    "rowcount": 100000,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_100k_account_id_idx:RowExclusiveLock",
+     "t_100k_created_at_idx:RowExclusiveLock",
+     "t_100k_pkey:RowExclusiveLock",
+     "t_100k_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 1
+  },
+  {
+   "case": "delete_without_where",
+   "table": "t_100k",
+   "rows": 100000,
+   "sql": "DELETE FROM t_100k",
+   "source": "coder__0037__000037_jwt_licenses.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "deletes every row of t_100k, but the table is small: ~1s (at most ~4s)",
+    "conditions": [
+     "irreversible once committed: every row of the table \u2014 confirm this is intended"
+    ],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "delete_without_where",
+      "lock_mode": "ROW EXCLUSIVE",
+      "point_ms": 1000,
+      "low_ms": 250,
+      "high_ms": 4000,
+      "confidence": "medium",
+      "constant_key": "dml_delete",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 80,
+    "rowcount": 100000,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_100k_account_id_idx:RowExclusiveLock",
+     "t_100k_created_at_idx:RowExclusiveLock",
+     "t_100k_pkey:RowExclusiveLock",
+     "t_100k_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 1
+  },
+  {
+   "case": "add_column_bare",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ADD COLUMN worker_filter text",
+   "source": "boundary__0027__01_server_tags_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "proven",
+    "rationale": "add_column is catalog-only but takes a read-and-write-blocking lock on t_1m; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "proven"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 2,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "add_column_default_const",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ADD COLUMN purpose text NOT NULL DEFAULT 'recovery'",
+   "source": "boundary__0056__01_nonce.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "add_column_default_nonvolatile is catalog-only but takes a read-and-write-blocking lock on t_1m; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_default_nonvolatile",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: type 'text' is not a domain \u2014 the fast default path applies (value stored in attmissingval, no rewrite)"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 2,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "add_fk_not_valid",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ADD CONSTRAINT t_1m_account_fk2 FOREIGN KEY (account_id) REFERENCES accounts(id) NOT VALID",
+   "source": "coder__0385__000385_aibridge_fks.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "proven",
+    "rationale": "add_foreign_key_not_valid is catalog-only; writers stall only briefly",
+    "conditions": [],
+    "statement_lock_mode": "SHARE ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_foreign_key_not_valid",
+      "lock_mode": "SHARE ROW EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "proven"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 3,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE ROW EXCLUSIVE",
+    "other_locks": [
+     "accounts:ShareRowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_varchar_widen",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ALTER COLUMN status TYPE varchar(64)",
+   "source": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "alter_column_type is catalog-only but takes a read-and-write-blocking lock on t_1m; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: no table rewrite \u2014 varchar: the typmod change is non-lossy, so the coercion simplifies to a no-op"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 1122,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16675:AccessExclusiveLock",
+     "pg_depend:RowExclusiveLock",
+     "t_1m_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_varchar_text",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ALTER COLUMN title TYPE text",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "alter_column_type is catalog-only but takes a read-and-write-blocking lock on t_1m; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: no table rewrite \u2014 binary coercible (pg_cast.castmethod = 'b' on the connected server) and the target carries no typmod: a pure relabel"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 0,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_numeric_widen",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ALTER COLUMN amount TYPE numeric(14,2)",
+   "source": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "alter_column_type is catalog-only but takes a read-and-write-blocking lock on t_1m; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: no table rewrite \u2014 numeric: the typmod change is non-lossy, so the coercion simplifies to a no-op"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 0,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_ts_tstz",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ALTER COLUMN updated_at TYPE timestamptz",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "alter_column_type blocks reads and writes for an estimated 10s (up to ~40s): an outage-length stall",
+    "conditions": [
+     "the migration session must run with TimeZone=UTC; under any other zone the whole table is rewritten"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10000,
+      "low_ms": 2500,
+      "high_ms": 40000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: conditional rewrite \u2014 binary compatible when the migration session runs with TimeZone=UTC; any other zone rewrites (the server's configured TimeZone is in ServerFacts.timezone as evidence, but t"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 1,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "set_not_null_proving_check",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ALTER COLUMN body SET NOT NULL",
+   "source": "boundary__0134__01_credentials.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "set_not_null is catalog-only but takes a read-and-write-blocking lock on t_1m; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "set_not_null",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: valid constraint 't_1m_body_check' already proves 'body' NOT NULL \u2014 the verification scan is skipped (NotNullImpliedByRelConstraints, PG 12+)"
+    ]
+   },
+   "measured": {
+    "ms": 0,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "create_index_single",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "CREATE INDEX t_1m_user_id_idx ON t_1m (user_id)",
+   "source": "boundary__0004__02_oplog.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 4s (up to ~16s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 4000,
+      "low_ms": 1000,
+      "high_ms": 16000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 712,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16676:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_composite",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "CREATE INDEX t_1m_acct_created_idx ON t_1m (account_id, created_at)",
+   "source": "boundary__0023__65_wh_session_dimensions.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 4s (up to ~16s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 4000,
+      "low_ms": 1000,
+      "high_ms": 16000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 1088,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16677:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_expr",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "CREATE INDEX t_1m_title_lower_idx ON t_1m (lower(title))",
+   "source": "discourse (fix_search migration)",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 4s (up to ~16s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 4000,
+      "low_ms": 1000,
+      "high_ms": 16000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 3676,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16678:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_partial",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "CREATE INDEX t_1m_created_active_idx ON t_1m (created_at) WHERE is_active",
+   "source": "boundary__0023__65_wh_session_dimensions.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 4s (up to ~16s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 4000,
+      "low_ms": 1000,
+      "high_ms": 16000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 743,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16679:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_gin",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "CREATE INDEX t_1m_payload_gin ON t_1m USING gin (payload)",
+   "source": "coder__0451__000451_chat_labels.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 4s (up to ~16s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 4000,
+      "low_ms": 1000,
+      "high_ms": 16000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 3563,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16680:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_unique_index",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "CREATE UNIQUE INDEX t_1m_external_id_uq ON t_1m (external_id)",
+   "source": "boundary__0023__65_wh_session_dimensions.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 4s (up to ~16s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 4000,
+      "low_ms": 1000,
+      "high_ms": 16000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 1190,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16681:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_unique_constraint",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ADD CONSTRAINT t_1m_ext_uq UNIQUE (external_id)",
+   "source": "boundary__0066__10_auth.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "add_unique blocks reads and writes for an estimated 4s (up to ~16s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: reads and writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_unique",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 4000,
+      "low_ms": 1000,
+      "high_ms": 16000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 1082,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16682:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "validate_fk",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m VALIDATE CONSTRAINT t_1m_account_fk_nv",
+   "source": "coder__0385__000385_aibridge_fks.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "observed",
+    "rationale": "validate_constraint holds no lock that blocks reads or writes on a pre-existing relation (runs for an estimated 10s)",
+    "conditions": [],
+    "statement_lock_mode": "SHARE UPDATE EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "validate_constraint",
+      "lock_mode": "SHARE UPDATE EXCLUSIVE",
+      "point_ms": 10000,
+      "low_ms": 2500,
+      "high_ms": 40000,
+      "confidence": "medium",
+      "constant_key": "fk_validation",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: 't_1m_account_fk_nv' is a FOREIGN KEY \u2014 validation scans this table and takes ROW SHARE on the referenced table (public.accounts)"
+    ]
+   },
+   "measured": {
+    "ms": 808,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareUpdateExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareUpdateExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE UPDATE EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "add_check",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ADD CONSTRAINT t_1m_note_not_empty CHECK (length(trim(note)) > 0)",
+   "source": "boundary__0027__01_server_tags_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "add_check blocks reads and writes for an estimated 2s (up to ~8s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: reads and writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_check",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 2000,
+      "low_ms": 500,
+      "high_ms": 8000,
+      "confidence": "medium",
+      "constant_key": "validation_scan",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 1094,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "set_not_null_plain",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ALTER COLUMN note SET NOT NULL",
+   "source": "boundary__0134__01_credentials.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "set_not_null blocks reads and writes for an estimated 2s (up to ~8s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: reads and writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "set_not_null",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 2000,
+      "low_ms": 500,
+      "high_ms": 8000,
+      "confidence": "medium",
+      "constant_key": "validation_scan",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: no valid constraint proves 'note' NOT NULL \u2014 the full verification scan runs under ACCESS EXCLUSIVE"
+    ]
+   },
+   "measured": {
+    "ms": 798,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "add_fk_plain",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ADD CONSTRAINT t_1m_account_fk FOREIGN KEY (account_id) REFERENCES accounts(id)",
+   "source": "boundary__0043__01_server_type_enum.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "add_foreign_key blocks writes for an estimated 10s (up to ~40s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "SHARE ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_foreign_key",
+      "lock_mode": "SHARE ROW EXCLUSIVE",
+      "point_ms": 10000,
+      "low_ms": 2500,
+      "high_ms": 40000,
+      "confidence": "medium",
+      "constant_key": "fk_validation",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 846,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE ROW EXCLUSIVE",
+    "other_locks": [
+     "accounts:ShareRowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_fk_cascade",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ADD CONSTRAINT t_1m_account_fk3 FOREIGN KEY (account_id) REFERENCES accounts(id) ON DELETE CASCADE ON UPDATE CASCADE",
+   "source": "boundary__0027__01_server_tags_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "add_foreign_key blocks writes for an estimated 10s (up to ~40s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "SHARE ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_foreign_key",
+      "lock_mode": "SHARE ROW EXCLUSIVE",
+      "point_ms": 10000,
+      "low_ms": 2500,
+      "high_ms": 40000,
+      "confidence": "medium",
+      "constant_key": "fk_validation",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 818,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE ROW EXCLUSIVE",
+    "other_locks": [
+     "accounts:ShareRowExclusiveLock",
+     "pg_class:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "reindex_index",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "REINDEX INDEX t_1m_account_id_idx",
+   "source": "lemmy__0251__2025-08-01-000019_add_report_count__up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "simulated",
+    "rationale": "reindex blocks reads and writes for an estimated 137ms (at most ~548ms): a brief stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "reindex",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 137,
+      "low_ms": 34,
+      "high_ms": 548,
+      "confidence": "medium",
+      "constant_key": "index_bytes",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "index_bytes": 6873088,
+   "measured": {
+    "ms": 687,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "t_1m_account_id_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "reindex_table",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "REINDEX TABLE t_1m",
+   "source": "lemmy__0251__2025-08-01-000019_add_report_count__up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "reindex blocks reads and writes for an estimated 4s (up to ~16s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: reads and writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "reindex",
+      "lock_mode": "SHARE",
+      "point_ms": 4000,
+      "low_ms": 1000,
+      "high_ms": 16000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 3210,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16431:ShareLock",
+     "pg_toast_16431_index:AccessExclusiveLock",
+     "t_1m_account_id_idx:AccessExclusiveLock",
+     "t_1m_created_at_idx:AccessExclusiveLock",
+     "t_1m_pkey:AccessExclusiveLock",
+     "t_1m_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_int_bigint",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ALTER COLUMN user_id TYPE bigint",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "alter_column_type blocks reads and writes for an estimated 10s (up to ~40s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10000,
+      "low_ms": 2500,
+      "high_ms": 40000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: the table is rewritten \u2014 the cast uses a conversion function (pg_cast.castmethod = 'f'); every row is converted (verified live: integer->bigint rewrites)"
+    ]
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 9617,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16701:AccessExclusiveLock",
+     "16704:AccessExclusiveLock",
+     "16704:ShareLock",
+     "16705:AccessExclusiveLock",
+     "16705:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_depend:RowExclusiveLock",
+     "pg_toast_16431:AccessExclusiveLock",
+     "pg_toast_16431_index:AccessExclusiveLock",
+     "pg_type:RowExclusiveLock",
+     "pg_type_oid_index:RowExclusiveLock",
+     "pg_type_typname_nsp_index:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_text_varchar",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ALTER COLUMN body TYPE varchar(2000)",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "alter_column_type blocks reads and writes for an estimated 10s (up to ~40s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10000,
+      "low_ms": 2500,
+      "high_ms": 40000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: the table is rewritten \u2014 binary coercible, but the target's typmod applies a length/precision coercion to every row (verified live: text->varchar(10) rewrites)"
+    ]
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 9502,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16711:AccessExclusiveLock",
+     "16714:AccessExclusiveLock",
+     "16714:ShareLock",
+     "16715:AccessExclusiveLock",
+     "16715:ShareUpdateExclusiveLock",
+     "pg_depend:RowExclusiveLock",
+     "pg_toast_16431:AccessExclusiveLock",
+     "pg_toast_16431_index:AccessExclusiveLock",
+     "t_1m_account_id_idx:AccessExclusiveLock",
+     "t_1m_created_at_idx:AccessExclusiveLock",
+     "t_1m_pkey:AccessExclusiveLock",
+     "t_1m_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_default_volatile",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ADD COLUMN new_id uuid NOT NULL DEFAULT gen_random_uuid()",
+   "source": "coder__0218__000218_org_custom_role_audit.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_column_default_volatile blocks reads and writes for an estimated 10s (up to ~40s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_default_volatile",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10000,
+      "low_ms": 2500,
+      "high_ms": 40000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 26141,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16721:AccessExclusiveLock",
+     "16724:AccessExclusiveLock",
+     "16724:ShareLock",
+     "16725:AccessExclusiveLock",
+     "16725:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16431:AccessExclusiveLock",
+     "pg_toast_16431_index:AccessExclusiveLock",
+     "t_1m_account_id_idx:AccessExclusiveLock",
+     "t_1m_created_at_idx:AccessExclusiveLock",
+     "t_1m_pkey:AccessExclusiveLock",
+     "t_1m_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_serial",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ADD COLUMN seq_id BIGSERIAL",
+   "source": "coder__0071__000071_provisioner_log_lines.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_column_serial blocks reads and writes for an estimated 10s (up to ~40s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_serial",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10000,
+      "low_ms": 2500,
+      "high_ms": 40000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 25378,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16730:AccessExclusiveLock",
+     "16730:RowExclusiveLock",
+     "16730:ShareRowExclusiveLock",
+     "16732:AccessExclusiveLock",
+     "16735:AccessExclusiveLock",
+     "16735:ShareLock",
+     "16736:AccessExclusiveLock",
+     "16736:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16431:AccessExclusiveLock",
+     "pg_toast_16431_index:AccessExclusiveLock",
+     "t_1m_account_id_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_identity",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ADD COLUMN row_num bigint GENERATED ALWAYS AS IDENTITY",
+   "source": "lemmy__0256__2025-08-01-000024_add_person_content_combined_table__up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_column_identity blocks reads and writes for an estimated 10s (up to ~40s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_identity",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10000,
+      "low_ms": 2500,
+      "high_ms": 40000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 10362,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16741:AccessExclusiveLock",
+     "16741:RowExclusiveLock",
+     "16741:ShareRowExclusiveLock",
+     "16742:AccessExclusiveLock",
+     "16745:AccessExclusiveLock",
+     "16745:ShareLock",
+     "16746:AccessExclusiveLock",
+     "16746:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16431:AccessExclusiveLock",
+     "pg_toast_16431_index:AccessExclusiveLock",
+     "t_1m_account_id_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_generated_stored",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ADD COLUMN score_band text GENERATED ALWAYS AS (CASE WHEN score > 500 THEN 'high' ELSE 'low' END) STORED",
+   "source": "coder__0160__000160_provisioner_job_status.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_column_generated_stored blocks reads and writes for an estimated 10s (up to ~40s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_generated_stored",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10000,
+      "low_ms": 2500,
+      "high_ms": 40000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 9038,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16752:AccessExclusiveLock",
+     "16755:AccessExclusiveLock",
+     "16755:ShareLock",
+     "16756:AccessExclusiveLock",
+     "16756:ShareUpdateExclusiveLock",
+     "pg_attribute:RowExclusiveLock",
+     "pg_attribute_relid_attnam_index:RowExclusiveLock",
+     "pg_attribute_relid_attnum_index:RowExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16431:AccessExclusiveLock",
+     "pg_toast_16431_index:AccessExclusiveLock",
+     "t_1m_account_id_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_domain_default",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "ALTER TABLE t_1m ADD COLUMN region label_domain NOT NULL DEFAULT 'us-east-1'",
+   "source": "boundary__0052__04_wh_credential_dimension.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_column_default_nonvolatile blocks reads and writes for an estimated 10s (up to ~40s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_default_nonvolatile",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10000,
+      "low_ms": 2500,
+      "high_ms": 40000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: type 'label_domain' is a domain with 1 CHECK constraint(s) \u2014 the fast path is disabled and the table is rewritten"
+    ]
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 8103,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16762:AccessExclusiveLock",
+     "16765:AccessExclusiveLock",
+     "16765:ShareLock",
+     "16766:AccessExclusiveLock",
+     "16766:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16431:AccessExclusiveLock",
+     "pg_toast_16431_index:AccessExclusiveLock",
+     "t_1m_account_id_idx:AccessExclusiveLock",
+     "t_1m_created_at_idx:AccessExclusiveLock",
+     "t_1m_pkey:AccessExclusiveLock",
+     "t_1m_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "update_matched",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "UPDATE t_1m SET status = 'archived' WHERE status = 'deleted'",
+   "source": "boundary__0066__10_auth.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "row locks only \u2014 no table-wide block \u2014 but the matched-row count is not statically knowable",
+    "conditions": [
+     "the WHERE clause must match a bounded number of rows: matched rows hold row locks, produce dead tuples, and extend the transaction \u2014 worst case (every row of t_1m) is ~20s (up to ~80s)",
+     "consider batching (LIMIT-bounded loops or key windows)"
+    ],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "update",
+      "lock_mode": "ROW EXCLUSIVE",
+      "cannot_estimate": "rows matched by the WHERE clause are not statically knowable (the catalog row says: do not guess)"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 12627,
+    "rowcount": 166667,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_1m_account_id_idx:RowExclusiveLock",
+     "t_1m_created_at_idx:RowExclusiveLock",
+     "t_1m_pkey:RowExclusiveLock",
+     "t_1m_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 2
+  },
+  {
+   "case": "update_backfill_null",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "UPDATE t_1m SET title = note WHERE title IS NULL",
+   "source": "boundary__0089__01_wh_network_address_dimensions.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "row locks only \u2014 no table-wide block \u2014 but the matched-row count is not statically knowable",
+    "conditions": [
+     "the WHERE clause must match a bounded number of rows: matched rows hold row locks, produce dead tuples, and extend the transaction \u2014 worst case (every row of t_1m) is ~20s (up to ~80s)",
+     "consider batching (LIMIT-bounded loops or key windows)"
+    ],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "update",
+      "lock_mode": "ROW EXCLUSIVE",
+      "cannot_estimate": "rows matched by the WHERE clause are not statically knowable (the catalog row says: do not guess)"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 5609,
+    "rowcount": 90909,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_1m_account_id_idx:RowExclusiveLock",
+     "t_1m_created_at_idx:RowExclusiveLock",
+     "t_1m_pkey:RowExclusiveLock",
+     "t_1m_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 2
+  },
+  {
+   "case": "update_without_where",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "UPDATE t_1m SET score = score + 1",
+   "source": "boundary__0118__06_kms_collection_version.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "rewrites every row of t_1m in one transaction: every row is locked, ~19s of runtime (up to ~79s), dead tuples for the whole table, and a matching WAL/replication burst",
+    "conditions": [],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "update_without_where",
+      "lock_mode": "ROW EXCLUSIVE",
+      "point_ms": 19999,
+      "low_ms": 4999,
+      "high_ms": 79996,
+      "confidence": "medium",
+      "constant_key": "dml_update",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 36146,
+    "rowcount": 1000000,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_1m_account_id_idx:RowExclusiveLock",
+     "t_1m_created_at_idx:RowExclusiveLock",
+     "t_1m_pkey:RowExclusiveLock",
+     "t_1m_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 3
+  },
+  {
+   "case": "delete_without_where",
+   "table": "t_1m",
+   "rows": 1000000,
+   "sql": "DELETE FROM t_1m",
+   "source": "coder__0037__000037_jwt_licenses.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "deletes every row of t_1m in one transaction: every row is locked, ~10s of runtime (up to ~40s), dead tuples for the whole table, and a matching WAL/replication burst",
+    "conditions": [
+     "acceptable only in a low-traffic window; prefer batching"
+    ],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "delete_without_where",
+      "lock_mode": "ROW EXCLUSIVE",
+      "point_ms": 10000,
+      "low_ms": 2500,
+      "high_ms": 40000,
+      "confidence": "medium",
+      "constant_key": "dml_delete",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 1109,
+    "rowcount": 1000000,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_1m_account_id_idx:RowExclusiveLock",
+     "t_1m_created_at_idx:RowExclusiveLock",
+     "t_1m_pkey:RowExclusiveLock",
+     "t_1m_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 1
+  },
+  {
+   "case": "add_column_bare",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ADD COLUMN worker_filter text",
+   "source": "boundary__0027__01_server_tags_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "proven",
+    "rationale": "add_column is catalog-only but takes a read-and-write-blocking lock on t_10m; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "proven"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 19,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "add_column_default_const",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ADD COLUMN purpose text NOT NULL DEFAULT 'recovery'",
+   "source": "boundary__0056__01_nonce.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "add_column_default_nonvolatile is catalog-only but takes a read-and-write-blocking lock on t_10m; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_default_nonvolatile",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: type 'text' is not a domain \u2014 the fast default path applies (value stored in attmissingval, no rewrite)"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 5,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock",
+     "pg_depend_depender_index:RowExclusiveLock",
+     "pg_depend_reference_index:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_fk_not_valid",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ADD CONSTRAINT t_10m_account_fk2 FOREIGN KEY (account_id) REFERENCES accounts(id) NOT VALID",
+   "source": "coder__0385__000385_aibridge_fks.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "proven",
+    "rationale": "add_foreign_key_not_valid is catalog-only; writers stall only briefly",
+    "conditions": [],
+    "statement_lock_mode": "SHARE ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_foreign_key_not_valid",
+      "lock_mode": "SHARE ROW EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "proven"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 27,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareRowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE ROW EXCLUSIVE",
+    "other_locks": [
+     "accounts:ShareRowExclusiveLock",
+     "pg_constraint:RowExclusiveLock",
+     "pg_constraint_conname_nsp_index:RowExclusiveLock",
+     "pg_constraint_conparentid_index:RowExclusiveLock",
+     "pg_constraint_conrelid_contypid_conname_index:RowExclusiveLock",
+     "pg_constraint_contypid_index:RowExclusiveLock",
+     "pg_constraint_oid_index:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_varchar_widen",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ALTER COLUMN status TYPE varchar(64)",
+   "source": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "alter_column_type is catalog-only but takes a read-and-write-blocking lock on t_10m; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: no table rewrite \u2014 varchar: the typmod change is non-lossy, so the coercion simplifies to a no-op"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 13477,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16777:AccessExclusiveLock",
+     "pg_depend:RowExclusiveLock",
+     "t_10m_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_varchar_text",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ALTER COLUMN title TYPE text",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "alter_column_type is catalog-only but takes a read-and-write-blocking lock on t_10m; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: no table rewrite \u2014 binary coercible (pg_cast.castmethod = 'b' on the connected server) and the target carries no typmod: a pure relabel"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 3,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_numeric_widen",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ALTER COLUMN amount TYPE numeric(14,2)",
+   "source": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "alter_column_type is catalog-only but takes a read-and-write-blocking lock on t_10m; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: no table rewrite \u2014 numeric: the typmod change is non-lossy, so the coercion simplifies to a no-op"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 4,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_ts_tstz",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ALTER COLUMN updated_at TYPE timestamptz",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "alter_column_type blocks reads and writes for an estimated 100s (up to ~400s): an outage-length stall",
+    "conditions": [
+     "the migration session must run with TimeZone=UTC; under any other zone the whole table is rewritten"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 100000,
+      "low_ms": 25000,
+      "high_ms": 400000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: conditional rewrite \u2014 binary compatible when the migration session runs with TimeZone=UTC; any other zone rewrites (the server's configured TimeZone is in ServerFacts.timezone as evidence, but t"
+    ]
+   },
+   "rewrote_table": false,
+   "measured": {
+    "ms": 3,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "pg_depend:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "set_not_null_proving_check",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ALTER COLUMN body SET NOT NULL",
+   "source": "boundary__0134__01_credentials.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "observed",
+    "rationale": "set_not_null is catalog-only but takes a read-and-write-blocking lock on t_10m; the work is brief, the wait for the lock may not be",
+    "conditions": [
+     "acquisition must be prompt: set lock_timeout with retries or run in a low-traffic window \u2014 while this statement waits for its lock, every later query on the relation queues behind it"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "set_not_null",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 10,
+      "low_ms": 1,
+      "high_ms": 100,
+      "confidence": "medium",
+      "constant_key": "constant_op",
+      "method": "observed"
+     }
+    ],
+    "narrowings": [
+     "live: valid constraint 't_10m_body_check' already proves 'body' NOT NULL \u2014 the verification scan is skipped (NotNullImpliedByRelConstraints, PG 12+)"
+    ]
+   },
+   "measured": {
+    "ms": 1,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "create_index_single",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "CREATE INDEX t_10m_user_id_idx ON t_10m (user_id)",
+   "source": "boundary__0004__02_oplog.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 40s (up to ~160s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 40000,
+      "low_ms": 10000,
+      "high_ms": 160000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 8347,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16778:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_composite",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "CREATE INDEX t_10m_acct_created_idx ON t_10m (account_id, created_at)",
+   "source": "boundary__0023__65_wh_session_dimensions.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 40s (up to ~160s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 40000,
+      "low_ms": 10000,
+      "high_ms": 160000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 10537,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16779:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_expr",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "CREATE INDEX t_10m_title_lower_idx ON t_10m (lower(title))",
+   "source": "discourse (fix_search migration)",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 40s (up to ~160s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 40000,
+      "low_ms": 10000,
+      "high_ms": 160000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 47830,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16780:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_partial",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "CREATE INDEX t_10m_created_active_idx ON t_10m (created_at) WHERE is_active",
+   "source": "boundary__0023__65_wh_session_dimensions.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 40s (up to ~160s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 40000,
+      "low_ms": 10000,
+      "high_ms": 160000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 8399,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16781:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_index_gin",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "CREATE INDEX t_10m_payload_gin ON t_10m USING gin (payload)",
+   "source": "coder__0451__000451_chat_labels.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 40s (up to ~160s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 40000,
+      "low_ms": 10000,
+      "high_ms": 160000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 35444,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16782:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "create_unique_index",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "CREATE UNIQUE INDEX t_10m_external_id_uq ON t_10m (external_id)",
+   "source": "boundary__0023__65_wh_session_dimensions.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "create_index blocks writes for an estimated 40s (up to ~160s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "create_index",
+      "lock_mode": "SHARE",
+      "point_ms": 40000,
+      "low_ms": 10000,
+      "high_ms": 160000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 11020,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "16783:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_unique_constraint",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ADD CONSTRAINT t_10m_ext_uq UNIQUE (external_id)",
+   "source": "boundary__0066__10_auth.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_unique blocks reads and writes for an estimated 40s (up to ~160s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_unique",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 40000,
+      "low_ms": 10000,
+      "high_ms": 160000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 10821,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16784:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "validate_fk",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m VALIDATE CONSTRAINT t_10m_account_fk_nv",
+   "source": "coder__0385__000385_aibridge_fks.up.sql",
+   "predicted": {
+    "classification": "safe",
+    "method": "observed",
+    "rationale": "validate_constraint holds no lock that blocks reads or writes on a pre-existing relation (runs for an estimated 100s)",
+    "conditions": [],
+    "statement_lock_mode": "SHARE UPDATE EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "validate_constraint",
+      "lock_mode": "SHARE UPDATE EXCLUSIVE",
+      "point_ms": 100000,
+      "low_ms": 25000,
+      "high_ms": 400000,
+      "confidence": "medium",
+      "constant_key": "fk_validation",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: 't_10m_account_fk_nv' is a FOREIGN KEY \u2014 validation scans this table and takes ROW SHARE on the referenced table (public.accounts)"
+    ]
+   },
+   "measured": {
+    "ms": 2384,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareUpdateExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareUpdateExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE UPDATE EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "add_check",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ADD CONSTRAINT t_10m_note_not_empty CHECK (length(trim(note)) > 0)",
+   "source": "boundary__0027__01_server_tags_migrations.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_check blocks reads and writes for an estimated 20s (up to ~80s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_check",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 20000,
+      "low_ms": 5000,
+      "high_ms": 80000,
+      "confidence": "medium",
+      "constant_key": "validation_scan",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 8974,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "set_not_null_plain",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ALTER COLUMN note SET NOT NULL",
+   "source": "boundary__0134__01_credentials.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "set_not_null blocks reads and writes for an estimated 20s (up to ~80s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "set_not_null",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 20000,
+      "low_ms": 5000,
+      "high_ms": 80000,
+      "confidence": "medium",
+      "constant_key": "validation_scan",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: no valid constraint proves 'note' NOT NULL \u2014 the full verification scan runs under ACCESS EXCLUSIVE"
+    ]
+   },
+   "measured": {
+    "ms": 7308,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": []
+   }
+  },
+  {
+   "case": "add_fk_plain",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ADD CONSTRAINT t_10m_account_fk FOREIGN KEY (account_id) REFERENCES accounts(id)",
+   "source": "boundary__0043__01_server_type_enum.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_foreign_key blocks writes for an estimated 100s (up to ~400s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_foreign_key",
+      "lock_mode": "SHARE ROW EXCLUSIVE",
+      "point_ms": 100000,
+      "low_ms": 25000,
+      "high_ms": 400000,
+      "confidence": "medium",
+      "constant_key": "fk_validation",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 2795,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE ROW EXCLUSIVE",
+    "other_locks": [
+     "accounts:ShareRowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_fk_cascade",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ADD CONSTRAINT t_10m_account_fk3 FOREIGN KEY (account_id) REFERENCES accounts(id) ON DELETE CASCADE ON UPDATE CASCADE",
+   "source": "boundary__0027__01_server_tags_migrations.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_foreign_key blocks writes for an estimated 100s (up to ~400s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_foreign_key",
+      "lock_mode": "SHARE ROW EXCLUSIVE",
+      "point_ms": 100000,
+      "low_ms": 25000,
+      "high_ms": 400000,
+      "confidence": "medium",
+      "constant_key": "fk_validation",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 2244,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareRowExclusiveLock"
+    ],
+    "strongest_table_mode": "SHARE ROW EXCLUSIVE",
+    "other_locks": [
+     "accounts:ShareRowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "reindex_index",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "REINDEX INDEX t_10m_account_id_idx",
+   "source": "lemmy__0251__2025-08-01-000019_add_report_count__up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "reindex blocks reads and writes for an estimated 1s (up to ~5s)",
+    "conditions": [
+     "needs a low-traffic window or an aggressive lock_timeout with retries: reads and writes on the relation stall for the whole run"
+    ],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "reindex",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 1463,
+      "low_ms": 365,
+      "high_ms": 5852,
+      "confidence": "medium",
+      "constant_key": "index_bytes",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "index_bytes": 73187328,
+   "measured": {
+    "ms": 7780,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "t_10m_account_id_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "reindex_table",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "REINDEX TABLE t_10m",
+   "source": "lemmy__0251__2025-08-01-000019_add_report_count__up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "reindex blocks reads and writes for an estimated 40s (up to ~160s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "SHARE",
+    "durations": [
+     {
+      "kind": "reindex",
+      "lock_mode": "SHARE",
+      "point_ms": 40000,
+      "low_ms": 10000,
+      "high_ms": 160000,
+      "confidence": "medium",
+      "constant_key": "index_build",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 42153,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock"
+    ],
+    "table_modes_final": [
+     "ShareLock"
+    ],
+    "strongest_table_mode": "SHARE",
+    "other_locks": [
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16448:ShareLock",
+     "pg_toast_16448_index:AccessExclusiveLock",
+     "t_10m_account_id_idx:AccessExclusiveLock",
+     "t_10m_created_at_idx:AccessExclusiveLock",
+     "t_10m_pkey:AccessExclusiveLock",
+     "t_10m_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_int_bigint",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ALTER COLUMN user_id TYPE bigint",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "alter_column_type blocks reads and writes for an estimated 100s (up to ~400s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 100000,
+      "low_ms": 25000,
+      "high_ms": 400000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: the table is rewritten \u2014 the cast uses a conversion function (pg_cast.castmethod = 'f'); every row is converted (verified live: integer->bigint rewrites)"
+    ]
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 106544,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16803:AccessExclusiveLock",
+     "16806:AccessExclusiveLock",
+     "16806:ShareLock",
+     "16807:AccessExclusiveLock",
+     "16807:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_depend:RowExclusiveLock",
+     "pg_toast_16448:AccessExclusiveLock",
+     "pg_toast_16448_index:AccessExclusiveLock",
+     "pg_type:RowExclusiveLock",
+     "pg_type_oid_index:RowExclusiveLock",
+     "pg_type_typname_nsp_index:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "alter_type_text_varchar",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ALTER COLUMN body TYPE varchar(2000)",
+   "source": "boundary__0030__01_job_migrations.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "alter_column_type blocks reads and writes for an estimated 100s (up to ~400s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "alter_column_type",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 100000,
+      "low_ms": 25000,
+      "high_ms": 400000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: the table is rewritten \u2014 binary coercible, but the target's typmod applies a length/precision coercion to every row (verified live: text->varchar(10) rewrites)"
+    ]
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 97648,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16813:AccessExclusiveLock",
+     "16816:AccessExclusiveLock",
+     "16816:ShareLock",
+     "16817:AccessExclusiveLock",
+     "16817:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_depend:RowExclusiveLock",
+     "pg_toast_16448:AccessExclusiveLock",
+     "pg_toast_16448_index:AccessExclusiveLock",
+     "t_10m_account_id_idx:AccessExclusiveLock",
+     "t_10m_created_at_idx:AccessExclusiveLock",
+     "t_10m_pkey:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_default_volatile",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ADD COLUMN new_id uuid NOT NULL DEFAULT gen_random_uuid()",
+   "source": "coder__0218__000218_org_custom_role_audit.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_column_default_volatile blocks reads and writes for an estimated 100s (up to ~400s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_default_volatile",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 100000,
+      "low_ms": 25000,
+      "high_ms": 400000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 169662,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16823:AccessExclusiveLock",
+     "16826:AccessExclusiveLock",
+     "16826:ShareLock",
+     "16827:AccessExclusiveLock",
+     "16827:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16448:AccessExclusiveLock",
+     "pg_toast_16448_index:AccessExclusiveLock",
+     "t_10m_account_id_idx:AccessExclusiveLock",
+     "t_10m_created_at_idx:AccessExclusiveLock",
+     "t_10m_pkey:AccessExclusiveLock",
+     "t_10m_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_serial",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ADD COLUMN seq_id BIGSERIAL",
+   "source": "coder__0071__000071_provisioner_log_lines.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_column_serial blocks reads and writes for an estimated 100s (up to ~400s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_serial",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 100000,
+      "low_ms": 25000,
+      "high_ms": 400000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 90958,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16832:AccessExclusiveLock",
+     "16832:RowExclusiveLock",
+     "16832:ShareRowExclusiveLock",
+     "16834:AccessExclusiveLock",
+     "16837:AccessExclusiveLock",
+     "16837:ShareLock",
+     "16838:AccessExclusiveLock",
+     "16838:ShareUpdateExclusiveLock",
+     "pg_attribute:RowExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_sequence:RowExclusiveLock",
+     "pg_sequence_seqrelid_index:RowExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_identity",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ADD COLUMN row_num bigint GENERATED ALWAYS AS IDENTITY",
+   "source": "lemmy__0256__2025-08-01-000024_add_person_content_combined_table__up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_column_identity blocks reads and writes for an estimated 100s (up to ~400s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_identity",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 100000,
+      "low_ms": 25000,
+      "high_ms": 400000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 119602,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "AccessShareLock",
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16843:AccessExclusiveLock",
+     "16843:RowExclusiveLock",
+     "16843:ShareRowExclusiveLock",
+     "16844:AccessExclusiveLock",
+     "16847:AccessExclusiveLock",
+     "16847:ShareLock",
+     "16848:AccessExclusiveLock",
+     "16848:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16448:AccessExclusiveLock",
+     "pg_toast_16448_index:AccessExclusiveLock",
+     "t_10m_account_id_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_generated_stored",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ADD COLUMN score_band text GENERATED ALWAYS AS (CASE WHEN score > 500 THEN 'high' ELSE 'low' END) STORED",
+   "source": "coder__0160__000160_provisioner_job_status.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_column_generated_stored blocks reads and writes for an estimated 100s (up to ~400s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_generated_stored",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 100000,
+      "low_ms": 25000,
+      "high_ms": 400000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 100518,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16854:AccessExclusiveLock",
+     "16857:AccessExclusiveLock",
+     "16857:ShareLock",
+     "16858:AccessExclusiveLock",
+     "16858:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16448:AccessExclusiveLock",
+     "pg_toast_16448_index:AccessExclusiveLock",
+     "t_10m_account_id_idx:AccessExclusiveLock",
+     "t_10m_created_at_idx:AccessExclusiveLock",
+     "t_10m_pkey:AccessExclusiveLock",
+     "t_10m_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "add_column_domain_default",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "ALTER TABLE t_10m ADD COLUMN region label_domain NOT NULL DEFAULT 'us-east-1'",
+   "source": "boundary__0052__04_wh_credential_dimension.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "add_column_default_nonvolatile blocks reads and writes for an estimated 100s (up to ~400s): an outage-length stall",
+    "conditions": [],
+    "statement_lock_mode": "ACCESS EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "add_column_default_nonvolatile",
+      "lock_mode": "ACCESS EXCLUSIVE",
+      "point_ms": 100000,
+      "low_ms": 25000,
+      "high_ms": 400000,
+      "confidence": "medium",
+      "constant_key": "heap_rewrite",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": [
+     "live: type 'label_domain' is a domain with 1 CHECK constraint(s) \u2014 the fast path is disabled and the table is rewritten"
+    ]
+   },
+   "rewrote_table": true,
+   "measured": {
+    "ms": 80125,
+    "rowcount": null,
+    "error": null,
+    "table_modes_sampled": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "table_modes_final": [
+     "ShareLock",
+     "AccessExclusiveLock"
+    ],
+    "strongest_table_mode": "ACCESS EXCLUSIVE",
+    "other_locks": [
+     "16864:AccessExclusiveLock",
+     "16867:AccessExclusiveLock",
+     "16867:ShareLock",
+     "16868:AccessExclusiveLock",
+     "16868:ShareUpdateExclusiveLock",
+     "pg_class:RowExclusiveLock",
+     "pg_toast_16448:AccessExclusiveLock",
+     "pg_toast_16448_index:AccessExclusiveLock",
+     "t_10m_account_id_idx:AccessExclusiveLock",
+     "t_10m_created_at_idx:AccessExclusiveLock",
+     "t_10m_pkey:AccessExclusiveLock",
+     "t_10m_status_active_idx:AccessExclusiveLock"
+    ]
+   }
+  },
+  {
+   "case": "update_matched",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "UPDATE t_10m SET status = 'archived' WHERE status = 'deleted'",
+   "source": "boundary__0066__10_auth.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "row locks only \u2014 no table-wide block \u2014 but the matched-row count is not statically knowable",
+    "conditions": [
+     "the WHERE clause must match a bounded number of rows: matched rows hold row locks, produce dead tuples, and extend the transaction \u2014 worst case (every row of t_10m) is ~200s (up to ~800s)",
+     "consider batching (LIMIT-bounded loops or key windows)"
+    ],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "update",
+      "lock_mode": "ROW EXCLUSIVE",
+      "cannot_estimate": "rows matched by the WHERE clause are not statically knowable (the catalog row says: do not guess)"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 128843,
+    "rowcount": 1666667,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_10m_account_id_idx:RowExclusiveLock",
+     "t_10m_created_at_idx:RowExclusiveLock",
+     "t_10m_pkey:RowExclusiveLock",
+     "t_10m_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 36
+  },
+  {
+   "case": "update_backfill_null",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "UPDATE t_10m SET title = note WHERE title IS NULL",
+   "source": "boundary__0089__01_wh_network_address_dimensions.up.sql",
+   "predicted": {
+    "classification": "conditionally_safe",
+    "method": "simulated",
+    "rationale": "row locks only \u2014 no table-wide block \u2014 but the matched-row count is not statically knowable",
+    "conditions": [
+     "the WHERE clause must match a bounded number of rows: matched rows hold row locks, produce dead tuples, and extend the transaction \u2014 worst case (every row of t_10m) is ~200s (up to ~800s)",
+     "consider batching (LIMIT-bounded loops or key windows)"
+    ],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "update",
+      "lock_mode": "ROW EXCLUSIVE",
+      "cannot_estimate": "rows matched by the WHERE clause are not statically knowable (the catalog row says: do not guess)"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 104803,
+    "rowcount": 909090,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_10m_account_id_idx:RowExclusiveLock",
+     "t_10m_created_at_idx:RowExclusiveLock",
+     "t_10m_pkey:RowExclusiveLock",
+     "t_10m_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 36
+  },
+  {
+   "case": "update_without_where",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "UPDATE t_10m SET score = score + 1",
+   "source": "boundary__0118__06_kms_collection_version.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "rewrites every row of t_10m in one transaction: every row is locked, ~199s of runtime (up to ~799s), dead tuples for the whole table, and a matching WAL/replication burst",
+    "conditions": [],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "update_without_where",
+      "lock_mode": "ROW EXCLUSIVE",
+      "point_ms": 199995,
+      "low_ms": 49998,
+      "high_ms": 799980,
+      "confidence": "medium",
+      "constant_key": "dml_update",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 449548,
+    "rowcount": 10000000,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_10m_account_id_idx:RowExclusiveLock",
+     "t_10m_created_at_idx:RowExclusiveLock",
+     "t_10m_pkey:RowExclusiveLock",
+     "t_10m_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 103
+  },
+  {
+   "case": "delete_without_where",
+   "table": "t_10m",
+   "rows": 10000000,
+   "sql": "DELETE FROM t_10m",
+   "source": "coder__0037__000037_jwt_licenses.up.sql",
+   "predicted": {
+    "classification": "unsafe",
+    "method": "simulated",
+    "rationale": "deletes every row of t_10m in one transaction: every row is locked, ~99s of runtime (up to ~399s), dead tuples for the whole table, and a matching WAL/replication burst",
+    "conditions": [],
+    "statement_lock_mode": "ROW EXCLUSIVE",
+    "durations": [
+     {
+      "kind": "delete_without_where",
+      "lock_mode": "ROW EXCLUSIVE",
+      "point_ms": 99999,
+      "low_ms": 24999,
+      "high_ms": 399996,
+      "confidence": "medium",
+      "constant_key": "dml_delete",
+      "method": "simulated"
+     }
+    ],
+    "narrowings": []
+   },
+   "measured": {
+    "ms": 60142,
+    "rowcount": 10000000,
+    "error": null,
+    "table_modes_sampled": [
+     "RowExclusiveLock"
+    ],
+    "table_modes_final": [
+     "RowExclusiveLock"
+    ],
+    "strongest_table_mode": "ROW EXCLUSIVE",
+    "other_locks": [
+     "t_10m_account_id_idx:RowExclusiveLock",
+     "t_10m_created_at_idx:RowExclusiveLock",
+     "t_10m_pkey:RowExclusiveLock",
+     "t_10m_status_active_idx:RowExclusiveLock"
+    ]
+   },
+   "vacuum_after_s": 24
+  }
+ ]
+}

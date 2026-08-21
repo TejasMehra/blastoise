@@ -1,0 +1,1752 @@
+[
+ {
+  "file": "kratos__0001__20150100000001000000_networks.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20150100000001000000_networks.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "c75ecac1b5724ba987a862d1624510c9595c98a79253a52daad9b3d770c96778",
+  "bytes": 137
+ },
+ {
+  "file": "kratos__0002__20191100000001000000_identities.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000001000000_identities.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "774e53e5d116be6cd824646c2305d4bc6e00061e329ebf9659a31aa65a9875e3",
+  "bytes": 210
+ },
+ {
+  "file": "kratos__0003__20191100000001000001_identities.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000001000001_identities.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4f4649b29822731749680d03b3fcc9f7a570d0fd28c063b6cb8089b8279b0e75",
+  "bytes": 117
+ },
+ {
+  "file": "kratos__0004__20191100000001000003_identities.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000001000003_identities.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "76a2b51bff47bb95fcf9c67e402879dd2524950e6ad9b500247aad4c6ce57316",
+  "bytes": 440
+ },
+ {
+  "file": "kratos__0005__20191100000001000004_identities.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000001000004_identities.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d01ff921419a063d9c6ea412ba68eddb1c2c3f1beb10966cdfc2710dfa3d72b3",
+  "bytes": 339
+ },
+ {
+  "file": "kratos__0006__20191100000001_identities.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20191100000001_identities.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d2edaa774cd1d80cd4708b637ccdc749379d5c7ffa29473bb766ffb9943bc273",
+  "bytes": 1330
+ },
+ {
+  "file": "kratos__0007__20191100000002000000_requests.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000002000000_requests.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "79d87dc94dec01f58d3fc7e41259145e1dab19cab9ae187aeb60d33e012098ba",
+  "bytes": 366
+ },
+ {
+  "file": "kratos__0008__20191100000002000002_requests.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000002000002_requests.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "605fc676df39660582d4729b2f200c846f43c48caf0154235fd24de3bf54a6a7",
+  "bytes": 373
+ },
+ {
+  "file": "kratos__0009__20191100000002000003_requests.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000002000003_requests.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "60066e2e018c07589b52a05f15e37a9b6390065550e891a5cbb403cc5d57a2a6",
+  "bytes": 408
+ },
+ {
+  "file": "kratos__0010__20191100000002_requests.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20191100000002_requests.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "62aaa80058e29c5b510baf6cd63ad8d8dc238d3b00d84267254afe610374f166",
+  "bytes": 2005
+ },
+ {
+  "file": "kratos__0011__20191100000003000000_sessions.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000003000000_sessions.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "383139955cf1a3cedcfdbfa702f6339b8d83b258916648c5b1f542cbc1591efd",
+  "bytes": 379
+ },
+ {
+  "file": "kratos__0012__20191100000004000000_errors.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000004000000_errors.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "2bd63de1ee531e4a3cbc57c901fa736176480d69c7231fbcb5af6ed7ed782dd7",
+  "bytes": 231
+ },
+ {
+  "file": "kratos__0013__20191100000004_errors.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20191100000004_errors.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "2bd63de1ee531e4a3cbc57c901fa736176480d69c7231fbcb5af6ed7ed782dd7",
+  "bytes": 231
+ },
+ {
+  "file": "kratos__0014__20191100000006_courier.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20191100000006_courier.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "f61bded9c15d9a93263324f615b168b94a9338b636a3e851b76c642146e5bf97",
+  "bytes": 295
+ },
+ {
+  "file": "kratos__0015__20191100000007000000_errors.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000007000000_errors.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "1718ea26431e8e253d5eec9dc41c18c8d18ede6539ad30c320887f2501dcdc14",
+  "bytes": 91
+ },
+ {
+  "file": "kratos__0016__20191100000008000000_selfservice_verification.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000008000000_selfservice_verification.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "f90179496ff39dd6211f1bbd3f101a73f2890cdbdd05df7945e7cbbc40852a17",
+  "bytes": 507
+ },
+ {
+  "file": "kratos__0017__20191100000008000001_selfservice_verification.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000008000001_selfservice_verification.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "ddc3664470a7a311890e9f5818fde1345785d431251c1b0adc3fc3fc4ecd2c93",
+  "bytes": 106
+ },
+ {
+  "file": "kratos__0018__20191100000008000002_selfservice_verification.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000008000002_selfservice_verification.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "6e2f059b96ac2a87c575a3d6c9b3e4ea19f501fefa48bd35d9552cbb6cb1daff",
+  "bytes": 96
+ },
+ {
+  "file": "kratos__0019__20191100000008000004_selfservice_verification.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000008000004_selfservice_verification.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "5eaeb9d0178306cf00240c34a7d63832ff9285d6ec6093484a580b0658105146",
+  "bytes": 108
+ },
+ {
+  "file": "kratos__0020__20191100000008000005_selfservice_verification.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000008000005_selfservice_verification.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "f55a3a203da4fd2304c4a93fea2e0d0d6eb01b2fdb5c01e24febfaf6511842c6",
+  "bytes": 413
+ },
+ {
+  "file": "kratos__0021__20191100000010000000_errors.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000010000000_errors.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "7272e8a62ba56099ffe9133cdad63e5e78c9795e76be0381a56ac7a5fb5e8021",
+  "bytes": 109
+ },
+ {
+  "file": "kratos__0022__20191100000010_errors.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20191100000010_errors.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "7272e8a62ba56099ffe9133cdad63e5e78c9795e76be0381a56ac7a5fb5e8021",
+  "bytes": 109
+ },
+ {
+  "file": "kratos__0023__20191100000011_courier_body_type.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20191100000011_courier_body_type.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "31aa5ce322f5b2c8cdaeb03db2aec8f77d4683c96fc15d393fea89fb3895cf7a",
+  "bytes": 95
+ },
+ {
+  "file": "kratos__0024__20191100000012000000_login_request_forced.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20191100000012000000_login_request_forced.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d0911f7d4a24552ad6f2dccdac53da6687b958acae2b9e5f12336a7a51b49b73",
+  "bytes": 91
+ },
+ {
+  "file": "kratos__0025__20200317160354000000_create_profile_request_forms.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200317160354000000_create_profile_request_forms.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "5988885bf05dce008de3f64c9cbed77a7ff924a77455c647440b8e414034fff5",
+  "bytes": 294
+ },
+ {
+  "file": "kratos__0026__20200317160354000001_create_profile_request_forms.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200317160354000001_create_profile_request_forms.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "f390df454a0c5778329b9ee82d1d72aa32d8293d3fb8018b35bd2b17ad9da405",
+  "bytes": 94
+ },
+ {
+  "file": "kratos__0027__20200317160354000003_create_profile_request_forms.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200317160354000003_create_profile_request_forms.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d50c77cf7e0777959a3ea29e8966b25e4ccbab60c1c6e01649fb4c26e9f7b8d6",
+  "bytes": 73
+ },
+ {
+  "file": "kratos__0028__20200317160354_create_profile_request_forms.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200317160354_create_profile_request_forms.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "9adb48681d2ebb8ff9f96eca2fa7c892b6854f96a1e33a0e5aaf6cf34519dd8e",
+  "bytes": 665
+ },
+ {
+  "file": "kratos__0029__20200401183443_continuity_containers.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200401183443_continuity_containers.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "7387b53e10ff956971130a8351a63bc6835968e69f79bbab1dfd666ab99f54e4",
+  "bytes": 334
+ },
+ {
+  "file": "kratos__0030__20200402142539000000_rename_profile_flows.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200402142539000000_rename_profile_flows.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "36a60edbcd384354f6ef2af772744de5ac9734d038f91f4b42e7f2745c1be5d5",
+  "bytes": 156
+ },
+ {
+  "file": "kratos__0031__20200402142539000002_rename_profile_flows.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200402142539000002_rename_profile_flows.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "92825c5215862936a415ded2df2cd34df9185d0d96d9eeee54e01e33c14de31e",
+  "bytes": 96
+ },
+ {
+  "file": "kratos__0032__20200402142539_rename_profile_flows.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200402142539_rename_profile_flows.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "fe8fbe966f6c6219803c56dcac672f081e9ab4b65fc60f90dcc28cc918f57844",
+  "bytes": 366
+ },
+ {
+  "file": "kratos__0033__20200519101057000000_create_recovery_addresses.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200519101057000000_create_recovery_addresses.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4e5f02a7a154008a175af64b95d1fc572272f2bbeb1a38410f253c924657dc4f",
+  "bytes": 328
+ },
+ {
+  "file": "kratos__0034__20200519101057000002_create_recovery_addresses.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200519101057000002_create_recovery_addresses.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "89dbdc7cb915a8e9c3d5e35497aefb3b1e6da47ddd8435aa3c0fc9def1774097",
+  "bytes": 104
+ },
+ {
+  "file": "kratos__0035__20200519101057000003_create_recovery_addresses.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200519101057000003_create_recovery_addresses.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "b097c831ca7a1cc25303ea84d82a2de0b6060d6c845e5bf86c2696a0e5ca146e",
+  "bytes": 531
+ },
+ {
+  "file": "kratos__0036__20200519101057000005_create_recovery_addresses.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200519101057000005_create_recovery_addresses.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "9d80ea2d1c14ca10ed2a0484bdd609da5b99b71d22d2b32600d6cc622489a770",
+  "bytes": 574
+ },
+ {
+  "file": "kratos__0037__20200519101057000006_create_recovery_addresses.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200519101057000006_create_recovery_addresses.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "9683cebb2f4e199f99da16690dbc9cb16b90cd193b9f629a2ba098ac4312bfbf",
+  "bytes": 100
+ },
+ {
+  "file": "kratos__0038__20200519101057_create_recovery_addresses.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200519101057_create_recovery_addresses.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "c9385a798fdd04da161db164f51bbb6c5217181a3a2e196488a34316aa1f1261",
+  "bytes": 2247
+ },
+ {
+  "file": "kratos__0039__20200601101000000000_create_messages.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200601101000000000_create_messages.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4c95b3e38eca7d822057baaf377fafd49525401a730f8ec25c3ae5658fc3973f",
+  "bytes": 72
+ },
+ {
+  "file": "kratos__0040__20200605111551000000_messages.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200605111551000000_messages.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "ce5f807bb4446384e91dae712cb1ea54161dac42e69f3456bcbe61e7f1433ae2",
+  "bytes": 76
+ },
+ {
+  "file": "kratos__0041__20200605111551000001_messages.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200605111551000001_messages.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "f9f498ea5922c8711f4978f2a82c605d36d7900c828ee5fc66caabe12e59e25f",
+  "bytes": 69
+ },
+ {
+  "file": "kratos__0042__20200605111551_messages.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200605111551_messages.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "5b5c2ade64597478b60bc53f26dcf5726ea5c606993697d7d4270f623594c1f7",
+  "bytes": 225
+ },
+ {
+  "file": "kratos__0043__20200607165100000000_settings.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200607165100000000_settings.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "a45ca7efb258f360e2fc9d3d04efd5c3c0ad35f1ced943876519e37a30aa10f2",
+  "bytes": 106
+ },
+ {
+  "file": "kratos__0044__20200607165100_settings.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200607165100_settings.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "846222bae3be60f5c2368351c8361475f1f0c5b21140c2942a8d159e8b161d19",
+  "bytes": 184
+ },
+ {
+  "file": "kratos__0045__20200705105359000000_rename_identities_schema.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200705105359000000_rename_identities_schema.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "39ded4ed777fb1d60b5f7e024b4851ead1115574d520ca89f4cabd24c66ad4b0",
+  "bytes": 73
+ },
+ {
+  "file": "kratos__0046__20200810141652000000_flow_type.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200810141652000000_flow_type.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e2231bab4b7a4ad166d68572a845752051c991c559c061de61eee9346eeebc2e",
+  "bytes": 99
+ },
+ {
+  "file": "kratos__0047__20200810141652000001_flow_type.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200810141652000001_flow_type.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "acbdd80cae3258be8a198259e519f4bd3343c079176fc3dfb5f29a13ea4ee74e",
+  "bytes": 106
+ },
+ {
+  "file": "kratos__0048__20200810141652000002_flow_type.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200810141652000002_flow_type.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "aa3559d165a2acb5918fc2cd56bce2805fc70b6d8007179c72f5c920373a0ded",
+  "bytes": 102
+ },
+ {
+  "file": "kratos__0049__20200810141652000004_flow_type.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200810141652000004_flow_type.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "c995509628f4c3cc066d71407481f7e6f8ab65a2fec6dd928a8f305d5833c423",
+  "bytes": 106
+ },
+ {
+  "file": "kratos__0050__20200810141652_flow_type.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200810141652_flow_type.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "11786ad507ff015478221135c15eca0d2f3aecca0b8c7273a7a2c90623a12608",
+  "bytes": 523
+ },
+ {
+  "file": "kratos__0051__20200810161022000001_flow_rename.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200810161022000001_flow_rename.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "ec9fabf0a93c6ffeb2aeafb4e17c0385c663fb1e7fe4c2baa95530e9937300d2",
+  "bytes": 77
+ },
+ {
+  "file": "kratos__0052__20200810161022000002_flow_rename.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200810161022000002_flow_rename.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4da14cc326f688531de78caa8a5089176c702bb74bb741dae64697f5d064b028",
+  "bytes": 105
+ },
+ {
+  "file": "kratos__0053__20200810161022000004_flow_rename.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200810161022000004_flow_rename.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "fd55aafe1f6b143e0fbfbbbd74633e3e92706f1b93f8e99954e28f728f4900eb",
+  "bytes": 97
+ },
+ {
+  "file": "kratos__0054__20200810161022000005_flow_rename.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200810161022000005_flow_rename.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "378f64c4d94bdbfb51c7a8b56869115297db90b3b9d4e0349e8682d7591e068f",
+  "bytes": 83
+ },
+ {
+  "file": "kratos__0055__20200810161022000007_flow_rename.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200810161022000007_flow_rename.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "06f6e4a996d6173204dfeee18f215afcaacb3f313bf315828b540e7f5905547a",
+  "bytes": 83
+ },
+ {
+  "file": "kratos__0056__20200810161022000008_flow_rename.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200810161022000008_flow_rename.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "5e7d120e0001bbed09670abfd9c5508e300660481bcaac591f30c7429e0a0d64",
+  "bytes": 91
+ },
+ {
+  "file": "kratos__0057__20200810162450000000_flow_fields_rename.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200810162450000000_flow_fields_rename.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "706c72b6b7505eabb588782decc3b86f4d935d6d30b05591c92a8707f898de6a",
+  "bytes": 121
+ },
+ {
+  "file": "kratos__0058__20200810162450000001_flow_fields_rename.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200810162450000001_flow_fields_rename.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "be397973f45678ea29ef5d3cab3b369cc9ea6e29615679110c4be51433bc5ee2",
+  "bytes": 142
+ },
+ {
+  "file": "kratos__0059__20200810162450000003_flow_fields_rename.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200810162450000003_flow_fields_rename.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "bc8a64eb7cb58c44fb11e3e2d18e70a3f29218a664bb2933e9fb1c059520d2e5",
+  "bytes": 130
+ },
+ {
+  "file": "kratos__0060__20200810162450_flow_fields_rename.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200810162450_flow_fields_rename.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "0c0e03a2a68407d9330ecca242fdcb5403b44b2956b879f125f23e883cb0b7a7",
+  "bytes": 529
+ },
+ {
+  "file": "kratos__0061__20200812124254000001_add_session_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200812124254000001_add_session_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d9fbe7e24733b2bb35a15d7faded1d8ccccee1bd2398378eefa9501385a2a91c",
+  "bytes": 55
+ },
+ {
+  "file": "kratos__0062__20200812124254000002_add_session_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200812124254000002_add_session_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "79334d0d9d46e06efd1a3b9f69a426c325d0c84d40386f1c80b86b6e9dfd3b3a",
+  "bytes": 98
+ },
+ {
+  "file": "kratos__0063__20200812124254000004_add_session_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200812124254000004_add_session_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "5f206b558c8a9d5e920c8c36ebbebc18217ffcafc81bebf4fbb349b1d9acfe0b",
+  "bytes": 56
+ },
+ {
+  "file": "kratos__0064__20200812124254_add_session_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200812124254_add_session_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "ce08ea414cbd0a681318090a1c01c903ec52b0da35356beaf276dc91f26e0dcf",
+  "bytes": 341
+ },
+ {
+  "file": "kratos__0065__20200812160551000000_add_session_revoke.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200812160551000000_add_session_revoke.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "71957142886d98aad7a875d69cd0495c4453c52b53babe747bcc6178d1b692c6",
+  "bytes": 67
+ },
+ {
+  "file": "kratos__0066__20200830121710000000_update_recovery_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200830121710000000_update_recovery_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "83b0c45cb1cb78160967b17961ff41767a1d616f0a5af37e3f8e9db8beef1ac0",
+  "bytes": 121
+ },
+ {
+  "file": "kratos__0067__20200830121710_update_recovery_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200830121710_update_recovery_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "83b0c45cb1cb78160967b17961ff41767a1d616f0a5af37e3f8e9db8beef1ac0",
+  "bytes": 121
+ },
+ {
+  "file": "kratos__0068__20200830130642_add_verification_methods.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200830130642_add_verification_methods.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "2ca4efdc98283495375f5c24a6a7ee24a6019259125e7c831e1873f22ab58970",
+  "bytes": 107
+ },
+ {
+  "file": "kratos__0069__20200830130643000000_add_verification_methods.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200830130643000000_add_verification_methods.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e45fe516a9f58682d3a6307e1d2563de195ab1f72044fabff149b1768c5c0926",
+  "bytes": 89
+ },
+ {
+  "file": "kratos__0070__20200830130644000000_add_verification_methods.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200830130644000000_add_verification_methods.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e4bee86ca9f70012249371ae39c526cad39e83bbbd57a1998fd681a37266291e",
+  "bytes": 276
+ },
+ {
+  "file": "kratos__0071__20200830130644000001_add_verification_methods.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200830130644000001_add_verification_methods.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "b0454f0eedfad5c1366604b6b26c7b3d668ea9a3330456b8e30436874fbd433a",
+  "bytes": 85
+ },
+ {
+  "file": "kratos__0072__20200830130645000000_add_verification_methods.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200830130645000000_add_verification_methods.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d0cec84dc806a4d082a8aaaa3660f9c35c8d089345300aa9463b6dde53f47740",
+  "bytes": 217
+ },
+ {
+  "file": "kratos__0073__20200830130645_add_verification_methods.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200830130645_add_verification_methods.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d0cec84dc806a4d082a8aaaa3660f9c35c8d089345300aa9463b6dde53f47740",
+  "bytes": 217
+ },
+ {
+  "file": "kratos__0074__20200830130646000001_add_verification_methods.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200830130646000001_add_verification_methods.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "21d4808ef80feea292ac1890aca4e6f07dfb416ffb53bc5a78418b5746fc6d2c",
+  "bytes": 63
+ },
+ {
+  "file": "kratos__0075__20200830130646000002_add_verification_methods.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200830130646000002_add_verification_methods.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "613ec584534094693083d5f3c4b587044cb8e0a0f7bfb5126b88c10d1d5c6539",
+  "bytes": 67
+ },
+ {
+  "file": "kratos__0076__20200830154602000000_add_verification_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200830154602000000_add_verification_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "7d01c446d6558bce1ab3a04f51056b901aebf1ac27d2f75cbe280ce4d4dee40a",
+  "bytes": 645
+ },
+ {
+  "file": "kratos__0077__20200830154602000001_add_verification_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200830154602000001_add_verification_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "516c3c7fb3e7b11b18628e844c00b1109186175c4bd8f9d66e8e9cc0740cdc1f",
+  "bytes": 106
+ },
+ {
+  "file": "kratos__0078__20200830154602000003_add_verification_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200830154602000003_add_verification_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "afcc697931b16a4ed1e088374331f0a986090d3e9f71cf5cb6ca5b98d34a3e4f",
+  "bytes": 137
+ },
+ {
+  "file": "kratos__0079__20200830154602000004_add_verification_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200830154602000004_add_verification_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "230c9e4dc9604caabdc0ff29f06db0d99ccaadb7f5059df0b2a6840a09976850",
+  "bytes": 138
+ },
+ {
+  "file": "kratos__0080__20200830154602_add_verification_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200830154602_add_verification_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "1df1e5c06cc94cb02b1749a56f017e1c2f0bbe75056a66a749051503882adb72",
+  "bytes": 1130
+ },
+ {
+  "file": "kratos__0081__20200830172221000001_recovery_token_expires.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200830172221000001_recovery_token_expires.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "654a4037a8e07cdd97884af9ee885f90d3da62e0eeb6c11ae8ec5b3e21e2bd6c",
+  "bytes": 111
+ },
+ {
+  "file": "kratos__0082__20200830172221000002_recovery_token_expires.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200830172221000002_recovery_token_expires.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "048c70d3c1979fc802ad5c32816dcbfef99db85167e263d1e4bfecff96c4bbf8",
+  "bytes": 152
+ },
+ {
+  "file": "kratos__0083__20200831110752000000_identity_verifiable_address_remove_code.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200831110752000000_identity_verifiable_address_remove_code.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "15227970c6f8fd38fba00797d1f4b0e2990d363246ca7c2727d02cdb967e580a",
+  "bytes": 55
+ },
+ {
+  "file": "kratos__0084__20200831110752000001_identity_verifiable_address_remove_code.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200831110752000001_identity_verifiable_address_remove_code.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "b8cd4398a377b4411fb065b34ed601fbc392a68c11f1c7fbebc1ac09212155b7",
+  "bytes": 52
+ },
+ {
+  "file": "kratos__0085__20200831110752000003_identity_verifiable_address_remove_code.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20200831110752000003_identity_verifiable_address_remove_code.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "1e0b1b3e7e057c8c6de9022f8de11a75fd3b07af1c6fbad67fa9090e0b5a0a6e",
+  "bytes": 69
+ },
+ {
+  "file": "kratos__0086__20200831110752_identity_verifiable_address_remove_code.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20200831110752_identity_verifiable_address_remove_code.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "da51207ca64ec32daf9f34fda6a1b4f1354c22e3d43dcd010446c4985d4ed52b",
+  "bytes": 245
+ },
+ {
+  "file": "kratos__0087__20201201161451000001_credential_types_values.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20201201161451000001_credential_types_values.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "03a2d8bd712e05c72011a7b0f53cf109ed4c9ae8dda1d289da00fc8c90c13c67",
+  "bytes": 183
+ },
+ {
+  "file": "kratos__0088__20201201161451_credential_types_values.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/legacy/20201201161451_credential_types_values.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d562d0ec9f1b203e6cda41a47e4c54508193ccd13822ad816d8baff0a1d38677",
+  "bytes": 376
+ },
+ {
+  "file": "kratos__0089__20210307130559000000_courier_message_template.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210307130559000000_courier_message_template.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "3a14c01086305c8f2c48c17526b78d052ea5e8f5ee54a2034099b842af581f5e",
+  "bytes": 92
+ },
+ {
+  "file": "kratos__0090__20210307130559000001_courier_message_template.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210307130559000001_courier_message_template.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "6bdaf88d02bbfb20992a16c91b5c723f28bff307d1dafe0c597906e4d1d79993",
+  "bytes": 64
+ },
+ {
+  "file": "kratos__0091__20210311102338000001_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000001_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "934968f2c0c863e51b46a39d0175312ccd0a8c8a6c646225d2b2559e3c6e721d",
+  "bytes": 61
+ },
+ {
+  "file": "kratos__0092__20210311102338000002_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000002_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "6d08cdf0b55940cfcd950a85c5e344804dc0ab64999ef02da27045f495b2e9cd",
+  "bytes": 60
+ },
+ {
+  "file": "kratos__0093__20210311102338000004_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000004_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "256d0fce9df2c0dd23aec583e8cffa105b7beba8223edb519e8bd3b864af7192",
+  "bytes": 100
+ },
+ {
+  "file": "kratos__0094__20210311102338000005_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000005_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "0038faf418310e323e9c188e2f22989d45298ae1be0d07f3b023612f2b172b4b",
+  "bytes": 51
+ },
+ {
+  "file": "kratos__0095__20210311102338000006_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000006_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e9bf2800cd4926ed5ab63b572301509c706c65bcf43f531b2dc6859f10af49f5",
+  "bytes": 68
+ },
+ {
+  "file": "kratos__0096__20210311102338000008_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000008_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4da0e5d56a8e01680bb68950f245c9cd037577e652b5a26839a97c73d280ca29",
+  "bytes": 50
+ },
+ {
+  "file": "kratos__0097__20210311102338000009_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000009_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "9ed20495b13b75afd2821725df798662c9b8aaa1f1c38f1790b9b33861714797",
+  "bytes": 107
+ },
+ {
+  "file": "kratos__0098__20210311102338000011_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000011_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4c6a60ce1e69178f099f299d0182e9bdf83a5d1c7b8ea2b345399034680f5e90",
+  "bytes": 64
+ },
+ {
+  "file": "kratos__0099__20210311102338000012_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000012_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e42fa063c8bbdaffa5e97474167900ec1cac1b61a767ae1ec35ab954cfa3fe5b",
+  "bytes": 63
+ },
+ {
+  "file": "kratos__0100__20210311102338000014_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000014_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "31603ca5e813e1f54b7ecba5798100d226303d320b8606022551f4e0d21953b1",
+  "bytes": 103
+ },
+ {
+  "file": "kratos__0101__20210311102338000015_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000015_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "82b04d956b901e439f02c9449290c3acc803051ab6154529410260dcb05f4f2d",
+  "bytes": 47
+ },
+ {
+  "file": "kratos__0102__20210311102338000017_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000017_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "55cb9e07e02d21eaec87f5d4189008d7c73c8338588433cc0e62f67ed9e05857",
+  "bytes": 63
+ },
+ {
+  "file": "kratos__0103__20210311102338000018_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000018_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "5da8241314fd9a0a7d315787c588f8dc18448c2abfd1c7fdd3f8dc87835e54e7",
+  "bytes": 46
+ },
+ {
+  "file": "kratos__0104__20210311102338000020_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000020_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "559115407fdebb78667cc3337c4d191ea24483dc1fd944378c4f6e787cbf1436",
+  "bytes": 51
+ },
+ {
+  "file": "kratos__0105__20210311102338000021_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000021_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "dfa96b863e2cf0091c1431e356f4d9f118b577d7061b256314b82e0a7f1f47a6",
+  "bytes": 68
+ },
+ {
+  "file": "kratos__0106__20210311102338000023_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000023_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "0d57b8e398fdf6d80c5de2e3692e0acb9375f6beb24e47151dc3dcbb48d8a88b",
+  "bytes": 50
+ },
+ {
+  "file": "kratos__0107__20210311102338000024_form_refactoring.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210311102338000024_form_refactoring.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "5c18b9033bbe0b08c648587c3e898375360e782ac4e0b96db9d4ca4313797b21",
+  "bytes": 107
+ },
+ {
+  "file": "kratos__0108__20210410175418000001_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000001_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "43cf6a5e6edd166d190f104c0df961d9f963b7f5d0d8a3ce9341ce407cc07d28",
+  "bytes": 176
+ },
+ {
+  "file": "kratos__0109__20210410175418000002_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000002_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e6bd03848dd38627d90660a116dd12d412ea3141d36e2cc077150cc40899f6cc",
+  "bytes": 75
+ },
+ {
+  "file": "kratos__0110__20210410175418000004_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000004_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "36e273e02b373fafbe79b862c6c038ab7d5c1d0a696904862c95039254d2eed4",
+  "bytes": 86
+ },
+ {
+  "file": "kratos__0111__20210410175418000005_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000005_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "bd062d75a7c073d8f590250a5c60638fc805b305df5bce01eca800bff6dbcbaf",
+  "bytes": 67
+ },
+ {
+  "file": "kratos__0112__20210410175418000006_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000006_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "9fe0a7d290518db4b07bfe95e184b22bdc0d5ef9d861d562290fe80e46044822",
+  "bytes": 190
+ },
+ {
+  "file": "kratos__0113__20210410175418000008_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000008_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e70f98a3e596f7ef0271b753b4d72be8d8168a00a4d868848d57818338637d4a",
+  "bytes": 108
+ },
+ {
+  "file": "kratos__0114__20210410175418000009_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000009_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "9bb36dbddcc56f8b19f1aef567d2429941c7417472b21854b3da939f900d183b",
+  "bytes": 100
+ },
+ {
+  "file": "kratos__0115__20210410175418000011_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000011_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e206edd766fb24ce76992c661be0a16e9a3c318425f31e87efa0f7683baa1391",
+  "bytes": 182
+ },
+ {
+  "file": "kratos__0116__20210410175418000012_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000012_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e7c85f359105643deb49699a91f6a43cab648ce6e846a74dd1970544deae70c9",
+  "bytes": 78
+ },
+ {
+  "file": "kratos__0117__20210410175418000014_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000014_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "21f373ba1339fa6b075a5a0dfe3603ec626f150377d377db0aa7d921691f3f14",
+  "bytes": 92
+ },
+ {
+  "file": "kratos__0118__20210410175418000015_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000015_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4322e604617889f2c14424cac877c84900ee81fbb368235d0e4ff672842053ec",
+  "bytes": 55
+ },
+ {
+  "file": "kratos__0119__20210410175418000017_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000017_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "5b4ad89d6085cecccbd2c8ca28961e1fd54de245998163c9626c0ba5b35d4feb",
+  "bytes": 70
+ },
+ {
+  "file": "kratos__0120__20210410175418000018_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000018_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "cfce7ea50d0f44ffec5913048997c12599c956e5ad3808ae64bef6f49af0639c",
+  "bytes": 96
+ },
+ {
+  "file": "kratos__0121__20210410175418000020_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000020_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "2f3e5683e4768650e2ee72e2cca4967ef66d4b43e79c2f1c86b7daa56defbe3d",
+  "bytes": 58
+ },
+ {
+  "file": "kratos__0122__20210410175418000021_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000021_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e4279e214503b7cfadcacbe0eba69f297c4fd55c120188bc59adeaac1d8f8126",
+  "bytes": 172
+ },
+ {
+  "file": "kratos__0123__20210410175418000023_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000023_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "74590656b5108d77e9b81f0bd246dd763b626a0a5976f6e2cd58bf490a514193",
+  "bytes": 99
+ },
+ {
+  "file": "kratos__0124__20210410175418000024_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000024_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "8ebce00baa389c3c01017f5d832d40eb49ba49c678e1cf87eecf8704a079c25f",
+  "bytes": 82
+ },
+ {
+  "file": "kratos__0125__20210410175418000026_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000026_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "dc9168146c488317222f5f6fbff5875348b5976f867b98038787a588c301ec3e",
+  "bytes": 162
+ },
+ {
+  "file": "kratos__0126__20210410175418000027_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000027_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "ca6a71567d03753e7b9a3d84169846e755dda40ebe5eff399cc24c0e250229ca",
+  "bytes": 68
+ },
+ {
+  "file": "kratos__0127__20210410175418000028_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000028_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "411a8995814eea9de9c8df606aff89040057a1e0eb663fb9a7ad176afe1bd434",
+  "bytes": 94
+ },
+ {
+  "file": "kratos__0128__20210410175418000030_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000030_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "9effca95ad762d0dee8c03e5d18b5ebdcb12184917c3bda6c3543d975f53b88d",
+  "bytes": 47
+ },
+ {
+  "file": "kratos__0129__20210410175418000031_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000031_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "0194f76343e77edb2b27e544876b654a695bda8222aacd1117c00367a1d262f8",
+  "bytes": 150
+ },
+ {
+  "file": "kratos__0130__20210410175418000033_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000033_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "239f446b7af094da3ac10cd65f76a1537c11e85abcaf668c32401b5ccb5579ab",
+  "bytes": 88
+ },
+ {
+  "file": "kratos__0131__20210410175418000034_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000034_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "ac0c933a9bf95a321bb59495a273e3e2bd4ce81419db2bda77b609f6e4fcfb42",
+  "bytes": 60
+ },
+ {
+  "file": "kratos__0132__20210410175418000036_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000036_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "ce7aced944af3426d31dd99e3dbcc4aa2802db02f60067e8bbf06fc2f5bce106",
+  "bytes": 170
+ },
+ {
+  "file": "kratos__0133__20210410175418000037_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000037_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "3cc6f94d62f98afc390ee87a4e6f7fcf61d1702b30a828d4e41ceb1db85de8cd",
+  "bytes": 72
+ },
+ {
+  "file": "kratos__0134__20210410175418000039_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000039_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "62b7df097abd362060bf436b358ed1d978c6b825f5aa5265e12b1971fad35ded",
+  "bytes": 80
+ },
+ {
+  "file": "kratos__0135__20210410175418000040_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000040_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "a48dc2c8606bc2758ea0aadb966e0c48d5bff763874fd1d52be6cb664f0f268f",
+  "bytes": 68
+ },
+ {
+  "file": "kratos__0136__20210410175418000042_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000042_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "a4538983c11326587fc19e3d324e266550b79347453d3c3043a29226084a3cce",
+  "bytes": 83
+ },
+ {
+  "file": "kratos__0137__20210410175418000043_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000043_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "448ffd4edc5a1a456d53fb4078548f9a2ba23a6f6d33c05ad20198c898ec9990",
+  "bytes": 109
+ },
+ {
+  "file": "kratos__0138__20210410175418000045_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000045_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "33adcc680ce3a5b07ab4db6f7648be075d51aa88b1e43ecbfcfa3b44cbc4938f",
+  "bytes": 60
+ },
+ {
+  "file": "kratos__0139__20210410175418000046_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000046_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "a1a40c5677483b46c057b7c925968f2ede62c94b9fa161b7cdda2b278192a4a0",
+  "bytes": 131
+ },
+ {
+  "file": "kratos__0140__20210410175418000048_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000048_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "f650e9b2de7c73931f5aae94a905eb490cfae0c26ef5cd1dc18e5715edc43742",
+  "bytes": 182
+ },
+ {
+  "file": "kratos__0141__20210410175418000049_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000049_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "fa1f950fa1a12dc7039fab8110355e61bbfd7f6820a4a7709fca1599377d3313",
+  "bytes": 78
+ },
+ {
+  "file": "kratos__0142__20210410175418000050_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000050_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "c69143df7a959a5d8dc03c85b2e5a2cc6fc8c2d452e5226696d4377ad26bc5ac",
+  "bytes": 104
+ },
+ {
+  "file": "kratos__0143__20210410175418000052_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000052_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "8b4c0200d14ff99b341dd9bfb27f8b85202307a0fb5bcd33460d9b2454097fb2",
+  "bytes": 64
+ },
+ {
+  "file": "kratos__0144__20210410175418000053_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000053_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "367002cd7cd8c9196188df955b0c259ab331f6fe2232cba578a5998f57878138",
+  "bytes": 184
+ },
+ {
+  "file": "kratos__0145__20210410175418000055_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000055_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "b78159ad98c6efee2f542db2a252023f08315e86049536271d2c3e7504cf3753",
+  "bytes": 105
+ },
+ {
+  "file": "kratos__0146__20210410175418000056_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000056_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "9f86d1c590a3b7963cf75eba3b496c6d7578b237a00abdc0db02767510e6416e",
+  "bytes": 94
+ },
+ {
+  "file": "kratos__0147__20210410175418000058_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000058_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "9f2fa76532b91e7dbe8989ea9fb4d6756cf8873551d16919af0f29c4f3e5e8f1",
+  "bytes": 56
+ },
+ {
+  "file": "kratos__0148__20210410175418000059_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000059_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4cc42ff052a68a20f0fe52360247c949cb990635e0f75f52a84ed31b8e650de8",
+  "bytes": 119
+ },
+ {
+  "file": "kratos__0149__20210410175418000061_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000061_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "84c11ad484ea801f48cb7e4f849f283b1036600a674f343289fd3ad41264b18c",
+  "bytes": 61
+ },
+ {
+  "file": "kratos__0150__20210410175418000062_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000062_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "f4bdf11e419d87c6be48555a91d82ee84d4479bb5efc3a7245ec34e030ff7e4c",
+  "bytes": 178
+ },
+ {
+  "file": "kratos__0151__20210410175418000064_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000064_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "12591121c8abb9543877c6267aa05b84f9ddfd03c609f66ae5d7be374b54f954",
+  "bytes": 102
+ },
+ {
+  "file": "kratos__0152__20210410175418000065_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000065_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "3aae4565eeafbc1c985fc4d58ab2a34d0d0cfddabdb0c89103a397e04e319c31",
+  "bytes": 88
+ },
+ {
+  "file": "kratos__0153__20210410175418000067_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000067_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "1c2487962d16af2e62438dc19b158d84c898ebe96661fd500a5539e474d32894",
+  "bytes": 190
+ },
+ {
+  "file": "kratos__0154__20210410175418000068_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000068_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "34443c5ca95f3c32e1869693182b8b877325cdb9ebd44176bc66eae070e6ae06",
+  "bytes": 82
+ },
+ {
+  "file": "kratos__0155__20210410175418000070_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000070_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "c1ba1ada3354c27780164b3336251d9872909f0e3ad13c74f9d899e8a3259bb1",
+  "bytes": 100
+ },
+ {
+  "file": "kratos__0156__20210410175418000071_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000071_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "aa7875f300aef09f9d4a2ef5fb2058f25cea575947ef4de958332c130bf65252",
+  "bytes": 66
+ },
+ {
+  "file": "kratos__0157__20210410175418000073_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000073_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "b518e4b4871930c049f091652d8b981961313c7f0a0acafd360bd8f55a1058b4",
+  "bytes": 81
+ },
+ {
+  "file": "kratos__0158__20210410175418000074_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000074_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d1fc1127f0d6de3937bad4dca49865bffcb6cdcc5a47ee9d2cfddf2af3249b60",
+  "bytes": 107
+ },
+ {
+  "file": "kratos__0159__20210410175418000075_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000075_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "546fc3f2260256222a3b705320bca16050b4aa4bff0cdd7a717fecf39d49c8bb",
+  "bytes": 98
+ },
+ {
+  "file": "kratos__0160__20210410175418000077_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000077_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "25a960c48f1a496bf12a8de40e688410a91e042e99f484d81361e086b8e7815e",
+  "bytes": 58
+ },
+ {
+  "file": "kratos__0161__20210410175418000078_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000078_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "0e3580da5b5f31735305c63b1cc16c3f2f59abf4f6f7ab3c812f09b9d7bd6530",
+  "bytes": 123
+ },
+ {
+  "file": "kratos__0162__20210410175418000080_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000080_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "c5e1deb4669489cad436eaff4d28181186e18caf987ef825c80004ed6e23eb33",
+  "bytes": 65
+ },
+ {
+  "file": "kratos__0163__20210410175418000081_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000081_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "186e61abb2c30ef029e801fc21721ccc725720cc3e3e127c27217674d97550a4",
+  "bytes": 186
+ },
+ {
+  "file": "kratos__0164__20210410175418000083_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000083_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d54b631df3aad48f2c64c2bc3518c4263adf41904650c7303f5efa2da05798fc",
+  "bytes": 106
+ },
+ {
+  "file": "kratos__0165__20210410175418000084_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000084_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d437154f9079441f5f01c6e96a1f9e739d6f3358e9fa053a99d3673d1bfc4cb3",
+  "bytes": 96
+ },
+ {
+  "file": "kratos__0166__20210410175418000086_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000086_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "266d56e9c9681768b2519fd12dd90a60cac0b447cf9bc418f19279b9752b9292",
+  "bytes": 146
+ },
+ {
+  "file": "kratos__0167__20210410175418000087_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000087_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "121ed44b3848157c36a8fd5145c3e7636d720ea547fedd211f6add693c07ae25",
+  "bytes": 60
+ },
+ {
+  "file": "kratos__0168__20210410175418000089_network.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210410175418000089_network.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "7894f59723bf3e7cff0c537c15183c7fbe0982ffa6d86238d78095225e47311a",
+  "bytes": 56
+ },
+ {
+  "file": "kratos__0169__20210504121624000000_add_identity_states.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210504121624000000_add_identity_states.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "690b24057cdd92c9c489807401aff8d2c91a7bf181e5cdb4bf24a4941511c158",
+  "bytes": 84
+ },
+ {
+  "file": "kratos__0170__20210618103120000000_logout_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210618103120000000_logout_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "04d10cdb68556e8e7a26eadd6d0390df61bf3136a52ba342ca51ae1c2dc49f15",
+  "bytes": 62
+ },
+ {
+  "file": "kratos__0171__20210618103120000001_logout_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210618103120000001_logout_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d05db607b5fc35f19d5bf3ef12edbf1eed510375db0cf0c32b0ca226754e9545",
+  "bytes": 41
+ },
+ {
+  "file": "kratos__0172__20210618103120000003_logout_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210618103120000003_logout_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4b1e409725897b3607c0a1a12be1f04f71677e7a9a0e130733f332e9f9f2ba8e",
+  "bytes": 80
+ },
+ {
+  "file": "kratos__0173__20210618103120000004_logout_token.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210618103120000004_logout_token.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "b2984fbb6480354514f26d492178bbe1c4b7fb49b06b8c33a8fe808d270f1b30",
+  "bytes": 70
+ },
+ {
+  "file": "kratos__0174__20210805112414000000_settings_flow_context.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210805112414000000_settings_flow_context.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d8b2dfb19c4570d3d5948601dc58d15f8a9762436e5cf0fbbf6bde3023f7d1f2",
+  "bytes": 77
+ },
+ {
+  "file": "kratos__0175__20210805112414000002_settings_flow_context.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210805112414000002_settings_flow_context.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "eaf0b01679ee2341226ed8cd9a158c284e295938a40fc586e0e53f988e60340d",
+  "bytes": 130
+ },
+ {
+  "file": "kratos__0176__20210805122535000000_credential_types_totp.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210805122535000000_credential_types_totp.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4686731bff43077e0ab0ad70f7d9b79d3b9483889dfface2f1b90b2564283db4",
+  "bytes": 183
+ },
+ {
+  "file": "kratos__0177__20210810153530000001_aal.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210810153530000001_aal.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "03671cb96cfcafabec581359edb6357cacd4d7eb817e5b5894bfad73ccd3411c",
+  "bytes": 65
+ },
+ {
+  "file": "kratos__0178__20210810153530000002_aal.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210810153530000002_aal.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "c50eff6ef4fec52e038e03511a8ba556c349293797ddf69d4aaf76be697d2a21",
+  "bytes": 48
+ },
+ {
+  "file": "kratos__0179__20210810153530000004_aal.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210810153530000004_aal.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "0f35329f3d04f16525e507aa0c76f2402a92c6c1b30e32326f1c49df26de3a6a",
+  "bytes": 101
+ },
+ {
+  "file": "kratos__0180__20210813150152000000_credential_types_lookup.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210813150152000000_credential_types_lookup.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "f6165a0be87d1acb3e67db9f54139f26e1cdfe0adcbee07b7f84df20c2d694ef",
+  "bytes": 201
+ },
+ {
+  "file": "kratos__0181__20210816142650000000_flow_internal_context.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210816142650000000_flow_internal_context.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "177ec96f99d04b9740fe734de361e8fdb402843a736412fa87a5c6e2d57a8c82",
+  "bytes": 74
+ },
+ {
+  "file": "kratos__0182__20210816142650000001_flow_internal_context.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210816142650000001_flow_internal_context.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e7103c50390a6c67d10ef6949d781daeeb866bb8e43b2f707abc143e97d5bf7f",
+  "bytes": 57
+ },
+ {
+  "file": "kratos__0183__20210816142650000003_flow_internal_context.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210816142650000003_flow_internal_context.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d8f9c3fe991222afdd98f017f5f674dc9dbb7191d4e2b369444a0dac35109463",
+  "bytes": 81
+ },
+ {
+  "file": "kratos__0184__20210816142650000004_flow_internal_context.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210816142650000004_flow_internal_context.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "deb15dfeca1a52fd5e6d2aa9e488bf79e72784f94ca370890c662b08e7d32de7",
+  "bytes": 64
+ },
+ {
+  "file": "kratos__0185__20210817181232000000_unique_credentials.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210817181232000000_unique_credentials.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "c090341b2e88a4b111948334d5c1f96a29f45b28b00ea5fc8bdcf8312dadba54",
+  "bytes": 67
+ },
+ {
+  "file": "kratos__0186__20210817181232000001_unique_credentials.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210817181232000001_unique_credentials.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "a62f1a7eae181c227bcffe02ef420d1d321f7747f4b5ca75c9c2224a677af380",
+  "bytes": 92
+ },
+ {
+  "file": "kratos__0187__20210817181232000003_unique_credentials.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210817181232000003_unique_credentials.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "71ae018e380d1fc8421b3deec410197b6e06cade509daa90568602268f4db43c",
+  "bytes": 242
+ },
+ {
+  "file": "kratos__0188__20210817181232000004_unique_credentials.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210817181232000004_unique_credentials.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "c0f274af536d19685a27d2da03bd59e200ed98a39b50eba88af13cfa1f598ff2",
+  "bytes": 156
+ },
+ {
+  "file": "kratos__0189__20210817181232000005_unique_credentials.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210817181232000005_unique_credentials.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "b175fe36d9a20daa7535b4bd2f11c8e3c696b1d588ea6bc20f7e0090b91a8e2d",
+  "bytes": 165
+ },
+ {
+  "file": "kratos__0190__20210913095309000000_identity_recovery_tokens.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210913095309000000_identity_recovery_tokens.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "0aa02f51e49a9482a1becefd89a88b4c98b73f6a8525b9b7cd9ea3760fff87b8",
+  "bytes": 152
+ },
+ {
+  "file": "kratos__0191__20210913095309000001_identity_recovery_tokens.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210913095309000001_identity_recovery_tokens.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "a345a3ac6c0c2cbddd5478a4cece30956873c075f57f8071f053a5d2e5eed6b1",
+  "bytes": 69
+ },
+ {
+  "file": "kratos__0192__20210913095309000003_identity_recovery_tokens.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210913095309000003_identity_recovery_tokens.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "8b8a1c5a72bb601de04bb29828f74e6326642fb0637ddd6b64e87d51964b9e0f",
+  "bytes": 117
+ },
+ {
+  "file": "kratos__0193__20210913095309000004_identity_recovery_tokens.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20210913095309000004_identity_recovery_tokens.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "cfab6f94cef9bf2116ad3df6cb0d05ae5f868755f4349a4e908fd3f5daba41f6",
+  "bytes": 196
+ },
+ {
+  "file": "kratos__0194__20220118104539000001_identity_fk_indexes.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20220118104539000001_identity_fk_indexes.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "d396e664abdbc19e7232524e6ff88759327e2191489fd663d90de5f0e3f82ee9",
+  "bytes": 145
+ },
+ {
+  "file": "kratos__0195__20220118104539000002_identity_fk_indexes.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20220118104539000002_identity_fk_indexes.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4da29b48213eb2a4dd382f7c60f43e9c27f9905a962f50491a4286130103efe0",
+  "bytes": 115
+ },
+ {
+  "file": "kratos__0196__20220301102701000000_identity_credentials_version.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20220301102701000000_identity_credentials_version.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e25cf8bbefaf468efbf41b4ade3401821f1559861af3b201cadced5af9498550",
+  "bytes": 70
+ },
+ {
+  "file": "kratos__0197__20220420102701000000_identity_metadata.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20220420102701000000_identity_metadata.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "ae00daea3f39adc58090af5d122eb4b7dfa587331d7677e7f8e38a6d1898fd42",
+  "bytes": 111
+ },
+ {
+  "file": "kratos__0198__20220607000001000000_hydra_login_challenge.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20220607000001000000_hydra_login_challenge.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "cf3dec0c65557283e2751f704f6d42ff195ab061ab1725882a7930d883bbb060",
+  "bytes": 179
+ },
+ {
+  "file": "kratos__0199__20220610155809000000_identity_address_casing.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20220610155809000000_identity_address_casing.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "0b60bdcdc6a78f36e5b857bb64bed32921f007bfb6dc2c1bfd3b9f8ade9e10ce",
+  "bytes": 148
+ },
+ {
+  "file": "kratos__0200__20220824165300000000_add_flow_type_to_identity_recovery_tokens.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20220824165300000000_add_flow_type_to_identity_recovery_tokens.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "814c6f5969de087ee6bb933f48d8150d9025f0c4212f5c7b6b384de4e76909c6",
+  "bytes": 78
+ },
+ {
+  "file": "kratos__0201__20220824165300000001_populate_flow_type_in_recovery_tokens.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20220824165300000001_populate_flow_type_in_recovery_tokens.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "13ab846ce34f80ee0608ec217512002adf809d127d1fc0852d032ebf11a11b67",
+  "bytes": 202
+ },
+ {
+  "file": "kratos__0202__20220825134336000000_delete_verification_token_without_flow_id.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20220825134336000000_delete_verification_token_without_flow_id.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "0970cc677327284ca14754e305271ccd911215f6030ad9e103d505f1a293aac6",
+  "bytes": 91
+ },
+ {
+  "file": "kratos__0203__20220825134336000001_not_null_constraint_verification_token_flow_id.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20220825134336000001_not_null_constraint_verification_token_flow_id.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "9d05b55428536f6ce8fd168ad0e166a5f4c38ab77e565207a8cd0d04722d560e",
+  "bytes": 315
+ },
+ {
+  "file": "kratos__0204__20220907132836000000_add_session_devices_table.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20220907132836000000_add_session_devices_table.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "45b72c38760b58caa280136be66f67a05b5f517e1e98388ee3cb9167d3a0046e",
+  "bytes": 859
+ },
+ {
+  "file": "kratos__0205__20221024182336000000_verification_code.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20221024182336000000_verification_code.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "bf970246bec32c5222171ec2d37459c383a72327238b5a9a3a2b577731a44835",
+  "bytes": 1380
+ },
+ {
+  "file": "kratos__0206__20221205092803000000_add_courier_send_attempts_table.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20221205092803000000_add_courier_send_attempts_table.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "edcc858736c5587084900f4271fcced5024392cf2f64ef1817a223ac1dc84c49",
+  "bytes": 645
+ },
+ {
+  "file": "kratos__0207__20221220124639000000_errors_index.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20221220124639000000_errors_index.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "22bd2827c32e17d0dfab64944b7446009c8db936ffb62e7ee60beabc3b2d11bb",
+  "bytes": 240
+ },
+ {
+  "file": "kratos__0208__20230104193739000000_courier_list_index.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230104193739000000_courier_list_index.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "70ba7aa0eb70aaadd8d300624d65f02b11dd35456bd3ab6f3798c3b85a653157",
+  "bytes": 331
+ },
+ {
+  "file": "kratos__0209__20230313141439000000_session_token_length.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230313141439000000_session_token_length.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4964e429e84f53008db4fe5b7876ad56a8ed891c44e906a9058db8df76e35a83",
+  "bytes": 125
+ },
+ {
+  "file": "kratos__0210__20230313141439000001_session_token_length.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230313141439000001_session_token_length.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "eb635997a6c6c073faeb36ca9d6d50e8883073e8bf3ad6d7aeb2d0ee8fd3c1c3",
+  "bytes": 4
+ },
+ {
+  "file": "kratos__0211__20230405000000000001_create_session_token_exchanges.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230405000000000001_create_session_token_exchanges.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "1d75516244f45d1ce15eb99b419e50f1cb3b6cb0127c316d0f46a0cec119f48b",
+  "bytes": 778
+ },
+ {
+  "file": "kratos__0212__20230614000001000000_hydra_login_challenge_format.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230614000001000000_hydra_login_challenge_format.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "b0d6738cfb71c5060b6bb178688d2c7b9aad92a1be5aa2b3750a33225da3e86b",
+  "bytes": 381
+ },
+ {
+  "file": "kratos__0213__20230626000000000001_identity_credential_identifiers_nid_identity_credential_id_idx.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230626000000000001_identity_credential_identifiers_nid_identity_credential_id_idx.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "c1280a85d596aa0d267c06cad642a61d703a9702964bb69a9f5962a7b3808961",
+  "bytes": 25
+ },
+ {
+  "file": "kratos__0214__20230703143600000001_selfservice_registration_login_flows_state.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230703143600000001_selfservice_registration_login_flows_state.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "2f99c687287a7b30d3e898df1201d7d13ce9c0296fa48cb8f979d11ff041488c",
+  "bytes": 139
+ },
+ {
+  "file": "kratos__0215__20230706000000000001_available_aal.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230706000000000001_available_aal.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "1a736416f1e6b0b08ee4d8ceb4d9baf421c5b6ae35a10a8ce89b2c42384d3ae3",
+  "bytes": 66
+ },
+ {
+  "file": "kratos__0216__20230707133700000000_identity_login_code.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230707133700000000_identity_login_code.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "2809bfbf856798a7edca078f011d0e36b9c18268ec88ab1e2be7bd24855820f0",
+  "bytes": 1240
+ },
+ {
+  "file": "kratos__0217__20230712173852000000_credential_types_code.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230712173852000000_credential_types_code.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "f56a62d1b68dccd33afee6cf8ff701bd6b75dc55216ebea06c6bf8492c1f0485",
+  "bytes": 185
+ },
+ {
+  "file": "kratos__0218__20230811000000000001_verification_add_oauth2_login_challenge.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230811000000000001_verification_add_oauth2_login_challenge.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "1b22794f002a616608ec26380c206db60e1412e4cebe9ccfe793e5cbae4a387c",
+  "bytes": 89
+ },
+ {
+  "file": "kratos__0219__20230823000000000001_verification_add_oauth2_login_challenge_params.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230823000000000001_verification_add_oauth2_login_challenge_params.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e3cbf32d2875e54295f3c0b87a518242a199b73f8561da5fabd608d9def0d9fe",
+  "bytes": 157
+ },
+ {
+  "file": "kratos__0220__20230907085000000000_add_organization_id.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230907085000000000_add_organization_id.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "291507e1dcc696f6e8dfbe1d1a077799c781f739bd6fd2bb719111ac3c6ca5a6",
+  "bytes": 219
+ },
+ {
+  "file": "kratos__0221__20230920171028000000_identity_search_index.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20230920171028000000_identity_search_index.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4d1ec79e364ec2844898c3663eaf7c343258ed8f520bec7b4e8b48ac1365cb99",
+  "bytes": 228
+ },
+ {
+  "file": "kratos__0222__20231108111100000000_credential_types_passkey.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20231108111100000000_credential_types_passkey.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "025fe76cdadb1b79f9d8d76df769a774822afa0a6af032fea8dfb25bc4b3c0de",
+  "bytes": 191
+ },
+ {
+  "file": "kratos__0223__20231130094628000000_courier_message_channel.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20231130094628000000_courier_message_channel.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "9ef331030f378708ac3b5d892005ff5361c141dda64b4a24bafa61daf0963da9",
+  "bytes": 72
+ },
+ {
+  "file": "kratos__0224__20240214113828000000_courier_dispatch_indices.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20240214113828000000_courier_dispatch_indices.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "b13d938975c1be28fadedc2d276940765e0f352e39eec6215c0a592e80778d76",
+  "bytes": 366
+ },
+ {
+  "file": "kratos__0225__20240221000000000000_identity_recovery_codes_flow_id_idx.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20240221000000000000_identity_recovery_codes_flow_id_idx.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e358c55736c67c13082685474bef011e830fc309c2677f0a73810c98b439aedf",
+  "bytes": 814
+ },
+ {
+  "file": "kratos__0226__20240923095000000001_organization_id_index.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20240923095000000001_organization_id_index.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "4c139330d56832ba16605b78fcc269a70f427d5d054a4369c2eb30fd8b181733",
+  "bytes": 82
+ },
+ {
+  "file": "kratos__0227__20241023142500000001_drop_unused_indices_identity_credentials.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20241023142500000001_drop_unused_indices_identity_credentials.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "0eb8a574423470e38a9eb4e2fcbc1079490f65efbfdd5cd5af94427b500a07d8",
+  "bytes": 376
+ },
+ {
+  "file": "kratos__0228__20241023142500000003_drop_unused_indices_credential_identifiers.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20241023142500000003_drop_unused_indices_credential_identifiers.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "2531858b985b589621792b3eb911c29fec50d998db25c3cd5c4e2cbbe4d8d7e2",
+  "bytes": 372
+ },
+ {
+  "file": "kratos__0229__20241029102200000001_self_service.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20241029102200000001_self_service.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "382eb60d2728bd98a415d1ba49dcd0cde5d9d8d01c649228b9637ff236b4eedd",
+  "bytes": 1718
+ },
+ {
+  "file": "kratos__0230__20241031094100000001_remaining_unused_indices.autocommit.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20241031094100000001_remaining_unused_indices.autocommit.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "e1834bada7ec2f9b7953afdece7048692962c526c3508f09e62922805878910e",
+  "bytes": 3843
+ },
+ {
+  "file": "kratos__0231__20241031094100000002_foreign_key.autocommit.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20241031094100000002_foreign_key.autocommit.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "99789db1c9047daa2e706fc0c3ce4b99ef399fe98c198c0a053c47d8bcceb8f1",
+  "bytes": 145
+ },
+ {
+  "file": "kratos__0232__20241106142200000002_identities.autocommit.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20241106142200000002_identities.autocommit.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "b6ba345e0c0cb525f8c1d96ad41f431bcf66f321eedd068cdeaca6d3011613cc",
+  "bytes": 169
+ },
+ {
+  "file": "kratos__0233__20241108105000000001_index_cleanup.autocommit.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20241108105000000001_index_cleanup.autocommit.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "1872858a4f148519c8aa89f99d7a120f2081c3cfa9528d5cb4a57aabb0b2fd60",
+  "bytes": 383
+ },
+ {
+  "file": "kratos__0234__20250505150900000000_code_address_type.autocommit.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20250505150900000000_code_address_type.autocommit.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "2c857deedace1183f2da618c4e70152863a360c4768fb2e4e4991038f9901884",
+  "bytes": 163
+ },
+ {
+  "file": "kratos__0235__20250708190000000000_identities_external_id.autocommit.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20250708190000000000_identities_external_id.autocommit.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "97fb242cf06ef273937431800fdbd4155f28bcf51798ef33af4630f65a18a316",
+  "bytes": 112
+ },
+ {
+  "file": "kratos__0236__20250708190000000000_identities_external_id.cockroach.autocommit.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20250708190000000000_identities_external_id.cockroach.autocommit.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "6d286b22bde25cf8669e90286174e073e6980f29eaad08550548658aff5b3fb8",
+  "bytes": 126
+ },
+ {
+  "file": "kratos__0237__20250708190000000001_identities_external_id_index.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20250708190000000001_identities_external_id_index.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "8fe77febb6683a962abcecab63caa132a4b094b2e45cfda0efcf70c259f62cf9",
+  "bytes": 133
+ },
+ {
+  "file": "kratos__0238__20250710085000000000_add_schema_id.cockroach.autocommit.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20250710085000000000_add_schema_id.cockroach.autocommit.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "6a90c94552d163f516db6973ae9a60d70f173ce0c5f6c15a266599de26fdf9e6",
+  "bytes": 207
+ },
+ {
+  "file": "kratos__0239__20251104000000000000_identifiers_devices_identity_id.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20251104000000000000_identifiers_devices_identity_id.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "952c6348e511bde1951153aa5a02e72f0797c7e25c3347a0e5a8f180052c70f9",
+  "bytes": 142
+ },
+ {
+  "file": "kratos__0240__20251105000000000003_identity_id_not_null_fks.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20251105000000000003_identity_id_not_null_fks.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "1fc7ff7f71c34788c13643e037fb36ebbac00c5b10ceed59642a491cf465c524",
+  "bytes": 460
+ },
+ {
+  "file": "kratos__0241__20251215000000000000_courier_messages_add_request_headers.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20251215000000000000_courier_messages_add_request_headers.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "b53df453e14c80bd847ba349cfe18b2682988718eeae1fd4cb1f0135efbb8f9b",
+  "bytes": 81
+ },
+ {
+  "file": "kratos__0242__20260114175904000000_drop_identity_credentials_nid_idx.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20260114175904000000_drop_identity_credentials_nid_idx.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "3d6c805b1b322dd60c87aae3ad0a85648e3616376dfedc51698c93755e0d20f7",
+  "bytes": 52
+ },
+ {
+  "file": "kratos__0243__20260327101213000000_add_break_glass_to_recovery_addresses.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20260327101213000000_add_break_glass_to_recovery_addresses.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "07d43ad3314a41ef9cdd3473ee8203b5688994dc95692967ef48f8216165c530",
+  "bytes": 101
+ },
+ {
+  "file": "kratos__0244__20260327101213000000_add_break_glass_to_recovery_addresses.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20260327101213000000_add_break_glass_to_recovery_addresses.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "62df86c11fd3a9b725c908c3e7d4ca9c0e2933b15c307e40dc0d6204367906a5",
+  "bytes": 87
+ },
+ {
+  "file": "kratos__0245__20260413000000000000_make_verification_token_address_nullable.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20260413000000000000_make_verification_token_address_nullable.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "c6c53add66949200e602c4285a669590cade458ed554c764d2f33bb59a73fcbe",
+  "bytes": 101
+ },
+ {
+  "file": "kratos__0246__20260417000000000001_add_test_flow_to_selfservice_login_flows.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20260417000000000001_add_test_flow_to_selfservice_login_flows.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "c4469f4654f9a47ab2e3f63d0ff7504e641d4fddf6e99c0ccdace380da53cba2",
+  "bytes": 64
+ },
+ {
+  "file": "kratos__0247__20260430000000000000_settings_flows_add_organization_id.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20260430000000000000_settings_flows_add_organization_id.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "980158ef8204eccc1bd337bc136fda0b1bf6bb5b796a7e208fb1677844932a2c",
+  "bytes": 92
+ },
+ {
+  "file": "kratos__0248__20260506000000000000_add_internal_context_to_recovery_verification_flows.postgres.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20260506000000000000_add_internal_context_to_recovery_verification_flows.postgres.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "953de3c29332c5b3377f8d55e847af52ccbd9dc34be714f0be097791dd870e30",
+  "bytes": 190
+ },
+ {
+  "file": "kratos__0249__20260616000000000000_courier_messages_restore_list_index.postgres.autocommit.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20260616000000000000_courier_messages_restore_list_index.postgres.autocommit.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "15aa4ce1e70a6e6ee3efbaebffa7a282f89b941754ac8586d4f714ba75dd3c9d",
+  "bytes": 136
+ },
+ {
+  "file": "kratos__0250__20260703000000000000_courier_messages_status_created_at_idx.autocommit.up.sql",
+  "original_path": "persistence/sql/migrations/sql/20260703000000000000_courier_messages_status_created_at_idx.autocommit.up.sql",
+  "repo": "https://github.com/ory/kratos",
+  "sha256": "c488b4f5bcba3d7717150cc80da1221876a873888f2ecb9b6dd0027f6e240c3e",
+  "bytes": 117
+ }
+]

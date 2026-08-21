@@ -1,0 +1,702 @@
+[
+ {
+  "file": "formbricks__0001__20230329205933_init.sql",
+  "original_path": "packages/database/migration/20230329205933_init/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "66f14b1189a4c6f2e4cce50695343091b61199da2ffd62b32a2d900221c39372",
+  "bytes": 12784
+ },
+ {
+  "file": "formbricks__0002__20230405105937_add_api_keys_to_environments.sql",
+  "original_path": "packages/database/migration/20230405105937_add_api_keys_to_environments/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "a4327309f097c9806366f76ccba8bc22b54dfc6dd5b5e2b8fea2d0e3bab5894e",
+  "bytes": 648
+ },
+ {
+  "file": "formbricks__0003__20230412100209_add_thankyoucard.sql",
+  "original_path": "packages/database/migration/20230412100209_add_thankyoucard/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "df791581d39da3a2ad61f8fc455121af29d788084c5900b1dbf12158ea932d54",
+  "bytes": 112
+ },
+ {
+  "file": "formbricks__0004__20230418074110_add_survey_types.sql",
+  "original_path": "packages/database/migration/20230418074110_add_survey_types/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "797c91d0a0ffda632f336d2b788bce89de9a2e0ee84b209f3a1718c6d976ad96",
+  "bytes": 279
+ },
+ {
+  "file": "formbricks__0005__20230419181441_add_onboarding_displayed_property_with_default_of_true.sql",
+  "original_path": "packages/database/migration/20230419181441_add_onboarding_displayed_property_with_default_of_true/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "c0fdb82b70e903fb793dec0276291a63d3b5bc8ae255f5396608296843235fa8",
+  "bytes": 103
+ },
+ {
+  "file": "formbricks__0006__20230503105347_add_onboarding.sql",
+  "original_path": "packages/database/migration/20230503105347_add_onboarding/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "eb0464348d45d5621476d8984a8fcb593a88c723bd6fbd30acaacbd713345216",
+  "bytes": 252
+ },
+ {
+  "file": "formbricks__0007__20230503132723_rename_onboarding_flag.sql",
+  "original_path": "packages/database/migration/20230503132723_rename_onboarding_flag/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "3f00f5935b3d2d1e9055940991273be69e70e424d518cc2280b2b8ad55eef2ef",
+  "bytes": 287
+ },
+ {
+  "file": "formbricks__0008__20230515101242_add_attribute_filter.sql",
+  "original_path": "packages/database/migration/20230515101242_add_attribute_filter/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "4d9b10edc703efa74fef1f2438cf11905ec87318dc663f2a73b85eef5fa15195",
+  "bytes": 1086
+ },
+ {
+  "file": "formbricks__0009__20230519120218_add_google_oauth.sql",
+  "original_path": "packages/database/migration/20230519120218_add_google_oauth/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "093dcf2830d3d00d9f37517b3fbf5db01d669dda0d5d2127dd6525f13268d52b",
+  "bytes": 65
+ },
+ {
+  "file": "formbricks__0010__20230523125921_add_notification_settings_to_user.sql",
+  "original_path": "packages/database/migration/20230523125921_add_notification_settings_to_user/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "801ac77335cbcce32b5f5ca459f954d8c3a649d11337db9b6f2041bbe5a8f559",
+  "bytes": 102
+ },
+ {
+  "file": "formbricks__0011__20230529092737_make_formbricks_signature_default.sql",
+  "original_path": "packages/database/migration/20230529092737_make_formbricks_signature_default/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "5fa1aaa3f9d22c668dec856b46dddca02f65896186a0d6283b603faf46087659",
+  "bytes": 91
+ },
+ {
+  "file": "formbricks__0012__20230531143258_remove_user_attributes_from_response.sql",
+  "original_path": "packages/database/migration/20230531143258_remove_user_attributes_from_response/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "9d22beb730880287f8ef85d06dfb885e9421dfd3f7b8d0458a6ad24c0960ec26",
+  "bytes": 215
+ },
+ {
+  "file": "formbricks__0013__20230608112129_add_survey_delay.sql",
+  "original_path": "packages/database/migration/20230608112129_add_survey_delay/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "2d914d3d11edd878e4b063af78c3b81668f184069784d67c4acc6ab3b7d4bee0",
+  "bytes": 88
+ },
+ {
+  "file": "formbricks__0014__20230613074826_add_response_notes.sql",
+  "original_path": "packages/database/migration/20230613074826_add_response_notes/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "f54a50210bccea9584438e46d517e3687769f8982cc1da53fcb612b4b0ef3c4d",
+  "bytes": 690
+ },
+ {
+  "file": "formbricks__0015__20230618112915_person_attributes.sql",
+  "original_path": "packages/database/migration/20230618112915_person_attributes/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "1c593810ce3d6e3c834fd80e0c797a11de6562b66bbc45ec8fe8e9c48f083728",
+  "bytes": 80
+ },
+ {
+  "file": "formbricks__0016__20230624161355_add_tags.sql",
+  "original_path": "packages/database/migration/20230624161355_add_tags/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "08a0fdc11615c840323f86e83ab50bbac1c826de886040087d0cbe32150e03d5",
+  "bytes": 1128
+ },
+ {
+  "file": "formbricks__0017__20230628113957_add_placement.sql",
+  "original_path": "packages/database/migration/20230628113957_add_placement/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "5022e938f929a4c96f1f1392ef228897531af544dd42c5e5ca5349c4bc64ca3b",
+  "bytes": 364
+ },
+ {
+  "file": "formbricks__0018__20230711103042_add_close_on_date.sql",
+  "original_path": "packages/database/migration/20230711103042_add_close_on_date/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "6a3a229ce6cea0de3581164f21cc9268654b975c95342e8171e6f111dd4a84cc",
+  "bytes": 80
+ },
+ {
+  "file": "formbricks__0019__20230711110136_add_survey_closed_message.sql",
+  "original_path": "packages/database/migration/20230711110136_add_survey_closed_message/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "c9c8d60e311e9592d74601064d6860c80f519da543e201d85daefa0d2bebe588",
+  "bytes": 81
+ },
+ {
+  "file": "formbricks__0020__20230807133058_add_highlight_border_color.sql",
+  "original_path": "packages/database/migration/20230807133058_add_highlight_border_color/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "63c4281b1dd2bbd3c3e99a7f7ea26fe79407eb45ab746a4b3283931963002f1e",
+  "bytes": 82
+ },
+ {
+  "file": "formbricks__0021__20230901053500_adds_verify_email.sql",
+  "original_path": "packages/database/migration/20230901053500_adds_verify_email/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "325741e9ffafa0a51fe14aa88f9f0cfd9a27f67442ebaa9592d49cca2e6ac971",
+  "bytes": 73
+ },
+ {
+  "file": "formbricks__0022__20230913115355_add_source_to_webhooks.sql",
+  "original_path": "packages/database/migration/20230913115355_add_source_to_webhooks/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "cc7cd7f61cc659aa7e4f38e3e8b040f864e9062ab00959f574f3884ff98a9a0b",
+  "bytes": 179
+ },
+ {
+  "file": "formbricks__0023__20230915154251_add_integration.sql",
+  "original_path": "packages/database/migration/20230915154251_add_integration/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "5ed23c2f3e470d188037b6805b14b496ae631144fcb44e4068f8cf30a6449f9d",
+  "bytes": 624
+ },
+ {
+  "file": "formbricks__0024__20230918025340_add_is_resolved_and_is_edited_to_response_note.sql",
+  "original_path": "packages/database/migration/20230918025340_add_is_resolved_and_is_edited_to_response_note/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "9495d024806771ac45c387db0579d0d27da158917aeff244c2cb091d21020731",
+  "bytes": 162
+ },
+ {
+  "file": "formbricks__0025__20231003122730_survey_styling_overwrites.sql",
+  "original_path": "packages/database/migration/20231003122730_survey_styling_overwrites/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "e69470586bd582d2ebfc71e020bad6a8c333fe86bec667c9352e55281f33bfa0",
+  "bytes": 79
+ },
+ {
+  "file": "formbricks__0026__20231008155535_add_response_id_to_display.sql",
+  "original_path": "packages/database/migration/20231008155535_add_response_id_to_display/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "daf15334acf122c128cea941a3b4b04584e2fd270ca0faa5b96f0addfe6ade84",
+  "bytes": 419
+ },
+ {
+  "file": "formbricks__0027__20231009074251_add_2fa.sql",
+  "original_path": "packages/database/migration/20231009074251_add_2fa/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "29f349f054b67d06f9ee7c75ceb42e71a5140aac2e922726224c41ff6c977a84",
+  "bytes": 177
+ },
+ {
+  "file": "formbricks__0028__20231015165646_add_hidden_fields.sql",
+  "original_path": "packages/database/migration/20231015165646_add_hidden_fields/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "626193f043444d1cc8c9e6d695cb00f3e6c86238b27bf92b374381ee4cdf80a9",
+  "bytes": 112
+ },
+ {
+  "file": "formbricks__0029__20231016190223_add_welcomecard.sql",
+  "original_path": "packages/database/migration/20231016190223_add_welcomecard/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "7663dd15660f5ee4bf9b9b71f83f3d3d323afc85d809d84fe3562f06af0b8e92",
+  "bytes": 111
+ },
+ {
+  "file": "formbricks__0030__20231019160204_add_airtable_integration.sql",
+  "original_path": "packages/database/migration/20231019160204_add_airtable_integration/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "12d8578ff2dff5f0b969f48dce209822fdc3d89cc3b2904d9c831094ea13ea03",
+  "bytes": 66
+ },
+ {
+  "file": "formbricks__0031__20231020082319_add_azuread.sql",
+  "original_path": "packages/database/migration/20231020082319_add_azuread/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "2e7e3af2902f3fc6270b000d648afe6a3d3be6b993fe9909d6f335eff401545e",
+  "bytes": 147
+ },
+ {
+  "file": "formbricks__0032__20231030174314_add_billing_to_team.sql",
+  "original_path": "packages/database/migration/20231030174314_add_billing_to_team/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "6b507942f41fbd0152f15db5db28499be51c882858dbc24f51e1d011764a8570",
+  "bytes": 644
+ },
+ {
+  "file": "formbricks__0033__20231102045537_adds_image_url_column_in_the_user_table.sql",
+  "original_path": "packages/database/migration/20231102045537_adds_image_url_column_in_the_user_table/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "51e0de60b56d7d484218655e0700142454a3a36535a7ff59cb7c027ab3a82633",
+  "bytes": 67
+ },
+ {
+  "file": "formbricks__0034__20231109052945_restructure_session_action_person.sql",
+  "original_path": "packages/database/migration/20231109052945_restructure_session_action_person/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "35d8a760593ab2dfabf20aacbf654173a749bafeb18f7f046b71805c190b629e",
+  "bytes": 2744
+ },
+ {
+  "file": "formbricks__0035__20231116131301_add_types_to_wehbhook_source.sql",
+  "original_path": "packages/database/migration/20231116131301_add_types_to_wehbhook_source/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "bc6a5163166d53bd8db6eb81cf067c6f4fb4259010c7dfbebd73a660a49d42cc",
+  "bytes": 686
+ },
+ {
+  "file": "formbricks__0036__20231129143833_add_ttc_to_response.sql",
+  "original_path": "packages/database/migration/20231129143833_add_ttc_to_response/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "9ad303393a93b740fbe606ba14781d15e46be4a8b44def984ac7c54e3a780f89",
+  "bytes": 89
+ },
+ {
+  "file": "formbricks__0037__20231207064643_add_notion_integration.sql",
+  "original_path": "packages/database/migration/20231207064643_add_notion_integration/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "5bd78b199c65388f43e8411f104eb99d8dcd509757ccd0e8cc63e43e778dfc07",
+  "bytes": 64
+ },
+ {
+  "file": "formbricks__0038__20240129054228_add_display_percentage_to_survey.sql",
+  "original_path": "packages/database/migration/20240129054228_add_display_percentage_to_survey/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "21c6ff81c9224a465193aadf76e066d3f767d128366f6a35002d68368c996025",
+  "bytes": 81
+ },
+ {
+  "file": "formbricks__0039__20240130103957_add_created_by_to_survey.sql",
+  "original_path": "packages/database/migration/20240130103957_add_created_by_to_survey/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "05c3e304443942c4e7d4b61d6d30f2febf727987f4a6b7eb1999bcf72e7171d7",
+  "bytes": 238
+ },
+ {
+  "file": "formbricks__0040__20240207041922_advanced_targeting.sql",
+  "original_path": "packages/database/migration/20240207041922_advanced_targeting/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "60ec96991f26888dca06412532bab88041a93090c5c394d234cf9b88cde7f0ad",
+  "bytes": 1029
+ },
+ {
+  "file": "formbricks__0041__20240223042852_adds_inline_trigger_to_survey_model.sql",
+  "original_path": "packages/database/migration/20240223042852_adds_inline_trigger_to_survey_model/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "7e8eecaae5b1fdeb9fbd07905a8245e9218b6671da11a4a4c7e5ceb92568b5d1",
+  "bytes": 76
+ },
+ {
+  "file": "formbricks__0042__20240228180201_update_action_indexes.sql",
+  "original_path": "packages/database/migration/20240228180201_update_action_indexes/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "b061b5733557bf6d993c3dad0ca2c81318f24fea23a698fcf609fc4a8a2338de",
+  "bytes": 303
+ },
+ {
+  "file": "formbricks__0043__20240305135128_add_segment_id_index_to_surveys.sql",
+  "original_path": "packages/database/migration/20240305135128_add_segment_id_index_to_surveys/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "e70c5c293fe99d1a759d5c6bc7560bb722995abe706eabbfd0bc32820ebba3fb",
+  "bytes": 79
+ },
+ {
+  "file": "formbricks__0044__20240318050527_add_languages_and_survey_languages.sql",
+  "original_path": "packages/database/migration/20240318050527_add_languages_and_survey_languages/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "88176742a24361e41b9f55e87c5a2b0e656329e6a0f6ea2ee605aa44bd12d4e9",
+  "bytes": 1522
+ },
+ {
+  "file": "formbricks__0045__20240327140901_add_more_indexes.sql",
+  "original_path": "packages/database/migration/20240327140901_add_more_indexes/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "5fdb94c7a693e3c4b191881294989e377dda72ec1a037aa97bd4d7776e089deb",
+  "bytes": 533
+ },
+ {
+  "file": "formbricks__0046__20240404213707_add_logo.sql",
+  "original_path": "packages/database/migration/20240404213707_add_logo/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "586550a0152943c7d8040f03318b97955f9388a804bb23499c16d15d3882999a",
+  "bytes": 67
+ },
+ {
+  "file": "formbricks__0047__20240409071907_add_slack_integration.sql",
+  "original_path": "packages/database/migration/20240409071907_add_slack_integration/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "f929483325511f9e54292ca09d2d6d1ec0d911ffacf7d0538d07346451150532",
+  "bytes": 63
+ },
+ {
+  "file": "formbricks__0048__20240421093432_adds_website_survey_type.sql",
+  "original_path": "packages/database/migration/20240421093432_adds_website_survey_type/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "30c80797219fa82760964dd703e5536fa029d13df448ae4c76c7b4a4150264e2",
+  "bytes": 624
+ },
+ {
+  "file": "formbricks__0049__20240516122752_rename_teams_to_organizations.sql",
+  "original_path": "packages/database/migration/20240516122752_rename_teams_to_organizations/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "14c340c55c0a098113c083cd6247fbde45bd2123543165d748fb6adffe05155b",
+  "bytes": 1476
+ },
+ {
+  "file": "formbricks__0050__20240530073540_made_name_property_on_user_model_optional.sql",
+  "original_path": "packages/database/migration/20240530073540_made_name_property_on_user_model_optional/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "cd847a4487d5996dda763ec7cc1d851f29f1075e83b5df6e6af8ed802371853e",
+  "bytes": 218
+ },
+ {
+  "file": "formbricks__0051__20240605104525_added_display_some_and_recontact_sessions.sql",
+  "original_path": "packages/database/migration/20240605104525_added_display_some_and_recontact_sessions/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "3805d58af222f960e146c81e88bd722c9dc4bf70085412b61d5501dc623cf99a",
+  "bytes": 146
+ },
+ {
+  "file": "formbricks__0052__20240612074254_add_show_language_switch_to_survey.sql",
+  "original_path": "packages/database/migration/20240612074254_add_show_language_switch_to_survey/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "a0ab216751f03bb865a061a8aaa8843f38f772fc1b53fc6c34e54525a89500f0",
+  "bytes": 82
+ },
+ {
+  "file": "formbricks__0053__20240612115151_adds_product_config.sql",
+  "original_path": "packages/database/migration/20240612115151_adds_product_config/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "5b88ad640bd3bc55b579b565e0fbfa172b9638d39efda2722e51282940ad6df0",
+  "bytes": 91
+ },
+ {
+  "file": "formbricks__0054__20240618115052_remove_onboarding_completed_from_user.sql",
+  "original_path": "packages/database/migration/20240618115052_remove_onboarding_completed_from_user/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "cdd92538c960225785e3b2ba4fbb50de224bf87ab157325f082daf5d99efd877",
+  "bytes": 217
+ },
+ {
+  "file": "formbricks__0055__20240801071532_add_endings_to_survey.sql",
+  "original_path": "packages/database/migration/20240801071532_add_endings_to_survey/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "9f0ab8ac11c7796adce62dc0e2e9cc59d1920cc34f47349dbbf672923e7e083e",
+  "bytes": 183
+ },
+ {
+  "file": "formbricks__0056__20240813094711_added_variables_to_survey_model.sql",
+  "original_path": "packages/database/migration/20240813094711_added_variables_to_survey_model/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "9cef619dcc5a304ef0c5b483a2f6a4a762ac7828ab84d906fc59790478c21716",
+  "bytes": 93
+ },
+ {
+  "file": "formbricks__0057__20240904043737_add_is_single_response_per_email_enabled_to_survey.sql",
+  "original_path": "packages/database/migration/20240904043737_add_is_single_response_per_email_enabled_to_survey/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "55ada306dc13e18c72a265efeab455795861f3cdb6734845d7299d97e524812f",
+  "bytes": 118
+ },
+ {
+  "file": "formbricks__0058__20240917112456_add_display_id_to_response.sql",
+  "original_path": "packages/database/migration/20240917112456_add_display_id_to_response/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "674760258912bdce105bcb282c65251e20e649aa2cbef35bbd275efea899770d",
+  "bytes": 520
+ },
+ {
+  "file": "formbricks__0059__20241004070040_removed_website_setup_completed.sql",
+  "original_path": "packages/database/migration/20241004070040_removed_website_setup_completed/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "ac26c2f8769bcf1e8465eb43cbe3897c54a0981ab3a446c6f36d9d8775eb4fde",
+  "bytes": 235
+ },
+ {
+  "file": "formbricks__0060__20241017124431_add_documents_and_insights.sql",
+  "original_path": "packages/database/migration/20241017124431_add_documents_and_insights/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "bc7f3eadeab0277b1d9ad6ca019ae72e379d22201f3bb64d4a50e94dba1cf45b",
+  "bytes": 2840
+ },
+ {
+  "file": "formbricks__0061__20241105074829_added_survey_follow_up.sql",
+  "original_path": "packages/database/migration/20241105074829_added_survey_follow_up/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "cc084b8318ec03bc0602aa56352d749f488e84332f5746ce95b391139536c24b",
+  "bytes": 606
+ },
+ {
+  "file": "formbricks__0062__20241107161932_add_teams.sql",
+  "original_path": "packages/database/migration/20241107161932_add_teams/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "45213c7609f000b8250dc54cf2b484c252e5e248950daeb0c87077361aeb6f00",
+  "bytes": 3383
+ },
+ {
+  "file": "formbricks__0063__20241209051259_added_data_migration_table.sql",
+  "original_path": "packages/database/migration/20241209051259_added_data_migration_table/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "fcd4b4981eda7d729d5728f74b946cb74c52d998f0166f580325c39344b93a8d",
+  "bytes": 494
+ },
+ {
+  "file": "formbricks__0064__20241210131647_adds_team_ids_to_invite.sql",
+  "original_path": "packages/database/migration/20241210131647_adds_team_ids_to_invite/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "1f88cbb28a97c9cc024f24cfabadff0eb870b50a1084b903d732658a3cb633be",
+  "bytes": 92
+ },
+ {
+  "file": "formbricks__0065__20250206093504_add_activepieces_to_webhook_source.sql",
+  "original_path": "packages/database/migration/20250206093504_add_activepieces_to_webhook_source/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "ae287bb08472e643e9f662f4a8c4d3f78f43636d626b3f14bfdb4b81bfaea68e",
+  "bytes": 68
+ },
+ {
+  "file": "formbricks__0066__20250224093617_adds_saml_identity_provider.sql",
+  "original_path": "packages/database/migration/20250224093617_adds_saml_identity_provider/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "5999c74f54d661d79698f879381f4268be32972ad2550fd8efcd32eb7328478b",
+  "bytes": 161
+ },
+ {
+  "file": "formbricks__0067__20250226080646_set_response_updated_at_default.sql",
+  "original_path": "packages/database/migration/20250226080646_set_response_updated_at_default/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "e4be8e5990cc6f9be3ce178182f098db3b5caa41570977f23c0e4b5a37664247",
+  "bytes": 96
+ },
+ {
+  "file": "formbricks__0068__20250324134815_set_webhook_updated_at_default.sql",
+  "original_path": "packages/database/migration/20250324134815_set_webhook_updated_at_default/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "b8ace752a7548d8db5394062bdd456e020be4249db73abc600be8aca0ec5cbf7",
+  "bytes": 95
+ },
+ {
+  "file": "formbricks__0069__20250327043931_api_key_new_to_api_key.sql",
+  "original_path": "packages/database/migration/20250327043931_api_key_new_to_api_key/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "bf1b6637136caf5c5107eb49e13c54845a96af0542e26ac9eb613ddb8bdef1e6",
+  "bytes": 1441
+ },
+ {
+  "file": "formbricks__0070__20250402063013_add_is_active_to_user.sql",
+  "original_path": "packages/database/migration/20250402063013_add_is_active_to_user/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "9f481471c57439c9853b72fa2fecfbe3571429cef819581f755794780cd19464",
+  "bytes": 92
+ },
+ {
+  "file": "formbricks__0071__20250403042737_add_last_login_at_to_user.sql",
+  "original_path": "packages/database/migration/20250403042737_add_last_login_at_to_user/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "58bd7ff007d66db2b808610083185993203cdea9939d924da07987056d393786",
+  "bytes": 78
+ },
+ {
+  "file": "formbricks__0072__20250520163831_add_created_at_index_to_responses.sql",
+  "original_path": "packages/database/migration/20250520163831_add_created_at_index_to_responses/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "2e065a836716e4374a2765357b53293aca235ef2863ddcd2b89282e32f14f4ad",
+  "bytes": 85
+ },
+ {
+  "file": "formbricks__0073__20250708044701_remove_userid_from_contact.sql",
+  "original_path": "packages/database/migration/20250708044701_remove_userid_from_contact/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "8a891880e2946f080ef134f4d6042bb4afb4ecb6fbae09127eb3d6d8038d24f2",
+  "bytes": 197
+ },
+ {
+  "file": "formbricks__0074__20250811062620_remove_response_note_feature.sql",
+  "original_path": "packages/database/migration/20250811062620_remove_response_note_feature/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "7ec8d337842a35465bd450380979de8c54f1b4abaea602cd8f7910ec589d4e25",
+  "bytes": 376
+ },
+ {
+  "file": "formbricks__0075__20250812041349_add_metadata_to_survey.sql",
+  "original_path": "packages/database/migration/20250812041349_add_metadata_to_survey/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "da7c3294b3b354790dfe616adc5a3954676617e6b07d900e44c5c6821ae7c4b0",
+  "bytes": 86
+ },
+ {
+  "file": "formbricks__0076__20250813071701_remove_user_image_url.sql",
+  "original_path": "packages/database/migration/20250813071701_remove_user_image_url/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "3773780cf203db8b7f7666b2ce09627829c82264c1f06cf6fe74daf132af9cde",
+  "bytes": 195
+ },
+ {
+  "file": "formbricks__0077__20250904145727_removes_cron_and_survey_scheduling.sql",
+  "original_path": "packages/database/migration/20250904145727_removes_cron_and_survey_scheduling/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "5ae5b0c80295b27e57f5fc4969ed837ef171397562bd0a0e8f13fa25976e11b2",
+  "bytes": 1201
+ },
+ {
+  "file": "formbricks__0078__20251008104151_api_key_v2.sql",
+  "original_path": "packages/database/migration/20251008104151_api_key_v2/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "b0f05c3d8e04385f7669ed7b63699563a6a9fd40023de5bb3b9aaa5d2fd5edb2",
+  "bytes": 276
+ },
+ {
+  "file": "formbricks__0079__20251029165242_add_blocks_to_survey.sql",
+  "original_path": "packages/database/migration/20251029165242_add_blocks_to_survey/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "42a1783d7489ef99fdce1d70b74686d08baa487dd52347a3f724c15a71c79834",
+  "bytes": 104
+ },
+ {
+  "file": "formbricks__0080__20260106093952_added_secret_to_webhook_model.sql",
+  "original_path": "packages/database/migration/20260106093952_added_secret_to_webhook_model/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "cb3a3777156fe831e0408e5b21dd1ccc501ffd2ff7e1f16f3fbb06dc0f7e4f8f",
+  "bytes": 77
+ },
+ {
+  "file": "formbricks__0081__20260107110956_add_is_capture_ip_enabled_to_survey.sql",
+  "original_path": "packages/database/migration/20260107110956_add_is_capture_ip_enabled_to_survey/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "3000216a287bc35790d8b5544e5009c4ae28364e4c858289c19cebeb13fc0f59",
+  "bytes": 114
+ },
+ {
+  "file": "formbricks__0082__20260113160531_remove_unused_indexes.sql",
+  "original_path": "packages/database/migration/20260113160531_remove_unused_indexes/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "c2a7021302bfcb40b03aff88ea0e7500b384c7a6d490b48ab21336e53cd52bc9",
+  "bytes": 720
+ },
+ {
+  "file": "formbricks__0083__20260204083137_added_data_type_and_value_fields.sql",
+  "original_path": "packages/database/migration/20260204083137_added_data_type_and_value_fields/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "b0fb7a071756ec5f91ad4ea6faa2e4faac6b01f821c8f4611a15f5d894f867e8",
+  "bytes": 689
+ },
+ {
+  "file": "formbricks__0084__20260302000000_replace_is_ai_enabled_with_dual_toggles.sql",
+  "original_path": "packages/database/migration/20260302000000_replace_is_ai_enabled_with_dual_toggles/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "7503d52ffd29e26eb354f6f3fc24901dc10abc8fb888177bbb27063e9e5e11d0",
+  "bytes": 520
+ },
+ {
+  "file": "formbricks__0085__20260325090000_add_auth_sessions.sql",
+  "original_path": "packages/database/migration/20260325090000_add_auth_sessions/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "1215e9fe4f08fdcd067f2678b344861bcae9ea48f932f34743fb9e8f55df693a",
+  "bytes": 953
+ },
+ {
+  "file": "formbricks__0086__20260330120000_add_password_reset_tokens.sql",
+  "original_path": "packages/database/migration/20260330120000_add_password_reset_tokens/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "408f24d2dbb12783a69b28d0088acfa40bc1ae3426c9a260faa58a6f0cee2c28",
+  "bytes": 869
+ },
+ {
+  "file": "formbricks__0087__20260401000000_add_workspace_id_to_environment_owned_models.sql",
+  "original_path": "packages/database/migration/20260401000000_add_workspace_id_to_environment_owned_models/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "01a1dbfa8f654e38fa1008df24b19f46041418cd349462a498c9bde3a25f82ea",
+  "bytes": 3214
+ },
+ {
+  "file": "formbricks__0088__20260403000000_remove_environment_model.sql",
+  "original_path": "packages/database/migration/20260403000000_remove_environment_model/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "d072e1126eca50c5a9ee762d3f8527b0ddf12fdd6bdf9905adfea4b7694827e4",
+  "bytes": 3395
+ },
+ {
+  "file": "formbricks__0089__20260410120000_add_dashboards_and_charts_to_workspace.sql",
+  "original_path": "packages/database/migration/20260410120000_add_dashboards_and_charts_to_workspace/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "696bcea2df0dc5f3994e67736607eae64bf58b94661f7d58456f0731e932f98d",
+  "bytes": 3237
+ },
+ {
+  "file": "formbricks__0090__20260414000000_added_connector_model.sql",
+  "original_path": "packages/database/migration/20260414000000_added_connector_model/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "c96638817a4d52e1797824aa66cd3929b50ef827b63bee35522456c60e745506",
+  "bytes": 4196
+ },
+ {
+  "file": "formbricks__0091__20260417120000_add_survey_publish_pause_scheduling.sql",
+  "original_path": "packages/database/migration/20260417120000_add_survey_publish_pause_scheduling/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "368a73398b6ccdce48ffb3552c1947da3bd80c75d29cf6788d1d0fffe2017fc8",
+  "bytes": 448
+ },
+ {
+  "file": "formbricks__0092__20260521000000_remove_is_ai_data_analysis_enabled.sql",
+  "original_path": "packages/database/migration/20260521000000_remove_is_ai_data_analysis_enabled/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "8284be565113734688e3c14c92d53bf703f0a93a6cb67279232773310a93422b",
+  "bytes": 267
+ },
+ {
+  "file": "formbricks__0093__20260528120000_rename_connector_to_feedback_source.sql",
+  "original_path": "packages/database/migration/20260528120000_rename_connector_to_feedback_source/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "efaeac35925aa46d0811706237a6a9348709dc21b96daceef444beaf2eec67a6",
+  "bytes": 4104
+ },
+ {
+  "file": "formbricks__0094__20260618120000_eng_1054_better_auth_foundation.sql",
+  "original_path": "packages/database/migration/20260618120000_eng_1054_better_auth_foundation/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "b061ded5ba9d6e175be9cc3e4bf34c2fed1e6f675759be8f8ba091ded1939197",
+  "bytes": 1401
+ },
+ {
+  "file": "formbricks__0095__20260701000000_workflow_run_log_unique_step.sql",
+  "original_path": "packages/database/migration/20260701000000_workflow_run_log_unique_step/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "a8545ead0292c9c1d3f413b1416f3b0bd943a8bb33e336ec261f1f0730f1ff14",
+  "bytes": 335
+ },
+ {
+  "file": "formbricks__0096__20260702093000_add_better_auth_oauth_provider.sql",
+  "original_path": "packages/database/migration/20260702093000_add_better_auth_oauth_provider/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "bc214379779c9b020eb3aff8c5b689538afcdefb5f886d082e76ea99884ab01d",
+  "bytes": 6656
+ },
+ {
+  "file": "formbricks__0097__20260709120000_drop_workflow_name_uniqueness.sql",
+  "original_path": "packages/database/migration/20260709120000_drop_workflow_name_uniqueness/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "20f04b58c5af451dbefbd078464fe8e887957252311e910fa0da05262cce4876",
+  "bytes": 327
+ },
+ {
+  "file": "formbricks__0098__20260722000000_add_survey_archived_at.sql",
+  "original_path": "packages/database/migration/20260722000000_add_survey_archived_at/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "21926b4329b0036fbd43b70fbf2dda31fd2211b36fb50d1bf5d4ac78e19c0b7d",
+  "bytes": 162
+ },
+ {
+  "file": "formbricks__0099__20260725070000_add_two_factor_lockout_fields.sql",
+  "original_path": "packages/database/migration/20260725070000_add_two_factor_lockout_fields/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "be465e1b528cf1cd9cf3ce8a62ce3761bb910343489506e1ecfe624595f166e8",
+  "bytes": 431
+ },
+ {
+  "file": "formbricks__0100__20260810000000_add_organization_display_time_zone.sql",
+  "original_path": "packages/database/migration/20260810000000_add_organization_display_time_zone/migration.sql",
+  "repo": "https://github.com/formbricks/formbricks",
+  "sha256": "2bc1da93bcc66c50e68d574eef655e2087da8194d329227d520ca00e5d947962",
+  "bytes": 78
+ }
+]

@@ -1,0 +1,667 @@
+{
+ "mode": "unknown-diagnosis",
+ "statements": 15514,
+ "classification_vanilla": {
+  "safe": 9625,
+  "conditionally_safe": 4808,
+  "unknown": 1081
+ },
+ "classification_analyzed": {
+  "safe": 9847,
+  "conditionally_safe": 4920,
+  "unknown": 747
+ },
+ "unknown_buckets_vanilla": {
+  "missing_relation": 580,
+  "never_analyzed": 335,
+  "live_context_unsupplied": 130,
+  "opaque_do_block": 23,
+  "other": 10,
+  "empty_do_block": 3
+ },
+ "unknown_buckets_analyzed": {
+  "missing_relation": 581,
+  "live_context_unsupplied": 130,
+  "opaque_do_block": 23,
+  "other": 10,
+  "empty_do_block": 3
+ },
+ "bucket_kinds_vanilla": {
+  "live_context_unsupplied": {
+   "alter_table": 103,
+   "create_extension": 15,
+   "alter_domain": 10,
+   "call": 1,
+   "do_block": 1
+  },
+  "missing_relation": {
+   "update": 207,
+   "alter_table": 104,
+   "create_index": 102,
+   "delete": 90,
+   "update_without_where": 65,
+   "delete_without_where": 10,
+   "update_batched": 2
+  },
+  "never_analyzed": {
+   "create_index": 147,
+   "alter_table": 116,
+   "update": 27,
+   "delete": 16,
+   "update_without_where": 12,
+   "delete_without_where": 8,
+   "do_block": 8,
+   "reindex": 1
+  },
+  "opaque_do_block": {
+   "do_block": 23
+  },
+  "other": {
+   "alter_table": 10
+  },
+  "empty_do_block": {
+   "do_block": 3
+  }
+ },
+ "bucket_repos_vanilla": {
+  "live_context_unsupplied": {
+   "coder": 28,
+   "boundary": 26,
+   "lemmy": 18,
+   "sourcegraph": 18,
+   "formbricks": 8,
+   "kratos": 8,
+   "windmill": 8,
+   "mattermost": 6
+  },
+  "missing_relation": {
+   "discourse": 295,
+   "boundary": 63,
+   "windmill": 52,
+   "langfuse": 50,
+   "calcom": 32,
+   "zulip": 27,
+   "formbricks": 22,
+   "sourcegraph": 22
+  },
+  "never_analyzed": {
+   "lemmy": 97,
+   "coder": 63,
+   "sourcegraph": 43,
+   "mattermost": 27,
+   "marquez": 25,
+   "windmill": 25,
+   "boundary": 17,
+   "kratos": 14
+  },
+  "opaque_do_block": {
+   "windmill": 15,
+   "boundary": 3,
+   "temporal": 2,
+   "formbricks": 1,
+   "marquez": 1,
+   "sourcegraph": 1
+  },
+  "other": {
+   "lemmy": 9,
+   "boundary": 1
+  },
+  "empty_do_block": {
+   "coder": 1,
+   "formbricks": 1,
+   "lemmy": 1
+  }
+ },
+ "vanilla_unknown_to_analyzed": {
+  "unknown": 747,
+  "safe": 222,
+  "conditionally_safe": 112
+ },
+ "transitions_by_bucket": {
+  "live_context_unsupplied": {
+   "unknown": 130
+  },
+  "missing_relation": {
+   "unknown": 580
+  },
+  "never_analyzed": {
+   "safe": 222,
+   "conditionally_safe": 112,
+   "unknown": 1
+  },
+  "opaque_do_block": {
+   "unknown": 23
+  },
+  "other": {
+   "unknown": 10
+  },
+  "empty_do_block": {
+   "unknown": 3
+  }
+ },
+ "live_context_detail_vanilla": {
+  "the snapshot could not supply the declared live context: rewrite undecidable: live fact missing: rel": 23,
+  "whether the table is empty (the statement succeeds only then": 19,
+  "the extension's install script \u2014 it runs arbitrary DDL (CREATE FUNCTION/TYPE/TABLE/OPERATOR ...": 16,
+  "which ALTER DOMAIN form this is (the classifier records none": 10,
+  "which parameters are set (the IR does not record them": 4,
+  "the snapshot could not supply the declared live context: whether 'wh_dim_key' is a domain is unknown": 3,
+  "the snapshot could not supply the declared live context: whether 'script_lang' is a domain is unknow": 3,
+  "the snapshot could not supply the declared live context: whether 'workspace_agent_monitor_state' is ": 2,
+  "the snapshot could not supply the declared live context: whether '\"OrganizationRole\"' is a domain is": 2,
+  "the snapshot could not supply the declared live context: whether 'comment_sort_type_enum' is a domai": 2,
+  "the snapshot could not supply the declared live context: whether '\"PaymentOption\"' is a domain is un": 1,
+  "the snapshot could not supply the declared live context: whether '\"RRTimestampBasis\"' is a domain is": 1,
+  "the snapshot could not supply the declared live context: whether 'user_status' is a domain is unknow": 1,
+  "the snapshot could not supply the declared live context: whether 'build_reason' is a domain is unkno": 1,
+  "the snapshot could not supply the declared live context: whether 'api_key_scope' is a domain is unkn": 1,
+  "the snapshot could not supply the declared live context: whether 'workspace_app_health' is a domain ": 1,
+  "the snapshot could not supply the declared live context: whether 'app_sharing_level' is a domain is ": 1,
+  "the snapshot could not supply the declared live context: whether 'workspace_agent_lifecycle_state' i": 1,
+  "the snapshot could not supply the declared live context: whether 'workspace_agent_subsystem' is a do": 1,
+  "the snapshot could not supply the declared live context: whether 'startup_script_behavior' is a doma": 1
+ },
+ "samples": {
+  "live_context_unsupplied": [
+   {
+    "repo": "boundary",
+    "file": "boundary__0021__60_wh_domain_types.up.sql",
+    "kind": "create_extension",
+    "rationale": "the snapshot could not supply: the catalog row is a worst case needing live context (the extension's install script \u2014 it runs arbitrary DDL (CREATE FUNCTION/TYPE/TABLE/OPERATOR ...) that is not visible in the migration; most common extensions (uuid-ossp, pgcrypto, citext, pg_trgm, postgis) create on",
+    "analyzed_class": "unknown",
+    "sql": "create extension if not exists \"pgcrypto\""
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0030__01_job_migrations.up.sql",
+    "kind": "alter_table",
+    "rationale": "the snapshot could not supply the declared live context: rewrite undecidable: live fact missing: relation or column not found: job_run.server_id",
+    "analyzed_class": "unknown",
+    "sql": "alter table job_run\n    alter column server_id type text"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0036__07_sentinels.up.sql",
+    "kind": "alter_domain",
+    "rationale": "the snapshot could not supply: the catalog row is a worst case needing live context (which ALTER DOMAIN form this is (the classifier records none) and which tables have columns of the domain: ADD CONSTRAINT (without NOT VALID) and SET NOT NULL lock every such table SHARE and scan it; SET/DROP DEFAUL",
+    "analyzed_class": "unknown",
+    "sql": "alter domain wt_sentinel\n    drop constraint wt_sentinel_not_valid"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0036__07_sentinels.up.sql",
+    "kind": "alter_domain",
+    "rationale": "the snapshot could not supply: the catalog row is a worst case needing live context (which ALTER DOMAIN form this is (the classifier records none) and which tables have columns of the domain: ADD CONSTRAINT (without NOT VALID) and SET NOT NULL lock every such table SHARE and scan it; SET/DROP DEFAUL",
+    "analyzed_class": "unknown",
+    "sql": "alter domain wt_sentinel\n    add constraint wt_sentinel_not_valid\n        check(\n                wt_is_sentinel(value)\n                or\n                length"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0046__01_wh_user_dimension_oidc.up.sql",
+    "kind": "alter_table",
+    "rationale": "the snapshot could not supply the declared live context: rewrite undecidable: live fact missing: relation or column not found: wh_user_dimension.auth_method_external_id",
+    "analyzed_class": "unknown",
+    "sql": "alter table wh_user_dimension\n    alter column auth_method_external_id  type wh_dim_text,\n    alter column auth_account_external_id type wh_dim_text,\n    alter "
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0049__01_wh_credential_dimension.up.sql",
+    "kind": "alter_domain",
+    "rationale": "the snapshot could not supply: the catalog row is a worst case needing live context (which ALTER DOMAIN form this is (the classifier records none) and which tables have columns of the domain: ADD CONSTRAINT (without NOT VALID) and SET NOT NULL lock every such table SHARE and scan it; SET/DROP DEFAUL",
+    "analyzed_class": "unknown",
+    "sql": "alter domain wh_public_id drop constraint wh_public_id_check"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0049__01_wh_credential_dimension.up.sql",
+    "kind": "alter_domain",
+    "rationale": "the snapshot could not supply: the catalog row is a worst case needing live context (which ALTER DOMAIN form this is (the classifier records none) and which tables have columns of the domain: ADD CONSTRAINT (without NOT VALID) and SET NOT NULL lock every such table SHARE and scan it; SET/DROP DEFAUL",
+    "analyzed_class": "unknown",
+    "sql": "alter domain wh_public_id add constraint wh_public_id_check\n  check(\n    value = 'None'\n    or\n    value = 'Unknown'\n    or\n    length(trim(value)) > 10\n  )"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0052__04_wh_credential_dimension.up.sql",
+    "kind": "alter_table",
+    "rationale": "the snapshot could not supply the declared live context: whether 'wh_dim_key' is a domain is unknown: type 'wh_dim_key' does not exist",
+    "analyzed_class": "unknown",
+    "sql": "alter table wh_session_accumulating_fact\n    add column credential_group_key wh_dim_key not null default 'Unknown'\n    references wh_credential_group (key)\n    "
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0053__05_wh_credential_dimension.up.sql",
+    "kind": "alter_table",
+    "rationale": "the snapshot could not supply the declared live context: whether 'wh_dim_key' is a domain is unknown: type 'wh_dim_key' does not exist",
+    "analyzed_class": "unknown",
+    "sql": "alter table wh_session_connection_accumulating_fact\n    add column credential_group_key wh_dim_key not null default 'Unknown'\n    references wh_credential_group"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0089__01_wh_network_address_dimensions.up.sql",
+    "kind": "alter_table",
+    "rationale": "the snapshot could not supply the declared live context: whether 'wh_dim_key' is a domain is unknown: type 'wh_dim_key' does not exist",
+    "analyzed_class": "unknown",
+    "sql": "alter table wh_host_dimension\n    add column network_address_group_key wh_dim_key not null default 'Unknown'\n      constraint wh_network_address_group_fkey\n    "
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0113__01_job_migrations.up.sql",
+    "kind": "alter_table",
+    "rationale": "the snapshot could not supply the declared live context: rewrite undecidable: live fact missing: relation or column not found: server_controller.private_id",
+    "analyzed_class": "unknown",
+    "sql": "alter table server_controller\n    alter column private_id type wt_controller_id"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0147__01_worker_auth_create_time.up.sql",
+    "kind": "alter_table",
+    "rationale": "the snapshot could not supply the declared live context: rewrite undecidable: live fact missing: relation or column not found: worker_auth_authorized.create_time",
+    "analyzed_class": "unknown",
+    "sql": "alter table worker_auth_authorized\n  alter column create_time drop default,\n  alter column update_time drop default,\n  alter column create_time type wt_timestam"
+   }
+  ],
+  "missing_relation": [
+   {
+    "repo": "boundary",
+    "file": "boundary__0030__01_job_migrations.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_check blocks reads for a duration that could not be estimated: job_run does not exist on the target database",
+    "analyzed_class": "unknown",
+    "sql": "alter table job_run\n    add constraint server_id_must_not_be_empty\n        check(length(trim(server_id)) > 0)"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0038__01_credential_static_password_credential.up.sql",
+    "kind": "alter_table",
+    "rationale": "the snapshot could not supply the declared live context: constraint facts unavailable: relation does not exist on the target database",
+    "analyzed_class": "unknown",
+    "sql": "alter table credential_type_enm\n    drop constraint only_predefined_credential_types_allowed"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0038__01_credential_static_password_credential.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_check blocks reads for a duration that could not be estimated: credential_type_enm does not exist on the target database",
+    "analyzed_class": "unknown",
+    "sql": "alter table credential_type_enm\n    add constraint only_predefined_credential_types_allowed\n      check (\n        name in (\n          'unspecified',\n          '"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0040__01_credential_vault_library_deleted_purge_job.up.sql",
+    "kind": "delete",
+    "rationale": "row locks only, but neither the matched-row count nor the size of job is available: job does not exist on the target database",
+    "analyzed_class": "unknown",
+    "sql": "delete from job where name = 'credential_vault_library_deleted_items_table_purge'"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0055__02_wh_primary_key.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_primary_key blocks reads for a duration that could not be estimated: wh_credential_group_membership does not exist on the target database",
+    "analyzed_class": "unknown",
+    "sql": "alter table wh_credential_group_membership\n    add primary key (credential_group_key, credential_key)"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0070__02_plugin.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_column_default_nonvolatile blocks reads for a duration that could not be estimated: plugin does not exist on the target database",
+    "analyzed_class": "unknown",
+    "sql": "alter table plugin\n    add column name wt_name,\n    add column scope_id wt_scope_id not null default 'global'\n      constraint iam_scope_global_fkey\n      refer"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0070__02_plugin.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_unique blocks reads for a duration that could not be estimated: plugin does not exist on the target database",
+    "analyzed_class": "unknown",
+    "sql": "alter table plugin\n    add constraint plugin_scope_id_public_id_uq\n      unique (scope_id, public_id),\n    add constraint plugin_scope_id_name_uq\n      unique ("
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0102__04_kms_keys.up.sql",
+    "kind": "alter_table",
+    "rationale": "the snapshot could not supply the declared live context: constraint facts unavailable: relation does not exist on the target database",
+    "analyzed_class": "unknown",
+    "sql": "alter table host_plugin_catalog_secret drop constraint kms_database_key_version_fkey"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0102__04_kms_keys.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: host_plugin_catalog_secret does not exist on the target database",
+    "analyzed_class": "unknown",
+    "sql": "alter table host_plugin_catalog_secret\nadd constraint kms_data_key_version_fkey\n    foreign key(key_id)\n        references kms_data_key_version (private_id)\n   "
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0110__02_worker_controller_tables.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_check blocks reads for a duration that could not be estimated: job_run does not exist on the target database",
+    "analyzed_class": "unknown",
+    "sql": "alter table job_run\n  add constraint controller_id_must_be_at_least_10_characters\n    check(\n      length(trim(controller_id)) > 10\n    ),\n  add constraint serv"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0110__02_worker_controller_tables.up.sql",
+    "kind": "update",
+    "rationale": "row locks only, but neither the matched-row count nor the size of job_run is available: job_run does not exist on the target database",
+    "analyzed_class": "unknown",
+    "sql": "update job_run\nset\n  status = 'interrupted',\n  end_time = current_timestamp\nwhere\n    status = 'running'"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0113__01_job_migrations.up.sql",
+    "kind": "alter_table",
+    "rationale": "the snapshot could not supply the declared live context: constraint facts unavailable: relation does not exist on the target database",
+    "analyzed_class": "unknown",
+    "sql": "alter table job_run\n  drop constraint controller_id_must_be_at_least_10_characters,\n  alter column controller_id type wt_controller_id"
+   }
+  ],
+  "never_analyzed": [
+   {
+    "repo": "boundary",
+    "file": "boundary__0036__07_sentinels.up.sql",
+    "kind": "update",
+    "rationale": "row locks only, but neither the matched-row count nor the size of credential_vault_credential is available: no usable row-count estimate for credential_vault_credential: reltuples is -1: the table has never been vacuumed or analyzed; the row count estimate is unusable and this layer will not scan to",
+    "analyzed_class": "conditionally_safe",
+    "sql": "update credential_vault_credential\n   set external_id = concat(external_id, u&'\\ffff')\n where wt_is_sentinel(external_id)\n   and not starts_with(reverse(externa"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0102__04_kms_keys.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: no usable row-count estimate for credential_vault_token: reltuples is -1: the table has never been vacuumed or analyzed; the row count estimate is unusable and this layer will not scan to get one",
+    "analyzed_class": "conditionally_safe",
+    "sql": "alter table credential_vault_token\nadd constraint kms_data_key_version_fkey\n    foreign key(key_id)\n        references kms_data_key_version (private_id)\n       "
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0102__04_kms_keys.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: no usable row-count estimate for credential_vault_client_certificate: reltuples is -1: the table has never been vacuumed or analyzed; the row count estimate is unusable and this layer will not scan to get one",
+    "analyzed_class": "conditionally_safe",
+    "sql": "alter table credential_vault_client_certificate\nadd constraint kms_data_key_version_fkey\n    foreign key(key_id)\n        references kms_data_key_version (privat"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0102__04_kms_keys.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: no usable row-count estimate for session_credential: reltuples is -1: the table has never been vacuumed or analyzed; the row count estimate is unusable and this layer will not scan to get one",
+    "analyzed_class": "conditionally_safe",
+    "sql": "alter table session_credential\nadd constraint kms_data_key_version_fkey\n    foreign key(key_id)\n        references kms_data_key_version (private_id)\n        on "
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0125__01_ssh_private_key_passphrase.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_column_default_unknown_volatility blocks reads for a duration that could not be estimated: no usable row-count estimate for credential_vault_library_ssh_private_key_mapping_override: reltuples is -1: the table has never been vacuumed or analyzed; the row count estimate is unusable and this layer",
+    "analyzed_class": "conditionally_safe",
+    "sql": "alter table credential_vault_library_ssh_private_key_mapping_override\n  add column private_key_passphrase_attribute wt_sentinel default wt_to_sentinel('no overr"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0209__02_kms_oplog_collection_version.up.sql",
+    "kind": "update_without_where",
+    "rationale": "the statement rewrites every row of kms_oplog_schema_version, and its size is unavailable: no usable row-count estimate for kms_oplog_schema_version: reltuples is -1: the table has never been vacuumed or analyzed; the row count estimate is unusable and this layer will not scan to get one",
+    "analyzed_class": "conditionally_safe",
+    "sql": "update kms_oplog_schema_version set version = 'v0.0.2'"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0211__04_alter_oplog_entry.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: no usable row-count estimate for oplog_entry: reltuples is -1: the table has never been vacuumed or analyzed; the row count estimate is unusable and this layer will not scan to get one",
+    "analyzed_class": "conditionally_safe",
+    "sql": "alter table oplog_entry\n  drop constraint iam_scope_fkey,\n  drop constraint kms_data_key_version_fkey,\n  add constraint kms_oplog_data_key_version_fkey\n    fore"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0234__03_storage_policy_updates.up.sql",
+    "kind": "create_index",
+    "rationale": "create_index blocks writes for a duration that could not be estimated: no usable row-count estimate for policy_storage_policy: reltuples is -1: the table has never been vacuumed or analyzed; the row count estimate is unusable and this layer will not scan to get one",
+    "analyzed_class": "conditionally_safe",
+    "sql": "create index policy_storage_policy_create_time_public_id_idx\n      on policy_storage_policy (create_time desc, public_id desc)"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0234__03_storage_policy_updates.up.sql",
+    "kind": "create_index",
+    "rationale": "create_index blocks writes for a duration that could not be estimated: no usable row-count estimate for policy_storage_policy: reltuples is -1: the table has never been vacuumed or analyzed; the row count estimate is unusable and this layer will not scan to get one",
+    "analyzed_class": "conditionally_safe",
+    "sql": "create index policy_storage_policy_update_time_public_id_idx\n      on policy_storage_policy (update_time desc, public_id desc)"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0263__01_drop_kms_rewrapping_table.up.sql",
+    "kind": "delete",
+    "rationale": "row locks only, but neither the matched-row count nor the size of job is available: no usable row-count estimate for job: reltuples is -1: the table has never been vacuumed or analyzed; the row count estimate is unusable and this layer will not scan to get one",
+    "analyzed_class": "conditionally_safe",
+    "sql": "delete from job where name = 'storage_plugin_storage_bucket_secret-rewrapping-job'"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0264__01_storage_policies.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: no usable row-count estimate for policy: reltuples is -1: the table has never been vacuumed or analyzed; the row count estimate is unusable and this layer will not scan to get one",
+    "analyzed_class": "conditionally_safe",
+    "sql": "alter table policy\n    add constraint policy_scope_id_fkey\n    foreign key (scope_id)\n      references iam_scope(public_id)\n      on delete cascade\n      on upd"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0266__03_indexes_grants_query.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_primary_key blocks reads for a duration that could not be estimated: no usable row-count estimate for auth_oidc_managed_group_member_account: reltuples is -1: the table has never been vacuumed or analyzed; the row count estimate is unusable and this layer will not scan to get one",
+    "analyzed_class": "conditionally_safe",
+    "sql": "alter table auth_oidc_managed_group_member_account\n  drop constraint auth_oidc_managed_group_member_account_pkey,\n  add primary key (member_id, managed_group_id"
+   }
+  ],
+  "opaque_do_block": [
+   {
+    "repo": "boundary",
+    "file": "boundary__0176__01_rename_constraints.up.sql",
+    "kind": "do_block",
+    "rationale": "the DO block builds SQL at runtime or its body could not be fully parsed; its complete effect is unknown",
+    "analyzed_class": "unknown",
+    "sql": "do $$\n  declare\n    const record;\n    i     int;\n  begin \n    for const in\n        select pc.conname  as constraint_name,\n               pgc.relname as table_na"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0176__01_rename_constraints.up.sql",
+    "kind": "do_block",
+    "rationale": "the DO block builds SQL at runtime or its body could not be fully parsed; its complete effect is unknown",
+    "analyzed_class": "unknown",
+    "sql": "do $$\n  declare\n    const record;\n    i     int;\n  begin\n  for const in\n      select pc.conname         as constraint_name,\n             pgc.relname        as t"
+   },
+   {
+    "repo": "boundary",
+    "file": "boundary__0216__01_deleted_tables_and_triggers.up.sql",
+    "kind": "do_block",
+    "rationale": "the DO block builds SQL at runtime or its body could not be fully parsed; its complete effect is unknown",
+    "analyzed_class": "unknown",
+    "sql": "do $$\n  declare\n    deletion_table_name text;\n    table_name          text;\n  begin\n    for deletion_table_name in select get_deletion_tables() loop\n      table"
+   },
+   {
+    "repo": "formbricks",
+    "file": "formbricks__0093__20260528120000_rename_connector_to_feedback_source.sql",
+    "kind": "do_block",
+    "rationale": "the DO block builds SQL at runtime or its body could not be fully parsed; its complete effect is unknown",
+    "analyzed_class": "unknown",
+    "sql": "DO $$\nBEGIN\n  IF EXISTS (\n    SELECT 1 FROM pg_constraint\n    WHERE conname = 'Connector_feedbackDirectoryId_fkey'\n  ) THEN\n    EXECUTE 'ALTER TABLE \"FeedbackSo"
+   },
+   {
+    "repo": "marquez",
+    "file": "marquez__0054__V52__alter_dataset_symlinks.sql",
+    "kind": "do_block",
+    "rationale": "the DO block builds SQL at runtime or its body could not be fully parsed; its complete effect is unknown",
+    "analyzed_class": "unknown",
+    "sql": "DO\n$$\nDECLARE\n    datasets_view_exists boolean;\n    datasets_view_definition text;\nBEGIN\n    SELECT EXISTS (\n        SELECT * FROM information_schema.views\n    "
+   },
+   {
+    "repo": "sourcegraph",
+    "file": "sourcegraph__0208__1681300431_ownership_signals.sql",
+    "kind": "do_block",
+    "rationale": "the DO block builds SQL at runtime or its body could not be fully parsed; its complete effect is unknown",
+    "analyzed_class": "unknown",
+    "sql": "DO $$\nDECLARE\n    trigger_exists INTEGER;\nBEGIN\n    -- Check if the trigger already exists\n    SELECT COUNT(*)\n    INTO trigger_exists\n    FROM pg_trigger\n    W"
+   },
+   {
+    "repo": "temporal",
+    "file": "temporal__0045__combined_v1.10_v1.13.sql",
+    "kind": "do_block",
+    "rationale": "the DO block builds SQL at runtime or its body could not be fully parsed; its complete effect is unknown",
+    "analyzed_class": "unknown",
+    "sql": "DO LANGUAGE 'plpgsql' $$\nDECLARE\n  r RECORD;\nBEGIN\n  FOR r IN\n    SELECT i.relname as indexname\n    FROM\n      pg_class i,\n      pg_index ix\n    WHERE\n      i.o"
+   },
+   {
+    "repo": "temporal",
+    "file": "temporal__0046__add_external_payload_size_and_count_search_attributes.sql",
+    "kind": "do_block",
+    "rationale": "the DO block builds SQL at runtime or its body could not be fully parsed; its complete effect is unknown",
+    "analyzed_class": "unknown",
+    "sql": "DO LANGUAGE 'plpgsql' $$\nDECLARE\n  r RECORD;\nBEGIN\n  FOR r IN\n    SELECT i.relname as indexname\n    FROM\n      pg_class i,\n      pg_index ix\n    WHERE\n      i.o"
+   },
+   {
+    "repo": "windmill",
+    "file": "windmill__0002__20220123221903_first.up.sql",
+    "kind": "do_block",
+    "rationale": "the DO block builds SQL at runtime or its body could not be fully parsed; its complete effect is unknown",
+    "analyzed_class": "unknown",
+    "sql": "DO\n$do$\n  DECLARE\n    i text;\n    arr text[] := array['resource', 'script', 'variable', 'schedule', 'flow'];\n  BEGIN\n  FOREACH i IN ARRAY arr\n  LOOP\n    EXECUTE"
+   },
+   {
+    "repo": "windmill",
+    "file": "windmill__0035__20230131143413_more_folders_privilege.up.sql",
+    "kind": "do_block",
+    "rationale": "the DO block builds SQL at runtime or its body could not be fully parsed; its complete effect is unknown",
+    "analyzed_class": "unknown",
+    "sql": "DO\n$do$\n  DECLARE\n    i text;\n    arr text[] := array['queue', 'completed_job'];\n  BEGIN\n  FOREACH i IN ARRAY arr\n  LOOP\n    EXECUTE FORMAT(\n      $$\n        CR"
+   },
+   {
+    "repo": "windmill",
+    "file": "windmill__0051__20230527141935_remove_starter_policies.up.sql",
+    "kind": "do_block",
+    "rationale": "the DO block builds SQL at runtime or its body could not be fully parsed; its complete effect is unknown",
+    "analyzed_class": "unknown",
+    "sql": "DO\n$do$\n  DECLARE\n    i text;\n    arr text[] := array['resource', 'script', 'variable', 'schedule', 'flow', 'completed_job'];\n  BEGIN\n  FOREACH i IN ARRAY arr\n "
+   },
+   {
+    "repo": "windmill",
+    "file": "windmill__0095__20240216100535_improve_policies.up.sql",
+    "kind": "do_block",
+    "rationale": "the DO block builds SQL at runtime or its body could not be fully parsed; its complete effect is unknown",
+    "analyzed_class": "unknown",
+    "sql": "DO\n$do$\n  DECLARE\n    i text;\n    arr text[] := array['queue', 'completed_job'];\n  BEGIN\n  FOREACH i IN ARRAY arr\n  LOOP\n    EXECUTE FORMAT(\n      $$\n        DR"
+   }
+  ],
+  "other": [
+   {
+    "repo": "boundary",
+    "file": "boundary__0290__01_credential_vault_library_refactor.up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: credential_vault_library was created and bulk-loaded earlier in this file; its row volume follows the loading query",
+    "analyzed_class": "unknown",
+    "sql": "alter table credential_vault_library\n    add primary key (public_id),\n    alter column store_id set not null,\n    alter column credential_type set not null,\n   "
+   },
+   {
+    "repo": "lemmy",
+    "file": "lemmy__0248__2025-08-01-000016_smoosh-tables-together__up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: comment_actions was created and bulk-loaded earlier in this file; its row volume follows the loading query",
+    "analyzed_class": "unknown",
+    "sql": "ALTER TABLE comment_actions\n    ALTER COLUMN person_id SET NOT NULL,\n    ALTER COLUMN comment_id SET NOT NULL,\n    ADD PRIMARY KEY (person_id, comment_id),\n    "
+   },
+   {
+    "repo": "lemmy",
+    "file": "lemmy__0248__2025-08-01-000016_smoosh-tables-together__up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: post_actions was created and bulk-loaded earlier in this file; its row volume follows the loading query",
+    "analyzed_class": "unknown",
+    "sql": "ALTER TABLE post_actions\n    ALTER COLUMN person_id SET NOT NULL,\n    ALTER COLUMN post_id SET NOT NULL,\n    ADD PRIMARY KEY (person_id, post_id),\n    ADD CONST"
+   },
+   {
+    "repo": "lemmy",
+    "file": "lemmy__0248__2025-08-01-000016_smoosh-tables-together__up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: community_actions was created and bulk-loaded earlier in this file; its row volume follows the loading query",
+    "analyzed_class": "unknown",
+    "sql": "ALTER TABLE community_actions\n    ALTER COLUMN person_id SET NOT NULL,\n    ALTER COLUMN community_id SET NOT NULL,\n    ADD PRIMARY KEY (person_id, community_id)"
+   },
+   {
+    "repo": "lemmy",
+    "file": "lemmy__0248__2025-08-01-000016_smoosh-tables-together__up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: instance_actions was created and bulk-loaded earlier in this file; its row volume follows the loading query",
+    "analyzed_class": "unknown",
+    "sql": "ALTER TABLE instance_actions\n    ALTER COLUMN person_id SET NOT NULL,\n    ALTER COLUMN instance_id SET NOT NULL,\n    ADD PRIMARY KEY (person_id, instance_id),\n "
+   },
+   {
+    "repo": "lemmy",
+    "file": "lemmy__0248__2025-08-01-000016_smoosh-tables-together__up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: person_actions was created and bulk-loaded earlier in this file; its row volume follows the loading query",
+    "analyzed_class": "unknown",
+    "sql": "ALTER TABLE person_actions\n    ALTER COLUMN person_id SET NOT NULL,\n    ALTER COLUMN target_id SET NOT NULL,\n    ADD PRIMARY KEY (person_id, target_id),\n    ADD"
+   },
+   {
+    "repo": "lemmy",
+    "file": "lemmy__0256__2025-08-01-000024_add_person_content_combined_table__up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: person_content_combined was created and bulk-loaded earlier in this file; its row volume follows the loading query",
+    "analyzed_class": "unknown",
+    "sql": "ALTER TABLE person_content_combined\n    ADD COLUMN id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n    ALTER COLUMN published SET NOT NULL,\n    ALTER COLUMN cr"
+   },
+   {
+    "repo": "lemmy",
+    "file": "lemmy__0256__2025-08-01-000024_add_person_content_combined_table__up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: person_saved_combined was created and bulk-loaded earlier in this file; its row volume follows the loading query",
+    "analyzed_class": "unknown",
+    "sql": "ALTER TABLE person_saved_combined\n    ADD COLUMN id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n    ALTER COLUMN saved SET NOT NULL,\n    ALTER COLUMN person_i"
+   },
+   {
+    "repo": "lemmy",
+    "file": "lemmy__0258__2025-08-01-000026_add_inbox_combined_table__up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: inbox_combined was created and bulk-loaded earlier in this file; its row volume follows the loading query",
+    "analyzed_class": "unknown",
+    "sql": "ALTER TABLE inbox_combined\n    ADD COLUMN id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n    ALTER COLUMN published SET NOT NULL,\n    ADD CONSTRAINT inbox_com"
+   },
+   {
+    "repo": "lemmy",
+    "file": "lemmy__0280__2025-08-01-000049_add_liked_combined__up.sql",
+    "kind": "alter_table",
+    "rationale": "add_foreign_key blocks writes for a duration that could not be estimated: person_liked_combined was created and bulk-loaded earlier in this file; its row volume follows the loading query",
+    "analyzed_class": "unknown",
+    "sql": "ALTER TABLE person_liked_combined\n    ALTER COLUMN id SET DEFAULT nextval('person_liked_combined_id_seq'::regclass),\n    ALTER COLUMN liked SET NOT NULL,\n    AL"
+   }
+  ],
+  "empty_do_block": [
+   {
+    "repo": "coder",
+    "file": "coder__0505__000505_ai_providers_legacy_cleanup.up.sql",
+    "kind": "do_block",
+    "rationale": "the DO block yielded no analyzable inner statements",
+    "analyzed_class": "unknown",
+    "sql": "DO $$\nBEGIN\n    IF EXISTS (\n        SELECT 1\n        FROM chat_providers cp\n        JOIN ai_providers ap ON ap.name = 'agents-' || cp.provider\n        WHERE ap."
+   },
+   {
+    "repo": "formbricks",
+    "file": "formbricks__0069__20250327043931_api_key_new_to_api_key.sql",
+    "kind": "do_block",
+    "rationale": "the DO block yielded no analyzable inner statements",
+    "analyzed_class": "unknown",
+    "sql": "DO $$\n  BEGIN\n    IF (SELECT COUNT(*) FROM \"ApiKey\") != (SELECT COUNT(*) FROM \"ApiKeyNew\") THEN\n      RAISE EXCEPTION 'Data migration incomplete. Counts do not "
+   },
+   {
+    "repo": "lemmy",
+    "file": "lemmy__0234__2025-08-01-000002_error_if_code_migrations_needed__up.sql",
+    "kind": "do_block",
+    "rationale": "the DO block yielded no analyzable inner statements",
+    "analyzed_class": "unknown",
+    "sql": "DO $$\nBEGIN\n    IF EXISTS (\n        SELECT\n        FROM ((\n                SELECT\n                    id\n                FROM\n                    person\n       "
+   }
+  ]
+ },
+ "runtime_s": 1185
+}

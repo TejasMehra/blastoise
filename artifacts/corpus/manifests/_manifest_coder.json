@@ -1,0 +1,4013 @@
+[
+ {
+  "file": "coder__0001__000001_base.up.sql",
+  "original_path": "coderd/database/migrations/000001_base.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "79f0901ab0484769af09487aa45645822b150cf3e62d20f422d6a7ae23c369db",
+  "bytes": 3349
+ },
+ {
+  "file": "coder__0002__000002_templates.up.sql",
+  "original_path": "coderd/database/migrations/000002_templates.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b004b3ce12ca3e8042c2e0d5089772218fa5a27b6e04129a5af24fa89650445b",
+  "bytes": 2394
+ },
+ {
+  "file": "coder__0003__000003_workspaces.up.sql",
+  "original_path": "coderd/database/migrations/000003_workspaces.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e0ba232836e5a0981552c5c6ac0eb7d73613eae1bef91a71793ba1f71bab0a41",
+  "bytes": 802
+ },
+ {
+  "file": "coder__0004__000004_jobs.up.sql",
+  "original_path": "coderd/database/migrations/000004_jobs.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "191cddb36a8ee0a3b2894725fbb055e5519d42ba4b22502ab0615bab5dfcf258",
+  "bytes": 5934
+ },
+ {
+  "file": "coder__0005__000005_gitsshkey.up.sql",
+  "original_path": "coderd/database/migrations/000005_gitsshkey.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a8e27a3ace1ae1c5be1b65df9f9a74b6f8378885bd552e0f657a3cf57ea2c8e3",
+  "bytes": 245
+ },
+ {
+  "file": "coder__0006__000006_workspace_autostartstop.up.sql",
+  "original_path": "coderd/database/migrations/000006_workspace_autostartstop.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "93f39d1c93b7b62224e0e03706f171df6895a0d864de77038cb334ea34c9b88e",
+  "bytes": 164
+ },
+ {
+  "file": "coder__0007__000007_user_status.up.sql",
+  "original_path": "coderd/database/migrations/000007_user_status.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a4d82692c7b4217d069ea7ecd8fabbe94f8ce9108457f6350ae0dc947887f264",
+  "bytes": 160
+ },
+ {
+  "file": "coder__0008__000008_rbac_roles.up.sql",
+  "original_path": "coderd/database/migrations/000008_rbac_roles.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d47e45d4bc0dc834edd678f18879109851efe6959d2ea8311d3a3cf78b2c8518",
+  "bytes": 597
+ },
+ {
+  "file": "coder__0009__000009_agent_directory.up.sql",
+  "original_path": "coderd/database/migrations/000009_agent_directory.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "73c8cb155a9191ed248997c7282a5b53cc323d6b3750aa5c24f71cc8b5271fd8",
+  "bytes": 159
+ },
+ {
+  "file": "coder__0010__000010_audit_logs.up.sql",
+  "original_path": "coderd/database/migrations/000010_audit_logs.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ab53e1215f73e351219090bf47ecb7cdabef29867aba507174c0553ccd5fa8f4",
+  "bytes": 1224
+ },
+ {
+  "file": "coder__0011__000011_template_description.up.sql",
+  "original_path": "coderd/database/migrations/000011_template_description.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e3aa56a217056e960e6d629ea8cf02a91eff7e59d8b88f697c687757676bd90c",
+  "bytes": 80
+ },
+ {
+  "file": "coder__0012__000012_template_version_readme.up.sql",
+  "original_path": "coderd/database/migrations/000012_template_version_readme.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2c65d1e8e37a67f78facfaf98babed7c8ff7cae7b86ae9102abeb3cd44e36542",
+  "bytes": 61
+ },
+ {
+  "file": "coder__0013__000013_autostop_ttl.up.sql",
+  "original_path": "coderd/database/migrations/000013_autostop_ttl.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "758f2d5930ba7ee7ae0026a163efb3bd19c568c6d24a67b9ee1dbb8b8103d715",
+  "bytes": 125
+ },
+ {
+  "file": "coder__0014__000014_provisioner_daemons_organization_id.up.sql",
+  "original_path": "coderd/database/migrations/000014_provisioner_daemons_organization_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6642bfb570a5737592c68d6d3edc5ae3ff9841841d910adc6f4b650d6c5546b3",
+  "bytes": 60
+ },
+ {
+  "file": "coder__0015__000015_workspacebuild_deadline.up.sql",
+  "original_path": "coderd/database/migrations/000015_workspacebuild_deadline.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "15f4b867362f85c5b0804b2cd23b131f9d36ed62aca22112be21d8c411449fe4",
+  "bytes": 125
+ },
+ {
+  "file": "coder__0016__000016_api_key_lifetime.up.sql",
+  "original_path": "coderd/database/migrations/000016_api_key_lifetime.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c0feaa4dbf0f0ed622fb9bf8517de76279b6f86623a64920e7106e0b493c2e3d",
+  "bytes": 114
+ },
+ {
+  "file": "coder__0017__000017_drop_member_roles.up.sql",
+  "original_path": "coderd/database/migrations/000017_drop_member_roles.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "10b72d3529168b9371805946d4d566e066a48f2079ff0ffb47cd05440f8e2a57",
+  "bytes": 287
+ },
+ {
+  "file": "coder__0018__000018_provisioner_job_type_dry_run.up.sql",
+  "original_path": "coderd/database/migrations/000018_provisioner_job_type_dry_run.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "be05323d5b63b054d98b3f8eebb4453a4e9b1482968b007bae7e8b04e1f179ee",
+  "bytes": 376
+ },
+ {
+  "file": "coder__0019__000019_drop_org_user_parameter_scope.up.sql",
+  "original_path": "coderd/database/migrations/000019_drop_org_user_parameter_scope.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8521137ea552cc26d5bca2c1d763dd7ac412cac069f20521c5cbb9d60fd12e71",
+  "bytes": 446
+ },
+ {
+  "file": "coder__0020__000020_workspace_apps.up.sql",
+  "original_path": "coderd/database/migrations/000020_workspace_apps.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e9d4ae6cdf3d07121b6606835a414e30f4e591f09631129bdecfa35005f6fa23",
+  "bytes": 410
+ },
+ {
+  "file": "coder__0021__000021_template_autobuild_constraints.up.sql",
+  "original_path": "coderd/database/migrations/000021_template_autobuild_constraints.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ca66a5d09e6c72f53fdb9e0d5fba8159ef84fa13859b0589e3630a8104d5e2c5",
+  "bytes": 240
+ },
+ {
+  "file": "coder__0022__000022_template_created_by.up.sql",
+  "original_path": "coderd/database/migrations/000022_template_created_by.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5d953e0de2cd27b86be62fc24e7bc654a14bee3188a9d1ed2028ba240a6682c5",
+  "bytes": 111
+ },
+ {
+  "file": "coder__0023__000023_template_created_by_not_null.up.sql",
+  "original_path": "coderd/database/migrations/000023_template_created_by_not_null.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "307dd4593678c631a65889a31bde6d91065bcd9a870c236388b492bdf5f6bd90",
+  "bytes": 333
+ },
+ {
+  "file": "coder__0024__000024_site_config.up.sql",
+  "original_path": "coderd/database/migrations/000024_site_config.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d4a755401809f0f80f469208e844c0878e282a77baa8a547a2e954f24fb2cfbc",
+  "bytes": 120
+ },
+ {
+  "file": "coder__0025__000025_workspace_build_reason.up.sql",
+  "original_path": "coderd/database/migrations/000025_workspace_build_reason.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d61611b9331832a53185c3632efaff96ab12efedcf3639a2747ed4a70dd48e77",
+  "bytes": 191
+ },
+ {
+  "file": "coder__0026__000026_allow_template_name_re_use.up.sql",
+  "original_path": "coderd/database/migrations/000026_allow_template_name_re_use.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c1725df080ad6f899c1cbdd66f0032df28214e89139f45a4910910eabb855a2b",
+  "bytes": 291
+ },
+ {
+  "file": "coder__0027__000027_apikey_ip.up.sql",
+  "original_path": "coderd/database/migrations/000027_apikey_ip.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3da216dbf620ed1cf8abaa808ac607e565d47bfc4baa9d39af8f59833aa4eae2",
+  "bytes": 101
+ },
+ {
+  "file": "coder__0028__000028_wireguard.up.sql",
+  "original_path": "coderd/database/migrations/000028_wireguard.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "201aca19db4f62128b689ea3b40165772654e6bf2f236a4581bfff7aec01cb12",
+  "bytes": 396
+ },
+ {
+  "file": "coder__0029__000029_variable_order.up.sql",
+  "original_path": "coderd/database/migrations/000029_variable_order.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d2e35e236d082a5025c0913ed0e4e17133bc6cd190fac93ecc1998b6c6a268c6",
+  "bytes": 476
+ },
+ {
+  "file": "coder__0030__000030_template_version_created_by.up.sql",
+  "original_path": "coderd/database/migrations/000030_template_version_created_by.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f2392f9f6ef85d95d5a96e9166775ab3fcb044654f27bf8e01e5b7d2999a5661",
+  "bytes": 337
+ },
+ {
+  "file": "coder__0031__000031_agent_auth_instance_id.up.sql",
+  "original_path": "coderd/database/migrations/000031_agent_auth_instance_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f9b77b819a6a78d666cd6d040acea992c3c3776ca8bd4d5037bb47da8ed9ab9b",
+  "bytes": 84
+ },
+ {
+  "file": "coder__0032__000032_oidc.up.sql",
+  "original_path": "coderd/database/migrations/000032_oidc.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "664901c21a23c0ddb86618549c3cf3797ed04809c9f842f517e1dc63136588ad",
+  "bytes": 266
+ },
+ {
+  "file": "coder__0033__000033_resource_metadata.up.sql",
+  "original_path": "coderd/database/migrations/000033_resource_metadata.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d92f42401390a3eff52fe3fa08626daba5712997286d7f60050e8b83f0cc34b8",
+  "bytes": 321
+ },
+ {
+  "file": "coder__0034__000034_remove_admin_role.up.sql",
+  "original_path": "coderd/database/migrations/000034_remove_admin_role.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4f9ffc8c2f113bb7f6402db00c0cca5958fab892ef4c0fa758f87fba76629857",
+  "bytes": 697
+ },
+ {
+  "file": "coder__0035__000035_linked_user_id.up.sql",
+  "original_path": "coderd/database/migrations/000035_linked_user_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "da0b0af2fbac3779612b67141bb93a6cbccf71b51d7677ee3740b3e6e092ce4c",
+  "bytes": 1931
+ },
+ {
+  "file": "coder__0036__000036_template_icon.up.sql",
+  "original_path": "coderd/database/migrations/000036_template_icon.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "728bf18e2947e141827411a2b3259a9301656c4c957a3a1d04e31deb30214d94",
+  "bytes": 73
+ },
+ {
+  "file": "coder__0037__000037_jwt_licenses.up.sql",
+  "original_path": "coderd/database/migrations/000037_jwt_licenses.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "93b57362e4592127dcb353cf87ab4337c3daa754079fe607d641980ab78f97da",
+  "bytes": 619
+ },
+ {
+  "file": "coder__0038__000038_template_max_ttl_cap_7_days.up.sql",
+  "original_path": "coderd/database/migrations/000038_template_max_ttl_cap_7_days.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f6eeb8acc4f8a3728789534971d1d5eb445210252b19d66f608c4c0f9e1895ff",
+  "bytes": 244
+ },
+ {
+  "file": "coder__0039__000039_add_workspace_agent_version.up.sql",
+  "original_path": "coderd/database/migrations/000039_add_workspace_agent_version.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6f52dd05866965921ede3b10661d900910b95d0790a7329b0147b03c51052e41",
+  "bytes": 257
+ },
+ {
+  "file": "coder__0040__000040_audit_addtl_fields.up.sql",
+  "original_path": "coderd/database/migrations/000040_audit_addtl_fields.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "04bd01208f98cd91af32b5b4f1ba744e7a4da9d889d2b80bf8b6f77ad28b3a8b",
+  "bytes": 410
+ },
+ {
+  "file": "coder__0041__000041_tailnet.up.sql",
+  "original_path": "coderd/database/migrations/000041_tailnet.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "eec14ea93f22e85711ad3392fe59066e0f3b1f1b2d2ef023fd4b093183184822",
+  "bytes": 202
+ },
+ {
+  "file": "coder__0042__000042_agent_stats.up.sql",
+  "original_path": "coderd/database/migrations/000042_agent_stats.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "58018ec974e4e2b04412310065b6c669b34246f30f317f39c6114ae50b605203",
+  "bytes": 526
+ },
+ {
+  "file": "coder__0043__000043_workspace_last_used.up.sql",
+  "original_path": "coderd/database/migrations/000043_workspace_last_used.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3421a2721fe3ae7aee36c5a35cac32a19d3614ea5830eb5f01b0828b3eab1f8f",
+  "bytes": 109
+ },
+ {
+  "file": "coder__0044__000044_user_avatars.up.sql",
+  "original_path": "coderd/database/migrations/000044_user_avatars.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "714771f40be4311c6241f21165886df45a46e7957a9fbec25db073b503e0d0ea",
+  "bytes": 52
+ },
+ {
+  "file": "coder__0045__000045_workspacebuildname.up.sql",
+  "original_path": "coderd/database/migrations/000045_workspacebuildname.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0a86da44bc768b952f28fd24a85bc09721e8f5b289ceadcbff990dc317e5acbd",
+  "bytes": 53
+ },
+ {
+  "file": "coder__0046__000046_more_resource_types.up.sql",
+  "original_path": "coderd/database/migrations/000046_more_resource_types.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "09eb28c8c3981422d63240fc866fea0e5e174177727c91b538e6e2bb41b0f20e",
+  "bytes": 382
+ },
+ {
+  "file": "coder__0047__000047_workspace_resource_hide.up.sql",
+  "original_path": "coderd/database/migrations/000047_workspace_resource_hide.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b82ea70e4c60be837984f516e1d432f9d01154b251d2e931bac8964b88e2f5cc",
+  "bytes": 86
+ },
+ {
+  "file": "coder__0048__000048_userdelete.up.sql",
+  "original_path": "coderd/database/migrations/000048_userdelete.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9a7811d8523fa947c72dd261f277e29d1abaf1fc0a1ce8687f9186f7c464c936",
+  "bytes": 468
+ },
+ {
+  "file": "coder__0049__000049_workspace_resource_icon.up.sql",
+  "original_path": "coderd/database/migrations/000049_workspace_resource_icon.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "89c1c880db4a37b8cbd1a35c03861a376d5246cfbf7fa5b7982ad5d9088df57f",
+  "bytes": 87
+ },
+ {
+  "file": "coder__0050__000050_apikey_scope.up.sql",
+  "original_path": "coderd/database/migrations/000050_apikey_scope.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "bc94c0438be529966c5e519f009a6582a45bb5e6724bc61138d5597cf7bbf037",
+  "bytes": 159
+ },
+ {
+  "file": "coder__0051__000051_comment_on_api_key_secret.up.sql",
+  "original_path": "coderd/database/migrations/000051_comment_on_api_key_secret.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c1229cf92cb555884fc5049cfeae6f62a28c7f1a64b34c7474bd818b3647652a",
+  "bytes": 230
+ },
+ {
+  "file": "coder__0052__000052_workspace_app_health.up.sql",
+  "original_path": "coderd/database/migrations/000052_workspace_app_health.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b1f069c6ba4df436c8529c98fc15295a86573ec45bce4d7896ab93489a23a501",
+  "bytes": 432
+ },
+ {
+  "file": "coder__0053__000053_last_seen_at.up.sql",
+  "original_path": "coderd/database/migrations/000053_last_seen_at.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "df0652cad0f46138f497b89ee312199dfdd541bc0e3a916c794f50f82d00f12f",
+  "bytes": 106
+ },
+ {
+  "file": "coder__0054__000054_email_case.up.sql",
+  "original_path": "coderd/database/migrations/000054_email_case.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6c2a8f244f298e3f2f66ba595105dbb4c17cdba52625331bcbae3f02cd05a23c",
+  "bytes": 118
+ },
+ {
+  "file": "coder__0055__000055_relative_path_to_subdomain.up.sql",
+  "original_path": "coderd/database/migrations/000055_relative_path_to_subdomain.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d85c935bf9de3f6a018de635c7c0ecf70ae75c2df7be679428aa0a41b43ef532",
+  "bytes": 353
+ },
+ {
+  "file": "coder__0056__000056_app_subdomain_fix.up.sql",
+  "original_path": "coderd/database/migrations/000056_app_subdomain_fix.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "89474defbca7dee0e0c8bfd6ec5f40a041253ffc11dc89ea4a78b0b1176be740",
+  "bytes": 638
+ },
+ {
+  "file": "coder__0057__000057_api_key_token.up.sql",
+  "original_path": "coderd/database/migrations/000057_api_key_token.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2ebd021d0d35b91a35d56db69ba33da2035454e97c0528705ee8d33280e67267",
+  "bytes": 594
+ },
+ {
+  "file": "coder__0058__000058_template_acl.up.sql",
+  "original_path": "coderd/database/migrations/000058_template_acl.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5c3b531ded26c66050c2517fdac99fc8074339ee556d2e04765cb8b19d118531",
+  "bytes": 1104
+ },
+ {
+  "file": "coder__0059__000059_file_id.up.sql",
+  "original_path": "coderd/database/migrations/000059_file_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ce11e88ec20663285e8f9ac64317c234765e82c888dfe977ddb66db5dd7d5fd4",
+  "bytes": 1510
+ },
+ {
+  "file": "coder__0060__000060_app_sharing_level.up.sql",
+  "original_path": "coderd/database/migrations/000060_app_sharing_level.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6fa40c72ede20c398e1221e66fbc43bf8fc6c76a7dbad8d824ce5e7be130bffe",
+  "bytes": 464
+ },
+ {
+  "file": "coder__0061__000061_replicas.up.sql",
+  "original_path": "coderd/database/migrations/000061_replicas.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "578c19ad919c3841675e3a30a23c3016ee9f66a9ff9249c64b49afe4b9c3fe66",
+  "bytes": 1269
+ },
+ {
+  "file": "coder__0062__000062_group_avatars.up.sql",
+  "original_path": "coderd/database/migrations/000062_group_avatars.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e65c386d99525db081223341c08da93c66230c20bc2cc5efa068a7143e7e0c2f",
+  "bytes": 68
+ },
+ {
+  "file": "coder__0063__000063_resource_type_group.up.sql",
+  "original_path": "coderd/database/migrations/000063_resource_type_group.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "503bcb252884ebb993a6805033229ebbd45073bb14e84cb0bf027fe90a1b81cf",
+  "bytes": 59
+ },
+ {
+  "file": "coder__0064__000064_gitauth.up.sql",
+  "original_path": "coderd/database/migrations/000064_gitauth.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6b939dea99f3424211021ecef036069d108a0733bd7c564ec90d0ded6e62efa9",
+  "bytes": 322
+ },
+ {
+  "file": "coder__0065__000065_add_audit_enums.up.sql",
+  "original_path": "coderd/database/migrations/000065_add_audit_enums.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9bd9da018b6b13228df61e15ed7fe7279ad81756cdda68cbb83d0bf846a10b6a",
+  "bytes": 699
+ },
+ {
+  "file": "coder__0066__000066_app_slug.up.sql",
+  "original_path": "coderd/database/migrations/000066_app_slug.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e0d34d9e9a93bec17e5f41b97f6bbc6d4b3ddd53f8eb96e85652f8444cfa7941",
+  "bytes": 566
+ },
+ {
+  "file": "coder__0067__000067_app_display_name.up.sql",
+  "original_path": "coderd/database/migrations/000067_app_display_name.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "667172fac6cdac93ae084e71c6c2a9f6a6de3ef0ade551a35d1e01d76e7ec7a7",
+  "bytes": 304
+ },
+ {
+  "file": "coder__0068__000068_update_template_version_created_by.up.sql",
+  "original_path": "coderd/database/migrations/000068_update_template_version_created_by.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "571712482254bce9ab19876e14cee24b21b040c2d7bb9f9d777ed36a1f665eba",
+  "bytes": 587
+ },
+ {
+  "file": "coder__0069__000069_resource_instance_type.up.sql",
+  "original_path": "coderd/database/migrations/000069_resource_instance_type.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b7d7e5e1000f13ebfda52fd6941ef1b5e2d6bc4c4c55c449209178e7161cae78",
+  "bytes": 77
+ },
+ {
+  "file": "coder__0070__000070_deployment_graph.up.sql",
+  "original_path": "coderd/database/migrations/000070_deployment_graph.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "dc68876258fa5b55f5d22935f523954b9861f82256e41b70a5901c64711e1a51",
+  "bytes": 78
+ },
+ {
+  "file": "coder__0071__000071_provisioner_log_lines.up.sql",
+  "original_path": "coderd/database/migrations/000071_provisioner_log_lines.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6e505ff9ee95c26d6d2b5def86e5109bad8eaab6250547c54294e6205af597db",
+  "bytes": 124
+ },
+ {
+  "file": "coder__0072__000072_add_agent_connection_timeout_and_troubleshooting_url.up.sql",
+  "original_path": "coderd/database/migrations/000072_add_agent_connection_timeout_and_troubleshooting_url.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8d074578b448a8222fe58637cadddacffcbe06f2ece7baee4defb5b6d335b428",
+  "bytes": 408
+ },
+ {
+  "file": "coder__0073__000073_remove_min_autostart.up.sql",
+  "original_path": "coderd/database/migrations/000073_remove_min_autostart.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "250253d438e8edd061a510e8fe2a5ddc1a20fb181842c85410b337012841da45",
+  "bytes": 379
+ },
+ {
+  "file": "coder__0074__000074_workspace_resources_job_id_idx.up.sql",
+  "original_path": "coderd/database/migrations/000074_workspace_resources_job_id_idx.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6a248dd34d19a131573f390967d8b47d404067cd8f7fe63aee43caffa73501c6",
+  "bytes": 90
+ },
+ {
+  "file": "coder__0075__000075_template_display_name.up.sql",
+  "original_path": "coderd/database/migrations/000075_template_display_name.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a337b820094b6618d3d6d1dcb429e6d3c9e7d7859c47343b20e46680e7f09095",
+  "bytes": 205
+ },
+ {
+  "file": "coder__0076__000076_cost.up.sql",
+  "original_path": "coderd/database/migrations/000076_cost.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "736ef3efb0134433b3ec4d3299a286e32480e7a53ea88c25a9c1c9ba2f4f97a4",
+  "bytes": 226
+ },
+ {
+  "file": "coder__0077__000077_job_logs_job_id_id_index.up.sql",
+  "original_path": "coderd/database/migrations/000077_job_logs_job_id_id_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8cab7e67e86dfd43f9ad644446b6a0594926144c2ae19d7710db81ac6da13261",
+  "bytes": 103
+ },
+ {
+  "file": "coder__0078__000078_workspace_agents_resource_id_idx.up.sql",
+  "original_path": "coderd/database/migrations/000078_workspace_agents_resource_id_idx.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ff1a8dea28de58bfad1ce0c8cda2793c3dad834c0e9af02507935fdc7c40e72d",
+  "bytes": 94
+ },
+ {
+  "file": "coder__0079__000079_provisioner_daemon_tags.up.sql",
+  "original_path": "coderd/database/migrations/000079_provisioner_daemon_tags.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2a060c09d78f1eaef2805bb4df69fd8874406684b3485edc823ab532d488ff6e",
+  "bytes": 318
+ },
+ {
+  "file": "coder__0080__000080_license_ids.up.sql",
+  "original_path": "coderd/database/migrations/000080_license_ids.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b06a6fe462329058834c97e0e3028b7e5060fc0cda0ddd4a47269be7a80ebb22",
+  "bytes": 44
+ },
+ {
+  "file": "coder__0081__000081_template_allow_user_cancel_workspace_jobs.up.sql",
+  "original_path": "coderd/database/migrations/000081_template_allow_user_cancel_workspace_jobs.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b1f071ba9344e1d1287a8021c37b07213b379d7174386f6506b9d4aab3c35c53",
+  "bytes": 219
+ },
+ {
+  "file": "coder__0082__000082_add_audit_log_nullable_fields.up.sql",
+  "original_path": "coderd/database/migrations/000082_add_audit_log_nullable_fields.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f83098f2afea98d6eead6a99c3cdf542736dad9f47467e84f9630921c3597465",
+  "bytes": 118
+ },
+ {
+  "file": "coder__0083__000083_add_motd_file_to_coder_agents.up.sql",
+  "original_path": "coderd/database/migrations/000083_add_motd_file_to_coder_agents.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "442c5b5fd6a805b273aa7b590addceba0664bb5b716fcddd85aeb95b02c33ae8",
+  "bytes": 249
+ },
+ {
+  "file": "coder__0084__000084_workspace_agents_auth_token_index.up.sql",
+  "original_path": "coderd/database/migrations/000084_workspace_agents_auth_token_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8a40b31666c792b46a0955506aa1fd5326665709fe72e91762f2228f37e936d8",
+  "bytes": 92
+ },
+ {
+  "file": "coder__0085__000085_acquire_job_index.up.sql",
+  "original_path": "coderd/database/migrations/000085_acquire_job_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ebc85a77f6ddf6c49eb1a114023bfc1ac03455bf601d8f48443ac349bbe10430",
+  "bytes": 122
+ },
+ {
+  "file": "coder__0086__000086_no_org_admins.up.sql",
+  "original_path": "coderd/database/migrations/000086_no_org_admins.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "83ff65aa66fadda4d9ebd4fab503827fb7c9c0a995e408d8f8a1f0a3ce9274f9",
+  "bytes": 133
+ },
+ {
+  "file": "coder__0087__000087_resource_metadata_order.up.sql",
+  "original_path": "coderd/database/migrations/000087_resource_metadata_order.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2ee7c1d0da11b8a1739f0ad05a92ebc5c98cd39c2fb22c691a85b2e39d6efae5",
+  "bytes": 299
+ },
+ {
+  "file": "coder__0088__000088_external_app_url.up.sql",
+  "original_path": "coderd/database/migrations/000088_external_app_url.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1664e4d1cd636de316ef11e2b9bddaff64059f15cb127d676bd0950ba3013168",
+  "bytes": 80
+ },
+ {
+  "file": "coder__0089__000089_rich_parameters.up.sql",
+  "original_path": "coderd/database/migrations/000089_rich_parameters.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0df1dd8d4822b0995003354da0bce70666984e16ab5e18b8f4e17cb650ab03a2",
+  "bytes": 1765
+ },
+ {
+  "file": "coder__0090__000090_sqlc_upgrade_fix_nullable_values.up.sql",
+  "original_path": "coderd/database/migrations/000090_sqlc_upgrade_fix_nullable_values.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "892abcaa44137f7c1fdb40f6a0421f8fbb1ebbbb2daceed3e54dbd1a747ed8fd",
+  "bytes": 373
+ },
+ {
+  "file": "coder__0091__000091_add_workspace_agent_state.up.sql",
+  "original_path": "coderd/database/migrations/000091_add_workspace_agent_state.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "cba324089b6870411528b84535bc7973c2329fd6c90813b866158984e0566431",
+  "bytes": 1366
+ },
+ {
+  "file": "coder__0092__000092_rich_parameters_validation_error.up.sql",
+  "original_path": "coderd/database/migrations/000092_rich_parameters_validation_error.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "69e125acc5d72d35b37d4a8f2569767af0bbca77f63825a3c7e65e30dcec9772",
+  "bytes": 227
+ },
+ {
+  "file": "coder__0093__000093_add_workspace_agent_invert_delay_login_until_ready_to_login_before_ready.up.sql",
+  "original_path": "coderd/database/migrations/000093_add_workspace_agent_invert_delay_login_until_ready_to_login_before_ready.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e06d89e7630c12eac73f8bac63033bc545d0f595c47ac2a3c8d0aeb7bdb1caf0",
+  "bytes": 413
+ },
+ {
+  "file": "coder__0094__000094_add_resource_type_api_key.up.sql",
+  "original_path": "coderd/database/migrations/000094_add_resource_type_api_key.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7fc995f1bc4d8621768b51f0dbbd1ca137a88667a5971ed9ab15d2de3db565c4",
+  "bytes": 193
+ },
+ {
+  "file": "coder__0095__000095_rich_parameters_validation_monotonic.up.sql",
+  "original_path": "coderd/database/migrations/000095_rich_parameters_validation_monotonic.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c896e116f9607ffb5e31abfdc21c909820f7f926b9f35fd8aebe6122df5d6487",
+  "bytes": 387
+ },
+ {
+  "file": "coder__0096__000096_agent_resolved_directory.up.sql",
+  "original_path": "coderd/database/migrations/000096_agent_resolved_directory.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f5dd4654ec7178016a54e06ed20faac0b326aa55e5817ae78326997269e5d456",
+  "bytes": 263
+ },
+ {
+  "file": "coder__0097__000097_license_not_null_uuid.up.sql",
+  "original_path": "coderd/database/migrations/000097_license_not_null_uuid.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5a83861ed335206694c80b17152e096a2ae9989b8e9e8e7bf32d9f927982028c",
+  "bytes": 240
+ },
+ {
+  "file": "coder__0098__000098_add_resource_type_license.up.sql",
+  "original_path": "coderd/database/migrations/000098_add_resource_type_license.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "89dd91aa32f4f6a73578edff593915212c7b912ba79c66dcebf1aa7d103b45c8",
+  "bytes": 66
+ },
+ {
+  "file": "coder__0099__000099_template_version_variables.up.sql",
+  "original_path": "coderd/database/migrations/000099_template_version_variables.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e14a54de1b8eac71c70098e75a9dd128f81be22d0cfc6986a55c412360c4b0a0",
+  "bytes": 1059
+ },
+ {
+  "file": "coder__0100__000100_template_version_gitauth.up.sql",
+  "original_path": "coderd/database/migrations/000100_template_version_gitauth.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5fea9fbb7256fe54bff5150a27b1e38c7a91b0eb01114d3eaefaa657a8cc70aa",
+  "bytes": 193
+ },
+ {
+  "file": "coder__0101__000101_workspace_agent_stats_tableify.up.sql",
+  "original_path": "coderd/database/migrations/000101_workspace_agent_stats_tableify.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "14f0ded3e7684a459bf28ec56e1dea634c1952a09d509b985a3a04452397220e",
+  "bytes": 1083
+ },
+ {
+  "file": "coder__0102__000102_workspace_agent_stats_types.up.sql",
+  "original_path": "coderd/database/migrations/000102_workspace_agent_stats_types.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a7028c50c34f6ea551aa6634422305eb0ce4ef0e177ced9329099e27954d8eb6",
+  "bytes": 489
+ },
+ {
+  "file": "coder__0103__000103_add_apikey_name.up.sql",
+  "original_path": "coderd/database/migrations/000103_add_apikey_name.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d829c946405166f092363e51c8954da3f25cd45264501a8f6dc93ed90b5188b5",
+  "bytes": 312
+ },
+ {
+  "file": "coder__0104__000104_add_shutdown_script_to_coder_agents.up.sql",
+  "original_path": "coderd/database/migrations/000104_add_shutdown_script_to_coder_agents.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e95f71719cc50fde098cfa751affdbdcc5df755cdacc678fbc8329d3e0169029",
+  "bytes": 884
+ },
+ {
+  "file": "coder__0105__000105_rich_parameter_required.up.sql",
+  "original_path": "coderd/database/migrations/000105_rich_parameter_required.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "bb22640d03cabbb6f1a937c8d5e3e64f451aab1df99e38aabaefe4599a4e837d",
+  "bytes": 252
+ },
+ {
+  "file": "coder__0106__000106_workspace_build_max_deadline.up.sql",
+  "original_path": "coderd/database/migrations/000106_workspace_build_max_deadline.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d70a7d85d088c0c6de39fd6cc8c8e64d75458a4a70fdd072dafab7341ce457c1",
+  "bytes": 237
+ },
+ {
+  "file": "coder__0107__000107_provisioner_jobs_error_code.up.sql",
+  "original_path": "coderd/database/migrations/000107_provisioner_jobs_error_code.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "22ccf5d27e7c247e1c415ccce8c2e1220a09885f73937af36bf31a7287536b55",
+  "bytes": 71
+ },
+ {
+  "file": "coder__0108__000108_workspace_agent_stats_connection_latency.up.sql",
+  "original_path": "coderd/database/migrations/000108_workspace_agent_stats_connection_latency.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2d9557378d1b4ca5ce5048efa170beacef45e7f64bea3b464de180b6c0560c84",
+  "bytes": 89
+ },
+ {
+  "file": "coder__0109__000109_rich_parameter_legacy_variable.up.sql",
+  "original_path": "coderd/database/migrations/000109_rich_parameter_legacy_variable.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "bc655876ad61cf05b876fc778528f2710bcdc0d87c73cbfea1ae482127fdc6ad",
+  "bytes": 226
+ },
+ {
+  "file": "coder__0110__000110_add_startup_logs.up.sql",
+  "original_path": "coderd/database/migrations/000110_add_startup_logs.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e622623b68113789f6f5778352279e28804cfa24c3260d024d49516696d8d3f2",
+  "bytes": 901
+ },
+ {
+  "file": "coder__0111__000111_workspace_agent_metadata.up.sql",
+  "original_path": "coderd/database/migrations/000111_workspace_agent_metadata.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e05321ebf7d9bdaaa7d89b1ffd9d8f4594de4b86f0e11277b125193ee5f3cfae",
+  "bytes": 784
+ },
+ {
+  "file": "coder__0112__000112_rich_parameter_display_name.up.sql",
+  "original_path": "coderd/database/migrations/000112_rich_parameter_display_name.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "52d76caec38012acfdff82106893cb21886020afaa29ca4c30721b2127fe3c48",
+  "bytes": 195
+ },
+ {
+  "file": "coder__0113__000113_template_disable_user_scheduling.up.sql",
+  "original_path": "coderd/database/migrations/000113_template_disable_user_scheduling.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "203f9a31a58e61656a6f9e718f53f43132b54fc4c1de1c596e49c8100bcb0d2f",
+  "bytes": 434
+ },
+ {
+  "file": "coder__0114__000114_workspace_proxy.up.sql",
+  "original_path": "coderd/database/migrations/000114_workspace_proxy.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4abb19313034b7ee1beb2a78551486e308922fb2d1ae69cfda9ee5545201a9b5",
+  "bytes": 736
+ },
+ {
+  "file": "coder__0115__000115_workspace_proxy_resource.up.sql",
+  "original_path": "coderd/database/migrations/000115_workspace_proxy_resource.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5ea4b1042893cfceded7b74ebc9530a985c2370333d7f1f03f2a775893f21b75",
+  "bytes": 69
+ },
+ {
+  "file": "coder__0116__000116_startup_logs_level.up.sql",
+  "original_path": "coderd/database/migrations/000116_startup_logs_level.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "477287eea49a2deb0c4486e54945b28c8b17423fe3cb49420228386656fbd40f",
+  "bytes": 107
+ },
+ {
+  "file": "coder__0117__000117_add_audit_action_register.up.sql",
+  "original_path": "coderd/database/migrations/000117_add_audit_action_register.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "411c2faa7adfd20b8e02fe6ef835d9bfd7cc335a73110af2abc00241a223ff34",
+  "bytes": 64
+ },
+ {
+  "file": "coder__0118__000118_workspace_proxy_token.up.sql",
+  "original_path": "coderd/database/migrations/000118_workspace_proxy_token.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5c0d378cc9c53cd74c9e70a91af4413b200ac8012a7c728fe3265bec7a8b221f",
+  "bytes": 694
+ },
+ {
+  "file": "coder__0119__000119_workspace_proxy_name_idx.up.sql",
+  "original_path": "coderd/database/migrations/000119_workspace_proxy_name_idx.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "fd265490917a8ac918f70416b3c443643a6279f5f8f7fa6e95f2f3aa1f5031e5",
+  "bytes": 382
+ },
+ {
+  "file": "coder__0120__000120_trigger_delete_user_apikey.up.sql",
+  "original_path": "coderd/database/migrations/000120_trigger_delete_user_apikey.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4f7180facd166f2c82697dbb24faf4ceee00300acd33e9a814789d64c7817670",
+  "bytes": 1162
+ },
+ {
+  "file": "coder__0121__000121_provisioner_job_tracing.up.sql",
+  "original_path": "coderd/database/migrations/000121_provisioner_job_tracing.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "70f0843dd83e8aecaa1d5a4890a2125ab07d7e5c1d34899106a9a932b50456a7",
+  "bytes": 63
+ },
+ {
+  "file": "coder__0122__000122_add_template_cleanup_ttls.up.sql",
+  "original_path": "coderd/database/migrations/000122_add_template_cleanup_ttls.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3a32dc17988dc61df74fea767daba288e9ee834220af9dccd5843ae7aaeee628",
+  "bytes": 187
+ },
+ {
+  "file": "coder__0123__000123_workspace_agent_subsystem.up.sql",
+  "original_path": "coderd/database/migrations/000123_workspace_agent_subsystem.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c3b2e5d29159d5f021e9ab3c60937be5352d54d597c826056bdd34f326f71feb",
+  "bytes": 183
+ },
+ {
+  "file": "coder__0124__000124_validation_min_max_nullable.up.sql",
+  "original_path": "coderd/database/migrations/000124_validation_min_max_nullable.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f2b78b4ae803e016128208c7c39976d4b6b8050374591339d5e91c1d2bb88821",
+  "bytes": 344
+ },
+ {
+  "file": "coder__0125__000125_rename_login_before_ready_to_startup_script_behavior.up.sql",
+  "original_path": "coderd/database/migrations/000125_rename_login_before_ready_to_startup_script_behavior.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f9ff267cbe3b1c5fdd18865602a0d9aa59cbdf1436dd78cc80486044f0290de3",
+  "bytes": 709
+ },
+ {
+  "file": "coder__0126__000126_login_type_none.up.sql",
+  "original_path": "coderd/database/migrations/000126_login_type_none.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c96c475b98cba8671853aee273f1b648de8a52b0839852100ce91e3cc77af57e",
+  "bytes": 1209
+ },
+ {
+  "file": "coder__0127__000127_add_startup_logs_eof.up.sql",
+  "original_path": "coderd/database/migrations/000127_add_startup_logs_eof.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a3d5f6fe244b66b4f49618ab330f55a21d5924b2fcacb8479f8f1e0e4f4ba4fb",
+  "bytes": 169
+ },
+ {
+  "file": "coder__0128__000128_template_locked_ttl.up.sql",
+  "original_path": "coderd/database/migrations/000128_template_locked_ttl.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "47078dd613255b5590116c0cfdd7fecef34ab163f267297e0dbbaa1362f90d0f",
+  "bytes": 72
+ },
+ {
+  "file": "coder__0129__000129_drop_startup_logs_eof_and_add_completion.up.sql",
+  "original_path": "coderd/database/migrations/000129_drop_startup_logs_eof_and_add_completion.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "00041560dbb9837cc97f5f72cb618f9791a4b776849a22e908ff6d65bffc9572",
+  "bytes": 508
+ },
+ {
+  "file": "coder__0130__000130_ha_coordinator.up.sql",
+  "original_path": "coderd/database/migrations/000130_ha_coordinator.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8c091f183ad3096008d06c05b4634b71831c6954b962b5348451205b5156e083",
+  "bytes": 2874
+ },
+ {
+  "file": "coder__0131__000131_workspace_locked.up.sql",
+  "original_path": "coderd/database/migrations/000131_workspace_locked.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7809d0df9a6ed574e6a601909cac7455399d7b89a81e477793329ba0c5685f55",
+  "bytes": 63
+ },
+ {
+  "file": "coder__0132__000132_parameters_order.up.sql",
+  "original_path": "coderd/database/migrations/000132_parameters_order.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4f66d75491ae94e7e8d81feeaa7b7c080f41eaad2c431aec663aa3f00d19b034",
+  "bytes": 235
+ },
+ {
+  "file": "coder__0133__000133_oauth_convert_audit.up.sql",
+  "original_path": "coderd/database/migrations/000133_oauth_convert_audit.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f82fa998a3434285f02c42f96f84bec174c3e36d8600164bee50ad140a65cfe1",
+  "bytes": 108
+ },
+ {
+  "file": "coder__0134__000134_workspace_build_reason.up.sql",
+  "original_path": "coderd/database/migrations/000134_workspace_build_reason.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1ed37258ccb0b904cdb726f316ecced1409312a26309da5c04fa3596a9ff25fe",
+  "bytes": 187
+ },
+ {
+  "file": "coder__0135__000135_drop_rich_parameter_legacy_variable.up.sql",
+  "original_path": "coderd/database/migrations/000135_drop_rich_parameter_legacy_variable.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b85cf1baf58a7c27d1e7aa416bebe04d88346c16dd7424f8fed9f899554ea399",
+  "bytes": 75
+ },
+ {
+  "file": "coder__0136__000136_ephemeral_parameters.up.sql",
+  "original_path": "coderd/database/migrations/000136_ephemeral_parameters.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f5021009e35c14dc0483287ce72c1b55d406a647a2de3b6b8b5008212808bf74",
+  "bytes": 256
+ },
+ {
+  "file": "coder__0137__000137_add_template_version_message.up.sql",
+  "original_path": "coderd/database/migrations/000137_add_template_version_message.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "92029acf2557a944eb9a0025db35636fd081aed8aecf15cb2acfe25f89126810",
+  "bytes": 424
+ },
+ {
+  "file": "coder__0138__000138_join_users.up.sql",
+  "original_path": "coderd/database/migrations/000138_join_users.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4de962a1c2b8ce80860c7a99db7c6433c8703f7c4a2eb056a92bc14043193694",
+  "bytes": 744
+ },
+ {
+  "file": "coder__0139__000139_template_restart_requirement.up.sql",
+  "original_path": "coderd/database/migrations/000139_template_restart_requirement.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9203549efa3c7dcbf4a6273e11eeade2258035a04b393fa4d40346230308b493",
+  "bytes": 1684
+ },
+ {
+  "file": "coder__0140__000140_workspace_deleting_at.up.sql",
+  "original_path": "coderd/database/migrations/000140_workspace_deleting_at.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5987dd565d74ac517cab18253c408af689995df6e87c8c8a22f285570655d08a",
+  "bytes": 65
+ },
+ {
+  "file": "coder__0141__000141_join_users_build_version.up.sql",
+  "original_path": "coderd/database/migrations/000141_join_users_build_version.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "fbcb5caf9193f061e4cb21596ca0000e8d10fee1290b20141b1a457af8337188",
+  "bytes": 1052
+ },
+ {
+  "file": "coder__0142__000142_proxy_derp.up.sql",
+  "original_path": "coderd/database/migrations/000142_proxy_derp.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d302461d24e3b1e58f1a74d9c09ca3bfd38511c14e7e2b20381ccfb4fd412d02",
+  "bytes": 429
+ },
+ {
+  "file": "coder__0143__000143_workspace_agent_logs.up.sql",
+  "original_path": "coderd/database/migrations/000143_workspace_agent_logs.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "69703d0eea7f587013b40b3087957b301ca33cab2331736621a01494ac003ca2",
+  "bytes": 590
+ },
+ {
+  "file": "coder__0144__000144_user_status_dormant.up.sql",
+  "original_path": "coderd/database/migrations/000144_user_status_dormant.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e9bdeb22eca60d3b82f174e28bd73ee92de6ca998af78de6d3577b35d25ab4fc",
+  "bytes": 455
+ },
+ {
+  "file": "coder__0145__000145_user_status_default_dormant.up.sql",
+  "original_path": "coderd/database/migrations/000145_user_status_default_dormant.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f592602868204c4bcd62e1cbfca5d4f72ce2002aed67be83b948c489d9be5f1a",
+  "bytes": 75
+ },
+ {
+  "file": "coder__0146__000146_proxy_derp_only.up.sql",
+  "original_path": "coderd/database/migrations/000146_proxy_derp_only.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7e66734c1cc7b542511d6fc4ea6af29f0072dfc6c6f18a2f28a677a2da880d6d",
+  "bytes": 220
+ },
+ {
+  "file": "coder__0147__000147_group_display_name.up.sql",
+  "original_path": "coderd/database/migrations/000147_group_display_name.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3a7a4a2f395d8c8d9ad244f389aa8487347b41afa11f72d2b1c2aa6991584589",
+  "bytes": 253
+ },
+ {
+  "file": "coder__0148__000148_group_source.up.sql",
+  "original_path": "coderd/database/migrations/000148_group_source.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e9af5252c343dc43bd3a0b29597f101ce1d6e41b535dd537831ccdf31a7a210c",
+  "bytes": 398
+ },
+ {
+  "file": "coder__0149__000149_agent_multiple_subsystems.up.sql",
+  "original_path": "coderd/database/migrations/000149_agent_multiple_subsystems.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "046ad6d08db33df7cae4aa223c72a29a0250723343c26cb703b73b62c14c16f9",
+  "bytes": 816
+ },
+ {
+  "file": "coder__0150__000150_workspace_app_stats.up.sql",
+  "original_path": "coderd/database/migrations/000150_workspace_app_stats.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "fbdaa96b5139f53ffb669f1b85b139903543a7940de737809ca74c482d60d35c",
+  "bytes": 1866
+ },
+ {
+  "file": "coder__0151__000151_rename_locked.up.sql",
+  "original_path": "coderd/database/migrations/000151_rename_locked.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5e5185b1f5fab50f8b66b9bede9bb9f4fee8e42c25e14109540d7d03e60f7db8",
+  "bytes": 803
+ },
+ {
+  "file": "coder__0152__000152_rename_template_restart_requirement.up.sql",
+  "original_path": "coderd/database/migrations/000152_rename_template_restart_requirement.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3cb744a6347cff44320df3e6ae67e06c4e15bb07890b0af002d231c855813e2b",
+  "bytes": 664
+ },
+ {
+  "file": "coder__0153__000153_agent_default_apps.up.sql",
+  "original_path": "coderd/database/migrations/000153_agent_default_apps.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "66b15b682a7250d0d28b757b4a8ad7883e9d72a4b70c0472940dc91f2c746177",
+  "bytes": 275
+ },
+ {
+  "file": "coder__0154__000154_dbcrypt_key_ids.up.sql",
+  "original_path": "coderd/database/migrations/000154_dbcrypt_key_ids.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "fb0af5ce7442db51d60ff74e357bee79226243c1405600237986dfec1f5533bd",
+  "bytes": 2115
+ },
+ {
+  "file": "coder__0155__000155_workspaces_last_used_at_timestamptz.up.sql",
+  "original_path": "coderd/database/migrations/000155_workspaces_last_used_at_timestamptz.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "aac83435c2128fd7086fec851549ba895f5812eff9553c2693cb12e98dcf4c57",
+  "bytes": 219
+ },
+ {
+  "file": "coder__0156__000156_pg_coordinator_single_tailnet.up.sql",
+  "original_path": "coderd/database/migrations/000156_pg_coordinator_single_tailnet.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "81ce581a541e2fe9d2c5be78193b3e70592f73bfa2f8cd1c43faaa67dd3128ea",
+  "bytes": 2598
+ },
+ {
+  "file": "coder__0157__000157_workspace_agent_script.up.sql",
+  "original_path": "coderd/database/migrations/000157_workspace_agent_script.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "14a16b763537965a9e81940678200aa0b094ff85b2d7187b0a083d7d88670677",
+  "bytes": 1358
+ },
+ {
+  "file": "coder__0158__000158_external_auth.up.sql",
+  "original_path": "coderd/database/migrations/000158_external_auth.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "be9a61302c7b1cf8ec041368ace6c3df6606023c1267b6b53244505888140fe8",
+  "bytes": 849
+ },
+ {
+  "file": "coder__0159__000159_workspace_agent_stats_template_id_created_at_user_id_idx.up.sql",
+  "original_path": "coderd/database/migrations/000159_workspace_agent_stats_template_id_created_at_user_id_idx.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e6d060689b38bd983bf54aec7e0f7abdfab27d1e468c71ea9379c5559b091aed",
+  "bytes": 338
+ },
+ {
+  "file": "coder__0160__000160_provisioner_job_status.up.sql",
+  "original_path": "coderd/database/migrations/000160_provisioner_job_status.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ca271ef7ac8357734ac33c07a0de64b6e7a99b744614a0ea82b66fbccdfad53a",
+  "bytes": 1920
+ },
+ {
+  "file": "coder__0161__000161_workspace_agent_stats_template_id_created_at_user_id_include_sessions.up.sql",
+  "original_path": "coderd/database/migrations/000161_workspace_agent_stats_template_id_created_at_user_id_include_sessions.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "10be0f20a22eb3074d039fb5278815786b21b42c133f5cf533a53bc22b32ff63",
+  "bytes": 530
+ },
+ {
+  "file": "coder__0162__000162_workspace_automatic_updates.up.sql",
+  "original_path": "coderd/database/migrations/000162_workspace_automatic_updates.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a8a372509f8a2eb10a4241ad35ad14675e4368466e92b021f5301791176378c3",
+  "bytes": 297
+ },
+ {
+  "file": "coder__0163__000163_external_auth_extra.up.sql",
+  "original_path": "coderd/database/migrations/000163_external_auth_extra.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "26aef2eaab69fb7abf9b00a2a353fc45ff4d82a43b8b7328a1d2aa0baf8e47e9",
+  "bytes": 65
+ },
+ {
+  "file": "coder__0164__000164_archive_template_versions.up.sql",
+  "original_path": "coderd/database/migrations/000164_archive_template_versions.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f4da01361aafb598c02e317a62ad5100a9bfe982e1a98fa01b8b8a6b5c60ab42",
+  "bytes": 744
+ },
+ {
+  "file": "coder__0165__000165_prevent_autostart_days.up.sql",
+  "original_path": "coderd/database/migrations/000165_prevent_autostart_days.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "900eb91c1847da6372394df8e7e95c76e00219fc1a4dd5d55cc340c76b82f3b6",
+  "bytes": 794
+ },
+ {
+  "file": "coder__0166__000166_template_active_version.up.sql",
+  "original_path": "coderd/database/migrations/000166_template_active_version.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ba194bb8d5fcdfbfe4f805587a2a77cb1b4bfc51f35e995022a47d64f664e69f",
+  "bytes": 547
+ },
+ {
+  "file": "coder__0167__000167_workspace_agent_api_version.up.sql",
+  "original_path": "coderd/database/migrations/000167_workspace_agent_api_version.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9bdb282eb8058f4cf3a6583a3ab99348f7411893eb88a59467e8653690d69df0",
+  "bytes": 79
+ },
+ {
+  "file": "coder__0168__000168_pg_coord_tailnet_v2_api.up.sql",
+  "original_path": "coderd/database/migrations/000168_pg_coord_tailnet_v2_api.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ae8eb7ee5db23f0891291863bb58adb66e8d95fd59d9b097721b5ffed5a91926",
+  "bytes": 2092
+ },
+ {
+  "file": "coder__0169__000169_deprecate_template.up.sql",
+  "original_path": "coderd/database/migrations/000169_deprecate_template.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8555251415a8afd8a2f7b34aba51c2756372d4b85a44197af33a7c40ae2237e9",
+  "bytes": 780
+ },
+ {
+  "file": "coder__0170__000170_workspaceproxy_version.up.sql",
+  "original_path": "coderd/database/migrations/000170_workspaceproxy_version.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "68f948c0c0fd61d5203f3d7d861e82c22b653f7f7df0024bad78f900de1c36f0",
+  "bytes": 82
+ },
+ {
+  "file": "coder__0171__000171_oidc_debug_claims.up.sql",
+  "original_path": "coderd/database/migrations/000171_oidc_debug_claims.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d5768ef62bce16c0b474c0fab69eb3a462d69a5fd44ac9725ff6cb4a453addda",
+  "bytes": 202
+ },
+ {
+  "file": "coder__0172__000172_health_settings_audit.up.sql",
+  "original_path": "coderd/database/migrations/000172_health_settings_audit.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b46459bc4b036e859e5268348ce88478a2ee35f6a1c8903b1a739bba163d3f43",
+  "bytes": 110
+ },
+ {
+  "file": "coder__0173__000173_provisioner_last_seen_at.up.sql",
+  "original_path": "coderd/database/migrations/000173_provisioner_last_seen_at.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "394140fcc31dd5c5eb30716176d545c1f566da35fb4adc363c32071c3ebf5e65",
+  "bytes": 143
+ },
+ {
+  "file": "coder__0174__000174_rename_autolock.up.sql",
+  "original_path": "coderd/database/migrations/000174_rename_autolock.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a22372a49861d98bbd2f87173937673938be7baf3168daf8372cf286bb693556",
+  "bytes": 64
+ },
+ {
+  "file": "coder__0175__000175_add_user_theme_preference.up.sql",
+  "original_path": "coderd/database/migrations/000175_add_user_theme_preference.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3144c8691115045957517e34948aa123fe1d4043da6b09532966302f3dc9dc04",
+  "bytes": 214
+ },
+ {
+  "file": "coder__0176__000176_not_null_users_avatar_url.up.sql",
+  "original_path": "coderd/database/migrations/000176_not_null_users_avatar_url.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a17b87b859a45bfeb9be2a58e88c27cf161c622d3fbd357074ee8ff0ebd1154a",
+  "bytes": 179
+ },
+ {
+  "file": "coder__0177__000177_drop_provisioner_updated_at.up.sql",
+  "original_path": "coderd/database/migrations/000177_drop_provisioner_updated_at.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3be4f21e0dc475250cd91337843f762945fb10305a62ebf1fa9a64c8fe638cf0",
+  "bytes": 57
+ },
+ {
+  "file": "coder__0178__000178_provisioner_daemon_idx_owner.up.sql",
+  "original_path": "coderd/database/migrations/000178_provisioner_daemon_idx_owner.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e10954ec03642d3a5149ed25db3f85d12f97c8105cef28ba9ad6786b4edbfc99",
+  "bytes": 376
+ },
+ {
+  "file": "coder__0179__000179_provisionerdaemon_add_apiversion.up.sql",
+  "original_path": "coderd/database/migrations/000179_provisionerdaemon_add_apiversion.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "198d50a87d2e20f682498754a3194d46ff35e00fde29d33d1515a32a12851bbb",
+  "bytes": 194
+ },
+ {
+  "file": "coder__0180__000180_template_use_max_ttl.up.sql",
+  "original_path": "coderd/database/migrations/000180_template_use_max_ttl.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "19aed1560c80182aa7751712a34d3e221c1784018f1d34c59c95d9ef020aa0dd",
+  "bytes": 987
+ },
+ {
+  "file": "coder__0181__000181_coalesce_provisioner_daemon_idx_owner.up.sql",
+  "original_path": "coderd/database/migrations/000181_coalesce_provisioner_daemon_idx_owner.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f080c1607ab66c9b89a47e11679dbda229bcca6a55b1c9ba488ce4c4a875993a",
+  "bytes": 341
+ },
+ {
+  "file": "coder__0182__000182_oauth2_provider.up.sql",
+  "original_path": "coderd/database/migrations/000182_oauth2_provider.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "dbefb2850eb69e332f2ef7f59b18d673644efc3dc48d466fa9b40fcffcd7f242",
+  "bytes": 1008
+ },
+ {
+  "file": "coder__0183__000183_provisionerd_api_version_prefix.up.sql",
+  "original_path": "coderd/database/migrations/000183_provisionerd_api_version_prefix.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4cc73b4e13264a921f4aca9b41d1dcefc24bdcd4028efe7b44fc97246d1592c5",
+  "bytes": 175
+ },
+ {
+  "file": "coder__0184__000184_provisionerd_api_version_rm_prefix.up.sql",
+  "original_path": "coderd/database/migrations/000184_provisionerd_api_version_rm_prefix.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "96ff7060e96f9b7c68e9d494018a23a71e5fcec994343668f93b4c3f9d6cce30",
+  "bytes": 174
+ },
+ {
+  "file": "coder__0185__000185_add_user_name.up.sql",
+  "original_path": "coderd/database/migrations/000185_add_user_name.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4979e1eb345375d3e94d6c24969970b5abb0b7fed77eef5062fe18cde98d92c6",
+  "bytes": 124
+ },
+ {
+  "file": "coder__0186__000186_user_favorite_workspaces.up.sql",
+  "original_path": "coderd/database/migrations/000186_user_favorite_workspaces.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "eae1341f3fbb12910c8342872e9af113f5b0fdd0c609b5a75a16516f5eda7e29",
+  "bytes": 196
+ },
+ {
+  "file": "coder__0187__000187_jfrog_xray.up.sql",
+  "original_path": "coderd/database/migrations/000187_jfrog_xray.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d07f9ff1224cf2ba46b47d26409966eb50019f0f59f49afbd557a35cbb1e9413",
+  "bytes": 377
+ },
+ {
+  "file": "coder__0188__000188_workspace_agent_metadata_order.up.sql",
+  "original_path": "coderd/database/migrations/000188_workspace_agent_metadata_order.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4482b8fbe9f07d6aa2a79efbb683a495c96381352e4c0942e3a4ac7252fdc767",
+  "bytes": 233
+ },
+ {
+  "file": "coder__0189__000189_workspace_app_order.up.sql",
+  "original_path": "coderd/database/migrations/000189_workspace_app_order.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8e3143fa1dcc0c0acbd96a1282258b0d1ff77e2edeb6ec452f90f60c8791d348",
+  "bytes": 208
+ },
+ {
+  "file": "coder__0190__000190_template_activity_bump_duration.up.sql",
+  "original_path": "coderd/database/migrations/000190_template_activity_bump_duration.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "de0723de4107dcc8b3efd9f4393c5418c91e487d049ce33e600296f92c815288",
+  "bytes": 567
+ },
+ {
+  "file": "coder__0191__000191_workspace_agent_port_sharing.up.sql",
+  "original_path": "coderd/database/migrations/000191_workspace_agent_port_sharing.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "25d6220c809382d4ea72054e24c4665000d881e1769dbf5e15fd1ec72f7f67d9",
+  "bytes": 944
+ },
+ {
+  "file": "coder__0192__000192_workspace_agent_order.up.sql",
+  "original_path": "coderd/database/migrations/000192_workspace_agent_order.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "be87a226cb4b07072efe8bccbd394c97c3ee9c789fd98176e0b55e1679b5473d",
+  "bytes": 209
+ },
+ {
+  "file": "coder__0193__000193_default_organization.up.sql",
+  "original_path": "coderd/database/migrations/000193_default_organization.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "848c0668761dfc2de6ad616f9b60e380545fd6c9ccb34639f43f04138270c0ca",
+  "bytes": 664
+ },
+ {
+  "file": "coder__0194__000194_trigger_delete_user_user_link.up.sql",
+  "original_path": "coderd/database/migrations/000194_trigger_delete_user_user_link.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7194c8b31d17a76b626d3d116ec4a4e68232aa1b30c69f15e93687def61f171a",
+  "bytes": 1749
+ },
+ {
+  "file": "coder__0195__000195_oauth2_provider_codes.up.sql",
+  "original_path": "coderd/database/migrations/000195_oauth2_provider_codes.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9dd7127a3bf7295a624024b389b98286564908ad62d9117d27f1067f8c79d4ab",
+  "bytes": 3960
+ },
+ {
+  "file": "coder__0196__000196_external_auth_providers_jsonb.up.sql",
+  "original_path": "coderd/database/migrations/000196_external_auth_providers_jsonb.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f7b099d08c4de46d757d7eb04ebb42b1fc241f9a4ab456877320acc54a2f2084",
+  "bytes": 2162
+ },
+ {
+  "file": "coder__0197__000197_oauth2_provider_app_audit.up.sql",
+  "original_path": "coderd/database/migrations/000197_oauth2_provider_app_audit.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "86f08bcb6cdd6baa62d2d23dad20c171eea5b8da9898be0c47c5e0abc1f084de",
+  "bytes": 153
+ },
+ {
+  "file": "coder__0198__000198_ensure_default_org.up.sql",
+  "original_path": "coderd/database/migrations/000198_ensure_default_org.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ae0a9190c9e9770e6a86e5b06566d00c68dedbd4c86f8e50f7b127048a2abee7",
+  "bytes": 482
+ },
+ {
+  "file": "coder__0199__000199_port_share_protocol.up.sql",
+  "original_path": "coderd/database/migrations/000199_port_share_protocol.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c2691884d5eb4f8045e4f9b29940edb37977be2ba9eeaca1fb92119c82e3fab9",
+  "bytes": 190
+ },
+ {
+  "file": "coder__0200__000200_org_provisioners.up.sql",
+  "original_path": "coderd/database/migrations/000200_org_provisioners.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1bec908fc301416bfdcccd8f2834853dcd3e04e710f8bda8fcc53b404c18250c",
+  "bytes": 561
+ },
+ {
+  "file": "coder__0201__000201_ensure_default_everyone_group.up.sql",
+  "original_path": "coderd/database/migrations/000201_ensure_default_everyone_group.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b972654b84e85fef4a26d611ae36c35025cdbf4ddc5497f0d6abdeb721ce8da3",
+  "bytes": 415
+ },
+ {
+  "file": "coder__0202__000202_remove_max_ttl.up.sql",
+  "original_path": "coderd/database/migrations/000202_remove_max_ttl.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "aa7935279cfd21365b2449c00f2b6582baf4df388c486b234ffca7a5dee85ce1",
+  "bytes": 579
+ },
+ {
+  "file": "coder__0203__000203_template_usage_stats.up.sql",
+  "original_path": "coderd/database/migrations/000203_template_usage_stats.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6dca1e0782a08a6eb0308b273981f38ab2fb7d096cbef220cc3312b04a22fe9b",
+  "bytes": 2304
+ },
+ {
+  "file": "coder__0204__000204_add_workspace_agent_scripts_fk_index.up.sql",
+  "original_path": "coderd/database/migrations/000204_add_workspace_agent_scripts_fk_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "558d5faa9960a875309bcbefd31c0910f1a17614137feed96e9842257ff9eafe",
+  "bytes": 228
+ },
+ {
+  "file": "coder__0205__000205_unique_linked_id.up.sql",
+  "original_path": "coderd/database/migrations/000205_unique_linked_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "dc08684f6d82193253ee55c6ba054be0848f8dd665133ce5b763de3449989943",
+  "bytes": 915
+ },
+ {
+  "file": "coder__0206__000206_add_tailnet_tunnels_indexes.up.sql",
+  "original_path": "coderd/database/migrations/000206_add_tailnet_tunnels_indexes.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c578dbdf990eaba94d0e4a90b62dfd754a15c9a9b0dde14dcbe109b7c4b9a781",
+  "bytes": 260
+ },
+ {
+  "file": "coder__0207__000207_site_configs_text.up.sql",
+  "original_path": "coderd/database/migrations/000207_site_configs_text.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "285b50b463c8d7e9794fbf480151a234b6f9c286b0de41331136204046e1b39e",
+  "bytes": 60
+ },
+ {
+  "file": "coder__0208__000208_notification_banners.up.sql",
+  "original_path": "coderd/database/migrations/000208_notification_banners.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "dc4f175bc47ca8eea9fa6702a8cce15e09dcd2edee507e08c172ccff8d5c83ef",
+  "bytes": 122
+ },
+ {
+  "file": "coder__0209__000209_custom_roles.up.sql",
+  "original_path": "coderd/database/migrations/000209_custom_roles.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e03ec3f7ab9784a9ac5650ac6847ac11bb54f7c809824949f592fa2a3eaf7ef2",
+  "bytes": 1191
+ },
+ {
+  "file": "coder__0210__000210_unique_org_name.up.sql",
+  "original_path": "coderd/database/migrations/000210_unique_org_name.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e91068283d02cd2db208e7269a5feba1797452ecb5d8b3872bd1e5270275f163",
+  "bytes": 83
+ },
+ {
+  "file": "coder__0211__000211_workspace_tags.up.sql",
+  "original_path": "coderd/database/migrations/000211_workspace_tags.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "12d787db5dc40ec2d76d6d46d77b5318de0fe6090e60f41854aae42d3ad6ecc3",
+  "bytes": 247
+ },
+ {
+  "file": "coder__0212__000212_custom_role_orgs.up.sql",
+  "original_path": "coderd/database/migrations/000212_custom_role_orgs.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "45f731102cc8006d8ccbb12c9b101cf9cc0271e806f033dea512ddbdfba19047",
+  "bytes": 226
+ },
+ {
+  "file": "coder__0213__000213_announcement_banners.up.sql",
+  "original_path": "coderd/database/migrations/000213_announcement_banners.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0cb1349373268153b0d596b0902003c04fbbea6c67e62ffe0bf6868bfa66983f",
+  "bytes": 94
+ },
+ {
+  "file": "coder__0214__000214_org_custom_role_array.up.sql",
+  "original_path": "coderd/database/migrations/000214_org_custom_role_array.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "41f99a2c164cd5c762b35c139ca2f4b90042b070300bb6008a93affd336fd8ba",
+  "bytes": 277
+ },
+ {
+  "file": "coder__0215__000215_scoped_org_db_roles.up.sql",
+  "original_path": "coderd/database/migrations/000215_scoped_org_db_roles.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "cf2adddfc1722a32480efe9d74f6456bed197afe9b14aebf4b0b4c7800316702",
+  "bytes": 367
+ },
+ {
+  "file": "coder__0216__000216_organization_display_name.up.sql",
+  "original_path": "coderd/database/migrations/000216_organization_display_name.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4c77e083f72a406f85a6ab987dbfac32f5ef5b9c0cac43b0eeff4a3f62103748",
+  "bytes": 364
+ },
+ {
+  "file": "coder__0217__000217_custom_role_pair_parameter.up.sql",
+  "original_path": "coderd/database/migrations/000217_custom_role_pair_parameter.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3b59b7c8123c074d591cd910b4a4ee34f55474a49027d77874c8b31e8229ed83",
+  "bytes": 74
+ },
+ {
+  "file": "coder__0218__000218_org_custom_role_audit.up.sql",
+  "original_path": "coderd/database/migrations/000218_org_custom_role_audit.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8ebd2fd10933b9783aa4903d52169757b85177183aabcd64a83ed4e6b42a6608",
+  "bytes": 510
+ },
+ {
+  "file": "coder__0219__000219_organization_icon.up.sql",
+  "original_path": "coderd/database/migrations/000219_organization_icon.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6a60b024c47a1192d38d7a5f09bbc197b7853f12e0eeecc5cf9feaaf3f45494e",
+  "bytes": 71
+ },
+ {
+  "file": "coder__0220__000220_audit_org_member.up.sql",
+  "original_path": "coderd/database/migrations/000220_audit_org_member.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c12462ba94e6ae468d13d12cc24b89011a04fa24c1271b2017de925902c62d65",
+  "bytes": 73
+ },
+ {
+  "file": "coder__0221__000221_notifications.up.sql",
+  "original_path": "coderd/database/migrations/000221_notifications.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2e732c1e5470fe68a38aa4556b7f8dac22fa75b2189b78cb61ad43f6640f99e0",
+  "bytes": 2688
+ },
+ {
+  "file": "coder__0222__000222_template_organization_name.up.sql",
+  "original_path": "coderd/database/migrations/000222_template_organization_name.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "05d7214a77c19a5ce239f8e5ecc41888b8317f27c2ac026e67595d429f302f2b",
+  "bytes": 708
+ },
+ {
+  "file": "coder__0223__000223_notifications_settings_audit.up.sql",
+  "original_path": "coderd/database/migrations/000223_notifications_settings_audit.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2970e97629d4909d45030e44966b5ced0d6baeaa3f2b46c49ba6917adfe1402d",
+  "bytes": 117
+ },
+ {
+  "file": "coder__0224__000224_template_display_name.up.sql",
+  "original_path": "coderd/database/migrations/000224_template_display_name.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d4dead2a67ab8a1f3756cb1ac9bd77c9a7cfc5ea0fdd843375bec46fc2b87280",
+  "bytes": 777
+ },
+ {
+  "file": "coder__0225__000225_notifications_metrics.up.sql",
+  "original_path": "coderd/database/migrations/000225_notifications_metrics.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "07e63ceb6cadc646488529aff8c6b3799a21f60e5cc45caf4491f5ed04f175ca",
+  "bytes": 72
+ },
+ {
+  "file": "coder__0226__000226_notifications_autobuild_failed.up.sql",
+  "original_path": "coderd/database/migrations/000226_notifications_autobuild_failed.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0c57c645915dd30f92d164c927b817427a2a641a71853b2376d1a3eb88ba29f7",
+  "bytes": 552
+ },
+ {
+  "file": "coder__0227__000227_provisioner_keys.up.sql",
+  "original_path": "coderd/database/migrations/000227_provisioner_keys.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "74cf0a1658629d7b1fae6b7bc4076c0a3eb90233fef950914d6548e0587ca0c6",
+  "bytes": 380
+ },
+ {
+  "file": "coder__0228__000228_notifications_workspace_autoupdated.up.sql",
+  "original_path": "coderd/database/migrations/000228_notifications_workspace_autoupdated.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "69da73ac85cb28afa800038e9d0581f0f47d66f478417f7f88e571fcc28aebc8",
+  "bytes": 582
+ },
+ {
+  "file": "coder__0229__000229_dormancy_notification_template.up.sql",
+  "original_path": "coderd/database/migrations/000229_dormancy_notification_template.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a1d4912aa4b314de5d70100d27bab32ad92c0950dddb29fb6413c620a830e323",
+  "bytes": 1741
+ },
+ {
+  "file": "coder__0230__000230_notifications_fix_username.up.sql",
+  "original_path": "coderd/database/migrations/000230_notifications_fix_username.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "53479595467ca72cb925648caed5a8022c9be0e1e1f58483d3da911345514fff",
+  "bytes": 122
+ },
+ {
+  "file": "coder__0231__000231_provisioner_key_tags.up.sql",
+  "original_path": "coderd/database/migrations/000231_provisioner_key_tags.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b34a7b82fbbadfc113084363f7ca511c3f57e9d834bc7fd30ba0598cdd900272",
+  "bytes": 144
+ },
+ {
+  "file": "coder__0232__000232_update_dormancy_notification_template.up.sql",
+  "original_path": "coderd/database/migrations/000232_update_dormancy_notification_template.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3f8660a368ace1948ce28eb284a400be4e525e59b3ddf74ca0befd9b9fe86cc9",
+  "bytes": 1009
+ },
+ {
+  "file": "coder__0233__000233_notifications_user_created.up.sql",
+  "original_path": "coderd/database/migrations/000233_notifications_user_created.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "fc25728fe78b3f518bee46a9f8c302937e3fc7260d10359481c0866565e9ba91",
+  "bytes": 521
+ },
+ {
+  "file": "coder__0234__000234_fix_notifications_user_created.up.sql",
+  "original_path": "coderd/database/migrations/000234_fix_notifications_user_created.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3140e6faeb10c0c49f8924322376b21c9107a9ce5010c288abaf4271a7543f3e",
+  "bytes": 210
+ },
+ {
+  "file": "coder__0235__000235_fix_notifications_group.up.sql",
+  "original_path": "coderd/database/migrations/000235_fix_notifications_group.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5030a6a5d66b8373625627b7bf8e4e4fb065a24e5430079d478dcd425e315f24",
+  "bytes": 123
+ },
+ {
+  "file": "coder__0236__000236_notifications_user_deleted.up.sql",
+  "original_path": "coderd/database/migrations/000236_notifications_user_deleted.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "486052374190fc22052452e6ed0d0d02b64c7ec6f1103962c8f8221f02cbfe97",
+  "bytes": 513
+ },
+ {
+  "file": "coder__0237__000237_github_com_user_id.up.sql",
+  "original_path": "coderd/database/migrations/000237_github_com_user_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b36b88fc3033011091c72ef136b9e0161647142dd9be4cab27a0025df6466cbb",
+  "bytes": 238
+ },
+ {
+  "file": "coder__0238__000238_notification_preferences.up.sql",
+  "original_path": "coderd/database/migrations/000238_notification_preferences.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5401e64e70dc555990dafbdc8408130e9d1590e1332759d3f15a6898750ea521",
+  "bytes": 2264
+ },
+ {
+  "file": "coder__0239__000239_provisioner_daemon_org_constraint.up.sql",
+  "original_path": "coderd/database/migrations/000239_provisioner_daemon_org_constraint.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6ec31df86511f2d198753d2fd0455f3782fae0ee04e94041cb003181e8d6709a",
+  "bytes": 363
+ },
+ {
+  "file": "coder__0240__000240_notification_workspace_updated_version_message.up.sql",
+  "original_path": "coderd/database/migrations/000240_notification_workspace_updated_version_message.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d873e1c5a99c0f1e3bf146c74786ff30a9e9013945bdb30de3e06cd927ff3b7c",
+  "bytes": 527
+ },
+ {
+  "file": "coder__0241__000241_delete_user_roles.up.sql",
+  "original_path": "coderd/database/migrations/000241_delete_user_roles.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ffb935b8259d28ed9e277803b53df7f0e07a1ba91a906c7c049abad4a9a80065",
+  "bytes": 1269
+ },
+ {
+  "file": "coder__0242__000242_group_members_view.up.sql",
+  "original_path": "coderd/database/migrations/000242_group_members_view.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "88e4b8b272b4b1b292e071490fd9db1c69115cabf5c43612f1c2beefbe8e29cb",
+  "bytes": 1566
+ },
+ {
+  "file": "coder__0243__000243_custom_role_pkey_fix.up.sql",
+  "original_path": "coderd/database/migrations/000243_custom_role_pkey_fix.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "cedd5ed7f519e1d5d52d883bec62196ba090ea3b22e656097b9cb5b236a2bad2",
+  "bytes": 206
+ },
+ {
+  "file": "coder__0244__000244_notifications_delete_template.up.sql",
+  "original_path": "coderd/database/migrations/000244_notifications_delete_template.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "26b1d0376a41419e27bd3cf0f10fee2456da905f9f5139962f6154392008444a",
+  "bytes": 582
+ },
+ {
+  "file": "coder__0245__000245_notifications_dedupe.up.sql",
+  "original_path": "coderd/database/migrations/000245_notifications_dedupe.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7cbc989fa9c137bc382e98167b2cff19b98bfe6691e68de60f7cc7a03fa28639",
+  "bytes": 1849
+ },
+ {
+  "file": "coder__0246__000246_provisioner_job_timings.up.sql",
+  "original_path": "coderd/database/migrations/000246_provisioner_job_timings.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "bfb95030c1126e3ff118f75581cbd18c70788e9db9ee9eb6d90a7a6370c3766c",
+  "bytes": 2487
+ },
+ {
+  "file": "coder__0247__000247_notifications_user_suspended.up.sql",
+  "original_path": "coderd/database/migrations/000247_notifications_user_suspended.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "bf2b6397d4aee3e3e5ffaeb788f88abff1d4d50fc4526a43bca5ce65e91c4e64",
+  "bytes": 1946
+ },
+ {
+  "file": "coder__0248__000248_notifications_manual_build_failed.up.sql",
+  "original_path": "coderd/database/migrations/000248_notifications_manual_build_failed.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "68653b6659f08af666636524d03785522c6b46828b8712a3fe4526b86f19a29e",
+  "bytes": 730
+ },
+ {
+  "file": "coder__0249__000249_workspace_app_hidden.up.sql",
+  "original_path": "coderd/database/migrations/000249_workspace_app_hidden.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f2be3a48ee623076cccf250ba70c18c9a6ca3df73462f7005435a94f89e92e4b",
+  "bytes": 182
+ },
+ {
+  "file": "coder__0250__000250_built_in_psk_provisioner_keys.up.sql",
+  "original_path": "coderd/database/migrations/000250_built_in_psk_provisioner_keys.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "109747751bb9aa315f6fb3a6a588cbb0a4bda43ec25f7cd58ce4a8a12e1a5800",
+  "bytes": 948
+ },
+ {
+  "file": "coder__0251__000251_crypto_keys.up.sql",
+  "original_path": "coderd/database/migrations/000251_crypto_keys.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "981e9be8a476a67d2ab4f1d108bcff4e648424bc22f4b4efd0d5ee2cfa64c880",
+  "bytes": 426
+ },
+ {
+  "file": "coder__0252__000252_group_member_trigger.up.sql",
+  "original_path": "coderd/database/migrations/000252_group_member_trigger.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8af06d95488e56b8d018f4f9411c5f99f7044d43865b84bd3e9760c2c09c8ec2",
+  "bytes": 619
+ },
+ {
+  "file": "coder__0253__000253_email_reports.up.sql",
+  "original_path": "coderd/database/migrations/000253_email_reports.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f5acd1ccbb645c5d6a5b2776e9f62f1b2663a02d272b08deea6fa4981e51e4a3",
+  "bytes": 1500
+ },
+ {
+  "file": "coder__0254__000254_fix_report_float.up.sql",
+  "original_path": "coderd/database/migrations/000254_fix_report_float.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e881232917f43652db4ba3122a1880cee39437f16586d6dec21ced7d5201554d",
+  "bytes": 225
+ },
+ {
+  "file": "coder__0255__000255_agent_stats_usage.up.sql",
+  "original_path": "coderd/database/migrations/000255_agent_stats_usage.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e4dba4e5a1a84a529770dbf6291e2ee97431c72901ab5ad8bac74d100a3e264c",
+  "bytes": 84
+ },
+ {
+  "file": "coder__0256__000256_add_display_name_to_workspace_agent_scripts.up.sql",
+  "original_path": "coderd/database/migrations/000256_add_display_name_to_workspace_agent_scripts.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5e8901db3be704e37a2d44b0bae1b4a82a5ede33e76ca87ad40ac203215c6511",
+  "bytes": 356
+ },
+ {
+  "file": "coder__0257__000257_workspace_agent_script_timings.up.sql",
+  "original_path": "coderd/database/migrations/000257_workspace_agent_script_timings.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "cc53787b71ec81ae2911b22b4cbb6672ae0559d1e7b6ef98bcfd1094e120128f",
+  "bytes": 1191
+ },
+ {
+  "file": "coder__0258__000258_add_otp_reset_to_user.up.sql",
+  "original_path": "coderd/database/migrations/000258_add_otp_reset_to_user.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0c703cd9c52f966537863767eeb33ea81f1c657fcb554edfe10409f9cc3fa862",
+  "bytes": 802
+ },
+ {
+  "file": "coder__0259__000259_rename_first_organization.up.sql",
+  "original_path": "coderd/database/migrations/000259_rename_first_organization.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d6661dcf4129fa54cb839026c93e639f953c7395b83185485c3329724e9029b6",
+  "bytes": 168
+ },
+ {
+  "file": "coder__0260__000260_remove_dark_blue_theme.up.sql",
+  "original_path": "coderd/database/migrations/000260_remove_dark_blue_theme.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "21c4e3dfadf0a2f6f5ace451c4fbfa0b087017dc03f563b9609fd02704214660",
+  "bytes": 77
+ },
+ {
+  "file": "coder__0261__000261_notifications_forgot_password.up.sql",
+  "original_path": "coderd/database/migrations/000261_notifications_forgot_password.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2bcd49686ef24869d9cf8e0258759a3065027647b0d258ceeb8422378c081bb7",
+  "bytes": 489
+ },
+ {
+  "file": "coder__0262__000262_improve_notification_templates.up.sql",
+  "original_path": "coderd/database/migrations/000262_improve_notification_templates.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "564ae1c2fda1ba533088ea546d0a05648fc2157158a216627dba19d0d93f23fb",
+  "bytes": 5791
+ },
+ {
+  "file": "coder__0263__000263_consistent_notification_initiator_naming.up.sql",
+  "original_path": "coderd/database/migrations/000263_consistent_notification_initiator_naming.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3e6896e8fc6813e6d769d42a541430294452c620dfc2859a494117def4fc1500",
+  "bytes": 2400
+ },
+ {
+  "file": "coder__0264__000264_manual_build_failed_notification_template.up.sql",
+  "original_path": "coderd/database/migrations/000264_manual_build_failed_notification_template.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2c88d2ff7027fc84055ad6b924ce1b7233e6112d5c172c2b22bea7c57e7512c2",
+  "bytes": 727
+ },
+ {
+  "file": "coder__0265__000265_default_values_for_notifications.up.sql",
+  "original_path": "coderd/database/migrations/000265_default_values_for_notifications.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "28519432e8d89f0b2c36481c6bd239cc33c77a438c6ea378584c896bfb19bd13",
+  "bytes": 1758
+ },
+ {
+  "file": "coder__0266__000266_update_forgot_password_notification.up.sql",
+  "original_path": "coderd/database/migrations/000266_update_forgot_password_notification.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c9ddc31e672c8e5909fcce102dc2642b3e3b568b9895673a29a57d95261aeb21",
+  "bytes": 471
+ },
+ {
+  "file": "coder__0267__000267_fix_password_reset_notification_link.up.sql",
+  "original_path": "coderd/database/migrations/000267_fix_password_reset_notification_link.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3f84a16d630d15cd246eb2dff00d2c4408296f7a331cee8cfdb9461600f4fc08",
+  "bytes": 478
+ },
+ {
+  "file": "coder__0268__000268_add_audit_action_request_password_reset.up.sql",
+  "original_path": "coderd/database/migrations/000268_add_audit_action_request_password_reset.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d179867e4738b2d4920426c0c16603a6a8b7f7432ce0c4a50223afeb41b256cb",
+  "bytes": 78
+ },
+ {
+  "file": "coder__0269__000269_workspace_with_names.up.sql",
+  "original_path": "coderd/database/migrations/000269_workspace_with_names.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ff1656a26b3a1a7f95653bb113f875062037d1b960bddc05647bd2c50b57f751",
+  "bytes": 953
+ },
+ {
+  "file": "coder__0270__000270_template_deprecation_notification.up.sql",
+  "original_path": "coderd/database/migrations/000270_template_deprecation_notification.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "54bb032518ebfee600903b02cbf9111f197129ee8562f7fa127c57b9324abbcf",
+  "bytes": 828
+ },
+ {
+  "file": "coder__0271__000271_cryptokey_features.up.sql",
+  "original_path": "coderd/database/migrations/000271_cryptokey_features.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "309252ebe622bd235dcfc82b2a59a317a53b6ddb6a3c46ff627ab1a69f627158",
+  "bytes": 543
+ },
+ {
+  "file": "coder__0272__000272_remove_must_reset_password.up.sql",
+  "original_path": "coderd/database/migrations/000272_remove_must_reset_password.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6361b3b4af91fe845847d1b2ed88ef3de2c7cb490de8b2b6b5b5ff23c6c5ef1c",
+  "bytes": 52
+ },
+ {
+  "file": "coder__0273__000273_workspace_updates.up.sql",
+  "original_path": "coderd/database/migrations/000273_workspace_updates.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "eb6107e48c05428b40b9a18be507fec94e4da05c27c10959bb3fcf1d5c1aa8ff",
+  "bytes": 64
+ },
+ {
+  "file": "coder__0274__000274_rename_user_link_claims.up.sql",
+  "original_path": "coderd/database/migrations/000274_rename_user_link_claims.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b9d6eb786abae377204377534b4461496b78002cf40f7491eda72fc08333b7e0",
+  "bytes": 194
+ },
+ {
+  "file": "coder__0275__000275_check_tags.up.sql",
+  "original_path": "coderd/database/migrations/000275_check_tags.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "064d315e9e313042adf94f7c7de2abff51b7766a41cd119063a1b05004062f0b",
+  "bytes": 1243
+ },
+ {
+  "file": "coder__0276__000276_workspace_modules.up.sql",
+  "original_path": "coderd/database/migrations/000276_workspace_modules.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a2eb79f5c030e85a49a98f94dfdb7543396adf0925e98a22230a4865789dc06d",
+  "bytes": 474
+ },
+ {
+  "file": "coder__0277__000277_template_version_example_ids.up.sql",
+  "original_path": "coderd/database/migrations/000277_template_version_example_ids.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9257a0c870e1eb206813bf919a80d555aaa7962fd07aec468debcb6a6922ed63",
+  "bytes": 1122
+ },
+ {
+  "file": "coder__0278__000278_workspace_next_start_at.up.sql",
+  "original_path": "coderd/database/migrations/000278_workspace_next_start_at.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2a7c0e7fb052f37c50b37ea3ea43a8f0a7e2ffafaa7fbc345ad6367745ca7405",
+  "bytes": 2137
+ },
+ {
+  "file": "coder__0279__000279_workspace_create_notification.up.sql",
+  "original_path": "coderd/database/migrations/000279_workspace_create_notification.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "338615344f9301c8f1df3498eb664940d4feddd9b68772b01d9cda50c7835121",
+  "bytes": 566
+ },
+ {
+  "file": "coder__0280__000280_workspace_update_notification.up.sql",
+  "original_path": "coderd/database/migrations/000280_workspace_update_notification.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a25bfa3189e4820f9ef6a028b23ef7de3ae82e9dfbbb05772e0e97f06cbd7a70",
+  "bytes": 1036
+ },
+ {
+  "file": "coder__0281__000281_idpsync_settings.up.sql",
+  "original_path": "coderd/database/migrations/000281_idpsync_settings.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "00f38d265fec4e35a7138917b113553cb8c3455f2e7f41922f1b11d97abf3578",
+  "bytes": 302
+ },
+ {
+  "file": "coder__0282__000282_workspace_app_add_open_in.up.sql",
+  "original_path": "coderd/database/migrations/000282_workspace_app_add_open_in.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "fc8c93b1b8ba72b7b1e98cd120e3a73fd7bfb34b2aea96ca4575b4c21ef2385e",
+  "bytes": 203
+ },
+ {
+  "file": "coder__0283__000283_user_status_changes.up.sql",
+  "original_path": "coderd/database/migrations/000283_user_status_changes.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5f23b5a45355dc82c4f71627671b871611bbfc0f64666ac0df62e13a9f724be9",
+  "bytes": 1860
+ },
+ {
+  "file": "coder__0284__000284_allow_disabling_notification_templates_by_default.up.sql",
+  "original_path": "coderd/database/migrations/000284_allow_disabling_notification_templates_by_default.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ea90ff6d18e2b8eb537bc50debb025530ca0826652f3a6dfc5a73ccc38e7432e",
+  "bytes": 1161
+ },
+ {
+  "file": "coder__0285__000285_disable_workspace_created_and_manually_updated_notifications_by_default.up.sql",
+  "original_path": "coderd/database/migrations/000285_disable_workspace_created_and_manually_updated_notifications_by_default.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7e1bab24c8cd046d00e83e65d8e9d6b97c171b2e82403796b5cb3c0dfd9a5204",
+  "bytes": 353
+ },
+ {
+  "file": "coder__0286__000286_provisioner_daemon_status.up.sql",
+  "original_path": "coderd/database/migrations/000286_provisioner_daemon_status.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c686c22850d987570934435475bbdb96b81de99cd9db9239fea7a36529b54790",
+  "bytes": 163
+ },
+ {
+  "file": "coder__0287__000287_template_read_to_use.up.sql",
+  "original_path": "coderd/database/migrations/000287_template_read_to_use.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "324a586d80df70a3b94ebe22fb55cdf55a74d31b0adb9617caa88ba37be266a6",
+  "bytes": 597
+ },
+ {
+  "file": "coder__0288__000288_telemetry_items.up.sql",
+  "original_path": "coderd/database/migrations/000288_telemetry_items.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7be1bd0056322c694a533c9bb4554590605f31bf35ea50f77930a82660b7145d",
+  "bytes": 227
+ },
+ {
+  "file": "coder__0289__000289_agent_resource_monitors.up.sql",
+  "original_path": "coderd/database/migrations/000289_agent_resource_monitors.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "85a1fb1c5775acaafdd0839caff829cf966c371cbb3608ae24232357bc880a5e",
+  "bytes": 604
+ },
+ {
+  "file": "coder__0290__000290_oom_and_ood_notification.up.sql",
+  "original_path": "coderd/database/migrations/000290_oom_and_ood_notification.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d4b8ba9da4754fdce88fb31e4fd5fb66cd4d8020536854644186d5e571fb65ae",
+  "bytes": 1426
+ },
+ {
+  "file": "coder__0291__000291_workspace_parameter_presets.up.sql",
+  "original_path": "coderd/database/migrations/000291_workspace_parameter_presets.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "cdbe1b705ad044c6bcd83b7d70ee749185b2a2410c1476b22d10622eafd34ac7",
+  "bytes": 1385
+ },
+ {
+  "file": "coder__0292__000292_generate_default_preset_parameter_ids.up.sql",
+  "original_path": "coderd/database/migrations/000292_generate_default_preset_parameter_ids.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "120b59288591c58d3cc001e71ce0154dd8867c855b5e8aba72478f37d609899f",
+  "bytes": 184
+ },
+ {
+  "file": "coder__0293__000293_add_audit_types_for_connect_and_open.up.sql",
+  "original_path": "coderd/database/migrations/000293_add_audit_types_for_connect_and_open.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "09b8fa94fe0130823062bc1a704c4111c762acf07cc4d8cba72ddea7c42f4aeb",
+  "bytes": 440
+ },
+ {
+  "file": "coder__0294__000294_workspace_monitors_state.up.sql",
+  "original_path": "coderd/database/migrations/000294_workspace_monitors_state.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "820d96c49c7bfa96c98f363708defc6879ef6c7f8073ac01dcc58d63ceab5e7b",
+  "bytes": 763
+ },
+ {
+  "file": "coder__0295__000295_test_notification.up.sql",
+  "original_path": "coderd/database/migrations/000295_test_notification.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "40312b168f327c356154babfc241181ea13095ea93a975076eed8cd5bf7e8a8f",
+  "bytes": 427
+ },
+ {
+  "file": "coder__0296__000296_organization_soft_delete.up.sql",
+  "original_path": "coderd/database/migrations/000296_organization_soft_delete.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "339f5e3bb77a9975abb440272ddb4bc62a31710257048a2c97f38979c2e060db",
+  "bytes": 3010
+ },
+ {
+  "file": "coder__0297__000297_notifications_inbox.up.sql",
+  "original_path": "coderd/database/migrations/000297_notifications_inbox.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "36891d95289ac7c52bf49a30716204f676083d340975850232624297a6a28f06",
+  "bytes": 778
+ },
+ {
+  "file": "coder__0298__000298_provisioner_jobs_status_idx.up.sql",
+  "original_path": "coderd/database/migrations/000298_provisioner_jobs_status_idx.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "24606145e1fa11ab1e53ac26291fd7f184c3cb7873c43c2584cf901f5e02ac6d",
+  "bytes": 88
+ },
+ {
+  "file": "coder__0299__000299_user_configs.up.sql",
+  "original_path": "coderd/database/migrations/000299_user_configs.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8cf699b4078c2e8c7c2523c23894383e0432d67d922f80cd7ba87b46b97d7de6",
+  "bytes": 2229
+ },
+ {
+  "file": "coder__0300__000300_notifications_method_inbox.up.sql",
+  "original_path": "coderd/database/migrations/000300_notifications_method_inbox.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9596ebbc6be4e5f0cefa7fd4c981c9dead5ade4a66d79ed66c8ce350a5fe9c0d",
+  "bytes": 65
+ },
+ {
+  "file": "coder__0301__000301_add_workspace_app_audit_sessions.up.sql",
+  "original_path": "coderd/database/migrations/000301_add_workspace_app_audit_sessions.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "99ce47cc6088d4ffe561db6a1d87a10b9eff97c68adaa34996f5c522ef785c01",
+  "bytes": 2763
+ },
+ {
+  "file": "coder__0302__000302_fix_app_audit_session_race.up.sql",
+  "original_path": "coderd/database/migrations/000302_fix_app_audit_session_race.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a28dcb176553ed37b8ba3170c61520b3b35ed0ad88a7bf48d10cd353187e156f",
+  "bytes": 226
+ },
+ {
+  "file": "coder__0303__000303_add_workspace_agent_devcontainers.up.sql",
+  "original_path": "coderd/database/migrations/000303_add_workspace_agent_devcontainers.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "78c86ac88a77a99c988f59d439dd64b7e83881d4c2d1b6a4c314d86e361216bd",
+  "bytes": 1090
+ },
+ {
+  "file": "coder__0304__000304_github_com_user_id_comment.up.sql",
+  "original_path": "coderd/database/migrations/000304_github_com_user_id_comment.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ca5049c3b847de02cecfa7c06c25df25bbf115788f33eda53fd25dfb20a643d8",
+  "bytes": 264
+ },
+ {
+  "file": "coder__0305__000305_remove_greetings_notifications_templates.up.sql",
+  "original_path": "coderd/database/migrations/000305_remove_greetings_notifications_templates.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7d4fb64cae05984a404653e026e7b3740efaaee99b2240c895f6d37bf1735f44",
+  "bytes": 6950
+ },
+ {
+  "file": "coder__0306__000306_template_version_terraform_values.up.sql",
+  "original_path": "coderd/database/migrations/000306_template_version_terraform_values.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "26760f25f7bfde5a87cbeac9b052be9699fd279632a0645693657a41c12a474e",
+  "bytes": 227
+ },
+ {
+  "file": "coder__0307__000307_fix_notifications_actions_url.up.sql",
+  "original_path": "coderd/database/migrations/000307_fix_notifications_actions_url.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2801e8f42416c5425b895985a81241256b9b9c23e0987dd6b7f011104870829c",
+  "bytes": 646
+ },
+ {
+  "file": "coder__0308__000308_system_user.up.sql",
+  "original_path": "coderd/database/migrations/000308_system_user.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9b82a31b75e85443d8d26f03eb63226661ca22b130e954c11924d19a8bdb87b9",
+  "bytes": 2469
+ },
+ {
+  "file": "coder__0309__000309_add_devcontainer_name.up.sql",
+  "original_path": "coderd/database/migrations/000309_add_devcontainer_name.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e4cb60a38257430b4dfbf85ef516fb90407209dcded6bc53c86e1217cd04984d",
+  "bytes": 253
+ },
+ {
+  "file": "coder__0310__000310_update_protect_deleting_organization_function.up.sql",
+  "original_path": "coderd/database/migrations/000310_update_protect_deleting_organization_function.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a868af2d85de750cc1ef4772ca6d93e55392ce449136c32c66e18944d629e4e8",
+  "bytes": 3545
+ },
+ {
+  "file": "coder__0311__000311_improve_dormant_workspace_notification.up.sql",
+  "original_path": "coderd/database/migrations/000311_improve_dormant_workspace_notification.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "be6622fa18620b791ec50d01aa68870d2499cee74cc8071a65d9725f8be2c805",
+  "bytes": 489
+ },
+ {
+  "file": "coder__0312__000312_webpush_subscriptions.up.sql",
+  "original_path": "coderd/database/migrations/000312_webpush_subscriptions.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4ecf257f45567b956fffbb204a031c7faf03dbb21732447ad5ab956b68b45a37",
+  "bytes": 714
+ },
+ {
+  "file": "coder__0313__000313_workspace_app_statuses.up.sql",
+  "original_path": "coderd/database/migrations/000313_workspace_app_statuses.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b34646eddae8a943abd9d0598f54ec5ba7d689620ec7920c40995fb8cdba524d",
+  "bytes": 1416
+ },
+ {
+  "file": "coder__0314__000314_prebuilds.up.sql",
+  "original_path": "coderd/database/migrations/000314_prebuilds.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "503da8ddd643437a113f07d1bdd90af32a3bd7dc982a4b422bd7bef1b0279185",
+  "bytes": 3149
+ },
+ {
+  "file": "coder__0315__000315_preset_prebuilds.up.sql",
+  "original_path": "coderd/database/migrations/000315_preset_prebuilds.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e89e34f3c0b76df1b7573cc9e7d202fde1f111bfaaed318836cf721822d2d00e",
+  "bytes": 906
+ },
+ {
+  "file": "coder__0316__000316_group_build_failure_notifications.up.sql",
+  "original_path": "coderd/database/migrations/000316_group_build_failure_notifications.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0bbf6a94b4c34bd60c13196d749280ec4b638009df7c432665b2ff96ade89ba7",
+  "bytes": 1455
+ },
+ {
+  "file": "coder__0317__000317_workspace_app_status_drop_fields.up.sql",
+  "original_path": "coderd/database/migrations/000317_workspace_app_status_drop_fields.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "854fbc68a6f2f02cb90d9bf16202c33ae3dca6a0d123ffc2c215b63473a07156",
+  "bytes": 117
+ },
+ {
+  "file": "coder__0318__000318_update_protect_deleting_orgs_to_filter_deleted_users.up.sql",
+  "original_path": "coderd/database/migrations/000318_update_protect_deleting_orgs_to_filter_deleted_users.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b72599aa9dfaaed2d71fec6a1e7516145fdb8ee61cd0c3a5e50b11b62a63cc57",
+  "bytes": 3687
+ },
+ {
+  "file": "coder__0319__000319_chat.up.sql",
+  "original_path": "coderd/database/migrations/000319_chat.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "17b140ac05895aa396ac568f5a3d7960d52a17d20006fd246ba063b2e95e6800",
+  "bytes": 651
+ },
+ {
+  "file": "coder__0320__000320_terraform_cached_modules.up.sql",
+  "original_path": "coderd/database/migrations/000320_terraform_cached_modules.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3e9ccc9874152285d88c52d6dd5ba23352181990b6e4093743db1177a05df392",
+  "bytes": 105
+ },
+ {
+  "file": "coder__0321__000321_add_parent_id_to_workspace_agents.up.sql",
+  "original_path": "coderd/database/migrations/000321_add_parent_id_to_workspace_agents.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ed27a1eeb2047c7f59a63b747e2c9c05ece1ba15ec4d1ebe4fc7ff45a356ebf7",
+  "bytes": 109
+ },
+ {
+  "file": "coder__0322__000322_rename_test_notification.up.sql",
+  "original_path": "coderd/database/migrations/000322_rename_test_notification.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "79d50343e9d3bdca5d3d1d5e59252288bc2fabbfd20e347d69ee49133143d3a1",
+  "bytes": 126
+ },
+ {
+  "file": "coder__0323__000323_workspace_latest_builds_optimization.up.sql",
+  "original_path": "coderd/database/migrations/000323_workspace_latest_builds_optimization.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f28118781a7884b08ece552c2baa376239d6869a4357d2097fd8c7db2e1ea87a",
+  "bytes": 3270
+ },
+ {
+  "file": "coder__0324__000324_resource_replacements_notification.up.sql",
+  "original_path": "coderd/database/migrations/000324_resource_replacements_notification.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d266a6757ba64a914010fb0ca3cdda86a0c278177de2a63a268f7a654e5750c9",
+  "bytes": 1520
+ },
+ {
+  "file": "coder__0325__000325_dynamic_parameters_metadata.up.sql",
+  "original_path": "coderd/database/migrations/000325_dynamic_parameters_metadata.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "dd24d17b9dd5f7da954b946596ed9d03444cfc1c2b61ac46f0ac68dc5202377f",
+  "bytes": 298
+ },
+ {
+  "file": "coder__0326__000326_add_api_key_scope_to_workspace_agents.up.sql",
+  "original_path": "coderd/database/migrations/000326_add_api_key_scope_to_workspace_agents.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "919a5109a31d301449ccd6f32430e03baead7900f27a2b90355536fe06bfee1c",
+  "bytes": 613
+ },
+ {
+  "file": "coder__0327__000327_version_dynamic_parameter_flow.up.sql",
+  "original_path": "coderd/database/migrations/000327_version_dynamic_parameter_flow.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0982e9d1e875567d0710ef1b37ab3267e75084fbc49c4c8bc268ae8fd0673d04",
+  "bytes": 1525
+ },
+ {
+  "file": "coder__0328__000328_prebuild_failure_limit_notification.up.sql",
+  "original_path": "coderd/database/migrations/000328_prebuild_failure_limit_notification.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "80fae57351cea922461b46888a1076c69f9bf47860c1349c0a70c0494ce3b8bf",
+  "bytes": 1135
+ },
+ {
+  "file": "coder__0329__000329_add_status_to_template_presets.up.sql",
+  "original_path": "coderd/database/migrations/000329_add_status_to_template_presets.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "294a66f729d0b316c0b3ac694005399ff4a7f5b5eca30fcb58d708850c043031",
+  "bytes": 531
+ },
+ {
+  "file": "coder__0330__000330_workspace_with_correct_owner_names.up.sql",
+  "original_path": "coderd/database/migrations/000330_workspace_with_correct_owner_names.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1faccead1cc9007423b8e1408ed1950797f652126db70124272a4815a553ab4d",
+  "bytes": 6568
+ },
+ {
+  "file": "coder__0331__000331_app_group.up.sql",
+  "original_path": "coderd/database/migrations/000331_app_group.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "42424e88e0633108eb80192c8da858d8db2a916acbaaccd9ceae306609e1ff9e",
+  "bytes": 59
+ },
+ {
+  "file": "coder__0332__000332_workspace_agent_name_unique_trigger.up.sql",
+  "original_path": "coderd/database/migrations/000332_workspace_agent_name_unique_trigger.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e888ab7a565f11e444803912c3fdc61b96cbbe8060b935e3145478ba37d2665a",
+  "bytes": 1806
+ },
+ {
+  "file": "coder__0333__000333_parameter_form_type.up.sql",
+  "original_path": "coderd/database/migrations/000333_parameter_form_type.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3759bc70b9c90632773aec687be32c30d7b5b0ea4663a222ea0ff3eeb96607eb",
+  "bytes": 842
+ },
+ {
+  "file": "coder__0334__000334_dynamic_parameters_opt_out.up.sql",
+  "original_path": "coderd/database/migrations/000334_dynamic_parameters_opt_out.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e1b61d5b2a3f30aebb556427eea3569042f931a04a87dd5b4cf683fc8e355721",
+  "bytes": 206
+ },
+ {
+  "file": "coder__0335__000335_ai_tasks.up.sql",
+  "original_path": "coderd/database/migrations/000335_ai_tasks.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b664a7128adf791f8834cbaf85b5cf208c0e766cc3f80084417e5036c2ab4f1d",
+  "bytes": 3535
+ },
+ {
+  "file": "coder__0336__000336_add_organization_port_sharing_level.up.sql",
+  "original_path": "coderd/database/migrations/000336_add_organization_port_sharing_level.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ae4426035425554222d3c50098cf77380813c7a7c9fbfabe6c7386dca64f7685",
+  "bytes": 2906
+ },
+ {
+  "file": "coder__0337__000337_nullable_has_ai_task.up.sql",
+  "original_path": "coderd/database/migrations/000337_nullable_has_ai_task.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "37198ca0c2cf52961d4c8cfeb284fdba10d39e29c12690d46f30865681334ac4",
+  "bytes": 482
+ },
+ {
+  "file": "coder__0338__000338_use_deleted_boolean_for_subagents.up.sql",
+  "original_path": "coderd/database/migrations/000338_use_deleted_boolean_for_subagents.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1d02360794160fef85af989d23d2bc6dff2a8531b29d4bab11226ac80a5ebd76",
+  "bytes": 4385
+ },
+ {
+  "file": "coder__0339__000339_add_scheduling_to_presets.up.sql",
+  "original_path": "coderd/database/migrations/000339_add_scheduling_to_presets.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7802efda1129046cbb37890810800e7d62c6ee8621a18e106ded6e6f19c450b2",
+  "bytes": 523
+ },
+ {
+  "file": "coder__0340__000340_workspace_app_status_idle.up.sql",
+  "original_path": "coderd/database/migrations/000340_workspace_app_status_idle.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a518a696b0ea682ae3f4d9e25b2dbb9294260ee5829938e5fd5a746027bcf4b4",
+  "bytes": 71
+ },
+ {
+  "file": "coder__0341__000341_template_version_preset_default.up.sql",
+  "original_path": "coderd/database/migrations/000341_template_version_preset_default.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0a82254b9a9159956c97dc9726ff66b8909b94aabe9dcd18930d8f0f57d23820",
+  "bytes": 312
+ },
+ {
+  "file": "coder__0342__000342_ai_task_sidebar_app_id_column_and_constraint.up.sql",
+  "original_path": "coderd/database/migrations/000342_ai_task_sidebar_app_id_column_and_constraint.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "26e478a180994f386d615eeb87e61e7f9f1ee36a175699d8a6eb9a8a4df73fbf",
+  "bytes": 2655
+ },
+ {
+  "file": "coder__0343__000343_delete_chats.up.sql",
+  "original_path": "coderd/database/migrations/000343_delete_chats.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8d9a69171e719db297217677f662683026645bb15db9b0795b4bc1a1edb538c2",
+  "bytes": 66
+ },
+ {
+  "file": "coder__0344__000344_oauth2_extensions.up.sql",
+  "original_path": "coderd/database/migrations/000344_oauth2_extensions.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7dd8ab639ac7b063442f9d4b5ce43f21351b2e03030c685afbb42a5a0fd5b8c7",
+  "bytes": 2074
+ },
+ {
+  "file": "coder__0345__000345_audit_prebuilds_settings.up.sql",
+  "original_path": "coderd/database/migrations/000345_audit_prebuilds_settings.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3c56f7923ee504f47e65318c1e7c08563b423e78f9efbf504c3d39cfb5664632",
+  "bytes": 74
+ },
+ {
+  "file": "coder__0346__000346_oauth2_provider_app_tokens_denormalize_user_id.up.sql",
+  "original_path": "coderd/database/migrations/000346_oauth2_provider_app_tokens_denormalize_user_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0e929cc83468955dd3adabbf8e677c5f3a2a4a66702dd8c54ace1735cd263a62",
+  "bytes": 942
+ },
+ {
+  "file": "coder__0347__000347_oauth2_dynamic_registration.up.sql",
+  "original_path": "coderd/database/migrations/000347_oauth2_dynamic_registration.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a7427827a67525d262baab905747ae6fb284e4374451ace3d1cba6b205951509",
+  "bytes": 3678
+ },
+ {
+  "file": "coder__0348__000348_remove_oauth2_app_name_unique_constraint.up.sql",
+  "original_path": "coderd/database/migrations/000348_remove_oauth2_app_name_unique_constraint.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4002cc4fc630870765207557a527c1f0aadaddc077771adf2ffeeeafb7ebaa5b",
+  "bytes": 235
+ },
+ {
+  "file": "coder__0349__000349_connection_logs.up.sql",
+  "original_path": "coderd/database/migrations/000349_connection_logs.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "662afc0854997785b9f30edaeb62acb296b0b27396025abc5ee82c1d2d607a74",
+  "bytes": 3572
+ },
+ {
+  "file": "coder__0350__000350_extend_workspace_build_reason.up.sql",
+  "original_path": "coderd/database/migrations/000350_extend_workspace_build_reason.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7c27abf6a7ea3c90d8157e59cc3feb0feecf3f0819367f7689bc1587d222291c",
+  "bytes": 328
+ },
+ {
+  "file": "coder__0351__000351_add_icon_and_description_template_version_presets.up.sql",
+  "original_path": "coderd/database/migrations/000351_add_icon_and_description_template_version_presets.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b96d4cb64a4372966bd7d7719b43b9bc96605d6f38963fcc4447200428183373",
+  "bytes": 420
+ },
+ {
+  "file": "coder__0352__000352_default_dynamic_templates.up.sql",
+  "original_path": "coderd/database/migrations/000352_default_dynamic_templates.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "05c78380d2e0f2e011e4ac3ecd8092a47de9ebcc0d3e07aeef89adac6660e14c",
+  "bytes": 82
+ },
+ {
+  "file": "coder__0353__000353_template_level_cors.up.sql",
+  "original_path": "coderd/database/migrations/000353_template_level_cors.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e31672573abf5ef876284cbdebf86423bed556fd3d45fb3c77013fb206e7c3f0",
+  "bytes": 2060
+ },
+ {
+  "file": "coder__0354__000354_workspace_acl.up.sql",
+  "original_path": "coderd/database/migrations/000354_workspace_acl.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "cd5c9d9cec7475aa9298d1cc40666bfb955bd87cba41a867739c9bd89571645e",
+  "bytes": 1610
+ },
+ {
+  "file": "coder__0355__000355_add_provisioner_logs_overflowed.up.sql",
+  "original_path": "coderd/database/migrations/000355_add_provisioner_logs_overflowed.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6411773dbe0e263b650927e10a2be47c3c7f9840884fab6b5370de99a92fedbe",
+  "bytes": 522
+ },
+ {
+  "file": "coder__0356__000356_enforce_deadline_below_max_deadline.up.sql",
+  "original_path": "coderd/database/migrations/000356_enforce_deadline_below_max_deadline.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "63225ecc5bcd2d36697f6654c9b87bf0f4d06609786599958d6bc4d8f96e432f",
+  "bytes": 939
+ },
+ {
+  "file": "coder__0357__000357_add_user_secrets.up.sql",
+  "original_path": "coderd/database/migrations/000357_add_user_secrets.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b400759dac96cae59c1d6ae57bca1a4aa315d8def4ea1fe75fc6ba4ab1c59e2f",
+  "bytes": 1419
+ },
+ {
+  "file": "coder__0358__000358_failed_ext_auth_error.up.sql",
+  "original_path": "coderd/database/migrations/000358_failed_ext_auth_error.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b8713454a6c244880b7ed5001889ea8ceda391b11c0ebe53827de730a8a8cb67",
+  "bytes": 309
+ },
+ {
+  "file": "coder__0359__000359_create_usage_events_table.up.sql",
+  "original_path": "coderd/database/migrations/000359_create_usage_events_table.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8218ca88f0de50d4e0ee9c09ac50deca772f176aa4168c048d92ddd360721d46",
+  "bytes": 2239
+ },
+ {
+  "file": "coder__0360__000360_external_agents.up.sql",
+  "original_path": "coderd/database/migrations/000360_external_agents.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a67e3de8223db11b8654b50c0fa93e5accb8c725a70faa87693edb089bf6e1cc",
+  "bytes": 2868
+ },
+ {
+  "file": "coder__0361__000361_username_length_constraint.up.sql",
+  "original_path": "coderd/database/migrations/000361_username_length_constraint.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4a7beb2071f309ccb8034016f32656179070b3803ecc7dd581b1caf96e422e70",
+  "bytes": 93
+ },
+ {
+  "file": "coder__0362__000362_aggregate_usage_events.up.sql",
+  "original_path": "coderd/database/migrations/000362_aggregate_usage_events.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "642fa9d389804d140ead6e77301c3b24e48f62b7ba8e8b3c89baa0f878acafaf",
+  "bytes": 2456
+ },
+ {
+  "file": "coder__0363__000363_workspace_build_initiator_index.up.sql",
+  "original_path": "coderd/database/migrations/000363_workspace_build_initiator_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "67dcb6b816084225f4ceb7cb0b84b7244463b21a6c1e80727c542bae91bc64f7",
+  "bytes": 367
+ },
+ {
+  "file": "coder__0364__000364_optimize_getprovisionerdaemonswithstatusbyorganization_query.up.sql",
+  "original_path": "coderd/database/migrations/000364_optimize_getprovisionerdaemonswithstatusbyorganization_query.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c512abba78b7398d60e3352cc95c8cdf7b1e7cf038514f27494f42fa61a58738",
+  "bytes": 428
+ },
+ {
+  "file": "coder__0365__000365_add_index_for_getapikeyslastusedafter.up.sql",
+  "original_path": "coderd/database/migrations/000365_add_index_for_getapikeyslastusedafter.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9bb40704880aa054f84bd0d54480178fe1965739e32530b72c68b325b8086779",
+  "bytes": 175
+ },
+ {
+  "file": "coder__0366__000366_create_tasks_data_model.up.sql",
+  "original_path": "coderd/database/migrations/000366_create_tasks_data_model.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2dbc260091202764c08eaf820104e6394aaad18ea8d9df9592190ff89cd5b5db",
+  "bytes": 1085
+ },
+ {
+  "file": "coder__0367__000367_workspaceapp_tooltip.up.sql",
+  "original_path": "coderd/database/migrations/000367_workspaceapp_tooltip.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1008a1a8affd2a4ccfe43396a5af82ef7cfdef0e9d97fd88f670b36702080906",
+  "bytes": 215
+ },
+ {
+  "file": "coder__0368__000368_add_custom_notifications.up.sql",
+  "original_path": "coderd/database/migrations/000368_add_custom_notifications.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c9cb79c3d47555241dde2d22cd141377f42e25df023530584e588fb8a77dd315",
+  "bytes": 1053
+ },
+ {
+  "file": "coder__0369__000369_nullable_conn_log_ip.up.sql",
+  "original_path": "coderd/database/migrations/000369_nullable_conn_log_ip.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4a942e639a956b401eba25a74421a326e4602dc48265ad77dec4cb175797e892",
+  "bytes": 198
+ },
+ {
+  "file": "coder__0370__000370_aibridge.up.sql",
+  "original_path": "coderd/database/migrations/000370_aibridge.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4b5a14f830bfecf88fafe2af859a85034165f58178d4524a3f20fd3a1b7d4834",
+  "bytes": 3483
+ },
+ {
+  "file": "coder__0371__000371_api_key_scopes_array_allow_list.up.sql",
+  "original_path": "coderd/database/migrations/000371_api_key_scopes_array_allow_list.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4fdc54b4dc75ceeb24d5ec96155f5607b29e556d8b79833c095735c64aae4611",
+  "bytes": 11352
+ },
+ {
+  "file": "coder__0372__000372_aibridge_interception_metadata.up.sql",
+  "original_path": "coderd/database/migrations/000372_aibridge_interception_metadata.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f9746b76c8de16e332c1423bd8d7a78751ed729e8cfb90750b37cadecdccd274",
+  "bytes": 76
+ },
+ {
+  "file": "coder__0373__000373_canonicalize_special_api_key_scopes.up.sql",
+  "original_path": "coderd/database/migrations/000373_canonicalize_special_api_key_scopes.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6041d415468f5b2cebc3f6f2f26e2878279d9dd38f9831d9f82bee86559bd992",
+  "bytes": 316
+ },
+ {
+  "file": "coder__0374__000374_aibridge_interception_indices.up.sql",
+  "original_path": "coderd/database/migrations/000374_aibridge_interception_indices.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "18c8137a378eca1affb83c7fd147095a68642db22230f471c9dac75a8e10b8cf",
+  "bytes": 389
+ },
+ {
+  "file": "coder__0375__000375_add_composite_api_key_scopes.up.sql",
+  "original_path": "coderd/database/migrations/000375_add_composite_api_key_scopes.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f3ab79cca06b52284aee083bba8757b2f2be8947d3b5606681b0ee9dc993956a",
+  "bytes": 671
+ },
+ {
+  "file": "coder__0376__000376_task_status_notifications.up.sql",
+  "original_path": "coderd/database/migrations/000376_task_status_notifications.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b382de15944e6c2336e235ffda4c61639c7d6aa0f4cada246d5ed611b3175190",
+  "bytes": 1479
+ },
+ {
+  "file": "coder__0377__000377_add_api_key_scope_wildcards.up.sql",
+  "original_path": "coderd/database/migrations/000377_add_api_key_scope_wildcards.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "075fcc3d46b2116b5653f04f55ab49a85dea7aa2398243c5f8f74b4e27527fb4",
+  "bytes": 2989
+ },
+ {
+  "file": "coder__0378__000378_add_tasks_rbac.up.sql",
+  "original_path": "coderd/database/migrations/000378_add_tasks_rbac.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ebb4393a6420976019cd6ef7fa1fc3f20633d829839e44e7b350003dbd086dcb",
+  "bytes": 334
+ },
+ {
+  "file": "coder__0379__000379_create_tasks_with_status_view.up.sql",
+  "original_path": "coderd/database/migrations/000379_create_tasks_with_status_view.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "451de4a826c5a681a55c937eddd8a8a358f0bed9a239ae63fccf30b60476bff6",
+  "bytes": 3732
+ },
+ {
+  "file": "coder__0380__000380_task_name_unique.up.sql",
+  "original_path": "coderd/database/migrations/000380_task_name_unique.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0e42e221f367b2ab7e5b0fb25d0573d09f978b5f7bba2a488ea340334814fd6c",
+  "bytes": 227
+ },
+ {
+  "file": "coder__0381__000381_add_task_audit.up.sql",
+  "original_path": "coderd/database/migrations/000381_add_task_audit.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "eac343975f125f7c51306c8abcb23e3cfd40466cebc2a5711ed9820317d61c1d",
+  "bytes": 58
+ },
+ {
+  "file": "coder__0382__000382_add_columns_to_tasks_with_status.up.sql",
+  "original_path": "coderd/database/migrations/000382_add_columns_to_tasks_with_status.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "61073ae3caef51fc13ebdcb5b57f2df21f626141d9e7b7d9c78cb9c381a51d46",
+  "bytes": 2678
+ },
+ {
+  "file": "coder__0383__000383_add_task_completed_failed_notification_templates.up.sql",
+  "original_path": "coderd/database/migrations/000383_add_task_completed_failed_notification_templates.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5131b99f70fdd8074feb28815c5811ab2161e3b56a58495d04cb5e114fd17391",
+  "bytes": 1495
+ },
+ {
+  "file": "coder__0384__000384_add_workspace_share_scope.up.sql",
+  "original_path": "coderd/database/migrations/000384_add_workspace_share_scope.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "64317cd0e3d4e01b27f8dfd6ed04e578d792a085191af6d02af83a5afdca4074",
+  "bytes": 146
+ },
+ {
+  "file": "coder__0385__000385_aibridge_fks.up.sql",
+  "original_path": "coderd/database/migrations/000385_aibridge_fks.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "53118207f03809612f46b18a7e16a732e22a21729d63cf518130751f9f624f2d",
+  "bytes": 2150
+ },
+ {
+  "file": "coder__0386__000386_aibridge_interceptions_ended_at.up.sql",
+  "original_path": "coderd/database/migrations/000386_aibridge_interceptions_ended_at.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "35973dc8d0ade2349edd6eccfc6c7564032a1db022156b2809c1a6b388b964d1",
+  "bytes": 95
+ },
+ {
+  "file": "coder__0387__000387_migrate_task_workspaces.up.sql",
+  "original_path": "coderd/database/migrations/000387_migrate_task_workspaces.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "479ef6b81683ba19d3f3baaad96b70ef3eaed20c968fe0c1e6d4d7a83d7f62fd",
+  "bytes": 3321
+ },
+ {
+  "file": "coder__0388__000388_oauth_app_byte_reg_access_token.up.sql",
+  "original_path": "coderd/database/migrations/000388_oauth_app_byte_reg_access_token.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3053e594d7f866c75b7907f750b3537bc07933445b6113d310d3011727bbedd0",
+  "bytes": 152
+ },
+ {
+  "file": "coder__0389__000389_api_key_allow_list_constraint.up.sql",
+  "original_path": "coderd/database/migrations/000389_api_key_allow_list_constraint.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "60fe9d026c51f0adbc47701420e5cfc7b10bcd84233fe880145e47b860ffb60f",
+  "bytes": 471
+ },
+ {
+  "file": "coder__0390__000390_telemetry_locks.up.sql",
+  "original_path": "coderd/database/migrations/000390_telemetry_locks.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "12066c39b6a511fa36436a17f2be81186157be08b875fb039df528b2b699e21c",
+  "bytes": 677
+ },
+ {
+  "file": "coder__0391__000391_tasks_with_status_user_fields.up.sql",
+  "original_path": "coderd/database/migrations/000391_tasks_with_status_user_fields.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "501b9027a0db2efc1357821f7c19adcdfa427851e439bc94fd0687e9df7fc115",
+  "bytes": 2923
+ },
+ {
+  "file": "coder__0392__000392_disable_tasks_notifications_by_default.up.sql",
+  "original_path": "coderd/database/migrations/000392_disable_tasks_notifications_by_default.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "bb369e37de30131a8eb04cc90ef30f61844da9c37de0cbe8614f8817177e96e2",
+  "bytes": 249
+ },
+ {
+  "file": "coder__0393__000393_workspaces_expanded_task_id.up.sql",
+  "original_path": "coderd/database/migrations/000393_workspaces_expanded_task_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c7c61dc728e064b44828dcfd4134fb48ed31713f20323d98f853bff919ec214b",
+  "bytes": 1555
+ },
+ {
+  "file": "coder__0394__000394_drop_workspace_build_ai_task_sidebar_app_id_required.up.sql",
+  "original_path": "coderd/database/migrations/000394_drop_workspace_build_ai_task_sidebar_app_id_required.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0c68a1880de35b1a209adc2cd23e1e1421a8aac92be31aa9ec20e3c364c36cb0",
+  "bytes": 186
+ },
+ {
+  "file": "coder__0395__000395_drop_ai_task_sidebar_app_id_from_workspace_builds.up.sql",
+  "original_path": "coderd/database/migrations/000395_drop_ai_task_sidebar_app_id_from_workspace_builds.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "635c5a06b93ba9eabfc4124f78a0cf20ea18e2cf8b1a7989e84896a099acadfb",
+  "bytes": 1396
+ },
+ {
+  "file": "coder__0396__000396_add_aibridge_interceptions_api_key_id.up.sql",
+  "original_path": "coderd/database/migrations/000396_add_aibridge_interceptions_api_key_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a0485ad4c1ad826c60a39e47bb17835f020836a8fca4c25b8dc2749613decaf0",
+  "bytes": 154
+ },
+ {
+  "file": "coder__0397__000397_experimental_terraform_workspaces.up.sql",
+  "original_path": "coderd/database/migrations/000397_experimental_terraform_workspaces.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "57cb8962cb80c0e49eb47d5902c2724261c0473e2912aedba91d33a780fd5484",
+  "bytes": 1516
+ },
+ {
+  "file": "coder__0398__000398_update_task_status_view.up.sql",
+  "original_path": "coderd/database/migrations/000398_update_task_status_view.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f23e490c8be955257c5686a808e5515d00fe4330f641c29a02668c9c33d32e9f",
+  "bytes": 4806
+ },
+ {
+  "file": "coder__0399__000399_template_version_presets_last_invalidated_at.up.sql",
+  "original_path": "coderd/database/migrations/000399_template_version_presets_last_invalidated_at.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e101d8ebc9872153fe203f2d9b4a495e73f06bfcf3092e8098a3dfe7cd77fe73",
+  "bytes": 82
+ },
+ {
+  "file": "coder__0400__000400_add_task_display_name.up.sql",
+  "original_path": "coderd/database/migrations/000400_add_task_display_name.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f93147ae57b700521182e10ed63e0e397e59d8666d09be2e4e7ea16fe287871b",
+  "bytes": 5650
+ },
+ {
+  "file": "coder__0401__000401_add_workspace_agents_index.up.sql",
+  "original_path": "coderd/database/migrations/000401_add_workspace_agents_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c536dd3e23619cb95491f2bfa5f46117b3d5fb06d857d07dcdb87d6d3eb3dc81",
+  "bytes": 123
+ },
+ {
+  "file": "coder__0402__000402_workspace_app_statuses_app_id_index.up.sql",
+  "original_path": "coderd/database/migrations/000402_workspace_app_statuses_app_id_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "891cfa0d0f1b95217b6e574ae4af237a5434b668f54239c93cc665018a78b5e2",
+  "bytes": 101
+ },
+ {
+  "file": "coder__0403__000403_workspaces_expanded_acl_actor_info.up.sql",
+  "original_path": "coderd/database/migrations/000403_workspaces_expanded_acl_actor_info.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1d2b5189245f3b978751f747ef256cc4f7fab6f8d490c5c76c506de88b995210",
+  "bytes": 2752
+ },
+ {
+  "file": "coder__0404__000404_allow_same_role_name_in_different_orgs.up.sql",
+  "original_path": "coderd/database/migrations/000404_allow_same_role_name_in_different_orgs.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "41d6748a59a208b2b3618b0d7413ded8656cd0e7e5ad59d95b65292b5447bcf1",
+  "bytes": 1314
+ },
+ {
+  "file": "coder__0405__000405_remove_experiment_terraform_workspaces.up.sql",
+  "original_path": "coderd/database/migrations/000405_remove_experiment_terraform_workspaces.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e46fd092cce6f1d5ee71e093a786ddd73faeaf98e0a981ed5f47f06509e6d176",
+  "bytes": 906
+ },
+ {
+  "file": "coder__0406__000406_add_system_role_support.up.sql",
+  "original_path": "coderd/database/migrations/000406_add_system_role_support.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "06f59557a125e151ddf6e6d9a2c5fb926ae49570e832cd6c0c078a441f188cc8",
+  "bytes": 463
+ },
+ {
+  "file": "coder__0407__000407_add_workspace_sharing_disabled.up.sql",
+  "original_path": "coderd/database/migrations/000407_add_workspace_sharing_disabled.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9f9192f3955c99265879ff67f8836a802380bd509709d9ec2b9135e658587ff7",
+  "bytes": 102
+ },
+ {
+  "file": "coder__0408__000408_create_org_member_system_roles.up.sql",
+  "original_path": "coderd/database/migrations/000408_create_org_member_system_roles.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0f7856f408bef772d04f187677a4660511070411475d6cca14040ecee81df1b0",
+  "bytes": 2386
+ },
+ {
+  "file": "coder__0409__000409_task_lifecycle.up.sql",
+  "original_path": "coderd/database/migrations/000409_task_lifecycle.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "43af22a1542ae2c9aaa4713b6b2bff80af5acb6a5410c42da4db55b2e84691d4",
+  "bytes": 1270
+ },
+ {
+  "file": "coder__0410__000410_remove_tailnet_v1_tables.up.sql",
+  "original_path": "coderd/database/migrations/000410_remove_tailnet_v1_tables.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1974ae9e2f3ea8408a14efe6bd52a9ee3dd438fc30f9b6d776ac4836e5855d4d",
+  "bytes": 1070
+ },
+ {
+  "file": "coder__0411__000411_boundary_usage_stats.up.sql",
+  "original_path": "coderd/database/migrations/000411_boundary_usage_stats.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0a3db4b5b1e99015372b0a82a95b1518e06043895b17db2ad10ac946c4af98ee",
+  "bytes": 2000
+ },
+ {
+  "file": "coder__0412__000412_tailnet_tables_unlogged.up.sql",
+  "original_path": "coderd/database/migrations/000412_tailnet_tables_unlogged.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f4850f32f664ea2a2923851b25f78a19e1054fbcdf174260629a3d5f11de92cf",
+  "bytes": 1115
+ },
+ {
+  "file": "coder__0413__000413_add_subagent_id_to_dev_containers.up.sql",
+  "original_path": "coderd/database/migrations/000413_add_subagent_id_to_dev_containers.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "858b592124a7f74f7f9039fc27cadd741e847eb6d7d3657f4cd26bbcd02fa592",
+  "bytes": 124
+ },
+ {
+  "file": "coder__0414__000414_add_update_agent_api_key_scope.up.sql",
+  "original_path": "coderd/database/migrations/000414_add_update_agent_api_key_scope.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "79a8f103bdb6c481f1b5ad1362f16434db53188998c4fede1abdb728447cc625",
+  "bytes": 160
+ },
+ {
+  "file": "coder__0415__000415_fix_task_pending_status.up.sql",
+  "original_path": "coderd/database/migrations/000415_fix_task_pending_status.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7997e6fc1a39133ea2fffa9e8e7db542b0899088d62c54b7a82a4f005cd858ea",
+  "bytes": 5078
+ },
+ {
+  "file": "coder__0416__000416_workspace_module_reuse_toggle.up.sql",
+  "original_path": "coderd/database/migrations/000416_workspace_module_reuse_toggle.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "944723a040b33038fe2a82682fa38cf2ca2f919f2caf6f8ad79f406342afd26d",
+  "bytes": 904
+ },
+ {
+  "file": "coder__0417__000417_workspace_acl_object_constraint.up.sql",
+  "original_path": "coderd/database/migrations/000417_workspace_acl_object_constraint.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4bbf4b67b53aadcaaab7803f4e557ee4435e5a8b7cbe05a1f9f846c5fc3dbdad",
+  "bytes": 484
+ },
+ {
+  "file": "coder__0418__000418_add_client_to_aibridge_interceptions.up.sql",
+  "original_path": "coderd/database/migrations/000418_add_client_to_aibridge_interceptions.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "cb18adc0a05313e32d3d51593ae51c5ff286405a5d720ed650468472fe54a2a4",
+  "bytes": 178
+ },
+ {
+  "file": "coder__0419__000419_task_pause_resume_notifications.up.sql",
+  "original_path": "coderd/database/migrations/000419_task_pause_resume_notifications.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "be1be5fe5ad8c439bf6d5bbb73f4cbb1f0b4ca01eba6b79f24327efda4890a63",
+  "bytes": 1462
+ },
+ {
+  "file": "coder__0420__000420_oauth2_provider_app_codes_add_columns.up.sql",
+  "original_path": "coderd/database/migrations/000420_oauth2_provider_app_codes_add_columns.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7aa032ba40da02d29aa55ad37d580ed121f677bb6917a584c30edf53146b32d3",
+  "bytes": 440
+ },
+ {
+  "file": "coder__0421__000421_workspace_build_view_drop_provisioner_state.up.sql",
+  "original_path": "coderd/database/migrations/000421_workspace_build_view_drop_provisioner_state.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "900915ae3d399c2ab39c31c1e524d6fb98b39b528b26e3de08229111658b48cc",
+  "bytes": 1405
+ },
+ {
+  "file": "coder__0422__000422_chats.up.sql",
+  "original_path": "coderd/database/migrations/000422_chats.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8ac0af33a13b704b4f7f974d352589ad85762898753e12fab22eacddacf63fc9",
+  "bytes": 7381
+ },
+ {
+  "file": "coder__0423__000423_chat_archive.up.sql",
+  "original_path": "coderd/database/migrations/000423_chat_archive.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "fe98e4997f68e164be83d6b39dc13b1ad6315aca4b2e5d53e390d20f85fe83d6",
+  "bytes": 71
+ },
+ {
+  "file": "coder__0424__000424_chat_last_error.up.sql",
+  "original_path": "coderd/database/migrations/000424_chat_last_error.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "52375ff04db1eb639c269a11c08a456e69291c9a934e8d8fb6a52f401e1c23d5",
+  "bytes": 47
+ },
+ {
+  "file": "coder__0425__000425_remove_chat_workspace_agent_id.up.sql",
+  "original_path": "coderd/database/migrations/000425_remove_chat_workspace_agent_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1db4557332f44cd923348b148b033be914359d1a9d06254432121f2956dcd3b0",
+  "bytes": 51
+ },
+ {
+  "file": "coder__0426__000426_aibridge_tool_call_id_correlation.up.sql",
+  "original_path": "coderd/database/migrations/000426_aibridge_tool_call_id_correlation.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c872ad8457438ac6dde7e38468e5f4dbd52732dee5b2858202d4a50133de0972",
+  "bytes": 888
+ },
+ {
+  "file": "coder__0427__000427_add_workspace_acl_to_tasks_view.up.sql",
+  "original_path": "coderd/database/migrations/000427_add_workspace_acl_to_tasks_view.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4865820878169d01dfbd35ae4c4c0e372e22eeb1865180de890066b773ed6e59",
+  "bytes": 5286
+ },
+ {
+  "file": "coder__0428__000428_aibridge_sessions.up.sql",
+  "original_path": "coderd/database/migrations/000428_aibridge_sessions.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5b29a3179ec8cfad3b8d637b81f798fb753d39d4ab104501f72f82ca9c29f93a",
+  "bytes": 378
+ },
+ {
+  "file": "coder__0429__000429_chat_files.up.sql",
+  "original_path": "coderd/database/migrations/000429_chat_files.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "445eba4d74e654a6e4d8255a142a55e93d663c76cf6869c5b8cacbb408ef5f27",
+  "bytes": 503
+ },
+ {
+  "file": "coder__0430__000430_chat_pagination_index.up.sql",
+  "original_path": "coderd/database/migrations/000430_chat_pagination_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "cbc669fd1eacc776804677f28926d6ac91d499416cd69a34b1faa50385adb95e",
+  "bytes": 88
+ },
+ {
+  "file": "coder__0431__000431_add_created_by_to_chat_messages.up.sql",
+  "original_path": "coderd/database/migrations/000431_add_created_by_to_chat_messages.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "06e5dffa3641dbcb0c8bc206e3789506c42704436aea443cac6da05a54b6d782",
+  "bytes": 55
+ },
+ {
+  "file": "coder__0432__000432_chat_diff_status_pr_title_draft.up.sql",
+  "original_path": "coderd/database/migrations/000432_chat_diff_status_pr_title_draft.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4ca8a1a93fa95cc183ca0d8fd3810a618f55605538690704e8b10702c98019a3",
+  "bytes": 182
+ },
+ {
+  "file": "coder__0433__000433_add_is_service_account_to_users.up.sql",
+  "original_path": "coderd/database/migrations/000433_add_is_service_account_to_users.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "62b26c101bc15c4bb10b12b26776780c5d2573aacdd3a30b3a5a7169fac7a118",
+  "bytes": 1441
+ },
+ {
+  "file": "coder__0434__000434_chat_message_role_and_content_version.up.sql",
+  "original_path": "coderd/database/migrations/000434_chat_message_role_and_content_version.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "645c3fd2b1a6f540c115cad269a600b717ca392228457c8a691f87688ca62212",
+  "bytes": 1013
+ },
+ {
+  "file": "coder__0435__000435_add_cost_to_chat_messages.up.sql",
+  "original_path": "coderd/database/migrations/000435_add_cost_to_chat_messages.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "82d01d7cc0dc8e15bc81f669c85568d99228bf35d3bc15f2b8086b2017cd98e2",
+  "bytes": 2824
+ },
+ {
+  "file": "coder__0436__000436_add_chat_mode.up.sql",
+  "original_path": "coderd/database/migrations/000436_add_chat_mode.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "250eb661df8c42120a9035b0e81c5bf2aaef041d69a81b958b7dcc0b51344f32",
+  "bytes": 97
+ },
+ {
+  "file": "coder__0437__000437_chat_diff_status_pr_enrichment.up.sql",
+  "original_path": "coderd/database/migrations/000437_chat_diff_status_pr_enrichment.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "81371d3452bdc6bd521f022baf15cdd729337f2999f3e24643ebcc95ada90eb5",
+  "bytes": 440
+ },
+ {
+  "file": "coder__0438__000438_chat_diff_status_head_branch.up.sql",
+  "original_path": "coderd/database/migrations/000438_chat_diff_status_head_branch.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c0c70bfd73b1cf8c62794a3eadd5f4ff3c650d114a0a8f4c770875d57e0995f4",
+  "bytes": 61
+ },
+ {
+  "file": "coder__0439__000439_ai_seat_state.up.sql",
+  "original_path": "coderd/database/migrations/000439_ai_seat_state.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "056b681c9457f15cf9ff9968bc3bb9bef7a9f6ae0595f48a70d8cd948fcce779",
+  "bytes": 382
+ },
+ {
+  "file": "coder__0440__000440_ai_seat_audit.up.sql",
+  "original_path": "coderd/database/migrations/000440_ai_seat_audit.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "46b039d118108be7299aaeaaa96c2a3fcefcdb046edca7260062c3daeba05f9f",
+  "bytes": 61
+ },
+ {
+  "file": "coder__0441__000441_chat_usage_limits.up.sql",
+  "original_path": "coderd/database/migrations/000441_chat_usage_limits.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4292cadcc9f001470de8c1a91d76e2ab1101097f48907a8a4d988201ce1cc851",
+  "bytes": 1536
+ },
+ {
+  "file": "coder__0442__000442_aibridge_model_thoughts.up.sql",
+  "original_path": "coderd/database/migrations/000442_aibridge_model_thoughts.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9a4f3822450a7090a82571b4d5b9ebbbdc7b8457597bc4185541563327748fab",
+  "bytes": 386
+ },
+ {
+  "file": "coder__0443__000443_three_options_for_allowed_workspace_sharing.up.sql",
+  "original_path": "coderd/database/migrations/000443_three_options_for_allowed_workspace_sharing.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f6577c4ff1769902b197e4c41b56e726845591c230a6f0d71f2857316a4c744c",
+  "bytes": 2758
+ },
+ {
+  "file": "coder__0444__000444_usage_events_ai_seats.up.sql",
+  "original_path": "coderd/database/migrations/000444_usage_events_ai_seats.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c479fe115f334ab81ff0f80fb44a74bf1b875a7878ff036c1e620f308a2d22be",
+  "bytes": 2034
+ },
+ {
+  "file": "coder__0445__000445_chat_message_runtime_ms.up.sql",
+  "original_path": "coderd/database/migrations/000445_chat_message_runtime_ms.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "eaf289b19d0d374e6ee847350def3e37fcd36c659b03c5fbd785f7f4e8f1d00d",
+  "bytes": 57
+ },
+ {
+  "file": "coder__0446__000446_chat_messages_deleted.up.sql",
+  "original_path": "coderd/database/migrations/000446_chat_messages_deleted.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "db2c33c0904deec4ebce91d4d00d605ba2b8c2b498566d65ef2b0b527e43a524",
+  "bytes": 78
+ },
+ {
+  "file": "coder__0447__000447_mcp_server_configs.up.sql",
+  "original_path": "coderd/database/migrations/000447_mcp_server_configs.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8831927b368566ce50ddabed2a80bc4d40cc6c0a690d275d68e5c1633fb68632",
+  "bytes": 3119
+ },
+ {
+  "file": "coder__0448__000448_group_member_is_service_account.up.sql",
+  "original_path": "coderd/database/migrations/000448_group_member_is_service_account.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0ce21b6aea97851f8c62ee22133e6ddd4beecfcefba9e69b12a773ef08251eae",
+  "bytes": 1365
+ },
+ {
+  "file": "coder__0449__000449_aibridge_session_indexes.up.sql",
+  "original_path": "coderd/database/migrations/000449_aibridge_session_indexes.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e7cbf6a5e6ae5dbc84d129f068c4871a3ddf76831f3cec83fb145f2859df3339",
+  "bytes": 1904
+ },
+ {
+  "file": "coder__0450__000450_chat_messages_provider_response_id.up.sql",
+  "original_path": "coderd/database/migrations/000450_chat_messages_provider_response_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "47208446bbe20b2769ef71bd680762569b53ef537b95c3ed24a389ff0967c411",
+  "bytes": 65
+ },
+ {
+  "file": "coder__0451__000451_chat_labels.up.sql",
+  "original_path": "coderd/database/migrations/000451_chat_labels.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a73fdd2d587ba5e245d5f76c32a3ef40b8ef49a0fff4d4e07ba530c14724fbd9",
+  "bytes": 128
+ },
+ {
+  "file": "coder__0452__000452_chat_workspace_binding.up.sql",
+  "original_path": "coderd/database/migrations/000452_chat_workspace_binding.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4d8bdaadbcb5fcc1df9a17a2be778c326550f174b7269ee207ad43a5c810ca26",
+  "bytes": 183
+ },
+ {
+  "file": "coder__0453__000453_chat_pin_order.up.sql",
+  "original_path": "coderd/database/migrations/000453_chat_pin_order.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "47ea3d9cba9cc398b0a130ccc22b0c9f9e2761cb55fe04c647f2fbca855752dd",
+  "bytes": 68
+ },
+ {
+  "file": "coder__0454__000454_mcp_server_model_intent.up.sql",
+  "original_path": "coderd/database/migrations/000454_mcp_server_model_intent.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "37a80fba38d9075266afc258fd0ce2cb3b23b75ccce82a8bed840ccedf3ed0c6",
+  "bytes": 93
+ },
+ {
+  "file": "coder__0455__000455_chat_last_read_message_id.up.sql",
+  "original_path": "coderd/database/migrations/000455_chat_last_read_message_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "26ac783cffa61a0a8c252c0302c92d0ecc97a962a8f6fb8645e06c8190ef6228",
+  "bytes": 437
+ },
+ {
+  "file": "coder__0456__000456_chat_last_injected_context.up.sql",
+  "original_path": "coderd/database/migrations/000456_chat_last_injected_context.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ce28cb2006a5ceb45d7166092630ff8ae276cc483f2287609179f407d5d6da28",
+  "bytes": 59
+ },
+ {
+  "file": "coder__0457__000457_chat_access_role.up.sql",
+  "original_path": "coderd/database/migrations/000457_chat_access_role.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a806dbedb2bf8c6ffcca7644027ef1ffeca7def7cad0e5fffaf40058e87a068b",
+  "bytes": 242
+ },
+ {
+  "file": "coder__0458__000458_aibridge_provider_name.up.sql",
+  "original_path": "coderd/database/migrations/000458_aibridge_provider_name.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "82ebe85ae440eb422d3e7008b6689ca729812e0b6aa3be29adb4e51e8dbc7915",
+  "bytes": 429
+ },
+ {
+  "file": "coder__0459__000459_provider_key_policy.up.sql",
+  "original_path": "coderd/database/migrations/000459_provider_key_policy.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "70cb82c538c7a7b9bba3e455a0d6ea90b014a1f0c19bb38a5432fc79fc0b6feb",
+  "bytes": 1125
+ },
+ {
+  "file": "coder__0460__000460_user_secrets_value_key_id.up.sql",
+  "original_path": "coderd/database/migrations/000460_user_secrets_value_key_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a88a8c4aa179de602dc6f8868884eea6b9f14aec9a01898d64a8530f403972a4",
+  "bytes": 216
+ },
+ {
+  "file": "coder__0461__000461_aibridge_cache_token_columns.up.sql",
+  "original_path": "coderd/database/migrations/000461_aibridge_cache_token_columns.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "fc11c8cfc40f4f50e8eb6651dff109070cea34ff343ff6b70f9bf5a83edae3c7",
+  "bytes": 1159
+ },
+ {
+  "file": "coder__0462__000462_chat_file_links.up.sql",
+  "original_path": "coderd/database/migrations/000462_chat_file_links.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b5446eeba5f9cdb61f322f86a63d70d5ec8332db1739c3cba93bf9f954e4b941",
+  "bytes": 549
+ },
+ {
+  "file": "coder__0463__000463_chat_dynamic_tools.up.sql",
+  "original_path": "coderd/database/migrations/000463_chat_dynamic_tools.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "87eeea1110e192ef4f87070160c08d9de0aa970f93b9ec34125679ee3943626f",
+  "bytes": 133
+ },
+ {
+  "file": "coder__0464__000464_aibridge_credential_kind.up.sql",
+  "original_path": "coderd/database/migrations/000464_aibridge_credential_kind.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5b79462f13e0630e8b83086f0da15e23fa73291b4ca07352cd5b5e04dae6e318",
+  "bytes": 809
+ },
+ {
+  "file": "coder__0465__000465_chat_agent_id_index.up.sql",
+  "original_path": "coderd/database/migrations/000465_chat_agent_id_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "cc7a1a96ecf9799f81de20ea4df31c9af5069ed6b22206e81512fda7829535de",
+  "bytes": 80
+ },
+ {
+  "file": "coder__0466__000466_drop_chat_pagination_index.up.sql",
+  "original_path": "coderd/database/migrations/000466_drop_chat_pagination_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a730ac81fe2756d893367898bd2e8e4fcf2444b43428ca34626930803eaa0178",
+  "bytes": 348
+ },
+ {
+  "file": "coder__0467__000467_chat_organization_id.up.sql",
+  "original_path": "coderd/database/migrations/000467_chat_organization_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "459a6f9ca7ce690035eb0f542e6d373adf02630d98fb35f59f665dc201123053",
+  "bytes": 919
+ },
+ {
+  "file": "coder__0468__000468_chat_debug_runs_and_steps.up.sql",
+  "original_path": "coderd/database/migrations/000468_chat_debug_runs_and_steps.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "f5b78f613c611e8dd18f2815deb0aa4559c5bc77eb3d40e6e263581de59780ca",
+  "bytes": 3342
+ },
+ {
+  "file": "coder__0469__000469_chat_turn_mode.up.sql",
+  "original_path": "coderd/database/migrations/000469_chat_turn_mode.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e884d40355620e1ea038309bb405eb92125db638a3b3a633bcea53f8a5fcab90",
+  "bytes": 102
+ },
+ {
+  "file": "coder__0470__000470_chat_client_type.up.sql",
+  "original_path": "coderd/database/migrations/000470_chat_client_type.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "054e7228ed3f07fccc43a0bdac5617dad2b0013f7b11c857fd9e74e385914bb9",
+  "bytes": 327
+ },
+ {
+  "file": "coder__0471__000471_chat_explore_mode.up.sql",
+  "original_path": "coderd/database/migrations/000471_chat_explore_mode.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d7cac975158ac5135faf53c893eb33b19ad1521d82a16d0a30adf65a9a838bd9",
+  "bytes": 57
+ },
+ {
+  "file": "coder__0472__000472_chat_resource_type_audit.up.sql",
+  "original_path": "coderd/database/migrations/000472_chat_resource_type_audit.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "70db504fb1aa75d216b317ecd8107ae85891dd56622865a97a3d7994566fcb35",
+  "bytes": 58
+ },
+ {
+  "file": "coder__0473__000473_mcp_server_allow_in_plan_mode.up.sql",
+  "original_path": "coderd/database/migrations/000473_mcp_server_allow_in_plan_mode.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b748a1a8747c8bb5a1de457ec3278a96eb314821c00a21b5ae0c88d94597f818",
+  "bytes": 99
+ },
+ {
+  "file": "coder__0474__000474_drop_chat_model_config_provider_fk.up.sql",
+  "original_path": "coderd/database/migrations/000474_drop_chat_model_config_provider_fk.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2a3a6d8afd13fd670f6015613b6549064e936f2284dd2a3f488e6a17d2da581d",
+  "bytes": 87
+ },
+ {
+  "file": "coder__0475__000475_agents_access_org_role.up.sql",
+  "original_path": "coderd/database/migrations/000475_agents_access_org_role.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1ec527259b373ff53db83d5b04de859eb5e5c50f62f554236de3ba82558b2f3f",
+  "bytes": 578
+ },
+ {
+  "file": "coder__0476__000476_chat_pin_order_constraints.up.sql",
+  "original_path": "coderd/database/migrations/000476_chat_pin_order_constraints.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "50fab1f0af7f7b683693bfe853dc897c42632310ce4c30c049855cab57069835",
+  "bytes": 487
+ },
+ {
+  "file": "coder__0477__000477_chat_auto_archive.up.sql",
+  "original_path": "coderd/database/migrations/000477_chat_auto_archive.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "926ddc6b3ccf4cb4a4f3f2e0da280ef4d20530a5963c4438c8a621c2926d54cd",
+  "bytes": 507
+ },
+ {
+  "file": "coder__0478__000478_chat_queued_message_model_config.up.sql",
+  "original_path": "coderd/database/migrations/000478_chat_queued_message_model_config.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2e565f4285570048c8c2216481ac90a0dd0f3d699231cf042a6cc756152e3d48",
+  "bytes": 234
+ },
+ {
+  "file": "coder__0479__000479_webpush_subscriptions_unique_endpoint.up.sql",
+  "original_path": "coderd/database/migrations/000479_webpush_subscriptions_unique_endpoint.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ce90a9ee39186bd95c002930d34fa8e6201f89e9c1978d52d9f37c303902f729",
+  "bytes": 986
+ },
+ {
+  "file": "coder__0480__000480_chat_auto_archive_notification_template.up.sql",
+  "original_path": "coderd/database/migrations/000480_chat_auto_archive_notification_template.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "981205faf07643487bd7d8393dc203b2643ddd24ac578a5a19e33c7b8b29e4a1",
+  "bytes": 1555
+ },
+ {
+  "file": "coder__0481__000481_user_secret_audit.up.sql",
+  "original_path": "coderd/database/migrations/000481_user_secret_audit.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "e03d7bd2009379ad288ef971683a4c4a4cb13556c126c5fd96eb6656f4d407d6",
+  "bytes": 65
+ },
+ {
+  "file": "coder__0482__000482_add_ai_seat_scopes.up.sql",
+  "original_path": "coderd/database/migrations/000482_add_ai_seat_scopes.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5d63f00dff069b7df231de3d88bf8831f296ac294300c290c9184e2ee1e8aa1f",
+  "bytes": 197
+ },
+ {
+  "file": "coder__0483__000483_drop_tailnet_notify_triggers.up.sql",
+  "original_path": "coderd/database/migrations/000483_drop_tailnet_notify_triggers.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "141bae507f27e842805e99090cece421c809fa8848d1832d3788a16f21f97f52",
+  "bytes": 405
+ },
+ {
+  "file": "coder__0484__000484_mcp_user_oidc_auth.up.sql",
+  "original_path": "coderd/database/migrations/000484_mcp_user_oidc_auth.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3bc644445c8805c335bfd07c3b43f3aadb051a2febc6dcbf130fb396b84811ae",
+  "bytes": 266
+ },
+ {
+  "file": "coder__0485__000485_chat_last_error_jsonb.up.sql",
+  "original_path": "coderd/database/migrations/000485_chat_last_error_jsonb.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0bb7575d26fde1d5ef0d015cfa47ce484a1bd789d65fb5ec42168462c46a7cbe",
+  "bytes": 210
+ },
+ {
+  "file": "coder__0486__000486_user_secrets_telemetry_lock.up.sql",
+  "original_path": "coderd/database/migrations/000486_user_secrets_telemetry_lock.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "35b255f5ed85f96fab93ef90ca2dd9163dd1ecfe556d216825e7c6a3348a0b42",
+  "bytes": 547
+ },
+ {
+  "file": "coder__0487__000487_chat_debug_runs_updated_at_index.up.sql",
+  "original_path": "coderd/database/migrations/000487_chat_debug_runs_updated_at_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "02cd88066e529acd83f00a9ebd09eaf47e50bff6f70a82185755d171bbc5f041",
+  "bytes": 78
+ },
+ {
+  "file": "coder__0488__000488_chat_last_turn_summary.up.sql",
+  "original_path": "coderd/database/migrations/000488_chat_last_turn_summary.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "854eea373be8f7e50bec921e57b00e9f4aaece6ce224f1085543bc66c4129bd0",
+  "bytes": 54
+ },
+ {
+  "file": "coder__0489__000489_ai_model_prices.up.sql",
+  "original_path": "coderd/database/migrations/000489_ai_model_prices.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ec219f5e4c5fa71767dd4c62dbeb97c4d6147a67073c142a779fa5cc47b96e07",
+  "bytes": 1040
+ },
+ {
+  "file": "coder__0490__000490_trigger_delete_user_secrets.up.sql",
+  "original_path": "coderd/database/migrations/000490_trigger_delete_user_secrets.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9b8c994fa4c892593a5b8e125a6c3523c23fc9ee844233828168135b871ac4a3",
+  "bytes": 1928
+ },
+ {
+  "file": "coder__0491__000491_mcp_server_forward_coder_headers.up.sql",
+  "original_path": "coderd/database/migrations/000491_mcp_server_forward_coder_headers.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "64b20a7405a9300205fc0f46cae07e2d116f578569ffe240d97656285a1006f2",
+  "bytes": 102
+ },
+ {
+  "file": "coder__0492__000492_delete_org_members_on_user_soft_delete.up.sql",
+  "original_path": "coderd/database/migrations/000492_delete_org_members_on_user_soft_delete.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "390c0b94c6eb486b6ccd14da8cc5b6b31c62604a6dd7db32a624628bf8db83c3",
+  "bytes": 1686
+ },
+ {
+  "file": "coder__0493__000493_idx_chat_diff_statuses_url_lower.up.sql",
+  "original_path": "coderd/database/migrations/000493_idx_chat_diff_statuses_url_lower.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8b2c0666bc0ee9cbe75b4a2a37a9d72c9369a6a30ff53c69f5761f39e50c1b47",
+  "bytes": 268
+ },
+ {
+  "file": "coder__0494__000494_chat_messages_user_prompts_index.up.sql",
+  "original_path": "coderd/database/migrations/000494_chat_messages_user_prompts_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ade309f1e5415b64812c30a4171bed98cfaac6f817e2b7dff54e7603011818ba",
+  "bytes": 256
+ },
+ {
+  "file": "coder__0495__000495_ai_providers.up.sql",
+  "original_path": "coderd/database/migrations/000495_ai_providers.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "bf66a4ce8835dda8a842cc94455c8ed59bc55927148c3b0f79cae3fff6832957",
+  "bytes": 3706
+ },
+ {
+  "file": "coder__0496__000496_chat_database_foundation.up.sql",
+  "original_path": "coderd/database/migrations/000496_chat_database_foundation.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4146d5c52db4f5cb098c60e63b9523bac58b966447be3982cdd6828142f80821",
+  "bytes": 738
+ },
+ {
+  "file": "coder__0497__000497_group_ai_budgets.up.sql",
+  "original_path": "coderd/database/migrations/000497_group_ai_budgets.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5a99c99486237c4e29236b2cbb725b48dc38e28944bc39ba0192a6304d54215f",
+  "bytes": 528
+ },
+ {
+  "file": "coder__0498__000498_soft_delete_stale_workspace_agents.up.sql",
+  "original_path": "coderd/database/migrations/000498_soft_delete_stale_workspace_agents.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1c52a2179d201e167b8e6b668b678fd01ac0e57eb86ba252765916ffbd0a9568",
+  "bytes": 2563
+ },
+ {
+  "file": "coder__0499__000499_ai_provider_type_chatd_values.up.sql",
+  "original_path": "coderd/database/migrations/000499_ai_provider_type_chatd_values.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "16b87c69d04f0b0dcfa3383b23e665a0bd2e3a3f28b9ce951503152597f1dd8b",
+  "bytes": 1455
+ },
+ {
+  "file": "coder__0500__000500_audit_group_ai_budget_resource_type.up.sql",
+  "original_path": "coderd/database/migrations/000500_audit_group_ai_budget_resource_type.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "90a3f0402a6390ca5ce40cc69f01fc0c4a54294c429e967eccd02bd87bc246d6",
+  "bytes": 119
+ },
+ {
+  "file": "coder__0501__000501_chat_acl_sharing.up.sql",
+  "original_path": "coderd/database/migrations/000501_chat_acl_sharing.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "06b984b02a3f76c75f694d2ab5e650e0ff221828bd2b7d8616e8f358f380f0bd",
+  "bytes": 1714
+ },
+ {
+  "file": "coder__0502__000502_user_skills.up.sql",
+  "original_path": "coderd/database/migrations/000502_user_skills.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "bb8551a28cd6b8bc09e410914cdd2bff78560c7e5e35ab8cf0db5880c81b126a",
+  "bytes": 4971
+ },
+ {
+  "file": "coder__0503__000503_ai_providers_schema_expand.up.sql",
+  "original_path": "coderd/database/migrations/000503_ai_providers_schema_expand.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "3d9dee5b948511af9468221eaa570aaa2a4732d0869aa819b818676d2124d385",
+  "bytes": 3169
+ },
+ {
+  "file": "coder__0504__000504_ai_providers_backfill.up.sql",
+  "original_path": "coderd/database/migrations/000504_ai_providers_backfill.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "cd410101831eca172848894b35e2138d3b96862fd1197c1086f4214b931aeaf2",
+  "bytes": 1716
+ },
+ {
+  "file": "coder__0505__000505_ai_providers_legacy_cleanup.up.sql",
+  "original_path": "coderd/database/migrations/000505_ai_providers_legacy_cleanup.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "89a1c840efaf3aa586ad14cfe3ca95f85f5ffa89860e8edbc98ed6e7d9bfd906",
+  "bytes": 3406
+ },
+ {
+  "file": "coder__0506__000506_ai_provider_type_copilot_value.up.sql",
+  "original_path": "coderd/database/migrations/000506_ai_provider_type_copilot_value.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6ffa8b2adf7258c0f3146354117eb75506c0940f1f074d70faad762bd9b5f891",
+  "bytes": 339
+ },
+ {
+  "file": "coder__0507__000507_boundary_sessions_and_logs.up.sql",
+  "original_path": "coderd/database/migrations/000507_boundary_sessions_and_logs.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1947e4c056730e70a1cdec2d39a2a62bc5d2bdef856aea322e9d1b34027cf384",
+  "bytes": 2952
+ },
+ {
+  "file": "coder__0508__000508_chat_turn_api_key_id.up.sql",
+  "original_path": "coderd/database/migrations/000508_chat_turn_api_key_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5fee51c2b4dacf5f01ab6ef533b98060d47c0cb6c0a7b61fab95e699efe32c5b",
+  "bytes": 434
+ },
+ {
+  "file": "coder__0509__000509_user_secrets_limits.up.sql",
+  "original_path": "coderd/database/migrations/000509_user_secrets_limits.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4d52a0a9e943310defcb0bbc9d074564f901ec0e9fff9cde184edaa53b86a8db",
+  "bytes": 4724
+ },
+ {
+  "file": "coder__0510__000510_cleanup_chats_mcp_server_ids_on_delete.up.sql",
+  "original_path": "coderd/database/migrations/000510_cleanup_chats_mcp_server_ids_on_delete.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "efb447ae133a11aff75dc592fb912255da5d478f5a7d3238f080f598e7943fd8",
+  "bytes": 1225
+ },
+ {
+  "file": "coder__0511__000511_boundary_log_scopes.up.sql",
+  "original_path": "coderd/database/migrations/000511_boundary_log_scopes.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6322e7c386885636de3f9b2b59d411fd1ca7727e9a66ecc15bc400c54e5a405a",
+  "bytes": 323
+ },
+ {
+  "file": "coder__0512__000512_boundary_session_owner.up.sql",
+  "original_path": "coderd/database/migrations/000512_boundary_session_owner.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "76597a4e93570fc4468c8b825b1db29a628313740b7e327a3207edac17174691",
+  "bytes": 1333
+ },
+ {
+  "file": "coder__0513__000513_user_ai_budget_overrides.up.sql",
+  "original_path": "coderd/database/migrations/000513_user_ai_budget_overrides.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "aca04a9c617ca62e0ebf57aeae99c75f9312882510680788b1eaf064b9400f3e",
+  "bytes": 3162
+ },
+ {
+  "file": "coder__0514__000514_ai_gateway_keys.up.sql",
+  "original_path": "coderd/database/migrations/000514_ai_gateway_keys.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "79adca7c01cf70ca10fe6b34a780a535eec4ea46f05087e900563d7622b975a6",
+  "bytes": 1452
+ },
+ {
+  "file": "coder__0515__000515_gitsshkeys_private_key_key_id.up.sql",
+  "original_path": "coderd/database/migrations/000515_gitsshkeys_private_key_key_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7b2c7d455d0b2de3bc87f378cf4745686b1dba4ad1c8f4fb424048ec81b35ddb",
+  "bytes": 387
+ },
+ {
+  "file": "coder__0516__000516_org_default_member_roles.up.sql",
+  "original_path": "coderd/database/migrations/000516_org_default_member_roles.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2832329b2fae825759bf05779048a79817ad51743619b231c4c69ddf5ee6ce0f",
+  "bytes": 724
+ },
+ {
+  "file": "coder__0517__000517_audit_user_ai_budget_override_resource_type.up.sql",
+  "original_path": "coderd/database/migrations/000517_audit_user_ai_budget_override_resource_type.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2c9a4c6892428395d026ec335da7958036aa0c37e7720c9a0109b863631e5834",
+  "bytes": 135
+ },
+ {
+  "file": "coder__0518__000518_fix_dormancy_notification_docs_urls.up.sql",
+  "original_path": "coderd/database/migrations/000518_fix_dormancy_notification_docs_urls.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "22c24a5f54245221c8097b7f6868d270ba28a3816902fa397f0b941dd4419fac",
+  "bytes": 1176
+ },
+ {
+  "file": "coder__0519__000519_chatd_core_state_machine.up.sql",
+  "original_path": "coderd/database/migrations/000519_chatd_core_state_machine.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "dfde193f71f73a9348a68812acd6fcd72e32b30667d42ecfba65cfdcd3be7543",
+  "bytes": 13229
+ },
+ {
+  "file": "coder__0520__000520_aibridge_agent_firewall_session.up.sql",
+  "original_path": "coderd/database/migrations/000520_aibridge_agent_firewall_session.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d62bc1bf4eb2c23caf6f62a122e2e6df7206ee0367e969e9fe0ace2a1d45ae95",
+  "bytes": 1036
+ },
+ {
+  "file": "coder__0521__000521_drop_boundary_logs_session_fk.up.sql",
+  "original_path": "coderd/database/migrations/000521_drop_boundary_logs_session_fk.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "68177fdfcfe3dfef7fdf731b8f92ed76460bb741b7c632594609d326879a2632",
+  "bytes": 405
+ },
+ {
+  "file": "coder__0522__000522_workspace_agent_context.up.sql",
+  "original_path": "coderd/database/migrations/000522_workspace_agent_context.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "8284750ab37a734f144cbdd26db314c71f5c7a5ab84ea3ec55572c3f63e6d8c4",
+  "bytes": 4433
+ },
+ {
+  "file": "coder__0523__000523_chat_context_hydration.up.sql",
+  "original_path": "coderd/database/migrations/000523_chat_context_hydration.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ccb3008f668b617371f667c2be6aec9b2155f1284d2d460becde39b5931a0bd6",
+  "bytes": 2883
+ },
+ {
+  "file": "coder__0524__000524_aibridge_token_usage_cost.up.sql",
+  "original_path": "coderd/database/migrations/000524_aibridge_token_usage_cost.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1737b8d331d9b9268b5c9e5335c97980930bc46c5214e3b0f16eb5f0d5f05d5a",
+  "bytes": 1070
+ },
+ {
+  "file": "coder__0525__000525_chat_context_resources.up.sql",
+  "original_path": "coderd/database/migrations/000525_chat_context_resources.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "1d5e82cfe7ecd95bede31e033a4c0d58b7dbf5ecf75d9d1bdf29479bb201f283",
+  "bytes": 2626
+ },
+ {
+  "file": "coder__0526__000526_boundary_log_owner.up.sql",
+  "original_path": "coderd/database/migrations/000526_boundary_log_owner.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a58fca2ba925fc0609d5bf4e079b8c27f53b22b16464f1c3f37f562d26b34af2",
+  "bytes": 556
+ },
+ {
+  "file": "coder__0527__000527_dormancy_notification_use_til_delete.up.sql",
+  "original_path": "coderd/database/migrations/000527_dormancy_notification_use_til_delete.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "21a294e05578e58b0004a99211e8c2bc62f1c8940a1d5f39d55f7fd859f08292",
+  "bytes": 906
+ },
+ {
+  "file": "coder__0528__000528_workspace_autostop_notification.up.sql",
+  "original_path": "coderd/database/migrations/000528_workspace_autostop_notification.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4157d3c1549ae1e08932e2d82a046afaaec2e1c56554689c17ccbe7b5ef89f0f",
+  "bytes": 3341
+ },
+ {
+  "file": "coder__0529__000529_chat_drop_last_injected_context.up.sql",
+  "original_path": "coderd/database/migrations/000529_chat_drop_last_injected_context.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "83e286f451bbefacb06af5f13ef4b0213ace858c7df61f1f49b48b5bd732a08e",
+  "bytes": 1549
+ },
+ {
+  "file": "coder__0530__000530_relay_host_nats_port.up.sql",
+  "original_path": "coderd/database/migrations/000530_relay_host_nats_port.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "74517250aee0105d0f952cafbfc24fe5e51519a1888b9b2d1fe7b5c3d0bafc15",
+  "bytes": 522
+ },
+ {
+  "file": "coder__0531__000531_ai_gateway_key_update_scope.up.sql",
+  "original_path": "coderd/database/migrations/000531_ai_gateway_key_update_scope.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "10126509d4aadcd34de38ab4ebe91d7e0652654bc888a1b58b9c6b8bab8dc6f0",
+  "bytes": 75
+ },
+ {
+  "file": "coder__0532__000532_rename_ai_gateway_key_last_heartbeat_at.up.sql",
+  "original_path": "coderd/database/migrations/000532_rename_ai_gateway_key_last_heartbeat_at.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "97895edeb515d71d3e3da0f6525376f30b34a10aea558363b6be25bb3bd60833",
+  "bytes": 80
+ },
+ {
+  "file": "coder__0533__000533_nats_ca_crypto_key_feature.up.sql",
+  "original_path": "coderd/database/migrations/000533_nats_ca_crypto_key_feature.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9a0aab9b64d022888731cca7cd793ec55601d4cfb8b415e8c2add5abdda10e49",
+  "bytes": 66
+ },
+ {
+  "file": "coder__0534__000534_drop_chat_model_configs_provider.up.sql",
+  "original_path": "coderd/database/migrations/000534_drop_chat_model_configs_provider.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "752a7f4a6442e3d91632fc2d4bfcb61808840fe1ef252788b8966305c1f5e040",
+  "bytes": 152
+ },
+ {
+  "file": "coder__0535__000535_autostop_reminder_wording.up.sql",
+  "original_path": "coderd/database/migrations/000535_autostop_reminder_wording.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "2bafdc9748d3152ada8b6982d648ef354ae0caa20fc15b3ec4d76f72021e6dff",
+  "bytes": 358
+ },
+ {
+  "file": "coder__0536__000536_ai_user_daily_spend.up.sql",
+  "original_path": "coderd/database/migrations/000536_ai_user_daily_spend.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5978ffc29b632c50c4364c31269fb60694cb8bae0dce11e42aa49a8f8d2e16f8",
+  "bytes": 1223
+ },
+ {
+  "file": "coder__0537__000537_aibridge_tool_usage_provider_item_id.up.sql",
+  "original_path": "coderd/database/migrations/000537_aibridge_tool_usage_provider_item_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c1b6dcfd34d8110f8a8ac8a7c0f0429c14b659ccf244fb686920d4e78207f186",
+  "bytes": 481
+ },
+ {
+  "file": "coder__0538__000538_chat_shared_notification.up.sql",
+  "original_path": "coderd/database/migrations/000538_chat_shared_notification.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4c1f8c13e48c40e0b44660c8524086d19fe11bfc73cde49613a25908c7cf3937",
+  "bytes": 624
+ },
+ {
+  "file": "coder__0539__000539_ai_provider_icons.up.sql",
+  "original_path": "coderd/database/migrations/000539_ai_provider_icons.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "768f36f53f2fedab9b1af930aa3354933b6c86486f70053031927b5771d20909",
+  "bytes": 73
+ },
+ {
+  "file": "coder__0540__000540_workspace_build_orchestrations.up.sql",
+  "original_path": "coderd/database/migrations/000540_workspace_build_orchestrations.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "d81b14b7f5dc529a8d56bc558ffe3dd2ff0e4dadbe521a6e4344e5eda2c8672e",
+  "bytes": 5314
+ },
+ {
+  "file": "coder__0541__000541_aibridge_interception_error.up.sql",
+  "original_path": "coderd/database/migrations/000541_aibridge_interception_error.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6f04ddac65336404e85b7eb5c04f151adf5334aca01240264bc469f4e425821f",
+  "bytes": 890
+ },
+ {
+  "file": "coder__0542__000542_chat_reasoning_effort.up.sql",
+  "original_path": "coderd/database/migrations/000542_chat_reasoning_effort.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "b60f6bad3e6596bb9a332a3e2090fe5a0fb9c3aedc18eccc718eba1f220475ac",
+  "bytes": 3432
+ },
+ {
+  "file": "coder__0543__000543_chat_status_remove_unused.up.sql",
+  "original_path": "coderd/database/migrations/000543_chat_status_remove_unused.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "bcc9537d379b2d89bd13dd81d6f1d0293cf290c08ee71c5fe5671dd1a9cb0b39",
+  "bytes": 2978
+ },
+ {
+  "file": "coder__0544__000544_mcp_token_refresh_failure.up.sql",
+  "original_path": "coderd/database/migrations/000544_mcp_token_refresh_failure.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ebcb443bbfabbfce7c4261bc6874f3fea39e53033932a1e6ed23c195eda6d4a3",
+  "bytes": 106
+ },
+ {
+  "file": "coder__0545__000545_chat_search_schema.up.sql",
+  "original_path": "coderd/database/migrations/000545_chat_search_schema.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "34e0fa6e9f955b3dc7b957bcdbb19dcd9059cc438f414b113596926d0bbb9286",
+  "bytes": 4574
+ },
+ {
+  "file": "coder__0546__000546_drop_chat_history_api_key_fks.up.sql",
+  "original_path": "coderd/database/migrations/000546_drop_chat_history_api_key_fks.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "21e5914aa7815edecc733fc45e9bc39cc12cad7a92ca9d1be1d3327c155681f6",
+  "bytes": 166
+ },
+ {
+  "file": "coder__0547__000547_mcp_server_oauth2_revocation_url.up.sql",
+  "original_path": "coderd/database/migrations/000547_mcp_server_oauth2_revocation_url.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "6cf3dcc7bfdf644bf19e0fd4759f0dc382495afe94ebb88d7ac9eab46115c1eb",
+  "bytes": 93
+ },
+ {
+  "file": "coder__0548__000548_drop_chat_gateway_key_columns.up.sql",
+  "original_path": "coderd/database/migrations/000548_drop_chat_gateway_key_columns.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a510fb270056da304ecb92428c04632501e8bbc0c8d4d9a36f9ef03f07a15523",
+  "bytes": 115
+ },
+ {
+  "file": "coder__0549__000549_chat_compaction_requested_at.up.sql",
+  "original_path": "coderd/database/migrations/000549_chat_compaction_requested_at.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ba06d8400009547c0007a7ff462e7e977e6a048255a0b94ecf62a4fd4c78c2e6",
+  "bytes": 2038
+ },
+ {
+  "file": "coder__0550__000550_aibridge_firewall_seq_index.up.sql",
+  "original_path": "coderd/database/migrations/000550_aibridge_firewall_seq_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "045c336ce92185c6ac7f6456fdacba1dd1e06e2f5bb2d0a936d850aae081dcc2",
+  "bytes": 809
+ },
+ {
+  "file": "coder__0551__000551_chat_summary.up.sql",
+  "original_path": "coderd/database/migrations/000551_chat_summary.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "90d58136483c83c2813afae41873ab273e6575daf368226c2648a11255962e25",
+  "bytes": 1691
+ },
+ {
+  "file": "coder__0552__000552_ai_budget_notifications.up.sql",
+  "original_path": "coderd/database/migrations/000552_ai_budget_notifications.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "81732f27502691586aa9e35710aa707b1eb2ec8e67562354a10691e6e6d429db",
+  "bytes": 1390
+ },
+ {
+  "file": "coder__0553__000553_ai_budget_admin_notifications.up.sql",
+  "original_path": "coderd/database/migrations/000553_ai_budget_admin_notifications.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ca6e71ca8406ba51b895dd09d47dbdab6e2a43436a7960ff22a92cee5a3e28b9",
+  "bytes": 1707
+ },
+ {
+  "file": "coder__0554__000554_aibridge_token_usage_spend_export_index.up.sql",
+  "original_path": "coderd/database/migrations/000554_aibridge_token_usage_spend_export_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "24c0010dc9ba155a3e04954df74c02ffcddd187487180438c50d315b37b931ff",
+  "bytes": 310
+ },
+ {
+  "file": "coder__0555__000555_legacy_none_login_to_password.up.sql",
+  "original_path": "coderd/database/migrations/000555_legacy_none_login_to_password.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "be52761a0968cf66769285d4412de1fde0ac426ac432780c209473b45767201e",
+  "bytes": 368
+ },
+ {
+  "file": "coder__0556__000556_user_secrets_enabled.up.sql",
+  "original_path": "coderd/database/migrations/000556_user_secrets_enabled.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "48d2a47667a9cb189aa14809bccd4ced073efa020a06ff16fc7298960e293a2d",
+  "bytes": 1540
+ },
+ {
+  "file": "coder__0557__000557_connection_type_tunnel.up.sql",
+  "original_path": "coderd/database/migrations/000557_connection_type_tunnel.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "c5e34a42803bdb95b3b08fd737200c3ff974cbe7f2fde194f74dc24610f39085",
+  "bytes": 62
+ },
+ {
+  "file": "coder__0558__000558_audit_oauth2_provider_settings.up.sql",
+  "original_path": "coderd/database/migrations/000558_audit_oauth2_provider_settings.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0675a79cdb8d1643b98bca0825199866d49c951abfb04d94b34a8196d7470d49",
+  "bytes": 80
+ },
+ {
+  "file": "coder__0559__000559_chat_messages_last_by_role_index.up.sql",
+  "original_path": "coderd/database/migrations/000559_chat_messages_last_by_role_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4a74d54ff7e3cdbe9fca2dcb6db7e2e9b79b56037f45cca10b388ed5dd246bc1",
+  "bytes": 268
+ },
+ {
+  "file": "coder__0560__000560_chat_summary_boundary_index_by_id.up.sql",
+  "original_path": "coderd/database/migrations/000560_chat_summary_boundary_index_by_id.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "0f0e52d593977d9da38a6eed08325195332560f9b93291a13ca8c94ae8cbbadd",
+  "bytes": 473
+ },
+ {
+  "file": "coder__0561__000561_usage_events_agent_runtime.up.sql",
+  "original_path": "coderd/database/migrations/000561_usage_events_agent_runtime.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "a7b9684dbcc7473aefb0d01ca7c26dfe65cf41058ea0c6be3ceaaea183c11829",
+  "bytes": 2604
+ },
+ {
+  "file": "coder__0562__000562_oauth2_public_client_tokens.up.sql",
+  "original_path": "coderd/database/migrations/000562_oauth2_public_client_tokens.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "5a359eb51d4be31d5334dd83412ec44384e812589fa17ec19c9c73dc4fc62d2d",
+  "bytes": 1398
+ },
+ {
+  "file": "coder__0563__000563_template_agents_allowed.up.sql",
+  "original_path": "coderd/database/migrations/000563_template_agents_allowed.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "24b94352adaae8281a69c8ab45cc85765116b7b836e2b981f41a44463be02b89",
+  "bytes": 2228
+ },
+ {
+  "file": "coder__0564__000564_delete_agents_template_allowlist.up.sql",
+  "original_path": "coderd/database/migrations/000564_delete_agents_template_allowlist.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "339cf8932d5f499d599b261c762817500c4e62a4c5e81b506afba8052f07f3ee",
+  "bytes": 188
+ },
+ {
+  "file": "coder__0565__000565_oauth2_client_type_constraint.up.sql",
+  "original_path": "coderd/database/migrations/000565_oauth2_client_type_constraint.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9af4fbaeb81f813cab89c60e8b964ddab185fc47d982d0a2e51cd14239e20625",
+  "bytes": 1029
+ },
+ {
+  "file": "coder__0566__000566_oauth2_auth_method_backfill.up.sql",
+  "original_path": "coderd/database/migrations/000566_oauth2_auth_method_backfill.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7b1637592f7706503d2f78bea27a98170ea19ebcb06942dc56ba982b14578b65",
+  "bytes": 1758
+ },
+ {
+  "file": "coder__0567__000567_chat_file_purge_indexes.up.sql",
+  "original_path": "coderd/database/migrations/000567_chat_file_purge_indexes.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "7ab46b01b1b678b4e3f2c8aa2892c153070cecbd0a979915a0c48a0088acbcf2",
+  "bytes": 140
+ },
+ {
+  "file": "coder__0568__000568_service_account_notifications.up.sql",
+  "original_path": "coderd/database/migrations/000568_service_account_notifications.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "4fffa6d8ccf1f500c75fc5e030b411324c78ab57c8b117156eaae71cd2db4857",
+  "bytes": 2714
+ },
+ {
+  "file": "coder__0569__000569_oauth2_scope_columns.up.sql",
+  "original_path": "coderd/database/migrations/000569_oauth2_scope_columns.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "ab0c244769546974e4cdaecfabfeee3db368dbc45d198be497619a9366fcc2d7",
+  "bytes": 1743
+ },
+ {
+  "file": "coder__0570__000570_usage_events_agent_runtime_invariants.up.sql",
+  "original_path": "coderd/database/migrations/000570_usage_events_agent_runtime_invariants.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "736310af8afd697bf8594f0faf187d3723f33d596cd790039544aa5625a13174",
+  "bytes": 1263
+ },
+ {
+  "file": "coder__0571__000571_pool_aware_chat_acquisition_index.up.sql",
+  "original_path": "coderd/database/migrations/000571_pool_aware_chat_acquisition_index.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "9b6ac7a0c7f09e9f845819bfd8871c2f1354508c25fee56320ce82b495483f48",
+  "bytes": 201
+ },
+ {
+  "file": "coder__0572__000572_chat_files_token_crypto_key_feature.up.sql",
+  "original_path": "coderd/database/migrations/000572_chat_files_token_crypto_key_feature.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "bea58977cb3e47c77c07a54915c13aade8355b0b871a160156cb43d13395df3e",
+  "bytes": 75
+ },
+ {
+  "file": "coder__0573__000573_audit_chat_instruction_settings.up.sql",
+  "original_path": "coderd/database/migrations/000573_audit_chat_instruction_settings.up.sql",
+  "repo": "https://github.com/coder/coder",
+  "sha256": "eaa932c0bdfa4db5ba9eff4e369a66f0aa14f079d258e273b2153bbeb9beb4f0",
+  "bytes": 81
+ }
+]

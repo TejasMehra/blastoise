@@ -1,0 +1,1482 @@
+[
+ {
+  "case": "add_check",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 900,
+  "constant_keys": [
+   "validation_scan"
+  ]
+ },
+ {
+  "case": "add_check",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 80100,
+  "constant_keys": [
+   "validation_scan"
+  ]
+ },
+ {
+  "case": "add_check",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 116,
+  "constant_keys": [
+   "validation_scan"
+  ]
+ },
+ {
+  "case": "add_check",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 8100,
+  "constant_keys": [
+   "validation_scan"
+  ]
+ },
+ {
+  "case": "add_column_bare",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "add_column_bare",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "add_column_bare",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "add_column_bare",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "add_column_default_const",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "add_column_default_const",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "add_column_default_const",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "add_column_default_const",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "add_column_default_volatile",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 4100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_default_volatile",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 400100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_default_volatile",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 180,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_default_volatile",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "unsafe",
+  "band": "seconds",
+  "high_ms": 40100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_domain_default",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 4100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_domain_default",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 400100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_domain_default",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 180,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_domain_default",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "unsafe",
+  "band": "seconds",
+  "high_ms": 40100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_generated_stored",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 4100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_generated_stored",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 400100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_generated_stored",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 180,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_generated_stored",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "unsafe",
+  "band": "seconds",
+  "high_ms": 40100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_identity",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 4100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_identity",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 400100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_identity",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 180,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_identity",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "unsafe",
+  "band": "seconds",
+  "high_ms": 40100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_serial",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 4100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_serial",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 400100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_serial",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 180,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_column_serial",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "unsafe",
+  "band": "seconds",
+  "high_ms": 40100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "add_fk_cascade",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 266,
+  "constant_keys": [
+   "fk_validation"
+  ]
+ },
+ {
+  "case": "add_fk_cascade",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 16766,
+  "constant_keys": [
+   "fk_validation"
+  ]
+ },
+ {
+  "case": "add_fk_cascade",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "fk_validation"
+  ]
+ },
+ {
+  "case": "add_fk_cascade",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "safe",
+  "band": "seconds",
+  "high_ms": 1766,
+  "constant_keys": [
+   "fk_validation"
+  ]
+ },
+ {
+  "case": "add_fk_not_valid",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "add_fk_not_valid",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "add_fk_not_valid",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "add_fk_not_valid",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "add_fk_plain",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 266,
+  "constant_keys": [
+   "fk_validation"
+  ]
+ },
+ {
+  "case": "add_fk_plain",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 16766,
+  "constant_keys": [
+   "fk_validation"
+  ]
+ },
+ {
+  "case": "add_fk_plain",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "fk_validation"
+  ]
+ },
+ {
+  "case": "add_fk_plain",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "safe",
+  "band": "seconds",
+  "high_ms": 1766,
+  "constant_keys": [
+   "fk_validation"
+  ]
+ },
+ {
+  "case": "add_unique_constraint",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 300,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "add_unique_constraint",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "seconds",
+  "high_ms": 20100,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "add_unique_constraint",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 104,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "add_unique_constraint",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 2100,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "alter_type_int_bigint",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 4100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "alter_type_int_bigint",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 400100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "alter_type_int_bigint",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 180,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "alter_type_int_bigint",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "unsafe",
+  "band": "seconds",
+  "high_ms": 40100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "alter_type_numeric_widen",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "alter_type_numeric_widen",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "alter_type_numeric_widen",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "alter_type_numeric_widen",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "alter_type_text_varchar",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 4100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "alter_type_text_varchar",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 400100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "alter_type_text_varchar",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 180,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "alter_type_text_varchar",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "unsafe",
+  "band": "seconds",
+  "high_ms": 40100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "alter_type_ts_tstz",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 4100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "alter_type_ts_tstz",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "minutes",
+  "high_ms": 400100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "alter_type_ts_tstz",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 180,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "alter_type_ts_tstz",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 40100,
+  "constant_keys": [
+   "heap_rewrite"
+  ]
+ },
+ {
+  "case": "alter_type_varchar_text",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "alter_type_varchar_text",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "alter_type_varchar_text",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "alter_type_varchar_text",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "alter_type_varchar_widen",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 300,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "alter_type_varchar_widen",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "seconds",
+  "high_ms": 20100,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "alter_type_varchar_widen",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 104,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "alter_type_varchar_widen",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 2098,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "alter_type_varchar_widen_plain_idx",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "alter_type_varchar_widen_plain_idx",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "alter_type_varchar_widen_plain_idx",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "alter_type_varchar_widen_plain_idx",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "create_index_composite",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 300,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_index_composite",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 20100,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_index_composite",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 104,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_index_composite",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "safe",
+  "band": "seconds",
+  "high_ms": 2100,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_index_expr",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 900,
+  "constant_keys": [
+   "index_build_expression"
+  ]
+ },
+ {
+  "case": "create_index_expr",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 80100,
+  "constant_keys": [
+   "index_build_expression"
+  ]
+ },
+ {
+  "case": "create_index_expr",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 116,
+  "constant_keys": [
+   "index_build_expression"
+  ]
+ },
+ {
+  "case": "create_index_expr",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 8100,
+  "constant_keys": [
+   "index_build_expression"
+  ]
+ },
+ {
+  "case": "create_index_gin",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 900,
+  "constant_keys": [
+   "index_build_expression"
+  ]
+ },
+ {
+  "case": "create_index_gin",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 80100,
+  "constant_keys": [
+   "index_build_expression"
+  ]
+ },
+ {
+  "case": "create_index_gin",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 116,
+  "constant_keys": [
+   "index_build_expression"
+  ]
+ },
+ {
+  "case": "create_index_gin",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 8100,
+  "constant_keys": [
+   "index_build_expression"
+  ]
+ },
+ {
+  "case": "create_index_partial",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 300,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_index_partial",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 20100,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_index_partial",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 104,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_index_partial",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "safe",
+  "band": "seconds",
+  "high_ms": 2100,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_index_single",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 300,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_index_single",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 20100,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_index_single",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 104,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_index_single",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "safe",
+  "band": "seconds",
+  "high_ms": 2100,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_unique_index",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 300,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_unique_index",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 20100,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_unique_index",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 104,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "create_unique_index",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "safe",
+  "band": "seconds",
+  "high_ms": 2100,
+  "constant_keys": [
+   "index_build_btree"
+  ]
+ },
+ {
+  "case": "delete_without_where",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe_irreversible",
+  "band": "seconds",
+  "high_ms": 4100,
+  "constant_keys": [
+   "dml_delete"
+  ]
+ },
+ {
+  "case": "delete_without_where",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 400100,
+  "constant_keys": [
+   "dml_delete"
+  ]
+ },
+ {
+  "case": "delete_without_where",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe_irreversible",
+  "band": "sub_second",
+  "high_ms": 140,
+  "constant_keys": [
+   "dml_delete"
+  ]
+ },
+ {
+  "case": "delete_without_where",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 40096,
+  "constant_keys": [
+   "dml_delete"
+  ]
+ },
+ {
+  "case": "reindex_index",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 300,
+  "constant_keys": [
+   "index_bytes"
+  ]
+ },
+ {
+  "case": "reindex_index",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 15506,
+  "constant_keys": [
+   "index_bytes"
+  ]
+ },
+ {
+  "case": "reindex_index",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 108,
+  "constant_keys": [
+   "index_bytes"
+  ]
+ },
+ {
+  "case": "reindex_index",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "safe",
+  "band": "seconds",
+  "high_ms": 1546,
+  "constant_keys": [
+   "index_bytes"
+  ]
+ },
+ {
+  "case": "reindex_table",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 900,
+  "constant_keys": [
+   "index_build_expression"
+  ]
+ },
+ {
+  "case": "reindex_table",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 80100,
+  "constant_keys": [
+   "index_build_expression"
+  ]
+ },
+ {
+  "case": "reindex_table",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 116,
+  "constant_keys": [
+   "index_build_expression"
+  ]
+ },
+ {
+  "case": "reindex_table",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 8100,
+  "constant_keys": [
+   "index_build_expression"
+  ]
+ },
+ {
+  "case": "set_not_null_plain",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 900,
+  "constant_keys": [
+   "validation_scan"
+  ]
+ },
+ {
+  "case": "set_not_null_plain",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 80100,
+  "constant_keys": [
+   "validation_scan"
+  ]
+ },
+ {
+  "case": "set_not_null_plain",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 116,
+  "constant_keys": [
+   "validation_scan"
+  ]
+ },
+ {
+  "case": "set_not_null_plain",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 8100,
+  "constant_keys": [
+   "validation_scan"
+  ]
+ },
+ {
+  "case": "set_not_null_proving_check",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "set_not_null_proving_check",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "set_not_null_proving_check",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "set_not_null_proving_check",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "constant_op"
+  ]
+ },
+ {
+  "case": "update_backfill_null",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": null,
+  "constant_keys": []
+ },
+ {
+  "case": "update_backfill_null",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "minutes",
+  "high_ms": null,
+  "constant_keys": []
+ },
+ {
+  "case": "update_backfill_null",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe_irreversible",
+  "band": "sub_second",
+  "high_ms": null,
+  "constant_keys": []
+ },
+ {
+  "case": "update_backfill_null",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "minutes",
+  "high_ms": null,
+  "constant_keys": []
+ },
+ {
+  "case": "update_matched",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": null,
+  "constant_keys": []
+ },
+ {
+  "case": "update_matched",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "needs_timing",
+  "band": "minutes",
+  "high_ms": null,
+  "constant_keys": []
+ },
+ {
+  "case": "update_matched",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe_irreversible",
+  "band": "sub_second",
+  "high_ms": null,
+  "constant_keys": []
+ },
+ {
+  "case": "update_matched",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "needs_timing",
+  "band": "minutes",
+  "high_ms": null,
+  "constant_keys": []
+ },
+ {
+  "case": "update_without_where",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "needs_timing",
+  "band": "seconds",
+  "high_ms": 9190,
+  "constant_keys": [
+   "dml_update"
+  ]
+ },
+ {
+  "case": "update_without_where",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 909198,
+  "constant_keys": [
+   "dml_update"
+  ]
+ },
+ {
+  "case": "update_without_where",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe_irreversible",
+  "band": "sub_second",
+  "high_ms": 190,
+  "constant_keys": [
+   "dml_update"
+  ]
+ },
+ {
+  "case": "update_without_where",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "unsafe",
+  "band": "minutes",
+  "high_ms": 91010,
+  "constant_keys": [
+   "dml_update"
+  ]
+ },
+ {
+  "case": "validate_fk",
+  "table": "t_100k",
+  "rows": 100000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 266,
+  "constant_keys": [
+   "fk_validation"
+  ]
+ },
+ {
+  "case": "validate_fk",
+  "table": "t_10m",
+  "rows": 10000000,
+  "classification": "safe",
+  "band": "seconds",
+  "high_ms": 16766,
+  "constant_keys": [
+   "fk_validation"
+  ]
+ },
+ {
+  "case": "validate_fk",
+  "table": "t_1k",
+  "rows": 1000,
+  "classification": "safe",
+  "band": "sub_second",
+  "high_ms": 100,
+  "constant_keys": [
+   "fk_validation"
+  ]
+ },
+ {
+  "case": "validate_fk",
+  "table": "t_1m",
+  "rows": 1000000,
+  "classification": "safe",
+  "band": "seconds",
+  "high_ms": 1766,
+  "constant_keys": [
+   "fk_validation"
+  ]
+ }
+]

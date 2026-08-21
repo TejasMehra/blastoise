@@ -1,0 +1,2102 @@
+[
+ {
+  "file": "sourcegraph__0001__1000000027_squashed_migrations_privileged.sql",
+  "original_path": "migrations/codeinsights/1000000027_squashed_migrations_privileged/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "769e5ff2e6ee8a731a73d74f603f2a665317dc465674ae6ca1b3d14c6e1dba1b",
+  "bytes": 273
+ },
+ {
+  "file": "sourcegraph__0002__1646761143_squashed_migrations_unprivileged.sql",
+  "original_path": "migrations/codeinsights/1646761143_squashed_migrations_unprivileged/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "c7892ce6c425f376643ba053e81c49494d85a33bf5610e79d295ff70968b27f1",
+  "bytes": 21552
+ },
+ {
+  "file": "sourcegraph__0003__1649801281_context_filters.sql",
+  "original_path": "migrations/codeinsights/1649801281_context_filters/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "b27d4ad7e3220e4c15f27520421facd88a6ecc526fbe64ce323380e00dbce11a",
+  "bytes": 100
+ },
+ {
+  "file": "sourcegraph__0004__1651021000_sort_series.sql",
+  "original_path": "migrations/codeinsights/1651021000_sort_series/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "29cede8a76b8de70f8bd6dc6a7d3a3a715fcd69f87141e23e1e9d83bc6585fea",
+  "bytes": 608
+ },
+ {
+  "file": "sourcegraph__0005__1656517037_group_by.sql",
+  "original_path": "migrations/codeinsights/1656517037_group_by/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "850d6d2a4dc23ed02bfd85a781a8f365d0fe820ff7f79ff1bc41a0b19d4b5c59",
+  "bytes": 78
+ },
+ {
+  "file": "sourcegraph__0006__1656608833_track_backfill_attempts.sql",
+  "original_path": "migrations/codeinsights/1656608833_track_backfill_attempts/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "9a9b278092238f4e1e9a059af4bd986a3edf114b6eba82740fe044a4fa1daa43",
+  "bytes": 142
+ },
+ {
+  "file": "sourcegraph__0007__1663626068_backfill_completed_at.sql",
+  "original_path": "migrations/codeinsights/1663626068_backfill_completed_at/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d97d4d2247556c2480f4fdea2a311f64c68fbf3ef8cfe40571c5afd65781a09e",
+  "bytes": 101
+ },
+ {
+  "file": "sourcegraph__0008__1664984848_insights_scheduler_table.sql",
+  "original_path": "migrations/codeinsights/1664984848_insights_scheduler_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "dc95c0a295824ae70553d1c1fa1318ece8acd7e2d290ded58d18e30c434dd175",
+  "bytes": 1100
+ },
+ {
+  "file": "sourcegraph__0009__1665053848_add_insight_series_recording_times.sql",
+  "original_path": "migrations/codeinsights/1665053848_add_insight_series_recording_times/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "5b8f688b6cceac8fb14abfead77676daf83bb417c876d6d207cf612c6d00fb07",
+  "bytes": 298
+ },
+ {
+  "file": "sourcegraph__0010__1665616961_backfill_table.sql",
+  "original_path": "migrations/codeinsights/1665616961_backfill_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "922e809050d7f07b2246cb1711c9a73e2acd8d07465b6023a109b44f006506d1",
+  "bytes": 1107
+ },
+ {
+  "file": "sourcegraph__0011__1666729025_incomplete_points.sql",
+  "original_path": "migrations/codeinsights/1666729025_incomplete_points/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "dea030f5a9be48d8b5f9f0607754e34f9bc83b8b2852616879a38b6b63affa19",
+  "bytes": 633
+ },
+ {
+  "file": "sourcegraph__0012__1667309737_backfill_priority_groups.sql",
+  "original_path": "migrations/codeinsights/1667309737_backfill_priority_groups/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "b2faf4c2aea84a027284d35eb346cc1739421a06a0c99e98669a5ee687857306",
+  "bytes": 374
+ },
+ {
+  "file": "sourcegraph__0013__1670253074_insight_series_repo_criteria.sql",
+  "original_path": "migrations/codeinsights/1670253074_insight_series_repo_criteria/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "163eb23b627c608da833b2027c2bf86fff67e7e41f002ad6391addd088c9bce5",
+  "bytes": 244
+ },
+ {
+  "file": "sourcegraph__0014__1672917501_add_retention_tables.sql",
+  "original_path": "migrations/codeinsights/1672917501_add_retention_tables/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "cb35b359b319ea9334fab0a0d2f803b004220a1675cc6150d0d3a4e97b62bc26",
+  "bytes": 1202
+ },
+ {
+  "file": "sourcegraph__0015__1672921606_data_retention_jobs_series_metadata.sql",
+  "original_path": "migrations/codeinsights/1672921606_data_retention_jobs_series_metadata/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "4f15ff87a144b9422a80b494e8c05a2345d823d52d0837e519dcccea6fc31ed7",
+  "bytes": 123
+ },
+ {
+  "file": "sourcegraph__0016__1675113463_backfill_repo_query_selector.sql",
+  "original_path": "migrations/codeinsights/1675113463_backfill_repo_query_selector/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6a5d06065f2f718ce46dedbbf23d5a76c477f70b41de3d32452baff8013ff807",
+  "bytes": 170
+ },
+ {
+  "file": "sourcegraph__0017__1675347548_add_insight_view_series_num_samples.sql",
+  "original_path": "migrations/codeinsights/1675347548_add_insight_view_series_num_samples/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "189314c2ee67ae4a82ef1661234414c25bb2a4b3f3a11080dccabe6449cfd8aa",
+  "bytes": 86
+ },
+ {
+  "file": "sourcegraph__0018__1719914228_insight_series_modify_query.sql",
+  "original_path": "migrations/codeinsights/1719914228_insight_series_modify_query/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "847944b17e2b33e347d1f50320ed7c6ea20118b4e8fe19ad0de29816ee576795",
+  "bytes": 512
+ },
+ {
+  "file": "sourcegraph__0019__1723117231_add_tenants_table.sql",
+  "original_path": "migrations/codeinsights/1723117231_add_tenants_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "aba6d320f9f29df007070588fcdcf6d1b482eb8c8d01cee0b7497d57e4c83d7c",
+  "bytes": 1357
+ },
+ {
+  "file": "sourcegraph__0020__1723647665_add_tenant_id_to_most_tables.sql",
+  "original_path": "migrations/codeinsights/1723647665_add_tenant_id_to_most_tables/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "e5fdb11af069d1dba24174c3ec22192ef6882f24531a0c0f67cd9d783710557d",
+  "bytes": 3073
+ },
+ {
+  "file": "sourcegraph__0021__1000000033_squashed_migrations_privileged.sql",
+  "original_path": "migrations/codeintel/1000000033_squashed_migrations_privileged/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "abd7f5e35522d09478eff016870968f2079e6e3af1baa5a9dad6d4cc92e1850f",
+  "bytes": 456
+ },
+ {
+  "file": "sourcegraph__0022__1665531314_remove_api_docs_tables.sql",
+  "original_path": "migrations/codeintel/1665531314_remove_api_docs_tables/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "a903d4dfadd491275505d3f7ae019613fc69ce2fda3c81e326cc2ce8577a2a0a",
+  "bytes": 3484
+ },
+ {
+  "file": "sourcegraph__0023__1666727108_add_codeintel_last_reconcile_table.sql",
+  "original_path": "migrations/codeintel/1666727108_add_codeintel_last_reconcile_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "f5cc6af116590f4e1ceeee0311601894d385aa97ad0e61d739d7638870c36801",
+  "bytes": 424
+ },
+ {
+  "file": "sourcegraph__0024__1669075922_add_scip_tables.sql",
+  "original_path": "migrations/codeintel/1669075922_add_scip_tables/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "ce91668f9809b1974a151b59eeb35f33a70c47aa6cdddd146590ab5c1c880591",
+  "bytes": 10640
+ },
+ {
+  "file": "sourcegraph__0025__1669934289_add_scip_document_schema_versions_table.sql",
+  "original_path": "migrations/codeintel/1669934289_add_scip_document_schema_versions_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "dd74cfc2b49eee0fcfa5fe0b49855191bd2364fea2a42ca4e96aa2ab49c371a8",
+  "bytes": 2386
+ },
+ {
+  "file": "sourcegraph__0026__1670001463_add_missing_index_for_cascading_deletes.sql",
+  "original_path": "migrations/codeintel/1670001463_add_missing_index_for_cascading_deletes/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "5402faa1c3db91b73bdb8eace5124d55da664bace42905d3323a70f7b949d9b1",
+  "bytes": 117
+ },
+ {
+  "file": "sourcegraph__0027__1670365552_fix_scip_document_schema_counting.sql",
+  "original_path": "migrations/codeintel/1670365552_fix_scip_document_schema_counting/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "54932db941819f8d15bd8c16f2d1e9343cd383eac51ae860a953a4fc971d40e0",
+  "bytes": 3099
+ },
+ {
+  "file": "sourcegraph__0028__1670370058_process_unreferenced_documents.sql",
+  "original_path": "migrations/codeintel/1670370058_process_unreferenced_documents/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "33db7556d59b7dba6f8a0afd31db9c405561ee5a8ad4ff3e78c012aaa82b4bde",
+  "bytes": 1445
+ },
+ {
+  "file": "sourcegraph__0029__1670940342_add_codeintel_scip_symbol_names_table.sql",
+  "original_path": "migrations/codeintel/1670940342_add_codeintel_scip_symbol_names_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "872d6dcec8cbb48f75706ff7e191cec390dcdd2656edd325dc288d090e010fd2",
+  "bytes": 1471
+ },
+ {
+  "file": "sourcegraph__0030__1670967960_add_codeintel_scip_symbol_names_indexes.sql",
+  "original_path": "migrations/codeintel/1670967960_add_codeintel_scip_symbol_names_indexes/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "5800057073ad015b2909c2a9a4ca1b2755021493534863e571b5a236cb72db2d",
+  "bytes": 298
+ },
+ {
+  "file": "sourcegraph__0031__1676423214_remove_lsif_data.sql",
+  "original_path": "migrations/codeintel/1676423214_remove_lsif_data/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6414ae20d63910e74e52939fadc3cf52a8b94a849af085a53ea0bc6323f0e342",
+  "bytes": 375
+ },
+ {
+  "file": "sourcegraph__0032__1678041507_cleanup_unused_functions.sql",
+  "original_path": "migrations/codeintel/1678041507_cleanup_unused_functions/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "414f971fa736c709d1e8c47180959add01713b51ad71dfc3ce03003d4f408d4e",
+  "bytes": 313
+ },
+ {
+  "file": "sourcegraph__0033__1678899132_remove_unused_unreferenced_documents_index.sql",
+  "original_path": "migrations/codeintel/1678899132_remove_unused_unreferenced_documents_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "30d5d58565774202d1526b6f5979a93677c485fc9988d5055e85865286b00653",
+  "bytes": 741
+ },
+ {
+  "file": "sourcegraph__0034__1679010276_add_missing_index.sql",
+  "original_path": "migrations/codeintel/1679010276_add_missing_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "416c9b6239f7767c1efcd015ae4d592f4d7731a2d2399e2a0d13abfbf4f887d1",
+  "bytes": 114
+ },
+ {
+  "file": "sourcegraph__0035__1686315964_clean_out_schema_versions_tables.sql",
+  "original_path": "migrations/codeintel/1686315964_clean_out_schema_versions_tables/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "4ac1c6f159c47c6d9a418c43f1d380f9fbcb406e418f5abcb3949a34c0e59eb5",
+  "bytes": 432
+ },
+ {
+  "file": "sourcegraph__0036__1723127341_add_tenant_id_to_most_tables.sql",
+  "original_path": "migrations/codeintel/1723127341_add_tenant_id_to_most_tables/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "73ea0dc72b4acb2263b4d5d93630cc634d15df1f31edbb1f2fa27279e8cf4772",
+  "bytes": 56
+ },
+ {
+  "file": "sourcegraph__0037__1723647660_add_tenant_id_to_most_tables.sql",
+  "original_path": "migrations/codeintel/1723647660_add_tenant_id_to_most_tables/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "4ea3e22bcf404ee46baa1617aae88b51c1f9b540624b54683c960af5e8f81041",
+  "bytes": 2429
+ },
+ {
+  "file": "sourcegraph__0038__1648195639_squashed_migrations_unprivileged.sql",
+  "original_path": "migrations/frontend/1648195639_squashed_migrations_unprivileged/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "3ce6f77deb170dbf9f38245d5cf3045bda2140a882b8aec5ba5d6b657192d291",
+  "bytes": 140838
+ },
+ {
+  "file": "sourcegraph__0039__1648524019_int64-ids-user-pending-permissions.sql",
+  "original_path": "migrations/frontend/1648524019_int64-ids-user-pending-permissions/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "8bad0c52e5d1714c62a38a241d736f616a4c6a44cf92d43dddd55abf56ee1dba",
+  "bytes": 324
+ },
+ {
+  "file": "sourcegraph__0040__1649159359_batch_spec_resolution_user_id.sql",
+  "original_path": "migrations/frontend/1649159359_batch_spec_resolution_user_id/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "50f048163151c26173c38d426be0f45f4f89f7af4f3de681492fa0c0f69d6888",
+  "bytes": 326
+ },
+ {
+  "file": "sourcegraph__0041__1649253538_batch_spec_resolution_user_id_non_null.sql",
+  "original_path": "migrations/frontend/1649253538_batch_spec_resolution_user_id_non_null/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "5a498b935e4ce1972134fb16ba9a1970975fa90a34416925cdd15147557f3abe",
+  "bytes": 205
+ },
+ {
+  "file": "sourcegraph__0042__1649432863_no_hash_for_code_monitor_last_searched.sql",
+  "original_path": "migrations/frontend/1649432863_no_hash_for_code_monitor_last_searched/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "fbf19d44c4730a684f0c11f8dddcb4a5d3facace8e060cca70331ceeb2c0866a",
+  "bytes": 945
+ },
+ {
+  "file": "sourcegraph__0043__1649441222_lsif_uploads_audit_logging.sql",
+  "original_path": "migrations/frontend/1649441222_lsif_uploads_audit_logging/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "69a5b57179dac31e4f82d3ca6ede3b69e584c755f1a1361c74ddcca549f96342",
+  "bytes": 7411
+ },
+ {
+  "file": "sourcegraph__0044__1650456734_configuration_policies_audit_logging.sql",
+  "original_path": "migrations/frontend/1650456734_configuration_policies_audit_logging/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "ebf17f298c2002ba58b9f7a601c095f25fbb015c079823e364f5796cb0e30f1e",
+  "bytes": 8841
+ },
+ {
+  "file": "sourcegraph__0045__1650637472_Add_codeintel_langugage_support_requests_table.sql",
+  "original_path": "migrations/frontend/1650637472_Add_codeintel_langugage_support_requests_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "da279e6710d01aefcd5fb8f4782956223e6c34ee96d3a33d39f47ce9208770f6",
+  "bytes": 303
+ },
+ {
+  "file": "sourcegraph__0046__1651061363_lsif_uploads_audit_logging_reason.sql",
+  "original_path": "migrations/frontend/1651061363_lsif_uploads_audit_logging_reason/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "5460309bf5e7953705d08ea2e260542cf75cb153d050955e398f4ea57a8ba279",
+  "bytes": 2502
+ },
+ {
+  "file": "sourcegraph__0047__1651159431_fix-maven-dependency-repos-name.sql",
+  "original_path": "migrations/frontend/1651159431_fix-maven-dependency-repos-name/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "c08d47bea7f24ffdcc69103284bde0b88f6c849cefc03e7701e3876f84e3ea67",
+  "bytes": 286
+ },
+ {
+  "file": "sourcegraph__0048__1652143849_drop_constraint_from_filter_column_in_lsif_references_table.sql",
+  "original_path": "migrations/frontend/1652143849_drop_constraint_from_filter_column_in_lsif_references_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "7268a3330eb98cd86f148aa282ccd8768c103d0ec7312f61a224e6a686cabea6",
+  "bytes": 79
+ },
+ {
+  "file": "sourcegraph__0049__1652189866_Add_lockfiles_tables.sql",
+  "original_path": "migrations/frontend/1652189866_Add_lockfiles_tables/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "0679c39bb088e364c6bcfd5cd04bc3e0d1b312d3105ad49bf2794eed80c2f5c3",
+  "bytes": 3278
+ },
+ {
+  "file": "sourcegraph__0050__1652228814_index_bitbucket_cloud_commit.sql",
+  "original_path": "migrations/frontend/1652228814_index_bitbucket_cloud_commit/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "35a484d5a0df4c1595bd48d462c3bc7a7581573ee1334dd85d588feac5c0a452",
+  "bytes": 149
+ },
+ {
+  "file": "sourcegraph__0051__1652946496_add_trigger_to_insert_gitserver_repo.sql",
+  "original_path": "migrations/frontend/1652946496_add_trigger_to_insert_gitserver_repo/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "758b18c42e6c0ccb0779bbb3ff25058694b56f370396a9a1f886e1fe06cc8c10",
+  "bytes": 696
+ },
+ {
+  "file": "sourcegraph__0052__1652964210_add_last_lockfile_scan_table.sql",
+  "original_path": "migrations/frontend/1652964210_add_last_lockfile_scan_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "e0647d5511643018bb6bb7ca9f9f6a798c7eb89a282a8dd583bf81caa82d9516",
+  "bytes": 411
+ },
+ {
+  "file": "sourcegraph__0053__1653472246_add_nps_survey_fields.sql",
+  "original_path": "migrations/frontend/1653472246_add_nps_survey_fields/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "bff33033ed7b495dbd9050ed1a36f3f369692d002546a9f469769c550a7bd41a",
+  "bytes": 125
+ },
+ {
+  "file": "sourcegraph__0054__1653479179_audit_log_op_and_seq.sql",
+  "original_path": "migrations/frontend/1653479179_audit_log_op_and_seq/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "c3e5ab6d7ea3bd4d8c14dcd406d059fb507da2142399811346db28078caf1e9e",
+  "bytes": 4368
+ },
+ {
+  "file": "sourcegraph__0055__1653596521_Add_column_detached_at_to_changesets_table.sql",
+  "original_path": "migrations/frontend/1653596521_Add_column_detached_at_to_changesets_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "8b5cd49d7b9b109ffe6a2202aa24b7ea549a6a397a2f9078f71c7d41df5e8b31",
+  "bytes": 1799
+ },
+ {
+  "file": "sourcegraph__0056__1654116265_add_unique_index_to_external_services.sql",
+  "original_path": "migrations/frontend/1654116265_add_unique_index_to_external_services/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "f685de47baabecba278aba20b379ce672dd50e26b485cef694d80c96f32fb57a",
+  "bytes": 420
+ },
+ {
+  "file": "sourcegraph__0057__1654168174_add_explicit_permissions_bitbucket_projects_jobs_table.sql",
+  "original_path": "migrations/frontend/1654168174_add_explicit_permissions_bitbucket_projects_jobs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "129b7195a3fd3dec562daa0adb789b85fa8a6cd79ec6ef10b02629e92217865e",
+  "bytes": 960
+ },
+ {
+  "file": "sourcegraph__0058__1654848945_add_explicit_permissions_bitbucket_projects_jobs_index.sql",
+  "original_path": "migrations/frontend/1654848945_add_explicit_permissions_bitbucket_projects_jobs_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "7fc254c985df48fe8520fe9ffa1b50dd9b0b324a13322c3b88e6a710403e41a3",
+  "bytes": 206
+ },
+ {
+  "file": "sourcegraph__0059__1654872407_fast_cascade_delete_batch_specs_1.sql",
+  "original_path": "migrations/frontend/1654872407_fast_cascade_delete_batch_specs_1/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "dfaf029eea169a640c27806addec20ba8d9a695f5cae8d0fc9fdfa4a07b51d96",
+  "bytes": 197
+ },
+ {
+  "file": "sourcegraph__0060__1654874153_fast_cascade_delete_batch_specs_3.sql",
+  "original_path": "migrations/frontend/1654874153_fast_cascade_delete_batch_specs_3/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "beb7f52f0bd2d5a08bcdaaea5e70f41c0cc1f32049833dcdd0db2ed1c56a1056",
+  "bytes": 257
+ },
+ {
+  "file": "sourcegraph__0061__1655037388_faster_changeset_spec_cleanup_1.sql",
+  "original_path": "migrations/frontend/1655037388_faster_changeset_spec_cleanup_1/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d2d4038d51d68f6be69834530ac8477219bc0bf896da96835fb87ae2bb1655d6",
+  "bytes": 101
+ },
+ {
+  "file": "sourcegraph__0062__1655067139_fixup_worker_fairness_view.sql",
+  "original_path": "migrations/frontend/1655067139_fixup_worker_fairness_view/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "8212723f938e54e30ee93f6e2af79a96c0b7f6854008644a412634ab8249de45",
+  "bytes": 1524
+ },
+ {
+  "file": "sourcegraph__0063__1655105391_lockfile_dependency_graph.sql",
+  "original_path": "migrations/frontend/1655105391_lockfile_dependency_graph/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "99203ec59646c51f71b62e2dcc201b5c10fc12c8672f0c61de3e765b059fd8f6",
+  "bytes": 2409
+ },
+ {
+  "file": "sourcegraph__0064__1655157509_no_more_ssbc_access_tokens.sql",
+  "original_path": "migrations/frontend/1655157509_no_more_ssbc_access_tokens/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "fb9fed9f1745ef625152fe83a119c0351414108a169a80ccfb7fbe33f657d8ed",
+  "bytes": 918
+ },
+ {
+  "file": "sourcegraph__0065__1655226733_hstore_aggregate_func.sql",
+  "original_path": "migrations/frontend/1655226733_hstore_aggregate_func/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "c94950b6b44b88439e67d08fc06ceef3d85f2773b7b276c47b93b944ef9e4d31",
+  "bytes": 533
+ },
+ {
+  "file": "sourcegraph__0066__1655412173_code_insights_queue_missing_index.sql",
+  "original_path": "migrations/frontend/1655412173_code_insights_queue_missing_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "98e3ef8395a42119898615e2c6c6df1b88807c217889d5e7253c0728f0b5abc1",
+  "bytes": 248
+ },
+ {
+  "file": "sourcegraph__0067__1655454264_add_lockfile_indexing_enabled_to_policy.sql",
+  "original_path": "migrations/frontend/1655454264_add_lockfile_indexing_enabled_to_policy/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "4ace2f3ed8f082a84b77092a81cb198bbaf2240566fdd3a66d31b38170a5c317",
+  "bytes": 282
+ },
+ {
+  "file": "sourcegraph__0068__1655481894_faster_ssbc_dequeue.sql",
+  "original_path": "migrations/frontend/1655481894_faster_ssbc_dequeue/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "08368dd5d64968672b04f28be9a1129e1d9bc4bd95742da35e1dadd2970286d7",
+  "bytes": 157
+ },
+ {
+  "file": "sourcegraph__0069__1655763641_faster_workspace_batch_spec_lookup.sql",
+  "original_path": "migrations/frontend/1655763641_faster_workspace_batch_spec_lookup/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "420577ef74a333c83fa0a5c145bcd40906b84937249499cdf168006571668c69",
+  "bytes": 125
+ },
+ {
+  "file": "sourcegraph__0070__1655843069_insights_faster_job_status.sql",
+  "original_path": "migrations/frontend/1655843069_insights_faster_job_status/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "acac96dce05c10be3a35b21b434bc2f9ece9b26421e02a9a55f1ad55fe8b6dd5",
+  "bytes": 134
+ },
+ {
+  "file": "sourcegraph__0071__1657106983_faster_failure_msg_query.sql",
+  "original_path": "migrations/frontend/1657106983_faster_failure_msg_query/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "804947637497b8dcd52687b44efdbd763ef4c07b25f5416a66275fb53fffb8d1",
+  "bytes": 176
+ },
+ {
+  "file": "sourcegraph__0072__1657107627_drop_duplicate_index_sync_jobs_state.sql",
+  "original_path": "migrations/frontend/1657107627_drop_duplicate_index_sync_jobs_state/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "7438f09c74e6a69ae198b807bba3b8970bf9758d19b81642ef87a9bb19e724e0",
+  "bytes": 60
+ },
+ {
+  "file": "sourcegraph__0073__1657279170_faster_dequeues_cm_trigger_jobs.sql",
+  "original_path": "migrations/frontend/1657279170_faster_dequeues_cm_trigger_jobs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "cb2634b3f3f7cf8271ec8cb10a1530f0fe204dfa3f5580779d258fcf89398932",
+  "bytes": 95
+ },
+ {
+  "file": "sourcegraph__0074__1657635365_add_fidelity_to_lockfiles.sql",
+  "original_path": "migrations/frontend/1657635365_add_fidelity_to_lockfiles/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "623791c3ea3eadd40ecee9f1224170474c842b436d2a98563160699af673db21",
+  "bytes": 268
+ },
+ {
+  "file": "sourcegraph__0075__1658122170_add_batch_change_id_to_batch_spec.sql",
+  "original_path": "migrations/frontend/1658122170_add_batch_change_id_to_batch_spec/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "0417f929dacffb7f89436f6e5b14d97d21e624eeecfdc2a3ad2c6b4ceadb5b32",
+  "bytes": 543
+ },
+ {
+  "file": "sourcegraph__0076__1658174103_workspace_execution_user_queues.sql",
+  "original_path": "migrations/frontend/1658174103_workspace_execution_user_queues/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "4e9701ef1580feb99e8812ede1f91c41869bd2b09f857e49e66015d1c95de6d8",
+  "bytes": 3239
+ },
+ {
+  "file": "sourcegraph__0077__1658255432_add_missing_constraints.sql",
+  "original_path": "migrations/frontend/1658255432_add_missing_constraints/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "bcf0a11e3d092138bd6aee70c7fefaece36760e996c3031b0ab87f30d77870d2",
+  "bytes": 870
+ },
+ {
+  "file": "sourcegraph__0078__1658384388_normalize_product_licenseslicense_key_fields.sql",
+  "original_path": "migrations/frontend/1658384388_normalize_product_licenseslicense_key_fields/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "004382b7f0024fa9e432780713d4575b3e136f27ab60425b11e13a2674fbf3bf",
+  "bytes": 412
+ },
+ {
+  "file": "sourcegraph__0079__1658484997_add_webhook_build_jobs_table.sql",
+  "original_path": "migrations/frontend/1658484997_add_webhook_build_jobs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d595c6c4e1b2dc48a6346c4e8c6299e98d95262b14b18f13a12a864ce0048585",
+  "bytes": 938
+ },
+ {
+  "file": "sourcegraph__0080__1658512336_batches_changeset_state_index.sql",
+  "original_path": "migrations/frontend/1658512336_batches_changeset_state_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "e2c924b5e5a48503a12cbd231cc863d849fc26a9381555c85c43e9e2399b1edd",
+  "bytes": 99
+ },
+ {
+  "file": "sourcegraph__0081__1658748822_add_timestamps_to_lockfiles.sql",
+  "original_path": "migrations/frontend/1658748822_add_timestamps_to_lockfiles/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "00415e2a83c63f1670accdb95e2985e5a8f19e176cb11ea5d36e553dfbf730e0",
+  "bytes": 369
+ },
+ {
+  "file": "sourcegraph__0082__1658856572_event_log_scrape_state.sql",
+  "original_path": "migrations/frontend/1658856572_event_log_scrape_state/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "56ad985f99bf68b3d5de29f760e096527dbf8bb9dc9b01ee1ee337ec738ad26f",
+  "bytes": 462
+ },
+ {
+  "file": "sourcegraph__0083__1658874734_normalized_changeset_specs.sql",
+  "original_path": "migrations/frontend/1658874734_normalized_changeset_specs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d109b1d8c9211b80cbd093e6c30191817967423a88e31dc2dd51955bdefebb28",
+  "bytes": 947
+ },
+ {
+  "file": "sourcegraph__0084__1659085788_add_repo_stats_table.sql",
+  "original_path": "migrations/frontend/1659085788_add_repo_stats_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "9964f0b0bbb0a21bd71492222adf01a48d6cac32e20f8fc7eeafda71b1533857",
+  "bytes": 17571
+ },
+ {
+  "file": "sourcegraph__0085__1659368926_cleanup_lsif_indexes_errored.sql",
+  "original_path": "migrations/frontend/1659368926_cleanup_lsif_indexes_errored/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "15879e0e8826915267fe58a84ece143f74f04e5e5d0d70a28c69d25e86a48445",
+  "bytes": 88
+ },
+ {
+  "file": "sourcegraph__0086__1659434035_alter_webhook_build_jobs_table.sql",
+  "original_path": "migrations/frontend/1659434035_alter_webhook_build_jobs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "af928e13f48da8fa6368f2ed9fef2ca692545ed130675abc3c03b967ca9cf71f",
+  "bytes": 131
+ },
+ {
+  "file": "sourcegraph__0087__1659459805_repo_key_value_pairs.sql",
+  "original_path": "migrations/frontend/1659459805_repo_key_value_pairs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "c41f2b207b4d7b44179dc73e6412d05ade2892dac3777e90035ffe4e7d502ea1",
+  "bytes": 237
+ },
+ {
+  "file": "sourcegraph__0088__1660132915_lsif_uploads_uncompressed_size.sql",
+  "original_path": "migrations/frontend/1660132915_lsif_uploads_uncompressed_size/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "580d3a03bf3f6d560c8d8d31d555d93b03b08b55e0e2e98c7466b2d87edc7984",
+  "bytes": 751
+ },
+ {
+  "file": "sourcegraph__0089__1660312877_add_aggregated_user_statistics_table.sql",
+  "original_path": "migrations/frontend/1660312877_add_aggregated_user_statistics_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "b4c32aee68a7d1e8dd57359776595187ce9c6ce64ee09e9e2c3c21139e28f190",
+  "bytes": 489
+ },
+ {
+  "file": "sourcegraph__0090__1660710812_update_reconciler_changeset_view.sql",
+  "original_path": "migrations/frontend/1660710812_update_reconciler_changeset_view/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "00614f510246541435f83946549c4c7e618f580d2cd0b44d9483cb0a0196b823",
+  "bytes": 1520
+ },
+ {
+  "file": "sourcegraph__0091__1660711451_remove_diff_stat_changed_changesets.sql",
+  "original_path": "migrations/frontend/1660711451_remove_diff_stat_changed_changesets/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6e3c448698c29010ca9bc0d3d1bb2a615f93c564eb2b772c70397e0719f80c7b",
+  "bytes": 878
+ },
+ {
+  "file": "sourcegraph__0092__1660742069_non_null_changeset_spec_type.sql",
+  "original_path": "migrations/frontend/1660742069_non_null_changeset_spec_type/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "8cd41b38817d68d12cb9e83fbf050d64833dec56adcc1b7e522fa33ca072b48b",
+  "bytes": 700
+ },
+ {
+  "file": "sourcegraph__0093__1661502186_fix_repo_stats_initial_state.sql",
+  "original_path": "migrations/frontend/1661502186_fix_repo_stats_initial_state/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "f519379a794003ff61d3bc9d105546afd949dfa6f761c1f39e6d10c579774b3f",
+  "bytes": 2769
+ },
+ {
+  "file": "sourcegraph__0094__1661507724_update_repo_stats_trigger_to_avoid_all_zeros.sql",
+  "original_path": "migrations/frontend/1661507724_update_repo_stats_trigger_to_avoid_all_zeros/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "e464b45186c60f7f30d74714b9d715dc051f943732769c71ccf4100523780215",
+  "bytes": 7627
+ },
+ {
+  "file": "sourcegraph__0095__1662636054_autoindexing_custom_inference_script.sql",
+  "original_path": "migrations/frontend/1662636054_autoindexing_custom_inference_script/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "8caa8b5c5984c424ef121562504f281ba9b2f998f8a53799fcc7a9f8e9bc3dfd",
+  "bytes": 302
+ },
+ {
+  "file": "sourcegraph__0096__1663569995_update_username_valid_chars_contraint.sql",
+  "original_path": "migrations/frontend/1663569995_update_username_valid_chars_contraint/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "a08d1bd9fd8033e016f7f2a5f181411fd7cb7bd4175d08dee80ff1ae633210bf",
+  "bytes": 206
+ },
+ {
+  "file": "sourcegraph__0097__1663871069_changeset_specs_null_published.sql",
+  "original_path": "migrations/frontend/1663871069_changeset_specs_null_published/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "c017e2499284ce2767d788f86483eee0c39795f05c35b0b221d5ddba25da387c",
+  "bytes": 478
+ },
+ {
+  "file": "sourcegraph__0098__1664300936_move_lsif_upload_reference_count_to_different_table.sql",
+  "original_path": "migrations/frontend/1664300936_move_lsif_upload_reference_count_to_different_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "113dfca9b291b5dac33da45d12b7ea33839d589a2339d60240b2155bb9c5ea62",
+  "bytes": 834
+ },
+ {
+  "file": "sourcegraph__0099__1664988036_create_webhooks_table.sql",
+  "original_path": "migrations/frontend/1664988036_create_webhooks_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "06a459ec5a7e9d1bc3b4a593fc25d406da58d78215e2a22fd0d3d2d77f1c1e7d",
+  "bytes": 765
+ },
+ {
+  "file": "sourcegraph__0100__1665056530_autogeneratewebhookid.sql",
+  "original_path": "migrations/frontend/1665056530_autogeneratewebhookid/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d99eda7605158e0206286ab44b2efad00fdb2928ad2eacd437ec051859673057",
+  "bytes": 169
+ },
+ {
+  "file": "sourcegraph__0101__1665138849_addrandidtowebhooks.sql",
+  "original_path": "migrations/frontend/1665138849_addrandidtowebhooks/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "2a0d6204f04b236d2089e5448666d1dab7be0f828544e4739b24afdff9d5501d",
+  "bytes": 1028
+ },
+ {
+  "file": "sourcegraph__0102__1665420690_persisted_repo_document_ranks.sql",
+  "original_path": "migrations/frontend/1665420690_persisted_repo_document_ranks/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "377b0e990497b6436f73236f2721879f30b2204b80a4f21cf4f80515ffdf6d99",
+  "bytes": 126
+ },
+ {
+  "file": "sourcegraph__0103__1665477911_add_zoekt_repos_table.sql",
+  "original_path": "migrations/frontend/1665477911_add_zoekt_repos_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "43f55f32c9a3cbc0433dbaa93b9c734760660fafe58eed56714f985649e06da2",
+  "bytes": 863
+ },
+ {
+  "file": "sourcegraph__0104__1665524865_add_column_repo_status_to_gitserver_repos_table.sql",
+  "original_path": "migrations/frontend/1665524865_add_column_repo_status_to_gitserver_repos_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6cd875198ac59bcedd68da1c3701a3939f1bcfd3e2acff192a22c33d999f3752",
+  "bytes": 374
+ },
+ {
+  "file": "sourcegraph__0105__1665588249_rename_bad_fk_constraint.sql",
+  "original_path": "migrations/frontend/1665588249_rename_bad_fk_constraint/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "8bb5826f4b483ad143eb2fd2d184d3385f8b0f9d67a82e97161eb2bc0488dab4",
+  "bytes": 508
+ },
+ {
+  "file": "sourcegraph__0106__1665770699_add_codeintel_commit_dates.sql",
+  "original_path": "migrations/frontend/1665770699_add_codeintel_commit_dates/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "acaf5fc7e47da141925ff33a67571836e4aec12b3f3833486a6497de06a245df",
+  "bytes": 973
+ },
+ {
+  "file": "sourcegraph__0107__1666034720_add_lsif_upload_references_scan_timestamp.sql",
+  "original_path": "migrations/frontend/1666034720_add_lsif_upload_references_scan_timestamp/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "76ebc0cdf16afc582238de3ffe6dd6bf59ee303664bb08025742511b784db891",
+  "bytes": 266
+ },
+ {
+  "file": "sourcegraph__0108__1666145729_add_lsif_indexes_should_reindex.sql",
+  "original_path": "migrations/frontend/1666145729_add_lsif_indexes_should_reindex/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "aaddf03872cfdd6c53c791f8b31b994d9aa2d461d2cf5174fb0ebc4196c065e9",
+  "bytes": 729
+ },
+ {
+  "file": "sourcegraph__0109__1666344635_fill_zoekt_repos_table.sql",
+  "original_path": "migrations/frontend/1666344635_fill_zoekt_repos_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "eaee32c61c2756f503d39b1e9b382e0ce16c41a9bf5e632e78a6a6b66779e1e2",
+  "bytes": 168
+ },
+ {
+  "file": "sourcegraph__0110__1666524436_add_missing_state_index_lsif_dependency_indexes.sql",
+  "original_path": "migrations/frontend/1666524436_add_missing_state_index_lsif_dependency_indexes/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d1698d0bc69253b664f4c2184a088ecae1fa0c509f1da1cfae04158e78e79ef8",
+  "bytes": 119
+ },
+ {
+  "file": "sourcegraph__0111__1666598814_add_missing_state_index_on_lsif_dependency_syncing_jobs_table.sql",
+  "original_path": "migrations/frontend/1666598814_add_missing_state_index_on_lsif_dependency_syncing_jobs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "3667fe718145229f97b845f5f00241553a7a7544b3ec9253c542e25974bee8da",
+  "bytes": 117
+ },
+ {
+  "file": "sourcegraph__0112__1666598828_add_missing_state_index_on_batch_spec_resolution_jobs_table.sql",
+  "original_path": "migrations/frontend/1666598828_add_missing_state_index_on_batch_spec_resolution_jobs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "a80a94884fe013c7ca12ef6be1fc5fc7b4d7a040461837eb0cc907c76e11ee66",
+  "bytes": 113
+ },
+ {
+  "file": "sourcegraph__0113__1666598987_add_missing_state_index_on_webhook_build_jobs_table.sql",
+  "original_path": "migrations/frontend/1666598987_add_missing_state_index_on_webhook_build_jobs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "08ea02b96fb8bacbc5a20dc346c6a40d412d0cb4485303468787159f36b3e6aa",
+  "bytes": 97
+ },
+ {
+  "file": "sourcegraph__0114__1666598990_add_fk_to_webhook_logs_table.sql",
+  "original_path": "migrations/frontend/1666598990_add_fk_to_webhook_logs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "ee846a6f62ba3f5c6d22919a779f218db8ac03e9ed0e087767f7eb20f45dd693",
+  "bytes": 118
+ },
+ {
+  "file": "sourcegraph__0115__1666886757_add_event_logs_user_id_timestamp_index.sql",
+  "original_path": "migrations/frontend/1666886757_add_event_logs_user_id_timestamp_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "0287a157ee0bc56a8bd189981413c723bc8233c0ef8bb52f3360b91b1475e893",
+  "bytes": 105
+ },
+ {
+  "file": "sourcegraph__0116__1666904087_add_codeintel_path_rank_inputs_table.sql",
+  "original_path": "migrations/frontend/1666904087_add_codeintel_path_rank_inputs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "c247da455f5bd9a962bb4325093016f157c2b62711f0e9bd9a0e64ceac05a5b6",
+  "bytes": 888
+ },
+ {
+  "file": "sourcegraph__0117__1667220502_add_precision_to_codeintel_path_ranks.sql",
+  "original_path": "migrations/frontend/1667220502_add_precision_to_codeintel_path_ranks/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "eff1e1a5290dc33d693698dab120157a7fa254a4e2fd29dd48ae098a316697d8",
+  "bytes": 138
+ },
+ {
+  "file": "sourcegraph__0118__1667220626_rename_codeintel_path_ranks_key.sql",
+  "original_path": "migrations/frontend/1667220626_rename_codeintel_path_ranks_key/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "160bb4e82ac9aeec9257d488492f90924d6de69713affdb334dc5d7700e74824",
+  "bytes": 274
+ },
+ {
+  "file": "sourcegraph__0119__1667220768_add_precision_to_codeintel_path_rank_inputs.sql",
+  "original_path": "migrations/frontend/1667220768_add_precision_to_codeintel_path_rank_inputs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "a8ff3cd3cb6145abcc0b1aeaf3cffec73b7e843d701a43f0db30ddbd80439601",
+  "bytes": 102
+ },
+ {
+  "file": "sourcegraph__0120__1667222952_add_codeintel_ranking_timestamps.sql",
+  "original_path": "migrations/frontend/1667222952_add_codeintel_ranking_timestamps/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "cdcd1f61ddfedb3c033440ddf4224adb686b978373a6252231be1b9506032db0",
+  "bytes": 699
+ },
+ {
+  "file": "sourcegraph__0121__1667313173_add_index_to_lsif_uploads_visible_at_tip.sql",
+  "original_path": "migrations/frontend/1667313173_add_index_to_lsif_uploads_visible_at_tip/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "1b546c821403a9ab5003bc0d87e260db0dcdde65e7ba4b56a71e008e1e7ac3ae",
+  "bytes": 147
+ },
+ {
+  "file": "sourcegraph__0122__1667395984_remove_filter_from_lsif_references.sql",
+  "original_path": "migrations/frontend/1667395984_remove_filter_from_lsif_references/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "df3919844c2788c61e5e479575094833adeccd051a4d6036976e1ccf0b992d37",
+  "bytes": 64
+ },
+ {
+  "file": "sourcegraph__0123__1667433265_add_last_reconcile_to_lsif_uploads_table.sql",
+  "original_path": "migrations/frontend/1667433265_add_last_reconcile_to_lsif_uploads_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "197e4bdad81ef8db5d79592e439ed12d1eace30da38a1dec4e123ca43f4ad0c5",
+  "bytes": 239
+ },
+ {
+  "file": "sourcegraph__0124__1667500111_fix_codeintel_path_ranks_trigger_condition.sql",
+  "original_path": "migrations/frontend/1667500111_fix_codeintel_path_ranks_trigger_condition/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "84cc243fe3dc0281aeb7a8cafd797d111d8bb163e11b08302bea8b5e6397397d",
+  "bytes": 293
+ },
+ {
+  "file": "sourcegraph__0125__1667825028_add_ssbc_execution_v2_flag.sql",
+  "original_path": "migrations/frontend/1667825028_add_ssbc_execution_v2_flag/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d98a8f7b81cb4b18e2c7e8aae2c4dbf852c0c834f85a26aaa4d0d59859ab0fb4",
+  "bytes": 455
+ },
+ {
+  "file": "sourcegraph__0126__1667863757_drop_old_index.sql",
+  "original_path": "migrations/frontend/1667863757_drop_old_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "8e3b8d2c3812694f79df1b2b4c5c0f80c47733e78d67904f2e9c9708d664506a",
+  "bytes": 82
+ },
+ {
+  "file": "sourcegraph__0127__1667917030_fix_codeintel_ranking_exports_index_order.sql",
+  "original_path": "migrations/frontend/1667917030_fix_codeintel_ranking_exports_index_order/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "f29f30b6532bda253c299a69ba6f3a6d18f809267f78963d66da6f13aa711fbd",
+  "bytes": 204
+ },
+ {
+  "file": "sourcegraph__0128__1667952974_speed_up_listsourcegraphdotcomindexablerepos_part_2.sql",
+  "original_path": "migrations/frontend/1667952974_speed_up_listsourcegraphdotcomindexablerepos_part_2/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "05fcb8ce42d9fc44a016d2079afb875031fd25ab1776ccf624cd1f579bf5ad26",
+  "bytes": 144
+ },
+ {
+  "file": "sourcegraph__0129__1668174127_add_gitserver_repos_last_changed_idx.sql",
+  "original_path": "migrations/frontend/1668174127_add_gitserver_repos_last_changed_idx/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "5a2dfed11cd4a1151dda7257c63325fe5a0fc6a5b9328d6398d63ab912efcb11",
+  "bytes": 117
+ },
+ {
+  "file": "sourcegraph__0130__1668179619_drop_redundant_index.sql",
+  "original_path": "migrations/frontend/1668179619_drop_redundant_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "9a5f34bc89fd4381d2072817d2d357888b374a99bafde8a87818530f27847d31",
+  "bytes": 39
+ },
+ {
+  "file": "sourcegraph__0131__1668184279_remove_git_status_column_from_gitserver_repos_table.sql",
+  "original_path": "migrations/frontend/1668184279_remove_git_status_column_from_gitserver_repos_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "2b1d195b3bdd4b508d0ac1db4134f81a9028f3e0a887ca2356999bc02f369060",
+  "bytes": 718
+ },
+ {
+  "file": "sourcegraph__0132__1668707631_add_unique_constraint_batch_specs_rand_id.sql",
+  "original_path": "migrations/frontend/1668707631_add_unique_constraint_batch_specs_rand_id/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "2bf1db2aa4df85f7edef96e00935a5a87b7554c842eb06f0a8c101c72f3673b9",
+  "bytes": 93
+ },
+ {
+  "file": "sourcegraph__0133__1668767882_add_unique_constraint_changeset_specs_rand_id.sql",
+  "original_path": "migrations/frontend/1668767882_add_unique_constraint_changeset_specs_rand_id/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "846820696dfd88fe3179e7c7ff6794f4426c3f21dc63a9b55461cce914275711",
+  "bytes": 101
+ },
+ {
+  "file": "sourcegraph__0134__1668808118_temp_codeinsights_trace_with_query.sql",
+  "original_path": "migrations/frontend/1668808118_temp_codeinsights_trace_with_query/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "4b2cb9de05af1b1cc9ef0aa4dc079411beac233b00642f89a33720f4069458a0",
+  "bytes": 95
+ },
+ {
+  "file": "sourcegraph__0135__1669184869_add_name_to_webhooks_table.sql",
+  "original_path": "migrations/frontend/1669184869_add_name_to_webhooks_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "440c374757a201b74dd88f149837d1ba2c920b59df6f17df266e0db859abb654",
+  "bytes": 260
+ },
+ {
+  "file": "sourcegraph__0136__1669297489_add_permission_sync_jobs.sql",
+  "original_path": "migrations/frontend/1669297489_add_permission_sync_jobs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "64eca6bafdd2aa8caad89e3179c9b48e7206bcfbe17a5f22a690fed9634c12de",
+  "bytes": 1194
+ },
+ {
+  "file": "sourcegraph__0137__1669645608_make_batch_change_name_pattern.sql",
+  "original_path": "migrations/frontend/1669645608_make_batch_change_name_pattern/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "487d4b14491a821b947c08ac881a5a380541a70056704437f1b3af34fbb3b09e",
+  "bytes": 178
+ },
+ {
+  "file": "sourcegraph__0138__1669836151_add_manager_to_lsif_packagereferences.sql",
+  "original_path": "migrations/frontend/1669836151_add_manager_to_lsif_packagereferences/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "ad7df7a62fb55775037d8ada3b2027a86350cb6b28271791e1dc012ab683719f",
+  "bytes": 324
+ },
+ {
+  "file": "sourcegraph__0139__1670350006_add_should_reindex_to_lsif_uploads.sql",
+  "original_path": "migrations/frontend/1670350006_add_should_reindex_to_lsif_uploads/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "cfe6e8bb1aaed3139640db4741e502ba59cf26baf9c0db530483533be441895d",
+  "bytes": 98
+ },
+ {
+  "file": "sourcegraph__0140__1670539388_create_roles_table.sql",
+  "original_path": "migrations/frontend/1670539388_create_roles_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d33f6f97cecaab87a270ef993dedaae4d89971b5435afbaaf2a68e1f9f1ea5cf",
+  "bytes": 385
+ },
+ {
+  "file": "sourcegraph__0141__1670542168_create_user_roles_table.sql",
+  "original_path": "migrations/frontend/1670542168_create_user_roles_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "73b71e30bb577e67e5cf5244a75cd9c789b5279d21936366d2b12e6438e06457",
+  "bytes": 294
+ },
+ {
+  "file": "sourcegraph__0142__1670543231_create_role_permissions_table.sql",
+  "original_path": "migrations/frontend/1670543231_create_role_permissions_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "36ecc0f278b405c46ba1757b456f3d8714226b84fc499d411fcde85918347d0b",
+  "bytes": 318
+ },
+ {
+  "file": "sourcegraph__0143__1670870072_add_read_only_column_roles.sql",
+  "original_path": "migrations/frontend/1670870072_add_read_only_column_roles/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "9d507be11c7f1b1691f40dcca2a82b35aac93ddf2d562d082a20f3981162b3e5",
+  "bytes": 296
+ },
+ {
+  "file": "sourcegraph__0144__1670934184_add_gitserver_corruption_columns.sql",
+  "original_path": "migrations/frontend/1670934184_add_gitserver_corruption_columns/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "57cc8b15694535eb30a06bafb3de3b5860871cf18f07d907ec6b19a5d881a704",
+  "bytes": 406
+ },
+ {
+  "file": "sourcegraph__0145__1671159453_outbound_webhooks.sql",
+  "original_path": "migrations/frontend/1671159453_outbound_webhooks/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "25c11489b13ce7c03de9e5e539745829a700df035fd4a9e898b024717ba053dc",
+  "bytes": 3794
+ },
+ {
+  "file": "sourcegraph__0146__1671543381_add_default_roles.sql",
+  "original_path": "migrations/frontend/1671543381_add_default_roles/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "f34cd091a7d5f274ad62fa41c67bbf31adb614bd9b5176b6794e9fc107ed7263",
+  "bytes": 359
+ },
+ {
+  "file": "sourcegraph__0147__1672884222_create_namespace_permissions_table.sql",
+  "original_path": "migrations/frontend/1672884222_create_namespace_permissions_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "513fe563e88a1433281c1d6b96ddf8dff5fa0ea0eb723874eccbdddbe18a99f8",
+  "bytes": 539
+ },
+ {
+  "file": "sourcegraph__0148__1673019611_lsif_uploads_audit_logs_bigint_upload_size.sql",
+  "original_path": "migrations/frontend/1673019611_lsif_uploads_audit_logs_bigint_upload_size/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6e6df372e60a614f34a747e9082b8acae758ee7be9e94bb449ae885394a7146d",
+  "bytes": 77
+ },
+ {
+  "file": "sourcegraph__0149__1673351808_add_repo_corruption_stat.sql",
+  "original_path": "migrations/frontend/1673351808_add_repo_corruption_stat/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "38263af9a37dfca670df8cc1a5deeac6d4969ee0b44f2c0fdb8d3a041f8881bd",
+  "bytes": 9685
+ },
+ {
+  "file": "sourcegraph__0150__1673871310_add_columns_to_permission_sync_jobs_table.sql",
+  "original_path": "migrations/frontend/1673871310_add_columns_to_permission_sync_jobs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "3d549f7df47adb373fecfdc35610c754eb7de412db2c5ec30e614e8bdbc3e99e",
+  "bytes": 453
+ },
+ {
+  "file": "sourcegraph__0151__1673897709_add_cascade_batch_spec_resolution_jobs.sql",
+  "original_path": "migrations/frontend/1673897709_add_cascade_batch_spec_resolution_jobs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6df8b0a2bf5a7ebdd120cc7ab66381dc3ced995516106e795b95675c2614ebc2",
+  "bytes": 385
+ },
+ {
+  "file": "sourcegraph__0152__1674041632_add_constraints_to_permission_sync_jobs_table.sql",
+  "original_path": "migrations/frontend/1674041632_add_constraints_to_permission_sync_jobs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "2f883676a650e1b901ef191eae8bb765c9060838e0626a1f38c26eb44e51c7dc",
+  "bytes": 2351
+ },
+ {
+  "file": "sourcegraph__0153__1674047296_rename_roles_readonly_column_to_system.sql",
+  "original_path": "migrations/frontend/1674047296_rename_roles_readonly_column_to_system/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "2b4603736a35564e7c5def9da83cf80fe42da54e17ff79b395f7b352469012cf",
+  "bytes": 448
+ },
+ {
+  "file": "sourcegraph__0154__1674480050_add_column_redacted_contents_to_critical_and_site_config.sql",
+  "original_path": "migrations/frontend/1674480050_add_column_redacted_contents_to_critical_and_site_config/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "08c6b8174dc7edb000d77adccbd604f6b88077e5817fbabd336558206058bcbd",
+  "bytes": 664
+ },
+ {
+  "file": "sourcegraph__0155__1674642349_add_priority_to_permission_sync_jobs.sql",
+  "original_path": "migrations/frontend/1674642349_add_priority_to_permission_sync_jobs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "60a2d8b4402b1b45b35191679bf66e7dd7e61d7d66398519c4b686137083199b",
+  "bytes": 672
+ },
+ {
+  "file": "sourcegraph__0156__1674669794_add_foreign_keys_to_permission_sync_jobs.sql",
+  "original_path": "migrations/frontend/1674669794_add_foreign_keys_to_permission_sync_jobs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "f23deac9f0eb4709ea9bb3d00abdec68e249b19d74cde72884055777a6957ca5",
+  "bytes": 2681
+ },
+ {
+  "file": "sourcegraph__0157__1674754280_executor_job_tokens.sql",
+  "original_path": "migrations/frontend/1674754280_executor_job_tokens/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "94308c0f0c7c007b11c14c3ef3ee04729fafa08078f0ac425f637f5bed4fdc0b",
+  "bytes": 964
+ },
+ {
+  "file": "sourcegraph__0158__1674814035_add_unified_source_perms_table.sql",
+  "original_path": "migrations/frontend/1674814035_add_unified_source_perms_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "ce8a9e2a909d845854124133f0b75fcf409f93c637e40e08efdaa747b1457a90",
+  "bytes": 1120
+ },
+ {
+  "file": "sourcegraph__0159__1675155867_add_no_perms_column_to_permission_sync_jobs_table.sql",
+  "original_path": "migrations/frontend/1675155867_add_no_perms_column_to_permission_sync_jobs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "a3f9cc08801b8fb89e6f5821b7bdc03ab9c6eb74d464eaaba5b2853f7abb2f07",
+  "bytes": 2746
+ },
+ {
+  "file": "sourcegraph__0160__1675194688_fix_should_reindex_in_views.sql",
+  "original_path": "migrations/frontend/1675194688_fix_should_reindex_in_views/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "8b1188d78f9f35ec2a1c25fbc633d6b95527c78dbbb947e565e28e490fc4ca68",
+  "bytes": 719
+ },
+ {
+  "file": "sourcegraph__0161__1675277218_add_lsif_uploads_uploaded_at_id.sql",
+  "original_path": "migrations/frontend/1675277218_add_lsif_uploads_uploaded_at_id/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "4a37b073918bf263a9b04430c59f1afd27ce19adfeeb34364a2d09e685189b3b",
+  "bytes": 133
+ },
+ {
+  "file": "sourcegraph__0162__1675277500_drop_lsif_uploads_uploaded_at.sql",
+  "original_path": "migrations/frontend/1675277500_drop_lsif_uploads_uploaded_at/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "04a1e59f2df3295ad7b9c715a5a4df1c533fa8670d81b796965e1d469928a930",
+  "bytes": 48
+ },
+ {
+  "file": "sourcegraph__0163__1675296942_add_column_to_changesets_for_external_fork_name.sql",
+  "original_path": "migrations/frontend/1675296942_add_column_to_changesets_for_external_fork_name/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6c552117c657a73c902a783817f7ddc03f43f55f859b99e6e3f443b4b65fcab0",
+  "bytes": 1797
+ },
+ {
+  "file": "sourcegraph__0164__1675367314_add_results_to_permission_sync_jobs.sql",
+  "original_path": "migrations/frontend/1675367314_add_results_to_permission_sync_jobs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "83d01f5530cd7a724499149810620202c8cdbdf090e3f1595b4a93aa86e199f7",
+  "bytes": 317
+ },
+ {
+  "file": "sourcegraph__0165__1675850599_add_access_requests_table.sql",
+  "original_path": "migrations/frontend/1675850599_add_access_requests_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "1bed0a389bd32c15cae77a6a3f33cf3ea51e998c413db88727a4393c2ffcc5cc",
+  "bytes": 328
+ },
+ {
+  "file": "sourcegraph__0166__1675864432_add_code_host_states_to_permission_sync_jobs_table.sql",
+  "original_path": "migrations/frontend/1675864432_add_code_host_states_to_permission_sync_jobs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "dfc5df6b9d8c2ca561db611f66a9459854b79ccef0b0b750bc7ceca7eba8c8e9",
+  "bytes": 84
+ },
+ {
+  "file": "sourcegraph__0167__1676272751_add_repo_embedding_jobs.sql",
+  "original_path": "migrations/frontend/1676272751_add_repo_embedding_jobs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "71dd63e0dc75cdc2e5265054bd332a15d848d85d39ca667af7e045164d14c4f1",
+  "bytes": 1274
+ },
+ {
+  "file": "sourcegraph__0168__1676328864_add_cached_available_indexers.sql",
+  "original_path": "migrations/frontend/1676328864_add_cached_available_indexers/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "ca36af889e43c5b6e21fae079d89e7c94e0cc13a16db6838dc8ea515da367205",
+  "bytes": 471
+ },
+ {
+  "file": "sourcegraph__0169__1676420496_frontend.sql",
+  "original_path": "migrations/frontend/1676420496_frontend/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "85acc305ebac241e3bebda41412aaa153587b236fb6473abccd596879789a667",
+  "bytes": 1834
+ },
+ {
+  "file": "sourcegraph__0170__1676996650_package_repos_separate_versions_table_patch1.sql",
+  "original_path": "migrations/frontend/1676996650_package_repos_separate_versions_table_patch1/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d917c1a29e5f74e59ffbc725817d71535f5e9a913d0cdf93fe1c1952b15cfe86",
+  "bytes": 111
+ },
+ {
+  "file": "sourcegraph__0171__1677003167_package_repos_separate_versions_table_stage2.sql",
+  "original_path": "migrations/frontend/1677003167_package_repos_separate_versions_table_stage2/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "7426d9908928ff3f7c0bf591d746f1e49b386d61d303b4ddabd086381c6b1ba8",
+  "bytes": 427
+ },
+ {
+  "file": "sourcegraph__0172__1677008591_add_codeintel_rank_path_counts_inputs.sql",
+  "original_path": "migrations/frontend/1677008591_add_codeintel_rank_path_counts_inputs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "f738da10f4ab08feab8c4ab9b722c73ad758e6f0d32487b65cff01d66314e35e",
+  "bytes": 434
+ },
+ {
+  "file": "sourcegraph__0173__1677073533_add_codeowners_table.sql",
+  "original_path": "migrations/frontend/1677073533_add_codeowners_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "76e9d010e100509b26d4d9bd0b537daa0b10c11180d1ba15fe09a97ad7fad09f",
+  "bytes": 412
+ },
+ {
+  "file": "sourcegraph__0174__1677166643_package_repos_allowblock_lists.sql",
+  "original_path": "migrations/frontend/1677166643_package_repos_allowblock_lists/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "1c11b787e7fb2facb5907601cf578167281395e71a34e27a19d4409c9ca7462a",
+  "bytes": 3027
+ },
+ {
+  "file": "sourcegraph__0175__1677242688_add_triggers_for_soft_deleted_perms_entities.sql",
+  "original_path": "migrations/frontend/1677242688_add_triggers_for_soft_deleted_perms_entities/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "9b29e0b2c7a564c2adfe49852f718a6955b836fa82454f112bf0c0d14cdf0d89",
+  "bytes": 1828
+ },
+ {
+  "file": "sourcegraph__0176__1677594756_add_better_index_to_ranking_path_counts_table.sql",
+  "original_path": "migrations/frontend/1677594756_add_better_index_to_ranking_path_counts_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "576df6adfdd7aeae24a26a99d04599abda60a8679ecbc3893ab6b74405b55d02",
+  "bytes": 228
+ },
+ {
+  "file": "sourcegraph__0177__1677607213_add_indexes_on_access_requests_create_at_and_status_columns.sql",
+  "original_path": "migrations/frontend/1677607213_add_indexes_on_access_requests_create_at_and_status_columns/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "63557d3387cca726e659c98c308f8becea2a58ed1d9be0b3db6fa8b25357c272",
+  "bytes": 166
+ },
+ {
+  "file": "sourcegraph__0178__1677627559_add_index_to_definition_scan_column.sql",
+  "original_path": "migrations/frontend/1677627559_add_index_to_definition_scan_column/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "273baee92cca1078b7d54f249a1ef45de1250386576d552c6d1034aba583020c",
+  "bytes": 179
+ },
+ {
+  "file": "sourcegraph__0179__1677627566_add_index_to_reference_scan_column.sql",
+  "original_path": "migrations/frontend/1677627566_add_index_to_reference_scan_column/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "7945b4f55fb0d0e4570dfde56ba6dc8382d210f33241a9091a767339f0eaadb5",
+  "bytes": 177
+ },
+ {
+  "file": "sourcegraph__0180__1677694168_add_vulnerability_tables.sql",
+  "original_path": "migrations/frontend/1677694168_add_vulnerability_tables/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "f0bd3a7e1fd3518eb5f19e9f4ab58f6c2d49822c2951a8e7b9f5609da37e1e9d",
+  "bytes": 1968
+ },
+ {
+  "file": "sourcegraph__0181__1677700103_add_access_requests_decision_by_user_id_column.sql",
+  "original_path": "migrations/frontend/1677700103_add_access_requests_decision_by_user_id_column/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "9b357425c147cebad0be454d89bcd9d6e0b26d56e2a93a1bb9f997b99db5306b",
+  "bytes": 136
+ },
+ {
+  "file": "sourcegraph__0182__1677716184_add_columns_for_ranking_statistics.sql",
+  "original_path": "migrations/frontend/1677716184_add_columns_for_ranking_statistics/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d53278354ccbb3ef3bd87f364a58ccd4c08a7123b769b5ebdb2128462f873ba2",
+  "bytes": 156
+ },
+ {
+  "file": "sourcegraph__0183__1677803354_add_vulnerability_scan_log_table.sql",
+  "original_path": "migrations/frontend/1677803354_add_vulnerability_scan_log_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "cc742f1910df43a0db21f13da11c5cc1d528365f1d7d42c23dc024de5c295328",
+  "bytes": 408
+ },
+ {
+  "file": "sourcegraph__0184__1677811663_make_team_creator_nullable.sql",
+  "original_path": "migrations/frontend/1677811663_make_team_creator_nullable/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6fc0ea70638b72d2ba0d3e7bdd73d2658dfdfc213e34beb9da86bccfa22c9209",
+  "bytes": 58
+ },
+ {
+  "file": "sourcegraph__0185__1677944569_drop_unused_types.sql",
+  "original_path": "migrations/frontend/1677944569_drop_unused_types/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "f70a7c1c4b247b43202f82b65a63b433834f14463d0f7faa873033c6c6fdb679",
+  "bytes": 79
+ },
+ {
+  "file": "sourcegraph__0186__1677944752_drop_unused_lockfiles_tables.sql",
+  "original_path": "migrations/frontend/1677944752_drop_unused_lockfiles_tables/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "8b9bdc70128306c07e0d17e83c533cea40399de48da87139c8209406242dfdfb",
+  "bytes": 138
+ },
+ {
+  "file": "sourcegraph__0187__1677955553_update_ranking_repo_relations.sql",
+  "original_path": "migrations/frontend/1677955553_update_ranking_repo_relations/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "41fcd868cc357e159771877822cf51c86846b827252330d19319ea956944c943",
+  "bytes": 728
+ },
+ {
+  "file": "sourcegraph__0188__1677958359_simplify_path_ranks_table.sql",
+  "original_path": "migrations/frontend/1677958359_simplify_path_ranks_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "03aee86d0c5ac0d503b778640853668d1d0cec4100847ed72a1ad575f28c6f65",
+  "bytes": 588
+ },
+ {
+  "file": "sourcegraph__0189__1678112318_add_external_accounts_scim_index.sql",
+  "original_path": "migrations/frontend/1678112318_add_external_accounts_scim_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "f3247f4e3781064ec44ad57b9b6ceb511f6f9fb74cfb7032f04cc495e7357d20",
+  "bytes": 188
+ },
+ {
+  "file": "sourcegraph__0190__1678175532_index_github_topics.sql",
+  "original_path": "migrations/frontend/1678175532_index_github_topics/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "725eec306e390944241ca08c16a2595c19fa8a70478f4da5b663cb267e666bed",
+  "bytes": 820
+ },
+ {
+  "file": "sourcegraph__0191__1678213774_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1678213774_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "79d1c17845d4b9bd8df8e00a3807b1f76e2ca98be66d0cbb3d4978dd93e004ce",
+  "bytes": 406
+ },
+ {
+  "file": "sourcegraph__0192__1678220614_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1678220614_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "30acf22a8c218973483523bbc56265d2d160fc8a93d31b89a6dff700a5c85378",
+  "bytes": 233
+ },
+ {
+  "file": "sourcegraph__0193__1678290792_drop_unused_index_event_logs_user_id.sql",
+  "original_path": "migrations/frontend/1678290792_drop_unused_index_event_logs_user_id/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "4a6bd5d37763381933b7a1e81b8eb8d14343924dbe5ccf9d58f82c90bb1127c4",
+  "bytes": 42
+ },
+ {
+  "file": "sourcegraph__0194__1678291402_drop_unused_index_on_user_repo_permissionsuser_id.sql",
+  "original_path": "migrations/frontend/1678291402_drop_unused_index_on_user_repo_permissionsuser_id/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "ff7aa1de4fe797d7930e7790c82668f090f691b29d24468fdc2bcf03c2c0bdaa",
+  "bytes": 57
+ },
+ {
+  "file": "sourcegraph__0195__1678291831_drop_unused_index_package_repo_versions_fk_idx.sql",
+  "original_path": "migrations/frontend/1678291831_drop_unused_index_package_repo_versions_fk_idx/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "40cd6ee7d6a07aba45c0a098a99ad4ebb99d6e18ad243c938a08b9d2fb562d9c",
+  "bytes": 52
+ },
+ {
+  "file": "sourcegraph__0196__1678380933_comment_on_topic_index.sql",
+  "original_path": "migrations/frontend/1678380933_comment_on_topic_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "c1f90fb49ea827cb93ec894968740ad6e929a04ea14ce4307d68905f33ac686a",
+  "bytes": 818
+ },
+ {
+  "file": "sourcegraph__0197__1678409821_package_repos_missing_indexes.sql",
+  "original_path": "migrations/frontend/1678409821_package_repos_missing_indexes/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6c69f852b27fb59a7713b44478d8a5789941807f74b9814eaff7d7af92983017",
+  "bytes": 408
+ },
+ {
+  "file": "sourcegraph__0198__1678601228_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1678601228_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "eefda5c8705ab0a065e06ebc333a99916e96f772f1a697f854373dac425209c6",
+  "bytes": 791
+ },
+ {
+  "file": "sourcegraph__0199__1678832491_remove_sg_jsonb_concat_agg.sql",
+  "original_path": "migrations/frontend/1678832491_remove_sg_jsonb_concat_agg/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "7ecf1f1496f96cd909d71eb5657c1e2c2921bc7415b2d06a45f9584a8aa64094",
+  "bytes": 708
+ },
+ {
+  "file": "sourcegraph__0200__1678994673_package_repos_last_checked_at_index.sql",
+  "original_path": "migrations/frontend/1678994673_package_repos_last_checked_at_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "140321bcee94368494c82543cf2dd1039f4aa8cb62601927db5a045fc41afcf1",
+  "bytes": 406
+ },
+ {
+  "file": "sourcegraph__0201__1679058200_upsize_codeintel_ranking_references_processed_datatype.sql",
+  "original_path": "migrations/frontend/1679058200_upsize_codeintel_ranking_references_processed_datatype/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "39e64a58f717b6ca6ddcb30196c478f3fce03018d31e8997ee750a8542ecdae8",
+  "bytes": 1145
+ },
+ {
+  "file": "sourcegraph__0202__1679404397_add_missing_index_for_vacuum.sql",
+  "original_path": "migrations/frontend/1679404397_add_missing_index_for_vacuum/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "65ca89f6d84a3f64fd8a2fd8567746230474432c5954b15b7a487494bcaf7825",
+  "bytes": 147
+ },
+ {
+  "file": "sourcegraph__0203__1679428966_speed_up_deletes_from_ranking_table.sql",
+  "original_path": "migrations/frontend/1679428966_speed_up_deletes_from_ranking_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "acda7f008b7143427b4dc6c1fe6ae2d1b4c393a4e1a43f112a6b72af60091f45",
+  "bytes": 169
+ },
+ {
+  "file": "sourcegraph__0204__1679432506_speed_up_deletes_from_cm_trigger_jobs.sql",
+  "original_path": "migrations/frontend/1679432506_speed_up_deletes_from_cm_trigger_jobs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "7108b217157cf84ad60f11d414b5c3b55f9df1b78e7800ac9c4a599c23f32a59",
+  "bytes": 105
+ },
+ {
+  "file": "sourcegraph__0205__1679690266_batch_initial_path_counts.sql",
+  "original_path": "migrations/frontend/1679690266_batch_initial_path_counts/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "a47c07e67a56e99347dd9270595bb706217d948cd2c0f687e8507ca36ecac06a",
+  "bytes": 197
+ },
+ {
+  "file": "sourcegraph__0206__1680088638_add_is_partial_success_to_permission_sync_jobs.sql",
+  "original_path": "migrations/frontend/1680088638_add_is_partial_success_to_permission_sync_jobs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "64f38dd2a2b3af45168a56afd8643bd9c1f3c44cfc1f50c51d2e91b0d7db3ee0",
+  "bytes": 116
+ },
+ {
+  "file": "sourcegraph__0207__1680707560_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1680707560_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "3d3060d4e1fedc1e42d2005d8b1beb26c114e669183bb021e038ea71e122f78f",
+  "bytes": 342
+ },
+ {
+  "file": "sourcegraph__0208__1681300431_ownership_signals.sql",
+  "original_path": "migrations/frontend/1681300431_ownership_signals/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "1c23aa25addf787464b8bce85d3ee8d7ac73c53821d7b00710b0caa582571c72",
+  "bytes": 3680
+ },
+ {
+  "file": "sourcegraph__0209__1681923094_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1681923094_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "e299882e51c818af885757084c2a50df89484f84dc7f5f79f40303472d8bf662",
+  "bytes": 965
+ },
+ {
+  "file": "sourcegraph__0210__1681982430_user_completions_quota.sql",
+  "original_path": "migrations/frontend/1681982430_user_completions_quota/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "a8233068f726ccc43ad64c348f598bf8d74d4ce897a43abde3d6bbe6d99bb964",
+  "bytes": 71
+ },
+ {
+  "file": "sourcegraph__0211__1682114198_product_license_access_tokens.sql",
+  "original_path": "migrations/frontend/1682114198_product_license_access_tokens/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "54fd9365f8d191d935059d28319bd3c6291ee3f9f78353805615b31b889c0811",
+  "bytes": 478
+ },
+ {
+  "file": "sourcegraph__0212__1682598027_add_github_app_installations_table.sql",
+  "original_path": "migrations/frontend/1682598027_add_github_app_installations_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "a25ff03a9cf94f3a40b2de459901ea64e9be5a2c7bda10540188a5133eb2e9b8",
+  "bytes": 425
+ },
+ {
+  "file": "sourcegraph__0213__1682604499_add_softdelete_timestamp_to_ranking_exports.sql",
+  "original_path": "migrations/frontend/1682604499_add_softdelete_timestamp_to_ranking_exports/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "98bf7631c58325fae46466edc5c1cde6c7622ad7a52a83bc220be507be9555ec",
+  "bytes": 274
+ },
+ {
+  "file": "sourcegraph__0214__1682683129_add_recent_view_ownership_signal.sql",
+  "original_path": "migrations/frontend/1682683129_add_recent_view_ownership_signal/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6787c30236fee03cd3d15a5c00e13b10cb314ba8d447341f667c2c435d71bd1b",
+  "bytes": 1083
+ },
+ {
+  "file": "sourcegraph__0215__1682967255_add_ranking_graph_key_table.sql",
+  "original_path": "migrations/frontend/1682967255_add_ranking_graph_key_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6b0ede33a5b5655067b9f531b7c27efc1248cd4bae9b9cce91969216653579ac",
+  "bytes": 628
+ },
+ {
+  "file": "sourcegraph__0216__1683246005_llmproxynoaccesstokenenable.sql",
+  "original_path": "migrations/frontend/1683246005_llmproxynoaccesstokenenable/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "cce2998301cee3112bc53606ef3b0307509c6e4288403b6879f94274fde41ec4",
+  "bytes": 319
+ },
+ {
+  "file": "sourcegraph__0217__1683290474_user_code_completions_quota.sql",
+  "original_path": "migrations/frontend/1683290474_user_code_completions_quota/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "8a0293dd7f4a3d548fc3ee89e9f3887d23a378195169b20c2d3e88ddf7e27866",
+  "bytes": 76
+ },
+ {
+  "file": "sourcegraph__0218__1683561153_add_autoindexing_repo_exceptions_table.sql",
+  "original_path": "migrations/frontend/1683561153_add_autoindexing_repo_exceptions_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "3e84daf81b2db4944580e3aaf31705a9bb68b8a1b8eb67b119802ae92aa71f4a",
+  "bytes": 347
+ },
+ {
+  "file": "sourcegraph__0219__1683593618_add_table_for_storing_the_most_recent_output_from_gitserver_clones.sql",
+  "original_path": "migrations/frontend/1683593618_add_table_for_storing_the_most_recent_output_from_gitserver_clones/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d6dee44c4fbff3bec0464e26655fd38de7f87ce2c85307cf4c302475259f55dc",
+  "bytes": 1163
+ },
+ {
+  "file": "sourcegraph__0220__1683641757_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1683641757_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "15ba0d0e37ca2292b53ea90067ff88a65a5548e232d495b5c7c4913874b27271",
+  "bytes": 258
+ },
+ {
+  "file": "sourcegraph__0221__1683670271_remove_ranking_object_prefix.sql",
+  "original_path": "migrations/frontend/1683670271_remove_ranking_object_prefix/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "df398c89cda8eb86be714ed9ffa6f227731d01217706e0701f3e161de8793685",
+  "bytes": 76
+ },
+ {
+  "file": "sourcegraph__0222__1683753933_move_upload_relation_in_ranking_export_data.sql",
+  "original_path": "migrations/frontend/1683753933_move_upload_relation_in_ranking_export_data/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "979636a0f3143bf5f88fe92460fbd6fe8c3eb0dea2591ec6199e8058542bce41",
+  "bytes": 1431
+ },
+ {
+  "file": "sourcegraph__0223__1683782561_githubappwebhooks.sql",
+  "original_path": "migrations/frontend/1683782561_githubappwebhooks/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "e7db12065a31c56002fadab5839e9cf587826c1390740632c21e06567553866e",
+  "bytes": 118
+ },
+ {
+  "file": "sourcegraph__0224__1683913757_add_ranking_progress_columns.sql",
+  "original_path": "migrations/frontend/1683913757_add_ranking_progress_columns/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "45835cf583d4a2506b3f250e717197b8f6d97b0e68795e0197c1f2894ef873d7",
+  "bytes": 582
+ },
+ {
+  "file": "sourcegraph__0225__1684180461_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1684180461_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6955ce4b439c10ef18f93bee07c770405aaf4731c395590a609f8338063e0142",
+  "bytes": 232
+ },
+ {
+  "file": "sourcegraph__0226__1684207923_embeddings_proxy.sql",
+  "original_path": "migrations/frontend/1684207923_embeddings_proxy/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "0807f7b3131d12742d6ea9502e49a584b19584b6bed84c0454499f74e7186f30",
+  "bytes": 744
+ },
+ {
+  "file": "sourcegraph__0227__1684248574_upsize_id_columns.sql",
+  "original_path": "migrations/frontend/1684248574_upsize_id_columns/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "c8277dadd890b0a6a6b3994ec0375f43cf076ac64e360a789a17470a2fbdb1d4",
+  "bytes": 902
+ },
+ {
+  "file": "sourcegraph__0228__1684306784_make_assigned_owners_index_nonunique.sql",
+  "original_path": "migrations/frontend/1684306784_make_assigned_owners_index_nonunique/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "58804c02f3b06d3e5553777847649d6f68f21c4e82c1b5c4908b4235e6ac1096",
+  "bytes": 166
+ },
+ {
+  "file": "sourcegraph__0229__1684398004_drop_github_app_installs_table.sql",
+  "original_path": "migrations/frontend/1684398004_drop_github_app_installs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "28d737ef372e5d4b867313e4d38a75a6374301ca2bf14f67143595301b545d8f",
+  "bytes": 41
+ },
+ {
+  "file": "sourcegraph__0230__1684429687_own_signal_config_view.sql",
+  "original_path": "migrations/frontend/1684429687_own_signal_config_view/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "78bf624bf4efc8684d6617f065956e5820972fb639674b592a9fa82c625c7fe9",
+  "bytes": 227
+ },
+ {
+  "file": "sourcegraph__0231__1684753192_set_repo_meta_empty_values_to_null.sql",
+  "original_path": "migrations/frontend/1684753192_set_repo_meta_empty_values_to_null/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "038fdde4c69103a41687685d067d9349fce9afff128576687d97fa28b7e24d10",
+  "bytes": 719
+ },
+ {
+  "file": "sourcegraph__0232__1684771948_add_domain_to_github_app.sql",
+  "original_path": "migrations/frontend/1684771948_add_domain_to_github_app/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6ad1a10dd65da6f9ebff5741f9028de2ffd274e2f3e1423008f971d78ff26714",
+  "bytes": 93
+ },
+ {
+  "file": "sourcegraph__0233__1684854090_add_embeddings_to_policies.sql",
+  "original_path": "migrations/frontend/1684854090_add_embeddings_to_policies/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "2320740167ed6722aa6808c9293e859f75674504817649dd3495411318daecf7",
+  "bytes": 830
+ },
+ {
+  "file": "sourcegraph__0234__1684854389_llm_proxy_separate_rate_limits.sql",
+  "original_path": "migrations/frontend/1684854389_llm_proxy_separate_rate_limits/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d94ab4f8e19230163b4ba45e734e72a70cbd945b01e5b475ffceb0b9262910c3",
+  "bytes": 885
+ },
+ {
+  "file": "sourcegraph__0235__1684858266_add_queuenames_column_to_executor_heartbeat.sql",
+  "original_path": "migrations/frontend/1684858266_add_queuenames_column_to_executor_heartbeat/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "aa1c7550ea273a3dc2f93a79db324ea2c0f9e157d5020395ebd5513973315a52",
+  "bytes": 730
+ },
+ {
+  "file": "sourcegraph__0236__1685103392_add_ranking_export_hash_key.sql",
+  "original_path": "migrations/frontend/1685103392_add_ranking_export_hash_key/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d623773ca4c0737b5971a342c0dd5a1a9edd90fc655762347ad7d9c7a86d8d2d",
+  "bytes": 288
+ },
+ {
+  "file": "sourcegraph__0237__1685105270_simplify_ranking_reducer_table.sql",
+  "original_path": "migrations/frontend/1685105270_simplify_ranking_reducer_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "10c369dae6cd2e5acdd3166714d6c69114c9f87f5ab805d838760b7a47034ce4",
+  "bytes": 453
+ },
+ {
+  "file": "sourcegraph__0238__1685495400_rename_llm_proxy_to_cody_gateway.sql",
+  "original_path": "migrations/frontend/1685495400_rename_llm_proxy_to_cody_gateway/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "1613a660d727984d8f9c5d1d2fbbb895ad9a4254646b884a9c0fb239f5c94553",
+  "bytes": 2827
+ },
+ {
+  "file": "sourcegraph__0239__1685525992_add_license_fields_to_support_auto_billing.sql",
+  "original_path": "migrations/frontend/1685525992_add_license_fields_to_support_auto_billing/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "3c5e964568f599c5152f9fafce88cbcd7f0892bb1a4f8e397d4cdf72e40a2e0a",
+  "bytes": 423
+ },
+ {
+  "file": "sourcegraph__0240__1685570436_add_ranking_graph_key_table.sql",
+  "original_path": "migrations/frontend/1685570436_add_ranking_graph_key_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "276e4dc8cbbc7980343053ca61fd7c2f7970d666545f86de72384232e4096b6c",
+  "bytes": 176
+ },
+ {
+  "file": "sourcegraph__0241__1685645480_normalize_base_url.sql",
+  "original_path": "migrations/frontend/1685645480_normalize_base_url/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "b6f97306d26e6591e48920d51a57fc47ae4ebdb8032a2fd7838862913c2f3a2a",
+  "bytes": 214
+ },
+ {
+  "file": "sourcegraph__0242__1685697346_add_unique_constraint_to_assigned_owners.sql",
+  "original_path": "migrations/frontend/1685697346_add_unique_constraint_to_assigned_owners/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "42e24b39849853759cb52b745c1ce8a31bf7cc344583e83cf093534dd01ed60b",
+  "bytes": 194
+ },
+ {
+  "file": "sourcegraph__0243__1685712730_add_own_analytics_setting.sql",
+  "original_path": "migrations/frontend/1685712730_add_own_analytics_setting/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "10ae686977ae3f9a360b6923942d59793ab8fa9b245254e0a5946528920b43f7",
+  "bytes": 260
+ },
+ {
+  "file": "sourcegraph__0244__1685983690_make_path_count_inputs_unique_by_definition_id.sql",
+  "original_path": "migrations/frontend/1685983690_make_path_count_inputs_unique_by_definition_id/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "2b7b3b4b4b26be8aa0f4add511690495a1c4741704616bcbeb789eca9c01ea47",
+  "bytes": 279
+ },
+ {
+  "file": "sourcegraph__0245__1685984018_drop_duplicate_index.sql",
+  "original_path": "migrations/frontend/1685984018_drop_duplicate_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "0ed57c77fa271f4c0203138707544a00f664dc9a1a663ad53c87aa8a3c526357",
+  "bytes": 84
+ },
+ {
+  "file": "sourcegraph__0246__1685999719_add_additional_progress_tracking_for_ranking_mapper.sql",
+  "original_path": "migrations/frontend/1685999719_add_additional_progress_tracking_for_ranking_mapper/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "dc99dc24ffdaba912dc4456297e16c97220f6dc51effe21f095201d74aa49fa2",
+  "bytes": 444
+ },
+ {
+  "file": "sourcegraph__0247__1686169273_add_verification_to_changesets.sql",
+  "original_path": "migrations/frontend/1686169273_add_verification_to_changesets/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "19c6d0810b8051b4f732a74e1ce8979897d0d75e137227f899bbeee4fabb1d49",
+  "bytes": 1880
+ },
+ {
+  "file": "sourcegraph__0248__1686169626_add_stats_to_embeddings_jobs.sql",
+  "original_path": "migrations/frontend/1686169626_add_stats_to_embeddings_jobs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "b102ae318521082e5c807069552b91a9c7c0ca1efce0a57e8f17b7ea8f5db48c",
+  "bytes": 733
+ },
+ {
+  "file": "sourcegraph__0249__1686255261_add_own_analytics_setting_again.sql",
+  "original_path": "migrations/frontend/1686255261_add_own_analytics_setting_again/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d69f6bef11eb9bdf796761719cfa780c540773c80ef091851295eb06c04ab3f6",
+  "bytes": 1057
+ },
+ {
+  "file": "sourcegraph__0250__1686282228_add_installation_metadata.sql",
+  "original_path": "migrations/frontend/1686282228_add_installation_metadata/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "17a727072366b5241ae67ef808f8149789e1d633e2bcd6bc0672598a141bfa2b",
+  "bytes": 466
+ },
+ {
+  "file": "sourcegraph__0251__1686415661_change_product_subscriptions_cody_gateway_limits_to_int64.sql",
+  "original_path": "migrations/frontend/1686415661_change_product_subscriptions_cody_gateway_limits_to_int64/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "1538f75cb7a53ae616da170f93cde569008749a28d466b8f767b1662ea86d4d0",
+  "bytes": 225
+ },
+ {
+  "file": "sourcegraph__0252__1686580819_store_symbols_as_bytes.sql",
+  "original_path": "migrations/frontend/1686580819_store_symbols_as_bytes/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "c3c2a827c1fa33392dd3ef262090e15d9207dd27384b77038afa0cdf60084440",
+  "bytes": 567
+ },
+ {
+  "file": "sourcegraph__0253__1686749117_add_last_indexed_at_to_zoekt_repos.sql",
+  "original_path": "migrations/frontend/1686749117_add_last_indexed_at_to_zoekt_repos/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "2505b5981bcb592e57158cf9faaccfeb2c37dbd135251f7ee0103772d0c5b69a",
+  "bytes": 92
+ },
+ {
+  "file": "sourcegraph__0254__1687792857_generate_license_token_for_existing_v1_product_licenses.sql",
+  "original_path": "migrations/frontend/1687792857_generate_license_token_for_existing_v1_product_licenses/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "3bd683f626910c1ff22d92d0053c76c25ed00393094481bf016d0b09501a84a4",
+  "bytes": 648
+ },
+ {
+  "file": "sourcegraph__0255__1689176578_add_new_fields_to_event_logs_table.sql",
+  "original_path": "migrations/frontend/1689176578_add_new_fields_to_event_logs_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "2d473562d258d3bd6f95594bb92b46ac1868bfade1cce72c81d6a8e7039beb68",
+  "bytes": 191
+ },
+ {
+  "file": "sourcegraph__0256__1689692530_add_column_pool_repo_id_to_gitserver_repos.sql",
+  "original_path": "migrations/frontend/1689692530_add_column_pool_repo_id_to_gitserver_repos/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "f6471af811f145ef6b40b76f300295c9bf8af9223cfe793be87f5a511fdb5a3c",
+  "bytes": 236
+ },
+ {
+  "file": "sourcegraph__0257__1689886483_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1689886483_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "eb61df3329784a3993b700511d4e8f15b1411a072a4fe26c3df2a87bbbc93342",
+  "bytes": 270
+ },
+ {
+  "file": "sourcegraph__0258__1690323910_add_chunks_excluded_embeddings_stats.sql",
+  "original_path": "migrations/frontend/1690323910_add_chunks_excluded_embeddings_stats/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "1d1d2f05a1260e77b74ad129ddf8b9476db294d98df8e3076e06c6e9df9b3742",
+  "bytes": 196
+ },
+ {
+  "file": "sourcegraph__0259__1690401277_exhaustive_search_jobs.sql",
+  "original_path": "migrations/frontend/1690401277_exhaustive_search_jobs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "1ef710274c242646855a1e73f22874dfbb630048cf8308fc60111a627465689c",
+  "bytes": 4093
+ },
+ {
+  "file": "sourcegraph__0260__1691043630_event_logs_indexing.sql",
+  "original_path": "migrations/frontend/1691043630_event_logs_indexing/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "2c6591b02220e54d1f52b4a228cb5c8ebe5da27015301b5977a7791abfc21586",
+  "bytes": 2786
+ },
+ {
+  "file": "sourcegraph__0261__1691485365_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1691485365_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "c879a63fe99a9c8215b60dcc08569126a4ad838c0e67b2a403f334a6ff106a8c",
+  "bytes": 911
+ },
+ {
+  "file": "sourcegraph__0262__1691759644_autoindexing_manual_priority_index.sql",
+  "original_path": "migrations/frontend/1691759644_autoindexing_manual_priority_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "472d5549efb86afbceddd877fcfa16c1325b930ea37301c53447be727e94e537",
+  "bytes": 200
+ },
+ {
+  "file": "sourcegraph__0263__1692053282_content_library_onboarding_tour.sql",
+  "original_path": "migrations/frontend/1692053282_content_library_onboarding_tour/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "0a193e9ca9b9ba29e03c47ad0d179968952de992c4638b5c92f6d71e7301536d",
+  "bytes": 316
+ },
+ {
+  "file": "sourcegraph__0264__1692815296_delete_pool_repo.sql",
+  "original_path": "migrations/frontend/1692815296_delete_pool_repo/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "0f860f49026c362e6c2ef1ab24a8ad096072054b1786877ecabbeec56bb2fe01",
+  "bytes": 65
+ },
+ {
+  "file": "sourcegraph__0265__1693825517_exhaustive_search_jobs_remove_constraint.sql",
+  "original_path": "migrations/frontend/1693825517_exhaustive_search_jobs_remove_constraint/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "7e86a1b8b1fb3d8c900fcd41ba2f57633788c75b4f311893ea05d8093057b529",
+  "bytes": 119
+ },
+ {
+  "file": "sourcegraph__0266__1695152835_add_index_for_upload_indexers.sql",
+  "original_path": "migrations/frontend/1695152835_add_index_for_upload_indexers/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "fa3257cd45e28c382a14efdc4c072a5f1e1520a0753a61774efb8e7f3e67d197",
+  "bytes": 117
+ },
+ {
+  "file": "sourcegraph__0267__1695152902_add_index_for_index_indexers.sql",
+  "original_path": "migrations/frontend/1695152902_add_index_for_index_indexers/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "e92cfb962fb6fca2eedbad724425f7be61c6d49f730ca00003c68ebd3ae85a39",
+  "bytes": 117
+ },
+ {
+  "file": "sourcegraph__0268__1695747321_remove_drift.sql",
+  "original_path": "migrations/frontend/1695747321_remove_drift/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "c6273f119bd3438c75b5caae5491ffcb4de130ad16b238a20df8f9b05a1627f0",
+  "bytes": 189
+ },
+ {
+  "file": "sourcegraph__0269__1695911128_remove_namespace_from_external_services.sql",
+  "original_path": "migrations/frontend/1695911128_remove_namespace_from_external_services/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "ca76889931de3c6746259c3eeada193919e4e62352ddbcf1fd4e2165549d1bd8",
+  "bytes": 556
+ },
+ {
+  "file": "sourcegraph__0270__1696003224_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1696003224_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "32bf58cc0e9caf7f7474fd4e78c772ca5dc9d3bb7036f526df456b76e3cbbea6",
+  "bytes": 293
+ },
+ {
+  "file": "sourcegraph__0271__1697489421_add_gitlab_topics.sql",
+  "original_path": "migrations/frontend/1697489421_add_gitlab_topics/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "0799313b9dc3d2c563b87f1bda47c8c29d797e0f443ad8b59884aee0e2a9f975",
+  "bytes": 147
+ },
+ {
+  "file": "sourcegraph__0272__1697535944_drop_users_tags_column.sql",
+  "original_path": "migrations/frontend/1697535944_drop_users_tags_column/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "b6193aa21b018ebd9aeea1329bcc09caa14b838128494d82e7ce8e2e0e129e9d",
+  "bytes": 47
+ },
+ {
+  "file": "sourcegraph__0273__1697750425_topic_column.sql",
+  "original_path": "migrations/frontend/1697750425_topic_column/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "45b79e592fec64094945f391593c94fa456ad600c378a1fda6982ef344f53850",
+  "bytes": 813
+ },
+ {
+  "file": "sourcegraph__0274__1697752805_index_topics_column.sql",
+  "original_path": "migrations/frontend/1697752805_index_topics_column/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "712eee810bdebe413d906047aa3dc99e38bbc15daf748bcb3172ae6a654bdf75",
+  "bytes": 85
+ },
+ {
+  "file": "sourcegraph__0275__1698068529_make_repo_fork_false_by_default.sql",
+  "original_path": "migrations/frontend/1698068529_make_repo_fork_false_by_default/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "e24930e2b02e3091918a1b5430371d35360ae7d5cf346bc7a22afafed4a31e0d",
+  "bytes": 105
+ },
+ {
+  "file": "sourcegraph__0276__1698772485_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1698772485_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "aace8df4b3dd0831dbcdfc610e3d9e15e40109a55a7c3b452f465b875385db22",
+  "bytes": 210
+ },
+ {
+  "file": "sourcegraph__0277__1700613818_add_embeddings_jobs_index.sql",
+  "original_path": "migrations/frontend/1700613818_add_embeddings_jobs_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "d5af918c6120815e32092623225f11bfe52d54c6642f00d4d20d35c497c24c20",
+  "bytes": 108
+ },
+ {
+  "file": "sourcegraph__0278__1700645180_turn_gitserver_repos_statistics_into_append_only.sql",
+  "original_path": "migrations/frontend/1700645180_turn_gitserver_repos_statistics_into_append_only/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "9b88c604b51ab59fb5de8ba60facee1419423bd267c53405435d74794b7cf056",
+  "bytes": 9301
+ },
+ {
+  "file": "sourcegraph__0279__1702500918_add_expiry_to_access_tokens.sql",
+  "original_path": "migrations/frontend/1702500918_add_expiry_to_access_tokens/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "5a44f8817a7d61b1b5623b93abe264c2278ec40b2a74bc26be0af3cef59d5a6d",
+  "bytes": 89
+ },
+ {
+  "file": "sourcegraph__0280__1706629265_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1706629265_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "76ef79380862c1f2e84fd75b0a99f4b0612aebfee4bcedca47df43c6f2c673b5",
+  "bytes": 198
+ },
+ {
+  "file": "sourcegraph__0281__1706629302_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1706629302_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "b7a0f4db4af3716119ad811b9c9ca173f91c44629b6ca5f7b44bb515284d7f09",
+  "bytes": 197
+ },
+ {
+  "file": "sourcegraph__0282__1706629375_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1706629375_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "4aeb6b7d50f449fa5c2e7507216b9e633985727421ee9d2484c2e99af92a1637",
+  "bytes": 198
+ },
+ {
+  "file": "sourcegraph__0283__1706629467_sg_telemetry_allowlist.sql",
+  "original_path": "migrations/frontend/1706629467_sg_telemetry_allowlist/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "3666e2335ed32c1d35f8554e3ef26c4f0e565ad9cffa76cf43635aafe5a8680a",
+  "bytes": 201
+ },
+ {
+  "file": "sourcegraph__0284__1707759188_drop_user_searchable.sql",
+  "original_path": "migrations/frontend/1707759188_drop_user_searchable/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "94f3873868b33469cd6fc5cec25cb6ed90f422ba1a5e3871cd765af027b14e6b",
+  "bytes": 53
+ },
+ {
+  "file": "sourcegraph__0285__1708596613_access_tokens_double_hash_index.sql",
+  "original_path": "migrations/frontend/1708596613_access_tokens_double_hash_index/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "755cea81ccc26348f4a1d2b839941ae7fc93e9421304c03b619cf14a1fc9e257",
+  "bytes": 171
+ },
+ {
+  "file": "sourcegraph__0286__1711003437_remove_feature_flag_foreign_key.sql",
+  "original_path": "migrations/frontend/1711003437_remove_feature_flag_foreign_key/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "905ce8d6d4490c08ff5c3fcd6688924b3e381a331957d88042e45ec179221466",
+  "bytes": 756
+ },
+ {
+  "file": "sourcegraph__0287__1711538234_code_monitors_add_column_for_structured_logging.sql",
+  "original_path": "migrations/frontend/1711538234_code_monitors_add_column_for_structured_logging/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "dd3da80df0e51e9a89580721bb32a06baae6767fb83a4aa83200289117f77859",
+  "bytes": 67
+ },
+ {
+  "file": "sourcegraph__0288__1717699555_fix_unique_index_for_scim_external_account_connection.sql",
+  "original_path": "migrations/frontend/1717699555_fix_unique_index_for_scim_external_account_connection/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "410fbbff101c02d8017017547cc86961bd4ae2a60140b3680d4ec87408e6016e",
+  "bytes": 274
+ },
+ {
+  "file": "sourcegraph__0289__1719214941_notebooks_add_field_pattern_type.sql",
+  "original_path": "migrations/frontend/1719214941_notebooks_add_field_pattern_type/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "6c01273344f5378b784025c1c6538d411727fb67349d7f92f85e4de100480bd1",
+  "bytes": 323
+ },
+ {
+  "file": "sourcegraph__0290__1719498032_add_github_app_batch_changes_site_credential.sql",
+  "original_path": "migrations/frontend/1719498032_add_github_app_batch_changes_site_credential/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "96e31e4c3677c9567344cad32c60283d25ed963210557f3f76ff85a3986bfdbd",
+  "bytes": 646
+ },
+ {
+  "file": "sourcegraph__0291__1719498128_add_kind_column_github_app.sql",
+  "original_path": "migrations/frontend/1719498128_add_kind_column_github_app/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "7937bb69413debfe1f18ac109c47ae9f34446398783749079f6e3eaa71b3f984",
+  "bytes": 700
+ },
+ {
+  "file": "sourcegraph__0292__1719555230_deprecate_saved_searches_notifs.sql",
+  "original_path": "migrations/frontend/1719555230_deprecate_saved_searches_notifs/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "80f7c31fbdd6bffcb7ab60c21315f146d2a0a7a3588bacf0417322a26f1c3e0f",
+  "bytes": 146
+ },
+ {
+  "file": "sourcegraph__0293__1720165387_notebooks_default_to_keyword_search.sql",
+  "original_path": "migrations/frontend/1720165387_notebooks_default_to_keyword_search/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "bbc46f21ad3ef838b6da72d60e743884d9d55832a60724a3b57cef72705e39b9",
+  "bytes": 82
+ },
+ {
+  "file": "sourcegraph__0294__1720651147_add_ips_to_sub_repo_perms_table.sql",
+  "original_path": "migrations/frontend/1720651147_add_ips_to_sub_repo_perms_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "e45d0cb0c5b5162c017b094ac80ad30cb48d52cd97d6b08616d443d4ed7583be",
+  "bytes": 1056
+ },
+ {
+  "file": "sourcegraph__0295__1721281606_saved_searches_metadata.sql",
+  "original_path": "migrations/frontend/1721281606_saved_searches_metadata/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "583d81e8e699d37c70d79bd13f82c90d9bf1d574ae72f57192b75fe26be9b0c5",
+  "bytes": 421
+ },
+ {
+  "file": "sourcegraph__0296__1721814902_github_app_creator_id.sql",
+  "original_path": "migrations/frontend/1721814902_github_app_creator_id/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "cb73807542d793641144c3f6b40fd0df3aa5a625e6001554a7390d6e4fef3843",
+  "bytes": 174
+ },
+ {
+  "file": "sourcegraph__0297__1722961262_add_tenants_table.sql",
+  "original_path": "migrations/frontend/1722961262_add_tenants_table/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "fa149caa8a2d29a0b3467dd5124d8128e808da8894acc4bd6d74f104f4346f17",
+  "bytes": 1175
+ },
+ {
+  "file": "sourcegraph__0298__1723016879_add_tenant_id_to_most_tables.sql",
+  "original_path": "migrations/frontend/1723016879_add_tenant_id_to_most_tables/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "ade51c80b00d186dc85516df6977194d7f31b642387afd6a6d0f0c3e654a2791",
+  "bytes": 56
+ },
+ {
+  "file": "sourcegraph__0299__1723647606_faster_soft_delete_trigger_for_permissions.sql",
+  "original_path": "migrations/frontend/1723647606_faster_soft_delete_trigger_for_permissions/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "ac40e9bf2a1eb9df9e101da61e149f281ee128f7c6892d180a0b2e6bd2d60b06",
+  "bytes": 1357
+ },
+ {
+  "file": "sourcegraph__0300__1723647615_add_tenant_id_to_most_tables.sql",
+  "original_path": "migrations/frontend/1723647615_add_tenant_id_to_most_tables/up.sql",
+  "repo": "https://github.com/sourcegraph/sourcegraph-public-snapshot",
+  "sha256": "ee7c59f47c158387fd9cdafaa7c48755f8758d4e7ff41cdd24ffd1e47cc64273",
+  "bytes": 14472
+ }
+]
