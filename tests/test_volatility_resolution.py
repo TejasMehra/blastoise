@@ -11,9 +11,9 @@ from __future__ import annotations
 import pytest
 from pglast import ast, parse_sql
 
-from pgverdict import parse_migration
-from pgverdict.ir import Volatility
-from pgverdict.volatility import (
+from blastoise import parse_migration
+from blastoise.ir import Volatility
+from blastoise.volatility import (
     expression_volatility,
     resolve_expression_volatility,
     unknown_function_keys,

@@ -5,14 +5,14 @@ from __future__ import annotations
 import pytest
 from helpers import only_statement, parse
 
-from pgverdict import (
+from blastoise import (
     AlterTableActionKind,
     ParsedStatement,
     QualifiedName,
     SourceSpan,
     StatementKind,
 )
-from pgverdict.catalog import (
+from blastoise.catalog import (
     DurationModel,
     LockMode,
     TransactionBlock,

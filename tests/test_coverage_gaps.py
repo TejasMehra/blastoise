@@ -11,7 +11,7 @@ import pytest
 from helpers import only_action, only_statement, parse
 from pglast import ast
 
-from pgverdict import (
+from blastoise import (
     AlterTableActionKind,
     DoBlockDetails,
     DropDetails,
@@ -23,7 +23,7 @@ from pgverdict import (
     Volatility,
     parse_migration,
 )
-from pgverdict.volatility import expression_volatility
+from blastoise.volatility import expression_volatility
 
 # ---------------------------------------------------------------------------
 # Volatility of DEFAULT expressions, through the full parse pipeline

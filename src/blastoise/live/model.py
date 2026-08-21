@@ -20,7 +20,7 @@ import json
 from dataclasses import dataclass
 from enum import StrEnum
 
-from pgverdict.ir import QualifiedName
+from blastoise.ir import QualifiedName
 
 type JsonValue = bool | int | str | list[JsonValue] | dict[str, JsonValue] | None
 
@@ -224,7 +224,7 @@ class TypeChangeProbe:
 
     ``new_type`` is the target type exactly as the migration wrote it
     (the IR's deparsed ``column_type``); its typmod is judged client-side by
-    :mod:`pgverdict.live.typechange`, because ``to_regtype`` discards it.
+    :mod:`blastoise.live.typechange`, because ``to_regtype`` discards it.
     """
 
     relation: QualifiedName | str
@@ -241,7 +241,7 @@ class TypeChangeFacts:
     type) — 'b' binary coercion, 'f' cast function, 'i' I/O conversion,
     value ``None`` = no cast row exists at all. The judgment combining
     these with the cited typmod rules is
-    :func:`pgverdict.live.typechange.assess_type_change`.
+    :func:`blastoise.live.typechange.assess_type_change`.
     """
 
     relation: str  # requested relation label

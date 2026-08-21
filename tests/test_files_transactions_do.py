@@ -10,7 +10,7 @@ from pathlib import Path
 import pytest
 from helpers import only_statement, parse
 
-from pgverdict import (
+from blastoise import (
     AlterTableAction,
     AlterTableActionKind,
     CreateTableDetails,
@@ -575,7 +575,7 @@ ALTER TABLE customers ADD COLUMN vip boolean NOT NULL DEFAULT false;
 
 def _run_cli(*args: str) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
-        [sys.executable, "-m", "pgverdict.cli", *args],
+        [sys.executable, "-m", "blastoise.cli", *args],
         capture_output=True,
         text=True,
         encoding="utf-8",

@@ -13,7 +13,7 @@ from collections.abc import Iterable, Mapping
 
 from pglast import ast
 
-from pgverdict.ir import Volatility
+from blastoise.ir import Volatility
 
 _RANK: dict[Volatility, int] = {
     Volatility.CONSTANT: 0,

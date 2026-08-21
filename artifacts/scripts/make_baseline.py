@@ -1,7 +1,7 @@
 """Reconstruct the pre-restructure engine exactly, by reversing every edit.
 
 Each pair below is (new_text, old_text): the exact inverse of an edit
-applied to src/pgverdict this session. Every reversal asserts it matched
+applied to src/blastoise this session. Every reversal asserts it matched
 exactly once, so the reconstruction is exact rather than approximate --
 which is what makes the old-vs-new per-statement diff evidence rather
 than argument.
@@ -15,7 +15,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-BASE = Path(__file__).parent / "baseline" / "pgverdict"
+BASE = Path(__file__).parent / "baseline" / "blastoise"
 
 
 def revert(rel: str, pairs: list[tuple[str, str]]) -> None:

@@ -23,7 +23,7 @@ Hard rules, enforced here and tested:
   after it, with this backend's own pid excluded from pg_locks on top, so a
   snapshot can never report a lock conflict the introspection itself
   created.
-* Failures degrade per field into :class:`~pgverdict.live.model.Fact`
+* Failures degrade per field into :class:`~blastoise.live.model.Fact`
   ``unavailable`` markers with the reason, never into exceptions and never
   into silent nulls.
 """
@@ -35,8 +35,8 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from typing import TYPE_CHECKING, Any
 
-from pgverdict.ir import QualifiedName
-from pgverdict.live.model import (
+from blastoise.ir import QualifiedName
+from blastoise.live.model import (
     SNAPSHOT_FORMAT,
     CaptureLimits,
     ColumnFacts,
@@ -87,7 +87,7 @@ def _psycopg() -> Any:
     except ImportError as exc:  # pragma: no cover - depends on install extras
         raise LiveIntrospectionError(
             "live introspection requires the psycopg driver; "
-            "install it with: pip install 'pgverdict[live]'"
+            "install it with: pip install 'blastoise[live]'"
         ) from exc
     return psycopg
 
@@ -146,7 +146,7 @@ def capture_snapshot(
     a default whose volatility the static allowlists could not decide.
     ``types`` are type names to resolve (the constrained-domain question for
     ADD COLUMN). ``type_changes`` are ALTER COLUMN TYPE probes; the gathered
-    facts are judged by :func:`pgverdict.live.typechange.assess_type_change`.
+    facts are judged by :func:`blastoise.live.typechange.assess_type_change`.
 
     Raises :class:`WritableRoleError` if the role can write, and
     :class:`LiveIntrospectionError` if the server cannot be reached or is
@@ -177,7 +177,7 @@ def capture_snapshot(
             conninfo,
             autocommit=False,
             row_factory=dict_row,
-            application_name="pgverdict-introspect",
+            application_name="blastoise-introspect",
             connect_timeout=connect_timeout_s,
             options=options,
         )

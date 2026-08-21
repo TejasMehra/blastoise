@@ -6,7 +6,7 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
-from pgverdict.parser import MigrationParseError, parse_migration_file
+from blastoise.parser import MigrationParseError, parse_migration_file
 
 SCRATCH = Path(__file__).parent
 CORPUS = SCRATCH / "corpus"

@@ -1,4 +1,12 @@
-"""Command-line interface: parse migrations and print their classification."""
+"""Command-line interface.
+
+Named surfaces (help text, docs, README) carry the product's vocabulary:
+Torrent is the parser and IR, Shell Armour the lock semantics catalog,
+Hydro Scan the live introspection layer, Pressure Levels the five
+classification tiers. None of that reaches the payload — ``--json`` keys,
+enum values and exit codes are the plain machine names, and a test pins
+them.
+"""
 
 from __future__ import annotations
 
@@ -8,8 +16,8 @@ import json
 import sys
 from typing import Any
 
-from pgverdict.ir import MigrationScript, ParsedStatement
-from pgverdict.parser import MigrationParseError, parse_migration_file
+from blastoise.ir import MigrationScript, ParsedStatement
+from blastoise.parser import MigrationParseError, parse_migration_file
 
 
 def _to_jsonable(value: object) -> Any:
@@ -51,15 +59,53 @@ def _print_script(script: MigrationScript) -> None:
         print(f"  warning: {warning}")
 
 
+EPILOG = """Pressure Levels, the five tiers a statement can land in. The names on the
+left are what appears in JSON and exit codes; the names on the right are
+what a report calls them.
+
+  safe               Calm Water        nothing to do
+  safe_irreversible  One-Way Current   proceed, but there is no undo
+  needs_timing       Rain Check        safe in itself, wrong at the wrong moment
+  unsafe             Hydro Pump        do not run as written
+  unknown            Fog               not enough evidence to say
+
+Components: Torrent (parser and IR), Shell Armour (lock semantics
+catalog), Hydro Scan (live introspection), Shell Report (the verdict
+document), Training Ground (the scale harness), Evolution (the
+calibration loop), Shell Seal (signing and attestation).
+
+'bt' is an alias for this command.
+
+Blastoise is a working codename; see the NOTICE in README.md.
+"""
+
+
 def main(argv: list[str] | None = None) -> int:
     arg_parser = argparse.ArgumentParser(
-        prog="pgverdict",
-        description="Analyze Postgres schema migrations for production safety.",
+        prog="blastoise",
+        description=(
+            "Blastoise: know the blast radius before you migrate. Reads a "
+            "migration and reports what it will actually do to production: "
+            "which locks it takes, what they block, and for how long."
+        ),
+        epilog=EPILOG,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     subparsers = arg_parser.add_subparsers(dest="command", required=True)
-    parse_cmd = subparsers.add_parser("parse", help="parse and classify migration files")
+    parse_cmd = subparsers.add_parser(
+        "parse",
+        help="run Torrent over migration files: parse and classify every statement",
+        description=(
+            "Torrent, the parser and IR. Classifies every statement by its "
+            "exact DDL form, using the real Postgres grammar."
+        ),
+    )
     parse_cmd.add_argument("files", nargs="+", help="migration .sql files")
-    parse_cmd.add_argument("--json", action="store_true", help="emit JSON instead of text")
+    parse_cmd.add_argument(
+        "--json",
+        action="store_true",
+        help="emit JSON instead of text (plain machine field names, no flavour)",
+    )
 
     args = arg_parser.parse_args(argv)
     exit_code = 0

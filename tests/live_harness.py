@@ -2,10 +2,10 @@
 
 Acquisition order:
 
-1. ``PGVERDICT_TEST_DSN`` — a superuser DSN to a disposable server someone
+1. ``BLASTOISE_TEST_DSN`` — a superuser DSN to a disposable server someone
    already runs (CI service container, local dev instance).
 2. testcontainers — ``postgres:17`` via Docker, when Docker is available.
-3. ``PGVERDICT_TEST_PG_BIN`` — a directory of Postgres binaries
+3. ``BLASTOISE_TEST_PG_BIN`` — a directory of Postgres binaries
    (initdb/pg_ctl/postgres); the harness initdb's a throwaway cluster in a
    temp directory and runs it on a free port. This is the path for
    machines without Docker.
@@ -28,9 +28,9 @@ from pathlib import Path
 
 import pytest
 
-RO_ROLE = "pgverdict_ro"  # the documented minimum-privilege role (pg_monitor)
-RO_ROLE_NOMON = "pgverdict_ro_nomon"  # same, without pg_monitor
-ROLE_PASSWORD = "pgverdict-test"
+RO_ROLE = "blastoise_ro"  # the documented minimum-privilege role (pg_monitor)
+RO_ROLE_NOMON = "blastoise_ro_nomon"  # same, without pg_monitor
+ROLE_PASSWORD = "blastoise-test"
 
 
 @dataclass
@@ -50,9 +50,9 @@ class PgServer:
 
 
 def acquire_server() -> PgServer:
-    dsn = os.environ.get("PGVERDICT_TEST_DSN")
+    dsn = os.environ.get("BLASTOISE_TEST_DSN")
     if dsn:
-        return PgServer(admin_dsn=dsn, cleanup=lambda: None, description="PGVERDICT_TEST_DSN")
+        return PgServer(admin_dsn=dsn, cleanup=lambda: None, description="BLASTOISE_TEST_DSN")
     server = _try_testcontainers()
     if server is not None:
         return server
@@ -60,9 +60,9 @@ def acquire_server() -> PgServer:
     if server is not None:
         return server
     pytest.skip(
-        "no Postgres available for live tests: set PGVERDICT_TEST_DSN to a "
+        "no Postgres available for live tests: set BLASTOISE_TEST_DSN to a "
         "disposable superuser DSN, install Docker for testcontainers, or set "
-        "PGVERDICT_TEST_PG_BIN to a Postgres bin/ directory"
+        "BLASTOISE_TEST_PG_BIN to a Postgres bin/ directory"
     )
 
 
@@ -76,14 +76,14 @@ def _try_testcontainers() -> PgServer | None:
             return None
     try:
         container = PostgresContainer(
-            "postgres:17", username="postgres", password="postgres", dbname="pgverdict_test"
+            "postgres:17", username="postgres", password="postgres", dbname="blastoise_test"
         )
         container.start()
     except Exception:
         return None
     host = container.get_container_host_ip()
     port = container.get_exposed_port(5432)
-    dsn = f"postgresql://postgres:postgres@{host}:{port}/pgverdict_test"
+    dsn = f"postgresql://postgres:postgres@{host}:{port}/blastoise_test"
     return PgServer(
         admin_dsn=dsn,
         cleanup=lambda: container.stop(),
@@ -92,7 +92,7 @@ def _try_testcontainers() -> PgServer | None:
 
 
 def _try_local_binaries() -> PgServer | None:
-    bin_dir = os.environ.get("PGVERDICT_TEST_PG_BIN")
+    bin_dir = os.environ.get("BLASTOISE_TEST_PG_BIN")
     if not bin_dir:
         return None
     bin_path = Path(bin_dir)
@@ -100,9 +100,9 @@ def _try_local_binaries() -> PgServer | None:
     initdb = bin_path / f"initdb{exe}"
     pg_ctl = bin_path / f"pg_ctl{exe}"
     if not initdb.exists() or not pg_ctl.exists():
-        pytest.skip(f"PGVERDICT_TEST_PG_BIN={bin_dir} has no initdb/pg_ctl")
+        pytest.skip(f"BLASTOISE_TEST_PG_BIN={bin_dir} has no initdb/pg_ctl")
 
-    work = Path(tempfile.mkdtemp(prefix="pgverdict-live-"))
+    work = Path(tempfile.mkdtemp(prefix="blastoise-live-"))
     data = work / "data"
     log = work / "server.log"
     subprocess.run(

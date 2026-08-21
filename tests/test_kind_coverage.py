@@ -11,7 +11,7 @@ from __future__ import annotations
 import pytest
 from helpers import only_action, only_statement
 
-from pgverdict import AlterTableActionKind, QualifiedName, StatementKind
+from blastoise import AlterTableActionKind, QualifiedName, StatementKind
 
 
 @pytest.mark.parametrize(

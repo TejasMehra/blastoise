@@ -32,19 +32,19 @@ if MODE != "new":
     # "baseline_ael"); prepended so it wins the import.
     sys.path.insert(0, str(SCRATCH_EARLY / MODE))
 
-from pgverdict.catalog.loader import load_catalog
-from pgverdict.live import TypeChangeProbe, capture_snapshot
-from pgverdict.live.introspect import LiveIntrospectionError
-from pgverdict.parser import MigrationParseError, parse_migration_file
-from pgverdict.verdict import Classification, assess_script, snapshot_probes
+from blastoise.catalog.loader import load_catalog
+from blastoise.live import TypeChangeProbe, capture_snapshot
+from blastoise.live.introspect import LiveIntrospectionError
+from blastoise.parser import MigrationParseError, parse_migration_file
+from blastoise.verdict import Classification, assess_script, snapshot_probes
 
 SCRATCH = Path(__file__).parent
 CORPUS = SCRATCH / "corpus"
 PG_BIN = SCRATCH / "pg" / "bin"
 OUT = Path(sys.argv[2]) if len(sys.argv) > 2 else SCRATCH / f"corpus_online_{MODE}.json"
 
-RO_ROLE = "pgverdict_ro"
-RO_PASSWORD = "pgverdict-replay"
+RO_ROLE = "blastoise_ro"
+RO_PASSWORD = "blastoise-replay"
 
 _ROLE_RE = re.compile(r'role "([^"]+)" does not exist')
 
@@ -52,7 +52,7 @@ _ROLE_RE = re.compile(r'role "([^"]+)" does not exist')
 def start_server() -> tuple[str, object]:
     import socket
 
-    work = Path(tempfile.mkdtemp(prefix="pgverdict-replay-"))
+    work = Path(tempfile.mkdtemp(prefix="blastoise-replay-"))
     data = work / "data"
     log = work / "server.log"
     subprocess.run(

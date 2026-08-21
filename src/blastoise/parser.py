@@ -7,8 +7,8 @@ from pathlib import Path
 
 from pglast.parser import ParseError, parse_sql
 
-from pgverdict.classify import classify_statement
-from pgverdict.ir import (
+from blastoise.classify import classify_statement
+from blastoise.ir import (
     CreateTableDetails,
     DropDetails,
     IndexDetails,

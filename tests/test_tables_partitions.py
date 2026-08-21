@@ -5,7 +5,7 @@ from __future__ import annotations
 import pytest
 from helpers import only_action, only_statement, parse
 
-from pgverdict import (
+from blastoise import (
     AlterTableActionKind,
     CreateTableAsDetails,
     CreateTableDetails,

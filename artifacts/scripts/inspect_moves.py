@@ -24,9 +24,9 @@ WANT_KINDS = set(sys.argv[1:]) or {
 old = {(f, i): (t, k) for f, i, k, t, _b, _m in OLD["rows"]}
 new = {(f, i): (t, k) for f, i, k, t, _b, _m in NEW["rows"]}
 
-from pgverdict.catalog.loader import load_catalog  # noqa: E402
-from pgverdict.parser import parse_migration_file  # noqa: E402
-from pgverdict.verdict import assess_script  # noqa: E402
+from blastoise.catalog.loader import load_catalog  # noqa: E402
+from blastoise.parser import parse_migration_file  # noqa: E402
+from blastoise.verdict import assess_script  # noqa: E402
 
 catalog = load_catalog()
 targets: dict[str, list[int]] = {}

@@ -6,11 +6,11 @@ import dataclasses
 
 from verdict_helpers import column, relation, snapshot, type_change
 
-from pgverdict.catalog.loader import load_catalog
-from pgverdict.catalog.model import LockMode
-from pgverdict.live.model import Fact, LiveSnapshot
-from pgverdict.parser import parse_migration
-from pgverdict.verdict import (
+from blastoise.catalog.loader import load_catalog
+from blastoise.catalog.model import LockMode
+from blastoise.live.model import Fact, LiveSnapshot
+from blastoise.parser import parse_migration
+from blastoise.verdict import (
     CannotEstimate,
     Classification,
     DurationEstimate,
@@ -19,7 +19,7 @@ from pgverdict.verdict import (
     assess_script,
     snapshot_probes,
 )
-from pgverdict.verdict.duration import estimate_from_rows
+from blastoise.verdict.duration import estimate_from_rows
 
 CATALOG = load_catalog()
 

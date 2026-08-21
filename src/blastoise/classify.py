@@ -1,4 +1,4 @@
-"""Classification of parsed statements into the pgverdict IR.
+"""Classification of parsed statements into the blastoise IR.
 
 Every function here works purely on the pglast (libpg_query) parse tree —
 no regex, no string matching against the SQL text. The SQL text is only
@@ -14,7 +14,7 @@ from pglast.parser import parse_sql
 from pglast.stream import RawStream
 from pglast.visitors import Ancestor, Visitor
 
-from pgverdict.ir import (
+from blastoise.ir import (
     AlterTableAction,
     AlterTableActionKind,
     CreateTableAsDetails,
@@ -37,7 +37,7 @@ from pgverdict.ir import (
     TruncateDetails,
     Volatility,
 )
-from pgverdict.volatility import expression_volatility, unknown_function_keys
+from blastoise.volatility import expression_volatility, unknown_function_keys
 
 _SERIAL_TYPE_NAMES = frozenset(
     {"serial", "serial2", "serial4", "serial8", "bigserial", "smallserial"}
@@ -853,7 +853,7 @@ def _simple(
 
 
 def classify_statement(node: ast.Node, sql: str, span: SourceSpan) -> ParsedStatement:
-    """Classify one raw parse-tree statement into the pgverdict IR."""
+    """Classify one raw parse-tree statement into the blastoise IR."""
     # -- Transactions ------------------------------------------------------
     if isinstance(node, ast.TransactionStmt):
         kind = StatementKind.TRANSACTION_OTHER

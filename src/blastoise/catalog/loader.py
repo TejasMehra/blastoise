@@ -19,8 +19,8 @@ from typing import Any
 
 import yaml
 
-from pgverdict import ir
-from pgverdict.catalog.model import (
+from blastoise import ir
+from blastoise.catalog.model import (
     TABLE_LOCK_MODES,
     AffectedRelation,
     Calibration,
@@ -34,7 +34,7 @@ from pgverdict.catalog.model import (
     VersionRange,
     WriteBlockScope,
 )
-from pgverdict.ir import AlterTableActionKind, StatementKind
+from blastoise.ir import AlterTableActionKind, StatementKind
 
 CATALOG_RESOURCE = "lock_catalog.yaml"
 SCHEMA_VERSION = 1
@@ -647,6 +647,6 @@ def load_catalog_file(path: str | Path) -> LockCatalog:
 def load_catalog() -> LockCatalog:
     """Load and validate the bundled catalog (cached)."""
     text = (
-        resources.files("pgverdict.catalog").joinpath(CATALOG_RESOURCE).read_text(encoding="utf-8")
+        resources.files("blastoise.catalog").joinpath(CATALOG_RESOURCE).read_text(encoding="utf-8")
     )
     return parse_catalog(yaml.safe_load(text))

@@ -8,10 +8,10 @@ evidence rather than argument. Here that is a single line, the call to
 its helper stay in the reconstructed tree (dead code once the call is
 removed), so the diff is the behavior change alone and nothing incidental.
 
-Usage: python make_baseline_ael.py [src/pgverdict] [dest_dir]
+Usage: python make_baseline_ael.py [src/blastoise] [dest_dir]
 
-Defaults: the pgverdict package of the repo this script is committed in,
-copied to ``<cwd>/baseline_ael/pgverdict``. Point ``corpus_tiers.py
+Defaults: the blastoise package of the repo this script is committed in,
+copied to ``<cwd>/baseline_ael/blastoise``. Point ``corpus_tiers.py
 baseline_ael`` / ``corpus_replay.py baseline_ael`` / ``reassess_baseline.py
 baseline_ael`` at the result.
 """
@@ -23,13 +23,13 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve()
-DEFAULT_SRC = HERE.parents[2] / "src" / "pgverdict"
+DEFAULT_SRC = HERE.parents[2] / "src" / "blastoise"
 
 SRC = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_SRC
-DEST = (Path(sys.argv[2]) if len(sys.argv) > 2 else Path.cwd() / "baseline_ael") / "pgverdict"
+DEST = (Path(sys.argv[2]) if len(sys.argv) > 2 else Path.cwd() / "baseline_ael") / "blastoise"
 
 if not (SRC / "verdict" / "engine.py").exists():
-    raise SystemExit(f"no pgverdict package at {SRC}")
+    raise SystemExit(f"no blastoise package at {SRC}")
 if DEST.parent.exists():
     shutil.rmtree(DEST.parent)
 shutil.copytree(SRC, DEST, ignore=shutil.ignore_patterns("__pycache__"))

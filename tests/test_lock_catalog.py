@@ -15,8 +15,8 @@ from typing import Any
 import pytest
 import yaml
 
-from pgverdict import AlterTableActionKind, StatementKind
-from pgverdict.catalog import (
+from blastoise import AlterTableActionKind, StatementKind
+from blastoise.catalog import (
     CATALOG_RESOURCE,
     TABLE_LOCK_MODES,
     Calibration,
@@ -35,7 +35,7 @@ VERSIONS = range(CATALOG.version_domain.min, CATALOG.version_domain.max + 1)
 
 @pytest.fixture
 def raw_catalog() -> dict[str, Any]:
-    text = resources.files("pgverdict.catalog").joinpath(CATALOG_RESOURCE).read_text("utf-8")
+    text = resources.files("blastoise.catalog").joinpath(CATALOG_RESOURCE).read_text("utf-8")
     data: dict[str, Any] = yaml.safe_load(text)
     return data
 
@@ -782,7 +782,7 @@ def test_unknown_marker_requires_worst_case_blocking(raw_catalog: dict[str, Any]
 
 
 def test_load_catalog_file_round_trips(tmp_path: Any, raw_catalog: dict[str, Any]) -> None:
-    from pgverdict.catalog import load_catalog_file
+    from blastoise.catalog import load_catalog_file
 
     path = tmp_path / "catalog.yaml"
     path.write_text(yaml.safe_dump(raw_catalog), encoding="utf-8")

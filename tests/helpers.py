@@ -1,8 +1,8 @@
-"""Shared helpers for pgverdict tests."""
+"""Shared helpers for blastoise tests."""
 
 from __future__ import annotations
 
-from pgverdict import AlterTableAction, MigrationScript, ParsedStatement, parse_migration
+from blastoise import AlterTableAction, MigrationScript, ParsedStatement, parse_migration
 
 
 def parse(sql: str) -> MigrationScript:

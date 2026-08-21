@@ -21,7 +21,7 @@ produced these numbers.
 
 The **PostgreSQL binaries** (zonky embedded PG 17.10, ~120 MB) are not here
 either. Re-download from Maven Central; the live tests and both harnesses
-take the bin directory via `PGVERDICT_TEST_PG_BIN` / `scratch/pg/bin`.
+take the bin directory via `BLASTOISE_TEST_PG_BIN` / `scratch/pg/bin`.
 
 ## corpus/
 
@@ -85,6 +85,23 @@ run: one uncontended NVMe laptop, single session, zero concurrency. The
 absolute rates only bound production from above. `MEASURED` is not the
 fitted cross-environment calibration prompt 8 still owes.
 
+## rename/
+
+The evidence that renaming `pgverdict` to `blastoise` (2026-08-22) moved no
+machine-readable field. `surface_pgverdict.json` and `surface_blastoise.json`
+are `dump_machine_surface.py` output from before and after; diffing them
+reports **0 machine-readable differences**, the only change being two
+additive exports (`PRESSURE_LEVELS`, `pressure_level`).
+
+The product's theme is a working codename and is confined to prose, CLI help
+and docs. These two files are what makes that claim checkable rather than
+asserted, and re-running the pair is how the next rename should be checked.
+
+```console
+$ python scripts/dump_machine_surface.py blastoise after.json ../tests
+$ python scripts/diff_machine_surface.py rename/surface_blastoise.json after.json
+```
+
 ## scripts/
 
 These expect a working directory holding `corpus/` (the harvested SQL),
@@ -104,7 +121,7 @@ Corpus:
 
 Scale:
 - `scale_harness.py` — the measured run (`--smoke` for a short one;
-  `PGVERDICT_SCALE_SIZES` restricts sizes). Pickles every `LiveSnapshot`
+  `BLASTOISE_SCALE_SIZES` restricts sizes). Pickles every `LiveSnapshot`
   it fed the engine into `snapshots/`.
 - `reassess_baseline.py <tree> [out.json]` — replays those pickles through
   a reconstructed engine.
@@ -118,6 +135,18 @@ Scale:
   are acceptable; crossings where it is more lenient must be zero.
 - `reuse_experiment.py` — the `relfilenode` experiment that produced the
   index-reuse rule (`CheckIndexCompatible`) behind the no-rewrite narrowing.
+
+Rename verification:
+- `dump_machine_surface.py <package> <out.json> [tests_dir]` — dumps
+  everything machine-visible about the package: every enum's members and
+  values, every public dataclass's field names in order, each subpackage's
+  `__all__`, the duration-constant keys and units, `SNAPSHOT_FORMAT`, the
+  catalog's entry-field vocabulary, conflict matrix and statement-resolution
+  map, the canonical `LiveSnapshot` JSON, the CLI's `--json` payload, and
+  all three CLI exit codes — with the package name normalized to `<pkg>`.
+- `diff_machine_surface.py <before.json> <after.json>` — diffs two dumps.
+  Exits non-zero on any machine-readable difference, or on an API removal;
+  additive API changes are reported separately and allowed.
 
 Reconstruction (this is how old-vs-new claims are made honest):
 - `make_baseline.py` — reverses every edit of the tier restructure.

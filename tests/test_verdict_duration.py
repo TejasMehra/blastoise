@@ -4,10 +4,10 @@ from __future__ import annotations
 
 from verdict_helpers import relation, snapshot
 
-from pgverdict.catalog.model import Calibration, DurationModel
-from pgverdict.ir import AlterTableActionKind, StatementKind
-from pgverdict.verdict import DURATION_CONSTANTS, CannotEstimate, DurationEstimate, Method
-from pgverdict.verdict.duration import (
+from blastoise.catalog.model import Calibration, DurationModel
+from blastoise.ir import AlterTableActionKind, StatementKind
+from blastoise.verdict import DURATION_CONSTANTS, CannotEstimate, DurationEstimate, Method
+from blastoise.verdict.duration import (
     BYTES_FAMILY_BY_KIND,
     ROWS_FAMILY_BY_KIND,
     constant_op_estimate,
@@ -59,7 +59,7 @@ def test_family_maps_only_name_defined_constants() -> None:
 
 def test_every_calibrated_proportional_kind_has_a_family() -> None:
     """Every CALIBRATED PROPORTIONAL_TO_ROWS row must map to a throughput."""
-    from pgverdict.catalog.loader import load_catalog
+    from blastoise.catalog.loader import load_catalog
 
     catalog = load_catalog()
     missing: list[str] = []

@@ -7,9 +7,9 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-from pgverdict.catalog.loader import load_catalog
-from pgverdict.parser import MigrationParseError, parse_migration_file
-from pgverdict.verdict import Classification, assess_script
+from blastoise.catalog.loader import load_catalog
+from blastoise.parser import MigrationParseError, parse_migration_file
+from blastoise.verdict import Classification, assess_script
 
 CORPUS = Path(__file__).parent / "corpus"
 OUT = Path(__file__).parent / "corpus_offline_results.json"

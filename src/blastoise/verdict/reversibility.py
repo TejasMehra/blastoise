@@ -13,8 +13,8 @@ lookups raise on a miss rather than defaulting.
 
 from __future__ import annotations
 
-from pgverdict.ir import AlterTableActionKind, StatementKind
-from pgverdict.verdict.model import Method, Reversibility, ReversibilityAssessment
+from blastoise.ir import AlterTableActionKind, StatementKind
+from blastoise.verdict.model import Method, Reversibility, ReversibilityAssessment
 
 _SK = StatementKind
 _AK = AlterTableActionKind

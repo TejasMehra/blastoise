@@ -29,15 +29,15 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from pgverdict.catalog.model import (
+from blastoise.catalog.model import (
     Calibration,
     DurationModel,
     LockCatalog,
     LockMode,
     TransactionBlock,
 )
-from pgverdict.catalog.resolve import ResolvedLock, resolve
-from pgverdict.ir import (
+from blastoise.catalog.resolve import ResolvedLock, resolve
+from blastoise.ir import (
     AlterTableActionKind,
     DmlDetails,
     DoBlockDetails,
@@ -49,10 +49,10 @@ from pgverdict.ir import (
     RenameDetails,
     StatementKind,
 )
-from pgverdict.live.model import LiveSnapshot
-from pgverdict.verdict import constants as k
-from pgverdict.verdict import reversibility as rev
-from pgverdict.verdict.duration import (
+from blastoise.live.model import LiveSnapshot
+from blastoise.verdict import constants as k
+from blastoise.verdict import reversibility as rev
+from blastoise.verdict.duration import (
     BYTES_FAMILY_BY_KIND,
     ROWS_FAMILY_BY_KIND,
     constant_op_estimate,
@@ -61,7 +61,7 @@ from pgverdict.verdict.duration import (
     estimate_from_rows,
     estimate_index_rebuilds,
 )
-from pgverdict.verdict.model import (
+from blastoise.verdict.model import (
     SAFE_TIERS,
     CannotEstimate,
     Classification,
@@ -82,13 +82,13 @@ from pgverdict.verdict.model import (
     weakest_method,
     worse_classification,
 )
-from pgverdict.verdict.narrow import (
+from blastoise.verdict.narrow import (
     NarrowOutcome,
     NarrowResult,
     narrow_action,
     relation_facts_for,
 )
-from pgverdict.verdict.probes import probe_name
+from blastoise.verdict.probes import probe_name
 
 _SK = StatementKind
 _AK = AlterTableActionKind

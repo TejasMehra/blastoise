@@ -28,16 +28,16 @@ if MODE != "new":
     # reconstructed engine win the import over the working tree's.
     sys.path.insert(0, str(SCRATCH / MODE))
 
-from pgverdict.catalog.loader import load_catalog  # noqa: E402
-from pgverdict.parser import MigrationParseError, parse_migration_file  # noqa: E402
-from pgverdict.verdict import assess_script  # noqa: E402
-import pgverdict  # noqa: E402
+from blastoise.catalog.loader import load_catalog  # noqa: E402
+from blastoise.parser import MigrationParseError, parse_migration_file  # noqa: E402
+from blastoise.verdict import assess_script  # noqa: E402
+import blastoise  # noqa: E402
 
 CORPUS = SCRATCH / "corpus"
 
 
 def main() -> None:
-    print(f"mode={MODE} using {pgverdict.__file__}", flush=True)
+    print(f"mode={MODE} using {blastoise.__file__}", flush=True)
     catalog = load_catalog()
     files = sorted(CORPUS.glob("*.sql"))
     tiers: Counter[str] = Counter()

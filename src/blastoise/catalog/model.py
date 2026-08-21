@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from enum import StrEnum
 from typing import Any
 
-from pgverdict.ir import AlterTableActionKind, StatementKind
+from blastoise.ir import AlterTableActionKind, StatementKind
 
 
 class LockMode(StrEnum):

@@ -13,10 +13,10 @@ import dataclasses
 import pytest
 from verdict_helpers import relation, snapshot, waiter
 
-from pgverdict.catalog.loader import load_catalog
-from pgverdict.live.model import LiveSnapshot
-from pgverdict.parser import parse_migration
-from pgverdict.verdict import (
+from blastoise.catalog.loader import load_catalog
+from blastoise.live.model import LiveSnapshot
+from blastoise.parser import parse_migration
+from blastoise.verdict import (
     SAFE_TIERS,
     CannotEstimate,
     Classification,

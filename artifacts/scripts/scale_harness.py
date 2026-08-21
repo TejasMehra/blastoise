@@ -35,20 +35,20 @@ from pathlib import Path
 
 import psycopg
 
-from pgverdict.catalog.loader import load_catalog
-from pgverdict.live import TypeChangeProbe, capture_snapshot
-from pgverdict.live.introspect import LiveIntrospectionError
-from pgverdict.parser import parse_migration
-from pgverdict.verdict import assess_script, snapshot_probes
-from pgverdict.verdict.model import CannotEstimate, DurationEstimate
+from blastoise.catalog.loader import load_catalog
+from blastoise.live import TypeChangeProbe, capture_snapshot
+from blastoise.live.introspect import LiveIntrospectionError
+from blastoise.parser import parse_migration
+from blastoise.verdict import assess_script, snapshot_probes
+from blastoise.verdict.model import CannotEstimate, DurationEstimate
 
 SCRATCH = Path(__file__).parent
 PG_BIN = SCRATCH / "pg" / "bin"
 OUT = SCRATCH / "scale_results.json"
 SNAPSHOT_DIR = SCRATCH / "snapshots"
 
-RO_ROLE = "pgverdict_ro"
-RO_PASSWORD = "pgverdict-scale"
+RO_ROLE = "blastoise_ro"
+RO_PASSWORD = "blastoise-scale"
 
 SIZES: dict[str, int] = {
     "t_1k": 1_000,
@@ -57,10 +57,10 @@ SIZES: dict[str, int] = {
     "t_10m": 10_000_000,
 }
 
-# PGVERDICT_SCALE_SIZES=t_1k,t_100k restricts the run — used to smoke-test
+# BLASTOISE_SCALE_SIZES=t_1k,t_100k restricts the run — used to smoke-test
 # harness changes in a minute before committing to the full multi-hour run.
-if os.environ.get("PGVERDICT_SCALE_SIZES"):
-    _wanted = os.environ["PGVERDICT_SCALE_SIZES"].split(",")
+if os.environ.get("BLASTOISE_SCALE_SIZES"):
+    _wanted = os.environ["BLASTOISE_SCALE_SIZES"].split(",")
     SIZES = {k: v for k, v in SIZES.items() if k in _wanted}
     OUT = SCRATCH / "scale_results_smoke.json"
     SNAPSHOT_DIR = SCRATCH / "snapshots_smoke"
@@ -332,7 +332,7 @@ _MODE_RANK = {name: rank for rank, name in enumerate(_PG_MODE_TO_CATALOG)}
 def start_server() -> tuple[str, object]:
     import socket
 
-    work = Path(tempfile.mkdtemp(prefix="pgverdict-scale-"))
+    work = Path(tempfile.mkdtemp(prefix="blastoise-scale-"))
     data = work / "data"
     log = work / "server.log"
     subprocess.run(

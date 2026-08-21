@@ -25,18 +25,18 @@ SCRATCH = Path(__file__).parent
 TREE = sys.argv[1] if len(sys.argv) > 1 else "baseline"
 sys.path.insert(0, str(SCRATCH / TREE))
 
-from pgverdict.catalog.loader import load_catalog  # noqa: E402
-from pgverdict.parser import parse_migration  # noqa: E402
-from pgverdict.verdict import assess_script  # noqa: E402
-from pgverdict.verdict.model import DurationEstimate  # noqa: E402
-import pgverdict  # noqa: E402
+from blastoise.catalog.loader import load_catalog  # noqa: E402
+from blastoise.parser import parse_migration  # noqa: E402
+from blastoise.verdict import assess_script  # noqa: E402
+from blastoise.verdict.model import DurationEstimate  # noqa: E402
+import blastoise  # noqa: E402
 
 OUT = Path(sys.argv[2]) if len(sys.argv) > 2 else SCRATCH / f"scale_{TREE}_predictions.json"
 
 
 def main() -> None:
-    assert TREE in pgverdict.__file__, f"wrong tree: {pgverdict.__file__}"
-    print("reconstructed engine:", pgverdict.__file__)
+    assert TREE in blastoise.__file__, f"wrong tree: {blastoise.__file__}"
+    print("reconstructed engine:", blastoise.__file__)
     catalog = load_catalog()
     records = []
     files = sorted((SCRATCH / "snapshots").glob("*.pkl"))

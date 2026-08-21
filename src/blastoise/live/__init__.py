@@ -1,4 +1,4 @@
-"""Live database introspection: the read-only production-context layer.
+"""Hydro Scan, the live introspection layer: read-only production context.
 
 ``capture_snapshot()`` connects to a database (read-only, bounded, catalog
 views only) and returns a :class:`LiveSnapshot` — the facts the lock
@@ -6,17 +6,17 @@ catalog's ``requires_live_context`` and ``duration_model`` fields declare
 missing from static analysis: relation sizes and staleness, columns and
 constraints, function volatility, type-change coercion facts, lock waiters,
 replication lag, and the server version. Requires the ``psycopg`` driver
-(``pip install pgverdict[live]``); everything else in pgverdict works
+(``pip install blastoise[live]``); everything else in blastoise works
 without it.
 """
 
-from pgverdict.live.introspect import (
+from blastoise.live.introspect import (
     LiveIntrospectionError,
     WritableRoleError,
     capture_snapshot,
     redact_conninfo,
 )
-from pgverdict.live.model import (
+from blastoise.live.model import (
     SNAPSHOT_FORMAT,
     CaptureLimits,
     ColumnFacts,
@@ -39,11 +39,11 @@ from pgverdict.live.model import (
     TypeChangeProbe,
     TypeFacts,
 )
-from pgverdict.live.resolve import (
+from blastoise.live.resolve import (
     decide_default_volatility,
     resolved_function_volatilities,
 )
-from pgverdict.live.typechange import (
+from blastoise.live.typechange import (
     RewriteVerdict,
     TypeChangeAssessment,
     assess_type_change,

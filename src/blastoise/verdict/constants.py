@@ -25,7 +25,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import StrEnum, auto
 
-from pgverdict.catalog.model import Calibration
+from blastoise.catalog.model import Calibration
 
 
 class ConstantUnit(StrEnum):

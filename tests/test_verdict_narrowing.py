@@ -14,11 +14,11 @@ from verdict_helpers import (
     type_fact,
 )
 
-from pgverdict.catalog.loader import load_catalog
-from pgverdict.catalog.model import LockMode
-from pgverdict.live.model import IndexFacts, LiveSnapshot
-from pgverdict.parser import parse_migration
-from pgverdict.verdict import (
+from blastoise.catalog.loader import load_catalog
+from blastoise.catalog.model import LockMode
+from blastoise.live.model import IndexFacts, LiveSnapshot
+from blastoise.parser import parse_migration
+from blastoise.verdict import (
     Classification,
     DurationBand,
     Method,
@@ -26,7 +26,7 @@ from pgverdict.verdict import (
     StatementAssessment,
     assess_script,
 )
-from pgverdict.verdict.narrow import check_expression_proves_not_null
+from blastoise.verdict.narrow import check_expression_proves_not_null
 
 CATALOG = load_catalog()
 

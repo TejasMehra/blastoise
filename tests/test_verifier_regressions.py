@@ -13,7 +13,7 @@ from pathlib import Path
 import pytest
 from helpers import only_action, only_statement, parse
 
-from pgverdict import (
+from blastoise import (
     AlterTableActionKind,
     CreateTableDetails,
     MigrationParseError,
@@ -244,7 +244,7 @@ def test_unknown_operators_are_unknown_volatility() -> None:
 
 
 def test_refine_offset_keeps_offset_when_message_names_no_token() -> None:
-    from pgverdict.parser import _refine_offset
+    from blastoise.parser import _refine_offset
 
     assert _refine_offset("SELECT 1", 3, "syntax error at end of input") == 3
 
@@ -254,7 +254,7 @@ def test_defelem_enabled_handles_every_argument_shape() -> None:
     # and fallback arms guard against other pglast representations.
     from pglast import ast
 
-    from pgverdict.classify import _defelem_enabled
+    from blastoise.classify import _defelem_enabled
 
     assert _defelem_enabled(ast.DefElem(defname="full", arg=ast.Boolean(boolval=True)))
     assert not _defelem_enabled(ast.DefElem(defname="full", arg=ast.Boolean(boolval=False)))

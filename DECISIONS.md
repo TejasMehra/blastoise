@@ -1,6 +1,11 @@
 # Decisions
 
-I built the parsing layer of pgverdict: `pglast` 8.4 (libpg_query, PG18 grammar) parses each
+> The project was called **pgverdict** until 2026-08-22. The sections below were
+> written under that name and have been renamed in place, so that the module paths,
+> file paths and identifiers they cite still resolve against the code; nothing else
+> about them was edited. The rename itself is recorded in the last section.
+
+I built the parsing layer of blastoise: `pglast` 8.4 (libpg_query, PG18 grammar) parses each
 migration file into real Postgres parse trees, and `classify.py` maps every statement onto a
 deliberately fine-grained typed IR — ~95 `StatementKind`s and ~75 `AlterTableActionKind`s as
 `StrEnum`s, frozen/slotted dataclasses for statements, spans, transaction groups, and per-family
@@ -83,7 +88,7 @@ must flag when they *do* appear) but the synthetic corpus overweights them.
 
 Action-level reality check: `add_foreign_key` 527 vs `add_foreign_key_not_valid` **1**;
 `validate_constraint` **1**; `add_primary_key`/`add_unique` 283 vs USING INDEX variants **4**;
-`create_index` 1,875 vs `create_index_concurrently` 121 (6%). The safe patterns pgverdict
+`create_index` 1,875 vs `create_index_concurrently` 121 (6%). The safe patterns blastoise
 exists to recommend are nearly absent in real migration history — which validates the product
 thesis but means the synthetic corpus (written lock-first) over-represents them.
 `add_column_default_volatile` is real but rare (9, mostly `gen_random_uuid()`); most wild
@@ -137,7 +142,7 @@ tests, 97% branch coverage, ruff and mypy --strict clean.
 
 ## Lock semantics catalog (2026-08-20)
 
-Built the lock semantics catalog as YAML data (`src/pgverdict/catalog/lock_catalog.yaml`,
+Built the lock semantics catalog as YAML data (`src/blastoise/catalog/lock_catalog.yaml`,
 ~3,300 lines) with a validating loader and a resolver, in wild-frequency order per the corpus
 report. Each row maps one classification × PG-major-range × optional IR-shape variant (`when:`
 predicates over IR fields — `LOCK TABLE` splits eight ways by mode, `INSERT` by VALUES vs
@@ -208,7 +213,7 @@ and DROP POLICY/DROP TRIGGER table names (roles exist but are unnamed today).
 
 ## Live introspection layer (2026-08-20)
 
-Built `pgverdict.live`: read-only production introspection that supplies what the catalog's
+Built `blastoise.live`: read-only production introspection that supplies what the catalog's
 `requires_live_context` rows and `duration_model` fields declare missing. `capture_snapshot(dsn,
 relations)` returns a typed, JSON-serializable `LiveSnapshot` — per-relation facts (existence,
 reltuples/relpages with staleness from `pg_stat_all_tables`, `pg_relation_size`/total, partition
@@ -236,7 +241,7 @@ three statements (`CREATE ROLE ... NOSUPERUSER ...; GRANT pg_monitor; GRANT CONN
 against what Datadog/pganalyze already require. Tests: 66 new (482 → 548 total; the live layer at
 99% branch coverage, missing only the two guards that need a pre-PG10 server) — a shared harness
 (`tests/live_harness.py`) that prefers testcontainers, falls
-back to `PGVERDICT_TEST_DSN`, then to `PGVERDICT_TEST_PG_BIN` local binaries (this machine has no
+back to `BLASTOISE_TEST_DSN`, then to `BLASTOISE_TEST_PG_BIN` local binaries (this machine has no
 Docker; the suite ran for real against zonky PG 17.10 binaries — full run 14s), plus a scripted
 fake connection for branches a healthy single-node server can't produce (replica rows, per-section
 timeouts, pre-14 waiters, masked query text). The staged degraded paths all assert
@@ -373,7 +378,7 @@ knowing.
 
 ## The risk engine (2026-08-21)
 
-Built the verdict layer: `pgverdict.verdict` — `assess_script(script, catalog, pg_version,
+Built the verdict layer: `blastoise.verdict` — `assess_script(script, catalog, pg_version,
 snapshot=None)` combines the parsed IR, the lock catalog, and an optional live snapshot into
 per-statement assessments: the locks per affected relation and what each blocks (conflict sets
 spelled out), a duration estimate with a confidence interval **or** an explicit
@@ -411,7 +416,7 @@ statistics staleness — staleness widens, never shifts the point, so a stale es
 SIMULATED with reduced confidence instead of quietly becoming wrong. Classification bands on
 the interval's **upper** bound (worst plausible hold), so stale stats push borderline
 statements to the stricter class. The single table prompt 8's calibration loop will overwrite
-is `pgverdict.verdict.constants.DURATION_CONSTANTS`; every entry is `UNCALIBRATED` and every
+is `blastoise.verdict.constants.DURATION_CONSTANTS`; every entry is `UNCALIBRATED` and every
 basis starts with "guess:" (a test enforces both). What I invented and what it is based on:
 
 - `heap_rewrite` 100,000 rows/s — rewrites read the heap, write a new one, WAL-log all of it,
@@ -517,7 +522,7 @@ lenient: replay databases are near-empty (migrations create schema, not data), s
 size-driven hazard can trigger — the corpus also contains no proven-failure forms. UNSAFE
 needs production-sized tables, which only a snapshot of a real production database can supply.
 
-Caveats recorded: the replay's "online" distribution answers "what would pgverdict say against
+Caveats recorded: the replay's "online" distribution answers "what would blastoise say against
 an empty-but-schema-correct staging database", not against production; temporal's corpus mixes
 overlapping schema variants ("already exists" failures), calcom has environment-dependent data
 migrations that abort mid-file and degrade its chain; per-statement autocommit apply is harsher
@@ -1103,3 +1108,98 @@ SAFE while a live relation named in that same file does not, weaker locks (SHARE
 EXCLUSIVE) on live relations are untouched, the floor never reaches UNSAFE and never
 re-classifies UNKNOWN, and the two tests that encoded the old asymmetry were rewritten to state
 the new rule rather than deleted.
+
+## Renamed to Blastoise, and the line the theme is not allowed to cross (2026-08-22)
+
+`pgverdict` is now `blastoise` — a blast-radius pun, with `bt` as the short CLI alias. The
+rename itself was mechanical. The part worth recording is the rule it was done under, because
+that rule is the reason the rename stays cheap the *next* time it happens.
+
+### The naming principle
+
+The theme lives only in what a person reads: CLI help, README, docs, PR comment headers,
+human-readable rationale text. It touches **no** JSON key, schema field name, enum machine
+value, or exit code. Someone wiring this into CI reads `classification: needs_timing` and must
+never need to know Pokémon to do it. Cute in the wrapper, boring in the payload.
+
+Component names, for docs and CLI help: **Torrent** (parser and IR), **Shell Armour** (lock
+semantics catalog), **Hydro Scan** (live introspection), **Pressure Levels** (the five tiers),
+**Shell Report** (the verdict document), **Training Ground** (the scale harness), **Evolution**
+(the calibration loop), **Shell Seal** (signing and attestation). Tier display names —
+Calm Water, One-Way Current, Rain Check, Hydro Pump, Fog — live in exactly one lookup,
+`blastoise.verdict.PRESSURE_LEVELS`, pointed *at* the enum rather than stored in it. The
+`Classification` values remain `safe` / `safe_irreversible` / `needs_timing` / `unsafe` /
+`unknown`.
+
+The README carries a NOTICE saying Blastoise is a working codename and the Pokémon reference is
+placeholder: no domain assumed, no character artwork or third-party assets vendored, the name
+confined to the package name, the entry points, and prose. That NOTICE is only credible if the
+machine contract is genuinely clean — otherwise "we'll rename it later" means breaking every
+downstream consumer. So the principle is enforced, not asserted.
+
+### Enforcement: a guardrail test and a before/after surface diff
+
+**`tests/test_naming.py` (14 tests)** walks every module in the package and asserts that no enum
+*value* and no dataclass *field name* contains themed vocabulary, that no key in the canonical
+snapshot JSON or the CLI's `--json` payload does either, and that the five `Classification`
+values are exactly the pinned strings. It also pins the bridge: `PRESSURE_LEVELS` is total over
+`Classification`, no display name equals or normalizes to a machine value, and — because
+`Classification` is a `StrEnum` — `f"{member}"` is the machine value, so a careless f-string in
+reporting code cannot leak the theme and a careless one in machine output cannot leak the
+display name.
+
+Writing that test taught the one thing worth passing on: **substring matching is wrong.**
+The first version flagged `create_index_concurrently` (con**current**ly), `constraint_name`
+(const**rain**t) and every `add_check`. The vocabulary overlaps ordinary SQL badly. The test now
+splits identifiers on separators and camelCase boundaries and matches whole tokens, with
+`check`, `current`, `water`, `way` and `one` explicitly allowed as Postgres' words rather than
+ours, and the multi-word display names (`calm water`, `rain check`, `hydro pump`, ...) matched as
+phrases — a phrase never collides by accident where a bare token does.
+
+**The before/after surface diff** is the stronger check, because it does not depend on my
+vocabulary list being right. `dump_machine_surface.py` (in the session scratchpad) dumps
+everything machine-visible about the package — every enum's members and values, every public
+dataclass's field names *in order*, the `__all__` of every subpackage, the duration-constant keys
+and units, `SNAPSHOT_FORMAT`, the catalog's entry-field vocabulary, conflict matrix and
+statement-resolution map, the canonical `LiveSnapshot` JSON, the CLI's `--json` payload, and all
+three CLI exit codes — with the package name normalized to `<pkg>`. Dumped before the rename and
+after it, then diffed:
+
+**0 machine-readable differences.** 16 enums, 62 dataclasses, exit codes 0/2/2, snapshot format
+3, catalog conflict matrix and resolution map: identical. The only Python API change is additive
+— `PRESSURE_LEVELS` and `pressure_level` appear in `blastoise.verdict.__all__`; nothing was
+removed.
+
+A third check, end to end: re-running the offline wild corpus (3,081 files, 15,514 statements)
+under the new package reproduces `artifacts/corpus/offline_current.json` **row for row** — all
+15,514 per-statement tiers, bands and methods identical, and the `tiers`, `methods` and `by_kind`
+summaries equal. The rename is a behavioral no-op, demonstrated rather than assumed.
+
+A quieter piece of evidence arrived for free: **not one committed artifact JSON contained the
+string `pgverdict`** — not the corpus results, not the harness results, not the manifests. The
+payloads never carried the name, which is exactly what the principle predicts.
+
+### What moved, and two judgment calls
+
+Moved: the package directory (`src/pgverdict` → `src/blastoise`), 264 identifier occurrences
+across source, tests, docs, `pyproject.toml` and the `artifacts/scripts` tooling, the entry point
+(plus the new `bt` alias), the coverage source, the environment variables (`PGVERDICT_TEST_DSN`,
+`PGVERDICT_TEST_PG_BIN`, `PGVERDICT_SCALE_SIZES` → `BLASTOISE_*`) and the suggested Postgres role
+names in the docs (`pgverdict_introspect` → `blastoise_introspect`). Those last two are
+developer- and operator-facing configuration, not payload, so they follow the package name.
+
+**Printed CLI text is ASCII.** The help epilog originally used em-dashes and middle dots and came
+out as mojibake on a Windows console. Docstrings keep their em-dashes (they are never printed);
+anything argparse renders is plain ASCII now.
+
+**`prog` stays hardcoded to `blastoise`** even when invoked as `bt`, so usage lines name one
+canonical command; the epilog says `bt` is an alias. The alternative — letting argparse take the
+invoked name — reads worse under `python -m blastoise.cli`, where it would print `cli.py`.
+
+**Not done: the repository directory is still `jester/pgverdict/`.** Renaming it is a plain
+directory move that would invalidate the open editor's paths and this session's working
+directory mid-flight, and nothing inside the repo depends on the folder's name. It is a
+one-command follow-up whenever the directory is not held open.
+
+Suite: 797 → **811 tests** (797 pre-existing, all passing unchanged, plus the 14 naming
+guardrails), ruff and mypy `--strict` clean, full run against real zonky PG 17.10 binaries.

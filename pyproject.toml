@@ -1,7 +1,7 @@
 [project]
-name = "pgverdict"
+name = "blastoise"
 version = "0.1.0"
-description = "Analyze Postgres schema migrations for production safety"
+description = "Know the blast radius before you migrate."
 readme = "README.md"
 authors = [
     { name = "Tejas Mehra", email = "tejasmehra04@gmail.com" }
@@ -18,7 +18,8 @@ live = [
 ]
 
 [project.scripts]
-pgverdict = "pgverdict.cli:main"
+blastoise = "blastoise.cli:main"
+bt = "blastoise.cli:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -66,4 +67,4 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 branch = true
-source = ["pgverdict"]
+source = ["blastoise"]

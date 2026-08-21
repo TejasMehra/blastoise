@@ -16,9 +16,9 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from enum import StrEnum, auto
 
-from pgverdict.catalog.model import LockMode
-from pgverdict.ir import AlterTableActionKind, StatementKind
-from pgverdict.verdict import constants as _k
+from blastoise.catalog.model import LockMode
+from blastoise.ir import AlterTableActionKind, StatementKind
+from blastoise.verdict import constants as _k
 
 
 class Method(StrEnum):
@@ -63,6 +63,10 @@ def weakest_method(first: Method, *rest: Method) -> Method:
 class Classification(StrEnum):
     """What the reviewer must DO about one statement.
 
+    Called **Pressure Levels** in anything a person reads; the member
+    values here are the machine contract and never carry the theme.
+    :func:`pressure_level` maps a member to its display name.
+
     The tiers are ordered by the action they demand, not by how severe
     they sound — placement is decided by the required action alone:
 
@@ -105,6 +109,35 @@ Both demand nothing of *how* the statement is run; ``SAFE_IRREVERSIBLE``
 only asks that the absence of an undo be recorded. Used by the engine's
 escalation paths, which must lift a statement out of both together.
 """
+
+
+PRESSURE_LEVELS: dict[Classification, str] = {
+    Classification.SAFE: "Calm Water",
+    Classification.SAFE_IRREVERSIBLE: "One-Way Current",
+    Classification.NEEDS_TIMING: "Rain Check",
+    Classification.UNSAFE: "Hydro Pump",
+    Classification.UNKNOWN: "Fog",
+}
+"""Display names for the five tiers — presentation only.
+
+This is the one place the product's theme touches the verdict layer, and
+it is a lookup table pointed *at* the enum rather than anything stored in
+it. ``Classification`` values stay ``safe`` / ``safe_irreversible`` /
+``needs_timing`` / ``unsafe`` / ``unknown`` in JSON, in exit codes, and in
+every comparison; someone wiring this into CI reads the machine value and
+never needs to know what a Hydro Pump is. Renaming a level here is a
+copy change. Renaming one in the enum would be a breaking API change, and
+a test pins the enum values against exactly that.
+"""
+
+
+def pressure_level(classification: Classification) -> str:
+    """The display name of a tier, for human-readable output only.
+
+    Never use this as a key, a filename, or a comparison target — use the
+    :class:`Classification` member itself.
+    """
+    return PRESSURE_LEVELS[classification]
 
 
 class DurationBand(StrEnum):

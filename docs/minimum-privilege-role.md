@@ -1,16 +1,19 @@
-# The Postgres role pgverdict needs
+# The Postgres role Hydro Scan needs
+
+Hydro Scan is the live introspection layer (`blastoise.live`) -- the part
+that connects to your database.
 
 Three statements. No table access, no write ability, nothing schema-specific:
 
 ```sql
-CREATE ROLE pgverdict_introspect LOGIN PASSWORD '<generate one>'
+CREATE ROLE blastoise_introspect LOGIN PASSWORD '<generate one>'
     NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS
     CONNECTION LIMIT 2;
-GRANT pg_monitor TO pgverdict_introspect;
-GRANT CONNECT ON DATABASE your_database TO pgverdict_introspect;
+GRANT pg_monitor TO blastoise_introspect;
+GRANT CONNECT ON DATABASE your_database TO blastoise_introspect;
 ```
 
-That's the whole setup. To remove it: `DROP ROLE pgverdict_introspect;`
+That's the whole setup. To remove it: `DROP ROLE blastoise_introspect;`
 
 ## What this role can and cannot do
 
@@ -27,11 +30,11 @@ exactly this purpose](https://www.postgresql.org/docs/current/predefined-roles.h
 
 **Cannot:** read a single row of your tables, and cannot write anything.
 `SELECT`, `INSERT`, `UPDATE`, `DELETE` on user tables all fail with
-`permission denied`. pgverdict never runs `COUNT(*)` or any query against
+`permission denied`. Hydro Scan never runs `COUNT(*)` or any query against
 user data — row counts come from the planner's `reltuples` estimate, with
 its staleness recorded alongside.
 
-pgverdict does not trust this setup blindly. On every connection it:
+Hydro Scan does not trust this setup blindly. On every connection it:
 
 1. opens an explicit `READ ONLY` transaction and verifies it took effect;
 2. checks the role's actual privileges, and **refuses to run** — before
@@ -50,12 +53,12 @@ never the statement itself, which may contain data literals.
 ## Notes
 
 - `pg_monitor` is slightly broader than strictly required; the strict
-  minimum is `pg_read_all_stats`. Without either, pgverdict still works but
+  minimum is `pg_read_all_stats`. Without either, Hydro Scan still works but
   marks activity- and replication-detail fields as unavailable (Postgres
   masks other roles' `pg_stat_activity` rows), which weakens lock-conflict
   assessment. Grant whichever your policy prefers.
 - On PostgreSQL 14 and older, `PUBLIC` can create objects in the `public`
-  schema by default; pgverdict records this as a warning in its snapshot.
+  schema by default; Hydro Scan records this as a warning in its snapshot.
   It is not specific to this role, and `REVOKE CREATE ON SCHEMA public
   FROM PUBLIC;` (the PG 15+ default) resolves it database-wide.
 - Works on PostgreSQL 10 through 18. Wait-duration for lock waiters

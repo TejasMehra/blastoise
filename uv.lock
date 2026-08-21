@@ -71,6 +71,50 @@ wheels = [
 ]
 
 [[package]]
+name = "blastoise"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "pglast" },
+    { name = "pyyaml" },
+]
+
+[package.optional-dependencies]
+live = [
+    { name = "psycopg", extra = ["binary"] },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "mypy" },
+    { name = "psycopg", extra = ["binary"] },
+    { name = "pytest" },
+    { name = "pytest-cov" },
+    { name = "ruff" },
+    { name = "testcontainers" },
+    { name = "types-pyyaml" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "pglast", specifier = ">=8.4" },
+    { name = "psycopg", extras = ["binary"], marker = "extra == 'live'", specifier = ">=3.2" },
+    { name = "pyyaml", specifier = ">=6.0.3" },
+]
+provides-extras = ["live"]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "mypy", specifier = ">=2.3.1" },
+    { name = "psycopg", extras = ["binary"], specifier = ">=3.2" },
+    { name = "pytest", specifier = ">=9.1.1" },
+    { name = "pytest-cov", specifier = ">=7.1.0" },
+    { name = "ruff", specifier = ">=0.16.3" },
+    { name = "testcontainers", specifier = ">=4.8" },
+    { name = "types-pyyaml", specifier = ">=6.0.12.20260815" },
+]
+
+[[package]]
 name = "certifi"
 version = "2026.7.22"
 source = { registry = "https://pypi.org/simple" }
@@ -586,50 +630,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/dd/de/218a1f7d211f25b592756311cfba217a6ff316108da2dbb23ecaf40b3605/pglast-8.4-cp315-cp315t-musllinux_1_2_x86_64.whl", hash = "sha256:9a271ce776e378d3377ed6847c4a7aca9f4e60efa8c046727b112d7ee37d3541", size = 6404800 },
     { url = "https://files.pythonhosted.org/packages/43/db/66794bfac49431b84de018288531359d2dded4caac2b8d4f31066ab14259/pglast-8.4-cp315-cp315t-win32.whl", hash = "sha256:1c56b56d900d9a946f08ae3d7dfdec9f191743016fac4c46cc44acb929050081", size = 1449244 },
     { url = "https://files.pythonhosted.org/packages/93/de/f6047c028f1d931ce9605d534f2955c260ec4352132fff1f5a278c0323a0/pglast-8.4-cp315-cp315t-win_amd64.whl", hash = "sha256:a20ec8ded0823f41477db57843d982ff32866976d7d40db0e919d18f885ed33b", size = 1543632 },
-]
-
-[[package]]
-name = "pgverdict"
-version = "0.1.0"
-source = { editable = "." }
-dependencies = [
-    { name = "pglast" },
-    { name = "pyyaml" },
-]
-
-[package.optional-dependencies]
-live = [
-    { name = "psycopg", extra = ["binary"] },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "mypy" },
-    { name = "psycopg", extra = ["binary"] },
-    { name = "pytest" },
-    { name = "pytest-cov" },
-    { name = "ruff" },
-    { name = "testcontainers" },
-    { name = "types-pyyaml" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "pglast", specifier = ">=8.4" },
-    { name = "psycopg", extras = ["binary"], marker = "extra == 'live'", specifier = ">=3.2" },
-    { name = "pyyaml", specifier = ">=6.0.3" },
-]
-provides-extras = ["live"]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "mypy", specifier = ">=2.3.1" },
-    { name = "psycopg", extras = ["binary"], specifier = ">=3.2" },
-    { name = "pytest", specifier = ">=9.1.1" },
-    { name = "pytest-cov", specifier = ">=7.1.0" },
-    { name = "ruff", specifier = ">=0.16.3" },
-    { name = "testcontainers", specifier = ">=4.8" },
-    { name = "types-pyyaml", specifier = ">=6.0.12.20260815" },
 ]
 
 [[package]]

@@ -27,19 +27,19 @@ from pathlib import Path
 
 import psycopg
 
-from pgverdict.catalog.loader import load_catalog
-from pgverdict.live import TypeChangeProbe, capture_snapshot
-from pgverdict.live.introspect import LiveIntrospectionError
-from pgverdict.parser import MigrationParseError, parse_migration_file
-from pgverdict.verdict import Classification, assess_script, snapshot_probes
+from blastoise.catalog.loader import load_catalog
+from blastoise.live import TypeChangeProbe, capture_snapshot
+from blastoise.live.introspect import LiveIntrospectionError
+from blastoise.parser import MigrationParseError, parse_migration_file
+from blastoise.verdict import Classification, assess_script, snapshot_probes
 
 SCRATCH = Path(__file__).parent
 CORPUS = SCRATCH / "corpus"
 PG_BIN = SCRATCH / "pg" / "bin"
 OUT = SCRATCH / "unknown_diagnosis.json"
 
-RO_ROLE = "pgverdict_ro"
-RO_PASSWORD = "pgverdict-replay"
+RO_ROLE = "blastoise_ro"
+RO_PASSWORD = "blastoise-replay"
 
 _ROLE_RE = re.compile(r'role "([^"]+)" does not exist')
 
@@ -76,7 +76,7 @@ def bucket_of(rationale: str) -> str:
 def start_server() -> tuple[str, object]:
     import socket
 
-    work = Path(tempfile.mkdtemp(prefix="pgverdict-diag-"))
+    work = Path(tempfile.mkdtemp(prefix="blastoise-diag-"))
     data = work / "data"
     log = work / "server.log"
     subprocess.run(

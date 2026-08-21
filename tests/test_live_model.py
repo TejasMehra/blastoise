@@ -10,7 +10,7 @@ import json
 
 import pytest
 
-from pgverdict.live import (
+from blastoise.live import (
     SNAPSHOT_FORMAT,
     CaptureLimits,
     ColumnFacts,
@@ -32,8 +32,8 @@ from pgverdict.live import (
     TypeFacts,
     redact_conninfo,
 )
-from pgverdict.live.introspect import _regclass_text
-from pgverdict.live.model import _normalize
+from blastoise.live.introspect import _regclass_text
+from blastoise.live.model import _normalize
 
 
 def make_snapshot() -> LiveSnapshot:
@@ -246,8 +246,8 @@ def make_snapshot() -> LiveSnapshot:
 
 class TestDecideDefaultVolatility:
     def test_already_decided_defaults_pass_through(self) -> None:
-        from pgverdict.ir import DefaultInfo, Volatility
-        from pgverdict.live import decide_default_volatility
+        from blastoise.ir import DefaultInfo, Volatility
+        from blastoise.live import decide_default_volatility
 
         decided = DefaultInfo(volatility=Volatility.VOLATILE, expression="f()")
         assert (
@@ -255,8 +255,8 @@ class TestDecideDefaultVolatility:
         )
 
     def test_unknown_resolves_via_snapshot_functions(self) -> None:
-        from pgverdict.ir import DefaultInfo, Volatility
-        from pgverdict.live import decide_default_volatility
+        from blastoise.ir import DefaultInfo, Volatility
+        from blastoise.live import decide_default_volatility
 
         # make_snapshot carries my_schema.gen_id with provolatile 'v'.
         unknown = DefaultInfo(
@@ -269,8 +269,8 @@ class TestDecideDefaultVolatility:
         )
 
     def test_unknown_without_matching_facts_stays_unknown(self) -> None:
-        from pgverdict.ir import DefaultInfo, Volatility
-        from pgverdict.live import decide_default_volatility
+        from blastoise.ir import DefaultInfo, Volatility
+        from blastoise.live import decide_default_volatility
 
         unknown = DefaultInfo(
             volatility=Volatility.UNKNOWN,
@@ -282,7 +282,7 @@ class TestDecideDefaultVolatility:
         )
 
     def test_undecided_function_facts_are_not_in_the_mapping(self) -> None:
-        from pgverdict.live import FunctionFacts, resolved_function_volatilities
+        from blastoise.live import FunctionFacts, resolved_function_volatilities
 
         snapshot = dataclasses.replace(
             make_snapshot(),
@@ -395,14 +395,14 @@ class TestRegclassText:
         assert _regclass_text("public.users") == ("public.users", "public.users")
 
     def test_qualified_name_is_quoted_to_preserve_case(self) -> None:
-        from pgverdict.ir import QualifiedName
+        from blastoise.ir import QualifiedName
 
         requested, lookup = _regclass_text(QualifiedName(name="MyTable", schema="app"))
         assert requested == "app.MyTable"
         assert lookup == '"app"."MyTable"'
 
     def test_embedded_quotes_are_doubled(self) -> None:
-        from pgverdict.ir import QualifiedName
+        from blastoise.ir import QualifiedName
 
         _, lookup = _regclass_text(QualifiedName(name='we"ird'))
         assert lookup == '"we""ird"'
@@ -410,20 +410,20 @@ class TestRegclassText:
 
 class TestNormalizeExtras:
     def test_str_enums_flatten_to_plain_strings(self) -> None:
-        from pgverdict.catalog.model import LockMode
+        from blastoise.catalog.model import LockMode
 
         assert _normalize({"mode": LockMode.ACCESS_EXCLUSIVE}) == {"mode": "ACCESS EXCLUSIVE"}
 
 
 class TestConnectionErrors:
     def test_invalid_conninfo_raises_cleanly(self) -> None:
-        from pgverdict.live import LiveIntrospectionError
+        from blastoise.live import LiveIntrospectionError
 
         with pytest.raises(LiveIntrospectionError, match="invalid connection string"):
             redact_conninfo("=this is not a conninfo=")
 
     def test_unreachable_server_raises_without_leaking_credentials(self) -> None:
-        from pgverdict.live import LiveIntrospectionError, capture_snapshot
+        from blastoise.live import LiveIntrospectionError, capture_snapshot
 
         with pytest.raises(LiveIntrospectionError, match="could not connect") as info:
             capture_snapshot(

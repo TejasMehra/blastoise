@@ -1,4 +1,4 @@
-"""In-process CLI tests: ``pgverdict.cli.main`` invoked directly, no subprocess."""
+"""In-process CLI tests: ``blastoise.cli.main`` invoked directly, no subprocess."""
 
 from __future__ import annotations
 
@@ -9,8 +9,8 @@ from pathlib import Path
 
 import pytest
 
-from pgverdict import parse_migration
-from pgverdict.cli import _print_script, main
+from blastoise import parse_migration
+from blastoise.cli import _print_script, main
 
 ALTER_MIGRATION = """\
 BEGIN;
@@ -137,11 +137,11 @@ def test_module_entrypoint_runs_main(
     capsys: pytest.CaptureFixture[str],
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    # python -m pgverdict.cli, executed in-process via runpy (not subprocess)
+    # python -m blastoise.cli, executed in-process via runpy (not subprocess)
     migration = _write(tmp_path, "entry.sql", "TRUNCATE audit_log;\n")
-    monkeypatch.setattr(sys, "argv", ["pgverdict", "parse", str(migration)])
+    monkeypatch.setattr(sys, "argv", ["blastoise", "parse", str(migration)])
     with pytest.raises(SystemExit) as excinfo:
-        runpy.run_module("pgverdict.cli", run_name="__main__")
+        runpy.run_module("blastoise.cli", run_name="__main__")
     assert excinfo.value.code == 0
     assert ": truncate  target=audit_log" in capsys.readouterr().out
 

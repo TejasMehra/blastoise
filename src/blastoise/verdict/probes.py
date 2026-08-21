@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import re
 
-from pgverdict.ir import (
+from blastoise.ir import (
     AlterTableActionKind,
     CreateTableDetails,
     DoBlockDetails,
@@ -18,7 +18,7 @@ from pgverdict.ir import (
     ParsedStatement,
     QualifiedName,
 )
-from pgverdict.verdict.model import SnapshotProbes
+from blastoise.verdict.model import SnapshotProbes
 
 _ADD_COLUMN_KINDS = frozenset(
     kind for kind in AlterTableActionKind if kind.value.startswith("add_column")

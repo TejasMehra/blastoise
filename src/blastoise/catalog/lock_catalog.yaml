@@ -1,4 +1,4 @@
-# pgverdict lock semantics catalog.
+# blastoise lock semantics catalog.
 #
 # One row per statement classification x Postgres major-version range x
 # optional IR-shape variant (`when`). Rows are ordered by how often the kind

@@ -1,25 +1,25 @@
-"""Lock semantics catalog: what each statement classification does to locks.
+"""Shell Armour, the lock semantics catalog: what each statement does to locks.
 
 The data lives in ``lock_catalog.yaml`` (one row per classification x PG
 version range x optional IR-shape variant, each with a citation). The loader
 validates it exhaustively at load time; the resolver maps parsed statements
 onto rows and names every affected relation the IR can supply.
 
-    from pgverdict.catalog import load_catalog, resolve
+    from blastoise.catalog import load_catalog, resolve
 
     catalog = load_catalog()
     for lock in resolve(catalog, statement, pg_version=16):
         print(lock.entry.lock_mode, lock.entry.duration_model, lock.relations)
 """
 
-from pgverdict.catalog.loader import (
+from blastoise.catalog.loader import (
     CATALOG_RESOURCE,
     CatalogError,
     load_catalog,
     load_catalog_file,
     parse_catalog,
 )
-from pgverdict.catalog.model import (
+from blastoise.catalog.model import (
     TABLE_LOCK_MODES,
     AffectedRelation,
     Calibration,
@@ -34,7 +34,7 @@ from pgverdict.catalog.model import (
     WriteBlockScope,
     when_matches,
 )
-from pgverdict.catalog.resolve import (
+from blastoise.catalog.resolve import (
     RelationLock,
     ResolvedLock,
     ir_attrs,

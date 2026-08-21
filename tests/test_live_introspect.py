@@ -18,8 +18,8 @@ import psycopg
 import pytest
 from live_harness import unique_name
 
-from pgverdict.ir import QualifiedName
-from pgverdict.live import (
+from blastoise.ir import QualifiedName
+from blastoise.live import (
     LiveSnapshot,
     RelationFacts,
     WritableRoleError,
@@ -49,11 +49,11 @@ class TestPrivilegeGate:
         table = unique_name("t_writable")
         role = unique_name("r_writer")
         admin.execute(f"CREATE TABLE public.{table} (id int)")
-        admin.execute(f"CREATE ROLE {role} LOGIN PASSWORD 'pgverdict-test'")
+        admin.execute(f"CREATE ROLE {role} LOGIN PASSWORD 'blastoise-test'")
         admin.execute(f"GRANT INSERT ON public.{table} TO {role}")
         try:
             dsn = psycopg.conninfo.make_conninfo(
-                admin_dsn, user=role, password="pgverdict-test"
+                admin_dsn, user=role, password="blastoise-test"
             )
             with pytest.raises(WritableRoleError, match=table):
                 capture_snapshot(dsn, [f"public.{table}"])
@@ -65,10 +65,10 @@ class TestPrivilegeGate:
         self, admin: psycopg.Connection, admin_dsn: str
     ) -> None:
         role = unique_name("r_createdb")
-        admin.execute(f"CREATE ROLE {role} LOGIN PASSWORD 'pgverdict-test' CREATEDB")
+        admin.execute(f"CREATE ROLE {role} LOGIN PASSWORD 'blastoise-test' CREATEDB")
         try:
             dsn = psycopg.conninfo.make_conninfo(
-                admin_dsn, user=role, password="pgverdict-test"
+                admin_dsn, user=role, password="blastoise-test"
             )
             with pytest.raises(WritableRoleError, match="CREATEDB"):
                 capture_snapshot(dsn, [])
@@ -427,7 +427,7 @@ class TestSnapshotSerialization:
             assert first == second
             parsed = json.loads(first)
             assert parsed["snapshot_format"] == 3
-            assert parsed["target"]["user"] == "pgverdict_ro"
+            assert parsed["target"]["user"] == "blastoise_ro"
             assert "password" not in first
         finally:
             admin.execute(f"DROP TABLE public.{table}")
@@ -437,8 +437,8 @@ class TestConnectionFailureMidCapture:
     def test_driver_errors_are_wrapped_in_our_exception(
         self, ro_dsn: str, monkeypatch: pytest.MonkeyPatch
     ) -> None:
-        import pgverdict.live.introspect as introspect
-        from pgverdict.live import LiveIntrospectionError
+        import blastoise.live.introspect as introspect
+        from blastoise.live import LiveIntrospectionError
 
         def explode(conn: object, limits: object) -> object:
             raise psycopg.errors.AdminShutdown()
@@ -628,9 +628,9 @@ class TestFunctionFacts:
     def test_unknown_default_becomes_decided_only_with_live_facts(
         self, admin: psycopg.Connection, ro_dsn: str
     ) -> None:
-        from pgverdict import parse_migration
-        from pgverdict.ir import Volatility
-        from pgverdict.live import decide_default_volatility
+        from blastoise import parse_migration
+        from blastoise.ir import Volatility
+        from blastoise.live import decide_default_volatility
 
         fn = unique_name("f_gen")
         admin.execute(
@@ -696,7 +696,7 @@ class TestTypeChangeFactsLive:
     def test_facts_and_assessments_for_common_pairs(
         self, admin: psycopg.Connection, ro_dsn: str
     ) -> None:
-        from pgverdict.live import RewriteVerdict, TypeChangeProbe, assess_type_change
+        from blastoise.live import RewriteVerdict, TypeChangeProbe, assess_type_change
 
         table = unique_name("t_types")
         admin.execute(
@@ -765,7 +765,7 @@ class TestTypeChangeFactsLive:
     def test_assessments_match_relfilenode_ground_truth(
         self, admin: psycopg.Connection, ro_dsn: str
     ) -> None:
-        from pgverdict.live import RewriteVerdict, TypeChangeProbe, assess_type_change
+        from blastoise.live import RewriteVerdict, TypeChangeProbe, assess_type_change
 
         cases = [
             ("varchar(10)", "varchar(20)", False),
@@ -881,7 +881,7 @@ class TestNoNewPrivilegesRequired:
         # must not widen it. Columns, constraints, function volatility, type
         # facts, and type-change facts are plain catalog reads — they work
         # even WITHOUT pg_monitor (which only unmasks activity/replication).
-        from pgverdict.live import TypeChangeProbe
+        from blastoise.live import TypeChangeProbe
 
         table = unique_name("t_priv")
         fn = unique_name("f_priv")

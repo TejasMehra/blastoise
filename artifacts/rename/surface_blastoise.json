@@ -1,0 +1,1343 @@
+{
+ "cli": {
+  "json_exit_code": 0,
+  "json_payload": [
+   {
+    "baseline_shaped": false,
+    "path": "<tmpdir>/m.sql",
+    "statements": [
+     {
+      "alter_actions": [],
+      "details": {
+       "chain": false,
+       "savepoint_name": null
+      },
+      "kind": "begin",
+      "node_tag": "TransactionStmt",
+      "only": false,
+      "span": {
+       "end": 5,
+       "line": 1,
+       "start": 0
+      },
+      "sql": "BEGIN",
+      "targets": []
+     },
+     {
+      "alter_actions": [],
+      "details": {
+       "if_not_exists": false,
+       "inherits": false,
+       "partition_of": null,
+       "persistence": "permanent",
+       "referenced_tables": []
+      },
+      "kind": "create_table",
+      "node_tag": "CreateStmt",
+      "only": false,
+      "span": {
+       "end": 30,
+       "line": 2,
+       "start": 7
+      },
+      "sql": "CREATE TABLE t (id int)",
+      "targets": [
+       {
+        "name": "t",
+        "schema": null
+       }
+      ]
+     },
+     {
+      "alter_actions": [
+       {
+        "cascade": false,
+        "column": "e",
+        "column_type": "text",
+        "constraint_name": null,
+        "default": {
+         "expression": "'x'",
+         "unknown_functions": [],
+         "volatility": "constant"
+        },
+        "detail": null,
+        "has_using_expression": false,
+        "inline_constraints": [],
+        "kind": "add_column_default_nonvolatile",
+        "missing_ok": false,
+        "not_null": false,
+        "not_valid": false,
+        "partition": null,
+        "referenced_table": null,
+        "using_index": null
+       }
+      ],
+      "details": null,
+      "kind": "alter_table",
+      "node_tag": "AlterTableStmt",
+      "only": false,
+      "span": {
+       "end": 79,
+       "line": 3,
+       "start": 32
+      },
+      "sql": "ALTER TABLE users ADD COLUMN e text DEFAULT 'x'",
+      "targets": [
+       {
+        "name": "users",
+        "schema": null
+       }
+      ]
+     },
+     {
+      "alter_actions": [],
+      "details": {
+       "chain": false,
+       "savepoint_name": null
+      },
+      "kind": "commit",
+      "node_tag": "TransactionStmt",
+      "only": false,
+      "span": {
+       "end": 87,
+       "line": 4,
+       "start": 81
+      },
+      "sql": "COMMIT",
+      "targets": []
+     }
+    ],
+    "transaction_groups": [
+     {
+      "closed_by": 3,
+      "explicit": true,
+      "opened_by": 0,
+      "rolled_back": false,
+      "statement_indices": [
+       1,
+       2
+      ]
+     }
+    ],
+    "warnings": []
+   }
+  ],
+  "missing_file_exit_code": 2,
+  "parse_error_exit_code": 2
+ },
+ "constants": {
+  "catalog_conflict_matrix": {
+   "ACCESS EXCLUSIVE": [
+    "ACCESS EXCLUSIVE",
+    "ACCESS SHARE",
+    "EXCLUSIVE",
+    "ROW EXCLUSIVE",
+    "ROW SHARE",
+    "SHARE",
+    "SHARE ROW EXCLUSIVE",
+    "SHARE UPDATE EXCLUSIVE"
+   ],
+   "ACCESS SHARE": [
+    "ACCESS EXCLUSIVE"
+   ],
+   "EXCLUSIVE": [
+    "ACCESS EXCLUSIVE",
+    "EXCLUSIVE",
+    "ROW EXCLUSIVE",
+    "ROW SHARE",
+    "SHARE",
+    "SHARE ROW EXCLUSIVE",
+    "SHARE UPDATE EXCLUSIVE"
+   ],
+   "ROW EXCLUSIVE": [
+    "ACCESS EXCLUSIVE",
+    "EXCLUSIVE",
+    "SHARE",
+    "SHARE ROW EXCLUSIVE"
+   ],
+   "ROW SHARE": [
+    "ACCESS EXCLUSIVE",
+    "EXCLUSIVE"
+   ],
+   "SHARE": [
+    "ACCESS EXCLUSIVE",
+    "EXCLUSIVE",
+    "ROW EXCLUSIVE",
+    "SHARE ROW EXCLUSIVE",
+    "SHARE UPDATE EXCLUSIVE"
+   ],
+   "SHARE ROW EXCLUSIVE": [
+    "ACCESS EXCLUSIVE",
+    "EXCLUSIVE",
+    "ROW EXCLUSIVE",
+    "SHARE",
+    "SHARE ROW EXCLUSIVE",
+    "SHARE UPDATE EXCLUSIVE"
+   ],
+   "SHARE UPDATE EXCLUSIVE": [
+    "ACCESS EXCLUSIVE",
+    "EXCLUSIVE",
+    "SHARE",
+    "SHARE ROW EXCLUSIVE",
+    "SHARE UPDATE EXCLUSIVE"
+   ]
+  },
+  "catalog_entry_count": 215,
+  "catalog_entry_fields": [
+   "affected_relations",
+   "available",
+   "blocks_reads",
+   "blocks_writes",
+   "calibration",
+   "conflicts_with",
+   "duration_model",
+   "failure_mode",
+   "kind",
+   "live_context",
+   "lock_mode",
+   "notes",
+   "pg_versions",
+   "requires_live_context",
+   "requires_table_rewrite",
+   "row_locks",
+   "source",
+   "transaction_block",
+   "when",
+   "write_block_scope"
+  ],
+  "catalog_statement_resolution": {
+   "alter_table": "per_action",
+   "do_block": "inner_statements"
+  },
+  "duration_constant_keys": [
+   "constant_op",
+   "dml_delete",
+   "dml_update",
+   "fk_validation",
+   "heap_rewrite",
+   "index_build_btree",
+   "index_build_expression",
+   "index_bytes",
+   "validation_scan"
+  ],
+  "duration_constant_units": {
+   "constant_op": "fixed_milliseconds",
+   "dml_delete": "rows_per_second",
+   "dml_update": "rows_per_second",
+   "fk_validation": "rows_per_second",
+   "heap_rewrite": "rows_per_second",
+   "index_build_btree": "rows_per_second",
+   "index_build_expression": "rows_per_second",
+   "index_bytes": "bytes_per_second",
+   "validation_scan": "rows_per_second"
+  },
+  "snapshot_format": 3
+ },
+ "dataclass_fields": {
+  "<pkg>.catalog.model.AffectedRelation": [
+   "role",
+   "lock_mode",
+   "optional",
+   "statically_resolvable"
+  ],
+  "<pkg>.catalog.model.CatalogEntry": [
+   "kind",
+   "pg_versions",
+   "calibration",
+   "available",
+   "lock_mode",
+   "conflicts_with",
+   "blocks_reads",
+   "blocks_writes",
+   "write_block_scope",
+   "row_locks",
+   "requires_table_rewrite",
+   "duration_model",
+   "requires_live_context",
+   "live_context",
+   "transaction_block",
+   "failure_mode",
+   "affected_relations",
+   "when",
+   "source",
+   "notes"
+  ],
+  "<pkg>.catalog.model.LockCatalog": [
+   "version_domain",
+   "conflict_matrix",
+   "breakpoints",
+   "statement_resolution",
+   "statements",
+   "alter_table_actions"
+  ],
+  "<pkg>.catalog.model.VersionBreakpoint": [
+   "kind",
+   "version",
+   "what_changed",
+   "source"
+  ],
+  "<pkg>.catalog.model.VersionRange": [
+   "min",
+   "max"
+  ],
+  "<pkg>.catalog.resolve.RelationLock": [
+   "role",
+   "name",
+   "lock_mode",
+   "blocks_reads",
+   "blocks_writes",
+   "certain"
+  ],
+  "<pkg>.catalog.resolve.ResolvedLock": [
+   "entry",
+   "relations",
+   "statement",
+   "action",
+   "in_do_block",
+   "conditional"
+  ],
+  "<pkg>.ir.AlterTableAction": [
+   "kind",
+   "column",
+   "constraint_name",
+   "column_type",
+   "default",
+   "not_null",
+   "not_valid",
+   "has_using_expression",
+   "using_index",
+   "inline_constraints",
+   "partition",
+   "referenced_table",
+   "cascade",
+   "missing_ok",
+   "detail"
+  ],
+  "<pkg>.ir.CreateTableAsDetails": [
+   "no_data"
+  ],
+  "<pkg>.ir.CreateTableDetails": [
+   "persistence",
+   "if_not_exists",
+   "partition_of",
+   "inherits",
+   "referenced_tables"
+  ],
+  "<pkg>.ir.DefaultInfo": [
+   "volatility",
+   "expression",
+   "unknown_functions"
+  ],
+  "<pkg>.ir.DmlDetails": [
+   "has_where",
+   "batch_signals"
+  ],
+  "<pkg>.ir.DoBlockDetails": [
+   "language",
+   "statements",
+   "dynamic_sql_count",
+   "fully_parsed",
+   "existence_guarded"
+  ],
+  "<pkg>.ir.DropDetails": [
+   "object_names",
+   "cascade",
+   "missing_ok"
+  ],
+  "<pkg>.ir.IndexDetails": [
+   "index_name",
+   "unique",
+   "method",
+   "partial",
+   "has_expression",
+   "if_not_exists"
+  ],
+  "<pkg>.ir.InsertDetails": [
+   "source"
+  ],
+  "<pkg>.ir.LockDetails": [
+   "mode",
+   "mode_name",
+   "nowait"
+  ],
+  "<pkg>.ir.MigrationScript": [
+   "source",
+   "statements",
+   "transaction_groups",
+   "warnings",
+   "path",
+   "baseline_shaped"
+  ],
+  "<pkg>.ir.ParsedStatement": [
+   "kind",
+   "sql",
+   "span",
+   "node_tag",
+   "targets",
+   "alter_actions",
+   "details",
+   "only"
+  ],
+  "<pkg>.ir.QualifiedName": [
+   "name",
+   "schema"
+  ],
+  "<pkg>.ir.ReindexDetails": [
+   "scope",
+   "object_name"
+  ],
+  "<pkg>.ir.RenameDetails": [
+   "old_name",
+   "new_name",
+   "object_type"
+  ],
+  "<pkg>.ir.SetDetails": [
+   "name",
+   "is_local"
+  ],
+  "<pkg>.ir.SourceSpan": [
+   "start",
+   "end",
+   "line"
+  ],
+  "<pkg>.ir.TransactionDetails": [
+   "savepoint_name",
+   "chain"
+  ],
+  "<pkg>.ir.TransactionGroup": [
+   "explicit",
+   "statement_indices",
+   "opened_by",
+   "closed_by",
+   "rolled_back"
+  ],
+  "<pkg>.ir.TruncateDetails": [
+   "cascade",
+   "restart_identity"
+  ],
+  "<pkg>.live.model.CaptureLimits": [
+   "connect_timeout_s",
+   "statement_timeout_ms",
+   "lock_timeout_ms",
+   "long_transaction_threshold_ms",
+   "max_listed_transactions"
+  ],
+  "<pkg>.live.model.ColumnFacts": [
+   "name",
+   "attnum",
+   "data_type",
+   "type_oid",
+   "typmod",
+   "not_null",
+   "has_default",
+   "default_expression",
+   "identity",
+   "generated",
+   "is_domain",
+   "domain_base_type",
+   "domain_not_null",
+   "domain_constraint_count"
+  ],
+  "<pkg>.live.model.ConcurrencyFacts": [
+   "lock_waiters",
+   "long_transactions",
+   "current_connections",
+   "max_connections"
+  ],
+  "<pkg>.live.model.ConnectionTarget": [
+   "host",
+   "port",
+   "dbname",
+   "user"
+  ],
+  "<pkg>.live.model.ConstraintFacts": [
+   "name",
+   "contype",
+   "validated",
+   "columns",
+   "definition",
+   "check_expression",
+   "referenced_table"
+  ],
+  "<pkg>.live.model.Fact": [
+   "available",
+   "value",
+   "reason"
+  ],
+  "<pkg>.live.model.FunctionFacts": [
+   "requested",
+   "exists",
+   "overloads",
+   "volatility",
+   "prokind"
+  ],
+  "<pkg>.live.model.IndexFacts": [
+   "name",
+   "valid",
+   "size_bytes",
+   "method",
+   "partial",
+   "has_expressions",
+   "default_opclasses",
+   "depends_on_columns"
+  ],
+  "<pkg>.live.model.LiveSnapshot": [
+   "snapshot_format",
+   "captured_at",
+   "target",
+   "limits",
+   "role",
+   "server",
+   "relations",
+   "functions",
+   "types",
+   "type_changes",
+   "concurrency",
+   "replication"
+  ],
+  "<pkg>.live.model.LockWaiter": [
+   "relation",
+   "blocked_pid",
+   "blocked_mode",
+   "waiting_for_ms",
+   "blocking_pids",
+   "blocking_modes"
+  ],
+  "<pkg>.live.model.LongTransaction": [
+   "pid",
+   "state",
+   "idle_in_transaction",
+   "xact_age_ms",
+   "query_age_ms",
+   "first_keyword",
+   "waiting_on_lock"
+  ],
+  "<pkg>.live.model.RelationFacts": [
+   "requested",
+   "exists",
+   "schema",
+   "name",
+   "relkind",
+   "is_partitioned",
+   "reltuples",
+   "relpages",
+   "relation_size_bytes",
+   "total_relation_size_bytes",
+   "last_analyze",
+   "last_autoanalyze",
+   "n_mod_since_analyze",
+   "partition_count",
+   "partitions_total_size_bytes",
+   "index_count",
+   "indexes",
+   "invalid_indexes",
+   "columns",
+   "dropped_column_count",
+   "constraints"
+  ],
+  "<pkg>.live.model.ReplicaFacts": [
+   "name",
+   "client_addr",
+   "state",
+   "sync_state",
+   "replay_lag_bytes",
+   "write_lag_ms",
+   "flush_lag_ms",
+   "replay_lag_ms"
+  ],
+  "<pkg>.live.model.ReplicationFacts": [
+   "has_replicas",
+   "replicas",
+   "synchronous",
+   "synchronous_standby_names",
+   "synchronous_commit"
+  ],
+  "<pkg>.live.model.RoleFacts": [
+   "role",
+   "transaction_read_only",
+   "superuser",
+   "can_read_all_stats",
+   "warnings"
+  ],
+  "<pkg>.live.model.ServerFacts": [
+   "server_version_num",
+   "server_version",
+   "pg_major",
+   "in_recovery",
+   "server_now",
+   "lock_timeout_ms",
+   "statement_timeout_ms",
+   "timezone"
+  ],
+  "<pkg>.live.model.TypeChangeFacts": [
+   "relation",
+   "column",
+   "new_type_requested",
+   "current_type",
+   "current_typmod",
+   "current_base_type",
+   "current_is_domain",
+   "current_domain_not_null",
+   "current_domain_constraint_count",
+   "new_type",
+   "new_base_type",
+   "new_is_domain",
+   "new_domain_not_null",
+   "new_domain_constraint_count",
+   "new_domain_has_typmod",
+   "same_type",
+   "bases_same",
+   "cast_method",
+   "cast_context"
+  ],
+  "<pkg>.live.model.TypeChangeProbe": [
+   "relation",
+   "column",
+   "new_type"
+  ],
+  "<pkg>.live.model.TypeFacts": [
+   "requested",
+   "exists",
+   "formatted",
+   "typtype",
+   "is_domain",
+   "domain_base_type",
+   "domain_not_null",
+   "domain_constraint_count"
+  ],
+  "<pkg>.live.typechange.TypeChangeAssessment": [
+   "verdict",
+   "reason",
+   "source"
+  ],
+  "<pkg>.verdict.constants.DurationConstant": [
+   "key",
+   "unit",
+   "value",
+   "calibration",
+   "basis"
+  ],
+  "<pkg>.verdict.model.CannotEstimate": [
+   "reason",
+   "method"
+  ],
+  "<pkg>.verdict.model.ContentionAssessment": [
+   "relation",
+   "conflicting_lock_held",
+   "held_conflicting_modes",
+   "waiting_pids",
+   "queued_behind_us",
+   "queued_behind_us_method"
+  ],
+  "<pkg>.verdict.model.DurationEstimate": [
+   "point_ms",
+   "low_ms",
+   "high_ms",
+   "confidence",
+   "method",
+   "inputs",
+   "constant_key"
+  ],
+  "<pkg>.verdict.model.HeldLock": [
+   "relation",
+   "lock_mode",
+   "acquired_by_index"
+  ],
+  "<pkg>.verdict.model.RelationLockAssessment": [
+   "relation",
+   "role",
+   "lock_mode",
+   "blocks_reads",
+   "blocks_writes",
+   "conflicting_modes",
+   "certain",
+   "method",
+   "basis"
+  ],
+  "<pkg>.verdict.model.ReversibilityAssessment": [
+   "reversibility",
+   "method",
+   "basis",
+   "what_is_lost"
+  ],
+  "<pkg>.verdict.model.RowAssessment": [
+   "kind",
+   "lock_mode",
+   "relations",
+   "duration",
+   "contention",
+   "verdict",
+   "narrowings",
+   "notes"
+  ],
+  "<pkg>.verdict.model.ScriptAssessment": [
+   "statements",
+   "transaction_warnings",
+   "pg_version",
+   "online",
+   "baseline_shaped",
+   "notes"
+  ],
+  "<pkg>.verdict.model.SnapshotProbes": [
+   "relations",
+   "functions",
+   "types",
+   "type_changes"
+  ],
+  "<pkg>.verdict.model.StatementAssessment": [
+   "statement_index",
+   "kind",
+   "line",
+   "sql",
+   "statement_lock_mode",
+   "rows",
+   "reversibility",
+   "verdict",
+   "held_locks_before",
+   "notes"
+  ],
+  "<pkg>.verdict.model.TransactionWarning": [
+   "relations",
+   "description",
+   "method",
+   "group_index",
+   "hypothetical"
+  ],
+  "<pkg>.verdict.model.Tristate": [
+   "value",
+   "method",
+   "basis"
+  ],
+  "<pkg>.verdict.model.Verdict": [
+   "classification",
+   "method",
+   "rationale",
+   "conditions",
+   "band"
+  ],
+  "<pkg>.verdict.narrow.NarrowResult": [
+   "method",
+   "outcome",
+   "narrative",
+   "reason",
+   "conditions",
+   "notes",
+   "extra_relation",
+   "family_override",
+   "relabel",
+   "rebuild_indexes"
+  ]
+ },
+ "enums": {
+  "<pkg>.catalog.model.Calibration": {
+   "CALIBRATED": "CALIBRATED",
+   "MEASURED": "MEASURED",
+   "UNCALIBRATED": "UNCALIBRATED"
+  },
+  "<pkg>.catalog.model.DurationModel": {
+   "CONSTANT": "CONSTANT",
+   "PROPORTIONAL_TO_INDEX_SIZE": "PROPORTIONAL_TO_INDEX_SIZE",
+   "PROPORTIONAL_TO_ROWS": "PROPORTIONAL_TO_ROWS",
+   "PROPORTIONAL_TO_ROWS_MATCHED": "PROPORTIONAL_TO_ROWS_MATCHED",
+   "UNKNOWN": "UNKNOWN"
+  },
+  "<pkg>.catalog.model.LockMode": {
+   "ACCESS_EXCLUSIVE": "ACCESS EXCLUSIVE",
+   "ACCESS_SHARE": "ACCESS SHARE",
+   "EXCLUSIVE": "EXCLUSIVE",
+   "NONE": "NONE",
+   "ROW_EXCLUSIVE": "ROW EXCLUSIVE",
+   "ROW_SHARE": "ROW SHARE",
+   "SHARE": "SHARE",
+   "SHARE_ROW_EXCLUSIVE": "SHARE ROW EXCLUSIVE",
+   "SHARE_UPDATE_EXCLUSIVE": "SHARE UPDATE EXCLUSIVE",
+   "UNKNOWN": "UNKNOWN"
+  },
+  "<pkg>.catalog.model.Resolution": {
+   "DIRECT": "direct",
+   "INNER_STATEMENTS": "inner_statements",
+   "PER_ACTION": "per_action"
+  },
+  "<pkg>.catalog.model.TransactionBlock": {
+   "ALLOWED": "ALLOWED",
+   "FORBIDDEN": "FORBIDDEN",
+   "RESTRICTED": "RESTRICTED"
+  },
+  "<pkg>.catalog.model.WriteBlockScope": {
+   "MATCHED_ROWS": "MATCHED_ROWS",
+   "NONE": "NONE",
+   "TABLE": "TABLE"
+  },
+  "<pkg>.ir.AlterTableActionKind": {
+   "ADD_CHECK": "add_check",
+   "ADD_CHECK_NOT_VALID": "add_check_not_valid",
+   "ADD_COLUMN": "add_column",
+   "ADD_COLUMN_DEFAULT_NONVOLATILE": "add_column_default_nonvolatile",
+   "ADD_COLUMN_DEFAULT_UNKNOWN_VOLATILITY": "add_column_default_unknown_volatility",
+   "ADD_COLUMN_DEFAULT_VOLATILE": "add_column_default_volatile",
+   "ADD_COLUMN_GENERATED_STORED": "add_column_generated_stored",
+   "ADD_COLUMN_GENERATED_VIRTUAL": "add_column_generated_virtual",
+   "ADD_COLUMN_IDENTITY": "add_column_identity",
+   "ADD_COLUMN_NOT_NULL_NO_DEFAULT": "add_column_not_null_no_default",
+   "ADD_COLUMN_SERIAL": "add_column_serial",
+   "ADD_CONSTRAINT_OTHER": "add_constraint_other",
+   "ADD_EXCLUSION": "add_exclusion",
+   "ADD_FOREIGN_KEY": "add_foreign_key",
+   "ADD_FOREIGN_KEY_NOT_VALID": "add_foreign_key_not_valid",
+   "ADD_IDENTITY": "add_identity",
+   "ADD_NOT_NULL_CONSTRAINT": "add_not_null_constraint",
+   "ADD_NOT_NULL_CONSTRAINT_NOT_VALID": "add_not_null_constraint_not_valid",
+   "ADD_PRIMARY_KEY": "add_primary_key",
+   "ADD_PRIMARY_KEY_USING_INDEX": "add_primary_key_using_index",
+   "ADD_UNIQUE": "add_unique",
+   "ADD_UNIQUE_USING_INDEX": "add_unique_using_index",
+   "ALTER_COLUMN_TYPE": "alter_column_type",
+   "ALTER_CONSTRAINT": "alter_constraint",
+   "ATTACH_PARTITION": "attach_partition",
+   "CHANGE_OWNER": "change_owner",
+   "CLUSTER_ON": "cluster_on",
+   "DETACH_PARTITION": "detach_partition",
+   "DETACH_PARTITION_CONCURRENTLY": "detach_partition_concurrently",
+   "DETACH_PARTITION_FINALIZE": "detach_partition_finalize",
+   "DISABLE_ROW_SECURITY": "disable_row_security",
+   "DISABLE_RULE": "disable_rule",
+   "DISABLE_TRIGGER": "disable_trigger",
+   "DROP_CLUSTER": "drop_cluster",
+   "DROP_COLUMN": "drop_column",
+   "DROP_COLUMN_DEFAULT": "drop_column_default",
+   "DROP_CONSTRAINT": "drop_constraint",
+   "DROP_EXPRESSION": "drop_expression",
+   "DROP_IDENTITY": "drop_identity",
+   "DROP_NOT_NULL": "drop_not_null",
+   "ENABLE_ROW_SECURITY": "enable_row_security",
+   "ENABLE_RULE": "enable_rule",
+   "ENABLE_TRIGGER": "enable_trigger",
+   "FORCE_ROW_SECURITY": "force_row_security",
+   "INHERIT": "inherit",
+   "NOT_OF": "not_of",
+   "NO_FORCE_ROW_SECURITY": "no_force_row_security",
+   "NO_INHERIT": "no_inherit",
+   "OF_TYPE": "of_type",
+   "OTHER": "other",
+   "REPLACE_STORAGE_PARAMS": "replace_storage_params",
+   "REPLICA_IDENTITY": "replica_identity",
+   "RESET_COLUMN_OPTIONS": "reset_column_options",
+   "RESET_STORAGE_PARAMS": "reset_storage_params",
+   "SET_ACCESS_METHOD": "set_access_method",
+   "SET_COLUMN_DEFAULT": "set_column_default",
+   "SET_COLUMN_OPTIONS": "set_column_options",
+   "SET_COMPRESSION": "set_compression",
+   "SET_EXPRESSION": "set_expression",
+   "SET_IDENTITY": "set_identity",
+   "SET_LOGGED": "set_logged",
+   "SET_NOT_NULL": "set_not_null",
+   "SET_STATISTICS": "set_statistics",
+   "SET_STORAGE": "set_storage",
+   "SET_STORAGE_PARAMS": "set_storage_params",
+   "SET_TABLESPACE": "set_tablespace",
+   "SET_UNLOGGED": "set_unlogged",
+   "VALIDATE_CONSTRAINT": "validate_constraint"
+  },
+  "<pkg>.ir.StatementKind": {
+   "ALTER_COMPOSITE_TYPE": "alter_composite_type",
+   "ALTER_DATABASE": "alter_database",
+   "ALTER_DEFAULT_PRIVILEGES": "alter_default_privileges",
+   "ALTER_DOMAIN": "alter_domain",
+   "ALTER_ENUM_ADD_VALUE": "alter_enum_add_value",
+   "ALTER_ENUM_RENAME_VALUE": "alter_enum_rename_value",
+   "ALTER_EXTENSION": "alter_extension",
+   "ALTER_FOREIGN_TABLE": "alter_foreign_table",
+   "ALTER_FUNCTION": "alter_function",
+   "ALTER_INDEX": "alter_index",
+   "ALTER_MATVIEW": "alter_matview",
+   "ALTER_OBJECT_SCHEMA": "alter_object_schema",
+   "ALTER_OWNER": "alter_owner",
+   "ALTER_POLICY": "alter_policy",
+   "ALTER_ROLE": "alter_role",
+   "ALTER_SEQUENCE": "alter_sequence",
+   "ALTER_STATISTICS": "alter_statistics",
+   "ALTER_SYSTEM": "alter_system",
+   "ALTER_TABLE": "alter_table",
+   "ALTER_VIEW": "alter_view",
+   "ANALYZE": "analyze",
+   "BEGIN": "begin",
+   "CALL": "call",
+   "CLUSTER": "cluster",
+   "COMMENT_ON": "comment_on",
+   "COMMIT": "commit",
+   "COPY_FROM": "copy_from",
+   "COPY_TO": "copy_to",
+   "CREATE_AGGREGATE": "create_aggregate",
+   "CREATE_COMPOSITE_TYPE": "create_composite_type",
+   "CREATE_DATABASE": "create_database",
+   "CREATE_DOMAIN": "create_domain",
+   "CREATE_ENUM_TYPE": "create_enum_type",
+   "CREATE_EXTENSION": "create_extension",
+   "CREATE_FOREIGN_TABLE": "create_foreign_table",
+   "CREATE_FUNCTION": "create_function",
+   "CREATE_INDEX": "create_index",
+   "CREATE_INDEX_CONCURRENTLY": "create_index_concurrently",
+   "CREATE_MATVIEW": "create_matview",
+   "CREATE_POLICY": "create_policy",
+   "CREATE_PROCEDURE": "create_procedure",
+   "CREATE_RANGE_TYPE": "create_range_type",
+   "CREATE_ROLE": "create_role",
+   "CREATE_RULE": "create_rule",
+   "CREATE_SCHEMA": "create_schema",
+   "CREATE_SEQUENCE": "create_sequence",
+   "CREATE_STATISTICS": "create_statistics",
+   "CREATE_TABLE": "create_table",
+   "CREATE_TABLESPACE": "create_tablespace",
+   "CREATE_TABLE_AS": "create_table_as",
+   "CREATE_TABLE_PARTITION_OF": "create_table_partition_of",
+   "CREATE_TRIGGER": "create_trigger",
+   "CREATE_VIEW": "create_view",
+   "DELETE": "delete",
+   "DELETE_BATCHED": "delete_batched",
+   "DELETE_WITHOUT_WHERE": "delete_without_where",
+   "DO_BLOCK": "do_block",
+   "DROP_AGGREGATE": "drop_aggregate",
+   "DROP_DATABASE": "drop_database",
+   "DROP_DOMAIN": "drop_domain",
+   "DROP_EXTENSION": "drop_extension",
+   "DROP_FUNCTION": "drop_function",
+   "DROP_INDEX": "drop_index",
+   "DROP_INDEX_CONCURRENTLY": "drop_index_concurrently",
+   "DROP_MATVIEW": "drop_matview",
+   "DROP_POLICY": "drop_policy",
+   "DROP_PROCEDURE": "drop_procedure",
+   "DROP_ROLE": "drop_role",
+   "DROP_SCHEMA": "drop_schema",
+   "DROP_SEQUENCE": "drop_sequence",
+   "DROP_TABLE": "drop_table",
+   "DROP_TABLESPACE": "drop_tablespace",
+   "DROP_TRIGGER": "drop_trigger",
+   "DROP_TYPE": "drop_type",
+   "DROP_VIEW": "drop_view",
+   "GRANT": "grant",
+   "INSERT": "insert",
+   "LOCK_TABLE": "lock_table",
+   "MERGE": "merge",
+   "OTHER": "other",
+   "REFRESH_MATVIEW": "refresh_matview",
+   "REFRESH_MATVIEW_CONCURRENTLY": "refresh_matview_concurrently",
+   "REINDEX": "reindex",
+   "REINDEX_CONCURRENTLY": "reindex_concurrently",
+   "RELEASE_SAVEPOINT": "release_savepoint",
+   "RENAME_COLUMN": "rename_column",
+   "RENAME_CONSTRAINT": "rename_constraint",
+   "RENAME_INDEX": "rename_index",
+   "RENAME_MATVIEW": "rename_matview",
+   "RENAME_OTHER": "rename_other",
+   "RENAME_TABLE": "rename_table",
+   "RENAME_TYPE": "rename_type",
+   "RENAME_VIEW": "rename_view",
+   "RESET": "reset",
+   "REVOKE": "revoke",
+   "ROLLBACK": "rollback",
+   "ROLLBACK_TO_SAVEPOINT": "rollback_to_savepoint",
+   "SAVEPOINT": "savepoint",
+   "SELECT": "select",
+   "SELECT_INTO": "select_into",
+   "SET": "set",
+   "SHOW": "show",
+   "TRANSACTION_OTHER": "transaction_other",
+   "TRUNCATE": "truncate",
+   "UPDATE": "update",
+   "UPDATE_BATCHED": "update_batched",
+   "UPDATE_WITHOUT_WHERE": "update_without_where",
+   "VACUUM": "vacuum",
+   "VACUUM_FULL": "vacuum_full"
+  },
+  "<pkg>.ir.Volatility": {
+   "CONSTANT": "constant",
+   "IMMUTABLE": "immutable",
+   "STABLE": "stable",
+   "UNKNOWN": "unknown",
+   "VOLATILE": "volatile"
+  },
+  "<pkg>.live.typechange.RewriteVerdict": {
+   "NO_REWRITE": "no_rewrite",
+   "NO_REWRITE_IF_SESSION_TZ_UTC": "no_rewrite_if_session_tz_utc",
+   "REWRITE": "rewrite",
+   "UNKNOWN": "unknown"
+  },
+  "<pkg>.verdict.constants.ConstantUnit": {
+   "BYTES_PER_SECOND": "bytes_per_second",
+   "FIXED_MILLISECONDS": "fixed_milliseconds",
+   "ROWS_PER_SECOND": "rows_per_second"
+  },
+  "<pkg>.verdict.model.Classification": {
+   "NEEDS_TIMING": "needs_timing",
+   "SAFE": "safe",
+   "SAFE_IRREVERSIBLE": "safe_irreversible",
+   "UNKNOWN": "unknown",
+   "UNSAFE": "unsafe"
+  },
+  "<pkg>.verdict.model.DurationBand": {
+   "LONG": "long",
+   "MINUTES": "minutes",
+   "SECONDS": "seconds",
+   "SUB_SECOND": "sub_second"
+  },
+  "<pkg>.verdict.model.Method": {
+   "OBSERVED": "observed",
+   "PROVEN": "proven",
+   "SIMULATED": "simulated",
+   "UNVERIFIED": "unverified"
+  },
+  "<pkg>.verdict.model.Reversibility": {
+   "IRREVERSIBLE": "irreversible",
+   "REVERSIBLE": "reversible",
+   "UNKNOWN": "unknown"
+  },
+  "<pkg>.verdict.narrow.NarrowOutcome": {
+   "CONSTANT": "constant",
+   "KEEP_MODEL": "keep_model",
+   "PROPORTIONAL": "proportional",
+   "UNRESOLVED": "unresolved"
+  }
+ },
+ "exports": {
+  "<pkg>": [
+   "AlterTableAction",
+   "AlterTableActionKind",
+   "CreateTableAsDetails",
+   "CreateTableDetails",
+   "DefaultInfo",
+   "DmlDetails",
+   "DoBlockDetails",
+   "DropDetails",
+   "IndexDetails",
+   "InsertDetails",
+   "LockDetails",
+   "MigrationParseError",
+   "MigrationScript",
+   "ParsedStatement",
+   "QualifiedName",
+   "ReindexDetails",
+   "RenameDetails",
+   "SetDetails",
+   "SourceSpan",
+   "StatementDetails",
+   "StatementKind",
+   "TransactionDetails",
+   "TransactionGroup",
+   "TruncateDetails",
+   "Volatility",
+   "parse_migration",
+   "parse_migration_file"
+  ],
+  "<pkg>.catalog": [
+   "AffectedRelation",
+   "CATALOG_RESOURCE",
+   "Calibration",
+   "CatalogEntry",
+   "CatalogError",
+   "DurationModel",
+   "LockCatalog",
+   "LockMode",
+   "RelationLock",
+   "Resolution",
+   "ResolvedLock",
+   "TABLE_LOCK_MODES",
+   "TransactionBlock",
+   "VersionBreakpoint",
+   "VersionRange",
+   "WriteBlockScope",
+   "ir_attrs",
+   "kinds_in",
+   "load_catalog",
+   "load_catalog_file",
+   "parse_catalog",
+   "resolve",
+   "statement_lock_mode",
+   "when_matches"
+  ],
+  "<pkg>.live": [
+   "CaptureLimits",
+   "ColumnFacts",
+   "ConcurrencyFacts",
+   "ConnectionTarget",
+   "ConstraintFacts",
+   "Fact",
+   "FunctionFacts",
+   "IndexFacts",
+   "JsonValue",
+   "LiveIntrospectionError",
+   "LiveSnapshot",
+   "LockWaiter",
+   "LongTransaction",
+   "RelationFacts",
+   "ReplicaFacts",
+   "ReplicationFacts",
+   "RewriteVerdict",
+   "RoleFacts",
+   "SNAPSHOT_FORMAT",
+   "ServerFacts",
+   "TypeChangeAssessment",
+   "TypeChangeFacts",
+   "TypeChangeProbe",
+   "TypeFacts",
+   "WritableRoleError",
+   "assess_type_change",
+   "capture_snapshot",
+   "decide_default_volatility",
+   "redact_conninfo",
+   "resolved_function_volatilities"
+  ],
+  "<pkg>.verdict": [
+   "CannotEstimate",
+   "Classification",
+   "ConstantUnit",
+   "ContentionAssessment",
+   "DURATION_CONSTANTS",
+   "DurationBand",
+   "DurationConstant",
+   "DurationEstimate",
+   "HeldLock",
+   "Method",
+   "PRESSURE_LEVELS",
+   "RelationLockAssessment",
+   "Reversibility",
+   "ReversibilityAssessment",
+   "RowAssessment",
+   "SAFE_TIERS",
+   "ScriptAssessment",
+   "SnapshotProbes",
+   "StatementAssessment",
+   "TransactionWarning",
+   "Tristate",
+   "Verdict",
+   "assess_script",
+   "duration_band",
+   "pressure_level",
+   "snapshot_probes",
+   "weakest_method",
+   "worse_classification"
+  ]
+ },
+ "snapshot_canonical_json": {
+  "captured_at": "2026-08-21T12:00:00+00:00",
+  "concurrency": {
+   "current_connections": {
+    "available": true,
+    "reason": null,
+    "value": 10
+   },
+   "lock_waiters": {
+    "available": true,
+    "reason": null,
+    "value": []
+   },
+   "long_transactions": {
+    "available": true,
+    "reason": null,
+    "value": []
+   },
+   "max_connections": {
+    "available": true,
+    "reason": null,
+    "value": 100
+   }
+  },
+  "functions": [],
+  "limits": {
+   "connect_timeout_s": 10,
+   "lock_timeout_ms": 2000,
+   "long_transaction_threshold_ms": 60000,
+   "max_listed_transactions": 100,
+   "statement_timeout_ms": 5000
+  },
+  "relations": [
+   {
+    "columns": {
+     "available": true,
+     "reason": null,
+     "value": []
+    },
+    "constraints": {
+     "available": true,
+     "reason": null,
+     "value": []
+    },
+    "dropped_column_count": {
+     "available": true,
+     "reason": null,
+     "value": 0
+    },
+    "exists": {
+     "available": true,
+     "reason": null,
+     "value": true
+    },
+    "index_count": {
+     "available": true,
+     "reason": null,
+     "value": 0
+    },
+    "indexes": {
+     "available": true,
+     "reason": null,
+     "value": []
+    },
+    "invalid_indexes": {
+     "available": true,
+     "reason": null,
+     "value": []
+    },
+    "is_partitioned": {
+     "available": true,
+     "reason": null,
+     "value": false
+    },
+    "last_analyze": {
+     "available": true,
+     "reason": null,
+     "value": null
+    },
+    "last_autoanalyze": {
+     "available": true,
+     "reason": null,
+     "value": "2026-08-21T11:00:00+00:00"
+    },
+    "n_mod_since_analyze": {
+     "available": true,
+     "reason": null,
+     "value": 0
+    },
+    "name": {
+     "available": true,
+     "reason": null,
+     "value": "users"
+    },
+    "partition_count": {
+     "available": true,
+     "reason": null,
+     "value": 0
+    },
+    "partitions_total_size_bytes": {
+     "available": true,
+     "reason": null,
+     "value": 0
+    },
+    "relation_size_bytes": {
+     "available": true,
+     "reason": null,
+     "value": 8192
+    },
+    "relkind": {
+     "available": true,
+     "reason": null,
+     "value": "r"
+    },
+    "relpages": {
+     "available": true,
+     "reason": null,
+     "value": 10
+    },
+    "reltuples": {
+     "available": true,
+     "reason": null,
+     "value": 1000
+    },
+    "requested": "users",
+    "schema": {
+     "available": true,
+     "reason": null,
+     "value": "public"
+    },
+    "total_relation_size_bytes": {
+     "available": true,
+     "reason": null,
+     "value": 16384
+    }
+   }
+  ],
+  "replication": {
+   "has_replicas": {
+    "available": true,
+    "reason": null,
+    "value": false
+   },
+   "replicas": {
+    "available": true,
+    "reason": null,
+    "value": []
+   },
+   "synchronous": {
+    "available": true,
+    "reason": null,
+    "value": false
+   },
+   "synchronous_commit": {
+    "available": true,
+    "reason": null,
+    "value": "on"
+   },
+   "synchronous_standby_names": {
+    "available": true,
+    "reason": null,
+    "value": ""
+   }
+  },
+  "role": {
+   "can_read_all_stats": true,
+   "role": "ro",
+   "superuser": false,
+   "transaction_read_only": true,
+   "warnings": []
+  },
+  "server": {
+   "in_recovery": {
+    "available": true,
+    "reason": null,
+    "value": false
+   },
+   "lock_timeout_ms": {
+    "available": true,
+    "reason": null,
+    "value": 0
+   },
+   "pg_major": {
+    "available": true,
+    "reason": null,
+    "value": 17
+   },
+   "server_now": {
+    "available": true,
+    "reason": null,
+    "value": "2026-08-21T12:00:00+00:00"
+   },
+   "server_version": {
+    "available": true,
+    "reason": null,
+    "value": "17.10"
+   },
+   "server_version_num": {
+    "available": true,
+    "reason": null,
+    "value": 170010
+   },
+   "statement_timeout_ms": {
+    "available": true,
+    "reason": null,
+    "value": 0
+   },
+   "timezone": {
+    "available": true,
+    "reason": null,
+    "value": "UTC"
+   }
+  },
+  "snapshot_format": 3,
+  "target": {
+   "dbname": "app",
+   "host": "db",
+   "port": "5432",
+   "user": "ro"
+  },
+  "type_changes": [],
+  "types": []
+ }
+}

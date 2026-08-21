@@ -14,7 +14,7 @@ from typing import Any, cast
 import psycopg
 import pytest
 
-from pgverdict.live.introspect import (
+from blastoise.live.introspect import (
     WritableRoleError,
     _describe_error,
     _finish_relation,
@@ -35,7 +35,7 @@ from pgverdict.live.introspect import (
     _setting_ms,
     _setting_text,
 )
-from pgverdict.live.model import (
+from blastoise.live.model import (
     CaptureLimits,
     Fact,
     RelationFacts,

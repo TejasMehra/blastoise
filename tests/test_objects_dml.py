@@ -2,7 +2,7 @@
 
 Each test parses a realistic migration snippet (formatted the way Alembic,
 Flyway, Rails, or hand-written migrations look) and asserts the exact
-pgverdict classification, including the locking-relevant detail fields.
+blastoise classification, including the locking-relevant detail fields.
 """
 
 from __future__ import annotations
@@ -10,7 +10,7 @@ from __future__ import annotations
 import pytest
 from helpers import only_statement, parse
 
-from pgverdict import (
+from blastoise import (
     CreateTableAsDetails,
     DropDetails,
     LockDetails,

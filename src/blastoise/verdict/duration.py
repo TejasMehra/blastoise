@@ -3,7 +3,7 @@
 The model is deliberately simple and fully stated: for a row-proportional
 operation the point estimate is ``rows / throughput``, where ``rows`` is
 the snapshot's ``reltuples`` and ``throughput`` is one named constant from
-:mod:`pgverdict.verdict.constants`. The confidence interval starts at the
+:mod:`blastoise.verdict.constants`. The confidence interval starts at the
 constant's calibration width and widens with the staleness of the
 statistics — analyze age and rows modified since — so a stale estimate is
 still SIMULATED, just with less confidence; the staleness never disappears
@@ -27,12 +27,12 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from pgverdict.catalog.model import Calibration
-from pgverdict.ir import AlterTableActionKind, StatementKind
-from pgverdict.live.model import RelationFacts, ServerFacts
-from pgverdict.verdict import constants as k
-from pgverdict.verdict.constants import DURATION_CONSTANTS, ConstantUnit, DurationConstant
-from pgverdict.verdict.model import CannotEstimate, DurationEstimate, Method
+from blastoise.catalog.model import Calibration
+from blastoise.ir import AlterTableActionKind, StatementKind
+from blastoise.live.model import RelationFacts, ServerFacts
+from blastoise.verdict import constants as k
+from blastoise.verdict.constants import DURATION_CONSTANTS, ConstantUnit, DurationConstant
+from blastoise.verdict.model import CannotEstimate, DurationEstimate, Method
 
 _SK = StatementKind
 _AK = AlterTableActionKind

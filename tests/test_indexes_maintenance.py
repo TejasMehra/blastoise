@@ -12,7 +12,7 @@ from __future__ import annotations
 import pytest
 from helpers import only_statement, parse
 
-from pgverdict import (
+from blastoise import (
     CreateTableAsDetails,
     DropDetails,
     IndexDetails,

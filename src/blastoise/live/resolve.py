@@ -12,9 +12,9 @@ stays UNKNOWN.
 
 from __future__ import annotations
 
-from pgverdict.ir import DefaultInfo, Volatility
-from pgverdict.live.model import LiveSnapshot
-from pgverdict.volatility import resolve_expression_volatility
+from blastoise.ir import DefaultInfo, Volatility
+from blastoise.live.model import LiveSnapshot
+from blastoise.volatility import resolve_expression_volatility
 
 _PROVOLATILE: dict[str, Volatility] = {
     "i": Volatility.IMMUTABLE,

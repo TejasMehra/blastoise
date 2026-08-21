@@ -15,8 +15,8 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 from typing import Any
 
-from pgverdict.catalog.model import CatalogEntry, LockCatalog, LockMode, Resolution
-from pgverdict.ir import (
+from blastoise.catalog.model import CatalogEntry, LockCatalog, LockMode, Resolution
+from blastoise.ir import (
     AlterTableAction,
     CreateTableDetails,
     DoBlockDetails,

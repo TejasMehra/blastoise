@@ -10,7 +10,7 @@ from __future__ import annotations
 from datetime import UTC, datetime, timedelta
 from typing import Any
 
-from pgverdict.live.model import (
+from blastoise.live.model import (
     SNAPSHOT_FORMAT,
     CaptureLimits,
     ColumnFacts,

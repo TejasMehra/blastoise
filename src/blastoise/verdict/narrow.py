@@ -24,9 +24,9 @@ import re
 from dataclasses import dataclass
 from enum import StrEnum, auto
 
-from pgverdict.catalog.model import LockMode
-from pgverdict.ir import AlterTableAction, AlterTableActionKind, ParsedStatement, Volatility
-from pgverdict.live.model import (
+from blastoise.catalog.model import LockMode
+from blastoise.ir import AlterTableAction, AlterTableActionKind, ParsedStatement, Volatility
+from blastoise.live.model import (
     ConstraintFacts,
     IndexFacts,
     LiveSnapshot,
@@ -34,10 +34,10 @@ from pgverdict.live.model import (
     TypeChangeFacts,
     TypeFacts,
 )
-from pgverdict.live.resolve import decide_default_volatility
-from pgverdict.live.typechange import RewriteVerdict, assess_type_change
-from pgverdict.verdict.model import Method
-from pgverdict.verdict.probes import probe_name
+from blastoise.live.resolve import decide_default_volatility
+from blastoise.live.typechange import RewriteVerdict, assess_type_change
+from blastoise.verdict.model import Method
+from blastoise.verdict.probes import probe_name
 
 _AK = AlterTableActionKind
 

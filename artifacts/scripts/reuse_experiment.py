@@ -20,7 +20,7 @@ PG_BIN = Path(__file__).parent / "pg" / "bin"
 def start_server():
     import socket
 
-    work = Path(tempfile.mkdtemp(prefix="pgverdict-reuse-"))
+    work = Path(tempfile.mkdtemp(prefix="blastoise-reuse-"))
     data = work / "data"
     subprocess.run(
         [str(PG_BIN / "initdb.exe"), "-D", str(data), "-U", "postgres", "-A", "trust",

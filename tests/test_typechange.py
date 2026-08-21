@@ -9,8 +9,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from pgverdict.live.model import Fact, TypeChangeFacts
-from pgverdict.live.typechange import (
+from blastoise.live.model import Fact, TypeChangeFacts
+from blastoise.live.typechange import (
     RewriteVerdict,
     _parse_type_text,
     assess_type_change,

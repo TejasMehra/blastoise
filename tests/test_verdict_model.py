@@ -6,8 +6,8 @@ from collections.abc import Callable
 
 import pytest
 
-from pgverdict.ir import AlterTableActionKind, StatementKind
-from pgverdict.verdict import (
+from blastoise.ir import AlterTableActionKind, StatementKind
+from blastoise.verdict import (
     CannotEstimate,
     Classification,
     DurationBand,
@@ -21,7 +21,7 @@ from pgverdict.verdict import (
     weakest_method,
     worse_classification,
 )
-from pgverdict.verdict.reversibility import (
+from blastoise.verdict.reversibility import (
     action_reversibility,
     combine,
     statement_reversibility,

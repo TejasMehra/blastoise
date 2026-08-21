@@ -36,7 +36,7 @@ import re
 from dataclasses import dataclass
 from enum import StrEnum, auto
 
-from pgverdict.live.model import TypeChangeFacts
+from blastoise.live.model import TypeChangeFacts
 
 # Citations used by more than one rule.
 _DOC_ALTERTABLE = (
