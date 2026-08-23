@@ -93,8 +93,7 @@ are `dump_machine_surface.py` output from before and after; diffing them
 reports **0 machine-readable differences**, the only change being two
 additive exports (`PRESSURE_LEVELS`, `pressure_level`).
 
-The product's theme is a working codename and is confined to prose, CLI help
-and docs. These two files are what makes that claim checkable rather than
+The product's theme is confined to prose, CLI help and docs. These two files are what makes that claim checkable rather than
 asserted, and re-running the pair is how the next rename should be checked.
 
 ```console

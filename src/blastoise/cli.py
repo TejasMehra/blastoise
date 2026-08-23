@@ -106,8 +106,6 @@ document), Training Ground (the scale harness), Evolution (the
 calibration loop), Shell Seal (signing and attestation).
 
 'bt' is an alias for this command.
-
-Blastoise is a working codename; see the NOTICE in README.md.
 """
 
 
