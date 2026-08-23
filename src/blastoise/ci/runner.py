@@ -672,10 +672,22 @@ def _publish(
             log.info("not a pull request event: no comment to post")
         else:
             try:
+                # A pull request that touches no migration gets no new
+                # comment. A check that comments on every pull request
+                # regardless is a check people mute, and the all-zeros table
+                # says nothing a reader needed. An *existing* comment is
+                # still updated: if an earlier push did have migrations, the
+                # verdict it left is now wrong.
                 action, url = client.upsert_comment(
-                    context.pull_number, COMMENT_MARKER, body
+                    context.pull_number,
+                    COMMENT_MARKER,
+                    body,
+                    create=bool(run.outcomes),
                 )
-                log.info(f"comment {action}{f': {url}' if url else ''}")
+                if action == "skipped":
+                    log.info("no migrations in this pull request: no comment posted")
+                else:
+                    log.info(f"comment {action}{f': {url}' if url else ''}")
                 if url:
                     _write_outputs(environ, {"comment-url": url}, log)
             except GitHubError as exc:

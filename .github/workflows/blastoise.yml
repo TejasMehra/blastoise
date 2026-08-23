@@ -39,6 +39,17 @@ jobs:
       - name: Build
         run: docker build -t blastoise:ci .
 
+      # Asserted separately from the run below, which passes --user and so
+      # would pass whatever the image's own default were.
+      - name: The image does not run as root
+        run: |
+          set -euo pipefail
+          uid="$(docker run --rm --entrypoint id blastoise:ci -u)"
+          name="$(docker run --rm --entrypoint id blastoise:ci -un)"
+          echo "default user: ${name} (uid ${uid})"
+          [ "${uid}" -ne 0 ] || { echo "the image runs as root"; exit 1; }
+          [ "${name}" = "blastoise" ] || { echo "unexpected default user"; exit 1; }
+
       - name: A migration that must be blocked
         run: |
           set -euo pipefail

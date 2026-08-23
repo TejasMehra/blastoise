@@ -232,15 +232,25 @@ class GitHubClient:
                 return None
         return None
 
-    def upsert_comment(self, number: int, marker: str, body: str) -> tuple[str, str | None]:
+    def upsert_comment(
+        self, number: int, marker: str, body: str, *, create: bool = True
+    ) -> tuple[str, str | None]:
         """Edit our comment if it exists, otherwise post one.
 
-        Returns ``(action, url)`` where action is ``"updated"`` or
-        ``"created"``. Re-pushing a branch must not leave a column of stale
+        Returns ``(action, url)`` where action is ``"updated"``, ``"created"``
+        or ``"skipped"``. Re-pushing a branch must not leave a column of stale
         verdicts behind: only the newest one is true, and the older ones
         differ from it in exactly the cases that matter most.
+
+        ``create=False`` updates an existing comment but will not open a new
+        one. That is the "this pull request has no migrations" case: there is
+        nothing to say, but if a previous push *did* have migrations, the
+        comment it left is now wrong and must be corrected rather than left
+        standing.
         """
         existing = self.find_comment(number, marker)
+        if existing is None and not create:
+            return "skipped", None
         if existing is not None:
             result = self._call(
                 "PATCH",

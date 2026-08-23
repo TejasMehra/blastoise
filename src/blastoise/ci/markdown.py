@@ -237,7 +237,10 @@ def _header_lines(run: CiRun) -> list[str]:
             "The same run against a live database resolves most of them."
         )
     changed = f"{run.changed_files} changed {_plural(run.changed_files, 'file')}"
-    lines.append(f"**{detected} {files}** detected in {changed}. {mode}")
+    # With nothing detected there is no assessment to describe the mode of,
+    # and "assessed offline" over an all-zero table reads as a finding.
+    detail = f" {mode}" if run.outcomes else ""
+    lines.append(f"**{detected} {files}** detected in {changed}.{detail}")
     lines.append("")
 
     if run.degraded_reason:
@@ -275,7 +278,9 @@ def _header_lines(run: CiRun) -> list[str]:
 
 def _footer_lines(run: CiRun, notes: list[str]) -> list[str]:
     lines = ["---", ""]
-    if run.artifact_name:
+    # Only when reports were actually written: pointing a reader at an
+    # artifact that does not exist is worse than pointing at nothing.
+    if run.artifact_name and run.report_root:
         lines.append(
             f"Full Shell Reports and their evidence bundles (every claim "
             f"traceable to a sha256) are in the **{run.artifact_name}** "

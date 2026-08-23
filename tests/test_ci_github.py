@@ -218,3 +218,29 @@ class TestMalformedResponses:
 
     def test_an_error_with_no_status_is_not_read_as_a_permission_problem(self) -> None:
         assert not GitHubError("network died").is_permission
+
+
+class TestNoMigrationsComment:
+    """A check that comments on every pull request is a check people mute."""
+
+    def test_create_false_does_not_open_a_new_comment(self) -> None:
+        fake = FakeGitHub()
+        action, url = _client(fake).upsert_comment(
+            7, COMMENT_MARKER, "nothing to say", create=False
+        )
+        assert action == "skipped"
+        assert url is None
+        assert fake.comments == []
+        assert not any(call.method == "POST" for call in fake.calls)
+
+    def test_create_false_still_corrects_an_existing_comment(self) -> None:
+        # The push that removed the migration must not leave the previous
+        # push's verdict standing.
+        fake = FakeGitHub()
+        fake.add_comment(f"{COMMENT_MARKER}\nBLOCK")
+        action, _ = _client(fake).upsert_comment(
+            7, COMMENT_MARKER, f"{COMMENT_MARKER}\nnothing to assess", create=False
+        )
+        assert action == "updated"
+        assert len(fake.comments) == 1
+        assert "BLOCK" not in fake.comments[0]["body"]

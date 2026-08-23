@@ -622,3 +622,42 @@ class TestOptionPlumbing:
         )
         assert fake.comments == []
         assert fake.check_runs == []
+
+
+class TestQuietWhenThereIsNothingToSay:
+    """The all-zeros comment on an unrelated pull request is noise."""
+
+    def test_no_migrations_posts_no_comment(self, repo: Path, tmp_path: Path) -> None:
+        _write(repo, "README.md", "hello\n")
+        fake = FakeGitHub(files=[{"filename": "README.md", "status": "modified"}])
+        environ = actions_environment(tmp_path, pull_request_event())
+        code, _, err, payload = _run(repo, (), environ=environ, transport=fake)
+        assert code == 0
+        assert payload["migrations_detected"] == 0
+        assert fake.comments == [], "an unrelated pull request gets no comment"
+        assert "no comment posted" in err
+
+    def test_a_check_status_is_still_set(self, repo: Path, tmp_path: Path) -> None:
+        # Silence in the conversation, not silence in the checks list: the
+        # check ran and passed, and that is worth recording.
+        _write(repo, "README.md", "hello\n")
+        fake = FakeGitHub(files=[{"filename": "README.md", "status": "modified"}])
+        environ = actions_environment(tmp_path, pull_request_event())
+        _run(repo, (), environ=environ, transport=fake)
+        assert fake.check_runs[-1]["conclusion"] == "success"
+
+    def test_a_push_that_removes_the_migration_corrects_the_comment(
+        self, repo: Path, tmp_path: Path
+    ) -> None:
+        path = _write(repo, "migrations/0001.sql", BLOCKING)
+        fake = FakeGitHub(files=[{"filename": path, "status": "added"}])
+        environ = actions_environment(tmp_path, pull_request_event())
+        _run(repo, (), environ=environ, transport=fake)
+        assert "BLOCK" in fake.comments[0]["body"]
+
+        # Second push: the migration is gone from the pull request.
+        fake.files = [{"filename": "README.md", "status": "modified"}]
+        _run(repo, (), environ=environ, transport=fake)
+        assert len(fake.comments) == 1
+        assert "BLOCK" not in fake.comments[0]["body"]
+        assert "nothing to assess" in fake.comments[0]["body"]

@@ -353,6 +353,33 @@ class TestOnlineHeader:
 
     def test_the_artifact_is_named_so_the_evidence_can_be_found(self) -> None:
         body = render_comment(
-            _run(_outcome("migrations/0001.sql", BLOCKING), artifact_name="blastoise-reports")
+            _run(
+                _outcome("migrations/0001.sql", BLOCKING),
+                artifact_name="blastoise-reports",
+                report_root="/tmp/reports",
+            )
         )
         assert "**blastoise-reports**" in body
+
+
+class TestNothingDetected:
+    def test_the_artifact_is_not_named_when_nothing_was_written(self) -> None:
+        # Pointing a reader at an artifact that does not exist is worse than
+        # pointing at nothing.
+        body = render_comment(_run(artifact_name="blastoise-reports"))
+        assert "blastoise-reports" not in body
+
+    def test_the_artifact_is_named_when_reports_exist(self) -> None:
+        body = render_comment(
+            _run(
+                _outcome("migrations/0001.sql", BLOCKING),
+                artifact_name="blastoise-reports",
+                report_root="/tmp/reports",
+            )
+        )
+        assert "**blastoise-reports**" in body
+
+    def test_no_assessment_means_no_claim_about_how_it_was_assessed(self) -> None:
+        body = render_comment(_run(artifact_name="blastoise-reports"))
+        assert "Assessed" not in body
+        assert "No migration files were changed" in body
