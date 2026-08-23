@@ -24,7 +24,7 @@ from typing import Any
 from blastoise.ci.detect import DSL_ADAPTER_HINT, FRAMEWORK_NAMES, Framework
 from blastoise.ci.model import TIER_ORDER, CiRun, FileOutcome, OutcomeStatus
 from blastoise.report import FileVerdict
-from blastoise.verdict.model import pressure_level
+from blastoise.verdict.model import Classification, pressure_level
 
 __all__ = ["COMMENT_MARKER", "GITHUB_COMMENT_LIMIT", "render_comment", "render_summary_line"]
 
@@ -35,6 +35,10 @@ and does not depend on the comment's author -- which matters, because the
 token that posts is the workflow's, not a stable bot identity."""
 
 GITHUB_COMMENT_LIMIT = 65536
+
+UNVERIFIED_HEADING = "**What this check couldn't establish**"
+"""The honest residue, headed as a limit rather than as a score. It is never
+collapsed and never counted: see :func:`_unverified_lines`."""
 
 _VERDICT_HEADLINE: dict[FileVerdict, str] = {
     FileVerdict.PROCEED: "PROCEED",
@@ -92,6 +96,17 @@ def _tier_legend() -> str:
     return " · ".join(f"`{tier}` {pressure_level(tier)}" for tier in TIER_ORDER)
 
 
+def _has_finding(outcome: FileOutcome) -> bool:
+    """Whether this file has anything in it a reviewer has to look at.
+
+    SAFE_IRREVERSIBLE counts: "there is no undo for this" is a finding even
+    though the tier proceeds.
+    """
+    return any(
+        outcome.count(tier) for tier in TIER_ORDER if tier is not Classification.SAFE
+    )
+
+
 def _statement_rows(payload: dict[str, Any]) -> list[str]:
     lines = [
         "| line | statement | tier | duration | evidence | why |",
@@ -113,7 +128,10 @@ def _statement_rows(payload: dict[str, Any]) -> list[str]:
 
 def _unverified_lines(payload: dict[str, Any], limit: int | None) -> list[str]:
     entries = payload.get("unverified", [])
-    lines = [f"**Not verified ({len(entries)}).** What this check did not establish:", ""]
+    # No count. These entries are structural -- the execution-time lock queue
+    # is unknowable in advance, always -- and a number beside them reads as a
+    # tally of failures to anyone who does not already know that.
+    lines = [UNVERIFIED_HEADING, ""]
     shown = entries if limit is None else entries[:limit]
     for entry in shown:
         where = f"L{entry['line']} " if entry.get("line") is not None else ""
@@ -163,10 +181,20 @@ def _file_section(
         if include_statements:
             statements = payload.get("statements", [])
             if statements:
-                lines.append(
-                    f"<details><summary>{len(statements)} "
-                    f"{_plural(len(statements), 'statement')}</summary>"
+                # Open unless every statement is SAFE. The table names the
+                # statement, the lock and the reason -- it is the finding,
+                # not an elaboration of one, and a finding a reader has to
+                # click for is a finding most readers never see. A file with
+                # nothing but SAFE in it has no finding to hide, so there it
+                # stays collapsed and out of the way.
+                interesting = _has_finding(outcome)
+                open_attr = " open" if interesting else ""
+                summary = (
+                    f"{len(statements)} {_plural(len(statements), 'statement')}"
+                    if interesting
+                    else f"{len(statements)} {_plural(len(statements), 'statement')}, all safe"
                 )
+                lines.append(f"<details{open_attr}><summary>{summary}</summary>")
                 lines.append("")
                 lines.extend(_statement_rows(payload))
                 lines.append("")
@@ -249,19 +277,21 @@ def _header_lines(run: CiRun) -> list[str]:
         )
         lines.append("")
 
-    header, rule = _tier_header()
-    lines.extend(
-        [
-            "Statements by pressure level, across every assessed file:",
-            "",
-            header,
-            rule,
-            _tier_row(run.totals()),
-            "",
-            _tier_legend(),
-            "",
-        ]
-    )
+    # With one assessed file the run total is byte-identical to that file's
+    # own table a few lines further down, so it is dropped: a number repeated
+    # verbatim reads as two findings on a first scan.
+    if len(run.assessed) != 1:
+        header, rule = _tier_header()
+        lines.extend(
+            [
+                "Statements by pressure level, across every assessed file:",
+                "",
+                header,
+                rule,
+                _tier_row(run.totals()),
+                "",
+            ]
+        )
 
     unassessed = len(run.unsupported) + len(run.errors)
     if unassessed:
@@ -289,6 +319,12 @@ def _footer_lines(run: CiRun, notes: list[str]) -> list[str]:
         lines.append("")
     for note in [*run.notes, *notes]:
         lines.append(f"_{note}_")
+        lines.append("")
+    # Reference, not argument: it decides nothing, so it sits under the
+    # verdict rather than between the reader and it. Only where there is a
+    # tier on the page to look up.
+    if run.assessed:
+        lines.append(f"<sub>{_tier_legend()}</sub>")
         lines.append("")
     lines.append(
         f"<sub>blastoise {run.tool_version} · this comment is updated in "

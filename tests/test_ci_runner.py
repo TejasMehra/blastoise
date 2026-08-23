@@ -216,7 +216,10 @@ class TestPublishing:
         head = body[: body.index("###")]
         assert body.startswith(COMMENT_MARKER)
         assert "BLOCK" in head
-        assert "| unsafe | unknown | needs_timing | safe_irreversible | safe |" in head
+        # One file, so the counts live in that file's own section rather
+        # than being repeated verbatim as a run total above it.
+        assert "| unsafe | unknown | needs_timing | safe_irreversible | safe |" in body
+        assert body.count("| unsafe | unknown | needs_timing |") == 1
 
     def test_a_re_push_updates_rather_than_duplicates(
         self, repo: Path, tmp_path: Path
@@ -646,7 +649,7 @@ class TestQuietWhenThereIsNothingToSay:
         _run(repo, (), environ=environ, transport=fake)
         assert fake.check_runs[-1]["conclusion"] == "success"
 
-    def test_a_push_that_removes_the_migration_corrects_the_comment(
+    def test_a_push_that_removes_the_migration_deletes_the_comment(
         self, repo: Path, tmp_path: Path
     ) -> None:
         path = _write(repo, "migrations/0001.sql", BLOCKING)
@@ -655,9 +658,34 @@ class TestQuietWhenThereIsNothingToSay:
         _run(repo, (), environ=environ, transport=fake)
         assert "BLOCK" in fake.comments[0]["body"]
 
-        # Second push: the migration is gone from the pull request.
+        # Second push: the migration is gone from the pull request. There is
+        # nothing true to replace the verdict with, so the comment goes.
         fake.files = [{"filename": "README.md", "status": "modified"}]
-        _run(repo, (), environ=environ, transport=fake)
-        assert len(fake.comments) == 1
-        assert "BLOCK" not in fake.comments[0]["body"]
-        assert "nothing to assess" in fake.comments[0]["body"]
+        _, _, err, _ = _run(repo, (), environ=environ, transport=fake)
+        assert fake.comments == []
+        assert "removed the comment an earlier push left" in err
+
+
+class TestCommentDeletion:
+    def test_an_unrelated_pull_request_never_had_a_comment_to_delete(
+        self, repo: Path, tmp_path: Path
+    ) -> None:
+        _write(repo, "README.md", "hello\n")
+        fake = FakeGitHub(files=[{"filename": "README.md", "status": "modified"}])
+        environ = actions_environment(tmp_path, pull_request_event())
+        _, _, err, _ = _run(repo, (), environ=environ, transport=fake)
+        assert fake.comments == []
+        assert "no comment posted" in err
+        assert not any(call.method == "DELETE" for call in fake.calls)
+
+    def test_a_failed_delete_is_reported_not_fatal(
+        self, repo: Path, tmp_path: Path
+    ) -> None:
+        _write(repo, "README.md", "hello\n")
+        fake = FakeGitHub(files=[{"filename": "README.md", "status": "modified"}])
+        fake.add_comment(f"{COMMENT_MARKER}\nBLOCK")
+        fake.status_for = {"/issues/comments/": 403}
+        environ = actions_environment(tmp_path, pull_request_event())
+        code, _, err, _ = _run(repo, (), environ=environ, transport=fake)
+        assert code == 0
+        assert "read-only token" in err

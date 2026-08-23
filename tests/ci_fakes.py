@@ -71,6 +71,13 @@ class FakeGitHub:
             assert payload is not None
             identifier = self.add_comment(str(payload["body"]), author="github-actions[bot]")
             return self._ok(self.comments[-1] | {"id": identifier})
+        if method == "DELETE" and "/issues/comments/" in url:
+            identifier = int(url.rstrip("/").rsplit("/", 1)[-1])
+            before = len(self.comments)
+            self.comments = [c for c in self.comments if c["id"] != identifier]
+            if len(self.comments) == before:
+                return Response(404, b'{"message": "Not Found"}')
+            return Response(204, b"")
         if method == "PATCH" and "/issues/comments/" in url:
             assert payload is not None
             identifier = int(url.rstrip("/").rsplit("/", 1)[-1])

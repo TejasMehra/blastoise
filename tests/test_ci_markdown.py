@@ -12,6 +12,7 @@ from blastoise.ci.detect import Framework, SourceKind
 from blastoise.ci.markdown import (
     COMMENT_MARKER,
     GITHUB_COMMENT_LIMIT,
+    UNVERIFIED_HEADING,
     render_comment,
     render_summary_line,
 )
@@ -59,6 +60,8 @@ def _run(*outcomes: FileOutcome, **kwargs: Any) -> CiRun:
 
 BLOCKING = "BEGIN;\nCREATE INDEX CONCURRENTLY i ON events (plan);\nCOMMIT;\n"
 DROPPING = "DROP TABLE audit_log;\n"
+SAFE = "CREATE TABLE t (id int);\n"
+NEEDS_TIMING = "ALTER TABLE events ADD COLUMN plan_flag text;\n"
 
 
 class TestWhatLeads:
@@ -72,10 +75,22 @@ class TestWhatLeads:
         assert heading.startswith("## ")
         assert "BLOCK" in heading
 
-    def test_the_tier_counts_come_before_any_file_section(self) -> None:
+    def test_the_run_total_precedes_the_file_sections(self) -> None:
+        # Two files: the run total is genuinely informative and leads.
+        body = render_comment(
+            _run(
+                _outcome("migrations/0001.sql", BLOCKING),
+                _outcome("migrations/0002.sql", SAFE),
+            )
+        )
+        assert body.index("| unsafe | unknown | needs_timing |") < body.index("### ")
+
+    def test_one_file_does_not_repeat_its_own_counts_as_a_run_total(self) -> None:
+        # The run total would be byte-identical to the file's own table, and
+        # a number repeated verbatim reads as two findings on a first scan.
         body = render_comment(_run(_outcome("migrations/0001.sql", BLOCKING)))
-        counts_at = body.index("| unsafe | unknown | needs_timing |")
-        assert counts_at < body.index("### ")
+        assert body.count("| unsafe | unknown | needs_timing |") == 1
+        assert body.index("### ") < body.index("| unsafe | unknown | needs_timing |")
 
     def test_the_tiers_are_worst_first(self) -> None:
         body = render_comment(_run(_outcome("migrations/0001.sql", BLOCKING)))
@@ -101,13 +116,16 @@ class TestUnverifiedIsAlwaysVisible:
 
     def test_it_is_present(self) -> None:
         body = render_comment(_run(_outcome("migrations/0001.sql", BLOCKING)))
-        assert "**Not verified (" in body
+        assert UNVERIFIED_HEADING in body
 
     def test_it_is_not_inside_a_details_block(self) -> None:
         body = render_comment(_run(_outcome("migrations/0001.sql", BLOCKING)))
-        for start in _indices(body, "**Not verified ("):
+        for start in _indices(body, UNVERIFIED_HEADING):
             before = body[:start]
-            assert before.count("<details>") == before.count("</details>"), (
+            # "<details" not "<details>": the statements block is now
+            # "<details open>", and matching the closed form only would let
+            # this assertion pass while the section was in fact nested.
+            assert before.count("<details") == before.count("</details>"), (
                 "the unverified section starts inside an open <details> block"
             )
 
@@ -116,15 +134,14 @@ class TestUnverifiedIsAlwaysVisible:
         assert outcome.payload is not None
         entries = outcome.payload["unverified"]
         body = render_comment(_run(outcome))
-        section = body[body.index("**Not verified (") :]
+        section = body[body.index(UNVERIFIED_HEADING) :]
         for entry in entries:
             assert f"`{entry['source']}`" in section
 
-    def test_statement_detail_is_collapsible_but_unverified_is_not(self) -> None:
+    def test_it_follows_the_statement_detail_rather_than_nesting_in_it(self) -> None:
         body = render_comment(_run(_outcome("migrations/0001.sql", BLOCKING)))
-        assert "<details><summary>" in body
-        details_at = body.index("<details><summary>")
-        assert body.index("**Not verified (") > body.index("</details>", details_at)
+        details_at = body.index("<details")
+        assert body.index(UNVERIFIED_HEADING) > body.index("</details>", details_at)
 
 
 class TestPerFileSections:
@@ -189,7 +206,7 @@ class TestEscaping:
         body = render_comment(
             _run(_outcome("migrations/0001.sql", "ALTER TABLE t ALTER COLUMN c TYPE text;\n"))
         )
-        section = body[body.index("**Not verified (") :]
+        section = body[body.index(UNVERIFIED_HEADING) :]
         assert "&lt;-&gt;" in section or "<->" not in section
 
     def test_a_pipe_in_prose_cannot_break_a_table_row(self) -> None:
@@ -245,7 +262,7 @@ class TestSizeLimit:
         )
         body = render_comment(_run(*outcomes))
         assert "BLOCK" in body.splitlines()[1]
-        assert "**Not verified (" in body
+        assert UNVERIFIED_HEADING in body
 
     def test_a_run_too_large_for_any_degradation_is_clipped_visibly(self) -> None:
         outcomes = tuple(
@@ -383,3 +400,74 @@ class TestNothingDetected:
         body = render_comment(_run(artifact_name="blastoise-reports"))
         assert "Assessed" not in body
         assert "No migration files were changed" in body
+
+
+class TestStatementsAreOpenWhenThereIsAFinding:
+    """The statement table IS the finding; a click is where readers stop."""
+
+    def test_a_needs_timing_file_opens_its_statements(self) -> None:
+        body = render_comment(_run(_outcome("migrations/0001.sql", NEEDS_TIMING)))
+        assert "<details open>" in body
+        assert "<details><summary>" not in body
+
+    def test_an_unsafe_file_opens_its_statements(self) -> None:
+        body = render_comment(_run(_outcome("migrations/0001.sql", BLOCKING)))
+        assert "<details open>" in body
+
+    def test_an_irreversible_file_opens_its_statements(self) -> None:
+        # "there is no undo for this" is a finding even though it proceeds.
+        body = render_comment(_run(_outcome("migrations/0001.sql", DROPPING)))
+        assert "<details open>" in body
+
+    def test_an_entirely_safe_file_stays_collapsed(self) -> None:
+        body = render_comment(_run(_outcome("migrations/0001.sql", SAFE)))
+        assert "<details open>" not in body
+        assert "<details>" in body
+        assert "all safe" in body
+
+    def test_a_mixed_run_opens_only_the_file_with_the_finding(self) -> None:
+        body = render_comment(
+            _run(
+                _outcome("migrations/0001.sql", SAFE),
+                _outcome("migrations/0002.sql", NEEDS_TIMING),
+            )
+        )
+        assert body.count("<details open>") == 1
+        assert body.count("<details>") == 1
+        safe_section = body[body.index("migrations/0001.sql") : body.index("migrations/0002.sql")]
+        assert "<details open>" not in safe_section
+
+
+class TestUnverifiedHeading:
+    def test_it_is_not_counted(self) -> None:
+        # A number beside structural limits reads as a tally of failures.
+        body = render_comment(_run(_outcome("migrations/0001.sql", NEEDS_TIMING)))
+        assert UNVERIFIED_HEADING in body
+        assert "Not verified" not in body
+        assert "**What this check couldn't establish**" in body
+
+    def test_the_entries_are_still_all_there(self) -> None:
+        outcome = _outcome("migrations/0001.sql", NEEDS_TIMING)
+        assert outcome.payload is not None
+        body = render_comment(_run(outcome))
+        section = body[body.index(UNVERIFIED_HEADING) :]
+        for entry in outcome.payload["unverified"]:
+            assert f"`{entry['source']}`" in section
+
+
+class TestLegendPlacement:
+    def test_it_appears_once(self) -> None:
+        body = render_comment(
+            _run(
+                _outcome("migrations/0001.sql", NEEDS_TIMING),
+                _outcome("migrations/0002.sql", SAFE),
+            )
+        )
+        assert body.count("Hydro Pump") == 1
+
+    def test_it_sits_below_the_verdict_not_between_it_and_the_reader(self) -> None:
+        body = render_comment(_run(_outcome("migrations/0001.sql", NEEDS_TIMING)))
+        assert body.index("Hydro Pump") > body.index(UNVERIFIED_HEADING)
+
+    def test_nothing_assessed_means_no_legend_to_look_anything_up_in(self) -> None:
+        assert "Hydro Pump" not in render_comment(_run())

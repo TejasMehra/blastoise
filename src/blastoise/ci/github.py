@@ -232,6 +232,21 @@ class GitHubClient:
                 return None
         return None
 
+    def delete_comment(self, number: int, marker: str) -> bool:
+        """Remove our comment if there is one. Returns whether there was.
+
+        For the case where a pull request no longer touches any migration:
+        the previous verdict is not merely stale, there is nothing true to
+        replace it with. An empty table left behind is noise on a pull
+        request that has nothing to do with migrations, and a deleted
+        comment is the honest form of "never mind".
+        """
+        existing = self.find_comment(number, marker)
+        if existing is None:
+            return False
+        self._call("DELETE", f"/repos/{self.repository}/issues/comments/{existing}")
+        return True
+
     def upsert_comment(
         self, number: int, marker: str, body: str, *, create: bool = True
     ) -> tuple[str, str | None]:

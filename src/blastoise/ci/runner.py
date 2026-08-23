@@ -672,24 +672,29 @@ def _publish(
             log.info("not a pull request event: no comment to post")
         else:
             try:
-                # A pull request that touches no migration gets no new
-                # comment. A check that comments on every pull request
-                # regardless is a check people mute, and the all-zeros table
-                # says nothing a reader needed. An *existing* comment is
-                # still updated: if an earlier push did have migrations, the
-                # verdict it left is now wrong.
-                action, url = client.upsert_comment(
-                    context.pull_number,
-                    COMMENT_MARKER,
-                    body,
-                    create=bool(run.outcomes),
-                )
-                if action == "skipped":
-                    log.info("no migrations in this pull request: no comment posted")
+                # A pull request that touches no migration gets no comment
+                # at all -- and any comment a previous push left is deleted
+                # rather than rewritten to an empty table. A check that
+                # speaks on every pull request regardless is a check people
+                # mute, and "never mind" is better said by leaving than by
+                # posting a table of zeros.
+                if not run.outcomes:
+                    removed = client.delete_comment(context.pull_number, COMMENT_MARKER)
+                    log.info(
+                        "no migrations in this pull request: "
+                        + (
+                            "removed the comment an earlier push left"
+                            if removed
+                            else "no comment posted"
+                        )
+                    )
                 else:
+                    action, url = client.upsert_comment(
+                        context.pull_number, COMMENT_MARKER, body
+                    )
                     log.info(f"comment {action}{f': {url}' if url else ''}")
-                if url:
-                    _write_outputs(environ, {"comment-url": url}, log)
+                    if url:
+                        _write_outputs(environ, {"comment-url": url}, log)
             except GitHubError as exc:
                 if exc.is_permission:
                     log.warn(
