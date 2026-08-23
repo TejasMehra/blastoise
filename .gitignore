@@ -22,3 +22,9 @@ scratch/
 
 # Fresh harness runs; the committed evidence copy lives in artifacts/validation/
 validation/results/
+
+# Never commit key material or local environment files
+*.pem
+*.key
+.env
+.env.*
