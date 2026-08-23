@@ -137,9 +137,11 @@ class Mon(threading.Thread):
             self._c.close()
 
 
-def machine_info(data_dir: Path, disk_label: str) -> dict[str, Any]:
+def machine_info(data_dir: Path, disk_label: str, profile: str) -> dict[str, Any]:
+    # The profile label stands in for the hostname: results are committed,
+    # and a machine name identifies a person's laptop for no analytical gain.
     info: dict[str, Any] = {
-        "hostname": socket.gethostname(),
+        "hostname": profile,
         "platform": platform.platform(),
         "cpu_count": os.cpu_count(),
         "disk_label": disk_label,
@@ -246,7 +248,7 @@ def main() -> None:
     probes: list[dict[str, Any]] = []
     results: dict[str, Any] = {
         "profile": args.profile,
-        "machine": machine_info(data_dir, args.disk),
+        "machine": machine_info(data_dir, args.disk, args.profile),
         "sizes": sizes,
         "probe": {"compute_rows": cb.COMPUTE_PROBE_ROWS, "scan_rows": cb.SCAN_PROBE_ROWS,
                   "repeats": cb.PROBE_REPEATS},
