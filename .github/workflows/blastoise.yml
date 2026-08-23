@@ -67,4 +67,8 @@ jobs:
           echo "exit code: ${code}"
           [ "${code}" -eq 2 ] || { echo "expected exit 2 (block), got ${code}"; exit 1; }
           grep -q "BLOCK" fixture/comment.md
-          grep -q "Not verified" fixture/comment.md
+          # The limits section is always rendered and never collapsed, and
+          # a blocking file opens its statement table rather than hiding the
+          # finding behind a click.
+          grep -q "couldn't establish" fixture/comment.md
+          grep -q "<details open>" fixture/comment.md
