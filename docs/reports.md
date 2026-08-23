@@ -1,4 +1,4 @@
-# Reports, evidence bundles, signing, and CI
+# Reports, evidence bundles, and signing
 
 ## `blastoise check`
 
@@ -10,6 +10,7 @@ $ blastoise check migrations/0042_backfill.sql -o report/           # report.jso
 $ blastoise verify report/report.json                               # signature + evidence hashes
 $ blastoise explain report/report.json                              # expanded rendering
 $ blastoise parse --json migrations/*.sql                           # just the parsed IR
+$ blastoise ci --changed-source git --base-ref origin/main           # a whole pull request
 ```
 
 `bt` is an alias for `blastoise`. If the database is unreachable, `check`
@@ -44,3 +45,20 @@ Reports are signed with Ed25519 when `--sign-key PATH` or
 payload with the `signature` key absent. Unsigned reports are valid, just
 unattested; **no key is ever generated silently**. `blastoise verify`
 checks the signature and every evidence hash.
+
+## `blastoise ci`
+
+The whole-pull-request form: detect the migrations a change touches, assess
+each one against the same live snapshot, write a report and evidence bundle
+per file, and publish the result as a comment, a check status, a job summary
+and a machine summary. The GitHub Action and the Docker image are both thin
+wrappers around this one command, so there is no second implementation to
+drift.
+
+Its connection string comes from an environment variable named by config or
+`--database-url-env`; there is no flag that takes the value, and every
+output path -- log, comment, summary, exception message, traceback -- is
+redacted before it is written.
+
+See [the Action's README](../action/README.md) for the workflow, the config
+file, and the three `GRANT` statements the database role needs.

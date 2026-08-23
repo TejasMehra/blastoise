@@ -1931,3 +1931,279 @@ target, and serializes), ruff and mypy `--strict` clean over `src`, `validation`
 "big" tables that now land inside the strip were moved clear of it (a BIG table is 400M
 rows, not 40M) and rewritten to derive row counts from the constants, so the next
 re-anchoring does not re-break them.
+
+## The CI integration: a check that runs without being remembered (2026-08-23)
+
+Everything before this session produced a verdict when someone asked for one. This
+session makes the asking automatic: `blastoise ci` — one command that finds the
+migrations a change touched, assesses them, and publishes the result — plus a GitHub
+Action and a Docker image that are both thin wrappers around it. There is deliberately no
+second implementation: the Action's `run:` step and the GitLab/Buildkite `docker run` are
+the same argv, so the thing a team runs on GitHub and the thing they run elsewhere cannot
+drift. `blastoise.ci` is 8 modules — detection, config, redaction, the result model, the
+Markdown renderer, the GitHub client, the runner, and the package's own facade — and it
+imports from `blastoise.verdict` and `blastoise.report` exactly as the CLI does; nothing
+in the engine knows it exists.
+
+### 1. Detection: the part that decides whether it works out of the box
+
+A CI tool that needs a path list before it does anything is a tool that gets configured
+once, wrongly, and then distrusted. So detection matches the layouts the frameworks
+already impose, as **ordered rules over paths, first match wins**: Prisma
+(`prisma/migrations/*/migration.sql`), Rails (`db/migrate/`, and `db/<name>/migrate/` for
+multi-database setups), Alembic (`*/versions/*.py`, whatever the parent directory is
+called — `alembic/`, `migrations/`, `db/migrations/` are all in the wild), Django
+(`*/migrations/*.py`), Flyway (`V<digit>…__*.sql`, `U…`, `R__…`), golang-migrate
+(`*.up.sql` / `*.down.sql`), and a plain `migrations/` or `migration/` directory of
+`.sql`. Every pattern is anchored `(?:^|/)`, so a monorepo's
+`services/billing/db/migrate/` is found exactly like a root-level one — which is the case
+the layout conventions are silent about and the one most likely to be a monorepo.
+
+Ordering rather than scoring, because a scored match is one more thing to explain when it
+surprises someone. It resolves the three real collisions: `prisma/migrations/x/migration.sql`
+also matches the generic `migrations/` rule and is Prisma; `migrations/0001.up.sql` also
+matches it and is golang-migrate; `migrations/versions/x.py` matches Alembic and not
+Django, because Django's rule requires the `.py` directly inside `migrations/`.
+
+Three judgment calls, flagged rather than buried:
+
+- **Flyway is matched by file name at any depth**, because its location is configurable
+  and most projects move it (`src/main/resources/db/migration` is only the default). The
+  guard against claiming every double-underscore file in the repository is that the
+  version must start with a digit: `V1__init.sql` and `V1_2_3__add.sql` match,
+  `Views__old.sql` does not. It is the one rule that is not directory-scoped and the one
+  most likely to need an `exclude`.
+- **`.down.sql` is detected too**, though the brief named only `*.up.sql`. A down
+  migration is SQL that will run against production on a rollback, and detecting it as
+  `generic` (which the `migrations/` rule would have done) while its sibling is
+  `golang_migrate` would be worse than either answer alone.
+- **Detection is over paths, never contents.** Reading files to sniff their type would
+  make the tool behave differently depending on whether a file survived the diff, and
+  would classify a renamed-away migration by whatever replaced it.
+
+`.blastoise.yml` is the escape hatch, and `migrations.paths` **overrides detection
+entirely** rather than adding to it — a config that only added would leave a team unable
+to turn a false positive off, which is precisely why they opened the config file.
+`exclude` applies either way and is checked last. The globs are path globs, not `fnmatch`:
+`*` stays inside one segment, `**` spans them (including none, so `a/**/b` matches `a/b`).
+`fnmatch` was tried first and is wrong in the direction that matters — its `*` crosses
+`/`, so `migrations/*.sql` would silently match `migrations/2024/01.sql` and `*.sql` would
+match every SQL file in the tree.
+
+Config validation is strict: an unknown key is an **error**, not a warning. The whole file
+is optional, so the only way to have one is to have written it on purpose, and the failure
+mode of a silently ignored key is a team believing their `exclude:` is in force when it is
+not.
+
+### 2. Rails, Django and Alembic: recognized, reported, and not assessed
+
+Those three are a DSL. The statements they run do not exist until the framework renders
+them, and the parser reads SQL. The requirement was to detect them and say so rather than
+skip or crash, and that is what happens — per file, in the comment, naming the framework
+and what support would take. But the verdict question the brief left open has an answer
+this project's own rules force: **an unassessed migration holds the run at
+`requires_approval`.** A green check on a pull request whose only migration was never read
+is a worse outcome than no check at all, and it is the same principle as the boundary
+refusal and as `unverified` never serializing empty. A file that could not be *parsed* is
+treated identically — reported as a tool failure, never as a finding, contributing
+`requires_approval` and never `block`, because "no verdict was produced" has never been
+allowed to mean "the migration is dangerous" anywhere else in this codebase.
+
+What each adapter would need, recorded in `DSL_ADAPTER_HINT` so the message a user sees
+names the command rather than apologizing:
+
+- **Rails** — `rails db:migrate` emits the SQL it runs, but only while running it. An
+  adapter needs a dry-run that renders without applying: either a `Migration` subclass
+  that captures `ActiveRecord::Base.connection` calls, or running the migration inside an
+  aborted transaction against a scratch database with `ActiveRecord::Base.logger` capturing
+  statements. Both need a booted Rails app in CI, which is the expensive part.
+- **Django** — `django-admin sqlmigrate <app> <name>` already prints the exact SQL, which
+  makes this the cheapest of the three. It needs the project's settings module and an
+  importable app registry (so, the project's own Python environment), and it needs the
+  migration's dependencies resolvable; `RunPython` operations render as a comment and would
+  have to surface as an explicit "this migration also runs Python we cannot see".
+- **Alembic** — `alembic upgrade <rev> --sql` renders offline into SQL, which is exactly
+  the shape wanted. It needs `alembic.ini` and `env.py`, and offline mode fails on any
+  migration that inspects the database at render time.
+
+All three amount to the same thing: to read a DSL migration you have to run the
+framework's own renderer, which means running the team's application code in the checker's
+process. That is a materially larger trust boundary than "parse a .sql file", and it is
+why they are not in this release rather than why they are impossible.
+
+### 3. The connection string comes from a secret, and there is no other door
+
+The Action declares **no input** for the database URL, and `blastoise ci` has **no flag**
+that takes one. The config names an environment *variable*; the value comes from the CI
+secret store. Three enforcement points rather than three sentences of documentation:
+
+1. `database.url` and `database.password` in `.blastoise.yml` are refused outright with
+   the reason (not merely "unknown key"), because that is the mistake that puts a
+   credential in a committed file.
+2. A value written where the *name* belongs — `url_env: postgres://…` — is refused, and
+   the error does not echo the string it refused.
+3. A name in the `INPUT_*` namespace is refused. That is how a GitHub Actions input
+   arrives, so the refusal holds even if someone wires one up by hand. A workflow input is
+   not a secret: it is echoed into the run's log, it is readable in the event payload a
+   `workflow_run` can see, and under `pull_request_target` it can be influenced by whoever
+   opened the pull request.
+
+Redaction is a `Redactor` every output path goes through — the log, the comment, the job
+summary, the machine JSON, exception messages, and tracebacks. Two mechanisms
+deliberately, because neither is sufficient. **Literals**: the connection string and each
+component parsed out of it (password, host, user, dbname) are registered and replaced
+wherever they appear, which catches a driver formatting the host into a message in a shape
+no pattern anticipated — libpq's `connection to server at "db.internal" (10.0.0.4)` is the
+example that motivated it. **Patterns**: URI-shaped text and `password=` in keyword form
+are replaced even when never registered, because the string that leaks may not be the one
+we were configured with.
+
+The parsing is stdlib-only rather than reusing `blastoise.live.redact_conninfo`, which
+needs `psycopg`: the offline install has no driver, and the run that never connects still
+has the credential in its environment. Two calibrations, both erring toward the secret:
+component literals are held to a four-character floor and a stoplist (`localhost`,
+`postgres`, `app`, `db`…) so ordinary prose is not shredded, but **a password is registered
+however short and however generic** — mangling the word "app" in a comment is not
+comparable to printing a credential. And `user=` / `host=` are *not* redacted by pattern,
+only as literals, because `UPDATE t SET host = 'x' WHERE user = 'bob'` is ordinary SQL and
+a redactor that rewrites migrations is a redactor people turn off.
+
+### 4. The comment, and the one section that is never collapsed
+
+Order is the argument: file-level verdict, then per-tier counts, then per file the same two
+again, then — always — what was not verified. Statement detail sits in a `<details>`
+toggle; **`unverified` does not, and that is a rule, not a style preference.** The tool's
+whole claim is that it tells you what it does not know, and a disclosure widget is where a
+reader's eye learns to stop. Statement detail is an elaboration of a verdict already stated
+in the open; the limits of the verdict are not an elaboration of it. A test asserts that no
+`Not verified` heading ever appears inside an unclosed `<details>`.
+
+GitHub caps a comment at 65536 characters, and a run with eighty migrations exceeds it. The
+degradation is a fixed ladder — drop statement detail, then cap the unverified list at 20
+per file, then at 5 — and **every rung says what it dropped and where the complete version
+is**, because a truncation nobody is told about reads as "there was nothing more". If even
+the last rung overflows, the body is clipped with a visible final line rather than ending
+mid-sentence. The unverified section is never the first thing dropped.
+
+Two rendering details worth recording. Engine prose carries `->` and `<->` (the type-change
+rationale says `timestamp<->timestamptz`), and a Markdown renderer that reads `<->` as an
+opening tag eats the rest of the sentence — so prose is HTML-escaped on the way in, the
+Markdown counterpart of the ASCII transliteration the terminal renderer needed. And table
+cells escape `|`, because a rationale containing one shifts every later column.
+
+Re-push updates the comment rather than adding one, found by an invisible `<!--
+blastoise-ci-report -->` marker. The marker identifies the comment, **not the author**: the
+token that posts is the workflow's, which is not a stable identity across a repository's
+history of tokens and apps, and matching on author would orphan the comment the first time
+that changed. A test with 150 unrelated comments proves the paginated search finds it, and
+another proves other people's comments are left alone.
+
+### 5. Neutral is why the Checks API is used at all
+
+`proceed` → success, `requires_approval` → **neutral**, `block` → failure. A job's exit code
+can only pass or fail, and "a human has to look at this" is neither — so the check status
+goes through `POST /check-runs`, which needs `checks: write`. The check run attaches to
+`pull_request.head.sha`, not `GITHUB_SHA`: on a `pull_request` event the latter is the
+ephemeral merge commit, and a check run against it appears on nothing the pull request
+displays.
+
+The exit code is a separate, cruder signal, and `ci.fail_on` decides it: `block` (default)
+fails the job only on BLOCK, `requires_approval` fails on that too, `never` reports without
+failing — which is what a team introducing the check to a repository whose migrations were
+never gated before actually needs. Exit 3 stays what it has always been: the run itself
+failed, never a claim about the migration. The Action maps 3 to a failed step with an
+`::error` that says so explicitly.
+
+Publishing is never fatal. A pull request from a fork gets a read-only `GITHUB_TOKEN`:
+both calls return 403, and failing the job would punish a contributor for a permission
+model they do not control. The verdict stays in the job summary, the artifact and the exit
+code, and the log says why the comment is missing.
+
+### 6. One snapshot for the whole pull request
+
+Every migration in the change is assessed against the **same** captured state — one
+connection, one `snapshot_hash`, probes unioned across all the parsed scripts. Three
+reports that agree with each other are three views of one database; three reports captured
+seconds apart are three databases. It is also one connection instead of N, which matters
+for a role with `CONNECTION LIMIT 2`.
+
+**Staging by default**, and the honest version of why: the check wants a database with
+production's *schema*, but it reads sizes and statistics from whatever it is given, so a
+staging database at 1% of production's size produces verdicts calibrated to 1% of
+production's row counts. That is a real limitation of the recommended configuration and it
+is stated in the Action's README rather than left for someone to discover. The mitigations
+are that the comment says which database answered (via a team-chosen `database.label` —
+free text, never a host) and that `reltuples` staleness is already in every report's
+`unverified`. Pointing it at a production replica works with the same three-statement role;
+the trade is better numbers against one more thing holding a credential.
+
+### 7. Changed-file discovery, and the shallow-checkout trap
+
+Default is the GitHub API's pull-request file list, because it is computed against the
+merge base server-side and therefore works with `actions/checkout`'s default
+`fetch-depth: 1` — the single most common reason a "detect changed files" action fails on
+first install. `git diff` is the fallback and the only option outside GitHub: three-dot
+first (the changes the branch introduced), two-dot if that fails, because three-dot needs
+the merge base and a shallow clone does not have it while two-dot needs only the two
+commit objects. When both fail the error names the fix (`fetch-depth: 0`) rather than
+reporting that git exited non-zero.
+
+### 8. The Action is composite, and the artifact is uploaded before the verdict is applied
+
+Composite rather than a Docker action, because a Docker action cannot call
+`actions/upload-artifact`. The step order is load-bearing: the check's exit code is
+*captured*, the artifact is uploaded, and only then does a final step apply the verdict.
+A `BLOCK` that leaves you no evidence bundle to open is worth much less than one that
+does. The Docker image exists for the pipelines the Action does not serve; it runs as a
+non-root uid, sets `safe.directory` at `--system` scope (a caller passing
+`docker run --user` to match its own uid would never see a `--global` setting written into
+one user's home), and carries `git` for `--changed-source git` and nothing else.
+
+### Tests, and what they hold
+
+Suite: 925 → **1145 tests** (220 new, counting parametrized cases individually: five new
+test files plus a fake GitHub API), ruff and mypy `--strict` clean over `src`, `tests` and
+`validation`, 94% branch coverage over `blastoise.ci`. The four the brief named
+are all present and named as claims rather than as function calls: each framework layout
+with its near-misses beside it (`Views__old.sql` must not be Flyway;
+`migrations/__init__.py` must not be Django), config override precedence in both
+directions (`paths` replaces detection, `exclude` applies either way and beats `include`),
+comment update rather than duplicate (including the 150-comment pagination case and the
+"leave other people's comments alone" case), and secret redaction in error paths — the
+exception message, the traceback, the chained cause, and an unexpected crash mid-run, each
+asserting the password and host are absent while the traceback is still usable.
+
+Beyond those: the exit-code matrix against `fail_on`, that a DSL file holds the run at
+`requires_approval`, that an unparseable migration is an `error` and never a `block`, that
+the unverified section never renders inside an open `<details>`, that an 80-file run fits
+GitHub's limit and says what it dropped, that the check conclusion maps
+success/neutral/failure, that a read-only fork token is reported and not fatal, and — the
+one that is a security assertion rather than a behavioural one — that the `ci` subparser
+has no `--database-url` flag at all.
+
+Everything runs offline, including the git-discovery test, which builds a real two-commit
+repository in a temporary directory. The one thing not covered here is the live path
+through `_capture_snapshot`, which the existing introspection suite already exercises;
+what these tests hold is the layer above the engine.
+
+### What is owed
+
+The three DSL adapters, in the order their cost suggests: Django first (`sqlmigrate`
+already prints exactly what is wanted), then Alembic (`--sql` renders offline), then Rails
+(no dry-run exists; one has to be built). Each brings the same open question — running the
+team's application code inside the checker — which is a design decision, not an
+implementation gap.
+
+Second: the comment currently reports each file independently. A pull request that adds
+three migrations to the same table is three separate assessments of a table that will have
+changed shape twice by the time the third runs, and the report layer has no concept of
+"the state after the previous file". `assess_script` already models this *within* a file
+(`_FileState`); extending it across an ordered set of files is the natural next step and
+is what would make a multi-migration pull request's verdict actually correct rather than
+merely conservative.
+
+Third: the check status is created, never updated. A re-push produces a second check run
+with the same name, which GitHub displays as the latest — correct in the UI, but it means
+the run history accumulates. Using `PATCH /check-runs/{id}` would need the run id carried
+across pushes, which the comment marker solves for comments and nothing solves for checks;
+recorded as known, not fixed.

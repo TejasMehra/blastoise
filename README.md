@@ -60,6 +60,36 @@ $ pip install 'blastoise[live]'
 $ blastoise check migrations/0042_add_customer_ref.sql --database-url postgres://ro@db/app
 ```
 
+## In CI, where it actually gets used
+
+A tool you have to remember to run is a tool you stop running. Add the
+Action and every pull request that touches a migration gets a comment
+leading with the verdict, and a check status — `proceed` passes,
+`requires_approval` is **neutral**, `block` fails:
+
+```yaml
+name: migrations
+on: pull_request
+permissions: { contents: read, pull-requests: write, checks: write }
+
+jobs:
+  blastoise:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: TejasMehra/blastoise/action@v0
+        env:
+          BLASTOISE_DATABASE_URL: ${{ secrets.BLASTOISE_STAGING_DATABASE_URL }}
+```
+
+No path configuration: migrations are found by the layout your framework
+already imposes — Rails, Django, Prisma, Flyway, Alembic, golang-migrate,
+or a plain `migrations/` directory. The connection string comes from a
+secret and from nowhere else; there is no input that takes one, and every
+output path is redacted. On GitLab or Buildkite, the same check runs from
+the Docker image. Details, and the three `GRANT` statements the role needs:
+[the Action's README](action/README.md).
+
 ## What makes it different
 
 Other migration linters read the SQL. Blastoise reads the SQL **and your live database**, because `CREATE INDEX` on 200 rows is fine and on 40 million rows takes your site down — the statement is the same, only the table knows.
@@ -72,7 +102,8 @@ The classifier has been run over **3,081 real migration files** from coder, sour
 
 - [The five verdicts, thresholds, and exit codes](docs/tiers.md)
 - [How it works: parser, lock catalog, live introspection](docs/how-it-works.md)
-- [Reports, evidence bundles, signing, CI](docs/reports.md)
+- [Reports, evidence bundles, signing](docs/reports.md)
+- [The GitHub Action, the Docker image, and the config](action/README.md)
 - [The read-only database role it needs (three statements)](docs/minimum-privilege-role.md)
 - [Design decisions and measurements](DECISIONS.md) · [Artifacts](artifacts/README.md)
 

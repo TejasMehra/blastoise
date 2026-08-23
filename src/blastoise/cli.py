@@ -26,6 +26,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, NoReturn
 
+from blastoise.ci.config import CONFIG_FILENAME, DEFAULT_DATABASE_URL_ENV, FailOn
+from blastoise.ci.runner import DEFAULT_OUTPUT_DIR, ChangedSource
 from blastoise.ir import MigrationScript, ParsedStatement
 from blastoise.parser import MigrationParseError, parse_migration_file
 from blastoise.report import (
@@ -107,6 +109,162 @@ calibration loop), Shell Seal (signing and attestation).
 
 'bt' is an alias for this command.
 """
+
+
+CI_EPILOG = """The connection string is read from an environment variable, whose NAME
+comes from .blastoise.yml (database.url_env) or --database-url-env. There
+is deliberately no flag that takes the value: a connection string passed
+on a command line or as a workflow input is visible in the run's logs.
+
+Migration files are detected by framework layout - Rails db/migrate/,
+Django */migrations/, Prisma prisma/migrations/, Flyway V*__*.sql,
+Alembic */versions/, golang-migrate *.up.sql, and a plain migrations/
+directory. migrations.paths in .blastoise.yml overrides all of that.
+
+Exit codes: 0 nothing to stop the merge, 2 block, 1 requires_approval
+when ci.fail_on says so, 3 the run itself failed.
+"""
+
+
+def _add_ci_parser(subparsers: argparse._SubParsersAction[_Parser]) -> None:
+    ci_cmd = subparsers.add_parser(
+        "ci",
+        help="assess the migrations a pull request changed, and report back",
+        description=(
+            "Detect the migration files a change touches, assess each one, "
+            "and publish the result: a pull request comment that leads with "
+            "the verdict, a check status (PROCEED passes, REQUIRES_APPROVAL "
+            "is neutral, BLOCK fails), a Shell Report and evidence bundle "
+            "per file, and a job summary. Outside GitHub, --comment-output "
+            "and --json give a pipeline the same material."
+        ),
+        epilog=CI_EPILOG,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    ci_cmd.add_argument(
+        "paths",
+        nargs="*",
+        help="changed files to consider; by default they are discovered (see --changed-source)",
+    )
+    ci_cmd.add_argument(
+        "--config",
+        help=f"path to the config file (default: {CONFIG_FILENAME} at the repo root, if present)",
+    )
+    ci_cmd.add_argument(
+        "--repo-root",
+        default=".",
+        help="root of the checkout that changed paths are relative to (default: .)",
+    )
+    ci_cmd.add_argument(
+        "--changed-source",
+        choices=[
+            ChangedSource.AUTO,
+            ChangedSource.GITHUB_API,
+            ChangedSource.GIT,
+            ChangedSource.FILE,
+        ],
+        default=ChangedSource.AUTO,
+        help=(
+            "how to discover changed files: 'github_api' (the pull request's "
+            "file list, works with a shallow checkout), 'git' (diff against "
+            "--base-ref), 'file' (--changed-from). 'auto' prefers the API in "
+            "a pull request and falls back to git"
+        ),
+    )
+    ci_cmd.add_argument(
+        "--changed-from",
+        help="file of newline-separated changed paths, or '-' for stdin",
+    )
+    ci_cmd.add_argument("--base-ref", help="base commit or ref for the git diff")
+    ci_cmd.add_argument("--head-ref", default="HEAD", help="head of the git diff (default: HEAD)")
+    ci_cmd.add_argument(
+        "-o",
+        "--output-dir",
+        help=f"where to write one report directory per migration (default: {DEFAULT_OUTPUT_DIR}/)",
+    )
+    ci_cmd.add_argument(
+        "--pg-version",
+        type=int,
+        help="Postgres major version to assess against when offline (default 17)",
+    )
+    ci_cmd.add_argument(
+        "--offline",
+        action="store_true",
+        help="never connect, whatever the environment holds",
+    )
+    ci_cmd.add_argument(
+        "--database-url-env",
+        help=(
+            "NAME of the environment variable holding the connection string "
+            f"(default: {DEFAULT_DATABASE_URL_ENV}). Not the value: this "
+            "command never accepts a connection string as an argument"
+        ),
+    )
+    ci_cmd.add_argument(
+        "--database-label",
+        help=(
+            "human label for the database that was read ('staging'), shown "
+            "in the comment so a reviewer knows where the sizes came from"
+        ),
+    )
+    ci_cmd.add_argument(
+        "--fail-on",
+        choices=[member.value for member in FailOn],
+        help="how far the verdict must go before the step fails (default: block)",
+    )
+    ci_cmd.add_argument(
+        "--no-comment", action="store_true", help="do not post or update a pull request comment"
+    )
+    ci_cmd.add_argument(
+        "--no-check-run", action="store_true", help="do not set a check status"
+    )
+    ci_cmd.add_argument(
+        "--comment-output",
+        help="also write the comment body (Markdown) to this file, for non-GitHub CI",
+    )
+    ci_cmd.add_argument(
+        "--summary-output",
+        help="append the comment body here (default: $GITHUB_STEP_SUMMARY when set)",
+    )
+    ci_cmd.add_argument("--json-output", help="write the machine summary to this file")
+    ci_cmd.add_argument(
+        "--json", action="store_true", help="print the machine summary on stdout"
+    )
+    ci_cmd.add_argument(
+        "--artifact-name",
+        help="name of the workflow artifact the reports are uploaded as, for the comment to cite",
+    )
+
+
+def _cmd_ci(args: argparse.Namespace) -> int:
+    from blastoise.ci import CiOptions, run_ci
+
+    def _path(value: str | None) -> Path | None:
+        return None if value is None else Path(value)
+
+    options = CiOptions(
+        repo_root=Path(args.repo_root),
+        config_path=_path(args.config),
+        changed_source=args.changed_source,
+        changed_from=_path(args.changed_from),
+        explicit_paths=tuple(args.paths),
+        base_ref=args.base_ref,
+        head_ref=args.head_ref,
+        output_dir=_path(args.output_dir),
+        pg_version=args.pg_version,
+        offline=args.offline,
+        database_url_env=args.database_url_env,
+        database_label=args.database_label,
+        fail_on=None if args.fail_on is None else FailOn(args.fail_on),
+        comment=False if args.no_comment else None,
+        check_run=False if args.no_check_run else None,
+        comment_output=_path(args.comment_output),
+        summary_output=_path(args.summary_output),
+        json_output=_path(args.json_output),
+        artifact_name=args.artifact_name,
+        emit_json=args.json,
+    )
+    return run_ci(options)
 
 
 class _Parser(argparse.ArgumentParser):
@@ -228,6 +386,8 @@ def _build_parser() -> argparse.ArgumentParser:
         ),
     )
     verify_cmd.add_argument("report", help="the report.json to verify")
+
+    _add_ci_parser(subparsers)
 
     explain_cmd = subparsers.add_parser(
         "explain",
@@ -459,6 +619,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_check(args)
     if args.command == "verify":
         return _cmd_verify(args)
+    if args.command == "ci":
+        return _cmd_ci(args)
     return _cmd_explain(args)
 
 

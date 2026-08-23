@@ -28,3 +28,6 @@ validation/results/
 *.key
 .env
 .env.*
+
+# Reports written by `blastoise ci` when no --output-dir is given
+blastoise-reports/

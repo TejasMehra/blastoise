@@ -1,0 +1,59 @@
+# The Action, run against this repository, on every change to it.
+#
+# This repository has no migrations of its own, so the check finds nothing
+# and passes. That is still worth running: an Action whose composite steps
+# do not parse, or whose install step is broken, fails here rather than in
+# somebody else's pull request. The second job proves the same code path
+# through the Docker image, on a fixture with a migration that really does
+# block.
+name: blastoise
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  action:
+    name: the Action, on this repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./action
+        with:
+          version: local
+          offline: "true"
+          artifact-name: blastoise-self-check
+
+  image:
+    name: the Docker image, on a fixture that blocks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        run: docker build -t blastoise:ci .
+
+      - name: A migration that must be blocked
+        run: |
+          set -euo pipefail
+          mkdir -p fixture/migrations
+          printf 'BEGIN;\nCREATE INDEX CONCURRENTLY i ON events (plan);\nCOMMIT;\n' \
+            > fixture/migrations/0001_index.sql
+          set +e
+          docker run --rm --user "$(id -u):$(id -g)" \
+            -v "$PWD/fixture:/repo" -w /repo blastoise:ci \
+            ci --offline --no-comment --no-check-run \
+               --comment-output /repo/comment.md \
+               migrations/0001_index.sql
+          code=$?
+          set -e
+          echo "exit code: ${code}"
+          [ "${code}" -eq 2 ] || { echo "expected exit 2 (block), got ${code}"; exit 1; }
+          grep -q "BLOCK" fixture/comment.md
+          grep -q "Not verified" fixture/comment.md

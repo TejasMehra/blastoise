@@ -1,0 +1,241 @@
+name: Blastoise
+description: >-
+  Know the blast radius before you merge. Detects the migrations a pull
+  request changes, assesses each against a live database, and reports the
+  verdict as a comment and a check status.
+author: Tejas Mehra
+
+branding:
+  icon: shield
+  color: blue
+
+# There is deliberately NO input for the connection string. It is read from
+# an environment variable whose NAME is given by `database-url-env`, and the
+# value must be set from a secret on the step:
+#
+#   - uses: <owner>/blastoise/action@v0
+#     env:
+#       BLASTOISE_DATABASE_URL: ${{ secrets.BLASTOISE_STAGING_DATABASE_URL }}
+#
+# A workflow input is not a secret: it is echoed in the run's logs, it is
+# carried in the event payload a `workflow_run` can read, and on
+# `pull_request_target` it can be influenced by whoever opened the pull
+# request. `blastoise ci` refuses to read its connection string from any
+# variable in the INPUT_* namespace for exactly that reason.
+inputs:
+  version:
+    description: >-
+      Version of the blastoise package to install. Empty installs the latest
+      release; pin it (e.g. "0.1.0") for a reproducible check. The value
+      "local" installs from this repository's checkout, which is what this
+      repo's own self-test uses.
+    required: false
+    default: ""
+  python-version:
+    description: Python used to run the check.
+    required: false
+    default: "3.12"
+  working-directory:
+    description: Root of the checkout that changed paths are relative to.
+    required: false
+    default: "."
+  config:
+    description: >-
+      Path to .blastoise.yml. Defaults to the one at the repository root if
+      there is one; no config is a supported and common case.
+    required: false
+    default: ""
+  database-url-env:
+    description: >-
+      NAME of the environment variable holding the connection string. Not
+      the value. Staging by default, by convention: point it at whichever
+      environment you are willing to let CI connect to read-only.
+    required: false
+    default: BLASTOISE_DATABASE_URL
+  database-label:
+    description: >-
+      Human label for the database that was read ("staging"), shown in the
+      comment so a reviewer knows what the sizes came from. Never a host.
+    required: false
+    default: ""
+  offline:
+    description: >-
+      Skip the database entirely. Every size-dependent verdict becomes
+      `unknown`; the check still catches everything decidable from the SQL.
+    required: false
+    default: "false"
+  pg-version:
+    description: Postgres major version to assume when running offline.
+    required: false
+    default: ""
+  fail-on:
+    description: >-
+      How far the verdict must go before this step fails the job.
+      block (default) | requires_approval | never.
+    required: false
+    default: ""
+  comment:
+    description: Post (and update) a pull request comment.
+    required: false
+    default: "true"
+  check-run:
+    description: >-
+      Set a check status. PROCEED passes, REQUIRES_APPROVAL is neutral,
+      BLOCK fails. Needs `checks: write`.
+    required: false
+    default: "true"
+  changed-source:
+    description: >-
+      How to discover changed files: auto | github_api | git | file.
+      auto uses the pull request's file list, which works with the default
+      shallow checkout.
+    required: false
+    default: auto
+  base-ref:
+    description: >-
+      Base commit for the git diff, when changed-source is git. Needs
+      `fetch-depth: 0` on actions/checkout.
+    required: false
+    default: ""
+  upload-artifact:
+    description: Upload the reports and evidence bundles as a workflow artifact.
+    required: false
+    default: "true"
+  artifact-name:
+    description: Name of that artifact.
+    required: false
+    default: blastoise-reports
+  artifact-retention-days:
+    description: How long to keep it.
+    required: false
+    default: "30"
+  github-token:
+    description: >-
+      Token used to comment and to set the check status. The default is the
+      workflow's own token; a pull request from a fork gets a read-only one,
+      and the action reports that rather than failing.
+    required: false
+    default: ${{ github.token }}
+
+outputs:
+  verdict:
+    description: proceed | requires_approval | block
+    value: ${{ steps.check.outputs.verdict }}
+  migrations-detected:
+    description: How many migration files the change touched.
+    value: ${{ steps.check.outputs.migrations-detected }}
+  assessed:
+    description: How many of them were assessed.
+    value: ${{ steps.check.outputs.assessed }}
+  unassessed:
+    description: >-
+      How many were recognized but not assessed (a DSL migration, or a file
+      that could not be read). Any of these holds the run at
+      requires_approval.
+    value: ${{ steps.check.outputs.unassessed }}
+  online:
+    description: Whether a live database was read.
+    value: ${{ steps.check.outputs.online }}
+  report-dir:
+    description: Directory holding one report.json plus evidence per migration.
+    value: ${{ steps.check.outputs.report-dir }}
+  comment-url:
+    description: URL of the comment that was posted or updated, if any.
+    value: ${{ steps.check.outputs.comment-url }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install blastoise
+      shell: bash
+      env:
+        BLASTOISE_VERSION: ${{ inputs.version }}
+        ACTION_PATH: ${{ github.action_path }}
+      run: |
+        set -euo pipefail
+        if [ "${BLASTOISE_VERSION}" = "local" ]; then
+          # Resolved before it reaches pip: a path whose last component is
+          # `..[live]` is ambiguous to the requirement parser.
+          repo_root="$(cd "${ACTION_PATH}/.." && pwd)"
+          python -m pip install --disable-pip-version-check "${repo_root}[live]"
+        elif [ -n "${BLASTOISE_VERSION}" ]; then
+          python -m pip install --disable-pip-version-check "blastoise[live]==${BLASTOISE_VERSION}"
+        else
+          python -m pip install --disable-pip-version-check "blastoise[live]"
+        fi
+        blastoise ci --help >/dev/null
+
+    # The exit code is captured rather than allowed to end the job here, so
+    # that the artifact upload below still runs on BLOCK. A verdict you
+    # cannot open the evidence for is worth much less.
+    - name: Assess changed migrations
+      id: check
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        BLASTOISE_ARTIFACT_NAME: ${{ inputs.artifact-name }}
+        BLASTOISE_CONFIG: ${{ inputs.config }}
+        BLASTOISE_URL_ENV: ${{ inputs.database-url-env }}
+        BLASTOISE_OFFLINE: ${{ inputs.offline }}
+        BLASTOISE_PG_VERSION: ${{ inputs.pg-version }}
+        BLASTOISE_FAIL_ON: ${{ inputs.fail-on }}
+        BLASTOISE_COMMENT: ${{ inputs.comment }}
+        BLASTOISE_CHECK_RUN: ${{ inputs.check-run }}
+        BLASTOISE_CHANGED_SOURCE: ${{ inputs.changed-source }}
+        BLASTOISE_BASE_REF: ${{ inputs.base-ref }}
+        BLASTOISE_DB_LABEL: ${{ inputs.database-label }}
+      run: |
+        set -uo pipefail
+        args=(ci --output-dir "${RUNNER_TEMP}/blastoise-reports")
+        args+=(--artifact-name "${BLASTOISE_ARTIFACT_NAME}")
+        args+=(--changed-source "${BLASTOISE_CHANGED_SOURCE}")
+        args+=(--database-url-env "${BLASTOISE_URL_ENV}")
+        [ -n "${BLASTOISE_CONFIG}" ] && args+=(--config "${BLASTOISE_CONFIG}")
+        [ -n "${BLASTOISE_PG_VERSION}" ] && args+=(--pg-version "${BLASTOISE_PG_VERSION}")
+        [ -n "${BLASTOISE_FAIL_ON}" ] && args+=(--fail-on "${BLASTOISE_FAIL_ON}")
+        [ -n "${BLASTOISE_BASE_REF}" ] && args+=(--base-ref "${BLASTOISE_BASE_REF}")
+        [ -n "${BLASTOISE_DB_LABEL}" ] && args+=(--database-label "${BLASTOISE_DB_LABEL}")
+        [ "${BLASTOISE_OFFLINE}" = "true" ] && args+=(--offline)
+        [ "${BLASTOISE_COMMENT}" = "true" ] || args+=(--no-comment)
+        [ "${BLASTOISE_CHECK_RUN}" = "true" ] || args+=(--no-check-run)
+        blastoise "${args[@]}"
+        code=$?
+        echo "exit-code=${code}" >> "${GITHUB_OUTPUT}"
+        exit 0
+
+    - name: Upload reports and evidence
+      if: ${{ inputs.upload-artifact == 'true' }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: ${{ runner.temp }}/blastoise-reports
+        retention-days: ${{ inputs.artifact-retention-days }}
+        if-no-files-found: ignore
+
+    # Deliberately last: the verdict decides the job only after the evidence
+    # is somewhere a reviewer can reach it. Exit 3 is a tool failure, never
+    # a claim that the migration is dangerous, and it is surfaced as such.
+    - name: Apply the verdict
+      shell: bash
+      env:
+        CODE: ${{ steps.check.outputs.exit-code }}
+        VERDICT: ${{ steps.check.outputs.verdict }}
+      run: |
+        set -euo pipefail
+        case "${CODE}" in
+          0) exit 0 ;;
+          3)
+            echo "::error title=Blastoise::the check could not be completed (see the log above); this is a tool failure, not a verdict on the migration"
+            exit 1
+            ;;
+          *)
+            echo "::error title=Blastoise::verdict ${VERDICT}"
+            exit "${CODE}"
+            ;;
+        esac
