@@ -1,179 +1,85 @@
-# Blastoise
+<p align="center"><img src="docs/assets/logo.png" alt="Blastoise" width="240"></p>
 
-**Know the blast radius before you migrate.**
+<h3 align="center">Know the blast radius before you migrate.</h3>
 
-Blastoise reads your migration and tells you what it will actually do to
-production: which locks it takes, what it blocks, and for how long, checked
-against your live database rather than just the SQL. When it can't be sure, it
-says so instead of guessing.
-
-> **NOTICE — Blastoise is a working codename.** The Pokémon reference is
-> placeholder and will not survive contact with a trademark lawyer. Nothing
-> expensive to change is built on it: no domain is assumed, no character
-> artwork or other third-party assets are vendored, and the name appears only
-> in the package name, the CLI entry points, and prose. **Machine-readable
-> surfaces carry no theme at all** — see [Naming](#naming) — so a future rename
-> is a find-and-replace over code and copy, never a breaking API change for
-> anyone consuming the output.
-
-## Naming
-
-The theme lives in things a person reads: CLI help, this README, the docs, PR
-comment headers, and human-readable rationale text. It does **not** touch JSON
-keys, schema field names, enum machine values, or exit codes. Someone wiring
-Blastoise into CI must not need to know Pokémon to read
-`classification: needs_timing`.
-
-Cute in the wrapper, boring in the payload.
-
-| Component | What it is |
-|---|---|
-| **Torrent** | the parser and IR (`blastoise`, `blastoise.ir`) |
-| **Shell Armour** | the lock semantics catalog (`blastoise.catalog`) |
-| **Hydro Scan** | the live introspection layer (`blastoise.live`) |
-| **Pressure Levels** | the five classification tiers |
-| **Shell Report** | the verdict document |
-| **Training Ground** | the scale harness (`artifacts/scripts/scale_harness.py`) |
-| **Evolution** | the calibration loop |
-| **Shell Seal** | signing and attestation |
-
-The five Pressure Levels, and the values they actually serialize as:
-
-| Serialized value | Display name | What the reviewer must do |
-|---|---|---|
-| `safe` | Calm Water | nothing |
-| `safe_irreversible` | One-Way Current | proceed, but record that there is no undo |
-| `needs_timing` | Rain Check | safe in itself, disruptive at the wrong moment: off-peak, or `lock_timeout` with retries |
-| `unsafe` | Hydro Pump | do not run as written |
-| `unknown` | Fog | not enough evidence to decide |
-
-The left column is the contract. `blastoise.verdict.PRESSURE_LEVELS` is the one
-lookup that maps it to the right column, and a test pins the left column
-against exactly this table.
-
-## How it works
-
-**Torrent** parses `.sql` migration files with
-[pglast](https://github.com/lelit/pglast) (libpg_query bindings — the real
-Postgres parser, not regex) and classifies every statement by its exact DDL
-form, distinguishing forms whose locking or rewrite behavior differs in
-production: `ADD COLUMN` with a volatile default vs a constant one,
-`CREATE INDEX` vs `CREATE INDEX CONCURRENTLY`, `ADD FOREIGN KEY` vs
-`... NOT VALID`, and so on. It also models multi-statement files, explicit vs
-implicit transaction boundaries, and statically extracts the statements inside
-`DO` blocks.
-
-On top of the IR sits **Shell Armour**, the lock semantics catalog
-(`blastoise.catalog`): YAML data mapping every statement classification to the
-lock it takes, what that lock blocks, whether the table is rewritten, a
-duration model, and the Postgres major versions the entry applies to — every
-row cited against the Postgres docs or source, validated exhaustively at load
-time.
-
-```python
-from blastoise import parse_migration
-from blastoise.catalog import load_catalog, resolve
-
-catalog = load_catalog()
-script = parse_migration(sql_text)
-for statement in script.statements:
-    for lock in resolve(catalog, statement, pg_version=16):
-        print(lock.entry.lock_mode, lock.entry.duration_model, lock.relations)
+```sql
+ALTER TABLE events ADD COLUMN plan text DEFAULT 'free';                     -- 12 ms
+ALTER TABLE events ADD COLUMN customer_ref uuid DEFAULT gen_random_uuid();  -- blocks every read and write for 56 seconds
 ```
 
-**Hydro Scan** (`blastoise.live`, requires `pip install blastoise[live]`)
-supplies the production context the catalog declares missing: table sizes with
-staleness markers, invalid indexes left by failed `CONCURRENTLY` runs, lock
-waiters and idle-in-transaction sessions, replication topology and lag, and the
-server version. It is strictly read-only — it refuses to run as a role that
-*could* write, never reads user table data or query text, and bounds every
-query with timeouts. It needs only a three-statement monitoring role: see
-[docs/minimum-privilege-role.md](docs/minimum-privilege-role.md).
+Same shape, same 5M-row table, measured on the same machine. Nothing in the diff tells you which is which.
 
-```python
-from blastoise.live import capture_snapshot
+## What it looks like
 
-targets = {name for s in script.statements for name in s.targets}
-snapshot = capture_snapshot("postgresql://blastoise_introspect@db/app", targets)
-snapshot.to_canonical_json()  # deterministic; hashed into the evidence bundle
+Real output of `blastoise check` on a three-statement migration, against a live database with a 5M-row `events` table (trailing sections trimmed):
+
+```text
+SHELL REPORT
+============
+verdict: BLOCK
+change 7f6e927e9f3be30a  pg 17  online  evaluated 2026-08-23T11:41:33.172711+00:00
+
+pressure levels
+  unsafe                1   Hydro Pump       do not run as written
+  unknown               0   Fog              not enough evidence to say
+  needs_timing          1   Rain Check       safe in itself, wrong at the wrong moment
+  safe_irreversible     0   One-Way Current  proceed, but there is no undo
+  safe                  1   Calm Water       nothing to do
+
+statements
+  L1     create_index_concurrently    safe               seconds     proven
+         create_index_concurrently holds no lock that blocks reads or writes
+         on a pre-existing relation (the work itself runs in the seconds band)
+  L2     alter_table                  needs_timing       sub_second  observed
+         add_column_default_nonvolatile is catalog-only but takes a read-and-
+         write-blocking lock on events; the work is brief, the wait for the
+         lock may not be
+         condition: acquisition must be prompt: set lock_timeout with retries
+         or run in a low-traffic window - while this statement waits for its
+         lock, every later query on the relation queues behind it
+  L3     alter_table                  unsafe             minutes     simulated
+         alter_column_type blocks reads and writes for a hold measured in
+         minutes at worst: an outage-length stall
 ```
 
-Every field that cannot be gathered (no replicas, missing privilege, locked
-relation, never-analyzed table) is an explicit `unavailable` marker with the
-reason — downstream can always tell "false" from "unknown".
+Exit code `2`, so CI stops it. When Blastoise can't be sure, it says `unknown` and why, instead of guessing.
 
-The risk engine (`blastoise.verdict`) combines all three into a Pressure Level
-per statement, with the evidence class that produced it.
+## Try it in thirty seconds
 
-## Evidence
-
-Design decisions and their reasoning live in [DECISIONS.md](DECISIONS.md). The
-measurements behind them live in [artifacts/](artifacts/): per-statement
-results over a 3,081-file wild migration corpus, and **Training Ground**, the
-scale harness that measures real lock modes and hold durations at
-1k / 100k / 1M / 10M rows against a real server, with the scripts that produced
-them. See [artifacts/README.md](artifacts/README.md).
-
-## Usage
-
-The zero-friction first run needs no database access at all:
+No database needed for the first run — it reads the SQL and tells you what it can from that alone:
 
 ```console
-$ blastoise check migrations/0042_backfill.sql
+$ pip install blastoise
+$ blastoise check migrations/0042_add_customer_ref.sql --offline
 ```
 
-That prints the **Shell Report** — the verdict document — led by the
-file-level verdict and the count per Pressure Level, with everything that
-could not be checked offline spelled out under `unverified`. Point it at
-the database the migration will run against (introspection is strictly
-read-only and refuses writable roles) and most of that `unverified` list
-resolves into real answers:
+Point it at a read-only connection and the `unknown`s turn into answers:
 
 ```console
-$ blastoise check migrations/0042_backfill.sql --database-url postgres://ro@db/app
-$ blastoise check migrations/0042_backfill.sql --json          # canonical JSON
-$ blastoise check migrations/0042_backfill.sql -o report/      # report.json + evidence bundle
-$ blastoise verify report/report.json                          # signature + evidence hashes
-$ blastoise explain report/report.json                         # expanded rendering
+$ pip install 'blastoise[live]'
+$ blastoise check migrations/0042_add_customer_ref.sql --database-url postgres://ro@db/app
 ```
 
-Exit codes CI can branch on: `0` proceed, `1` requires_approval, `2` block,
-`3` tool error. Reports are signed (the **Shell Seal**, Ed25519) when
-`--sign-key` or `$BLASTOISE_SIGNING_KEY` points at a key file — PEM or a
-64-hex-char seed; unsigned reports are valid, just unattested, and no key
-is ever generated silently. If the database is unreachable, `check`
-degrades to offline with a loud warning instead of failing.
+## What makes it different
 
-```console
-$ blastoise parse migrations/0001_add_tracking.sql
-$ blastoise parse --json migrations/*.sql
-```
+Other migration linters read the SQL. Blastoise reads the SQL **and your live database**, because `CREATE INDEX` on 200 rows is fine and on 40 million rows takes your site down — the statement is the same, only the table knows.
 
-`bt` is an alias for `blastoise`:
+## Tested against real migrations
 
-```console
-$ bt check migrations/0042_backfill.sql
-```
+The classifier has been run over **3,081 real migration files** from coder, sourcegraph, mattermost, cal.com, discourse, zulip, temporal, and eight other open-source projects. Among them: **1,875 plain `CREATE INDEX`** versus **121 `CREATE INDEX CONCURRENTLY`**.
 
-```python
-from blastoise import parse_migration
+## Docs
 
-script = parse_migration(sql_text)
-for statement in script.statements:
-    print(statement.span.line, statement.kind, statement.targets)
-    for action in statement.alter_actions:
-        print("  ", action.kind, action.default)
-```
+- [The five verdicts, thresholds, and exit codes](docs/tiers.md)
+- [How it works: parser, lock catalog, live introspection](docs/how-it-works.md)
+- [Reports, evidence bundles, signing, CI](docs/reports.md)
+- [The read-only database role it needs (three statements)](docs/minimum-privilege-role.md)
+- [Design decisions and measurements](DECISIONS.md) · [Artifacts](artifacts/README.md)
 
 ## Development
 
 ```console
-$ uv sync
-$ uv run pytest
-$ uv run ruff check .
-$ uv run mypy
+$ uv sync && uv run pytest && uv run ruff check . && uv run mypy
 ```
 
-The live tests and both harnesses need PostgreSQL binaries; point
-`BLASTOISE_TEST_PG_BIN` at a `bin` directory, or `BLASTOISE_TEST_DSN` at a
-server. Without either, the suite falls back to testcontainers.
+Live tests and harnesses need Postgres binaries (`BLASTOISE_TEST_PG_BIN`) or a server (`BLASTOISE_TEST_DSN`); otherwise they use testcontainers.

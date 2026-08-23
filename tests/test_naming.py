@@ -6,9 +6,8 @@ JSON keys, schema field names, enum values, or exit codes. Someone wiring
 this into CI reads ``classification: needs_timing`` and should never need
 to know what a Hydro Pump is.
 
-These tests are the guardrail. They exist because the theme is a *working
-codename* (see the NOTICE in README.md) and will very likely be replaced:
-if a rename can only touch prose, it stays a find-and-replace instead of a
+These tests are the guardrail. They exist so that the theme can be renamed
+at any time: if a rename can only touch prose, it stays a find-and-replace instead of a
 breaking API change for everyone consuming the output.
 """
 
