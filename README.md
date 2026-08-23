@@ -116,6 +116,34 @@ them. See [artifacts/README.md](artifacts/README.md).
 
 ## Usage
 
+The zero-friction first run needs no database access at all:
+
+```console
+$ blastoise check migrations/0042_backfill.sql
+```
+
+That prints the **Shell Report** — the verdict document — led by the
+file-level verdict and the count per Pressure Level, with everything that
+could not be checked offline spelled out under `unverified`. Point it at
+the database the migration will run against (introspection is strictly
+read-only and refuses writable roles) and most of that `unverified` list
+resolves into real answers:
+
+```console
+$ blastoise check migrations/0042_backfill.sql --database-url postgres://ro@db/app
+$ blastoise check migrations/0042_backfill.sql --json          # canonical JSON
+$ blastoise check migrations/0042_backfill.sql -o report/      # report.json + evidence bundle
+$ blastoise verify report/report.json                          # signature + evidence hashes
+$ blastoise explain report/report.json                         # expanded rendering
+```
+
+Exit codes CI can branch on: `0` proceed, `1` requires_approval, `2` block,
+`3` tool error. Reports are signed (the **Shell Seal**, Ed25519) when
+`--sign-key` or `$BLASTOISE_SIGNING_KEY` points at a key file — PEM or a
+64-hex-char seed; unsigned reports are valid, just unattested, and no key
+is ever generated silently. If the database is unreachable, `check`
+degrades to offline with a loud warning instead of failing.
+
 ```console
 $ blastoise parse migrations/0001_add_tracking.sql
 $ blastoise parse --json migrations/*.sql
@@ -124,7 +152,7 @@ $ blastoise parse --json migrations/*.sql
 `bt` is an alias for `blastoise`:
 
 ```console
-$ bt parse migrations/*.sql
+$ bt check migrations/0042_backfill.sql
 ```
 
 ```python

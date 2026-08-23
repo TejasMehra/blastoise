@@ -1,0 +1,156 @@
+# CREATE INDEX is 12.1% of wild statements (1,875), CIC 0.8%, DROP INDEX 2.4%,
+# REINDEX 0.1%. Expectations are written against the reference machine's
+# measurements in artifacts/scale; the runner measures and the truth is what
+# it measured. `lock` is the strongest mode expected on a pre-existing relation.
+family: index_creation
+cases:
+  - id: idx_btree_tiny
+    why: CREATE INDEX on a 1k-row table looks like a write-blocking build; it is a few ms of SHARE.
+    adversarial: looks_dangerous
+    source: boundary__0004__02_oplog.up.sql
+    table: t_1k
+    migration: CREATE INDEX {t}_v_user_idx ON {t} (user_id);
+    expect: {tier: safe, lock: SHARE}
+
+  - id: idx_btree_100k
+    source: boundary__0004__02_oplog.up.sql
+    table: t_100k
+    migration: CREATE INDEX {t}_v_user_idx ON {t} (user_id);
+    expect: {tier: safe, lock: SHARE}
+
+  - id: idx_btree_1m
+    source: boundary__0004__02_oplog.up.sql
+    table: t_1m
+    migration: CREATE INDEX {t}_v_user_idx ON {t} (user_id);
+    expect: {tier: safe, lock: SHARE, note: reference 761 ms}
+
+  - id: idx_btree_5m
+    why: a plain btree at 5M rows sits right at the 5 s write-block threshold on the reference machine.
+    source: boundary__0004__02_oplog.up.sql
+    table: t_5m
+    migration: CREATE INDEX {t}_v_user_idx ON {t} (user_id);
+    expect: {tier: safe, lock: SHARE, note: boundary, ~4 s expected}
+
+  - id: idx_composite_1m
+    source: boundary__0023__65_wh_session_dimensions.up.sql
+    table: t_1m
+    migration: CREATE INDEX {t}_v_acct_created_idx ON {t} (account_id, created_at);
+    expect: {tier: safe, lock: SHARE}
+
+  - id: idx_expr_1m
+    why: expression builds run 4-5x slower than plain btree; 3.7 s at 1M is still under the 5 s write-block line.
+    source: discourse (fix_search migration)
+    table: t_1m
+    migration: CREATE INDEX {t}_v_title_lower_idx ON {t} (lower(title));
+    expect: {tier: safe, lock: SHARE, note: reference 3.7 s; boundary}
+
+  - id: idx_expr_5m
+    source: discourse (fix_search migration)
+    table: t_5m
+    migration: CREATE INDEX {t}_v_title_lower_idx ON {t} (lower(title));
+    expect: {tier: needs_timing, lock: SHARE}
+
+  - id: idx_gin_1m
+    source: coder__0451__000451_chat_labels.up.sql
+    table: t_1m
+    migration: CREATE INDEX {t}_v_payload_gin ON {t} USING gin (payload);
+    expect: {tier: safe, lock: SHARE, note: reference 3.6 s; boundary}
+
+  - id: idx_gin_5m
+    source: coder__0451__000451_chat_labels.up.sql
+    table: t_5m
+    migration: CREATE INDEX {t}_v_payload_gin ON {t} USING gin (payload);
+    expect: {tier: needs_timing, lock: SHARE}
+
+  - id: idx_partial_1m
+    source: boundary__0023__65_wh_session_dimensions.up.sql
+    table: t_1m
+    migration: CREATE INDEX {t}_v_created_active_idx ON {t} (created_at) WHERE is_active;
+    expect: {tier: safe, lock: SHARE}
+
+  - id: idx_unique_1m
+    source: boundary__0023__65_wh_session_dimensions.up.sql
+    table: t_1m
+    migration: CREATE UNIQUE INDEX {t}_v_external_id_uq ON {t} (external_id);
+    expect: {tier: safe, lock: SHARE}
+
+  - id: idx_unique_5m
+    table: t_5m
+    migration: CREATE UNIQUE INDEX {t}_v_external_id_uq ON {t} (external_id);
+    expect: {tier: safe, lock: SHARE, note: boundary, ~4.5 s expected}
+
+  - id: idx_concurrently_1m
+    why: the recommended form; SHARE UPDATE EXCLUSIVE blocks neither reads nor writes however long it takes.
+    source: coder (121 wild CIC)
+    table: t_1m
+    mode: autocommit
+    migration: CREATE INDEX CONCURRENTLY {t}_v_cic_idx ON {t} (user_id);
+    teardown: DROP INDEX IF EXISTS {t}_v_cic_idx
+    expect: {tier: safe, lock: SHARE UPDATE EXCLUSIVE}
+
+  - id: idx_concurrently_in_txn
+    why: CIC inside an explicit transaction is a proven failure; the file aborts.
+    adversarial: looks_benign
+    table: t_1k
+    mode: autocommit
+    migration: |
+      BEGIN;
+      CREATE INDEX CONCURRENTLY {t}_v_cic_txn_idx ON {t} (user_id);
+      COMMIT;
+    teardown: DROP INDEX IF EXISTS {t}_v_cic_txn_idx
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: unsafe, lock: null, error: true}
+      - {tier: safe, lock: null}
+
+  - id: idx_if_not_exists_existing
+    why: IF NOT EXISTS on an index that already exists is a NOTICE and no build at all.
+    adversarial: looks_dangerous
+    table: t_1m
+    migration: CREATE INDEX IF NOT EXISTS {t}_account_id_idx ON {t} (account_id);
+    expect: {tier: safe, lock: SHARE, note: lock may be absent if the check precedes table_open}
+
+  - id: idx_drop_1m
+    why: DROP INDEX takes ACCESS EXCLUSIVE on the index and its table for milliseconds; the floor applies.
+    source: 369 wild DROP INDEX
+    table: t_1m
+    migration: DROP INDEX {t}_created_at_idx;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: idx_drop_concurrently_1m
+    why: DROP INDEX CONCURRENTLY blocks nothing.
+    table: t_1m
+    mode: autocommit
+    migration: DROP INDEX CONCURRENTLY {t}_created_at_idx;
+    teardown: CREATE INDEX IF NOT EXISTS {t}_created_at_idx ON {t} (created_at)
+    expect: {tier: safe, lock: SHARE UPDATE EXCLUSIVE}
+
+  - id: reindex_index_1m
+    source: lemmy__0251__2025-08-01-000019_add_report_count__up.sql
+    table: t_1m
+    migration: REINDEX INDEX {t}_account_id_idx;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, note: AEL on the index under SHARE on the table}
+
+  - id: reindex_index_5m
+    table: t_5m
+    migration: REINDEX INDEX {t}_account_id_idx;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: reindex_table_5m
+    why: every index rebuilt under ACCESS EXCLUSIVE in turn; queries against the table wait for whichever is locked.
+    source: lemmy__0251__2025-08-01-000019_add_report_count__up.sql
+    table: t_5m
+    migration: REINDEX TABLE {t};
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE, note: ~45 s expected from the 10M reading}
+
+  - id: idx_on_file_created
+    why: an index on a table the same file created blocks nobody regardless of size.
+    table: t_1k
+    migration: |
+      CREATE TABLE ev_new (id bigint PRIMARY KEY, x integer, label text);
+      INSERT INTO ev_new (id, x, label) VALUES (1, 1, 'a'), (2, 2, 'b'), (3, 3, 'c');
+      CREATE INDEX ev_new_x_idx ON ev_new (x);
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: safe, lock: null}
+      - {tier: safe, lock: null}

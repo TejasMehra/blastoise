@@ -1,0 +1,133 @@
+# The tier that exists because of a judgment call: irreversible-but-harmless
+# lands safe_irreversible, never needs_timing. ALTER TYPE ADD VALUE 389 wild,
+# DROP VIEW 329, RENAME COLUMN 290, DROP TRIGGER 199, DROP TABLE 117,
+# DROP FUNCTION 102, DROP TYPE 41.
+family: drops_irreversible
+cases:
+  - id: enum_add_value
+    why: the canonical irreversible-but-harmless statement - no relation lock, a label that can never be dropped.
+    adversarial: judgment_call
+    source: 389 wild alter_enum_add_value
+    migration: ALTER TYPE ticket_status ADD VALUE 'pending';
+    expect: {tier: safe_irreversible, lock: null, irreversible: true}
+
+  - id: enum_add_value_then_use_in_txn
+    why: a new enum value cannot be used in the transaction that added it; the UPDATE errors.
+    adversarial: looks_benign
+    mode: autocommit
+    migration: |
+      BEGIN;
+      ALTER TYPE ticket_status ADD VALUE 'stale';
+      UPDATE tickets SET status = 'stale' WHERE id = 1;
+      COMMIT;
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: safe_irreversible, lock: null, irreversible: true}
+      - {tier: unsafe, lock: ROW EXCLUSIVE, error: true}
+      - {tier: safe, lock: null}
+
+  - id: drop_function
+    adversarial: judgment_call
+    source: 102 wild drop_function
+    migration: DROP FUNCTION fixture_add(integer, integer);
+    expect: {tier: safe_irreversible, lock: null, irreversible: true}
+
+  - id: drop_table_preexisting_empty
+    why: DROP TABLE of an empty pre-existing table - instant and irreversible, but an ACCESS EXCLUSIVE acquisition on a live relation.
+    adversarial: judgment_call
+    migration: DROP TABLE empty_pre;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, irreversible: true}
+
+  - id: drop_table_file_created
+    why: dropping a table the same file created loses nothing anyone could see.
+    adversarial: judgment_call
+    migration: |
+      CREATE TABLE tmp_drop_me (id integer);
+      DROP TABLE tmp_drop_me;
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: safe_irreversible, lock: null, irreversible: true, note: tier definition - drops of relations this file created}
+
+  - id: drop_column_file_created
+    why: DROP COLUMN on a table the same file created - named in the brief as looks-dangerous-but-is-not.
+    adversarial: looks_dangerous
+    migration: |
+      CREATE TABLE tmp_col (id integer, c integer);
+      ALTER TABLE tmp_col DROP COLUMN c;
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: safe_irreversible, lock: null, irreversible: true}
+
+  - id: drop_column_preexisting_5m
+    why: instant, but ACCESS EXCLUSIVE on a live 5M-row table and the column's data is gone.
+    table: t_5m
+    migration: ALTER TABLE {t} DROP COLUMN note;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, irreversible: true}
+
+  - id: drop_view
+    why: a view is a relation; DROP VIEW takes ACCESS EXCLUSIVE on it and any query using it queues.
+    source: 329 wild drop_view
+    migration: DROP VIEW t_1k_active;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, irreversible: true}
+
+  - id: drop_sequence
+    migration: DROP SEQUENCE fixture_seq;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, irreversible: true}
+
+  - id: drop_trigger_5m
+    source: 199 wild drop_trigger
+    table: t_5m
+    setup: CREATE TRIGGER {t}_v_touch BEFORE UPDATE ON {t} FOR EACH ROW EXECUTE FUNCTION fixture_touch()
+    teardown: DROP TRIGGER IF EXISTS {t}_v_touch ON {t}
+    migration: DROP TRIGGER {t}_v_touch ON {t};
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: rename_column_5m
+    source: 290 wild rename_column
+    table: t_5m
+    migration: ALTER TABLE {t} RENAME COLUMN note TO remark;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: rename_table_5m
+    table: t_5m
+    migration: ALTER TABLE {t} RENAME TO {t}_renamed;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: drop_type_in_use_fails
+    why: DROP TYPE of an enum a column depends on errors; looks like a harmless cleanup.
+    adversarial: looks_benign
+    migration: DROP TYPE ticket_status;
+    expect: {tier: unsafe, lock: null, error: true}
+
+  - id: drop_table_cascade_tickets
+    migration: DROP TABLE tickets CASCADE;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, irreversible: true}
+
+  - id: drop_index_then_recreate_file
+    why: an index dropped and recreated in one explicit transaction - the CREATE runs while the DROP's ACCESS EXCLUSIVE is still held.
+    adversarial: looks_benign
+    table: t_1m
+    mode: autocommit
+    teardown: CREATE INDEX IF NOT EXISTS {t}_title_idx ON {t} (title)
+    migration: |
+      BEGIN;
+      DROP INDEX {t}_title_idx;
+      CREATE INDEX {t}_title_idx ON {t} (title);
+      COMMIT;
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+      - {tier: needs_timing, lock: ACCESS EXCLUSIVE, note: AEL from statement 2 held through the ~0.8 s build}
+      - {tier: safe, lock: null}
+
+  - id: alter_enum_rename_value
+    why: RENAME VALUE is reversible and takes no relation lock.
+    migration: ALTER TYPE ticket_status RENAME VALUE 'closed' TO 'done';
+    expect: {tier: safe, lock: null}
+
+  - id: drop_policy_5m
+    table: t_5m
+    setup: CREATE POLICY {t}_v_pol ON {t} FOR SELECT USING (true)
+    teardown: DROP POLICY IF EXISTS {t}_v_pol ON {t}
+    migration: DROP POLICY {t}_v_pol ON {t};
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}

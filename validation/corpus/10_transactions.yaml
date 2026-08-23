@@ -1,0 +1,92 @@
+# Explicit transactions: locks accumulate until COMMIT, so a harmless
+# statement can hold an earlier statement's ACCESS EXCLUSIVE for its whole
+# run. These commit for real (autocommit mode) and tear down afterwards.
+family: transactions
+cases:
+  - id: txn_two_tables_ael
+    why: two ADD COLUMNs on two live tables in one transaction - the second runs while the first's AEL is held.
+    mode: autocommit
+    bindings: {a: t_1m, b: t_100k}
+    teardown:
+      - ALTER TABLE {a} DROP COLUMN IF EXISTS txn_a
+      - ALTER TABLE {b} DROP COLUMN IF EXISTS txn_b
+    migration: |
+      BEGIN;
+      ALTER TABLE {a} ADD COLUMN txn_a integer;
+      ALTER TABLE {b} ADD COLUMN txn_b integer;
+      COMMIT;
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+      - {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+      - {tier: safe, lock: null}
+
+  - id: txn_ael_then_backfill_1m
+    why: ADD COLUMN then backfill it in the same transaction - the backfill's ~50 s runs under the ADD COLUMN's ACCESS EXCLUSIVE.
+    adversarial: looks_benign
+    mode: autocommit
+    table: t_1m
+    teardown:
+      - ALTER TABLE {t} DROP COLUMN IF EXISTS flag
+      - VACUUM (FULL, ANALYZE) {t}
+    migration: |
+      BEGIN;
+      ALTER TABLE {t} ADD COLUMN flag boolean;
+      UPDATE {t} SET flag = true;
+      COMMIT;
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+      - {tier: unsafe, lock: ACCESS EXCLUSIVE, irreversible: true, note: AEL from statement 2 held for the whole backfill}
+      - {tier: safe, lock: null}
+
+  - id: txn_alter_then_select_5m
+    why: a SELECT count(*) after an ADD COLUMN - a pure read that holds the transaction's ACCESS EXCLUSIVE for its ~1.5 s.
+    adversarial: looks_benign
+    mode: autocommit
+    table: t_5m
+    teardown: ALTER TABLE {t} DROP COLUMN IF EXISTS txn_z
+    migration: |
+      BEGIN;
+      ALTER TABLE {t} ADD COLUMN txn_z integer;
+      SELECT count(*) FROM {t};
+      COMMIT;
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+      - {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+      - {tier: safe, lock: null}
+
+  - id: txn_create_index_after_alter_100k
+    why: CREATE INDEX (SHARE) after an ADD COLUMN in the same transaction runs under the ADD COLUMN's AEL.
+    adversarial: looks_benign
+    mode: autocommit
+    table: t_100k
+    teardown:
+      - DROP INDEX IF EXISTS {t}_v_txn_idx
+      - ALTER TABLE {t} DROP COLUMN IF EXISTS txn_c
+    migration: |
+      BEGIN;
+      ALTER TABLE {t} ADD COLUMN txn_c integer;
+      CREATE INDEX {t}_v_txn_idx ON {t} (user_id);
+      COMMIT;
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+      - {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+      - {tier: safe, lock: null}
+
+  - id: txn_safe_pair
+    why: two non-blocking statements in one transaction stay safe together.
+    mode: autocommit
+    teardown: DROP INDEX IF EXISTS t_1k_v_txn_pair_idx
+    migration: |
+      BEGIN;
+      COMMENT ON TABLE t_1k IS 'small';
+      CREATE INDEX t_1k_v_txn_pair_idx ON t_1k (score);
+      COMMIT;
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: safe, lock: SHARE UPDATE EXCLUSIVE}
+      - {tier: safe, lock: SHARE, note: SUE from the COMMENT is still held; SHARE is stronger}
+      - {tier: safe, lock: null}

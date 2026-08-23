@@ -17,20 +17,33 @@ from __future__ import annotations
 
 import dataclasses
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import StrEnum
 
 from blastoise.ir import QualifiedName
 
 type JsonValue = bool | int | str | list[JsonValue] | dict[str, JsonValue] | None
 
-SNAPSHOT_FORMAT = 3
+SNAPSHOT_FORMAT = 5
 """Bump when the serialized shape changes; the evidence bundle records it.
 
 Format 3 extends ``IndexFacts`` with the index's access method, its
 partial/expression shape, opclass defaultness, and the set of table
 columns it depends on (via ``pg_depend``) — the facts the ALTER COLUMN
 TYPE narrowing needs to rule dependent-index rebuilds in or out.
+
+Format 4 adds ``LockWaiter.blockers_all_idle`` — whether the backends
+holding the conflicting lock are idle in a transaction rather than
+actively running — so the contention escalation can tell a transient
+queue behind an idle holder (a timing problem) from sustained active
+contention (a block).
+
+Format 5 adds ``LiveSnapshot.calibration`` — the calibration probe's
+reading on the target (:class:`CalibrationFacts`): a bounded, read-only,
+catalog-free operation of known cost, timed on the target, so the
+duration model can scale its estimates to the hardware the migration
+will actually run on instead of assuming the machine the constants were
+measured on.
 """
 
 
@@ -309,6 +322,14 @@ class LockWaiter:
     waiting_for_ms: Fact[int]  # from pg_locks.waitstart (PG 14+)
     blocking_pids: tuple[int, ...]  # sorted
     blocking_modes: tuple[str, ...]  # granted modes those pids hold, sorted
+    # Whether every backend holding the conflicting lock is idle in a
+    # transaction (holding the lock, running nothing). An idle holder is a
+    # transient wait a lock_timeout + retry clears; an actively-running
+    # holder is sustained contention. Needs pg_read_all_stats to read other
+    # roles' state, so it degrades to unavailable when stats are masked.
+    blockers_all_idle: Fact[bool] = field(
+        default_factory=lambda: Fact.unavailable("not gathered")
+    )
 
 
 @dataclass(frozen=True, slots=True)
@@ -368,6 +389,36 @@ class ReplicationFacts:
 
 
 @dataclass(frozen=True, slots=True)
+class CalibrationFacts:
+    """The calibration probe's reading on the target (format 5).
+
+    ``compute_ms`` is the minimum of ``repeats`` runs of the compute probe
+    (a fixed-size sort of ``compute_rows`` generated rows — backend CPU
+    and sort machinery; no table, no lock, no user data, so it runs under
+    the minimum-privilege role). The SQL and the anchor reading live in
+    :mod:`blastoise.live.calibrate`. The reading is a :class:`Fact`
+    because it can fail (a statement timeout on an overloaded server),
+    and an unavailable reading degrades the estimate to "unscaled, and
+    here is why" rather than to a guess.
+    """
+
+    compute_ms: Fact[int]
+    repeats: int
+    compute_rows: int
+
+
+def unavailable_calibration(reason: str) -> CalibrationFacts:
+    """A calibration block whose every reading is unavailable for ``reason``."""
+    from blastoise.live import calibrate as _cb
+
+    return CalibrationFacts(
+        compute_ms=Fact.unavailable(reason),
+        repeats=_cb.PROBE_REPEATS,
+        compute_rows=_cb.COMPUTE_PROBE_ROWS,
+    )
+
+
+@dataclass(frozen=True, slots=True)
 class LiveSnapshot:
     """The full introspection result. JSON-serializable and deterministic."""
 
@@ -383,6 +434,12 @@ class LiveSnapshot:
     type_changes: tuple[TypeChangeFacts, ...]  # sorted by (relation, column, new type)
     concurrency: ConcurrencyFacts
     replication: ReplicationFacts
+    # Format 5. Defaulted so snapshots built by older callers (and the
+    # tests' hand-made snapshots) still construct; an absent probe reads
+    # as "not gathered" and the duration model stays unscaled, saying so.
+    calibration: CalibrationFacts = field(
+        default_factory=lambda: unavailable_calibration("not gathered")
+    )
 
     def to_json_value(self) -> JsonValue:
         return _normalize(dataclasses.asdict(self))

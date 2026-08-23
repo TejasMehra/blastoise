@@ -1,0 +1,169 @@
+# The harmless majority of the wild corpus: COMMENT ON 8.7%, CREATE TABLE
+# 7.7%, CREATE TRIGGER 6.5%, CREATE FUNCTION 3.7%, CREATE VIEW 3.0%, plus
+# GRANT, ANALYZE, sequences, policies. Plus the forms that look harmless and
+# take ACCESS EXCLUSIVE anyway (CREATE POLICY, ENABLE RLS, OR REPLACE VIEW).
+family: common_benign
+cases:
+  - id: comment_on_table_5m
+    source: 1,348 wild comment_on
+    table: t_5m
+    migration: COMMENT ON TABLE {t} IS 'events, partitioned by nothing';
+    expect: {tier: safe, lock: SHARE UPDATE EXCLUSIVE}
+
+  - id: comment_on_column_5m
+    table: t_5m
+    migration: COMMENT ON COLUMN {t}.note IS 'free text';
+    expect: {tier: safe, lock: SHARE UPDATE EXCLUSIVE}
+
+  - id: comment_on_function
+    migration: COMMENT ON FUNCTION fixture_add(integer, integer) IS 'adds';
+    expect: {tier: safe, lock: null}
+
+  - id: create_trigger_5m
+    why: CREATE TRIGGER takes SHARE ROW EXCLUSIVE for milliseconds; 1,007 wild occurrences.
+    source: 1,007 wild create_trigger
+    table: t_5m
+    migration: CREATE TRIGGER {t}_v_touch BEFORE UPDATE ON {t} FOR EACH ROW EXECUTE FUNCTION fixture_touch();
+    expect: {tier: safe, lock: SHARE ROW EXCLUSIVE}
+
+  - id: create_function
+    source: 573 wild create_function
+    migration: CREATE FUNCTION fixture_mul(a integer, b integer) RETURNS integer LANGUAGE sql IMMUTABLE AS 'SELECT a * b';
+    expect: {tier: safe, lock: null}
+
+  - id: create_or_replace_function
+    migration: CREATE OR REPLACE FUNCTION fixture_add(a integer, b integer) RETURNS integer LANGUAGE sql IMMUTABLE AS 'SELECT a + b + 0';
+    expect: {tier: safe, lock: null}
+
+  - id: create_view_5m
+    source: 468 wild create_view
+    table: t_5m
+    migration: CREATE VIEW {t}_v_active AS SELECT id, title FROM {t} WHERE is_active;
+    expect: {tier: safe, lock: ACCESS SHARE}
+
+  - id: create_or_replace_view_existing
+    why: OR REPLACE on an existing view takes ACCESS EXCLUSIVE on the view; the classifier does not record OR REPLACE (a known taxonomy gap).
+    adversarial: looks_benign
+    migration: CREATE OR REPLACE VIEW t_1k_active AS SELECT id, title, status FROM t_1k WHERE is_active;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: create_table
+    source: 1,188 wild create_table
+    migration: CREATE TABLE ev5 (id bigint PRIMARY KEY, created_at timestamptz NOT NULL DEFAULT now());
+    expect: {tier: safe, lock: null}
+
+  - id: create_table_with_fk_to_live
+    why: CREATE TABLE ... REFERENCES a live table takes SHARE ROW EXCLUSIVE on the parent for milliseconds.
+    table: t_5m
+    migration: CREATE TABLE ev6 (id bigint PRIMARY KEY, event_id bigint REFERENCES {t}(id));
+    expect: {tier: safe, lock: SHARE ROW EXCLUSIVE}
+
+  - id: create_table_full_file
+    why: a typical create-seed-index-comment file; every relation is file-created.
+    migration: |
+      CREATE TABLE ev7 (id bigint PRIMARY KEY, kind text NOT NULL, payload jsonb);
+      INSERT INTO ev7 (id, kind) VALUES (1, 'a'), (2, 'b');
+      CREATE INDEX ev7_kind_idx ON ev7 (kind);
+      COMMENT ON TABLE ev7 IS 'seeded';
+      ALTER TABLE ev7 ADD COLUMN note text NOT NULL DEFAULT '';
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: safe, lock: null}
+      - {tier: safe, lock: null}
+      - {tier: safe, lock: null}
+      - {tier: safe, lock: null}
+
+  - id: grant_select_5m
+    why: GRANT takes no relation lock before PG 18.
+    source: 105 wild grant
+    table: t_5m
+    migration: GRANT SELECT ON {t} TO blastoise_ro;
+    expect: {tier: safe, lock: null}
+
+  - id: alter_sequence_restart
+    source: 99 wild alter_sequence
+    migration: ALTER SEQUENCE fixture_seq RESTART WITH 100;
+    expect: {tier: safe, lock: SHARE ROW EXCLUSIVE, note: a sequence is a relation; nextval callers wait milliseconds}
+
+  - id: create_sequence
+    migration: CREATE SEQUENCE fixture_seq2 START 1;
+    expect: {tier: safe, lock: null}
+
+  - id: set_storage_params_5m
+    why: SET (fillfactor) is SHARE UPDATE EXCLUSIVE; a handful of reloptions escalate, this one does not.
+    adversarial: looks_dangerous
+    table: t_5m
+    migration: ALTER TABLE {t} SET (fillfactor = 90);
+    expect: {tier: safe, lock: SHARE UPDATE EXCLUSIVE}
+
+  - id: analyze_5m
+    source: 41 wild analyze
+    table: t_5m
+    migration: ANALYZE {t};
+    expect: {tier: safe, lock: SHARE UPDATE EXCLUSIVE}
+
+  - id: vacuum_analyze_1m
+    why: VACUUM cannot run in a transaction block; as a standalone statement it is SHARE UPDATE EXCLUSIVE and blocks nothing.
+    adversarial: looks_dangerous
+    table: t_1m
+    mode: autocommit
+    migration: VACUUM (ANALYZE) {t};
+    expect: {tier: safe, lock: SHARE UPDATE EXCLUSIVE}
+
+  - id: create_policy_5m
+    why: CREATE POLICY takes ACCESS EXCLUSIVE on the table; 150 wild occurrences, mostly on file-created tables.
+    adversarial: looks_benign
+    source: 150 wild create_policy
+    table: t_5m
+    migration: CREATE POLICY {t}_v_read ON {t} FOR SELECT USING (true);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: enable_rls_5m
+    adversarial: looks_benign
+    table: t_5m
+    migration: ALTER TABLE {t} ENABLE ROW LEVEL SECURITY;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: create_matview_1m
+    why: CREATE MATERIALIZED VIEW reads the source under ACCESS SHARE; half a second at 1M.
+    adversarial: judgment_call
+    table: t_1m
+    migration: CREATE MATERIALIZED VIEW {t}_v_by_account AS SELECT account_id, count(*) AS n FROM {t} GROUP BY account_id;
+    expect: {tier: safe, lock: ACCESS SHARE}
+
+  - id: select_count_5m
+    table: t_5m
+    migration: SELECT count(*) FROM {t};
+    expect: {tier: safe, lock: ACCESS SHARE}
+
+  - id: do_block_guarded_add_column_5m
+    why: the wild corpus's dominant DO idiom - an information_schema guard around an ALTER that does run here.
+    table: t_5m
+    migration: |
+      DO $$
+      BEGIN
+        IF NOT EXISTS (SELECT 1 FROM information_schema.columns
+                       WHERE table_name = '{t}' AND column_name = 'zzz') THEN
+          ALTER TABLE {t} ADD COLUMN zzz integer;
+        END IF;
+      END $$;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: create_enum_type
+    source: 171 wild create_enum_type
+    migration: CREATE TYPE v_mood AS ENUM ('sad', 'ok', 'happy');
+    expect: {tier: safe, lock: null}
+
+  - id: rename_constraint_5m
+    source: 88 wild rename_constraint
+    table: t_5m
+    migration: ALTER TABLE {t} RENAME CONSTRAINT {t}_body_check TO {t}_body_present;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: rename_index_5m
+    why: RENAME INDEX takes SHARE UPDATE EXCLUSIVE on the index since PG 12.
+    adversarial: looks_dangerous
+    source: 59 wild rename_index
+    table: t_5m
+    migration: ALTER INDEX {t}_title_idx RENAME TO {t}_title_renamed_idx;
+    expect: {tier: safe, lock: SHARE UPDATE EXCLUSIVE}

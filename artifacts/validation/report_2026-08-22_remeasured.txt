@@ -1,0 +1,501 @@
+BLASTOISE VALIDATION HARNESS
+========================================================================
+cases: 172   statements scored: 212   elapsed: 1815s   smoke: False
+sizes seeded: {'t_1k': 1000, 't_100k': 100000, 't_1m': 1000000, 't_5m': 5000000}
+tier thresholds (ms): full block 2000/20000, write block 5000/60000
+
+HARDWARE NORMALIZATION
+------------------------------------------------------------------------
+probe[start]: machine factor 1.67x vs reference run (pre-AEL-floor 34-case), 1.227x vs the 1.46x-slower run of the same machine
+    create_index_single          t_1m    today     411 ms  ref     761   0.54x  [index_build_btree]
+    create_index_expr            t_1m    today    6125 ms  ref    3665   1.67x  [index_build_expression]
+    alter_type_int_bigint        t_1m    today   30888 ms  ref   11470   2.69x  [heap_rewrite]
+    add_check                    t_1m    today    1945 ms  ref     986   1.97x  [validation_scan]
+    add_fk_plain                 t_1m    today     981 ms  ref     380   2.58x  [fk_validation]
+    reindex_index                t_1m    today     759 ms  ref     697   1.09x  [index_bytes]
+    alter_type_varchar_widen     t_1m    today     991 ms  ref    1145   0.87x  [index_rebuild]
+    update_without_where         t_100k  today    7971 ms  ref    4889   1.63x  [dml_update]
+    delete_without_where         t_1m    today    4937 ms  ref    1190   4.15x  [dml_delete]
+probe[end]: machine factor 1.08x vs reference run (pre-AEL-floor 34-case), 0.676x vs the 1.46x-slower run of the same machine
+    create_index_single          t_1m    today     558 ms  ref     761   0.73x  [index_build_btree]
+    create_index_expr            t_1m    today    3113 ms  ref    3665   0.85x  [index_build_expression]
+    alter_type_int_bigint        t_1m    today   21973 ms  ref   11470   1.92x  [heap_rewrite]
+    add_check                    t_1m    today    1228 ms  ref     986   1.25x  [validation_scan]
+    add_fk_plain                 t_1m    today    1064 ms  ref     380   2.80x  [fk_validation]
+    reindex_index                t_1m    today     754 ms  ref     697   1.08x  [index_bytes]
+    alter_type_varchar_widen     t_1m    today    1044 ms  ref    1145   0.91x  [index_rebuild]
+    update_without_where         t_100k  today    4944 ms  ref    4889   1.01x  [dml_update]
+    delete_without_where         t_1m    today    1686 ms  ref    1190   1.42x  [dml_delete]
+factor over the run (light probes every 20 cases; each case uses the factor interpolated at the time it ran):
+    t=     18s start  comparable 0.98x (full-set 1.67x)   dml_delete=4.15 dml_update=1.63 fk_validat=2.58 heap_rewri=2.69 index_buil=0.54 index_buil=1.67 index_byte=1.09 index_rebu=0.87 validation=1.97
+    t=    191s mid1   comparable 0.56x (full-set 0.56x)   index_buil=0.56 index_byte=0.56 index_rebu=0.64 validation=0.44
+    t=    210s mid2   comparable 0.56x (full-set 0.56x)   index_buil=0.54 index_byte=0.58 index_rebu=0.68 validation=0.37
+    t=    524s mid3   comparable 0.54x (full-set 0.54x)   index_buil=0.51 index_byte=0.57 index_rebu=0.66 validation=0.37
+    t=    614s mid4   comparable 0.60x (full-set 0.60x)   index_buil=0.54 index_byte=0.68 index_rebu=0.66 validation=0.40
+    t=   1030s mid5   comparable 0.70x (full-set 0.69x)   index_buil=1.36 index_byte=0.66 index_rebu=0.73 validation=0.53
+    t=   1154s mid6   comparable 0.89x (full-set 0.89x)   index_buil=0.88 index_byte=0.82 index_rebu=0.90 validation=0.93
+    t=   1185s mid7   comparable 1.14x (full-set 1.14x)   index_buil=1.38 index_byte=0.89 index_rebu=1.51 validation=0.71
+    t=   1366s mid8   comparable 1.09x (full-set 1.09x)   index_buil=1.80 index_byte=0.90 index_rebu=1.28 validation=0.70
+    t=   1523s end    comparable 1.00x (full-set 1.08x)   dml_delete=1.42 dml_update=1.01 fk_validat=2.80 heap_rewri=1.92 index_buil=0.73 index_buil=0.85 index_byte=1.08 index_rebu=0.91 validation=1.25
+drift during the run: start 1.67x -> end 1.08x (ratio 0.65)
+factor used for ground-truth labels: median 0.719, range [0.541, 1.135] (measured work / factor + raw lock wait = reference-machine ms)
+
+PER-TIER PRECISION AND RECALL (statement level, truth = measured, normalized)
+------------------------------------------------------------------------
+tier                pred truth   tp   fp   fn  precision   recall  (fn as unknown)
+unsafe                13    23    9    4   14      69.2%    39.1%  (2)
+needs_timing          98    85   76   22    9      77.6%    89.4%  (2)
+safe_irreversible     11    14    9    2    5      81.8%    64.3%  (0)
+safe                  82    90   78    4   12      95.1%    86.7%  (4)
+unknown                8      truth was: {'safe': 4, 'unsafe': 2, 'needs_timing': 2}
+
+outcome directions: {'match': 172, 'strict': 17, 'lenient': 15, 'unknown': 8}  (lenient = engine said safer than measured: the dangerous kind)
+
+CONFUSION (rows = predicted, columns = truth)
+------------------------------------------------------------------------
+                            safe  safe_irrever  needs_timing        unsafe
+safe                          78             0             3             1
+safe_irreversible              0             9             0             2
+needs_timing                   8             5            76             9
+unsafe                         0             0             4             9
+unknown                        4             0             2             2
+
+UNSAFE IN DETAIL
+------------------------------------------------------------------------
+false BLOCKs (predicted unsafe, truth was):
+  addcol_volatile_default_1m#0->needs_timing
+  addcol_generated_stored_1m#0->needs_timing
+  upd_nowhere_1m#0->needs_timing
+  del_nowhere_5m#0->needs_timing
+missed UNSAFE (truth unsafe, predicted):
+  fk_orphans_fail#0<-safe
+  addcol_default_null_not_null_fails#0<-unknown
+  addcol_not_null_no_default_fails#0<-unknown
+  type_int_bigint_1m#0<-needs_timing
+  type_ts_tstz_nonutc_5m#0<-needs_timing
+  type_varchar_shrink_fails#0<-needs_timing
+  setnn_fails_on_nulls#0<-needs_timing
+  check_add_fails#0<-needs_timing
+  unique_add_fails_duplicates#0<-needs_timing
+  upd_matched_narrow_looking_5m#0<-needs_timing
+  enum_add_value_then_use_in_txn#2<-safe_irreversible
+  drop_type_in_use_fails#0<-safe_irreversible
+  conc_addcol_idle_holder_long#0<-needs_timing
+  conc_addcol_idle_holder_long_visible#0<-needs_timing
+
+FILE LEVEL (proceed / requires_approval / block)
+------------------------------------------------------------------------
+block              pred   13 truth   23 tp    9 precision  69.2% recall  39.1%
+requires_approval  pred  100 truth   80 tp   73 precision  73.0% recall  91.2%
+proceed            pred   59 truth   69 tp   53 precision  89.8% recall  76.8%
+directions: {'match': 135, 'strict': 20, 'lenient': 17}
+BLOCK disagreements:
+  fk_orphans_fail: predicted proceed, truth block
+  addcol_volatile_default_1m: predicted block, truth requires_approval
+  addcol_generated_stored_1m: predicted block, truth requires_approval
+  addcol_default_null_not_null_fails: predicted requires_approval, truth block
+  addcol_not_null_no_default_fails: predicted requires_approval, truth block
+  type_int_bigint_1m: predicted requires_approval, truth block
+  type_ts_tstz_nonutc_5m: predicted requires_approval, truth block
+  type_varchar_shrink_fails: predicted requires_approval, truth block
+  setnn_fails_on_nulls: predicted requires_approval, truth block
+  check_add_fails: predicted requires_approval, truth block
+  unique_add_fails_duplicates: predicted requires_approval, truth block
+  upd_nowhere_1m: predicted block, truth requires_approval
+  upd_matched_narrow_looking_5m: predicted requires_approval, truth block
+  del_nowhere_5m: predicted block, truth requires_approval
+  enum_add_value_then_use_in_txn: predicted proceed, truth block
+  drop_type_in_use_fails: predicted proceed, truth block
+  conc_addcol_idle_holder_long: predicted requires_approval, truth block
+  conc_addcol_idle_holder_long_visible: predicted requires_approval, truth block
+
+ERRORS BY STATEMENT KIND
+------------------------------------------------------------------------
+key                                     n  match  strict  lenient  unk
+alter_table                            92     72       3       10    7
+    fk_plain_5m#0 needs_timing->safe (strict)
+    fk_orphans_fail#0 safe->unsafe (lenient)
+    fk_from_loaded_table_to_live#1 unknown->safe (unknown)
+    fk_not_valid_then_validate_same_txn#2 unknown->safe (unknown)
+    addcol_volatile_default_1m#0 unsafe->needs_timing (strict)
+    addcol_generated_stored_1m#0 unsafe->needs_timing (strict)
+    addcol_default_null_not_null_fails#0 unknown->unsafe (unknown)
+    addcol_not_null_no_default_fails#0 unknown->unsafe (unknown)
+    addcol_not_null_no_default_empty_table#0 unknown->needs_timing (unknown)
+    type_int_bigint_1m#0 needs_timing->unsafe (lenient)
+    type_ts_tstz_nonutc_5m#0 needs_timing->unsafe (lenient)
+    type_varchar_shrink_fails#0 needs_timing->unsafe (lenient)
+    setnn_fails_on_nulls#0 needs_timing->unsafe (lenient)
+    check_add_fails#0 needs_timing->unsafe (lenient)
+    unique_add_fails_duplicates#0 needs_timing->unsafe (lenient)
+    set_storage_params_5m#0 unknown->safe (unknown)
+    conc_addcol_idle_holder_long#0 needs_timing->unsafe (lenient)
+    conc_addcol_idle_holder_long_visible#0 needs_timing->unsafe (lenient)
+    conc_fk_idle_writer_on_parent#0 safe->needs_timing (lenient)
+    conc_set_not_null_idle_holder_visible#0 unknown->needs_timing (unknown)
+create_index                           19     15       3        1    0
+    idx_btree_5m#0 needs_timing->safe (strict)
+    idx_expr_1m#0 needs_timing->safe (strict)
+    idx_gin_1m#0 needs_timing->safe (strict)
+    conc_create_index_tiny_rowexcl_holder#0 safe->needs_timing (lenient)
+update                                  7      3       2        2    0
+    upd_matched_narrow_looking_5m#0 needs_timing->unsafe (lenient)
+    upd_truly_narrow_5m#0 needs_timing->safe_irreversible (strict)
+    upd_from_join_1m#0 needs_timing->safe_irreversible (strict)
+    enum_add_value_then_use_in_txn#2 safe_irreversible->unsafe (lenient)
+create_table_as                         2      0       2        0    0
+    fk_from_loaded_table_to_live#0 needs_timing->safe (strict)
+    ctas_1m#0 needs_timing->safe (strict)
+delete_without_where                    4      2       2        0    0
+    del_nowhere_1m#0 needs_timing->safe_irreversible (strict)
+    del_nowhere_5m#0 unsafe->needs_timing (strict)
+update_without_where                    5      3       2        0    0
+    upd_nowhere_100k#0 needs_timing->safe_irreversible (strict)
+    upd_nowhere_1m#0 unsafe->needs_timing (strict)
+create_matview                          1      0       1        0    0
+    create_matview_1m#0 needs_timing->safe (strict)
+create_view                             2      1       0        1    0
+    create_or_replace_view_existing#0 safe->needs_timing (lenient)
+drop_type                               1      0       0        1    0
+    drop_type_in_use_fails#0 safe_irreversible->unsafe (lenient)
+insert                                  5      4       1        0    0
+    ins_select_bounded_1m#0 needs_timing->safe (strict)
+update_batched                          1      0       1        0    0
+    upd_batched_window_5m#0 needs_timing->safe_irreversible (strict)
+vacuum                                  1      0       0        0    1
+    vacuum_analyze_1m#0 unknown->safe (unknown)
+alter_enum_add_value                    2      2       0        0    0
+alter_enum_rename_value                 1      1       0        0    0
+alter_sequence                          1      1       0        0    0
+analyze                                 1      1       0        0    0
+begin                                   9      9       0        0    0
+comment_on                              5      5       0        0    0
+commit                                  9      9       0        0    0
+create_enum_type                        1      1       0        0    0
+create_function                         2      2       0        0    0
+create_index_concurrently               3      3       0        0    0
+create_policy                           1      1       0        0    0
+create_sequence                         1      1       0        0    0
+create_table                            9      9       0        0    0
+create_trigger                          1      1       0        0    0
+delete                                  1      1       0        0    0
+do_block                                2      2       0        0    0
+drop_function                           1      1       0        0    0
+drop_index                              2      2       0        0    0
+drop_index_concurrently                 1      1       0        0    0
+drop_policy                             1      1       0        0    0
+drop_sequence                           1      1       0        0    0
+drop_table                              3      3       0        0    0
+drop_trigger                            1      1       0        0    0
+drop_view                               1      1       0        0    0
+grant                                   1      1       0        0    0
+lock_table                              1      1       0        0    0
+reindex                                 3      3       0        0    0
+rename_column                           1      1       0        0    0
+rename_constraint                       1      1       0        0    0
+rename_index                            1      1       0        0    0
+rename_table                            1      1       0        0    0
+select                                  2      2       0        0    0
+truncate                                1      1       0        0    0
+
+ERRORS BY DECIDING CATALOG ROW
+------------------------------------------------------------------------
+key                                     n  match  strict  lenient  unk
+add_foreign_key                         9      5       1        2    1
+    fk_plain_5m#0 needs_timing->safe (strict)
+    fk_orphans_fail#0 safe->unsafe (lenient)
+    fk_from_loaded_table_to_live#1 unknown->safe (unknown)
+    conc_fk_idle_writer_on_parent#0 safe->needs_timing (lenient)
+create_index                           19     15       3        1    0
+    idx_btree_5m#0 needs_timing->safe (strict)
+    idx_expr_1m#0 needs_timing->safe (strict)
+    idx_gin_1m#0 needs_timing->safe (strict)
+    conc_create_index_tiny_rowexcl_holder#0 safe->needs_timing (lenient)
+update                                  7      3       2        2    0
+    upd_matched_narrow_looking_5m#0 needs_timing->unsafe (lenient)
+    upd_truly_narrow_5m#0 needs_timing->safe_irreversible (strict)
+    upd_from_join_1m#0 needs_timing->safe_irreversible (strict)
+    enum_add_value_then_use_in_txn#2 safe_irreversible->unsafe (lenient)
+add_column_not_null_no_default          3      0       0        0    3
+    addcol_default_null_not_null_fails#0 unknown->unsafe (unknown)
+    addcol_not_null_no_default_fails#0 unknown->unsafe (unknown)
+    addcol_not_null_no_default_empty_table#0 unknown->needs_timing (unknown)
+alter_column_type                      16     13       0        3    0
+    type_int_bigint_1m#0 needs_timing->unsafe (lenient)
+    type_ts_tstz_nonutc_5m#0 needs_timing->unsafe (lenient)
+    type_varchar_shrink_fails#0 needs_timing->unsafe (lenient)
+add_column                             14     12       0        2    0
+    conc_addcol_idle_holder_long#0 needs_timing->unsafe (lenient)
+    conc_addcol_idle_holder_long_visible#0 needs_timing->unsafe (lenient)
+create_table_as                         2      0       2        0    0
+    fk_from_loaded_table_to_live#0 needs_timing->safe (strict)
+    ctas_1m#0 needs_timing->safe (strict)
+delete_without_where                    4      2       2        0    0
+    del_nowhere_1m#0 needs_timing->safe_irreversible (strict)
+    del_nowhere_5m#0 unsafe->needs_timing (strict)
+set_not_null                            5      3       0        1    1
+    setnn_fails_on_nulls#0 needs_timing->unsafe (lenient)
+    conc_set_not_null_idle_holder_visible#0 unknown->needs_timing (unknown)
+update_without_where                    5      3       2        0    0
+    upd_nowhere_100k#0 needs_timing->safe_irreversible (strict)
+    upd_nowhere_1m#0 unsafe->needs_timing (strict)
+add_check                               4      3       0        1    0
+    check_add_fails#0 needs_timing->unsafe (lenient)
+add_column_default_volatile             4      3       1        0    0
+    addcol_volatile_default_1m#0 unsafe->needs_timing (strict)
+add_column_generated_stored             1      0       1        0    0
+    addcol_generated_stored_1m#0 unsafe->needs_timing (strict)
+add_unique                              4      3       0        1    0
+    unique_add_fails_duplicates#0 needs_timing->unsafe (lenient)
+create_matview                          1      0       1        0    0
+    create_matview_1m#0 needs_timing->safe (strict)
+create_view                             2      1       0        1    0
+    create_or_replace_view_existing#0 safe->needs_timing (lenient)
+drop_type                               1      0       0        1    0
+    drop_type_in_use_fails#0 safe_irreversible->unsafe (lenient)
+insert                                  5      4       1        0    0
+    ins_select_bounded_1m#0 needs_timing->safe (strict)
+set_storage_params                      1      0       0        0    1
+    set_storage_params_5m#0 unknown->safe (unknown)
+update_batched                          2      1       1        0    0
+    upd_batched_window_5m#0 needs_timing->safe_irreversible (strict)
+vacuum                                  1      0       0        0    1
+    vacuum_analyze_1m#0 unknown->safe (unknown)
+validate_constraint                     5      4       0        0    1
+    fk_not_valid_then_validate_same_txn#2 unknown->safe (unknown)
+add_check_not_valid                     1      1       0        0    0
+add_column_default_nonvolatile          9      9       0        0    0
+add_column_default_unknown_volatilit    1      1       0        0    0
+add_column_identity                     1      1       0        0    0
+add_column_serial                       2      2       0        0    0
+add_foreign_key_not_valid               3      3       0        0    0
+add_primary_key                         1      1       0        0    0
+add_unique_using_index                  1      1       0        0    0
+alter_enum_add_value                    2      2       0        0    0
+alter_enum_rename_value                 1      1       0        0    0
+alter_sequence                          1      1       0        0    0
+analyze                                 1      1       0        0    0
+begin                                   9      9       0        0    0
+comment_on                              5      5       0        0    0
+commit                                  9      9       0        0    0
+create_enum_type                        1      1       0        0    0
+create_function                         2      2       0        0    0
+create_index_concurrently               3      3       0        0    0
+create_policy                           1      1       0        0    0
+create_sequence                         1      1       0        0    0
+create_table                            9      9       0        0    0
+create_trigger                          1      1       0        0    0
+delete                                  1      1       0        0    0
+drop_column                             2      2       0        0    0
+drop_constraint                         2      2       0        0    0
+drop_function                           1      1       0        0    0
+drop_index                              2      2       0        0    0
+drop_index_concurrently                 1      1       0        0    0
+drop_not_null                           1      1       0        0    0
+drop_policy                             1      1       0        0    0
+drop_sequence                           1      1       0        0    0
+drop_table                              3      3       0        0    0
+drop_trigger                            1      1       0        0    0
+drop_view                               1      1       0        0    0
+enable_row_security                     1      1       0        0    0
+grant                                   1      1       0        0    0
+lock_table                              1      1       0        0    0
+reindex                                 3      3       0        0    0
+rename_column                           1      1       0        0    0
+rename_constraint                       1      1       0        0    0
+rename_index                            1      1       0        0    0
+rename_table                            1      1       0        0    0
+select                                  2      2       0        0    0
+set_column_default                      2      2       0        0    0
+truncate                                1      1       0        0    0
+
+ERRORS BY DURATION CONSTANT
+------------------------------------------------------------------------
+key                                     n  match  strict  lenient  unk
+(no duration constant)                 26      9       7        2    8
+    fk_from_loaded_table_to_live#0 needs_timing->safe (strict)
+    fk_from_loaded_table_to_live#1 unknown->safe (unknown)
+    fk_not_valid_then_validate_same_txn#2 unknown->safe (unknown)
+    addcol_default_null_not_null_fails#0 unknown->unsafe (unknown)
+    addcol_not_null_no_default_fails#0 unknown->unsafe (unknown)
+    addcol_not_null_no_default_empty_table#0 unknown->needs_timing (unknown)
+    upd_matched_narrow_looking_5m#0 needs_timing->unsafe (lenient)
+    upd_truly_narrow_5m#0 needs_timing->safe_irreversible (strict)
+    upd_batched_window_5m#0 needs_timing->safe_irreversible (strict)
+    upd_from_join_1m#0 needs_timing->safe_irreversible (strict)
+    ins_select_bounded_1m#0 needs_timing->safe (strict)
+    ctas_1m#0 needs_timing->safe (strict)
+    enum_add_value_then_use_in_txn#2 safe_irreversible->unsafe (lenient)
+    set_storage_params_5m#0 unknown->safe (unknown)
+    vacuum_analyze_1m#0 unknown->safe (unknown)
+    create_matview_1m#0 needs_timing->safe (strict)
+    conc_set_not_null_idle_holder_visible#0 unknown->needs_timing (unknown)
+constant_op                           112    108       0        4    0
+    drop_type_in_use_fails#0 safe_irreversible->unsafe (lenient)
+    create_or_replace_view_existing#0 safe->needs_timing (lenient)
+    conc_addcol_idle_holder_long#0 needs_timing->unsafe (lenient)
+    conc_addcol_idle_holder_long_visible#0 needs_timing->unsafe (lenient)
+fk_validation                          11      8       1        2    0
+    fk_plain_5m#0 needs_timing->safe (strict)
+    fk_orphans_fail#0 safe->unsafe (lenient)
+    conc_fk_idle_writer_on_parent#0 safe->needs_timing (lenient)
+heap_rewrite                           12      9       0        3    0
+    type_int_bigint_1m#0 needs_timing->unsafe (lenient)
+    type_ts_tstz_nonutc_5m#0 needs_timing->unsafe (lenient)
+    type_varchar_shrink_fails#0 needs_timing->unsafe (lenient)
+index_build_btree                      21     18       1        2    0
+    idx_btree_5m#0 needs_timing->safe (strict)
+    unique_add_fails_duplicates#0 needs_timing->unsafe (lenient)
+    conc_create_index_tiny_rowexcl_holder#0 safe->needs_timing (lenient)
+add_column_rewrite                      7      5       2        0    0
+    addcol_volatile_default_1m#0 unsafe->needs_timing (strict)
+    addcol_generated_stored_1m#0 unsafe->needs_timing (strict)
+dml_delete                              4      2       2        0    0
+    del_nowhere_1m#0 needs_timing->safe_irreversible (strict)
+    del_nowhere_5m#0 unsafe->needs_timing (strict)
+dml_update                              5      3       2        0    0
+    upd_nowhere_100k#0 needs_timing->safe_irreversible (strict)
+    upd_nowhere_1m#0 unsafe->needs_timing (strict)
+index_build_expression                  5      3       2        0    0
+    idx_expr_1m#0 needs_timing->safe (strict)
+    idx_gin_1m#0 needs_timing->safe (strict)
+validation_scan                         7      5       0        2    0
+    setnn_fails_on_nulls#0 needs_timing->unsafe (lenient)
+    check_add_fails#0 needs_timing->unsafe (lenient)
+index_bytes                             2      2       0        0    0
+
+ERRORS BY CORPUS FAMILY
+------------------------------------------------------------------------
+key                                     n  match  strict  lenient  unk
+dml_backfills                          22     12       9        1    0
+    upd_nowhere_100k#0 needs_timing->safe_irreversible (strict)
+    upd_nowhere_1m#0 unsafe->needs_timing (strict)
+    upd_matched_narrow_looking_5m#0 needs_timing->unsafe (lenient)
+    upd_truly_narrow_5m#0 needs_timing->safe_irreversible (strict)
+    upd_batched_window_5m#0 needs_timing->safe_irreversible (strict)
+    upd_from_join_1m#0 needs_timing->safe_irreversible (strict)
+    del_nowhere_1m#0 needs_timing->safe_irreversible (strict)
+    del_nowhere_5m#0 unsafe->needs_timing (strict)
+    ins_select_bounded_1m#0 needs_timing->safe (strict)
+    ctas_1m#0 needs_timing->safe (strict)
+add_column                             24     19       2        0    3
+    addcol_volatile_default_1m#0 unsafe->needs_timing (strict)
+    addcol_generated_stored_1m#0 unsafe->needs_timing (strict)
+    addcol_default_null_not_null_fails#0 unknown->unsafe (unknown)
+    addcol_not_null_no_default_fails#0 unknown->unsafe (unknown)
+    addcol_not_null_no_default_empty_table#0 unknown->needs_timing (unknown)
+concurrency                            11      6       0        4    1
+    conc_addcol_idle_holder_long#0 needs_timing->unsafe (lenient)
+    conc_addcol_idle_holder_long_visible#0 needs_timing->unsafe (lenient)
+    conc_create_index_tiny_rowexcl_holder#0 safe->needs_timing (lenient)
+    conc_fk_idle_writer_on_parent#0 safe->needs_timing (lenient)
+    conc_set_not_null_idle_holder_visible#0 unknown->needs_timing (unknown)
+foreign_keys                           18     13       2        1    2
+    fk_plain_5m#0 needs_timing->safe (strict)
+    fk_orphans_fail#0 safe->unsafe (lenient)
+    fk_from_loaded_table_to_live#0 needs_timing->safe (strict)
+    fk_from_loaded_table_to_live#1 unknown->safe (unknown)
+    fk_not_valid_then_validate_same_txn#2 unknown->safe (unknown)
+common_benign                          29     25       1        1    2
+    create_or_replace_view_existing#0 safe->needs_timing (lenient)
+    set_storage_params_5m#0 unknown->safe (unknown)
+    vacuum_analyze_1m#0 unknown->safe (unknown)
+    create_matview_1m#0 needs_timing->safe (strict)
+alter_column_type                      17     14       0        3    0
+    type_int_bigint_1m#0 needs_timing->unsafe (lenient)
+    type_ts_tstz_nonutc_5m#0 needs_timing->unsafe (lenient)
+    type_varchar_shrink_fails#0 needs_timing->unsafe (lenient)
+constraints                            21     18       0        3    0
+    setnn_fails_on_nulls#0 needs_timing->unsafe (lenient)
+    check_add_fails#0 needs_timing->unsafe (lenient)
+    unique_add_fails_duplicates#0 needs_timing->unsafe (lenient)
+index_creation                         25     22       3        0    0
+    idx_btree_5m#0 needs_timing->safe (strict)
+    idx_expr_1m#0 needs_timing->safe (strict)
+    idx_gin_1m#0 needs_timing->safe (strict)
+drops_irreversible                     25     23       0        2    0
+    enum_add_value_then_use_in_txn#2 safe_irreversible->unsafe (lenient)
+    drop_type_in_use_fails#0 safe_irreversible->unsafe (lenient)
+transactions                           20     20       0        0    0
+
+ERRORS BY ADVERSARIAL CLASS
+------------------------------------------------------------------------
+key                                     n  match  strict  lenient  unk
+looks_benign                           48     33       0       13    2
+    fk_orphans_fail#0 safe->unsafe (lenient)
+    addcol_default_null_not_null_fails#0 unknown->unsafe (unknown)
+    addcol_not_null_no_default_fails#0 unknown->unsafe (unknown)
+    type_ts_tstz_nonutc_5m#0 needs_timing->unsafe (lenient)
+    type_varchar_shrink_fails#0 needs_timing->unsafe (lenient)
+    setnn_fails_on_nulls#0 needs_timing->unsafe (lenient)
+    check_add_fails#0 needs_timing->unsafe (lenient)
+    unique_add_fails_duplicates#0 needs_timing->unsafe (lenient)
+    upd_matched_narrow_looking_5m#0 needs_timing->unsafe (lenient)
+    enum_add_value_then_use_in_txn#2 safe_irreversible->unsafe (lenient)
+    drop_type_in_use_fails#0 safe_irreversible->unsafe (lenient)
+    create_or_replace_view_existing#0 safe->needs_timing (lenient)
+    conc_addcol_idle_holder_long#0 needs_timing->unsafe (lenient)
+    conc_create_index_tiny_rowexcl_holder#0 safe->needs_timing (lenient)
+    conc_fk_idle_writer_on_parent#0 safe->needs_timing (lenient)
+(plain)                               114    101      11        2    0
+    idx_btree_5m#0 needs_timing->safe (strict)
+    idx_expr_1m#0 needs_timing->safe (strict)
+    idx_gin_1m#0 needs_timing->safe (strict)
+    fk_plain_5m#0 needs_timing->safe (strict)
+    addcol_volatile_default_1m#0 unsafe->needs_timing (strict)
+    addcol_generated_stored_1m#0 unsafe->needs_timing (strict)
+    type_int_bigint_1m#0 needs_timing->unsafe (lenient)
+    upd_nowhere_100k#0 needs_timing->safe_irreversible (strict)
+    upd_nowhere_1m#0 unsafe->needs_timing (strict)
+    upd_from_join_1m#0 needs_timing->safe_irreversible (strict)
+    del_nowhere_1m#0 needs_timing->safe_irreversible (strict)
+    del_nowhere_5m#0 unsafe->needs_timing (strict)
+    conc_addcol_idle_holder_long_visible#0 needs_timing->unsafe (lenient)
+looks_dangerous                        35     28       3        0    4
+    addcol_not_null_no_default_empty_table#0 unknown->needs_timing (unknown)
+    upd_truly_narrow_5m#0 needs_timing->safe_irreversible (strict)
+    upd_batched_window_5m#0 needs_timing->safe_irreversible (strict)
+    ins_select_bounded_1m#0 needs_timing->safe (strict)
+    set_storage_params_5m#0 unknown->safe (unknown)
+    vacuum_analyze_1m#0 unknown->safe (unknown)
+    conc_set_not_null_idle_holder_visible#0 unknown->needs_timing (unknown)
+judgment_call                          15     10       3        0    2
+    fk_from_loaded_table_to_live#0 needs_timing->safe (strict)
+    fk_from_loaded_table_to_live#1 unknown->safe (unknown)
+    fk_not_valid_then_validate_same_txn#2 unknown->safe (unknown)
+    ctas_1m#0 needs_timing->safe (strict)
+    create_matview_1m#0 needs_timing->safe (strict)
+
+LABEL MISMATCHES (author's expectation vs measurement; truth = measurement)
+------------------------------------------------------------------------
+  idx_unique_5m#0: tier: expected safe, measured needs_timing
+  addcol_serial_1m#0: tier: expected needs_timing, measured unsafe
+  type_int_bigint_1m#0: tier: expected needs_timing, measured unsafe
+  upd_backfill_null_1m#0: tier: expected safe_irreversible, measured needs_timing
+
+BOUNDARY CASES (truth hold within 25% of a tier threshold: hardware decides)
+------------------------------------------------------------------------
+  addcol_serial_1m#0                       hold    20763 ms  thresholds (2000, 20000)  x1.04  truth unsafe            pred unsafe            match
+  type_bigint_int_narrow_100k#0            hold     1765 ms  thresholds (2000, 20000)  x0.88  truth needs_timing      pred needs_timing      match
+  addcol_domain_constrained_default_100k#0 hold     2318 ms  thresholds (2000, 20000)  x1.16  truth needs_timing      pred needs_timing      match
+  addcol_volatile_default_1m#0             hold    16577 ms  thresholds (2000, 20000)  x0.83  truth needs_timing      pred unsafe            strict
+  addcol_generated_stored_1m#0             hold    16570 ms  thresholds (2000, 20000)  x0.83  truth needs_timing      pred unsafe            strict
+  type_int_bigint_100k#0                   hold     2405 ms  thresholds (2000, 20000)  x1.20  truth needs_timing      pred needs_timing      match
+  upd_nowhere_1m#0                         hold    46401 ms  thresholds (5000, 60000)  x0.77  truth needs_timing      pred unsafe            strict
+  idx_expr_1m#0                            hold     3778 ms  thresholds (5000, 60000)  x0.76  truth safe              pred needs_timing      strict
+
+NORMALIZATION SENSITIVITY
+------------------------------------------------------------------------
+outcomes with normalized labels: {'match': 172, 'strict': 17, 'lenient': 15, 'unknown': 8}
+outcomes with raw labels:        {'match': 171, 'strict': 18, 'lenient': 15, 'unknown': 8}
+outcomes with per-family labels: {'match': 173, 'strict': 19, 'lenient': 12, 'unknown': 8}
+UNSAFE precision: normalized  69.2%  raw  61.5%  per-family  53.8%
+labels flipped by normalization (1):
+  addcol_serial_1m#0: raw needs_timing vs normalized unsafe
+labels flipped by per-family factor (6):
+  addcol_domain_constrained_default_5m#0: per-family needs_timing vs normalized unsafe
+  type_int_bigint_1m#0: per-family needs_timing vs normalized unsafe
+  type_int_bigint_5m#0: per-family needs_timing vs normalized unsafe
+  type_ts_tstz_nonutc_5m#0: per-family needs_timing vs normalized unsafe
+  del_nowhere_5m#0: per-family safe_irreversible vs normalized needs_timing
+  conc_fk_idle_writer_on_parent#0: per-family safe vs normalized needs_timing

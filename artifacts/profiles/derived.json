@@ -1,0 +1,596 @@
+{
+ "anchor": "laptop-nvme",
+ "anchor_compute_ms": 215,
+ "anchor_scan_ms": 26,
+ "profiles": {
+  "laptop-nvme": {
+   "compute_ms": 215,
+   "scan_ms": 26,
+   "compute_ms_all": [
+    196,
+    220,
+    215
+   ],
+   "scan_ms_all": [
+    31,
+    26,
+    15
+   ],
+   "machine": {
+    "hostname": "laptop-nvme",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cpu_count": 12,
+    "disk_label": "laptop local NVMe (Windows 11)",
+    "cpu_model": "Intel64 Family 6 Model 186 Stepping 3, GenuineIntel"
+   }
+  }
+ },
+ "constants": {
+  "add_column_rewrite": {
+   "probe": "compute",
+   "profiles": 1,
+   "per_profile": {
+    "laptop-nvme": {
+     "value": 55444,
+     "slowest_at_scale": 55444,
+     "readings": [
+      {
+       "case": "compute_addcol_volatile",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 55756,
+       "ms": 17935
+      },
+      {
+       "case": "compute_addcol_serial",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 75187,
+       "ms": 13300
+      },
+      {
+       "case": "compute_addcol_generated",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 76952,
+       "ms": 12995
+      },
+      {
+       "case": "compute_addcol_volatile",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 55444,
+       "ms": 18036
+      },
+      {
+       "case": "compute_addcol_serial",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 72907,
+       "ms": 13716
+      },
+      {
+       "case": "compute_addcol_generated",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 79327,
+       "ms": 12606
+      }
+     ],
+     "within_profile_spread_tenths": 15,
+     "factor_compute": 1.0,
+     "factor_scan": 1.0,
+     "scaled_to_anchor_by_compute": 55444,
+     "scaled_to_anchor_by_scan": 55444
+    }
+   },
+   "anchor_value": 55444,
+   "cross_profile_spread_raw_tenths": 0,
+   "cross_profile_spread_scaled_by_compute_tenths": 0,
+   "cross_profile_spread_scaled_by_scan_tenths": 0,
+   "cross_profile_spread_tenths": 0,
+   "within_profile_spread_tenths_max": 15
+  },
+  "constant_op": {
+   "probe": "compute",
+   "profiles": 1,
+   "per_profile": {
+    "laptop-nvme": {
+     "value": 2,
+     "slowest_at_scale": 3,
+     "readings": [
+      {
+       "case": "addcol_nodefault",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 3,
+       "ms": 3
+      },
+      {
+       "case": "addcol_nodefault",
+       "table": "t_10m",
+       "pass": "A",
+       "rate": 1,
+       "ms": 1
+      },
+      {
+       "case": "addcol_nodefault",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 3,
+       "ms": 3
+      },
+      {
+       "case": "addcol_nodefault",
+       "table": "t_10m",
+       "pass": "B",
+       "rate": 1,
+       "ms": 1
+      }
+     ],
+     "within_profile_spread_tenths": 30,
+     "factor_compute": 1.0,
+     "factor_scan": 1.0,
+     "scaled_to_anchor_by_compute": 2,
+     "scaled_to_anchor_by_scan": 2
+    }
+   },
+   "anchor_value": 2,
+   "cross_profile_spread_raw_tenths": 0,
+   "cross_profile_spread_scaled_by_compute_tenths": 0,
+   "cross_profile_spread_scaled_by_scan_tenths": 0,
+   "cross_profile_spread_tenths": 0,
+   "within_profile_spread_tenths_max": 30
+  },
+  "dml_delete": {
+   "probe": "compute",
+   "profiles": 1,
+   "per_profile": {
+    "laptop-nvme": {
+     "value": 632511,
+     "slowest_at_scale": 632511,
+     "readings": [
+      {
+       "case": "delete_without_where",
+       "table": "t_100k",
+       "pass": "A",
+       "rate": 787401,
+       "ms": 127
+      },
+      {
+       "case": "delete_without_where",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 742390,
+       "ms": 1347
+      },
+      {
+       "case": "delete_without_where",
+       "table": "t_100k",
+       "pass": "B",
+       "rate": 1020408,
+       "ms": 98
+      },
+      {
+       "case": "delete_without_where",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 632511,
+       "ms": 1581
+      }
+     ],
+     "within_profile_spread_tenths": 17,
+     "factor_compute": 1.0,
+     "factor_scan": 1.0,
+     "scaled_to_anchor_by_compute": 632511,
+     "scaled_to_anchor_by_scan": 632511
+    }
+   },
+   "anchor_value": 632511,
+   "cross_profile_spread_raw_tenths": 0,
+   "cross_profile_spread_scaled_by_compute_tenths": 0,
+   "cross_profile_spread_scaled_by_scan_tenths": 0,
+   "cross_profile_spread_tenths": 0,
+   "within_profile_spread_tenths_max": 17
+  },
+  "dml_update": {
+   "probe": "compute",
+   "profiles": 1,
+   "per_profile": {
+    "laptop-nvme": {
+     "value": 13248,
+     "slowest_at_scale": 13248,
+     "readings": [
+      {
+       "case": "update_without_where",
+       "table": "t_100k",
+       "pass": "A",
+       "rate": 14697,
+       "ms": 6804
+      },
+      {
+       "case": "update_without_where",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 13248,
+       "ms": 75479
+      },
+      {
+       "case": "update_without_where",
+       "table": "t_100k",
+       "pass": "B",
+       "rate": 14749,
+       "ms": 6780
+      },
+      {
+       "case": "update_without_where",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 15189,
+       "ms": 65836
+      }
+     ],
+     "within_profile_spread_tenths": 12,
+     "factor_compute": 1.0,
+     "factor_scan": 1.0,
+     "scaled_to_anchor_by_compute": 13248,
+     "scaled_to_anchor_by_scan": 13248
+    }
+   },
+   "anchor_value": 13248,
+   "cross_profile_spread_raw_tenths": 0,
+   "cross_profile_spread_scaled_by_compute_tenths": 0,
+   "cross_profile_spread_scaled_by_scan_tenths": 0,
+   "cross_profile_spread_tenths": 0,
+   "within_profile_spread_tenths_max": 12
+  },
+  "fk_validation": {
+   "probe": "compute",
+   "profiles": 1,
+   "per_profile": {
+    "laptop-nvme": {
+     "value": 1009081,
+     "slowest_at_scale": 1009081,
+     "readings": [
+      {
+       "case": "add_fk_plain",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 1009081,
+       "ms": 991
+      },
+      {
+       "case": "add_fk_plain",
+       "table": "t_10m",
+       "pass": "A",
+       "rate": 3314550,
+       "ms": 3017
+      },
+      {
+       "case": "add_fk_plain",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 3039513,
+       "ms": 329
+      },
+      {
+       "case": "add_fk_plain",
+       "table": "t_10m",
+       "pass": "B",
+       "rate": 3835826,
+       "ms": 2607
+      }
+     ],
+     "within_profile_spread_tenths": 39,
+     "factor_compute": 1.0,
+     "factor_scan": 1.0,
+     "scaled_to_anchor_by_compute": 1009081,
+     "scaled_to_anchor_by_scan": 1009081
+    }
+   },
+   "anchor_value": 1009081,
+   "cross_profile_spread_raw_tenths": 0,
+   "cross_profile_spread_scaled_by_compute_tenths": 0,
+   "cross_profile_spread_scaled_by_scan_tenths": 0,
+   "cross_profile_spread_tenths": 0,
+   "within_profile_spread_tenths_max": 39
+  },
+  "heap_rewrite": {
+   "probe": "compute",
+   "profiles": 1,
+   "per_profile": {
+    "laptop-nvme": {
+     "value": 45057,
+     "slowest_at_scale": 45057,
+     "readings": [
+      {
+       "case": "rewrite_int_bigint",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 79827,
+       "ms": 12527
+      },
+      {
+       "case": "rewrite_text_varchar",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 74041,
+       "ms": 13506
+      },
+      {
+       "case": "rewrite_int_bigint",
+       "table": "t_10m",
+       "pass": "A",
+       "rate": 45057,
+       "ms": 221940
+      },
+      {
+       "case": "rewrite_int_bigint",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 83584,
+       "ms": 11964
+      },
+      {
+       "case": "rewrite_text_varchar",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 78988,
+       "ms": 12660
+      },
+      {
+       "case": "rewrite_int_bigint",
+       "table": "t_10m",
+       "pass": "B",
+       "rate": 52360,
+       "ms": 190983
+      }
+     ],
+     "within_profile_spread_tenths": 19,
+     "factor_compute": 1.0,
+     "factor_scan": 1.0,
+     "scaled_to_anchor_by_compute": 45057,
+     "scaled_to_anchor_by_scan": 45057
+    }
+   },
+   "anchor_value": 45057,
+   "cross_profile_spread_raw_tenths": 0,
+   "cross_profile_spread_scaled_by_compute_tenths": 0,
+   "cross_profile_spread_scaled_by_scan_tenths": 0,
+   "cross_profile_spread_tenths": 0,
+   "within_profile_spread_tenths_max": 19
+  },
+  "index_build_btree": {
+   "probe": "compute",
+   "profiles": 1,
+   "per_profile": {
+    "laptop-nvme": {
+     "value": 738552,
+     "slowest_at_scale": 738552,
+     "readings": [
+      {
+       "case": "create_index_single",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 738552,
+       "ms": 1354
+      },
+      {
+       "case": "create_index_single",
+       "table": "t_10m",
+       "pass": "A",
+       "rate": 1012248,
+       "ms": 9879
+      },
+      {
+       "case": "create_index_single",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 1432664,
+       "ms": 698
+      },
+      {
+       "case": "create_index_single",
+       "table": "t_10m",
+       "pass": "B",
+       "rate": 1094930,
+       "ms": 9133
+      }
+     ],
+     "within_profile_spread_tenths": 20,
+     "factor_compute": 1.0,
+     "factor_scan": 1.0,
+     "scaled_to_anchor_by_compute": 738552,
+     "scaled_to_anchor_by_scan": 738552
+    }
+   },
+   "anchor_value": 738552,
+   "cross_profile_spread_raw_tenths": 0,
+   "cross_profile_spread_scaled_by_compute_tenths": 0,
+   "cross_profile_spread_scaled_by_scan_tenths": 0,
+   "cross_profile_spread_tenths": 0,
+   "within_profile_spread_tenths_max": 20
+  },
+  "index_build_expression": {
+   "probe": "compute",
+   "profiles": 1,
+   "per_profile": {
+    "laptop-nvme": {
+     "value": 169462,
+     "slowest_at_scale": 169462,
+     "readings": [
+      {
+       "case": "create_index_expr",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 249438,
+       "ms": 4009
+      },
+      {
+       "case": "create_index_expr",
+       "table": "t_10m",
+       "pass": "A",
+       "rate": 169462,
+       "ms": 59010
+      },
+      {
+       "case": "create_index_expr",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 246913,
+       "ms": 4050
+      },
+      {
+       "case": "create_index_expr",
+       "table": "t_10m",
+       "pass": "B",
+       "rate": 175629,
+       "ms": 56938
+      }
+     ],
+     "within_profile_spread_tenths": 15,
+     "factor_compute": 1.0,
+     "factor_scan": 1.0,
+     "scaled_to_anchor_by_compute": 169462,
+     "scaled_to_anchor_by_scan": 169462
+    }
+   },
+   "anchor_value": 169462,
+   "cross_profile_spread_raw_tenths": 0,
+   "cross_profile_spread_scaled_by_compute_tenths": 0,
+   "cross_profile_spread_scaled_by_scan_tenths": 0,
+   "cross_profile_spread_tenths": 0,
+   "within_profile_spread_tenths_max": 15
+  },
+  "index_bytes": {
+   "probe": "compute",
+   "profiles": 1,
+   "per_profile": {
+    "laptop-nvme": {
+     "value": 7806648,
+     "slowest_at_scale": 7806648,
+     "readings": [
+      {
+       "case": "reindex_index",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 9680405,
+       "ms": 710
+      },
+      {
+       "case": "reindex_index",
+       "table": "t_10m",
+       "pass": "A",
+       "rate": 7806648,
+       "ms": 9375
+      },
+      {
+       "case": "reindex_index",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 8891446,
+       "ms": 773
+      },
+      {
+       "case": "reindex_index",
+       "table": "t_10m",
+       "pass": "B",
+       "rate": 7982040,
+       "ms": 9169
+      }
+     ],
+     "within_profile_spread_tenths": 13,
+     "factor_compute": 1.0,
+     "factor_scan": 1.0,
+     "scaled_to_anchor_by_compute": 7806648,
+     "scaled_to_anchor_by_scan": 7806648
+    }
+   },
+   "anchor_value": 7806648,
+   "cross_profile_spread_raw_tenths": 0,
+   "cross_profile_spread_scaled_by_compute_tenths": 0,
+   "cross_profile_spread_scaled_by_scan_tenths": 0,
+   "cross_profile_spread_tenths": 0,
+   "within_profile_spread_tenths_max": 13
+  },
+  "validation_scan": {
+   "probe": "compute",
+   "profiles": 1,
+   "per_profile": {
+    "laptop-nvme": {
+     "value": 796241,
+     "slowest_at_scale": 796241,
+     "readings": [
+      {
+       "case": "scan_add_check",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 862068,
+       "ms": 1160
+      },
+      {
+       "case": "scan_set_not_null",
+       "table": "t_1m",
+       "pass": "A",
+       "rate": 1006036,
+       "ms": 994
+      },
+      {
+       "case": "scan_add_check",
+       "table": "t_10m",
+       "pass": "A",
+       "rate": 796241,
+       "ms": 12559
+      },
+      {
+       "case": "scan_set_not_null",
+       "table": "t_10m",
+       "pass": "A",
+       "rate": 1018641,
+       "ms": 9817
+      },
+      {
+       "case": "scan_add_check",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 1531393,
+       "ms": 653
+      },
+      {
+       "case": "scan_set_not_null",
+       "table": "t_1m",
+       "pass": "B",
+       "rate": 1727115,
+       "ms": 579
+      },
+      {
+       "case": "scan_add_check",
+       "table": "t_10m",
+       "pass": "B",
+       "rate": 875963,
+       "ms": 11416
+      },
+      {
+       "case": "scan_set_not_null",
+       "table": "t_10m",
+       "pass": "B",
+       "rate": 1074691,
+       "ms": 9305
+      }
+     ],
+     "within_profile_spread_tenths": 22,
+     "factor_compute": 1.0,
+     "factor_scan": 1.0,
+     "scaled_to_anchor_by_compute": 796241,
+     "scaled_to_anchor_by_scan": 796241
+    }
+   },
+   "anchor_value": 796241,
+   "cross_profile_spread_raw_tenths": 0,
+   "cross_profile_spread_scaled_by_compute_tenths": 0,
+   "cross_profile_spread_scaled_by_scan_tenths": 0,
+   "cross_profile_spread_tenths": 0,
+   "within_profile_spread_tenths_max": 22
+  }
+ }
+}

@@ -1,0 +1,79 @@
+# GitHub Actions alternative to run_profiles_gce.sh: one job per hosted-runner
+# hardware profile (x86 Ubuntu, ARM64 Ubuntu, Apple-silicon macOS, Windows x86).
+# Put this at .github/workflows/measure.yml in a (private) repo holding the
+# measurement bundle (see run_profiles_gce.sh for the file list), dispatch it,
+# and download the per-profile JSON artifacts into scratch/profiles/.
+name: measure-profiles
+on:
+  workflow_dispatch:
+    inputs:
+      sizes:
+        default: "t_1k,t_100k,t_1m,t_10m"
+      passes:
+        default: "2"
+jobs:
+  measure:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            profile: gh-ubuntu-x64
+            disk: "Azure temp SSD (ubuntu-latest, 4 vCPU x86_64)"
+          - os: ubuntu-24.04-arm
+            profile: gh-ubuntu-arm64
+            disk: "Azure temp SSD (ubuntu-24.04-arm, 4 vCPU Cobalt arm64)"
+          - os: macos-latest
+            profile: gh-macos-arm64
+            disk: "Apple silicon local NVMe (macos-latest, 3 vCPU M-series)"
+          - os: windows-latest
+            profile: gh-windows-x64
+            disk: "Azure temp SSD D: (windows-latest, 4 vCPU x86_64)"
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 330
+    continue-on-error: ${{ matrix.os == 'windows-latest' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install PostgreSQL 17 (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-common
+          sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
+          sudo apt-get install -y postgresql-17
+          sudo systemctl stop postgresql || true
+          echo "PG_BIN=/usr/lib/postgresql/17/bin" >> "$GITHUB_ENV"
+          df -h .
+      - name: Install PostgreSQL 17 (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          brew install postgresql@17
+          echo "PG_BIN=$(brew --prefix postgresql@17)/bin" >> "$GITHUB_ENV"
+          df -h .
+      - name: Install PostgreSQL 17 (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          choco install postgresql17 --params '/Password:blastoise' -y --no-progress
+          Stop-Service postgresql* -ErrorAction SilentlyContinue
+          "PG_BIN=C:\Program Files\PostgreSQL\17\bin" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+      - name: Python deps
+        run: python -m pip install "psycopg[binary]>=3.2"
+      - name: Measure
+        shell: bash
+        run: |
+          python artifacts/scripts/measure_profiles.py \
+            --profile "${{ matrix.profile }}" --pg-bin "$PG_BIN" \
+            --disk "${{ matrix.disk }}" --sizes "${{ inputs.sizes }}" \
+            --passes "${{ inputs.passes }}" \
+            --work-dir "${{ runner.temp }}/pgwork" \
+            --out "${{ runner.temp }}/out/${{ matrix.profile }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.profile }}
+          path: ${{ runner.temp }}/out/*.json
+          if-no-files-found: warn

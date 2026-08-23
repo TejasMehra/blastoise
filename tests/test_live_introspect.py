@@ -426,7 +426,7 @@ class TestSnapshotSerialization:
             second = snapshot.to_canonical_json()
             assert first == second
             parsed = json.loads(first)
-            assert parsed["snapshot_format"] == 3
+            assert parsed["snapshot_format"] == 5
             assert parsed["target"]["user"] == "blastoise_ro"
             assert "password" not in first
         finally:
@@ -919,3 +919,55 @@ class TestNoNewPrivilegesRequired:
         finally:
             admin.execute(f"DROP TABLE public.{table}")
             admin.execute(f"DROP FUNCTION public.{fn}()")
+
+
+class TestCalibrationProbe:
+    def test_probe_reads_compute_without_touching_user_tables(
+        self, admin: psycopg.Connection, ro_dsn: str
+    ) -> None:
+        from blastoise.live import calibrate as cb
+
+        table = unique_name("t_probe")
+        admin.execute(f"CREATE TABLE public.{table} (id int)")
+        try:
+            snapshot = capture_snapshot(ro_dsn, [f"public.{table}"])
+            cal = snapshot.calibration
+            assert cal.compute_ms.available and isinstance(cal.compute_ms.value, int)
+            assert cal.compute_ms.value >= 0
+            assert cal.repeats == cb.PROBE_REPEATS
+            assert cal.compute_rows == cb.COMPUTE_PROBE_ROWS
+            # The probe serializes with everything else, no floats.
+            assert '"calibration"' in snapshot.to_canonical_json()
+        finally:
+            admin.execute(f"DROP TABLE public.{table}")
+
+    def test_probe_survives_an_exclusive_holder_on_the_target(
+        self, admin_dsn: str, ro_dsn: str
+    ) -> None:
+        # The probe opens no relation, so an ACCESS EXCLUSIVE holder on the
+        # target (which degrades the size facts) does not touch it.
+        table = unique_name("t_probe_locked")
+        with psycopg.connect(admin_dsn, autocommit=True) as setup:
+            setup.execute(f"CREATE TABLE public.{table} (id int)")
+        holder = psycopg.connect(admin_dsn)
+        try:
+            holder.execute(f"LOCK TABLE public.{table} IN ACCESS EXCLUSIVE MODE")
+            snapshot = capture_snapshot(ro_dsn, [f"public.{table}"], lock_timeout_ms=300)
+        finally:
+            holder.rollback()
+            holder.close()
+            with psycopg.connect(admin_dsn, autocommit=True) as teardown:
+                teardown.execute(f"DROP TABLE public.{table}")
+        assert not relation(snapshot, f"public.{table}").relation_size_bytes.available
+        assert snapshot.calibration.compute_ms.available
+
+    def test_probe_works_without_pg_monitor(
+        self, admin: psycopg.Connection, nomon_dsn: str
+    ) -> None:
+        table = unique_name("t_probe_nomon")
+        admin.execute(f"CREATE TABLE public.{table} (id int)")
+        try:
+            snapshot = capture_snapshot(nomon_dsn, [f"public.{table}"])
+            assert snapshot.calibration.compute_ms.available
+        finally:
+            admin.execute(f"DROP TABLE public.{table}")

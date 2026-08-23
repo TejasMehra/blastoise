@@ -14,7 +14,7 @@ import pytest
 from verdict_helpers import relation, snapshot, waiter
 
 from blastoise.catalog.loader import load_catalog
-from blastoise.live.model import LiveSnapshot
+from blastoise.live.model import Fact, LiveSnapshot
 from blastoise.parser import parse_migration
 from blastoise.verdict import (
     SAFE_TIERS,
@@ -43,7 +43,7 @@ def one(sql: str, snap: LiveSnapshot | None = None, pg: int = 17) -> StatementAs
     return result.statements[0]
 
 
-BIG = snapshot(relations=(relation("users", rows=40_000_000),))
+BIG = snapshot(relations=(relation("users", rows=400_000_000),))
 SMALL = snapshot(relations=(relation("users", rows=200),))
 
 SIZE_DEPENDENT = (
@@ -101,8 +101,10 @@ class TestSizeDrivesSeverity:
 
     def test_expression_index_is_stricter_than_plain_at_the_same_size(self) -> None:
         # The same table size classifies differently by index shape: the
-        # measured expression/GIN rate is 4x slower than plain btree.
-        mid = snapshot(relations=(relation("users", rows=10_000_000),))
+        # measured expression/GIN rate is 4x slower than plain btree. 20M
+        # rows: the plain build is ~27 s (clear of both write lines), the
+        # expression build ~2 min (clear of the 60 s line on the other side).
+        mid = snapshot(relations=(relation("users", rows=20_000_000),))
         plain = one("CREATE INDEX idx ON users (email);", mid).verdict
         expr = one("CREATE INDEX idx ON users (lower(email));", mid).verdict
         gin = one("CREATE INDEX idx ON users USING gin (payload);", mid).verdict
@@ -345,6 +347,60 @@ class TestContention:
         assert "pg_locks" in verdict.rationale
         # weakest contributor wins: SIMULATED duration + OBSERVED conflict
         assert verdict.method is Method.SIMULATED
+
+    def test_idle_holder_conflict_does_not_push_needs_timing_to_unsafe(self) -> None:
+        # An ADD COLUMN on a live table is NEEDS_TIMING (the ACCESS EXCLUSIVE
+        # floor). Observed contention that is only an idle-in-transaction
+        # holder is a transient queue the lock_timeout+retry remedy already
+        # covers, so one-tier escalation must not compound it to UNSAFE.
+        idle = snapshot(
+            relations=(relation("users", rows=200),),
+            waiters=(waiter("public.users", blockers_all_idle=Fact.of(True)),),
+        )
+        verdict = one("ALTER TABLE users ADD COLUMN x int;", idle).verdict
+        # Without the idle carve-out this brief-AEL NEEDS_TIMING would escalate
+        # to UNSAFE; with it, the transient queue leaves the tier unchanged.
+        assert verdict.classification is Classification.NEEDS_TIMING
+
+    def test_active_holder_conflict_pushes_needs_timing_to_unsafe(self) -> None:
+        # The same statement, but the conflicting holder is actively running:
+        # sustained contention a retry keeps losing to, which is UNSAFE.
+        active = snapshot(
+            relations=(relation("users", rows=200),),
+            waiters=(waiter("public.users", blockers_all_idle=Fact.of(False)),),
+        )
+        verdict = one("ALTER TABLE users ADD COLUMN x int;", active).verdict
+        assert verdict.classification is Classification.UNSAFE
+        assert "conflicting lock traffic" in verdict.rationale
+
+    def test_unknown_holder_state_keeps_the_stricter_escalation(self) -> None:
+        # If the holder's state could not be read (masked stats), the engine
+        # cannot prove it idle, so it keeps the conservative UNSAFE.
+        masked = snapshot(
+            relations=(relation("users", rows=200),),
+            waiters=(waiter("public.users"),),  # blockers_all_idle unavailable
+        )
+        verdict = one("ALTER TABLE users ADD COLUMN x int;", masked).verdict
+        assert verdict.classification is Classification.UNSAFE
+
+    def test_idle_holder_still_lifts_safe_to_needs_timing(self) -> None:
+        # Idle contention is still a timing problem: it lifts a SAFE statement
+        # to NEEDS_TIMING (a window / lock_timeout), just not to UNSAFE.
+        # CREATE INDEX takes SHARE; an idle *writer* (ROW EXCLUSIVE) conflicts
+        # with it, so the conflict is observed and lifts SAFE to NEEDS_TIMING.
+        idle = snapshot(
+            relations=(relation("users", rows=200),),
+            waiters=(
+                waiter(
+                    "public.users",
+                    blocking_modes=("RowExclusiveLock",),
+                    blockers_all_idle=Fact.of(True),
+                ),
+            ),
+        )
+        verdict = one("CREATE INDEX i ON users (email);", idle).verdict
+        assert verdict.classification is Classification.NEEDS_TIMING
+        assert "idle-in-transaction" in verdict.rationale
 
     def test_waiters_unavailable_degrades_not_escalates(self) -> None:
         degraded = snapshot(

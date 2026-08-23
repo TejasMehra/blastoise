@@ -19,14 +19,18 @@ from blastoise.verdict.duration import (
 
 SERVER = snapshot().server
 
-# The constants the 2026-08-21 scale harness measured; everything else is
-# still an admitted guess awaiting the calibration loop.
+# The constants the scale harness and the 2026-08-22 re-measurement measured;
+# everything else is still an admitted guess awaiting the calibration loop.
 MEASURED = {
     "fk_validation",
     "index_build_btree",
     "index_build_expression",
     "index_bytes",
     "dml_update",
+    "heap_rewrite",
+    "add_column_rewrite",
+    "validation_scan",
+    "dml_delete",
 }
 
 
@@ -34,22 +38,81 @@ def test_calibration_state_matches_the_harness_record() -> None:
     for constant in DURATION_CONSTANTS.values():
         if constant.key in MEASURED:
             assert constant.calibration is Calibration.MEASURED
-            assert constant.basis.startswith("measured 2026-08-21")
+            assert constant.basis.startswith("measured")
+            # A measured constant states its provenance, and its band is
+            # derived from it: at least two runs and an observed spread.
+            assert constant.runs >= 2
+            assert constant.spread_tenths > 0
         else:
             assert constant.calibration is Calibration.UNCALIBRATED
             assert constant.basis.startswith("guess:")
+            assert constant.runs == 0
+
+
+def test_widening_is_derived_from_provenance_not_a_flat_tier() -> None:
+    from blastoise.catalog.model import Calibration
+    from blastoise.verdict.constants import (
+        ConstantUnit,
+        DurationConstant,
+        base_widen_tenths,
+    )
+
+    def const(cal: Calibration, runs: int, spread: int) -> DurationConstant:
+        return DurationConstant(
+            key="k", unit=ConstantUnit.ROWS_PER_SECOND, value=1000,
+            calibration=cal, basis="b", runs=runs, spread_tenths=spread,
+        )
+
+    # A guess is 4x whatever it claims.
+    assert base_widen_tenths(const(Calibration.UNCALIBRATED, 0, 0)) == 40
+    # Measured once: variance unknown, a guess with better manners (3x).
+    assert base_widen_tenths(const(Calibration.MEASURED, 1, 12)) == 30
+    # Measured twice with tight agreement: the drift floor (1.5x), not the
+    # 2x a flat MEASURED tier would give — this is the heap_rewrite case.
+    assert base_widen_tenths(const(Calibration.MEASURED, 3, 13)) == 15
+    # Measured, but shapes scatter wide: held at the 2x cap, not wider — the
+    # scatter is a sub-family split, not licence for a guess band.
+    assert base_widen_tenths(const(Calibration.MEASURED, 2, 38)) == 20
+    # A spread between floor and cap is honored exactly.
+    assert base_widen_tenths(const(Calibration.MEASURED, 2, 17)) == 17
+    # Calibrated across environments: 1.5x.
+    assert base_widen_tenths(const(Calibration.CALIBRATED, 5, 10)) == 15
+
+
+def test_the_split_rewrite_constants_keep_their_order() -> None:
+    # The heap_rewrite split exists so a plain relabel is never modeled
+    # slower than a compute-per-row add of the same table: at every size
+    # the plain estimate sits below the compute one. (Whether a 1M-row
+    # rewrite lands under or over the 20 s line is, since 2026-08-23, a
+    # boundary refusal on this anchor — see test_hardware_boundary — so the
+    # old "plain under, compute over at 1M" assertion is no longer the
+    # claim.)
+    for rows in (100_000, 1_000_000, 5_000_000):
+        rel = relation("t", rows=rows)
+        plain = estimate_from_rows(rel, SERVER, "heap_rewrite")
+        compute = estimate_from_rows(rel, SERVER, "add_column_rewrite")
+        assert isinstance(plain, DurationEstimate) and isinstance(compute, DurationEstimate)
+        assert plain.point_ms < compute.point_ms
+    big = estimate_from_rows(relation("t", rows=5_000_000), SERVER, "heap_rewrite")
+    assert isinstance(big, DurationEstimate)
+    assert big.low_ms >= 20_000  # a 5M-row rewrite is over the line on any reading
 
 
 def test_measured_widening_is_tighter_than_uncalibrated() -> None:
+    # Every rows/bytes constant is measured since 2026-08-23 (dml_delete was
+    # the last guess), so the uncalibrated side is a synthetic constant.
     measured = estimate_from_rows(
         relation("t", rows=10_000_000), SERVER, "fk_validation"
     )
-    guessed = estimate_from_rows(
-        relation("t", rows=10_000_000), SERVER, "dml_delete"
-    )
-    assert isinstance(measured, DurationEstimate) and isinstance(guessed, DurationEstimate)
+    assert isinstance(measured, DurationEstimate)
     assert measured.high_ms * 10 < measured.point_ms * 25  # ~2x, not 4x
-    assert guessed.high_ms * 10 > guessed.point_ms * 35
+    from blastoise.verdict.constants import ConstantUnit, DurationConstant, base_widen_tenths
+
+    guess = DurationConstant(
+        key="k", unit=ConstantUnit.ROWS_PER_SECOND, value=1000,
+        calibration=Calibration.UNCALIBRATED, basis="guess: synthetic",
+    )
+    assert base_widen_tenths(guess) == 40
 
 
 def test_family_maps_only_name_defined_constants() -> None:
@@ -80,15 +143,16 @@ def test_every_calibrated_proportional_kind_has_a_family() -> None:
 
 
 def test_point_estimate_is_rows_over_throughput_plus_overhead() -> None:
-    rel = relation("users", rows=1_000_000)
+    rate = DURATION_CONSTANTS["index_build_btree"].value
+    rel = relation("users", rows=rate)
     estimate = estimate_from_rows(rel, SERVER, "index_build_btree")
     assert isinstance(estimate, DurationEstimate)
-    # 1M rows / 1M rows/s = 1s, plus the 10 ms fixed overhead
+    # rate rows / rate rows/s = 1s, plus the 10 ms fixed overhead
     assert estimate.point_ms == 1010
     assert estimate.low_ms < estimate.point_ms < estimate.high_ms
     assert estimate.method is Method.SIMULATED
     assert estimate.constant_key == "index_build_btree"
-    assert any("reltuples=1000000" in text for text in estimate.inputs)
+    assert any(f"reltuples={rate}" in text for text in estimate.inputs)
 
 
 def test_tiny_table_floors_at_the_fixed_overhead() -> None:
@@ -113,7 +177,13 @@ def test_stale_stats_widen_the_interval() -> None:
     assert stale.high_ms > fresh.high_ms
     assert stale.low_ms < fresh.low_ms
     assert fresh.point_ms == stale.point_ms  # staleness widens, never shifts
-    assert stale.confidence == "low"
+    # heap_rewrite is now a measured, low-variance constant (base 1.5x), so
+    # month-old stats degrade its confidence from high without reaching the
+    # "low" floor a 4x guess would — the confidence tracks what is actually
+    # known, which is the point.
+    assert fresh.confidence == "high"
+    assert stale.confidence in ("medium", "low")
+    assert stale.confidence != fresh.confidence
     assert any("stale" in text for text in stale.inputs)
 
 
@@ -176,7 +246,10 @@ def test_bytes_estimate() -> None:
 
 
 def test_index_rebuild_estimate_sums_per_index_work() -> None:
-    rel = relation("t", rows=10_000_000)
+    btree = DURATION_CONSTANTS["index_build_btree"].value
+    expr = DURATION_CONSTANTS["index_build_expression"].value
+    rows = 10 * btree
+    rel = relation("t", rows=rows)
     single = estimate_index_rebuilds(rel, SERVER, (("ix_a", "index_build_btree"),))
     both = estimate_index_rebuilds(
         rel,
@@ -184,10 +257,10 @@ def test_index_rebuild_estimate_sums_per_index_work() -> None:
         (("ix_a", "index_build_btree"), ("ix_b", "index_build_expression")),
     )
     assert isinstance(single, DurationEstimate) and isinstance(both, DurationEstimate)
-    # 10M btree rows at 1M rows/s = 10s; adding an expression rebuild
-    # (10M / 250k = 40s) sums, and the slowest family names the estimate.
+    # ten seconds of btree rows; adding an expression rebuild of the same
+    # rows sums, and the slowest family names the estimate.
     assert single.point_ms == 10_010
-    assert both.point_ms == 50_010
+    assert both.point_ms == 10_000 + rows * 1000 // expr + 10
     assert single.constant_key == "index_build_btree"
     assert both.constant_key == "index_build_expression"
     assert any("rebuild ix_b" in text for text in both.inputs)

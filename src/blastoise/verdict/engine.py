@@ -23,6 +23,14 @@ Three rules shape everything here:
    that existed before this file needs a window whatever the hold costs
    (:func:`_floor_for_access_exclusive`). Duration decides everything
    above that floor, nothing below it.
+6. A threshold inside the estimate's hardware strip is not decided. When
+   the strip the constant's known cross-hardware spread draws around the
+   point estimate contains a tier threshold that would change the verdict,
+   which side the upper bound lands on is a property of the target's
+   hardware that the calibration probe could not characterize, not of the
+   migration — and the engine says UNKNOWN with that reason rather than
+   returning a coin-flip (:func:`_boundary_refusal`). A refused verdict
+   costs a reviewer a look; a false BLOCK costs an uninstall.
 """
 
 from __future__ import annotations
@@ -52,6 +60,7 @@ from blastoise.ir import (
 from blastoise.live.model import LiveSnapshot
 from blastoise.verdict import constants as k
 from blastoise.verdict import reversibility as rev
+from blastoise.verdict.constants import DURATION_CONSTANTS
 from blastoise.verdict.duration import (
     BYTES_FAMILY_BY_KIND,
     ROWS_FAMILY_BY_KIND,
@@ -306,21 +315,41 @@ def _contention_for(
         resolved_name = ctx.resolved_names.get(relation.relation, relation.relation)
         held_modes: list[str] = []
         pids: list[int] = []
+        # Whether the observed conflict is sustained active work or just a
+        # queue behind idle-in-transaction holders. It stays False only if
+        # every contributing waiter proves its holders are all idle; an
+        # actively-running holder, or one whose state could not be read,
+        # makes it active (the conservative reading).
+        active = False
         for waiter in waiters_fact.value:
             if waiter.relation != resolved_name:
                 continue
-            pids.append(waiter.blocked_pid)
+            contributes = False
             for mode_name in (*waiter.blocking_modes, waiter.blocked_mode):
                 mode = _PG_LOCK_MODES.get(mode_name)
                 if mode is None or mode in conflicts:
                     held_modes.append(mode_name)
+                    contributes = True
+            if not contributes:
+                continue
+            pids.append(waiter.blocked_pid)
+            idle = waiter.blockers_all_idle
+            if not (idle.available and idle.value is True):
+                active = True
         if held_modes:
+            idle_note = (
+                ""
+                if active
+                else " — the holders are idle in a transaction, so this is a "
+                "queue a lock_timeout and retry clears, not active contention"
+            )
             state = Tristate(
                 value=True,
                 method=Method.OBSERVED,
                 basis=(
                     f"pg_locks shows lock traffic on {resolved_name} conflicting "
-                    f"with {relation.lock_mode.value}: {', '.join(sorted(set(held_modes)))}"
+                    f"with {relation.lock_mode.value}: "
+                    f"{', '.join(sorted(set(held_modes)))}{idle_note}"
                 ),
             )
         else:
@@ -341,6 +370,7 @@ def _contention_for(
                 waiting_pids=tuple(sorted(set(pids))),
                 queued_behind_us=queued,
                 queued_behind_us_method=Method.PROVEN,
+                active_conflict=active,
             )
         )
     return tuple(out)
@@ -367,6 +397,125 @@ def _band(high_ms: int, block: str) -> Classification:
     if high_ms < long:
         return Classification.NEEDS_TIMING
     return Classification.UNSAFE
+
+
+def _thresholds(block: str) -> tuple[int, int]:
+    if block == "reads":
+        return k.FULL_BLOCK_SHORT_MS, k.FULL_BLOCK_LONG_MS
+    return k.WRITE_BLOCK_SHORT_MS, k.WRITE_BLOCK_LONG_MS
+
+
+@dataclass(frozen=True, slots=True)
+class _Boundary:
+    """A threshold the estimate's hardware strip contains."""
+
+    threshold_ms: int
+    spread_tenths: int
+    faster: Classification  # the tier on the fast side of the line
+    slower: Classification  # the tier on the slow side
+    would_be: Classification  # what the upper-bound rule returns today
+
+
+def _boundary_refusal(
+    duration: DurationEstimate, block: str, *, short_matters: bool
+) -> _Boundary | None:
+    """The threshold inside the estimate's hardware strip, if any.
+
+    The strip is ``[point / S, point * S]`` where ``S`` is the constant's
+    known spread (:func:`blastoise.verdict.constants.boundary_spread_tenths`)
+    — the residual a hardware-calibrated estimate still carries because
+    the probe cannot characterize everything (disk write path, cache
+    state, contention). The upper bound ``high_ms`` already includes that
+    spread *and* the statistics-staleness widening; what this asks is
+    narrower: would the same statement, on a target the probe reads the
+    same, land on the other side of a threshold within the spread the
+    measured profiles actually showed? If so, the verdict is not the
+    migration's property, and the engine must not pretend it is.
+
+    ``short_matters`` is False when the SAFE/NEEDS_TIMING line cannot
+    change the outcome (the ACCESS EXCLUSIVE floor lifts SAFE to
+    NEEDS_TIMING anyway) — refusing there would be a spurious UNKNOWN.
+    A refusal is only ever issued where the two sides of the line are
+    different verdicts.
+    """
+    if duration.constant_key is None:
+        return None
+    constant = DURATION_CONSTANTS.get(duration.constant_key)
+    if constant is None:
+        return None
+    spread = k.boundary_spread_tenths(constant)
+    point = duration.point_ms
+    # The fixed overhead is not hardware-proportional and is tiny against
+    # any threshold; the strip is drawn around the proportional part.
+    point = max(0, point - k.FIXED_OVERHEAD_POINT_MS)
+    if point <= 0:
+        return None
+    lo = point * 10 // spread
+    hi = point * spread // 10
+    short, long = _thresholds(block)
+    would_be = _band(duration.high_ms, block)
+    candidates: list[tuple[int, Classification, Classification]] = [
+        (long, Classification.NEEDS_TIMING, Classification.UNSAFE)
+    ]
+    if short_matters:
+        candidates.append((short, Classification.SAFE, Classification.NEEDS_TIMING))
+    for threshold, faster, slower in candidates:
+        if lo < threshold <= hi:
+            return _Boundary(
+                threshold_ms=threshold,
+                spread_tenths=spread,
+                faster=faster,
+                slower=slower,
+                would_be=would_be,
+            )
+    return None
+
+
+def _seconds(ms: int) -> str:
+    if ms % 1000 == 0:
+        return f"{ms // 1000} s"
+    return f"{ms / 1000:.1f} s"
+
+
+def _refused_verdict(
+    boundary: _Boundary,
+    duration: DurationEstimate,
+    *,
+    method: Method,
+    what: str,
+    blocked: str,
+) -> Verdict:
+    line = (
+        "outage line" if boundary.threshold_ms in (k.FULL_BLOCK_LONG_MS, k.WRITE_BLOCK_LONG_MS)
+        else "brief-stall line"
+    )
+    spread = boundary.spread_tenths / 10
+    hw_notes = [i for i in duration.inputs if i.startswith("hardware:")]
+    hw = hw_notes[0] if hw_notes else "hardware: unscaled"
+    return Verdict(
+        classification=Classification.UNKNOWN,
+        method=method,
+        rationale=(
+            f"refused at the boundary: {what} blocks {blocked} for an estimated "
+            f"{_seconds(duration.point_ms)} (interval {_seconds(duration.low_ms)}-"
+            f"{_seconds(duration.high_ms)}), and the {_seconds(boundary.threshold_ms)} "
+            f"{line} sits inside the x{spread:.1f} spread this constant showed across the "
+            f"hardware profiles that measured it — which side of the line this target "
+            f"lands on is decided by hardware the calibration probe cannot characterize "
+            f"({hw}), not by the migration; the upper-bound rule would have said "
+            f"{boundary.would_be.value}, and on a faster target this is "
+            f"{boundary.faster.value}, on a slower one {boundary.slower.value}"
+        ),
+        conditions=(
+            f"time this statement on a production-sized copy of the target before "
+            f"deciding between {boundary.faster.value} and {boundary.slower.value}; "
+            f"with no measurement, treat it as {boundary.slower.value}",
+        ),
+        band=duration.band,
+        refusal="boundary",
+        refused_from=boundary.would_be,
+        refused_alternatives=(boundary.faster, boundary.slower),
+    )
 
 
 _HOLD_PHRASE: dict[DurationBand, str] = {
@@ -444,7 +593,9 @@ def _rows_estimate(
             reason=f"{name} was not captured in the snapshot",
             method=Method.UNVERIFIED,
         )
-    return estimate_from_rows(facts, ctx.snapshot.server, family)
+    return estimate_from_rows(
+        facts, ctx.snapshot.server, family, calibration=ctx.snapshot.calibration
+    )
 
 
 def _bytes_estimate(
@@ -473,7 +624,10 @@ def _bytes_estimate(
             reason=f"size of {name} unavailable: {size.reason}", method=Method.UNVERIFIED
         )
     return estimate_from_bytes(
-        size.value, family, inputs=(f"pg_relation_size({name})={size.value} bytes",)
+        size.value,
+        family,
+        inputs=(f"pg_relation_size({name})={size.value} bytes",),
+        calibration=ctx.snapshot.calibration,
     )
 
 
@@ -512,6 +666,14 @@ def _proportional_verdict(
     cls = _band(duration.high_ms, block)
     band = duration.band
     method = weakest_method(base_method, duration.method)
+    # The SAFE/NEEDS_TIMING line changes nothing under the ACCESS
+    # EXCLUSIVE floor, so a straddle there is not a refusal.
+    short_matters = not (block == "reads" and _live_ael_relations(ctx, relations))
+    boundary = _boundary_refusal(duration, block, short_matters=short_matters)
+    if boundary is not None:
+        return _refused_verdict(
+            boundary, duration, method=method, what=what, blocked=blocked
+        )
     if cls is Classification.SAFE:
         return Verdict(
             classification=cls,
@@ -917,6 +1079,15 @@ def _all_rows_dml_verdict(
         )
     cls = _band(duration.high_ms, "writes")
     band = duration.band
+    boundary = _boundary_refusal(duration, "writes", short_matters=True)
+    if boundary is not None:
+        return _refused_verdict(
+            boundary,
+            duration,
+            method=duration.method,
+            what=f"the statement ({verb} every row of {name})",
+            blocked="writers to every row",
+        )
     if cls is Classification.SAFE:
         return Verdict(
             classification=cls,
@@ -1038,7 +1209,9 @@ def _rebuild_estimate(
             reason=f"{name} was not captured in the snapshot",
             method=Method.UNVERIFIED,
         )
-    return estimate_index_rebuilds(facts, ctx.snapshot.server, rebuilds)
+    return estimate_index_rebuilds(
+        facts, ctx.snapshot.server, rebuilds, calibration=ctx.snapshot.calibration
+    )
 
 
 def _generic_verdict(
@@ -1157,23 +1330,41 @@ def _escalate_for_contention(
         Classification.UNSAFE,
     ):
         return verdict
-    # Observed contention is a timing problem: it lifts either safe tier
-    # to NEEDS_TIMING (irreversibility is orthogonal to who else holds a
-    # lock, so SAFE_IRREVERSIBLE escalates the same way SAFE does), and
-    # pushes an already-timed statement to UNSAFE.
-    escalated = (
-        Classification.NEEDS_TIMING
-        if verdict.classification in SAFE_TIERS
-        else Classification.UNSAFE
-    )
+    # Observed contention is a timing problem: it lifts either safe tier to
+    # NEEDS_TIMING (irreversibility is orthogonal to who else holds a lock,
+    # so SAFE_IRREVERSIBLE escalates the same way SAFE does). It pushes an
+    # already-timed statement to UNSAFE only when the conflict is *active* —
+    # a backend running work behind the lock, sustained contention a
+    # lock_timeout and retry will keep losing to. When the observed conflict
+    # is only idle-in-transaction holders, the wait is transient (it clears
+    # the moment they commit or roll back), which is exactly what the
+    # NEEDS_TIMING remedy already prescribes, so one-tier escalation on an
+    # idle holder — the acquisition-queue risk the statement is already
+    # flagged for — must not compound to UNSAFE. The engine cannot see how
+    # long an idle holder will hold, so a long idle hold that happens to
+    # exceed the outage threshold is missed here; that is inherent to a
+    # snapshot, not a tuning choice.
+    active = any(c.active_conflict for c in observed)
+    if verdict.classification in SAFE_TIERS:
+        escalated = Classification.NEEDS_TIMING
+    elif active:
+        escalated = Classification.UNSAFE
+    else:
+        return verdict
     names = ", ".join(sorted(c.relation for c in observed))
+    kind = "conflicting lock traffic" if active else "an idle-in-transaction holder"
+    tail = (
+        "running now queues behind it, and everything else queues behind this statement"
+        if active
+        else "running now queues behind it until it commits or rolls back — set "
+        "lock_timeout and retry, or run in a low-traffic window"
+    )
     return Verdict(
         classification=escalated,
         method=weakest_method(verdict.method, Method.OBSERVED),
         rationale=(
-            f"{verdict.rationale}; escalated: pg_locks currently shows conflicting "
-            f"lock traffic on {names} — running now queues behind it, and "
-            "everything else queues behind this statement"
+            f"{verdict.rationale}; escalated: pg_locks currently shows {kind} on "
+            f"{names} — {tail}"
         ),
         conditions=verdict.conditions,
         band=verdict.band,

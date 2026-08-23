@@ -18,6 +18,7 @@ from blastoise.live.introspect import (
 )
 from blastoise.live.model import (
     SNAPSHOT_FORMAT,
+    CalibrationFacts,
     CaptureLimits,
     ColumnFacts,
     ConcurrencyFacts,
@@ -51,6 +52,7 @@ from blastoise.live.typechange import (
 
 __all__ = [
     "SNAPSHOT_FORMAT",
+    "CalibrationFacts",
     "CaptureLimits",
     "ColumnFacts",
     "ConcurrencyFacts",

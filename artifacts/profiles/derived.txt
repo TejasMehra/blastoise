@@ -1,0 +1,16 @@
+anchor: laptop-nvme  compute 215 ms  scan 26 ms
+
+profiles:
+  laptop-nvme        compute    215 ms  scan     26 ms  cpu=12 Intel64 Family 6 Model 186 Stepping 3, G  disk=laptop local NVMe (Windows 11)
+
+family                   probe    n     anchor  raw x  cmp x scan x within   per-profile (value->scaled)
+add_column_rewrite       compute  1      55444    0.0    0.0    0.0    1.5   laptop-nvme=55444->55444
+constant_op              compute  1          2    0.0    0.0    0.0    3.0   laptop-nvme=2->2
+dml_delete               compute  1     632511    0.0    0.0    0.0    1.7   laptop-nvme=632511->632511
+dml_update               compute  1      13248    0.0    0.0    0.0    1.2   laptop-nvme=13248->13248
+fk_validation            compute  1    1009081    0.0    0.0    0.0    3.9   laptop-nvme=1009081->1009081
+heap_rewrite             compute  1      45057    0.0    0.0    0.0    1.9   laptop-nvme=45057->45057
+index_build_btree        compute  1     738552    0.0    0.0    0.0    2.0   laptop-nvme=738552->738552
+index_build_expression   compute  1     169462    0.0    0.0    0.0    1.5   laptop-nvme=169462->169462
+index_bytes              compute  1    7806648    0.0    0.0    0.0    1.3   laptop-nvme=7806648->7806648
+validation_scan          compute  1     796241    0.0    0.0    0.0    2.2   laptop-nvme=796241->796241

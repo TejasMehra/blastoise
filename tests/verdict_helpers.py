@@ -12,6 +12,7 @@ from typing import Any
 
 from blastoise.live.model import (
     SNAPSHOT_FORMAT,
+    CalibrationFacts,
     CaptureLimits,
     ColumnFacts,
     ConcurrencyFacts,
@@ -29,9 +30,22 @@ from blastoise.live.model import (
     ServerFacts,
     TypeChangeFacts,
     TypeFacts,
+    unavailable_calibration,
 )
 
 NOW = "2026-08-21T12:00:00+00:00"
+
+
+def calibration(
+    compute_ms: int | None = None, *, compute_reason: str = "not gathered"
+) -> CalibrationFacts:
+    """A calibration block; a ``None`` reading is unavailable with the reason."""
+    return CalibrationFacts(
+        compute_ms=Fact.of(compute_ms) if compute_ms is not None
+        else Fact.unavailable(compute_reason),
+        repeats=3,
+        compute_rows=500_000,
+    )
 
 
 def _iso_hours_ago(hours: int) -> str:
@@ -256,7 +270,10 @@ def type_change(
 
 
 def waiter(
-    rel: str, *, blocking_modes: tuple[str, ...] = ("AccessExclusiveLock",)
+    rel: str,
+    *,
+    blocking_modes: tuple[str, ...] = ("AccessExclusiveLock",),
+    blockers_all_idle: Fact[bool] | None = None,
 ) -> LockWaiter:
     return LockWaiter(
         relation=rel,
@@ -265,6 +282,11 @@ def waiter(
         waiting_for_ms=Fact.of(1500),
         blocking_pids=(4100,),
         blocking_modes=blocking_modes,
+        blockers_all_idle=(
+            Fact.unavailable("not gathered")
+            if blockers_all_idle is None
+            else blockers_all_idle
+        ),
     )
 
 
@@ -277,6 +299,7 @@ def snapshot(
     waiters: tuple[LockWaiter, ...] = (),
     long_transactions: tuple[LongTransaction, ...] = (),
     waiters_unavailable: str | None = None,
+    calibration_facts: CalibrationFacts | None = None,
 ) -> LiveSnapshot:
     waiters_fact: Fact[tuple[LockWaiter, ...]] = (
         Fact.unavailable(waiters_unavailable)
@@ -327,5 +350,10 @@ def snapshot(
             synchronous=Fact.of(False),
             synchronous_standby_names=Fact.of(""),
             synchronous_commit=Fact.of("on"),
+        ),
+        calibration=(
+            unavailable_calibration("not gathered")
+            if calibration_facts is None
+            else calibration_facts
         ),
     )

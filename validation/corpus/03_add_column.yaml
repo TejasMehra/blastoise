@@ -1,0 +1,154 @@
+# ADD COLUMN with a non-volatile default is the most common ALTER TABLE action
+# in the wild (728); the volatile/serial/identity/generated/domain forms
+# rewrite the heap. Every form takes ACCESS EXCLUSIVE, so the AEL floor puts
+# even the millisecond ones at needs_timing on a pre-existing table.
+family: add_column
+cases:
+  - id: addcol_bare_1m
+    source: boundary__0027__01_server_tags_migrations.up.sql
+    table: t_1m
+    migration: ALTER TABLE {t} ADD COLUMN worker_filter text;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: addcol_bare_tiny
+    why: the AEL floor - a 1k-row table, catalog-only work, still an ACCESS EXCLUSIVE acquisition on a live relation.
+    adversarial: judgment_call
+    table: t_1k
+    migration: ALTER TABLE {t} ADD COLUMN worker_filter text;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: addcol_const_default_5m
+    why: PG 11+ fast default - a NOT NULL constant default on 5M rows writes nothing to the heap.
+    adversarial: looks_dangerous
+    source: boundary__0056__01_nonce.up.sql
+    table: t_5m
+    migration: ALTER TABLE {t} ADD COLUMN purpose text NOT NULL DEFAULT 'recovery';
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false}
+
+  - id: addcol_now_default_5m
+    why: now() is STABLE, not volatile - still the fast path.
+    adversarial: looks_dangerous
+    table: t_5m
+    migration: ALTER TABLE {t} ADD COLUMN seen_at timestamptz NOT NULL DEFAULT now();
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false}
+
+  - id: addcol_json_default_5m
+    adversarial: looks_dangerous
+    table: t_5m
+    migration: ALTER TABLE {t} ADD COLUMN prefs jsonb NOT NULL DEFAULT '{{}}'::jsonb;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false}
+
+  - id: addcol_array_default_5m
+    adversarial: looks_dangerous
+    table: t_5m
+    migration: ALTER TABLE {t} ADD COLUMN tags text[] NOT NULL DEFAULT '{{}}';
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false}
+
+  - id: addcol_immutable_udf_default_5m
+    why: a user-defined IMMUTABLE function default; only pg_proc can say it is not volatile.
+    adversarial: looks_dangerous
+    table: t_5m
+    migration: ALTER TABLE {t} ADD COLUMN s integer NOT NULL DEFAULT fixture_add(1, 2);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false}
+
+  - id: addcol_volatile_default_100k
+    source: coder__0218__000218_org_custom_role_audit.up.sql
+    table: t_100k
+    migration: ALTER TABLE {t} ADD COLUMN new_id uuid NOT NULL DEFAULT gen_random_uuid();
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: true, note: reference 3.7 s}
+
+  - id: addcol_volatile_default_1m
+    why: a full rewrite at 1M rows measured 15.6 s on the reference machine - under the 20 s full-block line.
+    source: coder__0218__000218_org_custom_role_audit.up.sql
+    table: t_1m
+    migration: ALTER TABLE {t} ADD COLUMN new_id uuid NOT NULL DEFAULT gen_random_uuid();
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: true, note: boundary}
+
+  - id: addcol_volatile_default_5m
+    source: coder__0218__000218_org_custom_role_audit.up.sql
+    table: t_5m
+    migration: ALTER TABLE {t} ADD COLUMN new_id uuid NOT NULL DEFAULT gen_random_uuid();
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE, rewrites: true}
+
+  - id: addcol_serial_1m
+    source: coder__0071__000071_provisioner_log_lines.up.sql
+    table: t_1m
+    migration: ALTER TABLE {t} ADD COLUMN seq_id BIGSERIAL;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: true, note: reference 11.7 s}
+
+  - id: addcol_serial_tiny
+    why: serial rewrites the heap, but 1k rows rewrite in milliseconds.
+    adversarial: looks_dangerous
+    table: t_1k
+    migration: ALTER TABLE {t} ADD COLUMN seq_id BIGSERIAL;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: true}
+
+  - id: addcol_identity_5m
+    source: lemmy__0256__2025-08-01-000024_add_person_content_combined_table__up.sql
+    table: t_5m
+    migration: ALTER TABLE {t} ADD COLUMN row_num bigint GENERATED ALWAYS AS IDENTITY;
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE, rewrites: true}
+
+  - id: addcol_generated_stored_1m
+    source: coder__0160__000160_provisioner_job_status.up.sql
+    table: t_1m
+    migration: ALTER TABLE {t} ADD COLUMN score_band text GENERATED ALWAYS AS (CASE WHEN score > 500 THEN 'high' ELSE 'low' END) STORED;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: true, note: reference 13.2 s}
+
+  - id: addcol_domain_constrained_default_100k
+    why: a constrained domain disables the fast default; the IR sees only a type name.
+    adversarial: looks_benign
+    source: boundary__0052__04_wh_credential_dimension.up.sql
+    table: t_100k
+    migration: ALTER TABLE {t} ADD COLUMN region label_domain NOT NULL DEFAULT 'us-east-1';
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: true}
+
+  - id: addcol_domain_constrained_default_5m
+    adversarial: looks_benign
+    source: boundary__0052__04_wh_credential_dimension.up.sql
+    table: t_5m
+    migration: ALTER TABLE {t} ADD COLUMN region label_domain NOT NULL DEFAULT 'us-east-1';
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE, rewrites: true}
+
+  - id: addcol_domain_unconstrained_default_5m
+    why: an unconstrained domain keeps the fast path; only pg_type can tell the two domains apart.
+    adversarial: looks_dangerous
+    table: t_5m
+    migration: ALTER TABLE {t} ADD COLUMN region plain_domain NOT NULL DEFAULT 'us-east-1';
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false}
+
+  - id: addcol_default_null_not_null_fails
+    why: DEFAULT NULL NOT NULL is the ORM-emitted failing form - rows exist, so it errors.
+    adversarial: looks_benign
+    table: t_1k
+    migration: ALTER TABLE {t} ADD COLUMN flag boolean DEFAULT NULL NOT NULL;
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE, error: true}
+
+  - id: addcol_not_null_no_default_fails
+    adversarial: looks_benign
+    table: t_1k
+    migration: ALTER TABLE {t} ADD COLUMN flag boolean NOT NULL;
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE, error: true}
+
+  - id: addcol_not_null_no_default_empty_table
+    why: the same statement on an empty pre-existing table succeeds; only the AEL floor remains.
+    adversarial: looks_dangerous
+    migration: ALTER TABLE empty_pre ADD COLUMN flag boolean NOT NULL;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: addcol_with_check_5m
+    why: a CHECK on a new nullable column passes trivially, but Postgres still scans to verify it.
+    table: t_5m
+    migration: ALTER TABLE {t} ADD COLUMN qty integer CHECK (qty >= 0);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false}
+
+  - id: addcol_on_file_created
+    why: ADD COLUMN with a rewrite on a table this file created is invisible to production.
+    migration: |
+      CREATE TABLE ev2 (id bigint PRIMARY KEY, label text);
+      ALTER TABLE ev2 ADD COLUMN x integer NOT NULL DEFAULT 0;
+      ALTER TABLE ev2 ADD COLUMN y uuid NOT NULL DEFAULT gen_random_uuid();
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: safe, lock: null}
+      - {tier: safe, lock: null}

@@ -91,7 +91,7 @@ class TestRemainingEngineBranches:
         assert "does not exist on PG 13" in statement.verdict.rationale
 
     def test_cic_outside_txn_is_safe_with_estimate(self) -> None:
-        snap = snapshot(relations=(relation("users", rows=40_000_000),))
+        snap = snapshot(relations=(relation("users", rows=400_000_000),))
         statement = one("CREATE INDEX CONCURRENTLY i ON users (email);", snap)
         assert statement.verdict.classification is Classification.SAFE
         assert "no lock that blocks" in statement.verdict.rationale
@@ -119,7 +119,7 @@ class TestRemainingEngineBranches:
         assert any("runtime" in n for n in statement.notes)
 
     def test_delete_without_where_big_is_unsafe(self) -> None:
-        snap = snapshot(relations=(relation("users", rows=40_000_000),))
+        snap = snapshot(relations=(relation("users", rows=400_000_000),))
         statement = one("DELETE FROM users;", snap)
         assert statement.verdict.classification is Classification.UNSAFE
         assert "deletes every row" in statement.verdict.rationale
@@ -156,7 +156,7 @@ class TestNarrowingBranches:
             relations=(
                 relation(
                     "users",
-                    rows=40_000_000,
+                    rows=400_000_000,
                     columns_facts=(column("total", generated="s"),),
                 ),
             )
@@ -171,7 +171,7 @@ class TestNarrowingBranches:
             relations=(
                 relation(
                     "users",
-                    rows=40_000_000,
+                    rows=400_000_000,
                     columns_facts=(column("total", generated="v"),),
                 ),
             )
@@ -193,7 +193,7 @@ class TestNarrowingBranches:
             relations=(
                 relation(
                     "users",
-                    rows=40_000_000,
+                    rows=400_000_000,
                     columns_facts=(column("id", not_null=True),),
                 ),
             )
@@ -210,7 +210,7 @@ class TestNarrowingBranches:
             relations=(
                 relation(
                     "users",
-                    rows=40_000_000,
+                    rows=400_000_000,
                     columns_facts=(column("email", not_null=False),),
                 ),
             )

@@ -19,6 +19,14 @@ at small sizes the fixed cost of locking, catalog updates, and commit
 dominates the proportional term, and without the floor a measured 3 ms
 would fall "dangerously above" a computed 1 ms interval.
 
+The target's hardware is an input, not an assumption. The constants are
+rates on the anchor profile (:mod:`blastoise.live.calibrate` records its
+probe readings); the snapshot carries the same probe timed on the
+target, and every proportional estimate is multiplied by the ratio
+before it is widened. A snapshot without a usable probe reading leaves
+the estimate unscaled and says so in its inputs — the same assumption
+the model always made, now visible.
+
 Integer arithmetic throughout (milliseconds, tenths for factors): the
 project bans floats so results serialize and hash stably.
 """
@@ -27,9 +35,9 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from blastoise.catalog.model import Calibration
 from blastoise.ir import AlterTableActionKind, StatementKind
-from blastoise.live.model import RelationFacts, ServerFacts
+from blastoise.live.calibrate import hardware_factor_tenths
+from blastoise.live.model import CalibrationFacts, RelationFacts, ServerFacts
 from blastoise.verdict import constants as k
 from blastoise.verdict.constants import DURATION_CONSTANTS, ConstantUnit, DurationConstant
 from blastoise.verdict.model import CannotEstimate, DurationEstimate, Method
@@ -69,12 +77,17 @@ ROWS_FAMILY_BY_KIND: dict[StatementKind | AlterTableActionKind, str] = {
     _AK.ADD_UNIQUE: "index_build_btree",
     _AK.ADD_EXCLUSION: "index_build_expression",  # exclusion = GiST/expression-shaped
     _AK.ALTER_COLUMN_TYPE: "heap_rewrite",
+    # A constant/domain default writes one fixed value per row: plain
+    # relabel speed (measured 82-125k rows/s), so it stays on heap_rewrite.
     _AK.ADD_COLUMN_DEFAULT_NONVOLATILE: "heap_rewrite",  # PG 10 row / constrained domain
-    _AK.ADD_COLUMN_DEFAULT_VOLATILE: "heap_rewrite",
-    _AK.ADD_COLUMN_DEFAULT_UNKNOWN_VOLATILITY: "heap_rewrite",
-    _AK.ADD_COLUMN_SERIAL: "heap_rewrite",
-    _AK.ADD_COLUMN_IDENTITY: "heap_rewrite",
-    _AK.ADD_COLUMN_GENERATED_STORED: "heap_rewrite",
+    # These rewrite the heap AND compute a value per row (gen_random_uuid,
+    # nextval, a generated expression): measured 1.5-2x slower, their own
+    # constant so the fast relabel's tight band cannot under-predict them.
+    _AK.ADD_COLUMN_DEFAULT_VOLATILE: "add_column_rewrite",
+    _AK.ADD_COLUMN_DEFAULT_UNKNOWN_VOLATILITY: "add_column_rewrite",
+    _AK.ADD_COLUMN_SERIAL: "add_column_rewrite",
+    _AK.ADD_COLUMN_IDENTITY: "add_column_rewrite",
+    _AK.ADD_COLUMN_GENERATED_STORED: "add_column_rewrite",
     _AK.SET_LOGGED: "heap_rewrite",
     _AK.SET_UNLOGGED: "heap_rewrite",
     _AK.SET_TABLESPACE: "heap_rewrite",
@@ -103,12 +116,14 @@ def _interval(point_ms: int, widen_tenths: int) -> tuple[int, int]:
     return low, max(high, point_ms)
 
 
-def _base_tenths(calibration: Calibration) -> int:
-    if calibration is Calibration.UNCALIBRATED:
-        return k.WIDEN_UNCALIBRATED_TENTHS
-    if calibration is Calibration.MEASURED:
-        return k.WIDEN_MEASURED_TENTHS
-    return k.WIDEN_CALIBRATED_TENTHS
+def _base_tenths(constant: DurationConstant) -> int:
+    """The constant's base widening, derived from its measurement provenance.
+
+    See :func:`blastoise.verdict.constants.base_widen_tenths` — the band is
+    tied to calibration status and measured variance, not a flat per-tier
+    multiplier.
+    """
+    return k.base_widen_tenths(constant)
 
 
 def _with_overhead(prop_point: int, widen_tenths: int) -> tuple[int, int, int]:
@@ -238,18 +253,31 @@ def _calibration_note(constant: DurationConstant) -> str:
     return constant.calibration.value.lower()
 
 
+def _hardware(calibration: CalibrationFacts | None) -> tuple[int, str]:
+    """(factor tenths, input note) for scaling an estimate to the target."""
+    return hardware_factor_tenths(calibration)
+
+
+def _scaled(prop_point_ms: int, hardware_tenths: int) -> int:
+    return prop_point_ms * hardware_tenths // 10
+
+
 def estimate_from_rows(
     relation: RelationFacts,
     server: ServerFacts,
     family: str,
     *,
     extra_inputs: tuple[str, ...] = (),
+    calibration: CalibrationFacts | None = None,
 ) -> DurationEstimate | CannotEstimate:
-    """Rows / throughput, with the interval widened by calibration and staleness.
+    """Rows / throughput, scaled to the target's hardware, with the interval
+    widened by calibration and staleness.
 
     Every estimate additionally carries the fixed constant-op overhead
     (10 ms point, 1-100 ms spread): even a zero-row operation locks,
-    updates catalogs, and commits.
+    updates catalogs, and commits. ``calibration`` is the snapshot's probe
+    reading; ``None`` (or an unavailable reading) leaves the estimate
+    unscaled, and the inputs say so.
     """
     constant = DURATION_CONSTANTS[family]
     if constant.unit is not ConstantUnit.ROWS_PER_SECOND:  # pragma: no cover - table error
@@ -261,9 +289,12 @@ def estimate_from_rows(
     if isinstance(staleness, CannotEstimate):
         return staleness
     staleness_tenths, age_note, mods_note = staleness
-    total_tenths = _base_tenths(constant.calibration) * staleness_tenths // 10
+    total_tenths = _base_tenths(constant) * staleness_tenths // 10
+    hw_tenths, hw_note = _hardware(calibration)
 
-    low, point, high = _with_overhead(rows * 1000 // constant.value, total_tenths)
+    low, point, high = _with_overhead(
+        _scaled(rows * 1000 // constant.value, hw_tenths), total_tenths
+    )
     return DurationEstimate(
         point_ms=point,
         low_ms=low,
@@ -275,6 +306,7 @@ def estimate_from_rows(
             mods_note,
             f"throughput={family} {constant.value} rows/s "
             f"({_calibration_note(constant)})",
+            hw_note,
             *extra_inputs,
         ),
         constant_key=family,
@@ -287,6 +319,7 @@ def estimate_index_rebuilds(
     rebuilds: tuple[tuple[str, str], ...],
     *,
     extra_inputs: tuple[str, ...] = (),
+    calibration: CalibrationFacts | None = None,
 ) -> DurationEstimate | CannotEstimate:
     """Rebuild cost of specific dependent indexes: one heap-scan-and-build per index.
 
@@ -317,7 +350,7 @@ def estimate_index_rebuilds(
             raise ValueError(f"{family} is not a rows/second constant")
         part = rows * 1000 // constant.value
         prop_point += part
-        worst_base = max(worst_base, _base_tenths(constant.calibration))
+        worst_base = max(worst_base, _base_tenths(constant))
         if part > slowest_part:
             slowest_part = part
             slowest_key = family
@@ -326,8 +359,9 @@ def estimate_index_rebuilds(
             f"({_calibration_note(constant)})"
         )
     total_tenths = worst_base * staleness_tenths // 10
+    hw_tenths, hw_note = _hardware(calibration)
 
-    low, point, high = _with_overhead(prop_point, total_tenths)
+    low, point, high = _with_overhead(_scaled(prop_point, hw_tenths), total_tenths)
     return DurationEstimate(
         point_ms=point,
         low_ms=low,
@@ -338,6 +372,7 @@ def estimate_index_rebuilds(
             f"reltuples={rows} ({age_note})",
             mods_note,
             *parts,
+            hw_note,
             *extra_inputs,
         ),
         constant_key=slowest_key,
@@ -349,13 +384,17 @@ def estimate_from_bytes(
     family: str,
     *,
     inputs: tuple[str, ...],
+    calibration: CalibrationFacts | None = None,
 ) -> DurationEstimate:
     """Bytes / throughput for index-sized operations (size is a live fact)."""
     constant = DURATION_CONSTANTS[family]
     if constant.unit is not ConstantUnit.BYTES_PER_SECOND:  # pragma: no cover - table error
         raise ValueError(f"{family} is not a bytes/second constant")
-    base_tenths = _base_tenths(constant.calibration)
-    low, point, high = _with_overhead(size_bytes * 1000 // constant.value, base_tenths)
+    base_tenths = _base_tenths(constant)
+    hw_tenths, hw_note = _hardware(calibration)
+    low, point, high = _with_overhead(
+        _scaled(size_bytes * 1000 // constant.value, hw_tenths), base_tenths
+    )
     return DurationEstimate(
         point_ms=point,
         low_ms=low,
@@ -366,6 +405,7 @@ def estimate_from_bytes(
             *inputs,
             f"throughput={family} {constant.value} bytes/s "
             f"({_calibration_note(constant)})",
+            hw_note,
         ),
         constant_key=family,
     )

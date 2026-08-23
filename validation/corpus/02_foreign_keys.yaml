@@ -1,0 +1,111 @@
+# ADD FOREIGN KEY: 527 wild (vs 1 NOT VALID, 1 VALIDATE). ADD FK locks both
+# tables SHARE ROW EXCLUSIVE and validates as one join (fk_validation MEASURED).
+family: foreign_keys
+cases:
+  - id: fk_plain_1k
+    source: boundary__0043__01_server_type_enum.up.sql
+    table: t_1k
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_account_fk FOREIGN KEY (account_id) REFERENCES accounts(id);
+    expect: {tier: safe, lock: SHARE ROW EXCLUSIVE}
+
+  - id: fk_plain_100k
+    source: boundary__0043__01_server_type_enum.up.sql
+    table: t_100k
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_account_fk FOREIGN KEY (account_id) REFERENCES accounts(id);
+    expect: {tier: safe, lock: SHARE ROW EXCLUSIVE}
+
+  - id: fk_plain_1m
+    source: boundary__0043__01_server_type_enum.up.sql
+    table: t_1m
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_account_fk FOREIGN KEY (account_id) REFERENCES accounts(id);
+    expect: {tier: safe, lock: SHARE ROW EXCLUSIVE, note: reference 380 ms}
+
+  - id: fk_plain_5m
+    why: the join-not-probe finding scaled up; ~2 s of SHARE ROW EXCLUSIVE on both tables.
+    source: boundary__0043__01_server_type_enum.up.sql
+    table: t_5m
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_account_fk FOREIGN KEY (account_id) REFERENCES accounts(id);
+    expect: {tier: safe, lock: SHARE ROW EXCLUSIVE}
+
+  - id: fk_cascade_1m
+    source: boundary__0027__01_server_tags_migrations.up.sql
+    table: t_1m
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_account_fk FOREIGN KEY (account_id) REFERENCES accounts(id) ON DELETE CASCADE ON UPDATE CASCADE;
+    expect: {tier: safe, lock: SHARE ROW EXCLUSIVE}
+
+  - id: fk_not_valid_5m
+    why: NOT VALID on a 5M-row table is catalog-only; the SHARE ROW EXCLUSIVE lasts milliseconds.
+    adversarial: looks_dangerous
+    source: coder__0385__000385_aibridge_fks.up.sql
+    table: t_5m
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_account_fk2 FOREIGN KEY (account_id) REFERENCES accounts(id) NOT VALID;
+    expect: {tier: safe, lock: SHARE ROW EXCLUSIVE}
+
+  - id: fk_validate_1m
+    source: coder__0385__000385_aibridge_fks.up.sql
+    table: t_1m
+    migration: ALTER TABLE {t} VALIDATE CONSTRAINT {t}_account_fk_nv;
+    expect: {tier: safe, lock: SHARE UPDATE EXCLUSIVE}
+
+  - id: fk_validate_5m
+    why: VALIDATE holds SHARE UPDATE EXCLUSIVE only; a multi-second scan that blocks nothing.
+    adversarial: looks_dangerous
+    table: t_5m
+    migration: ALTER TABLE {t} VALIDATE CONSTRAINT {t}_account_fk_nv;
+    expect: {tier: safe, lock: SHARE UPDATE EXCLUSIVE}
+
+  - id: fk_orphans_fail
+    why: a 50k-row child with one orphan; the FK fails and the migration aborts. Nothing static can see the orphan.
+    adversarial: looks_benign
+    setup: UPDATE orphan_child SET parent_id = 99999999 WHERE id = 1
+    teardown: UPDATE orphan_child SET parent_id = 2 WHERE id = 1
+    migration: ALTER TABLE orphan_child ADD CONSTRAINT orphan_child_v_fk FOREIGN KEY (parent_id) REFERENCES accounts(id);
+    expect: {tier: unsafe, lock: SHARE ROW EXCLUSIVE, error: true}
+
+  - id: fk_add_column_references_1m
+    why: ADD COLUMN ... REFERENCES takes ACCESS EXCLUSIVE on the table and SHARE ROW EXCLUSIVE on the parent; the new column is all NULL so validation is trivial.
+    table: t_1m
+    migration: ALTER TABLE {t} ADD COLUMN owner_id integer REFERENCES accounts(id);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: fk_drop_1m
+    why: DROP CONSTRAINT of an FK locks the referenced table ACCESS EXCLUSIVE too.
+    source: 272 wild drop_constraint
+    table: t_1m
+    migration: ALTER TABLE {t} DROP CONSTRAINT {t}_account_fk_nv;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: fk_from_loaded_table_to_live
+    why: the 10-statement wild corner - FK from a table this file bulk-loaded onto a live parent; the engine cannot size the loaded table, the parent's lock is real but brief.
+    adversarial: judgment_call
+    table: t_1k
+    migration: |
+      CREATE TABLE child_copy AS SELECT id, account_id FROM {t};
+      ALTER TABLE child_copy ADD CONSTRAINT child_copy_v_fk FOREIGN KEY (account_id) REFERENCES accounts(id);
+    expect:
+      - {tier: safe, lock: ACCESS SHARE}
+      - {tier: safe, lock: SHARE ROW EXCLUSIVE}
+
+  - id: fk_not_valid_then_validate_same_txn
+    why: the recommended two-step done in one explicit transaction - the SHARE ROW EXCLUSIVE from step one is still held through the validating scan.
+    adversarial: judgment_call
+    table: t_5m
+    mode: autocommit
+    teardown: ALTER TABLE {t} DROP CONSTRAINT IF EXISTS {t}_v_account_fk3
+    migration: |
+      BEGIN;
+      ALTER TABLE {t} ADD CONSTRAINT {t}_v_account_fk3 FOREIGN KEY (account_id) REFERENCES accounts(id) NOT VALID;
+      ALTER TABLE {t} VALIDATE CONSTRAINT {t}_v_account_fk3;
+      COMMIT;
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: safe, lock: SHARE ROW EXCLUSIVE}
+      - {tier: safe, lock: SHARE ROW EXCLUSIVE, note: held from statement 2 through a ~3 s scan}
+      - {tier: safe, lock: null}
+
+  - id: fk_composite_1m
+    table: t_1m
+    setup: CREATE TABLE IF NOT EXISTS acct_pairs (id integer, user_id integer, PRIMARY KEY (id, user_id))
+    teardown: DROP TABLE IF EXISTS acct_pairs
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_pair_fk FOREIGN KEY (account_id, user_id) REFERENCES acct_pairs(id, user_id) NOT VALID;
+    expect: {tier: safe, lock: SHARE ROW EXCLUSIVE}

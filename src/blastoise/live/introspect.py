@@ -36,8 +36,10 @@ from datetime import UTC, datetime
 from typing import TYPE_CHECKING, Any
 
 from blastoise.ir import QualifiedName
+from blastoise.live import calibrate as _cb
 from blastoise.live.model import (
     SNAPSHOT_FORMAT,
+    CalibrationFacts,
     CaptureLimits,
     ColumnFacts,
     ConcurrencyFacts,
@@ -250,6 +252,10 @@ def capture_snapshot(
                 for res, static in zip(resolved, statics, strict=True)
             ]
             replication = _gather_replication(conn, limits, server, role)
+            # Last: the probe takes no lock and reads no table, but it is
+            # the one section whose cost is the point, so nothing that
+            # matters runs after it and nothing before it is delayed.
+            calibration = _gather_calibration(conn, limits)
     except psycopg.Error as exc:
         # Section gatherers degrade per field; an error surfacing here means
         # the connection itself failed (dropped mid-capture, SET refused, a
@@ -273,6 +279,7 @@ def capture_snapshot(
         type_changes=change_facts,
         concurrency=concurrency,
         replication=replication,
+        calibration=calibration,
     )
 
 
@@ -1540,6 +1547,33 @@ def _gather_waiters(
     held: dict[tuple[int, int], set[str]] = {}
     for h in holders:
         held.setdefault((int(h["reloid"]), int(h["pid"])), set()).add(str(h["mode"]))
+
+    # State of every backend that holds a conflicting lock, so the engine can
+    # tell an idle-in-transaction holder (a transient wait, cleared by
+    # lock_timeout + retry) from an actively-running one (sustained
+    # contention). pg_stat_activity.state is masked for other roles without
+    # pg_read_all_stats, and comes back NULL then — so a NULL is an unknown
+    # state, not "active", and the fact degrades rather than guessing.
+    all_blockers: set[int] = set()
+    for w in blocked:
+        for p in w["blocking_pids"] or []:
+            if own_pid is None or int(p) != own_pid:
+                all_blockers.add(int(p))
+    blocker_state: dict[int, str | None] = {}
+    if all_blockers:
+        try:
+            state_rows = _query(
+                conn,
+                "SELECT pid, state FROM pg_stat_activity WHERE pid = ANY(%(pids)s)",
+                {"pids": sorted(all_blockers)},
+            )
+            for r in state_rows:
+                blocker_state[int(r["pid"])] = (
+                    None if r["state"] is None else str(r["state"])
+                )
+        except Exception as exc:
+            return Fact.unavailable(_describe_error(exc, limits))
+
     waiters: list[LockWaiter] = []
     for w in blocked:
         reloid = int(w["reloid"])
@@ -1568,9 +1602,32 @@ def _gather_waiters(
                 waiting_for_ms=waiting,
                 blocking_pids=blocking_pids,
                 blocking_modes=tuple(sorted(modes)),
+                blockers_all_idle=_blockers_all_idle(blocking_pids, blocker_state),
             )
         )
     return Fact.of(tuple(waiters))
+
+
+def _blockers_all_idle(
+    blocking_pids: tuple[int, ...], states: dict[int, str | None]
+) -> Fact[bool]:
+    """Whether every blocking backend is idle-in-transaction (holds the lock,
+    runs nothing). Unavailable if any blocker's state could not be read
+    (masked for the role, or the backend vanished between samples): an
+    unknown holder cannot be assumed idle."""
+    if not blocking_pids:
+        return Fact.unavailable("no blocking pids")
+    all_idle = True
+    for pid in blocking_pids:
+        state = states.get(pid)
+        if state is None:
+            return Fact.unavailable(
+                "a conflicting lock holder's state is unavailable "
+                "(masked without pg_read_all_stats, or the backend ended)"
+            )
+        if not state.startswith("idle in transaction"):
+            all_idle = False
+    return Fact.of(all_idle)
 
 
 def _gather_long_transactions(
@@ -1775,3 +1832,50 @@ def _gather_replica_details(
             )
         )
     return Fact.of(tuple(out))
+
+
+# --- calibration probe ----------------------------------------------------
+
+
+def _time_query_ms(
+    conn: psycopg.Connection[DictRow], sql: str, params: dict[str, Any]
+) -> int:
+    """Wall time of one bounded query, in whole milliseconds, client-clocked.
+
+    Client-side timing includes the round trip, which is the same for
+    every repeat and is sub-millisecond on any sane link; the minimum
+    over repeats discards the rest.
+    """
+    import time
+
+    started = time.perf_counter()
+    _query(conn, sql, params)
+    return int((time.perf_counter() - started) * 1000)
+
+
+def _gather_calibration(
+    conn: psycopg.Connection[DictRow], limits: CaptureLimits
+) -> CalibrationFacts:
+    """Time the calibration probe on the target (see :mod:`blastoise.live.calibrate`).
+
+    The probe runs ``PROBE_REPEATS`` times and the minimum is kept: the
+    minimum is the machine's capability, everything above it is whatever
+    else the server was doing at that moment. It touches no relation and
+    reads no user data, so it needs nothing beyond ``CONNECT``; each run
+    sits in its own savepoint under the snapshot's ``statement_timeout``,
+    so an overloaded server yields an unavailable reading with the
+    timeout as the reason, never a stall.
+    """
+    try:
+        readings = [
+            _time_query_ms(conn, _cb.COMPUTE_PROBE_SQL, {"n": _cb.COMPUTE_PROBE_ROWS})
+            for _ in range(_cb.PROBE_REPEATS)
+        ]
+        compute: Fact[int] = Fact.of(min(readings))
+    except Exception as exc:
+        compute = Fact.unavailable(_describe_error(exc, limits))
+    return CalibrationFacts(
+        compute_ms=compute,
+        repeats=_cb.PROBE_REPEATS,
+        compute_rows=_cb.COMPUTE_PROBE_ROWS,
+    )

@@ -1,0 +1,227 @@
+DISAGREEMENTS (predicted -> truth | engine upper bound vs measured hold, normalized)
+  strict   idx_btree_5m#0       needs_timing -> safe              | high=   8598 ms  hold=   3207 ms (raw 2662, wait 0)  mode=SHARE  const=index_build_btree  stalls r/w=1/2698  err=no
+             create_index blocks writes for a hold measured in seconds at worst
+  strict   idx_expr_1m#0       needs_timing -> safe              | high=   6500 ms  hold=   3778 ms (raw 3085, wait 0)  mode=SHARE  const=index_build_expression  stalls r/w=1/3063  err=no
+             create_index blocks writes for a hold measured in seconds at worst
+  strict   idx_gin_1m#0       needs_timing -> safe              | high=   6500 ms  hold=   2746 ms (raw 2040, wait 0)  mode=SHARE  const=index_build_expression  stalls r/w=1/2020  err=no
+             create_index blocks writes for a hold measured in seconds at worst
+  strict   fk_plain_5m#0       needs_timing -> safe              | high=   8432 ms  hold=   1913 ms (raw 1071, wait 0)  mode=SHARE ROW EXCLUSIVE  const=fk_validation  stalls r/w=0/1066  err=no
+             add_foreign_key blocks writes for a hold measured in seconds at worst
+  lenient  fk_orphans_fail#0               safe -> unsafe            | high=    264 ms  hold=     39 ms (raw 22, wait 0)  mode=SHARE ROW EXCLUSIVE  const=fk_validation  stalls r/w=0/0  err=yes
+             add_foreign_key blocks writes for a sub-second hold at worst: a brief stall
+  strict   fk_from_loaded_table_to_live#0       needs_timing -> safe              | high=   None ms  hold=     20 ms (raw 11, wait 0)  mode=ACCESS SHARE  const=None  stalls r/w=0/0  err=no
+             create_table_as creates a new object (blocking nothing) but reads its source for an unbounded duration
+  unknown  fk_from_loaded_table_to_live#1            unknown -> safe              | high=   None ms  hold=     13 ms (raw 7, wait 0)  mode=SHARE ROW EXCLUSIVE  const=None  stalls r/w=0/1  err=no
+             add_foreign_key blocks writes for a duration that could not be estimated: child_copy was created and bulk-loaded earlier in this file; its row volume 
+  unknown  fk_not_valid_then_validate_same_txn#2            unknown -> safe              | high=   None ms  hold=   1045 ms (raw 583, wait 0)  mode=SHARE ROW EXCLUSIVE  const=None  stalls r/w=0/614  err=no
+             the snapshot could not supply the declared live context: constraint 't_5m_v_account_fk3' not found on the relation — the statement would error
+  strict   addcol_volatile_default_1m#0             unsafe -> needs_timing      | high=  44544 ms  hold=  16577 ms (raw 9228, wait 0)  mode=ACCESS EXCLUSIVE  const=add_column_rewrite  stalls r/w=9213/2  err=no
+             add_column_default_volatile blocks reads and writes for a hold measured in seconds at worst: an outage-length stall
+  strict   addcol_generated_stored_1m#0             unsafe -> needs_timing      | high=  44544 ms  hold=  16570 ms (raw 9068, wait 0)  mode=ACCESS EXCLUSIVE  const=add_column_rewrite  stalls r/w=9071/2  err=no
+             add_column_generated_stored blocks reads and writes for a hold measured in seconds at worst: an outage-length stall
+  unknown  addcol_default_null_not_null_fails#0            unknown -> unsafe            | high=   None ms  hold=     11 ms (raw 6, wait 0)  mode=None  const=None  stalls r/w=1/0  err=yes
+             the snapshot could not supply: the catalog row is a worst case needing live context (whether the table is empty (the statement succeeds only then))
+  unknown  addcol_not_null_no_default_fails#0            unknown -> unsafe            | high=   None ms  hold=      6 ms (raw 3, wait 0)  mode=None  const=None  stalls r/w=1/1  err=yes
+             the snapshot could not supply: the catalog row is a worst case needing live context (whether the table is empty (the statement succeeds only then))
+  unknown  addcol_not_null_no_default_empty_table#0            unknown -> needs_timing      | high=   None ms  hold=      6 ms (raw 3, wait 0)  mode=ACCESS EXCLUSIVE  const=None  stalls r/w=0/0  err=no
+             the snapshot could not supply: the catalog row is a worst case needing live context (whether the table is empty (the statement succeeds only then))
+  lenient  type_int_bigint_1m#0       needs_timing -> unsafe            | high=  15100 ms  hold=  45251 ms (raw 24591, wait 0)  mode=ACCESS EXCLUSIVE  const=heap_rewrite  stalls r/w=24575/302  err=no
+             alter_column_type blocks reads and writes for a hold measured in seconds at worst
+  lenient  type_ts_tstz_nonutc_5m#0       needs_timing -> unsafe            | high=  75100 ms  hold=  68858 ms (raw 38098, wait 0)  mode=ACCESS EXCLUSIVE  const=heap_rewrite  stalls r/w=38106/4  err=no
+             alter_column_type blocks reads and writes for a hold measured in minutes at worst: an outage-length stall
+  lenient  type_varchar_shrink_fails#0       needs_timing -> unsafe            | high=    130 ms  hold=     34 ms (raw 20, wait 0)  mode=ACCESS EXCLUSIVE  const=heap_rewrite  stalls r/w=0/0  err=yes
+             alter_column_type blocks reads and writes for a sub-second hold at worst: a brief stall; it takes ACCESS EXCLUSIVE on t_1k, which existed before this 
+  lenient  setnn_fails_on_nulls#0       needs_timing -> unsafe            | high=    104 ms  hold=      5 ms (raw 3, wait 0)  mode=None  const=validation_scan  stalls r/w=1/1  err=yes
+             set_not_null blocks reads and writes for a sub-second hold at worst: a brief stall; it takes ACCESS EXCLUSIVE on t_1k, which existed before this file 
+  lenient  check_add_fails#0       needs_timing -> unsafe            | high=    104 ms  hold=     10 ms (raw 6, wait 0)  mode=None  const=validation_scan  stalls r/w=0/0  err=yes
+             add_check blocks reads and writes for a sub-second hold at worst: a brief stall; it takes ACCESS EXCLUSIVE on t_1k, which existed before this file — t
+  lenient  unique_add_fails_duplicates#0       needs_timing -> unsafe            | high=    103 ms  hold=     28 ms (raw 17, wait 0)  mode=ACCESS EXCLUSIVE  const=index_build_btree  stalls r/w=0/1  err=yes
+             add_unique blocks reads and writes for a sub-second hold at worst: a brief stall; it takes ACCESS EXCLUSIVE on t_1k, which existed before this file — 
+  strict   upd_nowhere_100k#0       needs_timing -> safe_irreversible | high=   9190 ms  hold=   3000 ms (raw 1818, wait 0)  mode=ROW EXCLUSIVE  const=dml_update  stalls r/w=0/16  err=no
+             rewrites every row of t_100k in one transaction: every row is locked for a hold measured in seconds at worst, dead tuples pile up for the whole table,
+  strict   upd_nowhere_1m#0             unsafe -> needs_timing      | high=  91008 ms  hold=  46401 ms (raw 28152, wait 0)  mode=ROW EXCLUSIVE  const=dml_update  stalls r/w=0/843  err=no
+             rewrites every row of t_1m in one transaction: every row is locked for a hold measured in minutes at worst, dead tuples pile up for the whole table, a
+  lenient  upd_matched_narrow_looking_5m#0       needs_timing -> unsafe            | high=   None ms  hold= 135827 ms (raw 90385, wait 0)  mode=ROW EXCLUSIVE  const=None  stalls r/w=2/580  err=no
+             row locks only — no table-wide block — but the matched-row count is not statically knowable
+  strict   upd_truly_narrow_5m#0       needs_timing -> safe_irreversible | high=   None ms  hold=     32 ms (raw 22, wait 0)  mode=ROW EXCLUSIVE  const=None  stalls r/w=0/1  err=no
+             row locks only — no table-wide block — but the matched-row count is not statically knowable
+  strict   upd_batched_window_5m#0       needs_timing -> safe_irreversible | high=   None ms  hold=   2444 ms (raw 1712, wait 0)  mode=ROW EXCLUSIVE  const=None  stalls r/w=0/1701  err=no
+             row locks only — no table-wide block — but the matched-row count is not statically knowable
+  strict   upd_from_join_1m#0       needs_timing -> safe_irreversible | high=   None ms  hold=     72 ms (raw 52, wait 0)  mode=ROW EXCLUSIVE  const=None  stalls r/w=1/1  err=no
+             row locks only — no table-wide block — but the matched-row count is not statically knowable
+  strict   del_nowhere_1m#0       needs_timing -> safe_irreversible | high=  40052 ms  hold=   1476 ms (raw 1134, wait 0)  mode=ROW EXCLUSIVE  const=dml_delete  stalls r/w=0/6  err=no
+             deletes every row of t_1m in one transaction: every row is locked for a hold measured in seconds at worst, dead tuples pile up for the whole table, an
+  strict   del_nowhere_5m#0             unsafe -> needs_timing      | high= 199612 ms  hold=  16807 ms (raw 12993, wait 0)  mode=ROW EXCLUSIVE  const=dml_delete  stalls r/w=1/10969  err=no
+             deletes every row of t_5m in one transaction: every row is locked for a hold measured in minutes at worst, dead tuples pile up for the whole table, an
+  strict   ins_select_bounded_1m#0       needs_timing -> safe              | high=   None ms  hold=   1066 ms (raw 889, wait 0)  mode=ROW EXCLUSIVE  const=None  stalls r/w=1/13  err=no
+             INSERT ... SELECT blocks no reads or writes, but its volume follows the source query
+  strict   ctas_1m#0       needs_timing -> safe              | high=   None ms  hold=   2590 ms (raw 2264, wait 0)  mode=ACCESS SHARE  const=None  stalls r/w=2/18  err=no
+             create_table_as creates a new object (blocking nothing) but reads its source for an unbounded duration
+  lenient  enum_add_value_then_use_in_txn#2  safe_irreversible -> unsafe            | high=   None ms  hold=     17 ms (raw 15, wait 0)  mode=None  const=None  stalls r/w=0/0  err=yes
+             row locks only, and even if every row of tickets matched, the run is a sub-second hold at worst
+  lenient  drop_type_in_use_fails#0  safe_irreversible -> unsafe            | high=    100 ms  hold=      3 ms (raw 3, wait 0)  mode=None  const=constant_op  stalls r/w=0/0  err=yes
+             drop_type is catalog-only and blocks neither reads nor writes
+  lenient  create_or_replace_view_existing#0               safe -> needs_timing      | high=    100 ms  hold=      9 ms (raw 10, wait 0)  mode=ACCESS EXCLUSIVE  const=constant_op  stalls r/w=0/0  err=no
+             create_view is catalog-only and blocks neither reads nor writes
+  unknown  set_storage_params_5m#0            unknown -> safe              | high=   None ms  hold=      2 ms (raw 2, wait 0)  mode=SHARE UPDATE EXCLUSIVE  const=None  stalls r/w=1/2  err=no
+             the snapshot could not supply: the catalog row is a worst case needing live context (which parameters are set (the IR does not record them): fillfacto
+  unknown  vacuum_analyze_1m#0            unknown -> safe              | high=   None ms  hold=   4121 ms (raw 4660, wait 0)  mode=SHARE UPDATE EXCLUSIVE  const=None  stalls r/w=15/4  err=no
+             cannot assess vacuum: the catalog row is an uncalibrated stub: its values are provisional
+  strict   create_matview_1m#0       needs_timing -> safe              | high=   None ms  hold=    323 ms (raw 365, wait 0)  mode=ACCESS SHARE  const=None  stalls r/w=1/6  err=no
+             create_matview creates a new object (blocking nothing) but reads its source for an unbounded duration
+  lenient  conc_addcol_idle_holder_long#0       needs_timing -> unsafe            | high=    100 ms  hold=  25012 ms (raw 25014, wait 24995)  mode=ACCESS EXCLUSIVE  const=constant_op  stalls r/w=24983/2  err=no
+             add_column is catalog-only but takes a read-and-write-blocking lock on t_1m; the work is brief, the wait for the lock may not be
+  lenient  conc_addcol_idle_holder_long_visible#0       needs_timing -> unsafe            | high=    100 ms  hold=  25016 ms (raw 25016, wait 25013)  mode=ACCESS EXCLUSIVE  const=constant_op  stalls r/w=25179/8  err=no
+             add_column is catalog-only but takes a read-and-write-blocking lock on t_1m; the work is brief, the wait for the lock may not be
+  lenient  conc_create_index_tiny_rowexcl_holder#0               safe -> needs_timing      | high=    101 ms  hold=  10018 ms (raw 10018, wait 10017)  mode=SHARE  const=index_build_btree  stalls r/w=1/9991  err=no
+             create_index blocks writes for a sub-second hold at worst: a brief stall
+  lenient  conc_fk_idle_writer_on_parent#0               safe -> needs_timing      | high=    266 ms  hold=   7534 ms (raw 8072, wait 0)  mode=SHARE ROW EXCLUSIVE  const=fk_validation  stalls r/w=0/8042  err=no
+             add_foreign_key blocks writes for a sub-second hold at worst: a brief stall
+  unknown  conc_set_not_null_idle_holder_visible#0            unknown -> needs_timing      | high=   None ms  hold=   8009 ms (raw 8010, wait 7991)  mode=ACCESS EXCLUSIVE  const=None  stalls r/w=8251/7  err=no
+             the snapshot could not supply the declared live context: constraint facts unavailable: lock not acquired within lock_timeout (2000 ms); the relation i
+
+JUDGMENT-CALL AND ADVERSARIAL CASES
+  looks_dangerous match    idx_btree_tiny#0               safe -> safe              hold=13 ms mode=SHARE
+  looks_benign    match    idx_concurrently_in_txn#0               safe -> safe              hold=0 ms mode=None
+  looks_benign    match    idx_concurrently_in_txn#1             unsafe -> unsafe            hold=9 ms mode=None
+  looks_benign    match    idx_concurrently_in_txn#2               safe -> safe              hold=0 ms mode=None
+  looks_dangerous match    idx_if_not_exists_existing#0               safe -> safe              hold=3 ms mode=SHARE
+  looks_dangerous match    fk_not_valid_5m#0               safe -> safe              hold=7 ms mode=SHARE ROW EXCLUSIVE
+  looks_dangerous match    fk_validate_5m#0               safe -> safe              hold=1025 ms mode=SHARE UPDATE EXCLUSIVE
+  looks_benign    lenient  fk_orphans_fail#0               safe -> unsafe            hold=39 ms mode=SHARE ROW EXCLUSIVE
+  judgment_call   strict   fk_from_loaded_table_to_live#0       needs_timing -> safe              hold=20 ms mode=ACCESS SHARE
+  judgment_call   unknown  fk_from_loaded_table_to_live#1            unknown -> safe              hold=13 ms mode=SHARE ROW EXCLUSIVE
+  judgment_call   match    fk_not_valid_then_validate_same_txn#0               safe -> safe              hold=0 ms mode=None
+  judgment_call   match    fk_not_valid_then_validate_same_txn#1               safe -> safe              hold=5 ms mode=SHARE ROW EXCLUSIVE
+  judgment_call   unknown  fk_not_valid_then_validate_same_txn#2            unknown -> safe              hold=1045 ms mode=SHARE ROW EXCLUSIVE
+  judgment_call   match    fk_not_valid_then_validate_same_txn#3               safe -> safe              hold=4 ms mode=None
+  judgment_call   match    addcol_bare_tiny#0       needs_timing -> needs_timing      hold=5 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    addcol_const_default_5m#0       needs_timing -> needs_timing      hold=13 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    addcol_now_default_5m#0       needs_timing -> needs_timing      hold=7 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    addcol_json_default_5m#0       needs_timing -> needs_timing      hold=14 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    addcol_array_default_5m#0       needs_timing -> needs_timing      hold=5 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    addcol_immutable_udf_default_5m#0       needs_timing -> needs_timing      hold=7 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    addcol_serial_tiny#0       needs_timing -> needs_timing      hold=51 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    addcol_domain_constrained_default_100k#0       needs_timing -> needs_timing      hold=2318 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    addcol_domain_constrained_default_5m#0             unsafe -> unsafe            hold=83796 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    addcol_domain_unconstrained_default_5m#0       needs_timing -> needs_timing      hold=29 ms mode=ACCESS EXCLUSIVE
+  looks_benign    unknown  addcol_default_null_not_null_fails#0            unknown -> unsafe            hold=11 ms mode=None
+  looks_benign    unknown  addcol_not_null_no_default_fails#0            unknown -> unsafe            hold=6 ms mode=None
+  looks_dangerous unknown  addcol_not_null_no_default_empty_table#0            unknown -> needs_timing      hold=6 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    type_varchar_widen_partial_idx_1m#0       needs_timing -> needs_timing      hold=1284 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    type_varchar_widen_partial_idx_5m#0       needs_timing -> needs_timing      hold=7931 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    type_varchar_widen_plain_idx_5m#0       needs_timing -> needs_timing      hold=13 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    type_varchar_text_5m#0       needs_timing -> needs_timing      hold=7 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    type_numeric_widen_5m#0       needs_timing -> needs_timing      hold=5 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    type_ts_tstz_utc_5m#0       needs_timing -> needs_timing      hold=0 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    type_ts_tstz_nonutc_1m#0       needs_timing -> needs_timing      hold=13756 ms mode=ACCESS EXCLUSIVE
+  looks_benign    lenient  type_ts_tstz_nonutc_5m#0       needs_timing -> unsafe            hold=68858 ms mode=ACCESS EXCLUSIVE
+  looks_benign    lenient  type_varchar_shrink_fails#0       needs_timing -> unsafe            hold=34 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    setnn_proving_check_5m#0       needs_timing -> needs_timing      hold=0 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    setnn_plain_5m#0       needs_timing -> needs_timing      hold=5878 ms mode=ACCESS EXCLUSIVE
+  looks_benign    lenient  setnn_fails_on_nulls#0       needs_timing -> unsafe            hold=5 ms mode=None
+  looks_dangerous match    check_add_not_valid_5m#0       needs_timing -> needs_timing      hold=5 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    check_validate_5m#0               safe -> safe              hold=2953 ms mode=SHARE UPDATE EXCLUSIVE
+  looks_benign    lenient  check_add_fails#0       needs_timing -> unsafe            hold=10 ms mode=None
+  looks_benign    lenient  unique_add_fails_duplicates#0       needs_timing -> unsafe            hold=28 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    unique_using_index_1m#0       needs_timing -> needs_timing      hold=7 ms mode=ACCESS EXCLUSIVE
+  judgment_call   match    pk_add_on_empty_preexisting#0       needs_timing -> needs_timing      hold=15 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    drop_not_null_5m#0       needs_timing -> needs_timing      hold=3 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    set_default_volatile_5m#0       needs_timing -> needs_timing      hold=8 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    upd_matched_narrow_looking_1m#0       needs_timing -> needs_timing      hold=13981 ms mode=ROW EXCLUSIVE
+  looks_benign    lenient  upd_matched_narrow_looking_5m#0       needs_timing -> unsafe            hold=135827 ms mode=ROW EXCLUSIVE
+  looks_dangerous strict   upd_truly_narrow_5m#0       needs_timing -> safe_irreversible hold=32 ms mode=ROW EXCLUSIVE
+  looks_dangerous strict   upd_batched_window_5m#0       needs_timing -> safe_irreversible hold=2444 ms mode=ROW EXCLUSIVE
+  looks_benign    match    upd_do_loop_batches_1m#0       needs_timing -> needs_timing      hold=31146 ms mode=ROW EXCLUSIVE
+  looks_dangerous strict   ins_select_bounded_1m#0       needs_timing -> safe              hold=1066 ms mode=ROW EXCLUSIVE
+  judgment_call   strict   ctas_1m#0       needs_timing -> safe              hold=2590 ms mode=ACCESS SHARE
+  judgment_call   match    enum_add_value#0  safe_irreversible -> safe_irreversible hold=22 ms mode=None
+  looks_benign    match    enum_add_value_then_use_in_txn#0               safe -> safe              hold=0 ms mode=None
+  looks_benign    match    enum_add_value_then_use_in_txn#1  safe_irreversible -> safe_irreversible hold=6 ms mode=None
+  looks_benign    lenient  enum_add_value_then_use_in_txn#2  safe_irreversible -> unsafe            hold=17 ms mode=None
+  looks_benign    match    enum_add_value_then_use_in_txn#3               safe -> safe              hold=0 ms mode=None
+  judgment_call   match    drop_function#0  safe_irreversible -> safe_irreversible hold=7 ms mode=None
+  judgment_call   match    drop_table_preexisting_empty#0       needs_timing -> needs_timing      hold=12 ms mode=ACCESS EXCLUSIVE
+  judgment_call   match    drop_table_file_created#0               safe -> safe              hold=16 ms mode=None
+  judgment_call   match    drop_table_file_created#1  safe_irreversible -> safe_irreversible hold=2 ms mode=None
+  looks_dangerous match    drop_column_file_created#0               safe -> safe              hold=21 ms mode=None
+  looks_dangerous match    drop_column_file_created#1  safe_irreversible -> safe_irreversible hold=6 ms mode=None
+  looks_benign    lenient  drop_type_in_use_fails#0  safe_irreversible -> unsafe            hold=3 ms mode=None
+  looks_benign    match    drop_index_then_recreate_file#0               safe -> safe              hold=1 ms mode=None
+  looks_benign    match    drop_index_then_recreate_file#1       needs_timing -> needs_timing      hold=3 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    drop_index_then_recreate_file#2       needs_timing -> needs_timing      hold=4396 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    drop_index_then_recreate_file#3               safe -> safe              hold=23 ms mode=None
+  looks_benign    lenient  create_or_replace_view_existing#0               safe -> needs_timing      hold=9 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous unknown  set_storage_params_5m#0            unknown -> safe              hold=2 ms mode=SHARE UPDATE EXCLUSIVE
+  looks_dangerous unknown  vacuum_analyze_1m#0            unknown -> safe              hold=4121 ms mode=SHARE UPDATE EXCLUSIVE
+  looks_benign    match    create_policy_5m#0       needs_timing -> needs_timing      hold=4 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    enable_rls_5m#0       needs_timing -> needs_timing      hold=1 ms mode=ACCESS EXCLUSIVE
+  judgment_call   strict   create_matview_1m#0       needs_timing -> safe              hold=323 ms mode=ACCESS SHARE
+  looks_dangerous match    rename_index_5m#0               safe -> safe              hold=0 ms mode=SHARE UPDATE EXCLUSIVE
+  looks_benign    match    conc_addcol_idle_holder_short#0       needs_timing -> needs_timing      hold=8016 ms mode=ACCESS EXCLUSIVE
+  looks_benign    lenient  conc_addcol_idle_holder_long#0       needs_timing -> unsafe            hold=25012 ms mode=ACCESS EXCLUSIVE
+  looks_dangerous match    conc_addcol_idle_holder_short_visible#0       needs_timing -> needs_timing      hold=8011 ms mode=ACCESS EXCLUSIVE
+  looks_benign    lenient  conc_create_index_tiny_rowexcl_holder#0               safe -> needs_timing      hold=10018 ms mode=SHARE
+  looks_dangerous match    conc_validate_accessshare_holder#0               safe -> safe              hold=115 ms mode=SHARE UPDATE EXCLUSIVE
+  looks_dangerous match    conc_cic_idle_writer#0               safe -> safe              hold=9821 ms mode=SHARE UPDATE EXCLUSIVE
+  looks_dangerous match    conc_fk_accessshare_holder_on_parent#0               safe -> safe              hold=149 ms mode=SHARE ROW EXCLUSIVE
+  looks_benign    lenient  conc_fk_idle_writer_on_parent#0               safe -> needs_timing      hold=7534 ms mode=SHARE ROW EXCLUSIVE
+  looks_dangerous unknown  conc_set_not_null_idle_holder_visible#0            unknown -> needs_timing      hold=8009 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    txn_ael_then_backfill_1m#0               safe -> safe              hold=0 ms mode=None
+  looks_benign    match    txn_ael_then_backfill_1m#1       needs_timing -> needs_timing      hold=4 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    txn_ael_then_backfill_1m#2             unsafe -> unsafe            hold=72742 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    txn_ael_then_backfill_1m#3               safe -> safe              hold=1 ms mode=None
+  looks_benign    match    txn_alter_then_select_5m#0               safe -> safe              hold=0 ms mode=None
+  looks_benign    match    txn_alter_then_select_5m#1       needs_timing -> needs_timing      hold=5 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    txn_alter_then_select_5m#2       needs_timing -> needs_timing      hold=1487 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    txn_alter_then_select_5m#3               safe -> safe              hold=2 ms mode=None
+  looks_benign    match    txn_create_index_after_alter_100k#0               safe -> safe              hold=0 ms mode=None
+  looks_benign    match    txn_create_index_after_alter_100k#1       needs_timing -> needs_timing      hold=2 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    txn_create_index_after_alter_100k#2       needs_timing -> needs_timing      hold=260 ms mode=ACCESS EXCLUSIVE
+  looks_benign    match    txn_create_index_after_alter_100k#3               safe -> safe              hold=10 ms mode=None
+
+CONCURRENCY: what the snapshot saw and what the engine did
+  conc_addcol_idle_holder_short              holder=8s pre_age=0 long_txns=[] waiters=0 wait=8012 ms stalls r/w=7994/1 needs_timing -> needs_timing (match)
+  conc_addcol_idle_holder_long               holder=25s pre_age=62 long_txns=[{'pid': 32360, 'idle_in_transaction': True, 'xact_age_ms': 62189}] waiters=0 wait=24995 ms stalls r/w=24983/2 needs_timing -> unsafe (lenient)
+  conc_addcol_idle_holder_long_visible       holder=25s pre_age=0 long_txns=[] waiters=1 wait=25013 ms stalls r/w=25179/8 needs_timing -> unsafe (lenient)
+  conc_addcol_idle_holder_short_visible      holder=8s pre_age=0 long_txns=[] waiters=1 wait=8006 ms stalls r/w=8160/9 needs_timing -> needs_timing (match)
+  conc_create_index_tiny_rowexcl_holder      holder=10s pre_age=0 long_txns=[] waiters=0 wait=10017 ms stalls r/w=1/9991 safe -> needs_timing (lenient)
+  conc_validate_accessshare_holder           holder=8s pre_age=0 long_txns=[] waiters=0 wait=0 ms stalls r/w=0/4 safe -> safe (match)
+  conc_cic_idle_writer                       holder=8s pre_age=0 long_txns=[] waiters=0 wait=0 ms stalls r/w=6/5 safe -> safe (match)
+  conc_fk_accessshare_holder_on_parent       holder=8s pre_age=0 long_txns=[] waiters=0 wait=0 ms stalls r/w=1/125 safe -> safe (match)
+  conc_fk_idle_writer_on_parent              holder=8s pre_age=0 long_txns=[] waiters=0 wait=0 ms stalls r/w=0/8042 safe -> needs_timing (lenient)
+  conc_lock_table_explicit                   holder=Nones pre_age=None long_txns=[] waiters=0 wait=0 ms stalls r/w=1/3 needs_timing -> needs_timing (match)
+  conc_set_not_null_idle_holder_visible      holder=8s pre_age=0 long_txns=[] waiters=1 wait=7991 ms stalls r/w=8251/7 unknown -> needs_timing (unknown)
+
+TRAFFIC PROBE vs LOCK MODE (AEL holds >= 1 s: did readers actually stall?)
+  reindex_index_5m#0  wall=   4253 ms  read stall=      1  write stall=   4257
+  reindex_table_5m#0  wall=  30503 ms  read stall=  30482  write stall=      9
+  addcol_volatile_default_100k#0  wall=   1405 ms  read stall=   1395  write stall=      5
+  addcol_volatile_default_1m#0  wall=   9228 ms  read stall=   9213  write stall=      2
+  addcol_volatile_default_5m#0  wall=  55850 ms  read stall=  55854  write stall=     74
+  addcol_serial_1m#0  wall=  11481 ms  read stall=  11490  write stall=      2
+  addcol_identity_5m#0  wall=  88146 ms  read stall=  88143  write stall=     95
+  addcol_generated_stored_1m#0  wall=   9068 ms  read stall=   9071  write stall=      2
+  addcol_domain_constrained_default_100k#0  wall=   1267 ms  read stall=   1270  write stall=      2
+  addcol_domain_constrained_default_5m#0  wall=  45803 ms  read stall=  45796  write stall=      3
+  addcol_with_check_5m#0  wall=   3497 ms  read stall=   3486  write stall=      0
+  type_int_bigint_100k#0  wall=   1307 ms  read stall=   1317  write stall=      2
+  type_int_bigint_1m#0  wall=  24591 ms  read stall=  24575  write stall=    302
+  type_int_bigint_5m#0  wall=  44514 ms  read stall=  44515  write stall=      3
+  type_varchar_widen_partial_idx_5m#0  wall=   4300 ms  read stall=   4301  write stall=      6
+  type_ts_tstz_nonutc_1m#0  wall=   7532 ms  read stall=   7530  write stall=      2
+  type_ts_tstz_nonutc_5m#0  wall=  38098 ms  read stall=  38106  write stall=      4
+  type_text_varchar_1m#0  wall=   7562 ms  read stall=   7522  write stall=     15
+  type_bigint_int_narrow_100k#0  wall=   1034 ms  read stall=   1007  write stall=      2
+  type_int_text_using_1m#0  wall=   7294 ms  read stall=   7294  write stall=      8
+  setnn_plain_5m#0  wall=   3496 ms  read stall=   3492  write stall=     19
+  check_add_5m#0  wall=   2609 ms  read stall=   2593  write stall=      1
+  unique_add_5m#0  wall=   3681 ms  read stall=   3655  write stall=     19
+  drop_index_then_recreate_file#2  wall=   4400 ms  read stall=   4472  write stall=      0
+  conc_addcol_idle_holder_short#0  wall=   8016 ms  read stall=   7994  write stall=      1
+  conc_addcol_idle_holder_long#0  wall=  25014 ms  read stall=  24983  write stall=      2
+  conc_addcol_idle_holder_long_visible#0  wall=  25016 ms  read stall=  25179  write stall=      8
+  conc_addcol_idle_holder_short_visible#0  wall=   8012 ms  read stall=   8160  write stall=      9
+  conc_set_not_null_idle_holder_visible#0  wall=   8010 ms  read stall=   8251  write stall=      7
+  txn_ael_then_backfill_1m#2  wall=  76759 ms  read stall=  76889  write stall=      0
+  txn_alter_then_select_5m#2  wall=   1487 ms  read stall=   1569  write stall=      0

@@ -1,0 +1,113 @@
+# ALTER COLUMN TYPE: 306 wild. The binary-coercible forms are catalog-only
+# unless a dependent partial/expression index must be rebuilt (the 13.5 s
+# case); everything else rewrites the heap under ACCESS EXCLUSIVE.
+family: alter_column_type
+cases:
+  - id: type_int_bigint_100k
+    source: boundary__0030__01_job_migrations.up.sql
+    table: t_100k
+    migration: ALTER TABLE {t} ALTER COLUMN user_id TYPE bigint;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: true}
+
+  - id: type_int_bigint_1m
+    why: the canonical rewrite at 1M rows measured 11.5 s on the reference machine - needs_timing, not unsafe.
+    source: boundary__0030__01_job_migrations.up.sql
+    table: t_1m
+    migration: ALTER TABLE {t} ALTER COLUMN user_id TYPE bigint;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: true}
+
+  - id: type_int_bigint_5m
+    source: boundary__0030__01_job_migrations.up.sql
+    table: t_5m
+    migration: ALTER TABLE {t} ALTER COLUMN user_id TYPE bigint;
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE, rewrites: true}
+
+  - id: type_varchar_widen_partial_idx_1m
+    why: the 13.5 s case - no heap rewrite, but the partial index on status is rebuilt under ACCESS EXCLUSIVE.
+    adversarial: looks_benign
+    source: boundary__0046__01_wh_user_dimension_oidc.up.sql
+    table: t_1m
+    migration: ALTER TABLE {t} ALTER COLUMN status TYPE varchar(64);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false}
+
+  - id: type_varchar_widen_partial_idx_5m
+    adversarial: looks_benign
+    source: boundary__0046__01_wh_user_dimension_oidc.up.sql
+    table: t_5m
+    migration: ALTER TABLE {t} ALTER COLUMN status TYPE varchar(64);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false, note: ~6 s index rebuild}
+
+  - id: type_varchar_widen_plain_idx_5m
+    why: binary-coercible widen on a column whose only index is a plain btree - CheckIndexCompatible reuses it; milliseconds.
+    adversarial: looks_dangerous
+    table: t_5m
+    migration: ALTER TABLE {t} ALTER COLUMN title TYPE varchar(300);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false}
+
+  - id: type_varchar_text_5m
+    adversarial: looks_dangerous
+    source: boundary__0030__01_job_migrations.up.sql
+    table: t_5m
+    migration: ALTER TABLE {t} ALTER COLUMN title TYPE text;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false}
+
+  - id: type_numeric_widen_5m
+    adversarial: looks_dangerous
+    table: t_5m
+    migration: ALTER TABLE {t} ALTER COLUMN amount TYPE numeric(14,2);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false}
+
+  - id: type_ts_tstz_utc_5m
+    why: timestamp to timestamptz under a UTC session is a no-op coercion (PG 12+).
+    adversarial: looks_dangerous
+    table: t_5m
+    migration: ALTER TABLE {t} ALTER COLUMN updated_at TYPE timestamptz;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false}
+
+  - id: type_ts_tstz_nonutc_1m
+    why: the same statement under a non-UTC session rewrites every row.
+    adversarial: looks_benign
+    table: t_1m
+    session: SET TIME ZONE 'America/New_York'
+    migration: ALTER TABLE {t} ALTER COLUMN updated_at TYPE timestamptz;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: true}
+
+  - id: type_ts_tstz_nonutc_5m
+    why: at 5M rows the non-UTC rewrite is an outage-length hold; the engine can only see the server's zone, not the session's.
+    adversarial: looks_benign
+    table: t_5m
+    session: SET TIME ZONE 'America/New_York'
+    migration: ALTER TABLE {t} ALTER COLUMN updated_at TYPE timestamptz;
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE, rewrites: true}
+
+  - id: type_text_varchar_1m
+    source: boundary__0030__01_job_migrations.up.sql
+    table: t_1m
+    migration: ALTER TABLE {t} ALTER COLUMN body TYPE varchar(2000);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: true, note: reference 10.7 s}
+
+  - id: type_bigint_int_narrow_100k
+    why: narrowing the PK column - rewrite plus PK index rebuild; values fit so it succeeds.
+    table: t_100k
+    migration: ALTER TABLE {t} ALTER COLUMN id TYPE integer;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: true}
+
+  - id: type_int_text_using_1m
+    table: t_1m
+    migration: ALTER TABLE {t} ALTER COLUMN score TYPE text USING score::text;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: true}
+
+  - id: type_varchar_shrink_fails
+    why: shrinking text to varchar(5) errors on the first long value; it looks like a typmod tweak.
+    adversarial: looks_benign
+    table: t_1k
+    migration: ALTER TABLE {t} ALTER COLUMN note TYPE varchar(5);
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE, error: true}
+
+  - id: type_on_file_created
+    migration: |
+      CREATE TABLE ev3 (id integer PRIMARY KEY, n integer);
+      ALTER TABLE ev3 ALTER COLUMN n TYPE bigint;
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: safe, lock: null}

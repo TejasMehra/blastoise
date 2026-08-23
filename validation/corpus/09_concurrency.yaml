@@ -1,0 +1,91 @@
+# Concurrent activity the statement cannot show. An idle-in-transaction
+# holder is invisible to pg_locks unless someone is already waiting behind
+# it; the snapshot captures long_transactions, and these cases measure what
+# the engine does with that.
+family: concurrency
+cases:
+  - id: conc_addcol_idle_holder_short
+    why: brief ACCESS EXCLUSIVE behind an 8 s idle ACCESS SHARE holder - reads and writes stall 8 s.
+    adversarial: looks_benign
+    table: t_1m
+    holder: {sql: "SELECT 1 FROM {t} LIMIT 1", hold_s: 8}
+    migration: ALTER TABLE {t} ADD COLUMN held_a integer;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: conc_addcol_idle_holder_long
+    why: the same, behind a 25 s idle holder aged past the 60 s long-transaction threshold so the snapshot lists it - an outage-length full block with no waiter for the contention check to see.
+    adversarial: looks_benign
+    table: t_1m
+    holder: {sql: "SELECT 1 FROM {t} LIMIT 1", hold_s: 25, pre_age_s: 62}
+    migration: ALTER TABLE {t} ADD COLUMN held_b integer;
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE}
+
+  - id: conc_addcol_idle_holder_long_visible
+    why: the 25 s holder made visible by a parked waiter - the shape the escalation path sees.
+    table: t_1m
+    holder: {sql: "SELECT 1 FROM {t} LIMIT 1", hold_s: 25, visible_waiter: true}
+    migration: ALTER TABLE {t} ADD COLUMN held_c integer;
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE}
+
+  - id: conc_addcol_idle_holder_short_visible
+    why: an 8 s holder with a visible waiter - the escalation fires on the observation regardless of how long the holder lasts.
+    adversarial: looks_dangerous
+    table: t_1m
+    holder: {sql: "SELECT 1 FROM {t} LIMIT 1", hold_s: 8, visible_waiter: true}
+    migration: ALTER TABLE {t} ADD COLUMN held_d integer;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: conc_create_index_tiny_rowexcl_holder
+    why: CREATE INDEX on a 1k table behind a 10 s idle writer - SHARE waits, and every writer arriving meanwhile queues behind the SHARE request.
+    adversarial: looks_benign
+    table: t_1k
+    holder: {sql: "UPDATE {t} SET score = score WHERE id = 2", hold_s: 10}
+    migration: CREATE INDEX {t}_v_held_idx ON {t} (user_id);
+    expect: {tier: needs_timing, lock: SHARE}
+
+  - id: conc_validate_accessshare_holder
+    why: VALIDATE CONSTRAINT's SHARE UPDATE EXCLUSIVE does not conflict with an idle reader; no wait at all.
+    adversarial: looks_dangerous
+    table: t_1m
+    holder: {sql: "SELECT 1 FROM {t} LIMIT 1", hold_s: 8}
+    migration: ALTER TABLE {t} VALIDATE CONSTRAINT {t}_account_fk_nv;
+    expect: {tier: safe, lock: SHARE UPDATE EXCLUSIVE}
+
+  - id: conc_cic_idle_writer
+    why: CIC waits for the idle writer's transaction to end but blocks nobody while it waits.
+    adversarial: looks_dangerous
+    table: t_1m
+    mode: autocommit
+    holder: {sql: "UPDATE {t} SET score = score WHERE id = 2", hold_s: 8}
+    migration: CREATE INDEX CONCURRENTLY {t}_v_cic_held_idx ON {t} (user_id);
+    teardown: DROP INDEX IF EXISTS {t}_v_cic_held_idx
+    expect: {tier: safe, lock: SHARE UPDATE EXCLUSIVE}
+
+  - id: conc_fk_accessshare_holder_on_parent
+    why: ADD FOREIGN KEY's SHARE ROW EXCLUSIVE on the parent does not conflict with an idle reader of the parent.
+    adversarial: looks_dangerous
+    table: t_100k
+    holder: {sql: "SELECT 1 FROM accounts LIMIT 1", hold_s: 8}
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_held_fk FOREIGN KEY (account_id) REFERENCES accounts(id);
+    expect: {tier: safe, lock: SHARE ROW EXCLUSIVE}
+
+  - id: conc_fk_idle_writer_on_parent
+    why: the same FK behind an idle writer on the parent - SHARE ROW EXCLUSIVE waits 8 s and writers to both tables queue.
+    adversarial: looks_benign
+    table: t_100k
+    holder: {sql: "UPDATE accounts SET name = name WHERE id = 1", hold_s: 8}
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_held_fk FOREIGN KEY (account_id) REFERENCES accounts(id);
+    expect: {tier: needs_timing, lock: SHARE ROW EXCLUSIVE}
+
+  - id: conc_lock_table_explicit
+    table: t_1m
+    migration: LOCK TABLE {t} IN ACCESS EXCLUSIVE MODE;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: conc_set_not_null_idle_holder_visible
+    why: a proving-CHECK SET NOT NULL (catalog-only) behind a visible 8 s holder; the escalation lifts a brief hold to unsafe.
+    adversarial: looks_dangerous
+    table: t_1m
+    holder: {sql: "SELECT 1 FROM {t} LIMIT 1", hold_s: 8, visible_waiter: true}
+    migration: ALTER TABLE {t} ALTER COLUMN body SET NOT NULL;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}

@@ -498,6 +498,10 @@ class TestConcurrencyDegraded:
                     "l.granted",
                     [{"pid": 100, "mode": "AccessShareLock", "reloid": 16384}],
                 ),
+                (
+                    "pg_stat_activity",
+                    [{"pid": 100, "state": "idle in transaction"}],
+                ),
             ]
         )
         waiters = _gather_waiters(conn, {16384: "public.t"}, LIMITS, 130000, None)
@@ -506,6 +510,8 @@ class TestConcurrencyDegraded:
         assert not waiter.waiting_for_ms.available
         assert "PG 14+" in (waiter.waiting_for_ms.reason or "")
         assert waiter.blocking_modes == ("AccessShareLock",)
+        assert waiter.blockers_all_idle.available
+        assert waiter.blockers_all_idle.value is True
 
     def test_own_backend_pid_is_stripped_from_blocking_pids(self) -> None:
         # The SQL filter excludes our own rows server-side; the Python-side
@@ -528,12 +534,18 @@ class TestConcurrencyDegraded:
                     "l.granted",
                     [{"pid": 100, "mode": "AccessShareLock", "reloid": 16384}],
                 ),
+                (
+                    "pg_stat_activity",
+                    [{"pid": 100, "state": "active"}],
+                ),
             ]
         )
         waiters = _gather_waiters(conn, {16384: "public.t"}, LIMITS, 170010, 999)
         assert waiters.value is not None
         [waiter] = waiters.value
         assert waiter.blocking_pids == (100,)
+        # 100 is actively running, so the conflict is not idle-only.
+        assert waiter.blockers_all_idle.value is False
 
     def test_waiter_query_failure_degrades(self) -> None:
         conn = conn_of([("NOT l.granted", psycopg.errors.QueryCanceled())])

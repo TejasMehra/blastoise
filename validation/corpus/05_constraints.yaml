@@ -1,0 +1,137 @@
+# ADD PRIMARY KEY/UNIQUE 283 wild, SET NOT NULL 172, ADD CHECK and
+# DROP CONSTRAINT 272. All ACCESS EXCLUSIVE; the scan-or-not question is
+# what the live facts decide.
+family: constraints
+cases:
+  - id: setnn_proving_check_5m
+    why: a valid CHECK (body IS NOT NULL) lets PG 12+ skip the scan; catalog-only on 5M rows.
+    adversarial: looks_dangerous
+    source: boundary__0134__01_credentials.up.sql
+    table: t_5m
+    migration: ALTER TABLE {t} ALTER COLUMN body SET NOT NULL;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: setnn_plain_1m
+    source: boundary__0134__01_credentials.up.sql
+    table: t_1m
+    migration: ALTER TABLE {t} ALTER COLUMN note SET NOT NULL;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: setnn_plain_5m
+    why: no proving CHECK - a full scan under ACCESS EXCLUSIVE, several seconds at 5M.
+    adversarial: looks_benign
+    source: boundary__0134__01_credentials.up.sql
+    table: t_5m
+    migration: ALTER TABLE {t} ALTER COLUMN note SET NOT NULL;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: setnn_fails_on_nulls
+    why: user_id has NULLs (every 7th row); SET NOT NULL errors after scanning.
+    adversarial: looks_benign
+    table: t_1k
+    migration: ALTER TABLE {t} ALTER COLUMN user_id SET NOT NULL;
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE, error: true}
+
+  - id: check_add_1m
+    source: boundary__0027__01_server_tags_migrations.up.sql
+    table: t_1m
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_note_not_empty CHECK (length(trim(note)) > 0);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: check_add_5m
+    source: boundary__0027__01_server_tags_migrations.up.sql
+    table: t_5m
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_note_not_empty CHECK (length(trim(note)) > 0);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: check_add_not_valid_5m
+    why: NOT VALID skips the scan but still takes ACCESS EXCLUSIVE for the catalog change.
+    adversarial: looks_dangerous
+    table: t_5m
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_note_not_empty CHECK (length(trim(note)) > 0) NOT VALID;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: check_validate_5m
+    why: VALIDATE of a NOT VALID CHECK holds SHARE UPDATE EXCLUSIVE only.
+    adversarial: looks_dangerous
+    table: t_5m
+    setup: ALTER TABLE {t} ADD CONSTRAINT {t}_v_note_nv CHECK (note IS NOT NULL) NOT VALID
+    teardown: ALTER TABLE {t} DROP CONSTRAINT IF EXISTS {t}_v_note_nv
+    migration: ALTER TABLE {t} VALIDATE CONSTRAINT {t}_v_note_nv;
+    expect: {tier: safe, lock: SHARE UPDATE EXCLUSIVE}
+
+  - id: check_add_fails
+    why: existing rows violate the CHECK; the statement errors.
+    adversarial: looks_benign
+    table: t_1k
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_score_high CHECK (score > 500);
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE, error: true}
+
+  - id: unique_add_1m
+    source: boundary__0066__10_auth.up.sql
+    table: t_1m
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_ext_uq UNIQUE (external_id);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, note: reference 1.0 s}
+
+  - id: unique_add_5m
+    why: a unique index build under ACCESS EXCLUSIVE; ~5 s at 5M - seconds, not an outage.
+    source: boundary__0066__10_auth.up.sql
+    table: t_5m
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_ext_uq UNIQUE (external_id);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: unique_add_fails_duplicates
+    adversarial: looks_benign
+    table: t_1k
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_status_uq UNIQUE (status);
+    expect: {tier: unsafe, lock: ACCESS EXCLUSIVE, error: true}
+
+  - id: unique_using_index_1m
+    why: the safe pattern - adopt a concurrently built unique index; catalog-only.
+    adversarial: looks_dangerous
+    table: t_1m
+    setup: CREATE UNIQUE INDEX IF NOT EXISTS {t}_v_ext_uq_idx ON {t} (external_id)
+    teardown: DROP INDEX IF EXISTS {t}_v_ext_uq_idx
+    migration: ALTER TABLE {t} ADD CONSTRAINT {t}_v_ext_uq UNIQUE USING INDEX {t}_v_ext_uq_idx;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: pk_add_on_empty_preexisting
+    why: a PK on an empty but pre-existing table; the floor, nothing else.
+    adversarial: judgment_call
+    migration: ALTER TABLE empty_pre ADD CONSTRAINT empty_pre_v_label_uq UNIQUE (label);
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: drop_constraint_check_5m
+    source: 272 wild drop_constraint
+    table: t_5m
+    migration: ALTER TABLE {t} DROP CONSTRAINT {t}_body_check;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: drop_not_null_5m
+    adversarial: looks_dangerous
+    table: t_5m
+    migration: ALTER TABLE {t} ALTER COLUMN status DROP NOT NULL;
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: set_default_const_5m
+    table: t_5m
+    migration: ALTER TABLE {t} ALTER COLUMN status SET DEFAULT 'active';
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE}
+
+  - id: set_default_volatile_5m
+    why: SET DEFAULT gen_random_uuid() is volatile but rewrites nothing - defaults apply to future rows.
+    adversarial: looks_dangerous
+    source: pg_dump-style SET DEFAULT nextval squash files
+    table: t_5m
+    migration: ALTER TABLE {t} ALTER COLUMN external_id SET DEFAULT gen_random_uuid();
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, rewrites: false}
+
+  - id: constraint_on_file_created
+    migration: |
+      CREATE TABLE ev4 (id bigint, label text NOT NULL);
+      ALTER TABLE ev4 ADD CONSTRAINT ev4_pk PRIMARY KEY (id);
+      ALTER TABLE ev4 ADD CONSTRAINT ev4_label_ck CHECK (length(label) > 0);
+    expect:
+      - {tier: safe, lock: null}
+      - {tier: safe, lock: null}
+      - {tier: safe, lock: null}

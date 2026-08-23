@@ -1,0 +1,166 @@
+# UPDATE 599 wild (+176 without WHERE, 10 batched), DELETE 160 (+20), INSERT
+# 633. DML holds ROW EXCLUSIVE on the table - no table-level block - but every
+# touched row is locked for the whole statement, and dead tuples and WAL
+# scale with it; the truth rule bands DML on the write thresholds.
+family: dml_backfills
+cases:
+  - id: upd_nowhere_1k
+    source: boundary__0118__06_kms_collection_version.up.sql
+    table: t_1k
+    vacuum_after: true
+    migration: UPDATE {t} SET score = score + 1;
+    expect: {tier: safe_irreversible, lock: ROW EXCLUSIVE, irreversible: true}
+
+  - id: upd_nowhere_100k
+    why: 100k rows rewrote in 4.9 s on the reference machine - a hair under the 5 s write line.
+    source: boundary__0118__06_kms_collection_version.up.sql
+    table: t_100k
+    vacuum_after: true
+    migration: UPDATE {t} SET score = score + 1;
+    expect: {tier: safe_irreversible, lock: ROW EXCLUSIVE, irreversible: true, note: boundary}
+
+  - id: upd_nowhere_1m
+    why: 53.6 s on the reference machine - under the 60 s line, so needs_timing rather than unsafe.
+    source: boundary__0118__06_kms_collection_version.up.sql
+    table: t_1m
+    vacuum_after: true
+    migration: UPDATE {t} SET score = score + 1;
+    expect: {tier: needs_timing, lock: ROW EXCLUSIVE, irreversible: true, note: boundary}
+
+  - id: upd_nowhere_5m
+    source: boundary__0118__06_kms_collection_version.up.sql
+    table: t_5m
+    vacuum_after: true
+    migration: UPDATE {t} SET score = score + 1;
+    expect: {tier: unsafe, lock: ROW EXCLUSIVE, irreversible: true}
+
+  - id: upd_matched_narrow_looking_1m
+    why: WHERE status = 'deleted' reads as selective and matches one sixth of the table.
+    adversarial: looks_benign
+    source: boundary__0066__10_auth.up.sql
+    table: t_1m
+    vacuum_after: true
+    migration: UPDATE {t} SET status = 'archived' WHERE status = 'deleted';
+    expect: {tier: needs_timing, lock: ROW EXCLUSIVE, irreversible: true, note: reference 18 s}
+
+  - id: upd_matched_narrow_looking_5m
+    why: the same narrow-looking WHERE on 5M rows - ~800k scattered row updates, an outage-length run.
+    adversarial: looks_benign
+    source: boundary__0066__10_auth.up.sql
+    table: t_5m
+    vacuum_after: true
+    migration: UPDATE {t} SET status = 'archived' WHERE status = 'deleted';
+    expect: {tier: unsafe, lock: ROW EXCLUSIVE, irreversible: true}
+
+  - id: upd_truly_narrow_5m
+    why: one row by primary key on a 5M-row table; milliseconds, whatever the table size.
+    adversarial: looks_dangerous
+    table: t_5m
+    migration: UPDATE {t} SET note = 'patched' WHERE id = 42;
+    expect: {tier: safe_irreversible, lock: ROW EXCLUSIVE, irreversible: true}
+
+  - id: upd_truly_narrow_1k
+    table: t_1k
+    migration: UPDATE {t} SET note = 'patched' WHERE id = 42;
+    expect: {tier: safe_irreversible, lock: ROW EXCLUSIVE, irreversible: true}
+
+  - id: upd_batched_window_5m
+    why: one 50k-row key window on a 5M-row table - the batched shape, a few seconds.
+    adversarial: looks_dangerous
+    table: t_5m
+    vacuum_after: true
+    migration: UPDATE {t} SET score = 0 WHERE id >= 1 AND id < 50001;
+    expect: {tier: safe_irreversible, lock: ROW EXCLUSIVE, irreversible: true}
+
+  - id: upd_backfill_null_1m
+    source: boundary__0089__01_wh_network_address_dimensions.up.sql
+    table: t_1m
+    vacuum_after: true
+    migration: UPDATE {t} SET title = note WHERE title IS NULL;
+    expect: {tier: safe_irreversible, lock: ROW EXCLUSIVE, irreversible: true, note: reference 4.7 s; boundary}
+
+  - id: upd_from_join_1m
+    table: t_1m
+    migration: UPDATE {t} SET note = a.name FROM accounts a WHERE a.id = {t}.account_id AND {t}.id <= 1000;
+    expect: {tier: safe_irreversible, lock: ROW EXCLUSIVE, irreversible: true}
+
+  - id: upd_do_loop_batches_1m
+    why: ten key-window batches inside one DO block - one transaction, so the batching buys nothing.
+    adversarial: looks_benign
+    table: t_1m
+    vacuum_after: true
+    migration: |
+      DO $$
+      BEGIN
+        FOR i IN 0..9 LOOP
+          UPDATE {t} SET score = 0 WHERE id > i * 100000 AND id <= (i + 1) * 100000;
+        END LOOP;
+      END $$;
+    expect: {tier: needs_timing, lock: ROW EXCLUSIVE, irreversible: true}
+
+  - id: del_nowhere_1k
+    source: coder__0037__000037_jwt_licenses.up.sql
+    table: t_1k
+    vacuum_after: true
+    migration: DELETE FROM {t};
+    expect: {tier: safe_irreversible, lock: ROW EXCLUSIVE, irreversible: true}
+
+  - id: del_nowhere_1m
+    source: coder__0037__000037_jwt_licenses.up.sql
+    table: t_1m
+    vacuum_after: true
+    migration: DELETE FROM {t};
+    expect: {tier: safe_irreversible, lock: ROW EXCLUSIVE, irreversible: true, note: reference 1.2 s}
+
+  - id: del_nowhere_5m
+    source: coder__0037__000037_jwt_licenses.up.sql
+    table: t_5m
+    vacuum_after: true
+    migration: DELETE FROM {t};
+    expect: {tier: needs_timing, lock: ROW EXCLUSIVE, irreversible: true}
+
+  - id: del_matched_5m
+    table: t_5m
+    vacuum_after: true
+    migration: DELETE FROM {t} WHERE status = 'draft';
+    expect: {tier: needs_timing, lock: ROW EXCLUSIVE, irreversible: true}
+
+  - id: truncate_5m
+    why: TRUNCATE is instant, ACCESS EXCLUSIVE, and loses every row.
+    table: t_5m
+    migration: TRUNCATE {t};
+    expect: {tier: needs_timing, lock: ACCESS EXCLUSIVE, irreversible: true, rewrites: true, note: TRUNCATE assigns a new relfilenode}
+
+  - id: ins_values_5m
+    table: t_5m
+    migration: INSERT INTO {t} (id, account_id, status, body, score, created_at) VALUES (900000001, 1, 'active', 'x', 0, now());
+    expect: {tier: safe, lock: ROW EXCLUSIVE}
+
+  - id: ins_select_bounded_1m
+    why: INSERT ... SELECT of 200k rows into a pre-existing sink; blocks nothing, runs in about a second.
+    adversarial: looks_dangerous
+    table: t_1m
+    setup: CREATE TABLE IF NOT EXISTS sink (id bigint, label text)
+    teardown: DROP TABLE IF EXISTS sink
+    migration: INSERT INTO sink (id, label) SELECT id, note FROM {t} WHERE id <= 200000;
+    expect: {tier: safe, lock: ROW EXCLUSIVE}
+
+  - id: ins_select_full_5m
+    why: INSERT ... SELECT of every row of a 5M table - a long transaction and a WAL burst.
+    table: t_5m
+    setup: CREATE TABLE IF NOT EXISTS sink (id bigint, label text)
+    teardown: DROP TABLE IF EXISTS sink
+    migration: INSERT INTO sink (id, label) SELECT id, note FROM {t};
+    expect: {tier: needs_timing, lock: ROW EXCLUSIVE}
+
+  - id: ctas_1m
+    why: CREATE TABLE AS reads the source under ACCESS SHARE and blocks nothing.
+    adversarial: judgment_call
+    table: t_1m
+    migration: CREATE TABLE t_copy AS SELECT id, account_id, status FROM {t};
+    expect: {tier: safe, lock: ACCESS SHARE}
+
+  - id: del_all_tickets
+    why: DELETE of a whole 1k-row table; instant, irreversible.
+    migration: DELETE FROM tickets;
+    expect: {tier: safe_irreversible, lock: ROW EXCLUSIVE, irreversible: true}

@@ -16,3 +16,9 @@ htmlcov/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# Local Postgres binaries for the live tests and harnesses (BLASTOISE_TEST_PG_BIN)
+scratch/
+
+# Fresh harness runs; the committed evidence copy lives in artifacts/validation/
+validation/results/

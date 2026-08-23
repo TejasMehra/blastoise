@@ -1203,3 +1203,731 @@ one-command follow-up whenever the directory is not held open.
 
 Suite: 797 → **811 tests** (797 pre-existing, all passing unchanged, plus the 14 naming
 guardrails), ruff and mypy `--strict` clean, full run against real zonky PG 17.10 binaries.
+
+## The Shell Report: verdict document, evidence bundle, seal, and the CLI around it (2026-08-22)
+
+Built `blastoise.report` — the output artifact everything before it was the engine for — plus the
+CLI that produces and consumes it: `blastoise check <migration.sql>` (assess, emit the verdict
+document, exit 0/1/2/3), `blastoise verify <report.json>` (signature and evidence hashes, both
+must pass), `blastoise explain <report.json>` (expanded rendering). Schema v1: schema_version,
+tool_version, change_id, evaluated_at, pg_version, online, the file-level verdict, per-tier
+counts, snapshot_hash, statements[], irreversible[], unverified[], rollback, transaction
+warnings, the evidence manifest, and an optional signature block. The file verdict derives from
+the worst per-statement tier through the existing combine ladder — SAFE and SAFE_IRREVERSIBLE →
+`proceed`, NEEDS_TIMING and UNKNOWN → `requires_approval`, UNSAFE → `block` — and an empty file
+proceeds. Exit codes 0/1/2 mirror those verdicts and 3 is a tool error; argparse usage errors
+are remapped from argparse's default exit 2 to 3, because CI reading `check` must never mistake
+a typo'd flag for BLOCK, and an unreadable or unparseable migration is likewise 3, not 2 — a
+parse failure is deterministic but it is "no verdict was produced", never "the migration is
+dangerous", and the help text says so.
+
+**The payload is plain JSON built by typed helpers, not a dataclass tree.** The report is a
+serialization boundary — its whole life is being hashed, signed, diffed and read back by other
+tools — so the builder produces dicts directly and the canonical form is the same discipline the
+snapshot already uses: sorted keys, compact separators, ASCII, floats banned outright,
+frozensets sorted (and only sets of strings allowed — anything else has no deterministic order
+worth inventing). Round-trip stability is pinned as `canonical(json.loads(canonical(x))) ==
+canonical(x)`, two builds from the same inputs are byte-identical, and the `--json` stdout is
+byte-identical to the written report.json. A side benefit: no new dataclass fields or enum
+values for the naming guardrail to police beyond `FileVerdict` (values `proceed` /
+`requires_approval` / `block`, plain on purpose).
+
+**unverified never serializes empty, and that is enforced, not hoped.** `build_report` raises
+AssertionError if the collector returns nothing (a test monkeypatches the collector to prove
+the trap fires). The list can never legitimately be empty because two entries are structural
+truths of the method itself: the lock-acquisition queue at execution time is unknowable in
+advance (always), and online, the snapshot describes capture time, is not transactionally
+consistent across sections, and reltuples is an estimate even fresh. On top of those: offline
+gets the full "nothing live was checked" entry (with the degradation reason folded in when a
+requested connection failed), every UNKNOWN statement contributes its rationale, every
+CannotEstimate its reason, and every duration constant an estimate actually leaned on is
+declared with its calibration state — UNCALIBRATED as an admitted guess, MEASURED with the
+one-quiet-machine caveat the AEL-floor session proved matters (~1.5x drift on the same laptop
+hours apart). So even a fully-decided online report carries an honest residue; that is the
+point, not noise.
+
+**Evidence bundle: hashes always, files when asked.** Five files at most — migration.sql,
+parse_tree.json (the classified IR, source key dropped since migration.sql holds it),
+catalog_rows.json (the exact resolved catalog entries with their citations, re-resolved from
+the same (script, catalog, pg_version) triple the engine consumed, so they are the rows it
+used), duration_constants.json (values, calibration states, thresholds, widening factors), and
+snapshot.json (the snapshot's own canonical bytes; snapshot_hash is their sha256 and `verify`
+cross-checks it against the manifest entry, so the headline hash cannot drift from the
+evidence). The manifest records name, sha256 and size for every file whether or not the bundle
+is written; `-o/--output-dir` writes report.json plus evidence/, and without it bundle_dir is
+null and `verify` fails the evidence check with "bundle was not written" — a report whose
+claims cannot be traced to bytes on disk is not auditable, and verify says so instead of
+passing vacuously. change_id defaults to the sha256 of `script.source` encoded UTF-8 — the
+same bytes migration.sql holds — rather than the on-disk file, so the id and the evidence can
+never disagree over BOMs or line endings. Per-statement evidence references use a deliberately
+coarse deterministic rule (the base three files always; duration_constants.json when any row
+carries an estimate; snapshot.json whenever the assessment was online) rather than claim-level
+tracing — the rows already name their constant_key and their narrowings name their facts, so
+finer granularity would restate what the statement payload says.
+
+**Shell Seal: Ed25519 over the canonical payload with the signature key absent.** Signing an
+already-signed report replaces the seal (the old signature is never signed into the message —
+pinned by a test), keys come from `--sign-key` or `$BLASTOISE_SIGNING_KEY` (both are file
+paths; PEM via `openssl genpkey -algorithm ed25519`, or a bare 64-hex-char seed) and are never
+generated silently; no key means an unsigned report, which is valid, merely unattested — key
+setup is not a prerequisite for the thirty-second first run. Two judgment calls worth flagging:
+(1) **`verify` fails an unsigned report** (exit 1, with the evidence-hash results still
+printed), because a stripped signature is indistinguishable from one that never existed and a
+verify that passes on absence protects nothing; the message says "unsigned", distinct from
+"does not match". (2) **A broken or unloadable key when signing was requested is a tool error
+(3)**, not a silent unsigned report — shipping unattested when attestation was asked for is
+the downgrade attack, done to yourself. `cryptography` is an optional extra
+(`blastoise[sign]`), lazily imported; everything but sign/verify works without it.
+
+**Degradation and version resolution.** An unreachable server, a refused writable role, or a
+missing psycopg all degrade `check` to offline with a loud stderr warning ("the report will
+carry far more in unverified") and the reason recorded in the no_snapshot entry — exit code
+still comes from the verdict, tested against a connection-refused URL. When connected, the
+server's real major version silently outranks `--pg-version`, with a note in the report when
+they disagree; offline the flag decides, defaulting to 17 (what everything was validated on).
+
+**Rendering.** One renderer consumes the payload dict — never engine objects — so `check`'s
+terminal output and `explain`'s expanded form cannot diverge from what was signed. It leads
+with the file verdict, then the five tiers worst-first with machine name, count, display name
+and flavour text; the theme appears in the header and that flavour column only, and a test
+asserts no display phrase survives into the JSON. The first ASCII implementation asserted
+`isascii()` and immediately failed on real output — engine rationale prose carries em-dashes —
+so the renderer transliterates (em/en dash, multiplication sign, curly quotes, arrows) and
+backslash-escapes anything the table misses, per the rename session's mojibake rule. Timing
+breakdown under `--verbose` goes to stderr so `--json` stdout stays pure; offline `check` runs
+in ~0.4 s (catalog load ~330 ms dominates), and online cost is bounded by the capture's
+existing per-section timeouts, comfortably inside the 90 s budget.
+
+Suite: 811 → **883 tests** (852 passed, 31 pre-existing environment skips), 95% total branch
+coverage (report modules 90–100%), ruff and mypy `--strict` clean, full run 2m58s. The
+mandated tests are all present and named: round-trip stability, signature verify pass and fail
+(tamper, strip, key swap, malformed blocks), evidence hash mismatch and missing-file
+detection, the empty-unverified assertion, and exit-code correctness for each verdict level
+plus both tool errors. README's Usage section now leads with `check` as the zero-friction
+first run.
+
+## The validation harness: is BLOCK right, are the claims accurate (2026-08-22)
+
+Before Blastoise ships, two questions have to be answered against a real database rather than
+a unit test: when it says **UNSAFE** (the machine tier behind BLOCK), is it right; and are the
+per-statement claims accurate. The whole prior evidence base — the scale harness — measures the
+*duration model* (lock modes 136/136, interval coverage, the dangerous-miss checks). It does
+not measure the *verdict*: nothing scored the five-tier classification against what a statement
+actually did to a production-shaped table. `validation/` does exactly that, and it is a consumer
+of the public engine API (`assess_script` + `capture_snapshot`), exactly as the CLI is — nothing
+in `src/` imports from it, and it earns its own 20 unit tests inside the 903-test suite.
+
+### The corpus, and why the expectation is not the ground truth
+
+172 cases / 212 labeled statements (`validation/corpus/*.yaml`), weighted by the wild-frequency
+distribution this file already recorded — `common_benign` 25, `add_column` 22, `dml_backfills`
+22, `index_creation` 21, `constraints` 19, `foreign_keys` 14 dominate; `transactions` 5 and the
+maintenance tail are thin — not spread evenly. Each case carries a fixture (which seeded table it
+binds, extra setup, session settings, concurrent activity) and a hand-written **expectation**.
+The expectation is deliberately *not* used as ground truth: the runner measures what the
+statement did, derives truth from the measurement, and reports every disagreement between the
+author's expectation and the measurement under "label mismatches" — 9 this run, each a case whose
+fixture produced a different scale-band than the author guessed (e.g. `upd_do_loop_batches_1m`
+was written as `needs_timing` and measured `unsafe` — the DO block ran 15 minutes). A corpus that
+graded itself against its own author's guesses would be worthless; this one grades against the
+database.
+
+Adversarial cases in both directions, per the brief. Looks-dangerous-but-isn't (35): CREATE INDEX
+on a 1k table, ALTER TYPE on a binary-coercible pair whose only index is a reused plain btree,
+DROP COLUMN on a table the same file created, ADD COLUMN with a non-volatile default on PG 11+,
+`NOT VALID` FK on 5M rows. Looks-benign-but-isn't (48): the varchar widen on a *partial* index
+(the 13.5 s case), an unbatched-looking narrow `WHERE` matching a sixth of a 5M-row table,
+`CREATE OR REPLACE VIEW` on an existing view (ACCESS EXCLUSIVE), `SET NOT NULL` with no proving
+CHECK. Judgment-call cases (15) that exist only because of a tier decision: enum-label-add landing
+`SAFE_IRREVERSIBLE` not `NEEDS_TIMING`, and the ACCESS EXCLUSIVE floor lifting a millisecond
+`ADD COLUMN` on a live table out of `SAFE`.
+
+### Ground truth is measured, and consults nothing in the engine but the four thresholds
+
+`validation/harness/labeling.py` derives the tier a statement *earned* from what it measurably
+did — the strongest lock it held on a relation that **existed before the file ran** (relations
+the file created are ignored; indexes are relations; an index already `indislive = false` is
+not), the normalized hold including the lock wait, whether it errored, and two declared facts the
+harness cannot measure (irreversibility, and whether it is DML). The rule restates the Postgres
+lock-conflict table and the tier ladder from the docs and this file; the *only* thing it imports
+from `blastoise` is the four threshold numbers that *define* the tiers (2 s / 20 s full block,
+5 s / 60 s write block) — otherwise scoring the engine against a copy of the engine would prove
+nothing. An error is `unsafe`; a row-level lock (DML) held long enough bands on the write
+thresholds because every touched row stays locked; ACCESS EXCLUSIVE on a pre-existing relation is
+at least `needs_timing` whatever the hold (the AEL-floor rule, restated); a safe irreversible
+result is `safe_irreversible`. `unknown` is never ground truth — after the statement ran, the
+outcome is known.
+
+A **traffic probe** (a point SELECT and point UPDATE every ~40 ms from a separate session,
+paused during snapshot capture so its own locks never reach the engine) records what a concurrent
+reader and writer actually experienced, including a query still parked when the file's transaction
+ends. It is corroboration, not the label: at 5M rows `type_int_bigint` held ACCESS EXCLUSIVE and
+the probe's reader stalled 51 s; `conc_addcol_idle_holder_short` parked a reader 8 s behind the
+holder — the block the tier names is real, not inferred.
+
+### Hardware normalization, because a precision number that moves with the laptop is not one
+
+The timing-variance finding from the AEL-floor session — the same machine measured twice, hours
+apart, disagreeing with itself by ~1.5x — makes a tier banded on a raw millisecond reading a
+property of the laptop, not the migration. So the harness re-runs nine scale-harness statements
+at the sizes `artifacts/scale/` measured and divides: today's reading over the reference's is the
+**machine factor**; measured work is divided by it before banding (lock waits are not — an idle
+holder is as long as it is on any hardware), so truth is expressed in *reference-machine
+milliseconds*, the units the constants were fitted in. The probe runs at start, at end, and a
+light pass every 20 cases; each statement is labeled with the factor **interpolated at the time
+it ran**, because a single factor is a fiction: this run moved 0.75x -> 0.80x against the reference
+with light passes dipping to 0.41x (median 0.68, range 0.47-0.80). Two findings forced the design.
+First, calibration must run on a *settled* database — the first attempt's start probe read 1.44x
+on 1.5 GB of freshly-dirtied post-seed buffers and its end probe 0.69x, pure seed-wake, so a
+CHECKPOINT-and-warm step now precedes it. Second, the probe *composition* shifts the median, so
+the interpolated series is built only from the 1M-row probes present in every pass. **The
+normalization is not cosmetic**: raw labels give 165/212 matches and 45.0% UNSAFE precision;
+normalized give 172/212 and 70.0% — 7 labels flip, the machine factor moves the headline UNSAFE
+number by 25 points. That is the whole point of doing it.
+
+### The numbers, per tier, not aggregated (172 cases, 212 statements, PG 17.10, this machine)
+
+| tier | predicted | truth | precision | recall |
+|---|---|---|---|---|
+| **UNSAFE** | 20 | 26 | **70.0%** | 53.8% |
+| NEEDS_TIMING | 91 | 82 | 78.0% | 86.6% |
+| SAFE_IRREVERSIBLE | 11 | 14 | 81.8% | 64.3% |
+| SAFE | 82 | 90 | 95.1% | 86.7% |
+
+Outcomes: 172 match, 19 strict (engine stricter than truth — the false-alarm direction), 13
+lenient (engine safer than truth — the dangerous direction), 8 UNKNOWN. File-level (proceed /
+requires_approval / **block**): BLOCK precision 70.0%, recall 53.8%.
+
+**UNSAFE precision is 70%, and every one of the 6 false BLOCKs is attributable to a named
+constant, none to the classifier.** Three are `heap_rewrite` at 1M rows (`type_int_bigint`,
+`type_text_varchar`, `type_int_text_using`): the rewrite measured 15.8-18.6 s normalized, the
+engine's 2x upper widening on the MEASURED `heap_rewrite` constant put the upper bound at 40 s,
+over the 20 s full-block line. Two are `validation_scan` (`setnn_plain_5m`, `check_add_5m`): the
+UNCALIBRATED 500k rows/s with 4x widening yields a 40 s upper bound against a 4-6 s measured hold
+— `validation_scan` is the single most over-pessimistic constant the harness touched, and it has
+never been measured (no wild `SET NOT NULL` / `ADD CHECK` on a table large enough appeared in the
+scale harness). One is the contention escalation (`conc_addcol_idle_holder_short_visible`):
+observed `pg_locks` traffic escalates to UNSAFE by rule, and the 8 s hold is a real full block
+that the truth rule bands `needs_timing` (< 20 s). So the false-BLOCK cost is concentrated in two
+constants — one MEASURED-but-2x-widened, one never-measured — and the classifier's own logic
+produced zero false BLOCKs. This is exactly what the calibration loop (prompt 8) should read: the
+harness points at `validation_scan` and the `heap_rewrite` upper-widening, by name.
+
+### Where it falls short, stated plainly
+
+**UNSAFE recall is 53.8% — 12 of 26 true-UNSAFE statements were not called UNSAFE — and the
+breakdown is the honest part.** Nine are runtime data/dependency failures no static tool can see:
+a FK that fails on one orphan row, `SET NOT NULL` on a column with NULLs, `varchar(5)` shrink on a
+too-long value, a CHECK violated by existing rows, a duplicate-key UNIQUE, using a new enum label
+in the same transaction, dropping a type a column depends on. The engine does not call these
+safe — it says UNKNOWN for the two ADD-COLUMN-NOT-NULL cases (it cannot know whether the table is
+empty) and `needs_timing` for the rest — but "will error" is a fact of the *data*, and the engine
+assesses locks and durations, not whether rows satisfy a constraint. That is a real recall ceiling
+and it is inherent, not a bug: a migration linter is not a dry-run.
+
+The other **three missed UNSAFEs are genuine lenient misses in the dangerous direction, and all
+three are documented judgment calls this file already recorded**:
+- `type_ts_tstz_nonutc_5m` — the timestamp-to-timestamptz conditional-branch cap. The engine caps
+  at `needs_timing` because under a UTC session it is a no-op; under the non-UTC session this case
+  forced, it rewrote 5M rows in 107 s. The cap trades this miss for not crying wolf on every
+  ts->tstz under UTC, and the engine can see the server's TimeZone but not the migration session's.
+- `upd_do_loop_batches_1m` — matched-row DML is **never** predicted UNSAFE by design ("matched
+  rows are bounded; do not guess"). Ten sequential windows in one DO block ran 15 minutes; the
+  engine said `needs_timing` with a batching suggestion. The design choice is deliberate and this
+  is its cost.
+- `conc_addcol_idle_holder_long` — a brief ACCESS EXCLUSIVE behind a 25 s idle-in-transaction
+  holder that the snapshot *did* list in `long_transactions` (aged past the 60 s threshold) but
+  with no waiter yet queued. The engine lifts one tier on a listed long transaction, not to
+  UNSAFE; the acquisition actually blocked everything for 25 s. Escalating a listed idle holder
+  straight to UNSAFE would be the fix, and the harness is the argument for it.
+
+None of the 13 lenient misses is a duration-model *underestimate* on a plainly-blocking DDL — the
+model never under-banded a rewrite, scan, or index build's blast radius. Every lenient miss is
+either a runtime error (6), a concurrency shape the snapshot can't fully see (4: the three above
+plus `conc_fk_idle_writer_on_parent` and `conc_create_index_tiny_rowexcl_holder`, brief locks that
+waited behind an idle writer the snapshot didn't surface, and `create_or_replace_view_existing`,
+the OR-REPLACE taxonomy gap), or a documented cap (3). SAFE precision is 95.1%: the engine rarely
+blesses something that wasn't safe, and the four exceptions are the same runtime-error and
+snapshot-blindness cases.
+
+### Two harness limitations recorded rather than buried
+
+**Lock-wait attribution takes the first granted target lock, not the slowest.** When a statement
+locks two relations and only the second contends (`conc_fk_idle_writer_on_parent`: SHARE ROW
+EXCLUSIVE granted instantly on the child, waited 8 s on the parent), `wait_ms` reads 0 — but the
+statement's wall clock still captured the block, so the ground-truth tier came out right
+(`needs_timing`) and the traffic probe corroborated it (8 s write stall). The attribution field is
+imperfect; the label it feeds is not affected for single-statement cases. **Concurrency truth is
+what one uncontended machine's holder produced**, and the snapshot the engine saw is a genuine
+pre-migration capture, so the concurrency family measures the engine's real blindness to
+idle-in-transaction holders — which is the finding, not noise.
+
+### One machine, and what that costs
+
+Every absolute number here is one uncontended NVMe laptop, and the calibration series proves the
+machine was not even stable *within the run* (0.47-0.80x against the reference across probe
+passes). Ground truth is normalized for that, so the **tiers and the disagreements transfer**; the
+raw milliseconds bound production from above only. Nothing was tuned to move any of these numbers
+— the corpus, the labeling rule, and the constants are exactly what they were when the run
+started, and the run behind this section is committed at `artifacts/validation/`
+(`results_2026-08-22.json`, the report, the digest, and a README) so the figures are reproducible
+rather than asserted. Suite: 883 -> **903 tests** (20 new: corpus shape, the labeling rule, the
+calibration arithmetic), ruff and mypy `--strict` clean, full run against real zonky PG 17.10.
+
+
+## Fixing the measurements behind the false BLOCKs (2026-08-22)
+
+The validation harness put UNSAFE precision at 70% against a 98% bar, and its own
+attribution was right: all six false BLOCKs traced to two duration constants and one
+escalation rule, none to the classifier. This session fixed the measurements the
+harness pointed at — by name — and left the corpus, the labeling rule, and the
+thresholds untouched, then re-ran it.
+
+Before touching anything I checked the two constants against the code rather than the
+prose, and the prose was wrong in a way that mattered. The previous section wrote that
+the three `heap_rewrite` false BLOCKs came from "the 2x upper widening on the MEASURED
+`heap_rewrite` constant." Both halves were false: `heap_rewrite` was `UNCALIBRATED` in
+`constants.py`, not `MEASURED`, and it therefore carried the **4x** guess band, not 2x
+— which is exactly why the 1M-row rewrite's upper bound read 40 s (10 s point × 4)
+rather than 20 s. `validation_scan` was likewise `UNCALIBRATED` (500k rows/s, 4x). The
+"never-measured guess" framing was the accurate one; the "MEASURED, 2x" description was
+not. The fixes below start from the code as it actually was.
+
+### 1. validation_scan: measured, the way fk_validation was
+
+`validation_scan` was the last throughput constant still carrying a bare `guess:` basis,
+and it drove two false BLOCKs (`setnn_plain_5m`, `check_add_5m`): 500k rows/s × 4x put a
+5M-row scan's upper bound at 40 s, over the 20 s full-block line, while the scans
+actually held ACCESS EXCLUSIVE for a normalized 4–6 s. I measured it the way
+`fk_validation` was measured — real fixtures at 1k/100k/1M/10M under BEGIN…ROLLBACK with
+`pg_locks` sampling, two passes so run-to-run variance is known, and the validation
+harness's hardware normalization (probe the reference cases, divide by the committed
+reference run) so the rate is expressed in reference-machine terms rather than this
+laptop's. A read-only sequential scan with one predicate per row (ADD CHECK, SET NOT
+NULL without a proving CHECK) ran at **~0.9–2.3M rows/s normalized at 1M/10M**; the three
+committed scale-harness runs corroborate (0.64–1.56M at scale). I set it to a round
+**1,000,000 rows/s**, near the slowest at-scale reading (ADD CHECK at 10M, ~0.92M),
+`MEASURED`. At 5M that is a 5 s point and a ~10 s upper bound — NEEDS_TIMING, matching
+the measured hold — so both false BLOCKs clear and no scan case (none is truly UNSAFE at
+the corpus sizes) turns lenient.
+
+### 2. heap_rewrite is bimodal; the split is what makes the tight band safe
+
+The three remaining constant false BLOCKs (`type_int_bigint_1m`, `type_text_varchar_1m`,
+`type_int_text_using_1m`) are all **plain ALTER COLUMN TYPE relabels** at 1M, which held
+ACCESS EXCLUSIVE for a normalized 15.8–18.6 s — NEEDS_TIMING, under the 20 s line. The
+brief said to tie the widening to calibration status and measurement variance rather
+than a flat multiplier, because a constant measured twice and accurate both times should
+not carry a guess's band. That is right, but tightening `heap_rewrite`'s band alone would
+have traded three false BLOCKs for **three lenient misses in the dangerous direction**:
+at the *same* 1M size, `addcol_volatile_default` (21 s), `addcol_serial` (24 s), and
+`addcol_generated_stored` (26.5 s) are genuinely UNSAFE, and they share `heap_rewrite`'s
+point estimate exactly. One constant cannot be both accurate for the fast relabel and
+safe for these.
+
+The measurements say why: `heap_rewrite` is **bimodal**. A plain relabel/format rewrite
+(ALTER COLUMN TYPE, SET LOGGED/UNLOGGED, tablespace/access-method, VACUUM FULL, CLUSTER)
+copies the heap and rebuilds indexes with no per-row computation and runs at ~87–105k
+rows/s across both committed scale runs — tight. An ADD COLUMN that rewrites the heap
+*and computes a value per row* — `gen_random_uuid()` for a volatile default, `nextval()`
+for serial/identity, an expression for GENERATED STORED — runs slower, gen_random_uuid
+the slowest at 28–64k rows/s. So `heap_rewrite` split, exactly as `index_build` split
+btree from expression for the same "one constant hides a real split" reason:
+
+- **`heap_rewrite` 100,000 rows/s, MEASURED** — the plain relabels only. Three runs
+  agreeing within ~1.3x, so a 1.5x band. At 1M that is a 15.1 s upper bound: NEEDS_TIMING,
+  fixing all three false BLOCKs. At 5M it is 75 s: still UNSAFE.
+- **`add_column_rewrite` 45,000 rows/s, MEASURED** (new) — the compute-per-row column
+  adds. Slowest-at-scale chosen, as for `fk_validation`/`dml_update`, so a 1M-row add
+  bands UNSAFE (its ~22 s hold really does breach the outage line) and the fast relabel's
+  tight band can never under-predict it.
+
+`ADD COLUMN` with a constant/domain default stays on `heap_rewrite`: it writes one fixed
+value per row at relabel speed (measured 82–125k), which is why `addcol_domain_constrained_default`
+is correctly plain-speed.
+
+### The widening is now derived from provenance, not a per-tier constant
+
+`base_widen_tenths(constant)` replaces the flat `_base_tenths(calibration)`: a
+`DurationConstant` now carries `runs` and `spread_tenths` (the observed max/min normalized
+rate across its runs and representative shapes), and the band is derived from them —
+UNCALIBRATED → 4x; measured once → 3x (a guess with better manners: anchored, but its
+run-to-run variance is unknown, and the AEL-floor session already showed one laptop
+disagreeing with itself ~1.5x); measured twice or more → the observed spread, floored at
+the documented ~1.5x drift and capped at 2x; CALIBRATED → 1.5x. So `heap_rewrite` (spread
+~1.3x) earns 1.5x while `fk_validation` (shapes scatter 3.8x) is held at the 2x cap, and
+the other measured constants land where their spread puts them (btree 1.7x, expression
+1.6x, index_bytes/dml_update at their cap). The floor and cap encode the honest limits: a
+one-quiet-laptop measurement bounds production only from above, and never so tightly that
+2x-slower storage escapes the band. This tightening only ever lowers an upper bound, so it
+can fix a strict over-prediction but cannot manufacture a false BLOCK, and no measured
+constant's true-UNSAFE case sits close enough to a boundary to turn lenient.
+
+### 3. Contention: an idle holder is a timing problem, not an active block
+
+The sixth false BLOCK, `conc_addcol_idle_holder_short_visible`, was the escalation rule:
+observed `pg_locks` traffic escalated a brief-AEL ADD COLUMN (already NEEDS_TIMING under
+the AEL floor) one tier to UNSAFE, but the 8 s hold behind an *idle* holder bands
+NEEDS_TIMING. The holder there is idle-in-transaction — holding ACCESS SHARE, running
+nothing — which is precisely the transient queue a `lock_timeout` + retry clears, and
+that is the remedy NEEDS_TIMING already prescribes. Escalating it to UNSAFE double-counts
+the acquisition-queue risk the statement is already flagged for.
+
+So the escalation now distinguishes idle from active. `LockWaiter` gained
+`blockers_all_idle` (SNAPSHOT_FORMAT 3 → 4): the capture reads each conflicting holder's
+`pg_stat_activity.state`, and the fact degrades to unavailable when stats are masked
+(no pg_read_all_stats) — an unknown holder is never assumed idle. `ContentionAssessment`
+carries `active_conflict`, and `_escalate_for_contention` lifts either safe tier to
+NEEDS_TIMING on any observed conflict (an idle holder still needs a window) but pushes an
+already-timed statement to UNSAFE only when the conflict is active. The escalation-to-
+UNSAFE path is unchanged for active contention.
+
+This has a cost the harness makes explicit and I am not tuning away: the engine cannot see
+*how long* an idle holder will hold, so `conc_addcol_idle_holder_long_visible` (a 25 s idle
+hold, truth UNSAFE) is now a lenient miss rather than a match — the same 8 s and 25 s idle
+holders are indistinguishable in a snapshot, and softening the 8 s case necessarily softens
+the 25 s one. It joins the two idle-holder lenient misses the previous section already
+recorded; all three are the snapshot's real blindness to idle-in-transaction duration, not
+a scoring error.
+
+### Re-run: the validation harness, unchanged
+
+Same 172-case corpus, same labeling rule, same thresholds, nothing tuned to the run.
+
+| tier | predicted | truth | precision | recall |
+|---|---|---|---|---|
+| **UNSAFE** | 13 | 23 | **69.2%** | 39.1% |
+| NEEDS_TIMING | 98 | 85 | 77.6% | 89.4% |
+| SAFE_IRREVERSIBLE | 11 | 14 | 81.8% | 64.3% |
+| SAFE | 82 | 90 | 95.1% | 86.7% |
+
+**UNSAFE precision is 69.2% — still short of the 0.98 bar, and the honest reading is that
+this run's hardware normalization flipped a *different* subset of boundary cases than the
+run that set the target.** The headline barely moved (70.0% → 69.2%), but the headline
+hides the fix, because the same normalization variance the whole project has warned about
+(±~1.5x, one laptop against itself) moved several cases across the outage thresholds
+between the two runs. Two controlled comparisons isolate the engine change from that noise,
+and both show the fix working:
+
+- **The new engine on the *first* run's measured holds — the run that named the six false
+  BLOCKs — scores UNSAFE precision 100.0% (0 false BLOCKs), up from 70.0%.** All six clear:
+  the two `validation_scan` scans and the three plain `heap_rewrite` relabels drop to
+  NEEDS_TIMING to match their measured 4–19 s holds, and the idle-holder contention case
+  no longer escalates. Recall moves 53.8% → 50.0% — the one point is `conc_addcol_idle_holder_long_visible`,
+  the contention trade named above.
+- **The new engine beats the old on *this* run's holds too: 55.0% → 69.2%, nine false
+  BLOCKs down to four.** The five it fixes here are `type_text_varchar_1m`,
+  `type_int_text_using_1m`, `setnn_plain_5m`, `check_add_5m`, and
+  `conc_addcol_idle_holder_short_visible` — the same mechanisms, landing on the safe side
+  of the boundary this run.
+
+The new engine strictly dominates the old on both runs. File-level BLOCK precision tracks
+UNSAFE exactly (69.2%/39.1% this run; 100% on the first run's holds).
+
+### What remains, stated plainly
+
+**All four residual false BLOCKs are boundary cases within 17–23% of an outage threshold,
+where the harness's own "hardware decides" rule applies — and two of them are on constants
+this session never touched.** Every one measured UNSAFE in the first run and NEEDS_TIMING in
+this one:
+
+- `addcol_volatile_default_1m`, `addcol_generated_stored_1m` — compute-per-row adds on
+  `add_column_rewrite`. Normalized hold 16.6 s this run (x0.83 of the 20 s line), 21–27 s
+  last run. The constant models them at the worst-case ~22 s (UNSAFE); this run's
+  normalization put the measurement just under. The *old* engine flagged both too
+  (`heap_rewrite` × 4x = 40 s), so the split did not create these.
+- `upd_nowhere_1m`, `del_nowhere_5m` — full-table DML on `dml_update` / `dml_delete`,
+  **unchanged this session**. Normalized 46 s (x0.77 of the 60 s write line) and just under
+  60 s; 85 s and 72 s last run. Pure normalization drift on constants I did not touch.
+
+None is reachable without either tuning to one run's labels or making the engine less
+conservative at the outage line — and the cost of the latter is visible in the same run:
+`type_int_bigint_1m`, whose `heap_rewrite` 1.5x band correctly called it NEEDS_TIMING to
+fix last run's false BLOCK, measured just *over* 20 s this run and so reads as a lenient
+miss. That is the boundary being a boundary: at 1M rows a plain relabel holds ACCESS
+EXCLUSIVE for a normalized 15–21 s, straddling the line, and no fixed constant lands every
+run on the correct side. Per the brief, these are reported, not tuned away.
+
+The rest of the miss ledger is unchanged in character from the first run and equally
+inherent: nine of the fourteen missed UNSAFEs are runtime data/dependency failures no
+static lock-and-duration model can see (an FK failing on one orphan row, SET NOT NULL on a
+column with NULLs, a duplicate-key UNIQUE, using a new enum label in the same
+transaction), and the remainder are the two documented caps (the ts→tstz TimeZone
+conditional; matched-row DML never predicted UNSAFE) plus the idle-holder-duration blind
+spot the contention change makes explicit. UNSAFE recall (39.1%, down from 53.8%) is the
+mirror of the precision story — this run's normalization pushed more boundary holds *over*
+the line into UNSAFE truth than the engine's conservative-but-bounded upper bounds reach,
+which is the same variance, counted from the other end.
+
+Suite: 903 → **909 tests** (6 new: the variance-tied widening derivation, the split
+constants banding a 1M rewrite correctly on each side, and the idle/active contention
+carve-out from three directions), ruff and mypy `--strict` clean, full run against real
+zonky PG 17.10. The re-measurement script and its normalized two-pass results are in the
+session scratchpad; the new validation run is committed beside the first under
+`artifacts/validation/` (`*_remeasured.*`), the first kept because the prior section's
+numbers cite it. Caveats unchanged and, if anything, sharpened by this run: one uncontended
+NVMe laptop, measured rates are ceilings, and MEASURED is still not the fitted
+cross-environment calibration prompt 8 owes — the widening's 2x cap and 1.5x floor are the
+admission that one machine cannot supply it, and the boundary cases that flipped between the
+two runs are the proof that it must.
+
+
+## Replicated measurement, the target's hardware as an input, and refusing at the boundary (2026-08-23)
+
+The previous section ended with four false BLOCKs that were all within 17–23% of an
+outage threshold and flipped run-to-run under hardware normalization, and the brief for
+this session was the right conclusion from that: single-machine measurement, however
+well normalized, cannot decide those cases, so fix the measurement infrastructure and
+not the constants. Three changes were asked for — measure every constant across three
+distinct hardware profiles and derive the band from the cross-machine spread; make the
+target's hardware an input by putting a calibration probe in the live snapshot; and
+refuse to decide, rather than coin-flip, where an estimate straddles a threshold by less
+than the constant's known spread — then re-run the validation harness unchanged. Two of
+the three are done and measured below. The first is built, exercised end to end on one
+profile, and blocked on credentials only the owner of this machine can supply; that is
+recorded plainly, not buried, because the band the boundary rule uses today is the
+single-profile floor and not the cross-profile spread it is designed to carry.
+
+### 1. Replicated measurement: the infrastructure is built, the cloud profiles did not run
+
+`artifacts/scripts/measure_profiles.py` is the per-profile half of the replicated
+measurement. It runs unchanged on any profile (Linux, macOS, Windows), seeds the scale
+schema at 1k/100k/1M/10M, runs the fourteen representative statements that stand for
+the ten duration constants (the scale harness's and the 2026-08-22 re-measurement's SQL,
+verbatim) under BEGIN…ROLLBACK with `pg_locks` sampled, two passes so within-profile
+variance is known per profile, and — the part that makes profiles comparable — reads
+the calibration probe (the same bounded read-only operation the snapshot captures,
+section 2) before, between, and after the passes, so every rate is paired with the probe
+reading of the machine state that produced it. It records the CPU model and count, the
+memory, and the disk under `PGDATA`. `artifacts/scripts/derive_constants.py` takes N
+profile files and emits, per constant: the slowest-at-scale value on each profile, the
+probe on each profile, each value *as the probe predicts it on the anchor profile*, and
+the spread of those probe-scaled values — the residual the probe does not explain, which
+is what the constant's band and the boundary rule's strip are defined to be. A constant
+gained the provenance to carry this: `profiles`, `per_profile` (the observed value on
+each profile, so the spread can be read rather than trusted), and
+`cross_profile_spread_tenths`.
+
+The three cloud profiles did not run. The plan was GCE — an `e2-small` on `pd-standard`
+(HDD-class network disk, the slow end), a `c3-standard-4` on `pd-ssd`, and an
+`n2-standard-4` on a local NVMe SSD — and `artifacts/scripts/run_profiles_gce.sh` creates
+them, ships the measurement bundle, runs the script under `nohup`, polls, collects, and
+deletes them in one command. The `gcloud` install on this machine is authenticated to a
+project but its refresh token is dead (`invalid_grant`), and re-authenticating needs a
+browser session only a person can complete. The fallback was GitHub-hosted runners,
+which are genuinely distinct hardware (an x86 Azure VM, an ARM64 Cobalt VM, Apple
+silicon with local NVMe, a Windows x86 VM) — `artifacts/scripts/measure_profiles_workflow.yml`
+is that workflow, one job per profile, and a bundle of exactly the eleven files the
+script imports was assembled so that nothing beyond the measurement code would leave the
+machine — but creating the private repository to hold it was refused by the session's
+permission gate, and pushing code to an external service is not something to route
+around. So: one command away on either path, and a decision the owner has to make.
+
+What ran is the anchor profile, this laptop, under the new script
+(`artifacts/profiles/laptop-nvme.json`, 1414 s). That exercised the pipeline end to end
+and did something necessary on its own: **every constant was re-anchored to a run in
+which the probe was read alongside it**. The earlier values came from runs with no probe,
+so there was no probe reading to pair them with, and a constant can only be scaled by a
+probe ratio if its value and the anchor reading come from the same machine state. The
+laptop was 1.2–2x slower in this run than in the state the 2026-08-21/22 constants were
+fitted in (its compute probe read 196/220/215 ms; the anchor is the median, 215 ms), and
+the re-anchored table records the drop constant by constant: `index_build_btree` 1.0M →
+740k rows/s, `index_build_expression` 250k → 170k, `validation_scan` 1.0M → 790k,
+`fk_validation` 1.2M → 1.0M, `dml_update` 22k → 13k, `index_bytes` 9.5 → 7.8 MB/s,
+`add_column_rewrite` 45k → 55k (gen_random_uuid ran faster this time; the value is still
+the slowest shape). Two are worth their own sentence. `heap_rewrite` read 74–84k at 1M
+and **45–52k at 10M** — a 3 GB heap copy is write-path-bound, and the compute probe
+cannot see the write path. The slowest-at-scale convention would take 45k, which would
+model a plain relabel as *slower* than a compute-per-row add and undo the 2026-08-22
+split; the value is the 1M reading, 74k, the 10M drop is what sets its 1.9x spread, and
+the exception is recorded in its basis. `dml_delete` was the last throughput guess in
+the table (100k rows/s, "~2x the update rate"); the same script measured it at
+632k–1.02M, six times faster, which with its 4x guess band is exactly what put
+`del_nowhere_5m`'s upper bound at 200 s in both earlier runs. It is `MEASURED` now, by the
+same method as everything else. `constant_op` stays a guess: commit latency is a
+property of the storage path no read-only probe can measure, and it is never banded.
+
+Every constant therefore carries `profiles=1`, and `boundary_spread_tenths` — the
+half-width of the refusal strip — treats one profile, however many passes, as an
+unknown spread and applies the floor (1.5x, the documented same-machine drift). When
+profile files land, the derivation script re-runs, the three provenance fields are set
+from it, and the strip becomes the observed residual without another code change.
+
+### 2. The target's hardware is an input
+
+Snapshot format 5 adds `LiveSnapshot.calibration` (`CalibrationFacts`): the capture
+runs a fixed unit of work on the target and records the time. The probe is a sort of a
+generated series — `SELECT count(*) FROM (SELECT g FROM generate_series(1, 500000) g
+ORDER BY (g::bigint * 7919) % 1000003)` — pure backend CPU and `work_mem` sort machinery,
+which is what an index build, a rewrite's per-row work, and a validation scan's
+predicate spend their time on. It runs three times and the minimum is kept (the minimum
+is the machine's capability; the spread above it is whatever else the server was doing),
+inside its own savepoint under the snapshot's `statement_timeout`, last in the capture
+so it delays nothing and is observed by nothing. It touches no relation, takes no lock,
+and reads no user data.
+
+That last clause was a design decision this session almost got wrong. The first cut
+had a second component, a bounded heap read of the largest captured table — real pages
+through the real buffer cache, the nearest thing to a disk probe — and it was removed
+before any run used it, for a reason the tests would not have caught: `docs/minimum-
+privilege-role.md` promises that Hydro Scan never queries user tables and the documented
+role has no `SELECT` on them, so the scan probe would have both broken the promise and
+failed under the role it was documented for (the harness's own read-only role is
+`pg_monitor` only, and would have degraded it silently). Every way of reading real heap
+pages needs `SELECT` on a user table; there is no disk probe that respects the contract.
+The consequence is stated in `calibrate.py` and it matters for the whole design: **the
+probe sees the CPU and sort path and not the write path**, so the residual the write
+path leaves across hardware — the 10M `heap_rewrite` drop above is an instance — is
+precisely the cross-profile spread the constants are meant to carry and the boundary
+rule is meant to refuse inside. The probe narrows the estimate; the spread says how far
+the probe falls short; the measurement script still records a scan probe, as
+information for the derivation, so a future reader can see how much of the spread a disk
+probe *would* have explained. The privilege doc now says all this.
+
+`hardware_factor_tenths` turns the reading into a factor against the anchor's 215 ms,
+clamped to 0.3x–8x (outside every measured profile, with the clamp recorded in the
+note), and every proportional estimate — rows, bytes, dependent-index rebuilds — is
+multiplied by it before the band is applied. The estimate's `inputs` carry the scaling
+in the open (`hardware: compute probe 612 ms vs anchor 215 ms -> x2.8`), and a snapshot
+with no usable reading leaves the estimate unscaled and says `hardware: unscaled
+(...reason)` — the assumption the model always silently made, now visible. A format-4
+snapshot constructs with an unavailable probe; nothing downstream needs to know.
+
+The validation harness's truth basis changed with this, and deliberately. The harness
+normalized measured holds into reference-machine milliseconds because that was the only
+way to compare a hardware-blind estimate with a measurement; now the estimate is scaled
+to the machine the case ran on, the thresholds are wall-clock outage lines on that
+machine, and the comparable truth is the **raw** hold. `score()` labels on the raw hold
+for every case whose snapshot carried a probe reading, keeps the normalized label as the
+diagnostic it has become (`tier_normalized`, and the normalization-sensitivity section
+still reports both), and falls back to it for a case whose capture failed. The corpus,
+the labeling rule, and the four thresholds are untouched; the old runs re-score to their
+published numbers through the new scorer (69.2% / 39.1% for the remeasured run).
+
+### 3. The boundary-proximity rule
+
+A threshold is a line; an estimate is a strip. `_boundary_refusal` draws the strip
+`[point / S, point × S]` around the hardware-scaled point estimate, where `S` is the
+constant's known spread — the observed cross-profile residual once it exists, the 1.5x
+floor until then, the 4x guess band for an uncalibrated constant — and if a tier
+threshold lies inside it, the engine returns UNKNOWN with `refusal="boundary"`,
+`refused_from` (what the upper-bound rule would have said), and the two tiers it is
+refusing between. The rationale states the point and interval, names the line, the
+spread, and the probe reading, and the condition tells the reviewer what resolves it
+(time it on a production-sized copy of the target; with no measurement, treat it as the
+slower tier). File level, UNKNOWN is `requires_approval`, which is the thirty seconds
+the brief priced it at. Two details keep the rule from firing where it would mean
+nothing: the strip is drawn around the proportional part of the estimate (the fixed
+overhead is not hardware), and the SAFE/NEEDS_TIMING line is ignored where the ACCESS
+EXCLUSIVE floor makes both sides NEEDS_TIMING — a refusal is only issued where the two
+sides of the line are different verdicts. The upper bound still decides everything
+outside the strip, with the staleness widening on top, so a stale-statistics estimate
+that clears the line is as conservative as before.
+
+The report carries `refusal` and `refused_from` per statement and per row; the harness
+scores every refusal's `refused_from` against the truth so the ledger shows what each
+refusal replaced — a false BLOCK absorbed (`strict`), a correct call given up (`match`),
+or a lenient miss hidden (`lenient`).
+
+### Re-run: the validation harness, unchanged
+
+Same 172-case corpus, same labeling rule, same four thresholds; nothing tuned to the run.
+The run is committed as `artifacts/validation/*_2026-08-23_hardware.*`. It happened on a
+laptop that was throttled to 1.3 GHz when it started and un-throttled partway through:
+the harness's own nine-statement machine factor read **2.93x** slower than the reference
+at the start probe and **0.79x** at the end — a 3.7x swing inside one run, the worst
+the project has seen. That is not a complaint about the run. It is the condition the
+probe exists for, and it made the run a harder test than a quiet one would have been.
+
+| tier | predicted | truth | precision | recall |
+|---|---|---|---|---|
+| **UNSAFE** | 12 | 30 | **100.0%** | 40.0% |
+| NEEDS_TIMING | 91 | 82 | 78.0% | 86.6% |
+| SAFE_IRREVERSIBLE | 12 | 13 | 83.3% | 76.9% |
+| SAFE | 77 | 87 | 94.8% | 83.9% |
+
+Outcomes: 166 match, 11 strict, 15 lenient, **20 UNKNOWN, of which 12 are boundary
+refusals**. File level: BLOCK precision 100.0%, recall 40.0%; the twelve refusals land in
+`requires_approval`.
+
+**UNSAFE precision is 100% — zero false BLOCKs — for the first time on a fresh run, and
+the trade the brief priced is visible in the refusal ledger.** Scoring each refusal's
+`refused_from` (what the upper-bound rule would have said) against the truth: **7 of the
+12 refusals absorbed a false BLOCK** (`idx_gin_5m`, `type_varchar_widen_partial_idx_5m`,
+`setnn_plain_5m`, `check_add_5m`, `unique_add_5m` — all would have been UNSAFE against a
+measured NEEDS_TIMING — plus two NEEDS_TIMING-vs-SAFE refusals, `idx_composite_1m` and
+`idx_if_not_exists_existing`), **5 gave up a call that was right** (`idx_expr_5m`,
+`addcol_generated_stored_1m`, `type_text_varchar_1m`, `txn_ael_then_backfill_1m` were
+truly UNSAFE; `del_nowhere_5m` truly NEEDS_TIMING), and **none hid a lenient miss**.
+Without the rule the same run scores UNSAFE precision 76.2% (16 of 21) and recall 53.3%;
+with it, 100% and 40.0%. UNSAFE recall fell as expected — 39.1% → 40.0% is flat against
+the previous run only because this run's throttled first half pushed more holds over the
+line into UNSAFE truth (30, up from 23), and the engine's probe-scaled estimates followed
+them there (12 true UNSAFEs called, up from 9). Every one of the four residual false
+BLOCKs the previous section left — `addcol_volatile_default_1m`,
+`addcol_generated_stored_1m`, `upd_nowhere_1m`, `del_nowhere_5m` — is gone: the first is
+a match (UNSAFE, a 40 s hold on the throttled machine), the second and fourth are
+refusals, the third is a match (UNSAFE: the same 1M-row UPDATE that held 46 s last run
+held 207 s on the throttled machine, and the probe-scaled `dml_update` estimate was over
+the line with it).
+
+**The probe works, and the number that says so is the correlation with the harness's
+own calibration.** The snapshot's single 500k-row sort read 171–1064 ms over the 172
+captures (median 400 ms against the 215 ms anchor), and its ratio to the anchor tracks
+the harness's interpolated nine-statement machine factor at **Pearson r = 0.82** across
+the run — 2.2x at 130 s in, 2.9x at 1900 s, 0.83x at 3200 s, 0.93x at the end. A one-
+query probe inside the snapshot reproduced what the harness had to run nine reference
+statements and interpolate between passes to estimate. That is also why the truth basis
+could move to the raw hold: scoring this run on raw holds gives 166 matches, scoring it
+on the old reference-normalized labels gives 164, and the two disagree on only the
+boundary cases — the probe-scaled estimate and the raw measurement are in the same units.
+
+**What the probe does not see is visible in the same table, and it is the write path.**
+The refusals on `validation_scan` and `index_build_btree` at 5M (`setnn_plain_5m`,
+`check_add_5m`, `unique_add_5m`, `type_varchar_widen_partial_idx_5m`) all measured 10–16 s
+raw against an upper bound of 30–34 s: the throttled CPU made the probe read ~2.5x, the
+estimate scaled with it, but a sequential scan or a sort-dominated build on a warm cache
+did not slow down as much as the sort-heavy probe did. They were refused, correctly,
+rather than blocked — the rule caught exactly the case it was written for — but a probe
+with a storage component would have landed them. The privilege contract (section 2)
+forbids that probe; the cross-profile spread is what is supposed to stand in for it, and
+this run is the argument for running the profiles: the strip the rule used here is the
+1.5x single-profile floor, and every refusal above sits inside a 1.5x strip that the
+real cross-profile residual may well be narrower than on the scan and build families.
+
+**The probe's own noise is the floor of what it can do.** Min-of-three readings taken
+minutes apart on the throttled machine spread 412–709 ms (1.7x) with no change in the
+harness's factor between them; on the un-throttled second half they spread 171–200 ms.
+The anchor is a median over three probe passes for the same reason. A constant's 1.5x
+floor is not smaller than the probe's own jitter on a bad day, and should not be.
+
+The fifteen lenient misses are the same population as before — seven runtime data and
+dependency failures no lock-and-duration model can see (`fk_orphans_fail`,
+`setnn_fails_on_nulls`, `check_add_fails`, `unique_add_fails_duplicates`,
+`type_varchar_shrink_fails`, `drop_type_in_use_fails`, the enum-in-same-transaction
+case; the two ADD COLUMN NOT NULL failures are UNKNOWN, as before), the three documented
+caps (`type_ts_tstz_nonutc` at 1M and 5M under a non-UTC session — the 1M case is a
+lenient miss this run only because the throttled machine held it 29 s; and
+`upd_matched_narrow_looking_5m`, matched-row DML never predicted UNSAFE), the two
+idle-holder-duration cases, two brief locks behind idle writers the snapshot does not
+surface, and the OR-REPLACE taxonomy gap. Nothing lenient is new, and nothing lenient is
+a duration-model underestimate on a plainly blocking DDL.
+
+What is owed, in order. The three cloud profiles, so the strip is an observed
+cross-hardware residual rather than a floor — the runbooks are in `artifacts/scripts/`
+and the derivation script reads their output directly. Then a read of the refusal
+ledger against that residual: if the scan and btree families' cross-profile spread after
+probe scaling is tighter than 1.5x, four of this run's seven absorbed false BLOCKs become
+clean NEEDS_TIMING calls with no rule change. And the anchor itself should move to a
+cloud profile once one exists, because a laptop that swings 3.7x within an hour is a
+poor thing to express a constant against, however well the probe tracks it.
+
+Suite: 909 → **925 tests** (16 new: the probe-to-factor mapping and its clamp, scaling
+through every estimate path, the refusal on both lines and its absence under the AEL
+floor, the probe moving one table across the strip, the report payload, and three live
+tests — the probe reads without `pg_monitor`, survives an ACCESS EXCLUSIVE holder on the
+target, and serializes), ruff and mypy `--strict` clean over `src`, `validation`, and
+`tests`, full run against real zonky PG 17.10. Tests that pinned the old rates or used
+"big" tables that now land inside the strip were moved clear of it (a BIG table is 400M
+rows, not 40M) and rewritten to derive row counts from the constants, so the next
+re-anchoring does not re-break them.

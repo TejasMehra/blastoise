@@ -206,6 +206,16 @@ class Verdict:
     ``conditions`` name what must hold, or what must be recorded, for a
     verdict outside ``SAFE``: the timing requirement for NEEDS_TIMING,
     the exact loss for SAFE_IRREVERSIBLE.
+
+    ``refusal`` is set on an UNKNOWN that is a deliberate refusal to
+    decide rather than a missing fact — today only ``"boundary"``: the
+    estimate straddles a tier threshold by less than the constant's known
+    hardware spread (see ``_boundary_refusal`` in the engine). For such a
+    verdict ``refused_from`` records the tier the upper-bound rule would
+    have returned, so a consumer (and the validation harness) can see
+    what the refusal replaced; ``refused_alternatives`` are the two tiers
+    the statement would land in on the fast and the slow side of the
+    line. Both are ``None``/empty for every other verdict.
     """
 
     classification: Classification
@@ -213,6 +223,9 @@ class Verdict:
     rationale: str
     conditions: tuple[str, ...] = ()
     band: DurationBand | None = None
+    refusal: str | None = None
+    refused_from: Classification | None = None
+    refused_alternatives: tuple[Classification, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)
@@ -298,6 +311,12 @@ class ContentionAssessment:
     waiting_pids: tuple[int, ...]
     queued_behind_us: str
     queued_behind_us_method: Method
+    # True when an observed conflicting holder is actively running, False
+    # when the observed conflict comes only from idle-in-transaction holders
+    # (a transient wait a lock_timeout + retry clears). Meaningful only when
+    # ``conflicting_lock_held`` is True; defaults True so that an
+    # unobserved or stats-masked conflict keeps the stricter escalation.
+    active_conflict: bool = True
 
 
 class Reversibility(StrEnum):

@@ -32,7 +32,11 @@ exactly this purpose](https://www.postgresql.org/docs/current/predefined-roles.h
 `SELECT`, `INSERT`, `UPDATE`, `DELETE` on user tables all fail with
 `permission denied`. Hydro Scan never runs `COUNT(*)` or any query against
 user data — row counts come from the planner's `reltuples` estimate, with
-its staleness recorded alongside.
+its staleness recorded alongside. The hardware calibration probe (snapshot
+format 5) is a sort over `generate_series` — it touches no relation and
+needs nothing beyond `CONNECT`; a disk probe was deliberately not added,
+because every way of reading real heap pages needs `SELECT` on a user
+table.
 
 Hydro Scan does not trust this setup blindly. On every connection it:
 
