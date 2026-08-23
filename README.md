@@ -1,6 +1,6 @@
-<p align="center"><img src="docs/assets/logo.png" alt="Blastoise" width="240"></p>
-
-<h3 align="center">Know the blast radius before you migrate.</h3>
+<p align="center">
+  <img src="docs/assets/logo.png" alt="Blastoise — know the blast radius before you migrate." width="100%">
+</p>
 
 ```sql
 ALTER TABLE events ADD COLUMN plan text DEFAULT 'free';                     -- 12 ms
