@@ -11,7 +11,7 @@ or the ``BLASTOISE_SIGNING_KEY`` environment variable (a path) — and are
 unsigned, which is a valid, merely unattested, document. Signing is not a
 prerequisite for anything.
 
-Requires the ``cryptography`` package (``pip install blastoise[sign]``);
+Requires the ``cryptography`` package (``pip install pgblastoise[sign]``);
 everything else in blastoise works without it.
 """
 
@@ -45,7 +45,7 @@ def _ed25519() -> Any:
     except ImportError as exc:  # pragma: no cover - installed in the dev env
         raise SigningUnavailableError(
             "signing requires the 'cryptography' package: "
-            "pip install blastoise[sign]"
+            "pip install pgblastoise[sign]"
         ) from exc
     return ed25519
 

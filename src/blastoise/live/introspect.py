@@ -89,7 +89,7 @@ def _psycopg() -> Any:
     except ImportError as exc:  # pragma: no cover - depends on install extras
         raise LiveIntrospectionError(
             "live introspection requires the psycopg driver; "
-            "install it with: pip install 'blastoise[live]'"
+            "install it with: pip install 'pgblastoise[live]'"
         ) from exc
     return psycopg
 

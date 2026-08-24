@@ -49,14 +49,14 @@ Exit code `2`, so CI stops it. When Blastoise can't be sure, it says `unknown` a
 No database needed for the first run — it reads the SQL and tells you what it can from that alone:
 
 ```console
-$ pip install blastoise
+$ pip install pgblastoise
 $ blastoise check migrations/0042_add_customer_ref.sql --offline
 ```
 
 Point it at a read-only connection and the `unknown`s turn into answers:
 
 ```console
-$ pip install 'blastoise[live]'
+$ pip install 'pgblastoise[live]'
 $ blastoise check migrations/0042_add_customer_ref.sql --database-url postgres://ro@db/app
 ```
 

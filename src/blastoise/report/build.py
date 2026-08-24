@@ -47,7 +47,7 @@ def tool_version() -> str:
     from importlib.metadata import PackageNotFoundError, version
 
     try:
-        return version("blastoise")
+        return version("pgblastoise")
     except PackageNotFoundError:  # pragma: no cover - installed in every env we run
         return "0+unknown"
 

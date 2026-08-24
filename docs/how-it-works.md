@@ -41,7 +41,7 @@ for statement in script.statements:
         print(lock.entry.lock_mode, lock.entry.duration_model, lock.relations)
 ```
 
-## Hydro Scan — live introspection (`blastoise.live`, `pip install blastoise[live]`)
+## Hydro Scan — live introspection (`blastoise.live`, `pip install pgblastoise[live]`)
 
 Supplies the production context the catalog declares missing: table sizes
 with staleness markers, columns and constraints, invalid indexes left by

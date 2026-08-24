@@ -6,7 +6,7 @@ catalog's ``requires_live_context`` and ``duration_model`` fields declare
 missing from static analysis: relation sizes and staleness, columns and
 constraints, function volatility, type-change coercion facts, lock waiters,
 replication lag, and the server version. Requires the ``psycopg`` driver
-(``pip install blastoise[live]``); everything else in blastoise works
+(``pip install pgblastoise[live]``); everything else in blastoise works
 without it.
 """
 

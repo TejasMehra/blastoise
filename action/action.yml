@@ -164,9 +164,9 @@ runs:
           repo_root="$(cd "${ACTION_PATH}/.." && pwd)"
           python -m pip install --disable-pip-version-check "${repo_root}[live]"
         elif [ -n "${BLASTOISE_VERSION}" ]; then
-          python -m pip install --disable-pip-version-check "blastoise[live]==${BLASTOISE_VERSION}"
+          python -m pip install --disable-pip-version-check "pgblastoise[live]==${BLASTOISE_VERSION}"
         else
-          python -m pip install --disable-pip-version-check "blastoise[live]"
+          python -m pip install --disable-pip-version-check "pgblastoise[live]"
         fi
         blastoise ci --help >/dev/null
 

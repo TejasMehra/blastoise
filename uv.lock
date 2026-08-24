@@ -71,56 +71,6 @@ wheels = [
 ]
 
 [[package]]
-name = "blastoise"
-version = "0.1.0"
-source = { editable = "." }
-dependencies = [
-    { name = "pglast" },
-    { name = "pyyaml" },
-]
-
-[package.optional-dependencies]
-live = [
-    { name = "psycopg", extra = ["binary"] },
-]
-sign = [
-    { name = "cryptography" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "cryptography" },
-    { name = "mypy" },
-    { name = "psycopg", extra = ["binary"] },
-    { name = "pytest" },
-    { name = "pytest-cov" },
-    { name = "ruff" },
-    { name = "testcontainers" },
-    { name = "types-pyyaml" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "cryptography", marker = "extra == 'sign'", specifier = ">=42" },
-    { name = "pglast", specifier = ">=8.4" },
-    { name = "psycopg", extras = ["binary"], marker = "extra == 'live'", specifier = ">=3.2" },
-    { name = "pyyaml", specifier = ">=6.0.3" },
-]
-provides-extras = ["live", "sign"]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "cryptography", specifier = ">=42" },
-    { name = "mypy", specifier = ">=2.3.1" },
-    { name = "psycopg", extras = ["binary"], specifier = ">=3.2" },
-    { name = "pytest", specifier = ">=9.1.1" },
-    { name = "pytest-cov", specifier = ">=7.1.0" },
-    { name = "ruff", specifier = ">=0.16.3" },
-    { name = "testcontainers", specifier = ">=4.8" },
-    { name = "types-pyyaml", specifier = ">=6.0.12.20260815" },
-]
-
-[[package]]
 name = "certifi"
 version = "2026.7.22"
 source = { registry = "https://pypi.org/simple" }
@@ -715,6 +665,56 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/5a/82/42f767fc1c1143d6fd36efb827202a2d997a375e160a71eb2888a925aac1/pathspec-1.1.1.tar.gz", hash = "sha256:17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a", size = 135180 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl", hash = "sha256:a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189", size = 57328 },
+]
+
+[[package]]
+name = "pgblastoise"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "pglast" },
+    { name = "pyyaml" },
+]
+
+[package.optional-dependencies]
+live = [
+    { name = "psycopg", extra = ["binary"] },
+]
+sign = [
+    { name = "cryptography" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "cryptography" },
+    { name = "mypy" },
+    { name = "psycopg", extra = ["binary"] },
+    { name = "pytest" },
+    { name = "pytest-cov" },
+    { name = "ruff" },
+    { name = "testcontainers" },
+    { name = "types-pyyaml" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "cryptography", marker = "extra == 'sign'", specifier = ">=42" },
+    { name = "pglast", specifier = ">=8.4" },
+    { name = "psycopg", extras = ["binary"], marker = "extra == 'live'", specifier = ">=3.2" },
+    { name = "pyyaml", specifier = ">=6.0.3" },
+]
+provides-extras = ["live", "sign"]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "cryptography", specifier = ">=42" },
+    { name = "mypy", specifier = ">=2.3.1" },
+    { name = "psycopg", extras = ["binary"], specifier = ">=3.2" },
+    { name = "pytest", specifier = ">=9.1.1" },
+    { name = "pytest-cov", specifier = ">=7.1.0" },
+    { name = "ruff", specifier = ">=0.16.3" },
+    { name = "testcontainers", specifier = ">=4.8" },
+    { name = "types-pyyaml", specifier = ">=6.0.12.20260815" },
 ]
 
 [[package]]
