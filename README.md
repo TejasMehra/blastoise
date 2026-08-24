@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/logo.png" alt="Blastoise — know the blast radius before you migrate." width="100%">
+  <img src="https://raw.githubusercontent.com/TejasMehra/blastoise/master/docs/assets/logo.png" alt="Blastoise — know the blast radius before you migrate." width="100%">
 </p>
 
 ```sql
