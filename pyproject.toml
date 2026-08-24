@@ -3,6 +3,8 @@ name = "blastoise"
 version = "0.1.0"
 description = "Know the blast radius before you migrate."
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [
     { name = "Tejas Mehra", email = "tejasmehra04@gmail.com" }
 ]
@@ -11,6 +13,10 @@ dependencies = [
     "pglast>=8.4",
     "pyyaml>=6.0.3",
 ]
+
+[project.urls]
+Repository = "https://github.com/TejasMehra/blastoise"
+Issues = "https://github.com/TejasMehra/blastoise/issues"
 
 [project.optional-dependencies]
 live = [
