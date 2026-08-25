@@ -88,7 +88,7 @@ or a plain `migrations/` directory. The connection string comes from a
 secret and from nowhere else; there is no input that takes one, and every
 output path is redacted. On GitLab or Buildkite, the same check runs from
 the Docker image. Details, and the three `GRANT` statements the role needs:
-[the Action's README](action/README.md).
+[the Action's README](https://github.com/TejasMehra/blastoise/blob/master/action/README.md).
 
 ## What makes it different
 
@@ -100,12 +100,12 @@ The classifier has been run over **3,081 real migration files** from coder, sour
 
 ## Docs
 
-- [The five verdicts, thresholds, and exit codes](docs/tiers.md)
-- [How it works: parser, lock catalog, live introspection](docs/how-it-works.md)
-- [Reports, evidence bundles, signing](docs/reports.md)
-- [The GitHub Action, the Docker image, and the config](action/README.md)
-- [The read-only database role it needs (three statements)](docs/minimum-privilege-role.md)
-- [Design decisions and measurements](DECISIONS.md) · [Artifacts](artifacts/README.md)
+- [The five verdicts, thresholds, and exit codes](https://github.com/TejasMehra/blastoise/blob/master/docs/tiers.md)
+- [How it works: parser, lock catalog, live introspection](https://github.com/TejasMehra/blastoise/blob/master/docs/how-it-works.md)
+- [Reports, evidence bundles, signing](https://github.com/TejasMehra/blastoise/blob/master/docs/reports.md)
+- [The GitHub Action, the Docker image, and the config](https://github.com/TejasMehra/blastoise/blob/master/action/README.md)
+- [The read-only database role it needs (three statements)](https://github.com/TejasMehra/blastoise/blob/master/docs/minimum-privilege-role.md)
+- [Design decisions and measurements](https://github.com/TejasMehra/blastoise/blob/master/DECISIONS.md) · [Artifacts](https://github.com/TejasMehra/blastoise/blob/master/artifacts/README.md)
 
 ## Development
 
