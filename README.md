@@ -84,10 +84,18 @@ jobs:
 
 No path configuration: migrations are found by the layout your framework
 already imposes — Rails, Django, Prisma, Flyway, Alembic, golang-migrate,
-or a plain `migrations/` directory. The connection string comes from a
-secret and from nowhere else; there is no input that takes one, and every
-output path is redacted. On GitLab or Buildkite, the same check runs from
-the Docker image. Details, and the three `GRANT` statements the role needs:
+or a plain `migrations/` directory.
+
+**Rails, Django and Alembic migrations are detected but not yet analyzed** —
+they write a DSL rather than SQL, so Blastoise reports them and holds the run
+at `requires_approval` instead of passing them silently. Want one of them
+actually analyzed? [Open an issue](https://github.com/TejasMehra/blastoise/issues/new)
+— that is what decides which adapter gets built.
+
+The connection string comes from a secret and from nowhere else; there is
+no input that takes one, and every output path is redacted. On GitLab or
+Buildkite, the same check runs from the Docker image. Details, and the
+three `GRANT` statements the role needs:
 [the Action's README](https://github.com/TejasMehra/blastoise/blob/master/action/README.md).
 
 ## What makes it different

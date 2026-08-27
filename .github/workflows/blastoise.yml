@@ -1,4 +1,4 @@
-# The Action, run against this repository, on every change to it.
+# The Action, run against this repository's own pull requests.
 #
 # This repository has no migrations of its own, so the check finds nothing
 # and passes. That is still worth running: an Action whose composite steps
@@ -19,9 +19,18 @@ permissions:
   checks: write
 
 jobs:
+  # Pull requests only. The Action discovers changed files from the pull
+  # request's file list, and a push has no such list: `git diff` would need
+  # a base, and the only one a push event offers -- `github.event.before` --
+  # is the all-zeros sha on the first push after a branch or repository is
+  # created, and is unreachable anyway under the default shallow checkout.
+  # Rather than carry that fragility for a job whose whole purpose is to be
+  # a smoke test, run it where the input it wants actually exists. Pushes to
+  # master still exercise the analysis through the `image` job below.
   action:
     name: the Action, on this repository
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
       - uses: actions/checkout@v4
       - uses: ./action

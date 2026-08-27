@@ -170,7 +170,12 @@ class TestPerFileSections:
         assert "NOT ASSESSED" in body
         assert "**Rails**" in body
         assert "rails db:migrate" in body
-        assert "was not assessed" in body
+        assert "recognized" in body
+        assert "does not support extracting SQL" in body
+        assert "not assessed at all" in body
+        # Whether anyone wants a Rails adapter is a question, not an
+        # assumption: the comment is where it gets asked.
+        assert "issues/new" in body
 
     def test_an_error_file_is_a_tool_failure_not_a_finding(self) -> None:
         outcome = FileOutcome(
