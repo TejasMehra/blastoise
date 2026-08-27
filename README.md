@@ -53,6 +53,12 @@ $ pip install pgblastoise
 $ blastoise check migrations/0042_add_customer_ref.sql --offline
 ```
 
+> **The PyPI package is [`pgblastoise`](https://pypi.org/project/pgblastoise/),
+> not `blastoise`.** The plain name was already taken by an unrelated parquet
+> library, so `pip install blastoise` gets you the wrong thing. Only the
+> distribution name carries the prefix — the command you run is `blastoise`
+> and the module you import is `blastoise`.
+
 Point it at a read-only connection and the `unknown`s turn into answers:
 
 ```console
@@ -114,6 +120,7 @@ The classifier has been run over **3,081 real migration files** from coder, sour
 - [The GitHub Action, the Docker image, and the config](https://github.com/TejasMehra/blastoise/blob/master/action/README.md)
 - [The read-only database role it needs (three statements)](https://github.com/TejasMehra/blastoise/blob/master/docs/minimum-privilege-role.md)
 - [Design decisions and measurements](https://github.com/TejasMehra/blastoise/blob/master/DECISIONS.md) · [Artifacts](https://github.com/TejasMehra/blastoise/blob/master/artifacts/README.md)
+- [The package on PyPI](https://pypi.org/project/pgblastoise/) — `pip install pgblastoise`
 
 ## Development
 

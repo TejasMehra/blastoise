@@ -137,7 +137,9 @@ exist until the framework renders it, so the parser cannot read them.
 The check **says so, per file, in the comment**, and holds the run at
 `requires_approval` rather than passing — a green check on a pull request
 whose only migration was never read is the one outcome worse than no check
-at all.
+at all. If you want one of them actually analyzed,
+[open an issue](https://github.com/TejasMehra/blastoise/issues/new) — that
+is what decides which adapter gets built.
 
 **Comments once, and edits it.** The comment carries an invisible marker;
 a re-push finds it and rewrites it rather than adding to a column of stale
