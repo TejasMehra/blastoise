@@ -40,6 +40,14 @@ UNVERIFIED_HEADING = "**What this check couldn't establish**"
 """The honest residue, headed as a limit rather than as a score. It is never
 collapsed and never counted: see :func:`_unverified_lines`."""
 
+_ADAPTER_ISSUE_URL = "https://github.com/TejasMehra/blastoise/issues/new"
+"""Where a DSL framework's users ask for an adapter.
+
+Building Rails and Django adapters on the assumption someone wants them is
+a guess. A link in the one place a person is standing when the gap actually
+costs them something is a measurement.
+"""
+
 _VERDICT_HEADLINE: dict[FileVerdict, str] = {
     FileVerdict.PROCEED: "PROCEED",
     FileVerdict.REQUIRES_APPROVAL: "REQUIRES APPROVAL",
@@ -208,10 +216,11 @@ def _file_section(
         lines.append(f"### \N{LARGE YELLOW CIRCLE} `{outcome.path}` — NOT ASSESSED")
         lines.append("")
         lines.append(
-            f"Recognized as a **{name}** migration. Blastoise reads SQL, and "
-            "this file is a DSL: the statements it will run do not exist "
-            "until the framework renders them, so **this file was not "
-            "assessed at all**."
+            f"**{name}** migration — recognized, but **Blastoise does not "
+            "support extracting SQL from it**. The statements this file "
+            "runs do not exist until the framework renders them, so it was "
+            "**not assessed at all**. This is a gap in Blastoise, not a "
+            "finding about the migration."
         )
         lines.append("")
         hint = DSL_ADAPTER_HINT.get(outcome.framework)
@@ -221,7 +230,9 @@ def _file_section(
         lines.append(
             "Until then: any raw SQL this migration executes can be checked "
             "by putting it in a `.sql` file, and the run is held at "
-            "`requires_approval` rather than passing."
+            f"`requires_approval` rather than passing. If you want {name} "
+            f"support, [say so]({_ADAPTER_ISSUE_URL}) — that is how it gets "
+            "prioritised."
         )
         lines.append("")
     else:
@@ -426,9 +437,19 @@ def render_summary_line(run: CiRun) -> str:
 
 
 def unsupported_notice(framework: Framework) -> str:
-    """The one-line message for a recognized-but-unreadable migration."""
+    """The one-line message for a recognized-but-unreadable migration.
+
+    Two facts, in this order, because that is the order the reader needs
+    them: the layout *was* recognized (so this is not a detection bug or a
+    path they have to configure), and extracting SQL from it is not
+    supported (so the file is not assessed, and no amount of retrying will
+    change that). "DSL" is the reason, not the headline -- it explains why
+    extraction is hard, and it is jargon to anyone who has not thought
+    about it.
+    """
     name = FRAMEWORK_NAMES.get(framework, str(framework))
     return (
-        f"{name} migrations are a DSL, not SQL: the statements are generated "
-        "at run time, so this file cannot be assessed yet"
+        f"{name} migration recognized, but not assessed: Blastoise does not "
+        "support extracting SQL from it. The file is a DSL, and the "
+        "statements it runs do not exist until the framework renders them"
     )

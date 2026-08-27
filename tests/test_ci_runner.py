@@ -133,7 +133,13 @@ class TestUnassessableFiles:
         (entry,) = payload["files"]
         assert entry["framework"] == "rails"
         assert entry["status"] == "unsupported"
-        assert "DSL" in (entry["detail"] or "")
+        detail = entry["detail"] or ""
+        # The two facts a reader needs: the layout was recognized (so this
+        # is not a detection bug), and extraction is unsupported (so no
+        # retry helps).
+        assert "recognized" in detail
+        assert "not assessed" in detail
+        assert "does not support extracting SQL" in detail
         assert "Rails" in err
         assert payload["verdict"] == "requires_approval"
         assert code == 0
