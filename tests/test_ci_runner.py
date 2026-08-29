@@ -135,11 +135,12 @@ class TestUnassessableFiles:
         assert entry["status"] == "unsupported"
         detail = entry["detail"] or ""
         # The two facts a reader needs: the layout was recognized (so this
-        # is not a detection bug), and extraction is unsupported (so no
-        # retry helps).
+        # is not a detection bug), and this file carries no verdict. With
+        # no `rails.extract` in config, the reason is that rendering is
+        # opt-in -- which is actionable, unlike "unsupported".
         assert "recognized" in detail
         assert "not assessed" in detail
-        assert "does not support extracting SQL" in detail
+        assert "rails.extract" in detail
         assert "Rails" in err
         assert payload["verdict"] == "requires_approval"
         assert code == 0

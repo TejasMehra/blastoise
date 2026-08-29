@@ -1,0 +1,152 @@
+# Does the SQL Blastoise extracts from a Rails migration match what Rails runs?
+#
+# NOT AN INSTALLED WORKFLOW. This file lives in artifacts/scripts/ rather
+# than .github/workflows/ on purpose: it clones four large third-party
+# applications and runs forty migrations twice each, which is nobody's
+# business on an ordinary push and has no place in the CI of a repository
+# that merely depends on Blastoise. Nothing here runs on its own.
+#
+# To run it, copy this file into .github/workflows/ on a branch, dispatch it
+# from the Actions tab, take the uploaded artifact, and drop the copy. The
+# equivalent local command is in artifacts/validation/README.md, and the
+# results of the runs that have been done are committed beside it.
+#
+# What it is for: the answer depended on the machine. The first run was on
+# Windows without a Ruby devkit, where `scenic`, `hairtrigger` and `neighbor`
+# will not build and pgvector has no binary at all, and eleven of forty cases
+# failed for that reason rather than for anything to do with extraction --
+# or so it appeared. On Linux every one of those installs, which is what
+# separated "the approach does not work" from "that machine could not run
+# it", and found two real bugs behind the assumption. See the
+# "Rails migrations, rendered by running them" section of DECISIONS.md.
+name: Rails extraction validation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start Postgres with pgvector
+        # Run it directly rather than as a service container: a service
+        # cannot take server flags, and pg_stat_statements has to be in
+        # shared_preload_libraries before CREATE EXTENSION will accept it.
+        # OpenFoodNetwork's schema enables it.
+        run: |
+          set -eux
+          docker run -d --name pg \
+            -e POSTGRES_HOST_AUTH_METHOD=trust \
+            -e POSTGRES_USER=postgres \
+            -p 55433:5432 \
+            pgvector/pgvector:pg17 \
+            -c shared_preload_libraries=pg_stat_statements \
+            -c fsync=off -c full_page_writes=off
+          for _ in $(seq 1 60); do
+            if docker exec pg pg_isready -U postgres -q; then break; fi
+            sleep 2
+          done
+          docker exec pg psql -U postgres -qc "select version()"
+          docker exec pg psql -U postgres -qc "create extension vector"
+          docker exec pg psql -U postgres -qc "create extension pg_stat_statements"
+          docker exec pg psql -U postgres -qc "drop extension vector"
+          docker exec pg psql -U postgres -qc "drop extension pg_stat_statements"
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --quiet --upgrade pip
+          python -m pip install --quiet 'psycopg[binary]>=3.2' 'pglast>=8.4' 'pyyaml>=6.0.3'
+
+      - name: Install each application's ActiveRecord and DSL gems
+        # Each application renders with the ActiveRecord its own Gemfile.lock
+        # pins -- a migration declaring ActiveRecord::Migration[8.1] raises
+        # "Unknown migration version" on anything older -- so each gets its
+        # own GEM_HOME rather than one shared set.
+        run: |
+          set -eux
+          install_set() {
+            home="$1"; shift
+            GEM_HOME="$PWD/gems/$home" GEM_PATH="$PWD/gems/$home" \
+              gem install --no-document "$@"
+          }
+          install_set gems8051 activerecord:8.0.5.1 pg minitest
+          install_set gems8131 activerecord:8.1.3.1 pg minitest \
+                               scenic:1.9.0 strong_migrations:2.8.0
+          install_set gems805  activerecord:8.0.5 pg minitest \
+                               hairtrigger:1.3.1 strong_migrations:1.8.0 neighbor
+          install_set gems72   activerecord:7.2.3.2 pg minitest
+
+      - name: Verify the gems Windows could not build actually load
+        run: |
+          set -eux
+          check() {
+            GEM_HOME="$PWD/gems/$1" GEM_PATH="$PWD/gems/$1" \
+              ruby -e 'require "logger"; require "tsort"; require "active_record"; require ARGV[0]; puts "#{ARGV[0]} loads"' "$2"
+          }
+          check gems8131 scenic
+          check gems805 hairtrigger
+          check gems805 neighbor
+
+      - name: Clone the applications
+        run: |
+          set -eux
+          mkdir -p repos
+          for r in discourse/discourse mastodon/mastodon forem/forem \
+                   openfoodfoundation/openfoodnetwork; do
+            git clone --filter=blob:none --quiet "https://github.com/$r.git" \
+              "repos/$(basename "$r")"
+          done
+
+      - name: Run the validation
+        # No --missing-extensions: this machine can provide all of them, which
+        # is the entire point of the run. If a case still fails here, it is
+        # not the environment.
+        run: |
+          python artifacts/scripts/rails_extraction_validation.py \
+            --cases artifacts/validation/rails_extraction_cases_2026-08-28.json \
+            --repos repos \
+            --admin-url "postgres://postgres@127.0.0.1:55433/postgres" \
+            --ruby "$(which ruby)" \
+            --gem-home-map "{\"discourse\":\"$PWD/gems/gems8051\",\"mastodon\":\"$PWD/gems/gems8131\",\"forem\":\"$PWD/gems/gems805\",\"openfoodnetwork\":\"$PWD/gems/gems72\"}" \
+            --preload-sql "{\"mastodon\":\"artifacts/validation/rails_extraction_mastodon_preload.sql\"}" \
+            --workdir "$RUNNER_TEMP/valwork" \
+            --out results_linux.json \
+            --timeout 900
+
+      - name: Report
+        if: always()
+        run: |
+          if [ -f results_linux.json ]; then
+            python artifacts/scripts/rails_validation_report.py \
+              --results results_linux.json --out report_linux.txt
+            {
+              echo '## Rails extraction validation (Linux)'
+              echo '```'
+              sed -n '1,60p' report_linux.txt
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rails-extraction-validation-linux
+          path: |
+            results_linux.json
+            report_linux.txt
+          if-no-files-found: warn

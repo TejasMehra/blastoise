@@ -1,0 +1,162 @@
+[
+ {
+  "repo": "discourse",
+  "path": "db/migrate/20260821164114_add_content_truncated_to_topic_embeds.rb"
+ },
+ {
+  "repo": "discourse",
+  "path": "db/migrate/20260818081537_create_browser_pageview_entry_url_rollups.rb"
+ },
+ {
+  "repo": "discourse",
+  "path": "db/migrate/20260817054353_rename_admin_site_traffic_event_cap_setting.rb"
+ },
+ {
+  "repo": "discourse",
+  "path": "db/migrate/20260814060100_add_browser_backfill_index_to_browser_pageview_events.rb"
+ },
+ {
+  "repo": "discourse",
+  "path": "db/migrate/20260810154331_add_target_created_by_index_to_reviewables.rb"
+ },
+ {
+  "repo": "discourse",
+  "path": "db/migrate/20260728134532_add_content_language_preferences_to_user_options.rb"
+ },
+ {
+  "repo": "discourse",
+  "path": "db/migrate/20260723183001_add_description_cooked_to_tags.rb"
+ },
+ {
+  "repo": "discourse",
+  "path": "db/migrate/20260715134306_create_nested_hot_score_cache.rb"
+ },
+ {
+  "repo": "discourse",
+  "path": "db/migrate/20260715113008_create_sidebar_localizations.rb"
+ },
+ {
+  "repo": "discourse",
+  "path": "db/migrate/20260610064425_introduce_permission_acl_tables.rb"
+ },
+ {
+  "repo": "mastodon",
+  "path": "db/migrate/20260812154114_remove_index_keypairs_on_account_id.rb"
+ },
+ {
+  "repo": "mastodon",
+  "path": "db/migrate/20260803172525_add_target_account_index_to_follow_requests.rb"
+ },
+ {
+  "repo": "mastodon",
+  "path": "db/migrate/20260728145403_update_account_summaries_to_version_3.rb"
+ },
+ {
+  "repo": "mastodon",
+  "path": "db/migrate/20260728124057_add_requested_deletion_at_to_accounts.rb"
+ },
+ {
+  "repo": "mastodon",
+  "path": "db/migrate/20260720092724_change_account_uri_default.rb"
+ },
+ {
+  "repo": "mastodon",
+  "path": "db/migrate/20260720090737_change_account_uri_nullable.rb"
+ },
+ {
+  "repo": "mastodon",
+  "path": "db/migrate/20260706143100_create_software_deprecations.rb"
+ },
+ {
+  "repo": "mastodon",
+  "path": "db/migrate/20260701161457_add_new_index_account_id_local_fragment_to_keypair.rb"
+ },
+ {
+  "repo": "mastodon",
+  "path": "db/migrate/20260630070531_revert_add_new_index_on_uri_to_keypairs.rb"
+ },
+ {
+  "repo": "mastodon",
+  "path": "db/migrate/20260629124918_change_keypair_uri_non_nullable.rb"
+ },
+ {
+  "repo": "forem",
+  "path": "db/migrate/20260825100500_add_full_details_to_events.rb"
+ },
+ {
+  "repo": "forem",
+  "path": "db/migrate/20260814130100_add_index_to_articles_and_comments_ai_disclosure_level.rb"
+ },
+ {
+  "repo": "forem",
+  "path": "db/migrate/20260728100500_validate_favorited_by_user_id_on_comments.rb"
+ },
+ {
+  "repo": "forem",
+  "path": "db/migrate/20260728100400_add_index_to_comments_favorited_by_user_id.rb"
+ },
+ {
+  "repo": "forem",
+  "path": "db/migrate/20260728100300_add_favorited_by_user_id_to_comments.rb"
+ },
+ {
+  "repo": "forem",
+  "path": "db/migrate/20260720160000_add_event_id_to_emails.rb"
+ },
+ {
+  "repo": "forem",
+  "path": "db/migrate/20260629223500_add_index_on_user_badge_achievements_count.rb"
+ },
+ {
+  "repo": "forem",
+  "path": "db/migrate/20260625160721_add_published_times_index_to_events.rb"
+ },
+ {
+  "repo": "forem",
+  "path": "db/migrate/20260611190703_create_event_signups.rb"
+ },
+ {
+  "repo": "forem",
+  "path": "db/migrate/20260603170000_create_concepts_and_metrics.rb"
+ },
+ {
+  "repo": "openfoodnetwork",
+  "path": "db/migrate/20260818061627_remove_supplier_and_hub_from_variants.rb"
+ },
+ {
+  "repo": "openfoodnetwork",
+  "path": "db/migrate/20260717124355_change_final_weight_volume_precision_in_spree_line_items.rb"
+ },
+ {
+  "repo": "openfoodnetwork",
+  "path": "db/migrate/20260602222924_add_deleted_at_to_assets.rb"
+ },
+ {
+  "repo": "openfoodnetwork",
+  "path": "db/migrate/20260601034847_copy_supplier_to_enterprise_in_spree_variants.rb"
+ },
+ {
+  "repo": "openfoodnetwork",
+  "path": "db/migrate/20260512062934_remove_not_null_on_active_storage_blobs_checksum.active_storage.rb"
+ },
+ {
+  "repo": "openfoodnetwork",
+  "path": "db/migrate/20260512062933_create_active_storage_variant_records.active_storage.rb"
+ },
+ {
+  "repo": "openfoodnetwork",
+  "path": "db/migrate/20260512062932_add_service_name_to_active_storage_blobs.active_storage.rb"
+ },
+ {
+  "repo": "openfoodnetwork",
+  "path": "db/migrate/20260306015200_remove_ignored_columns_from_spree_products.rb"
+ },
+ {
+  "repo": "openfoodnetwork",
+  "path": "db/migrate/20260306015100_remove_supplier_id_from_spree_products.rb"
+ },
+ {
+  "repo": "openfoodnetwork",
+  "path": "db/migrate/20260302040450_add_payment_reference_to_customer_account_transactions.rb"
+ }
+]

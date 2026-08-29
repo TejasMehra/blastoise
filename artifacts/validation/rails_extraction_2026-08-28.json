@@ -1,0 +1,983 @@
+[
+  {
+    "repo": "discourse",
+    "path": "db/migrate/20260821164114_add_content_truncated_to_topic_embeds.rb",
+    "commit": "1c1fa6abe25655148244a92f0bc77421698f174a",
+    "parent": "53dbe9b3c9f5e79def58516e3504ced3b5e45ca8",
+    "schema_path": "db/structure.sql",
+    "schema_kind": "sql",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "ALTER TABLE \"topic_embeds\" ADD \"content_truncated\" boolean",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5.1",
+    "preceding": [],
+    "adaptations": [
+      "CREATE EXTENSION IF NOT EXISTS vector WITH SCHEMA public;",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,"
+    ]
+  },
+  {
+    "repo": "discourse",
+    "path": "db/migrate/20260818081537_create_browser_pageview_entry_url_rollups.rb",
+    "commit": "2859ead8ce7984fc0b7d98b9d627771d02b8480b",
+    "parent": "e053c4caac24af67ac081ee3a2385ac3243f5bc8",
+    "schema_path": "db/structure.sql",
+    "schema_kind": "sql",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "CREATE TABLE \"browser_pageview_entry_url_daily_rollups\" (\"id\" bigserial primary key, \"date\" date NOT NULL, \"entry_url\" character varying(2000) NOT NULL, \"count\" bigint NOT NULL, \"logged_in_count\" bigint NOT NULL, \"likely_crawler_count\" bigint DEFAULT 0 NOT NULL, \"likely_crawler_logged_in_count\" bigint DEFAULT 0 NOT NULL)",
+      "CREATE UNIQUE INDEX \"idx_bpeu_daily_rollups_date_url_unique\" ON \"browser_pageview_entry_url_daily_rollups\" (\"date\", \"entry_url\")",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5.1",
+    "preceding": [],
+    "adaptations": [
+      "CREATE EXTENSION IF NOT EXISTS vector WITH SCHEMA public;",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,"
+    ]
+  },
+  {
+    "repo": "discourse",
+    "path": "db/migrate/20260817054353_rename_admin_site_traffic_event_cap_setting.rb",
+    "commit": "c71a2d1442f910740f615b7af6489e918da3bdbd",
+    "parent": "88c3fe6ee09278845904ce6148b0cbbb10ac847f",
+    "schema_path": "db/structure.sql",
+    "schema_kind": "sql",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "UPDATE site_settings SET name = 'site_traffic_explorer_event_limit' WHERE name = 'admin_site_traffic_event_cap'",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5.1",
+    "preceding": [],
+    "adaptations": [
+      "CREATE EXTENSION IF NOT EXISTS vector WITH SCHEMA public;",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,"
+    ]
+  },
+  {
+    "repo": "discourse",
+    "path": "db/migrate/20260814060100_add_browser_backfill_index_to_browser_pageview_events.rb",
+    "commit": "c4326eee8c75f13bb41231b53027355553609b0d",
+    "parent": "c71a2d1442f910740f615b7af6489e918da3bdbd",
+    "schema_path": "db/structure.sql",
+    "schema_kind": "sql",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "CREATE INDEX CONCURRENTLY \"idx_bpe_browser_backfill\" ON \"browser_pageview_events\" (\"source\", \"created_at\" DESC, \"id\" DESC) WHERE browser IS NULL"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5.1",
+    "preceding": [
+      "20260814060000_add_browser_to_browser_pageview_events.rb"
+    ],
+    "adaptations": [
+      "CREATE EXTENSION IF NOT EXISTS vector WITH SCHEMA public;",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,"
+    ]
+  },
+  {
+    "repo": "discourse",
+    "path": "db/migrate/20260810154331_add_target_created_by_index_to_reviewables.rb",
+    "commit": "8665f97c8bc3f75048efb2bce7ab485c815a96ff",
+    "parent": "e4f8b88ea34f1fe23474a62ddb1afb01b65f7b8e",
+    "schema_path": "db/structure.sql",
+    "schema_kind": "sql",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "DROP INDEX CONCURRENTLY IF EXISTS index_reviewables_on_target_created_by_id",
+      "CREATE INDEX CONCURRENTLY index_reviewables_on_target_created_by_id\nON reviewables (target_created_by_id)"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5.1",
+    "preceding": [],
+    "adaptations": [
+      "CREATE EXTENSION IF NOT EXISTS vector WITH SCHEMA public;",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,"
+    ]
+  },
+  {
+    "repo": "discourse",
+    "path": "db/migrate/20260728134532_add_content_language_preferences_to_user_options.rb",
+    "commit": "cff8f6ea4d30ec89b48d9849364d3a625303bdb4",
+    "parent": "2afbf1e9853cc1e5f567c045f8087a8edd24f1f9",
+    "schema_path": "db/structure.sql",
+    "schema_kind": "sql",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "ALTER TABLE \"user_options\" ADD \"automatically_translate\" boolean DEFAULT TRUE NOT NULL",
+      "ALTER TABLE \"user_options\" ADD \"understood_languages\" character varying[] DEFAULT '{}' NOT NULL",
+      "UPDATE user_options\nSET automatically_translate = FALSE\nWHERE show_original_content = TRUE",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5.1",
+    "preceding": [],
+    "adaptations": [
+      "CREATE EXTENSION IF NOT EXISTS vector WITH SCHEMA public;",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,"
+    ]
+  },
+  {
+    "repo": "discourse",
+    "path": "db/migrate/20260723183001_add_description_cooked_to_tags.rb",
+    "commit": "37b64504c9f8123a787650ca3c5182dfdbe8ba1e",
+    "parent": "2306592f8992255162cf7c7fc5055d5277b3d1a4",
+    "schema_path": "db/structure.sql",
+    "schema_kind": "sql",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "ALTER TABLE \"tags\" ADD \"description_cooked\" character varying(2000)",
+      "ALTER TABLE \"tags\" ADD \"description_cooked_version\" integer",
+      "ALTER TABLE \"tag_localizations\" ADD \"description_cooked\" character varying(2000)",
+      "ALTER TABLE \"tag_localizations\" ADD \"description_cooked_version\" integer",
+      "CREATE INDEX \"index_tags_on_description_cooked_version\" ON \"tags\" (\"description_cooked_version\")",
+      "CREATE INDEX \"index_tag_localizations_on_description_cooked_version\" ON \"tag_localizations\" (\"description_cooked_version\")",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5.1",
+    "preceding": [],
+    "adaptations": [
+      "CREATE EXTENSION IF NOT EXISTS vector WITH SCHEMA public;",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,"
+    ]
+  },
+  {
+    "repo": "discourse",
+    "path": "db/migrate/20260715134306_create_nested_hot_score_cache.rb",
+    "commit": "dc2d170a9fc2ba00cccc2aecf9880a23e1a7eee1",
+    "parent": "a1b2c3c9ceacd0758d82c9eb0107dafa866524a2",
+    "schema_path": "db/structure.sql",
+    "schema_kind": "sql",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "CREATE TABLE \"nested_hot_score_snapshots\" (\"topic_id\" bigint NOT NULL, \"calculated_at\" timestamp(6) NOT NULL)",
+      "CREATE UNIQUE INDEX \"index_nested_hot_score_snapshots_on_topic_id\" ON \"nested_hot_score_snapshots\" (\"topic_id\")",
+      "CREATE INDEX \"index_nested_hot_score_snapshots_on_calculated_at\" ON \"nested_hot_score_snapshots\" (\"calculated_at\")",
+      "CREATE TABLE \"nested_hot_post_scores\" (\"post_id\" bigint NOT NULL, \"topic_id\" bigint NOT NULL, \"hot_score\" float NOT NULL, \"thread_hot_score\" float NOT NULL)",
+      "CREATE UNIQUE INDEX \"index_nested_hot_post_scores_on_post_id\" ON \"nested_hot_post_scores\" (\"post_id\")",
+      "CREATE INDEX \"index_nested_hot_post_scores_on_topic_id\" ON \"nested_hot_post_scores\" (\"topic_id\")",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5.1",
+    "preceding": [],
+    "adaptations": [
+      "CREATE EXTENSION IF NOT EXISTS vector WITH SCHEMA public;",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,"
+    ]
+  },
+  {
+    "repo": "discourse",
+    "path": "db/migrate/20260715113008_create_sidebar_localizations.rb",
+    "commit": "ee7985f8767b293991ad28464d62b17be8e292cf",
+    "parent": "79fa810cfb6212fb77b962fa4ecacb5110850720",
+    "schema_path": "db/structure.sql",
+    "schema_kind": "sql",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "ALTER TABLE \"sidebar_sections\" ADD \"locale\" character varying(20)",
+      "ALTER TABLE \"sidebar_urls\" ADD \"locale\" character varying(20)",
+      "CREATE TABLE \"sidebar_section_localizations\" (\"id\" bigserial primary key, \"sidebar_section_id\" bigint NOT NULL, \"locale\" character varying(20) NOT NULL, \"title\" character varying(30) NOT NULL, \"created_at\" timestamp(6) NOT NULL, \"updated_at\" timestamp(6) NOT NULL)",
+      "CREATE INDEX \"index_sidebar_section_localizations_on_sidebar_section_id\" ON \"sidebar_section_localizations\" (\"sidebar_section_id\")",
+      "CREATE UNIQUE INDEX \"idx_on_sidebar_section_id_locale_271bd8ee1c\" ON \"sidebar_section_localizations\" (\"sidebar_section_id\", \"locale\")",
+      "CREATE TABLE \"sidebar_url_localizations\" (\"id\" bigserial primary key, \"sidebar_url_id\" bigint NOT NULL, \"locale\" character varying(20) NOT NULL, \"name\" character varying(80) NOT NULL, \"created_at\" timestamp(6) NOT NULL, \"updated_at\" timestamp(6) NOT NULL)",
+      "CREATE INDEX \"index_sidebar_url_localizations_on_sidebar_url_id\" ON \"sidebar_url_localizations\" (\"sidebar_url_id\")",
+      "CREATE UNIQUE INDEX \"index_sidebar_url_localizations_on_sidebar_url_id_and_locale\" ON \"sidebar_url_localizations\" (\"sidebar_url_id\", \"locale\")",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5.1",
+    "preceding": [],
+    "adaptations": [
+      "CREATE EXTENSION IF NOT EXISTS vector WITH SCHEMA public;",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,"
+    ]
+  },
+  {
+    "repo": "discourse",
+    "path": "db/migrate/20260610064425_introduce_permission_acl_tables.rb",
+    "commit": "5823e4e3b246dd6aa1738f40456848c9e581a668",
+    "parent": "49f3b2e174c6d1dc68ab5cd71e01741b1006c194",
+    "schema_path": "db/structure.sql",
+    "schema_kind": "sql",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "CREATE TABLE \"access_control_lists\" (\"id\" bigserial primary key, \"target_type\" character varying(255) NOT NULL, \"target_id\" bigint NOT NULL, \"owner\" character varying(100) NOT NULL, \"permission\" character varying(100) NOT NULL, \"allowed_user_ids\" bigint[] DEFAULT '{}' NOT NULL, \"allowed_group_ids\" bigint[] DEFAULT '{}' NOT NULL, \"created_at\" timestamp(6) NOT NULL, \"updated_at\" timestamp(6) NOT NULL)",
+      "CREATE UNIQUE INDEX \"idx_on_target_type_target_id_permission_f472902150\" ON \"access_control_lists\" (\"target_type\", \"target_id\", \"permission\")",
+      "CREATE INDEX idx_access_control_lists_allowed_user_ids ON access_control_lists USING GIN(allowed_user_ids)",
+      "CREATE INDEX idx_access_control_lists_allowed_group_ids ON access_control_lists USING GIN(allowed_group_ids)",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5.1",
+    "preceding": [],
+    "adaptations": [
+      "CREATE EXTENSION IF NOT EXISTS vector WITH SCHEMA public;",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,",
+      "embeddings public.halfvec NOT NULL,"
+    ]
+  },
+  {
+    "repo": "mastodon",
+    "path": "db/migrate/20260812154114_remove_index_keypairs_on_account_id.rb",
+    "commit": "368b4abfcf67400fb446febff8cbc9f8f290ddc2",
+    "parent": "3cc36b98c084f8e5c602e56a486f89cfaa34db0b",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "extract_failed",
+    "reason": "NoMethodError: undefined method `create_view' for an instance of #<Class:0x000002b196f1ea60>",
+    "statements": [],
+    "differences": [],
+    "rails_version": "8.1.3.1",
+    "preceding": [],
+    "adaptations": [
+      "PRELOADED: CREATE OR REPLACE FUNCTION timestamp_id(table_name text)"
+    ]
+  },
+  {
+    "repo": "mastodon",
+    "path": "db/migrate/20260803172525_add_target_account_index_to_follow_requests.rb",
+    "commit": "f8cb997b98ba219d110839b4178ee9b469ff944b",
+    "parent": "b026b2395c6c3a024b60bd8c080b67538432d1aa",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "extract_failed",
+    "reason": "NoMethodError: undefined method `create_view' for an instance of #<Class:0x00000206da6105c0>",
+    "statements": [],
+    "differences": [],
+    "rails_version": "8.1.3.1",
+    "preceding": [],
+    "adaptations": [
+      "PRELOADED: CREATE OR REPLACE FUNCTION timestamp_id(table_name text)"
+    ]
+  },
+  {
+    "repo": "mastodon",
+    "path": "db/migrate/20260728145403_update_account_summaries_to_version_3.rb",
+    "commit": "ad245adf510cf56953ebb8a7dfc5db16c0f58403",
+    "parent": "1ea3bbcce88b6214360110e31d5fd12ececec61e",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "extract_failed",
+    "reason": "NoMethodError: undefined method `create_view' for an instance of #<Class:0x00000178f1c612c0>",
+    "statements": [],
+    "differences": [],
+    "rails_version": "8.1.3.1",
+    "preceding": [
+      "20260728124057_add_requested_deletion_at_to_accounts.rb"
+    ],
+    "adaptations": [
+      "PRELOADED: CREATE OR REPLACE FUNCTION timestamp_id(table_name text)"
+    ]
+  },
+  {
+    "repo": "mastodon",
+    "path": "db/migrate/20260728124057_add_requested_deletion_at_to_accounts.rb",
+    "commit": "ad245adf510cf56953ebb8a7dfc5db16c0f58403",
+    "parent": "1ea3bbcce88b6214360110e31d5fd12ececec61e",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "extract_failed",
+    "reason": "NoMethodError: undefined method `create_view' for an instance of #<Class:0x0000027ec628f6f8>",
+    "statements": [],
+    "differences": [],
+    "rails_version": "8.1.3.1",
+    "preceding": [],
+    "adaptations": [
+      "PRELOADED: CREATE OR REPLACE FUNCTION timestamp_id(table_name text)"
+    ]
+  },
+  {
+    "repo": "mastodon",
+    "path": "db/migrate/20260720092724_change_account_uri_default.rb",
+    "commit": "e0efc9683fa2228a4b019dbc8dda687663329aa5",
+    "parent": "20c105c194edc1aa09d1c28b8008ca1f69e4bd13",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "extract_failed",
+    "reason": "NoMethodError: undefined method `create_view' for an instance of #<Class:0x0000024664ae7d18>",
+    "statements": [],
+    "differences": [],
+    "rails_version": "8.1.3.1",
+    "preceding": [
+      "20260720090737_change_account_uri_nullable.rb"
+    ],
+    "adaptations": [
+      "PRELOADED: CREATE OR REPLACE FUNCTION timestamp_id(table_name text)"
+    ]
+  },
+  {
+    "repo": "mastodon",
+    "path": "db/migrate/20260720090737_change_account_uri_nullable.rb",
+    "commit": "e0efc9683fa2228a4b019dbc8dda687663329aa5",
+    "parent": "20c105c194edc1aa09d1c28b8008ca1f69e4bd13",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "extract_failed",
+    "reason": "NoMethodError: undefined method `create_view' for an instance of #<Class:0x000001f21ae7eba0>",
+    "statements": [],
+    "differences": [],
+    "rails_version": "8.1.3.1",
+    "preceding": [],
+    "adaptations": [
+      "PRELOADED: CREATE OR REPLACE FUNCTION timestamp_id(table_name text)"
+    ]
+  },
+  {
+    "repo": "mastodon",
+    "path": "db/migrate/20260706143100_create_software_deprecations.rb",
+    "commit": "5dad89e56d5c8a07a677f02cf4d9e9a48c967469",
+    "parent": "acd0a161e5d957c4206304e856458dd7aef94661",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "extract_failed",
+    "reason": "NoMethodError: undefined method `create_view' for an instance of #<Class:0x00000236385e9078>",
+    "statements": [],
+    "differences": [],
+    "rails_version": "8.1.3.1",
+    "preceding": [],
+    "adaptations": [
+      "PRELOADED: CREATE OR REPLACE FUNCTION timestamp_id(table_name text)"
+    ]
+  },
+  {
+    "repo": "mastodon",
+    "path": "db/migrate/20260701161457_add_new_index_account_id_local_fragment_to_keypair.rb",
+    "commit": "5ac3002709078d88af961c94319820b2b11c5265",
+    "parent": "043922dcbed942912d7b50ac0ac3dce5ed430dbd",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "extract_failed",
+    "reason": "NoMethodError: undefined method `create_view' for an instance of #<Class:0x000001519f937500>",
+    "statements": [],
+    "differences": [],
+    "rails_version": "8.1.3.1",
+    "preceding": [
+      "20260701160541_rename_index_account_id_local_fragment_to_keypair.rb"
+    ],
+    "adaptations": [
+      "PRELOADED: CREATE OR REPLACE FUNCTION timestamp_id(table_name text)"
+    ]
+  },
+  {
+    "repo": "mastodon",
+    "path": "db/migrate/20260630070531_revert_add_new_index_on_uri_to_keypairs.rb",
+    "commit": "3aa3b75da9d775052ce30f92223568b9948fb739",
+    "parent": "b33795c6b7a617589f1b082b403b55f9062b9c21",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "extract_failed",
+    "reason": "NoMethodError: undefined method `create_view' for an instance of #<Class:0x000001ee95ba6e10>",
+    "statements": [],
+    "differences": [],
+    "rails_version": "8.1.3.1",
+    "preceding": [],
+    "adaptations": [
+      "PRELOADED: CREATE OR REPLACE FUNCTION timestamp_id(table_name text)"
+    ]
+  },
+  {
+    "repo": "mastodon",
+    "path": "db/migrate/20260629124918_change_keypair_uri_non_nullable.rb",
+    "commit": "99abf3c2171e8373a881b93d7fa6a2bb2c4a8a21",
+    "parent": "00a8fbc43ebedd8756932731f4e8c052ae651449",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "extract_failed",
+    "reason": "NoMethodError: undefined method `create_view' for an instance of #<Class:0x0000022c3be71cd8>",
+    "statements": [],
+    "differences": [],
+    "rails_version": "8.1.3.1",
+    "preceding": [
+      "20260629124055_add_new_index_on_uri_to_keypairs.rb",
+      "20260629124613_remove_old_index_on_uri_from_keypair.rb"
+    ],
+    "adaptations": [
+      "PRELOADED: CREATE OR REPLACE FUNCTION timestamp_id(table_name text)"
+    ]
+  },
+  {
+    "repo": "forem",
+    "path": "db/migrate/20260825100500_add_full_details_to_events.rb",
+    "commit": "17d854edcd4c383b3c7c88ceea046ffd5735ac0a",
+    "parent": "9fbabc9155e71021b5bd30b508498dadb466d01c",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "ALTER TABLE \"events\" ADD \"full_details\" text",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5",
+    "preceding": [],
+    "adaptations": [
+      "create_trigger(\"update_reading_list_document\", :generated => true, :compatibility => 1). ... (block)",
+      "enable_extension \"vector\"",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_articles_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_comments_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"anchor_embedding\", limit: 768, null: false",
+      "t.index [\"anchor_embedding\"], name: \"index_concepts_on_anchor_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"centroid_embedding\", limit: 768, null: false",
+      "t.index [\"centroid_embedding\"], name: \"index_trends_on_centroid_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"interest_embedding\", limit: 768",
+      "t.index [\"interest_embedding\"], name: \"index_user_activities_on_interest_embedding\", opclass: :vector_cosine_ops, using: :hnsw"
+    ]
+  },
+  {
+    "repo": "forem",
+    "path": "db/migrate/20260814130100_add_index_to_articles_and_comments_ai_disclosure_level.rb",
+    "commit": "9ca438959c863508d88ce59ccfecc15b5d57cad3",
+    "parent": "930ceb00c789d212206cb06cdd3cf5ce31cb3642",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "SET statement_timeout = 0;",
+      "CREATE INDEX CONCURRENTLY \"index_articles_on_ai_disclosure_level\" ON \"articles\" (\"ai_disclosure_level\")",
+      "CREATE INDEX CONCURRENTLY \"index_comments_on_ai_disclosure_level\" ON \"comments\" (\"ai_disclosure_level\")"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5",
+    "preceding": [
+      "20260814130000_add_ai_disclosure_level_to_articles_and_comments.rb"
+    ],
+    "adaptations": [
+      "create_trigger(\"update_reading_list_document\", :generated => true, :compatibility => 1). ... (block)",
+      "enable_extension \"vector\"",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_articles_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_comments_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"anchor_embedding\", limit: 768, null: false",
+      "t.index [\"anchor_embedding\"], name: \"index_concepts_on_anchor_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"centroid_embedding\", limit: 768, null: false",
+      "t.index [\"centroid_embedding\"], name: \"index_trends_on_centroid_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"interest_embedding\", limit: 768",
+      "t.index [\"interest_embedding\"], name: \"index_user_activities_on_interest_embedding\", opclass: :vector_cosine_ops, using: :hnsw"
+    ]
+  },
+  {
+    "repo": "forem",
+    "path": "db/migrate/20260728100500_validate_favorited_by_user_id_on_comments.rb",
+    "commit": "6f5b69113c41528ad89bab1d054136ba2f364800",
+    "parent": "b2382d8318ae106b513a82629f0eb0c808b13ad7",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "SELECT relation::regclass::text FROM pg_locks WHERE mode IN ('ShareRowExclusiveLock', 'AccessExclusiveLock') AND pid = pg_backend_pid()",
+      "ALTER TABLE \"comments\" VALIDATE CONSTRAINT \"fk_rails_60c6f2fb28\"",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5",
+    "preceding": [
+      "20260728100000_add_favorited_by_user_id_to_articles.rb",
+      "20260728100100_add_index_to_articles_favorited_by_user_id.rb",
+      "20260728100200_validate_favorited_by_user_id_on_articles.rb",
+      "20260728100300_add_favorited_by_user_id_to_comments.rb",
+      "20260728100400_add_index_to_comments_favorited_by_user_id.rb"
+    ],
+    "adaptations": [
+      "create_trigger(\"update_reading_list_document\", :generated => true, :compatibility => 1). ... (block)",
+      "enable_extension \"vector\"",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_articles_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_comments_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"anchor_embedding\", limit: 768, null: false",
+      "t.index [\"anchor_embedding\"], name: \"index_concepts_on_anchor_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"centroid_embedding\", limit: 768, null: false",
+      "t.index [\"centroid_embedding\"], name: \"index_trends_on_centroid_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"interest_embedding\", limit: 768",
+      "t.index [\"interest_embedding\"], name: \"index_user_activities_on_interest_embedding\", opclass: :vector_cosine_ops, using: :hnsw"
+    ]
+  },
+  {
+    "repo": "forem",
+    "path": "db/migrate/20260728100400_add_index_to_comments_favorited_by_user_id.rb",
+    "commit": "6f5b69113c41528ad89bab1d054136ba2f364800",
+    "parent": "b2382d8318ae106b513a82629f0eb0c808b13ad7",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "CREATE INDEX CONCURRENTLY \"index_comments_on_favorited_by_user_id\" ON \"comments\" (\"favorited_by_user_id\")"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5",
+    "preceding": [
+      "20260728100000_add_favorited_by_user_id_to_articles.rb",
+      "20260728100100_add_index_to_articles_favorited_by_user_id.rb",
+      "20260728100200_validate_favorited_by_user_id_on_articles.rb",
+      "20260728100300_add_favorited_by_user_id_to_comments.rb"
+    ],
+    "adaptations": [
+      "create_trigger(\"update_reading_list_document\", :generated => true, :compatibility => 1). ... (block)",
+      "enable_extension \"vector\"",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_articles_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_comments_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"anchor_embedding\", limit: 768, null: false",
+      "t.index [\"anchor_embedding\"], name: \"index_concepts_on_anchor_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"centroid_embedding\", limit: 768, null: false",
+      "t.index [\"centroid_embedding\"], name: \"index_trends_on_centroid_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"interest_embedding\", limit: 768",
+      "t.index [\"interest_embedding\"], name: \"index_user_activities_on_interest_embedding\", opclass: :vector_cosine_ops, using: :hnsw"
+    ]
+  },
+  {
+    "repo": "forem",
+    "path": "db/migrate/20260728100300_add_favorited_by_user_id_to_comments.rb",
+    "commit": "6f5b69113c41528ad89bab1d054136ba2f364800",
+    "parent": "b2382d8318ae106b513a82629f0eb0c808b13ad7",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "ALTER TABLE \"comments\" ADD \"favorited_by_user_id\" bigint",
+      "ALTER TABLE \"comments\" ADD CONSTRAINT \"fk_rails_60c6f2fb28\"\nFOREIGN KEY (\"favorited_by_user_id\")\n  REFERENCES \"users\" (\"id\")\n ON DELETE SET NULL NOT VALID",
+      "ALTER TABLE \"comments\" ADD \"favorited_at\" timestamp(6)",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5",
+    "preceding": [
+      "20260728100000_add_favorited_by_user_id_to_articles.rb",
+      "20260728100100_add_index_to_articles_favorited_by_user_id.rb",
+      "20260728100200_validate_favorited_by_user_id_on_articles.rb"
+    ],
+    "adaptations": [
+      "create_trigger(\"update_reading_list_document\", :generated => true, :compatibility => 1). ... (block)",
+      "enable_extension \"vector\"",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_articles_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_comments_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"anchor_embedding\", limit: 768, null: false",
+      "t.index [\"anchor_embedding\"], name: \"index_concepts_on_anchor_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"centroid_embedding\", limit: 768, null: false",
+      "t.index [\"centroid_embedding\"], name: \"index_trends_on_centroid_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"interest_embedding\", limit: 768",
+      "t.index [\"interest_embedding\"], name: \"index_user_activities_on_interest_embedding\", opclass: :vector_cosine_ops, using: :hnsw"
+    ]
+  },
+  {
+    "repo": "forem",
+    "path": "db/migrate/20260720160000_add_event_id_to_emails.rb",
+    "commit": "60b8b270245b465fa0d7277749d0f4d5e0309af6",
+    "parent": "c82564315682ada7feecb40f7ee0f4d642b32307",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "ALTER TABLE \"emails\" ADD \"event_id\" bigint",
+      "CREATE INDEX CONCURRENTLY \"index_emails_on_event_id\" ON \"emails\" (\"event_id\")",
+      "ALTER TABLE \"emails\" ADD CONSTRAINT \"fk_rails_5830409af3\"\nFOREIGN KEY (\"event_id\")\n  REFERENCES \"events\" (\"id\")\n NOT VALID"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5",
+    "preceding": [],
+    "adaptations": [
+      "create_trigger(\"update_reading_list_document\", :generated => true, :compatibility => 1). ... (block)",
+      "enable_extension \"vector\"",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_articles_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_comments_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"anchor_embedding\", limit: 768, null: false",
+      "t.index [\"anchor_embedding\"], name: \"index_concepts_on_anchor_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"centroid_embedding\", limit: 768, null: false",
+      "t.index [\"centroid_embedding\"], name: \"index_trends_on_centroid_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"interest_embedding\", limit: 768",
+      "t.index [\"interest_embedding\"], name: \"index_user_activities_on_interest_embedding\", opclass: :vector_cosine_ops, using: :hnsw"
+    ]
+  },
+  {
+    "repo": "forem",
+    "path": "db/migrate/20260629223500_add_index_on_user_badge_achievements_count.rb",
+    "commit": "400bf0771ad96847b1c13e2008bb396a98fc06f3",
+    "parent": "0407bc1be8e49335c63335bc42da7e0115f7e2c6",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "CREATE INDEX CONCURRENTLY \"index_users_on_badge_achievements_count_leaderboard\" ON \"users\" (\"badge_achievements_count\") WHERE registered = TRUE AND score >= 0 AND badge_achievements_count > 0"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5",
+    "preceding": [],
+    "adaptations": [
+      "create_trigger(\"update_reading_list_document\", :generated => true, :compatibility => 1). ... (block)",
+      "enable_extension \"vector\"",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_articles_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_comments_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"anchor_embedding\", limit: 768, null: false",
+      "t.index [\"anchor_embedding\"], name: \"index_concepts_on_anchor_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"centroid_embedding\", limit: 768, null: false",
+      "t.index [\"centroid_embedding\"], name: \"index_trends_on_centroid_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"interest_embedding\", limit: 768",
+      "t.index [\"interest_embedding\"], name: \"index_user_activities_on_interest_embedding\", opclass: :vector_cosine_ops, using: :hnsw"
+    ]
+  },
+  {
+    "repo": "forem",
+    "path": "db/migrate/20260625160721_add_published_times_index_to_events.rb",
+    "commit": "f0054ddf3b4cdac9742752468ccebd1041a24bca",
+    "parent": "e1a9c24b3af9aa9a3f5b677a96c18e05177d4118",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "CREATE INDEX CONCURRENTLY \"index_events_on_start_time_and_end_time_published\" ON \"events\" (\"start_time\", \"end_time\") WHERE published = true"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5",
+    "preceding": [],
+    "adaptations": [
+      "create_trigger(\"update_reading_list_document\", :generated => true, :compatibility => 1). ... (block)",
+      "enable_extension \"vector\"",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_articles_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_comments_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"anchor_embedding\", limit: 768, null: false",
+      "t.index [\"anchor_embedding\"], name: \"index_concepts_on_anchor_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"centroid_embedding\", limit: 768, null: false",
+      "t.index [\"centroid_embedding\"], name: \"index_trends_on_centroid_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"interest_embedding\", limit: 768",
+      "t.index [\"interest_embedding\"], name: \"index_user_activities_on_interest_embedding\", opclass: :vector_cosine_ops, using: :hnsw"
+    ]
+  },
+  {
+    "repo": "forem",
+    "path": "db/migrate/20260611190703_create_event_signups.rb",
+    "commit": "c61eb8ad4c4e764c6ce0973be882d07a8d12cdd1",
+    "parent": "cdb805ce403538d2aa473ce8dd36297f4a99de58",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "CREATE TABLE \"event_signups\" (\"id\" bigserial primary key, \"user_id\" bigint NOT NULL, \"event_id\" bigint NOT NULL, \"notified_1_day_before\" boolean DEFAULT FALSE NOT NULL, \"notified_1_hour_before\" boolean DEFAULT FALSE NOT NULL, \"created_at\" timestamp(6) NOT NULL, \"updated_at\" timestamp(6) NOT NULL, CONSTRAINT \"fk_rails_c19109a026\"\nFOREIGN KEY (\"user_id\")\n  REFERENCES \"users\" (\"id\")\n, CONSTRAINT \"fk_rails_46759ec1f7\"\nFOREIGN KEY (\"event_id\")\n  REFERENCES \"events\" (\"id\")\n)",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "8.0.5",
+    "preceding": [],
+    "adaptations": [
+      "create_trigger(\"update_reading_list_document\", :generated => true, :compatibility => 1). ... (block)",
+      "enable_extension \"vector\"",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_articles_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.index [\"semantic_embedding\"], name: \"index_comments_on_semantic_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"anchor_embedding\", limit: 768, null: false",
+      "t.index [\"anchor_embedding\"], name: \"index_concepts_on_anchor_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"centroid_embedding\", limit: 768, null: false",
+      "t.index [\"centroid_embedding\"], name: \"index_trends_on_centroid_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"interest_embedding\", limit: 768",
+      "t.index [\"interest_embedding\"], name: \"index_user_activities_on_interest_embedding\", opclass: :vector_cosine_ops, using: :hnsw"
+    ]
+  },
+  {
+    "repo": "forem",
+    "path": "db/migrate/20260603170000_create_concepts_and_metrics.rb",
+    "commit": "e30242c001de216c2f81ab779a7a6e0590fe5b52",
+    "parent": "a78dfefa639062174720e162a79b2092d975c831",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "extract_failed",
+    "reason": "NoMethodError: undefined method `vector' for #<ActiveRecord::ConnectionAdapters::PostgreSQL::TableDefinition:0x000001dca331b920>",
+    "statements": [],
+    "differences": [],
+    "rails_version": "8.0.5",
+    "preceding": [],
+    "adaptations": [
+      "create_trigger(\"update_reading_list_document\", :generated => true, :compatibility => 1). ... (block)",
+      "enable_extension \"vector\"",
+      "t.vector \"semantic_embedding\", limit: 768",
+      "t.vector \"centroid_embedding\", limit: 768, null: false",
+      "t.index [\"centroid_embedding\"], name: \"index_trends_on_centroid_embedding\", opclass: :vector_cosine_ops, using: :hnsw",
+      "t.vector \"interest_embedding\", limit: 768"
+    ]
+  },
+  {
+    "repo": "openfoodnetwork",
+    "path": "db/migrate/20260818061627_remove_supplier_and_hub_from_variants.rb",
+    "commit": "dddd4452feea856827aab0f301883aa19a455e31",
+    "parent": "ba52179d7750c90a5860f1706ec2ff7feb25414f",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "ALTER TABLE \"spree_variants\" DROP CONSTRAINT \"fk_rails_40db1c7493\"",
+      "ALTER TABLE \"spree_variants\" DROP COLUMN \"supplier_id\"",
+      "ALTER TABLE \"spree_variants\" DROP CONSTRAINT \"fk_rails_fdd9baecc4\"",
+      "ALTER TABLE \"spree_variants\" DROP COLUMN \"hub_id\"",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "7.2.3.2",
+    "preceding": [],
+    "adaptations": [
+      "enable_extension \"pg_stat_statements\""
+    ]
+  },
+  {
+    "repo": "openfoodnetwork",
+    "path": "db/migrate/20260717124355_change_final_weight_volume_precision_in_spree_line_items.rb",
+    "commit": "d0ad8b997f001fc22e0c8e281ce968176d72a7e8",
+    "parent": "625fcf45c9c4b285a769954e24db8fd72671dd12",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "ALTER TABLE \"spree_line_items\" ALTER COLUMN \"final_weight_volume\" TYPE decimal(11,3)",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "7.2.3.2",
+    "preceding": [],
+    "adaptations": [
+      "enable_extension \"pg_stat_statements\""
+    ]
+  },
+  {
+    "repo": "openfoodnetwork",
+    "path": "db/migrate/20260602222924_add_deleted_at_to_assets.rb",
+    "commit": "b3426dd5eb35eed3d97969322f63de7b740632ec",
+    "parent": "7c69e90aff99956853eddedb298fa879b94e589f",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "ALTER TABLE \"spree_assets\" ADD \"deleted_at\" timestamp(6)",
+      "CREATE INDEX \"index_spree_assets_on_deleted_at\" ON \"spree_assets\" (\"deleted_at\")",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "7.2.3.2",
+    "preceding": [],
+    "adaptations": [
+      "enable_extension \"pg_stat_statements\""
+    ]
+  },
+  {
+    "repo": "openfoodnetwork",
+    "path": "db/migrate/20260601034847_copy_supplier_to_enterprise_in_spree_variants.rb",
+    "commit": "1c7b428769120b7f7fb42e536574f0677d25ebeb",
+    "parent": "63321a9286e5c86b74a7faae7e29942aeedb7eda",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "UPDATE spree_variants SET enterprise_id = supplier_id WHERE supplier_id IS NOT NULL AND enterprise_id IS NULL",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "7.2.3.2",
+    "preceding": [],
+    "adaptations": [
+      "enable_extension \"pg_stat_statements\""
+    ]
+  },
+  {
+    "repo": "openfoodnetwork",
+    "path": "db/migrate/20260512062934_remove_not_null_on_active_storage_blobs_checksum.active_storage.rb",
+    "commit": "32de091e1e143ae6bcdd7fd55557a2d22893ff5f",
+    "parent": "8c0db2d70ec216b40de327e2871389670f267640",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "extract_failed",
+    "reason": "NameError: uninitialized constant CreateActiveStorageVariantRecords::Rails",
+    "statements": [],
+    "differences": [],
+    "rails_version": "7.2.3.2",
+    "preceding": [
+      "20260512062932_add_service_name_to_active_storage_blobs.active_storage.rb",
+      "20260512062933_create_active_storage_variant_records.active_storage.rb"
+    ],
+    "adaptations": [
+      "enable_extension \"pg_stat_statements\""
+    ]
+  },
+  {
+    "repo": "openfoodnetwork",
+    "path": "db/migrate/20260512062933_create_active_storage_variant_records.active_storage.rb",
+    "commit": "32de091e1e143ae6bcdd7fd55557a2d22893ff5f",
+    "parent": "8c0db2d70ec216b40de327e2871389670f267640",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "extract_failed",
+    "reason": "NameError: uninitialized constant CreateActiveStorageVariantRecords::Rails",
+    "statements": [],
+    "differences": [],
+    "rails_version": "7.2.3.2",
+    "preceding": [
+      "20260512062932_add_service_name_to_active_storage_blobs.active_storage.rb"
+    ],
+    "adaptations": [
+      "enable_extension \"pg_stat_statements\""
+    ]
+  },
+  {
+    "repo": "openfoodnetwork",
+    "path": "db/migrate/20260512062932_add_service_name_to_active_storage_blobs.active_storage.rb",
+    "commit": "32de091e1e143ae6bcdd7fd55557a2d22893ff5f",
+    "parent": "8c0db2d70ec216b40de327e2871389670f267640",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "7.2.3.2",
+    "preceding": [],
+    "adaptations": [
+      "enable_extension \"pg_stat_statements\""
+    ]
+  },
+  {
+    "repo": "openfoodnetwork",
+    "path": "db/migrate/20260306015200_remove_ignored_columns_from_spree_products.rb",
+    "commit": "f93024ec970185e419bc27236e9265d12a39140f",
+    "parent": "462e1d0980e2352d77a2175e54987f19b11f3e38",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "ALTER TABLE \"spree_products\" DROP COLUMN \"primary_taxon_id\"",
+      "ALTER TABLE \"spree_products\" DROP COLUMN \"variant_unit\"",
+      "ALTER TABLE \"spree_products\" DROP COLUMN \"variant_unit_scale\"",
+      "ALTER TABLE \"spree_products\" DROP COLUMN \"variant_unit_name\"",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "7.2.3.2",
+    "preceding": [],
+    "adaptations": [
+      "enable_extension \"pg_stat_statements\""
+    ]
+  },
+  {
+    "repo": "openfoodnetwork",
+    "path": "db/migrate/20260306015100_remove_supplier_id_from_spree_products.rb",
+    "commit": "462e1d0980e2352d77a2175e54987f19b11f3e38",
+    "parent": "63255e6d162f80111d0cc07529a1ce3ca0381c4e",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "ALTER TABLE \"spree_products\" DROP CONSTRAINT \"spree_products_supplier_id_fk\"",
+      "DROP INDEX  \"index_spree_products_on_supplier_id\"",
+      "ALTER TABLE \"spree_products\" DROP COLUMN \"supplier_id\"",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "7.2.3.2",
+    "preceding": [],
+    "adaptations": [
+      "enable_extension \"pg_stat_statements\""
+    ]
+  },
+  {
+    "repo": "openfoodnetwork",
+    "path": "db/migrate/20260302040450_add_payment_reference_to_customer_account_transactions.rb",
+    "commit": "66b820869c25e1421c1459329930b708248aba21",
+    "parent": "ffc819ea76ab1bbc5c2419078991f16a6d326281",
+    "schema_path": "db/schema.rb",
+    "schema_kind": "ruby",
+    "status": "match",
+    "reason": "",
+    "statements": [
+      "BEGIN",
+      "CREATE INDEX \"index_customer_account_transactions_on_payment_id\" ON \"customer_account_transactions\" (\"payment_id\")",
+      "ALTER TABLE \"customer_account_transactions\" ADD CONSTRAINT \"fk_rails_51ea9b1fae\"\nFOREIGN KEY (\"payment_id\")\n  REFERENCES \"spree_payments\" (\"id\")",
+      "COMMIT"
+    ],
+    "differences": [],
+    "rails_version": "7.2.3.2",
+    "preceding": [],
+    "adaptations": [
+      "enable_extension \"pg_stat_statements\""
+    ]
+  }
+]

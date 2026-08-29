@@ -92,9 +92,58 @@ No path configuration: migrations are found by the layout your framework
 already imposes — Rails, Django, Prisma, Flyway, Alembic, golang-migrate,
 or a plain `migrations/` directory.
 
-**Rails, Django and Alembic migrations are detected but not yet analyzed** —
-they write a DSL rather than SQL, so Blastoise reports them and holds the run
-at `requires_approval` instead of passing them silently. Want one of them
+**Rails migrations are analyzed**, and it is opt-in because of what it
+takes. A Rails migration is Ruby: the SQL it runs does not exist until
+ActiveRecord renders it, and Rails has no dry-run that renders without
+applying. So Blastoise runs the migration against a throwaway database and
+records the SQL ActiveRecord actually emits — which keeps the things a
+schema diff would lose, like `CREATE INDEX CONCURRENTLY`, backfill
+`UPDATE`s, and whether the whole thing ran in a transaction. That SQL then
+goes through the same parser and engine as a `.sql` file.
+
+Running the migration means executing Ruby from the pull request, so it is
+off until you ask for it, it refuses to run under `pull_request_target`,
+and it refuses a scratch database on the same server as the one being
+assessed:
+
+```yaml
+# .blastoise.yml
+rails:
+  extract: true
+```
+
+```yaml
+      - uses: TejasMehra/blastoise/action@v0
+        env:
+          BLASTOISE_DATABASE_URL: ${{ secrets.BLASTOISE_STAGING_DATABASE_URL }}
+          BLASTOISE_SCRATCH_DATABASE_URL: postgres://postgres@localhost:5432/postgres
+```
+
+The job needs Ruby and a completed `bundle install`, because the Rails that
+renders the SQL has to be the app's own — a migration declaring
+`ActiveRecord::Migration[8.1]` will not render under any older
+ActiveRecord. It also needs a committed `db/schema.rb` or `db/structure.sql`
+to rebuild the state the migration expects; without one, Blastoise replays
+the earlier migrations, and gives up rather than replaying a whole history.
+
+One thing does not render: a migration that needs your booted application
+rather than just ActiveRecord — one referencing a model constant,
+`Rails.root`, or `Rails.configuration`. The harness loads and installs your
+gems, but it does not boot your app, deliberately: it is a subprocess with a
+scratch database and no secrets. Separately, an application whose
+`db/schema.rb` depends on a SQL function it cannot express (Ruby schema
+format cannot declare functions) falls back to replaying migrations.
+
+Either way the file is reported as unassessed **with the reason** and the run
+is held at `requires_approval`. Nothing is ever given a guessed verdict built
+from reconstructed SQL. Measured against 40 migrations from Discourse,
+Mastodon, Forem and OpenFoodNetwork: 35 rendered and verified against the
+real migration's effect, 5 refused, 0 wrong — see
+[`artifacts/validation/`](artifacts/validation/).
+
+**Django and Alembic migrations are detected but not yet analyzed** — they
+write a DSL rather than SQL, so Blastoise reports them and holds the run at
+`requires_approval` instead of passing them silently. Want one of them
 actually analyzed? [Open an issue](https://github.com/TejasMehra/blastoise/issues/new)
 — that is what decides which adapter gets built.
 

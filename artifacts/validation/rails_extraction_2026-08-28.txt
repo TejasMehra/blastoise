@@ -1,0 +1,216 @@
+RAILS EXTRACTION VALIDATION
+========================================================================
+Method: for each migration, build its pre-migration schema twice from the base commit.
+  A = pre-state + the real migration (run through the shipped harness)
+  B = pre-state + the SQL that harness extracted, applied statement by statement
+A and B are then compared column by column, index by index, constraint by
+constraint. Extraction is faithful only where they are identical.
+
+cases: 40   applications: 4
+  discourse=10   forem=10   mastodon=10   openfoodnetwork=10
+  ActiveRecord versions exercised: 7.2.3.2, 8.0.5, 8.0.5.1, 8.1.3.1
+
+OUTCOMES
+------------------------------------------------------------------------
+  match             27  (67.5%)  extracted SQL produced an identical schema
+  extract_failed    13  (32.5%)  the migration could not be run (falls back to not-assessed)
+
+Extraction verified faithful on 27 of 40 real migrations (68%).
+Extraction produced WRONG SQL on 0 of 40 (0%) -- the number that would matter for trust.
+
+CONSTRUCTS RECOVERED (from the extracted statements of matching cases)
+------------------------------------------------------------------------
+  CREATE INDEX CONCURRENTLY      7 case(s)
+  DROP INDEX CONCURRENTLY        1 case(s)
+  explicit BEGIN/COMMIT         20 case(s)
+  backfill UPDATE                3 case(s)
+  ALTER TABLE ... VALIDATE       1 case(s)
+  ADD CONSTRAINT ... NOT VALID   2 case(s)
+  DROP COLUMN                    3 case(s)
+  CREATE TABLE                   5 case(s)
+
+EVERY CASE THAT DID NOT VERIFY, WITH ITS REASON
+------------------------------------------------------------------------
+  [extract_failed] mastodon/20260812154114_remove_index_keypairs_on_account_id.rb
+      NoMethodError: undefined method `create_view' for an instance of #<Class:0x000002b196f1ea60>
+  [extract_failed] mastodon/20260803172525_add_target_account_index_to_follow_requests.rb
+      NoMethodError: undefined method `create_view' for an instance of #<Class:0x00000206da6105c0>
+  [extract_failed] mastodon/20260728145403_update_account_summaries_to_version_3.rb
+      NoMethodError: undefined method `create_view' for an instance of #<Class:0x00000178f1c612c0>
+  [extract_failed] mastodon/20260728124057_add_requested_deletion_at_to_accounts.rb
+      NoMethodError: undefined method `create_view' for an instance of #<Class:0x0000027ec628f6f8>
+  [extract_failed] mastodon/20260720092724_change_account_uri_default.rb
+      NoMethodError: undefined method `create_view' for an instance of #<Class:0x0000024664ae7d18>
+  [extract_failed] mastodon/20260720090737_change_account_uri_nullable.rb
+      NoMethodError: undefined method `create_view' for an instance of #<Class:0x000001f21ae7eba0>
+  [extract_failed] mastodon/20260706143100_create_software_deprecations.rb
+      NoMethodError: undefined method `create_view' for an instance of #<Class:0x00000236385e9078>
+  [extract_failed] mastodon/20260701161457_add_new_index_account_id_local_fragment_to_keypair.rb
+      NoMethodError: undefined method `create_view' for an instance of #<Class:0x000001519f937500>
+  [extract_failed] mastodon/20260630070531_revert_add_new_index_on_uri_to_keypairs.rb
+      NoMethodError: undefined method `create_view' for an instance of #<Class:0x000001ee95ba6e10>
+  [extract_failed] mastodon/20260629124918_change_keypair_uri_non_nullable.rb
+      NoMethodError: undefined method `create_view' for an instance of #<Class:0x0000022c3be71cd8>
+  [extract_failed] forem/20260603170000_create_concepts_and_metrics.rb
+      NoMethodError: undefined method `vector' for #<ActiveRecord::ConnectionAdapters::PostgreSQL::TableDefinition:0x000001dca331b920>
+  [extract_failed] openfoodnetwork/20260512062934_remove_not_null_on_active_storage_blobs_checksum.active_storage.rb
+      NameError: uninitialized constant CreateActiveStorageVariantRecords::Rails
+  [extract_failed] openfoodnetwork/20260512062933_create_active_storage_variant_records.active_storage.rb
+      NameError: uninitialized constant CreateActiveStorageVariantRecords::Rails
+
+PRE-STATE ADAPTATIONS (validation machine, applied to A and B alike)
+------------------------------------------------------------------------
+  40 case(s) had lines removed from the pre-state schema.
+  These are objects this machine cannot create (pgvector has no Windows
+  build). Both databases are built from the same adapted file, so the
+  comparison is unaffected; it is disclosed because the input changed.
+    x30  embeddings public.halfvec NOT NULL,
+    x19  t.vector "semantic_embedding", limit: 768
+    x10  CREATE EXTENSION IF NOT EXISTS vector WITH SCHEMA public;
+    x10  PRELOADED: CREATE OR REPLACE FUNCTION timestamp_id(table_name text)
+    x10  create_trigger("update_reading_list_document", :generated => true, :compatibility => 1). ... (block)
+    x10  enable_extension "vector"
+    x10  t.vector "centroid_embedding", limit: 768, null: false
+    x10  t.index ["centroid_embedding"], name: "index_trends_on_centroid_embedding", opclass: :vector_cosine_ops, using
+    x10  t.vector "interest_embedding", limit: 768
+    x10  enable_extension "pg_stat_statements"
+    x9   t.index ["semantic_embedding"], name: "index_articles_on_semantic_embedding", opclass: :vector_cosine_ops, usi
+    x9   t.index ["semantic_embedding"], name: "index_comments_on_semantic_embedding", opclass: :vector_cosine_ops, usi
+
+STATEMENTS EXTRACTED PER CASE
+------------------------------------------------------------------------
+  discourse  20260821164114_add_content_truncated_to_topic_em    3 stmt
+      BEGIN
+      ALTER TABLE "topic_embeds" ADD "content_truncated" boolean
+      COMMIT
+  discourse  20260818081537_create_browser_pageview_entry_url    4 stmt
+      BEGIN
+      CREATE TABLE "browser_pageview_entry_url_daily_rollups" ("id" bigserial primary key, "date" date NOT NULL, "entry_url" character varying(2000) NOT NUL
+      CREATE UNIQUE INDEX "idx_bpeu_daily_rollups_date_url_unique" ON "browser_pageview_entry_url_daily_rollups" ("date", "entry_url")
+      COMMIT
+  discourse  20260817054353_rename_admin_site_traffic_event_c    3 stmt
+      BEGIN
+      UPDATE site_settings SET name = 'site_traffic_explorer_event_limit' WHERE name = 'admin_site_traffic_event_cap'
+      COMMIT
+  discourse  20260814060100_add_browser_backfill_index_to_bro    1 stmt
+      CREATE INDEX CONCURRENTLY "idx_bpe_browser_backfill" ON "browser_pageview_events" ("source", "created_at" DESC, "id" DESC) WHERE browser IS NULL
+  discourse  20260810154331_add_target_created_by_index_to_re    2 stmt
+      DROP INDEX CONCURRENTLY IF EXISTS index_reviewables_on_target_created_by_id
+      CREATE INDEX CONCURRENTLY index_reviewables_on_target_created_by_id ON reviewables (target_created_by_id)
+  discourse  20260728134532_add_content_language_preferences_    5 stmt
+      BEGIN
+      ALTER TABLE "user_options" ADD "automatically_translate" boolean DEFAULT TRUE NOT NULL
+      ALTER TABLE "user_options" ADD "understood_languages" character varying[] DEFAULT '{}' NOT NULL
+      UPDATE user_options SET automatically_translate = FALSE WHERE show_original_content = TRUE
+      COMMIT
+  discourse  20260723183001_add_description_cooked_to_tags.rb    8 stmt
+      BEGIN
+      ALTER TABLE "tags" ADD "description_cooked" character varying(2000)
+      ALTER TABLE "tags" ADD "description_cooked_version" integer
+      ALTER TABLE "tag_localizations" ADD "description_cooked" character varying(2000)
+      ALTER TABLE "tag_localizations" ADD "description_cooked_version" integer
+      CREATE INDEX "index_tags_on_description_cooked_version" ON "tags" ("description_cooked_version")
+      CREATE INDEX "index_tag_localizations_on_description_cooked_version" ON "tag_localizations" ("description_cooked_version")
+      COMMIT
+  discourse  20260715134306_create_nested_hot_score_cache.rb     8 stmt
+      BEGIN
+      CREATE TABLE "nested_hot_score_snapshots" ("topic_id" bigint NOT NULL, "calculated_at" timestamp(6) NOT NULL)
+      CREATE UNIQUE INDEX "index_nested_hot_score_snapshots_on_topic_id" ON "nested_hot_score_snapshots" ("topic_id")
+      CREATE INDEX "index_nested_hot_score_snapshots_on_calculated_at" ON "nested_hot_score_snapshots" ("calculated_at")
+      CREATE TABLE "nested_hot_post_scores" ("post_id" bigint NOT NULL, "topic_id" bigint NOT NULL, "hot_score" float NOT NULL, "thread_hot_score" float NOT
+      CREATE UNIQUE INDEX "index_nested_hot_post_scores_on_post_id" ON "nested_hot_post_scores" ("post_id")
+      CREATE INDEX "index_nested_hot_post_scores_on_topic_id" ON "nested_hot_post_scores" ("topic_id")
+      COMMIT
+  discourse  20260715113008_create_sidebar_localizations.rb     10 stmt
+      BEGIN
+      ALTER TABLE "sidebar_sections" ADD "locale" character varying(20)
+      ALTER TABLE "sidebar_urls" ADD "locale" character varying(20)
+      CREATE TABLE "sidebar_section_localizations" ("id" bigserial primary key, "sidebar_section_id" bigint NOT NULL, "locale" character varying(20) NOT NUL
+      CREATE INDEX "index_sidebar_section_localizations_on_sidebar_section_id" ON "sidebar_section_localizations" ("sidebar_section_id")
+      CREATE UNIQUE INDEX "idx_on_sidebar_section_id_locale_271bd8ee1c" ON "sidebar_section_localizations" ("sidebar_section_id", "locale")
+      CREATE TABLE "sidebar_url_localizations" ("id" bigserial primary key, "sidebar_url_id" bigint NOT NULL, "locale" character varying(20) NOT NULL, "name
+      CREATE INDEX "index_sidebar_url_localizations_on_sidebar_url_id" ON "sidebar_url_localizations" ("sidebar_url_id")
+      CREATE UNIQUE INDEX "index_sidebar_url_localizations_on_sidebar_url_id_and_locale" ON "sidebar_url_localizations" ("sidebar_url_id", "locale")
+      COMMIT
+  discourse  20260610064425_introduce_permission_acl_tables.r    6 stmt
+      BEGIN
+      CREATE TABLE "access_control_lists" ("id" bigserial primary key, "target_type" character varying(255) NOT NULL, "target_id" bigint NOT NULL, "owner" c
+      CREATE UNIQUE INDEX "idx_on_target_type_target_id_permission_f472902150" ON "access_control_lists" ("target_type", "target_id", "permission")
+      CREATE INDEX idx_access_control_lists_allowed_user_ids ON access_control_lists USING GIN(allowed_user_ids)
+      CREATE INDEX idx_access_control_lists_allowed_group_ids ON access_control_lists USING GIN(allowed_group_ids)
+      COMMIT
+  forem      20260825100500_add_full_details_to_events.rb        3 stmt
+      BEGIN
+      ALTER TABLE "events" ADD "full_details" text
+      COMMIT
+  forem      20260814130100_add_index_to_articles_and_comment    3 stmt
+      SET statement_timeout = 0;
+      CREATE INDEX CONCURRENTLY "index_articles_on_ai_disclosure_level" ON "articles" ("ai_disclosure_level")
+      CREATE INDEX CONCURRENTLY "index_comments_on_ai_disclosure_level" ON "comments" ("ai_disclosure_level")
+  forem      20260728100500_validate_favorited_by_user_id_on_    4 stmt
+      BEGIN
+      SELECT relation::regclass::text FROM pg_locks WHERE mode IN ('ShareRowExclusiveLock', 'AccessExclusiveLock') AND pid = pg_backend_pid()
+      ALTER TABLE "comments" VALIDATE CONSTRAINT "fk_rails_60c6f2fb28"
+      COMMIT
+  forem      20260728100400_add_index_to_comments_favorited_b    1 stmt
+      CREATE INDEX CONCURRENTLY "index_comments_on_favorited_by_user_id" ON "comments" ("favorited_by_user_id")
+  forem      20260728100300_add_favorited_by_user_id_to_comme    5 stmt
+      BEGIN
+      ALTER TABLE "comments" ADD "favorited_by_user_id" bigint
+      ALTER TABLE "comments" ADD CONSTRAINT "fk_rails_60c6f2fb28" FOREIGN KEY ("favorited_by_user_id") REFERENCES "users" ("id") ON DELETE SET NULL NOT VALI
+      ALTER TABLE "comments" ADD "favorited_at" timestamp(6)
+      COMMIT
+  forem      20260720160000_add_event_id_to_emails.rb            3 stmt
+      ALTER TABLE "emails" ADD "event_id" bigint
+      CREATE INDEX CONCURRENTLY "index_emails_on_event_id" ON "emails" ("event_id")
+      ALTER TABLE "emails" ADD CONSTRAINT "fk_rails_5830409af3" FOREIGN KEY ("event_id") REFERENCES "events" ("id") NOT VALID
+  forem      20260629223500_add_index_on_user_badge_achieveme    1 stmt
+      CREATE INDEX CONCURRENTLY "index_users_on_badge_achievements_count_leaderboard" ON "users" ("badge_achievements_count") WHERE registered = TRUE AND sc
+  forem      20260625160721_add_published_times_index_to_even    1 stmt
+      CREATE INDEX CONCURRENTLY "index_events_on_start_time_and_end_time_published" ON "events" ("start_time", "end_time") WHERE published = true
+  forem      20260611190703_create_event_signups.rb              3 stmt
+      BEGIN
+      CREATE TABLE "event_signups" ("id" bigserial primary key, "user_id" bigint NOT NULL, "event_id" bigint NOT NULL, "notified_1_day_before" boolean DEFAU
+      COMMIT
+  openfoodnetwork 20260818061627_remove_supplier_and_hub_from_vari    6 stmt
+      BEGIN
+      ALTER TABLE "spree_variants" DROP CONSTRAINT "fk_rails_40db1c7493"
+      ALTER TABLE "spree_variants" DROP COLUMN "supplier_id"
+      ALTER TABLE "spree_variants" DROP CONSTRAINT "fk_rails_fdd9baecc4"
+      ALTER TABLE "spree_variants" DROP COLUMN "hub_id"
+      COMMIT
+  openfoodnetwork 20260717124355_change_final_weight_volume_precis    3 stmt
+      BEGIN
+      ALTER TABLE "spree_line_items" ALTER COLUMN "final_weight_volume" TYPE decimal(11,3)
+      COMMIT
+  openfoodnetwork 20260602222924_add_deleted_at_to_assets.rb          4 stmt
+      BEGIN
+      ALTER TABLE "spree_assets" ADD "deleted_at" timestamp(6)
+      CREATE INDEX "index_spree_assets_on_deleted_at" ON "spree_assets" ("deleted_at")
+      COMMIT
+  openfoodnetwork 20260601034847_copy_supplier_to_enterprise_in_sp    3 stmt
+      BEGIN
+      UPDATE spree_variants SET enterprise_id = supplier_id WHERE supplier_id IS NOT NULL AND enterprise_id IS NULL
+      COMMIT
+  openfoodnetwork 20260512062932_add_service_name_to_active_storag    2 stmt
+      BEGIN
+      COMMIT
+  openfoodnetwork 20260306015200_remove_ignored_columns_from_spree    6 stmt
+      BEGIN
+      ALTER TABLE "spree_products" DROP COLUMN "primary_taxon_id"
+      ALTER TABLE "spree_products" DROP COLUMN "variant_unit"
+      ALTER TABLE "spree_products" DROP COLUMN "variant_unit_scale"
+      ALTER TABLE "spree_products" DROP COLUMN "variant_unit_name"
+      COMMIT
+  openfoodnetwork 20260306015100_remove_supplier_id_from_spree_pro    5 stmt
+      BEGIN
+      ALTER TABLE "spree_products" DROP CONSTRAINT "spree_products_supplier_id_fk"
+      DROP INDEX "index_spree_products_on_supplier_id"
+      ALTER TABLE "spree_products" DROP COLUMN "supplier_id"
+      COMMIT
+  openfoodnetwork 20260302040450_add_payment_reference_to_customer    4 stmt
+      BEGIN
+      CREATE INDEX "index_customer_account_transactions_on_payment_id" ON "customer_account_transactions" ("payment_id")
+      ALTER TABLE "customer_account_transactions" ADD CONSTRAINT "fk_rails_51ea9b1fae" FOREIGN KEY ("payment_id") REFERENCES "spree_payments" ("id")
+      COMMIT
+

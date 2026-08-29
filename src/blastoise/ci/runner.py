@@ -59,7 +59,16 @@ from blastoise.ci.markdown import (
 from blastoise.ci.model import CiRun, FileOutcome, OutcomeStatus
 from blastoise.ci.redact import Redactor
 from blastoise.ir import MigrationScript
-from blastoise.parser import MigrationParseError, parse_migration_file
+from blastoise.parser import (
+    MigrationParseError,
+    parse_migration,
+    parse_migration_file,
+)
+from blastoise.rails import (
+    RailsExtractionError,
+    extract_rails_sql,
+    rails_refusal,
+)
 from blastoise.report import (
     BUNDLE_DIRNAME,
     EXIT_CODES,
@@ -367,6 +376,101 @@ def _resolve_database_url(
     return value.strip()
 
 
+def _rails_order(
+    detected: tuple[DetectedFile, ...],
+) -> dict[str, tuple[str, ...]]:
+    """For each Rails migration, the ones in this change that precede it.
+
+    Ordered by the timestamp Rails puts at the front of the file name,
+    which is the order Rails itself would run them in. Only migrations in
+    the same directory count: two Rails apps in a monorepo have separate
+    histories and separate databases.
+    """
+    buckets: dict[str, list[tuple[str, str]]] = {}
+    for entry in detected:
+        if not entry.extractable:
+            continue
+        directory, _, name = entry.path.rpartition("/")
+        version = name.split("_", 1)[0]
+        if not version.isdigit():
+            continue
+        buckets.setdefault(directory, []).append((version, entry.path))
+    order: dict[str, tuple[str, ...]] = {}
+    for entries in buckets.values():
+        entries.sort()
+        for index, (_, path) in enumerate(entries):
+            order[path] = tuple(other for _, other in entries[:index])
+    return order
+
+
+def _resolve_scratch_url(
+    config: CiConfig, environ: dict[str, str], redactor: Redactor
+) -> str | None:
+    """The throwaway database's connection string, from the environment.
+
+    Named by config and valued by the CI job, on the same rule as the
+    assessed database: a URL in a committed file is a credential in a
+    committed file, whichever database it points at.
+    """
+    value = environ.get(config.rails.scratch_url_env)
+    if not value or not value.strip():
+        return None
+    redactor.add_connection_string(value)
+    return value.strip()
+
+
+def _render_rails(
+    entry: DetectedFile,
+    options: CiOptions,
+    config: CiConfig,
+    scratch_url: str,
+    base_ref: str | None,
+    preceding: tuple[str, ...],
+    environ: dict[str, str],
+    redactor: Redactor,
+    log: _Log,
+) -> _Parsed | FileOutcome:
+    """Render a Rails migration to SQL and parse it, or say why not.
+
+    The parse is not a formality. The SQL comes from ActiveRecord, so if it
+    does not enter the ordinary parser cleanly then something about the
+    rendering is wrong, and the right answer is to report the file as
+    unassessed -- not to widen the parser until the output fits.
+    """
+    try:
+        extraction = extract_rails_sql(
+            entry.path,
+            repo_root=options.repo_root,
+            scratch_url=scratch_url,
+            base_ref=base_ref,
+            ruby=config.rails.ruby,
+            timeout=config.rails.timeout,
+            preceding=preceding,
+            environ=environ,
+        )
+    except RailsExtractionError as exc:
+        notice = unsupported_notice(entry.framework, redactor.scrub(exc.reason))
+        log.info(f"{entry.path}: {notice}")
+        return FileOutcome.of(entry, OutcomeStatus.UNSUPPORTED, detail=notice)
+
+    try:
+        script = parse_migration(extraction.sql, path=entry.path)
+    except MigrationParseError as exc:
+        reason = redactor.scrub(
+            f"ActiveRecord emitted SQL this parser could not read ({exc})"
+        )
+        notice = unsupported_notice(entry.framework, reason)
+        log.warn(f"{entry.path}: {notice}")
+        return FileOutcome.of(entry, OutcomeStatus.UNSUPPORTED, detail=notice)
+
+    version = extraction.rails_version or "an unknown version"
+    log.info(
+        f"{entry.path}: rendered {len(extraction.statements)} statement(s) "
+        f"with ActiveRecord {version}, pre-state from {extraction.schema_source}"
+    )
+    return _Parsed(entry, script)
+
+
 def _load_event(environ: dict[str, str], log: _Log) -> dict[str, Any] | None:
     path = environ.get("GITHUB_EVENT_PATH")
     if not path:
@@ -514,11 +618,53 @@ def _run(
 
     database_url = _resolve_database_url(config, options, environ, redactor, log)
 
+    # Rendering a Rails migration means running it, so whether that is
+    # allowed is decided once for the run, from the environment, and
+    # reported once. Deciding per file would print the same refusal N times
+    # and read as N problems with the migrations rather than one setting.
+    scratch_url = _resolve_scratch_url(config, environ, redactor)
+    rails_reason: str | None = None
+    if any(entry.extractable for entry in detected):
+        rails_reason = rails_refusal(
+            enabled=config.rails.extract,
+            scratch_url=scratch_url,
+            assessed_url=database_url,
+            environ=environ,
+            scratch_url_env=config.rails.scratch_url_env,
+        )
+        if rails_reason:
+            log.info(f"Rails extraction not run: {rails_reason}")
+
+    base_ref = options.base_ref or context.base_sha
+    # Migrations in one pull request run in version order, and a later one
+    # routinely depends on an earlier one. Each is rendered with the ones
+    # before it already applied.
+    rails_order = _rails_order(detected)
+
     parsed: list[_Parsed] = []
     outcomes: list[FileOutcome] = []
     for entry in detected:
         if entry.source_kind is SourceKind.DSL:
-            notice = unsupported_notice(entry.framework)
+            if entry.extractable and rails_reason is None and scratch_url:
+                rendered = _render_rails(
+                    entry,
+                    options,
+                    config,
+                    scratch_url,
+                    base_ref,
+                    rails_order.get(entry.path, ()),
+                    environ,
+                    redactor,
+                    log,
+                )
+                if isinstance(rendered, _Parsed):
+                    parsed.append(rendered)
+                else:
+                    outcomes.append(rendered)
+                continue
+            notice = unsupported_notice(
+                entry.framework, rails_reason if entry.extractable else None
+            )
             log.info(f"{entry.path}: {notice}")
             outcomes.append(
                 FileOutcome.of(entry, OutcomeStatus.UNSUPPORTED, detail=notice)

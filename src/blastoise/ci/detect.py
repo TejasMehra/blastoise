@@ -3,9 +3,11 @@
 This is the part that decides whether the CI integration works without
 being configured. It matches paths against the layouts the major migration
 frameworks impose, and it records *which* framework matched, because that
-decides whether the file can be assessed at all: Prisma, Flyway and
-golang-migrate write SQL, while Rails, Django and Alembic write a DSL that
-the parser cannot read.
+decides how the file can be assessed: Prisma, Flyway and golang-migrate
+write SQL the parser reads directly, while Rails, Django and Alembic write
+a DSL whose statements only exist once the framework renders them. Rails is
+rendered by running it (see :mod:`blastoise.rails`); the other two are not
+supported yet.
 
 Detection is over paths, never over file contents. A pull request's changed
 files are a list of strings; reading them to sniff their type would mean the
@@ -26,6 +28,7 @@ from dataclasses import dataclass
 from enum import StrEnum
 
 __all__ = [
+    "EXTRACTABLE",
     "DetectedFile",
     "Framework",
     "SourceKind",
@@ -55,11 +58,19 @@ class SourceKind(StrEnum):
 
     ``SQL`` -- plain DDL, assessable today.
     ``DSL`` -- a Ruby/Python migration whose SQL only exists once the
-    framework renders it. Recognized, reported, and not assessed.
+    framework renders it. Whether that rendering is available depends on
+    the framework: see :data:`EXTRACTABLE`.
     """
 
     SQL = "sql"
     DSL = "dsl"
+
+
+# DSL frameworks whose SQL Blastoise can render rather than merely name.
+# Rendering means running the migration, so it is gated on configuration
+# and on the environment (see :func:`blastoise.rails.rails_refusal`);
+# membership here says an adapter exists, not that it will be used.
+EXTRACTABLE: frozenset[Framework] = frozenset({Framework.RAILS})
 
 
 # Display names for the message a DSL file produces. Machine values stay in
@@ -80,8 +91,9 @@ FRAMEWORK_NAMES: dict[Framework, str] = {
 # command that would fix it.
 DSL_ADAPTER_HINT: dict[Framework, str] = {
     Framework.RAILS: (
-        "rails db:migrate emits the SQL it runs, but only while running it; "
-        "an adapter would need a dry-run that renders without applying"
+        "Blastoise renders this by running the migration against a throwaway "
+        "database and recording the SQL ActiveRecord emits; enable it with "
+        "'rails.extract: true' in .blastoise.yml"
     ),
     Framework.DJANGO: (
         "django-admin sqlmigrate <app> <name> prints the exact SQL, and needs "
@@ -105,6 +117,11 @@ class DetectedFile:
     @property
     def assessable(self) -> bool:
         return self.source_kind is SourceKind.SQL
+
+    @property
+    def extractable(self) -> bool:
+        """The file is a DSL, but one whose SQL an adapter can render."""
+        return self.source_kind is SourceKind.DSL and self.framework in EXTRACTABLE
 
 
 @dataclass(frozen=True, slots=True)

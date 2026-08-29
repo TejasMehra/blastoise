@@ -160,22 +160,40 @@ class TestPerFileSections:
 
     def test_a_dsl_file_says_what_it_is_and_what_support_would_take(self) -> None:
         outcome = FileOutcome(
+            path="app/migrations/0001_initial.py",
+            framework=Framework.DJANGO,
+            source_kind=SourceKind.DSL,
+            status=OutcomeStatus.UNSUPPORTED,
+            detail="Django migrations are a DSL",
+        )
+        body = render_comment(_run(outcome))
+        assert "NOT ASSESSED" in body
+        assert "**Django**" in body
+        assert "sqlmigrate" in body
+        assert "recognized" in body
+        assert "does not support extracting SQL" in body
+        assert "not assessed at all" in body
+        # Whether anyone wants a Django adapter is a question, not an
+        # assumption: the comment is where it gets asked.
+        assert "issues/new" in body
+
+    def test_a_rails_file_says_the_adapter_exists_and_why_it_did_not_run(self) -> None:
+        # Rails is renderable, so telling a reader "not supported" would
+        # send them to ask for something they already have. What they need
+        # instead is the reason this particular run did not render it.
+        outcome = FileOutcome(
             path="db/migrate/001_add.rb",
             framework=Framework.RAILS,
             source_kind=SourceKind.DSL,
             status=OutcomeStatus.UNSUPPORTED,
-            detail="Rails migrations are a DSL",
+            detail="no ruby on PATH",
         )
         body = render_comment(_run(outcome))
         assert "NOT ASSESSED" in body
         assert "**Rails**" in body
-        assert "rails db:migrate" in body
-        assert "recognized" in body
-        assert "does not support extracting SQL" in body
-        assert "not assessed at all" in body
-        # Whether anyone wants a Rails adapter is a question, not an
-        # assumption: the comment is where it gets asked.
-        assert "issues/new" in body
+        assert "can render this by running it" in body
+        assert "no ruby on PATH" in body
+        assert "does not support extracting SQL" not in body
 
     def test_an_error_file_is_a_tool_failure_not_a_finding(self) -> None:
         outcome = FileOutcome(

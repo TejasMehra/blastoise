@@ -28,9 +28,11 @@ import yaml
 __all__ = [
     "CONFIG_FILENAME",
     "DEFAULT_DATABASE_URL_ENV",
+    "DEFAULT_SCRATCH_URL_ENV",
     "CiConfig",
     "ConfigError",
     "FailOn",
+    "RailsConfig",
     "load_config",
     "parse_config",
 ]
@@ -38,6 +40,7 @@ __all__ = [
 CONFIG_FILENAME = ".blastoise.yml"
 CONFIG_FILENAMES = (".blastoise.yml", ".blastoise.yaml")
 DEFAULT_DATABASE_URL_ENV = "BLASTOISE_DATABASE_URL"
+DEFAULT_SCRATCH_URL_ENV = "BLASTOISE_SCRATCH_DATABASE_URL"
 CONFIG_VERSION = 1
 
 
@@ -56,6 +59,29 @@ class FailOn(StrEnum):
     BLOCK = "block"
     REQUIRES_APPROVAL = "requires_approval"
     NEVER = "never"
+
+
+@dataclass(frozen=True, slots=True)
+class RailsConfig:
+    """Whether, and how, to render a Rails migration's SQL by running it.
+
+    ``extract`` defaults to off, and that default is a security boundary
+    rather than caution. Every other part of Blastoise reads the branch;
+    extraction *executes* it, because the SQL a Rails migration runs does
+    not exist until ActiveRecord renders it. A repository has to say so.
+    """
+
+    extract: bool = False
+    scratch_url_env: str = DEFAULT_SCRATCH_URL_ENV
+    """Name of the environment variable holding the throwaway database's
+    connection string. A name, never a value, for the same reason
+    ``database.url_env`` is."""
+
+    timeout: int = 300
+    ruby: str | None = None
+    """Interpreter to run the harness with. Left unset, the app's own
+    ``bundle exec ruby`` is used, which is what makes a migration declaring
+    a newer schema version than this tool knows about still render."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -81,6 +107,7 @@ class CiConfig:
     fail_on: FailOn = FailOn.BLOCK
     comment: bool = True
     check_run: bool = True
+    rails: RailsConfig = field(default_factory=RailsConfig)
     source: str | None = field(default=None, compare=False)
     """Where this config came from, for the message that reports it."""
 
@@ -89,10 +116,11 @@ class CiConfig:
         return bool(self.paths)
 
 
-_TOP_LEVEL = frozenset({"version", "migrations", "database", "ci"})
+_TOP_LEVEL = frozenset({"version", "migrations", "database", "ci", "rails"})
 _MIGRATIONS_KEYS = frozenset({"paths", "exclude"})
 _DATABASE_KEYS = frozenset({"url_env", "label", "pg_version"})
 _CI_KEYS = frozenset({"fail_on", "comment", "check_run"})
+_RAILS_KEYS = frozenset({"extract", "scratch_url_env", "timeout", "ruby"})
 
 _REFUSED = {
     ("database", "url"): (
@@ -103,6 +131,11 @@ _REFUSED = {
     ("database", "password"): (
         "database.password would put a credential in a committed file; "
         "supply the whole connection string through database.url_env"
+    ),
+    ("rails", "scratch_url"): (
+        "rails.scratch_url would put a connection string in a committed "
+        "file. Set rails.scratch_url_env to the NAME of an environment "
+        "variable and supply the value from your CI job"
     ),
     ("database", "dsn"): (
         "database.dsn would put a connection string in a committed file. "
@@ -174,6 +207,7 @@ def parse_config(data: Any, *, where: str) -> CiConfig:
     migrations = _section(data, "migrations", _MIGRATIONS_KEYS, where)
     database = _section(data, "database", _DATABASE_KEYS, where)
     ci_section = _section(data, "ci", _CI_KEYS, where)
+    rails_section = _section(data, "rails", _RAILS_KEYS, where)
 
     url_env = database.get("url_env", DEFAULT_DATABASE_URL_ENV)
     if not isinstance(url_env, str) or not url_env.strip():
@@ -200,6 +234,31 @@ def parse_config(data: Any, *, where: str) -> CiConfig:
             f"{where}: 'ci.fail_on' must be one of {known}, not {fail_on_raw!r}"
         ) from exc
 
+    scratch_env = rails_section.get("scratch_url_env", DEFAULT_SCRATCH_URL_ENV)
+    if not isinstance(scratch_env, str) or not scratch_env.strip():
+        raise ConfigError(f"{where}: 'rails.scratch_url_env' must be a non-empty string")
+    scratch_env = scratch_env.strip()
+    if "://" in scratch_env or " " in scratch_env or "=" in scratch_env:
+        raise ConfigError(
+            f"{where}: 'rails.scratch_url_env' takes the NAME of an "
+            "environment variable, not a connection string"
+        )
+
+    timeout = rails_section.get("timeout", 300)
+    if not isinstance(timeout, int) or isinstance(timeout, bool) or timeout <= 0:
+        raise ConfigError(f"{where}: 'rails.timeout' must be a positive integer (seconds)")
+
+    ruby = rails_section.get("ruby")
+    if ruby is not None and (not isinstance(ruby, str) or not ruby.strip()):
+        raise ConfigError(f"{where}: 'rails.ruby' must be a non-empty string")
+
+    rails = RailsConfig(
+        extract=_bool(rails_section.get("extract"), "rails.extract", where, False),
+        scratch_url_env=scratch_env,
+        timeout=timeout,
+        ruby=ruby.strip() if isinstance(ruby, str) else None,
+    )
+
     return CiConfig(
         paths=_string_list(migrations.get("paths"), "migrations.paths", where),
         exclude=_string_list(migrations.get("exclude"), "migrations.exclude", where),
@@ -209,6 +268,7 @@ def parse_config(data: Any, *, where: str) -> CiConfig:
         fail_on=fail_on,
         comment=_bool(ci_section.get("comment"), "ci.comment", where, True),
         check_run=_bool(ci_section.get("check_run"), "ci.check_run", where, True),
+        rails=rails,
         source=where,
     )
 

@@ -21,7 +21,12 @@ from __future__ import annotations
 
 from typing import Any
 
-from blastoise.ci.detect import DSL_ADAPTER_HINT, FRAMEWORK_NAMES, Framework
+from blastoise.ci.detect import (
+    DSL_ADAPTER_HINT,
+    EXTRACTABLE,
+    FRAMEWORK_NAMES,
+    Framework,
+)
 from blastoise.ci.model import TIER_ORDER, CiRun, FileOutcome, OutcomeStatus
 from blastoise.report import FileVerdict
 from blastoise.verdict.model import Classification, pressure_level
@@ -215,26 +220,48 @@ def _file_section(
         name = FRAMEWORK_NAMES.get(outcome.framework, str(outcome.framework))
         lines.append(f"### \N{LARGE YELLOW CIRCLE} `{outcome.path}` — NOT ASSESSED")
         lines.append("")
-        lines.append(
-            f"**{name}** migration — recognized, but **Blastoise does not "
-            "support extracting SQL from it**. The statements this file "
-            "runs do not exist until the framework renders them, so it was "
-            "**not assessed at all**. This is a gap in Blastoise, not a "
-            "finding about the migration."
-        )
-        lines.append("")
-        hint = DSL_ADAPTER_HINT.get(outcome.framework)
-        if hint:
-            lines.append(f"Support would need an extraction step: {hint}.")
+        if outcome.framework in EXTRACTABLE:
+            # An adapter exists and did not produce SQL for this file. That
+            # is a different fact from "unsupported", and conflating them
+            # would tell a team to keep waiting for something they already
+            # have. The reason is the useful part, so it leads.
+            lines.append(
+                f"**{name}** migration — Blastoise can render this by running "
+                "it, but did not here, so it was **not assessed at all**."
+            )
             lines.append("")
-        lines.append(
-            "Until then: any raw SQL this migration executes can be checked "
-            "by putting it in a `.sql` file, and the run is held at "
-            f"`requires_approval` rather than passing. If you want {name} "
-            f"support, [say so]({_ADAPTER_ISSUE_URL}) — that is how it gets "
-            "prioritised."
-        )
-        lines.append("")
+            if outcome.detail:
+                lines.append(f"> {_text(outcome.detail)}")
+                lines.append("")
+            lines.append(
+                "A migration that cannot be rendered reliably is reported as "
+                "unassessed rather than guessed at: a verdict built from "
+                "reconstructed SQL would be a verdict about statements this "
+                "migration never runs. The run is held at `requires_approval` "
+                "rather than passing."
+            )
+            lines.append("")
+        else:
+            lines.append(
+                f"**{name}** migration — recognized, but **Blastoise does not "
+                "support extracting SQL from it**. The statements this file "
+                "runs do not exist until the framework renders them, so it was "
+                "**not assessed at all**. This is a gap in Blastoise, not a "
+                "finding about the migration."
+            )
+            lines.append("")
+            hint = DSL_ADAPTER_HINT.get(outcome.framework)
+            if hint:
+                lines.append(f"Support would need an extraction step: {hint}.")
+                lines.append("")
+            lines.append(
+                "Until then: any raw SQL this migration executes can be checked "
+                "by putting it in a `.sql` file, and the run is held at "
+                f"`requires_approval` rather than passing. If you want {name} "
+                f"support, [say so]({_ADAPTER_ISSUE_URL}) — that is how it gets "
+                "prioritised."
+            )
+            lines.append("")
     else:
         lines.append(f"### \N{LARGE YELLOW CIRCLE} `{outcome.path}` — NOT ASSESSED")
         lines.append("")
@@ -436,7 +463,7 @@ def render_summary_line(run: CiRun) -> str:
     return f"{verdict}: {assessed} migration {_plural(assessed, 'file')} assessed"
 
 
-def unsupported_notice(framework: Framework) -> str:
+def unsupported_notice(framework: Framework, reason: str | None = None) -> str:
     """The one-line message for a recognized-but-unreadable migration.
 
     Two facts, in this order, because that is the order the reader needs
@@ -446,8 +473,19 @@ def unsupported_notice(framework: Framework) -> str:
     change that). "DSL" is the reason, not the headline -- it explains why
     extraction is hard, and it is jargon to anyone who has not thought
     about it.
+
+    For a framework Blastoise *can* render (:data:`EXTRACTABLE`), the
+    honest message is a narrower one: an adapter exists and did not run
+    here, and ``reason`` is why.
     """
     name = FRAMEWORK_NAMES.get(framework, str(framework))
+    if framework in EXTRACTABLE:
+        # "not assessed" stays the headline even though the reason is the
+        # new part: a reader skimming a list of files needs to know this
+        # one carries no verdict before they need to know why.
+        return f"{name} migration recognized, but not assessed" + (
+            f": {reason}" if reason else ""
+        )
     return (
         f"{name} migration recognized, but not assessed: Blastoise does not "
         "support extracting SQL from it. The file is a DSL, and the "

@@ -69,3 +69,77 @@ calibration series in the JSON shows this machine moving 0.75x -> 0.80x
 over the run (0.41x-0.80x across probe passes) against the reference — a
 single factor would misplace the boundary cases, which is why each case is
 labeled with the factor interpolated at the time it ran.
+
+---
+
+## Rails extraction validation (2026-08-28 Windows, 2026-08-29 Linux)
+
+A different question from the runs above, and a different harness. Those
+ask whether the engine's verdicts are right; this asks whether the SQL
+Blastoise extracts from a Rails migration is the SQL Rails would actually
+run. Behind the "Rails migrations, rendered by running them" section of
+`DECISIONS.md`.
+
+| file | what it is |
+|---|---|
+| `rails_extraction_linux_2026-08-29.json` | **the authoritative run**: Linux, every gem installed, same 40 cases |
+| `rails_extraction_linux_2026-08-29.txt` | its report |
+| `rails_extraction_2026-08-28.json` | the first run, on Windows without a Ruby devkit; kept because the difference between the two runs is itself a finding |
+| `rails_extraction_2026-08-28.txt` | its report |
+| `rails_extraction_cases_2026-08-28.json` | the 40 cases, so the selection is inspectable rather than asserted |
+| `rails_extraction_mastodon_preload.sql` | `timestamp_id()`, lifted from Mastodon's own `lib/mastodon/snowflake.rb`, supplied to isolate a pre-state failure from an extraction failure |
+
+Method: for each migration, find the commit that added it, take the schema
+from that commit's **parent**, and build that pre-state twice. Database A
+gets the real migration through the shipped harness; database B gets the
+SQL that harness extracted, applied one statement at a time. A and B are
+then compared column by column, index by index, constraint by constraint,
+sequence by sequence. Migrations added by the same commit that sort earlier
+run first on both.
+
+40 migrations, 4 applications, each rendered by **its own** ActiveRecord
+(7.2.3.2, 8.0.5, 8.0.5.1, 8.1.3.1) resolved from its `Gemfile.lock`.
+
+| run | machine | verified | wrong SQL | failed |
+|---|---|---|---|---|
+| 2026-08-28 | Windows, no devkit, no pgvector | 27/40 | 0 | 13 |
+| 2026-08-29 | Linux, all gems installed | 28/40 | 0 | 12 |
+| 2026-08-29 | Linux, after two harness fixes | **35/40** | **0** | 5 |
+
+The first run blamed eleven failures on the machine. Only one of them was:
+running on Linux with the gems installed moved just a single case, which
+exposed two real bugs — requiring a DSL gem without calling the `.load` its
+Railtie would have called, and not supplying stdlib (`tsort`, `logger`) that
+gems assume a booting Rails already required. See `DECISIONS.md`.
+
+All five remaining failures are the same, already-recorded limitation: the
+migration needs the booted application (`ApplicationRecord`, `Rails.root`,
+`Rails.configuration`), not merely ActiveRecord. Every one fails before
+producing SQL and falls back to the honest not-assessed message.
+
+Re-run on Linux: `../scripts/rails_extraction_validation_workflow.yml`. It is
+deliberately **not** installed under `.github/workflows/` — it clones four
+large third-party applications and runs forty migrations twice each, which
+does not belong in the CI of a repository that depends on Blastoise. To use
+it, copy it into `.github/workflows/` on a branch, dispatch it from the
+Actions tab, take the uploaded artifact, and drop the copy. It starts
+Postgres with pgvector, installs each application's own ActiveRecord and DSL
+gems, clones the four applications, and uploads the results and report.
+
+Locally:
+
+```
+python artifacts/scripts/rails_extraction_validation.py \
+  --cases artifacts/validation/rails_extraction_cases_2026-08-28.json \
+  --repos <dir of clones> --admin-url <throwaway postgres> \
+  --ruby <ruby> --gem-home-map '{"discourse":...}' \
+  --workdir <tmp> --out results.json
+python artifacts/scripts/rails_validation_report.py --results results.json --out report.txt
+```
+
+`--missing-extensions` and `--preload-sql` exist for machines that cannot
+supply an extension or a gem; the Linux run needs neither except the
+Mastodon preload, which isolates a schema.rb expressiveness gap from an
+extraction failure. Where they are used, every removed line is recorded per
+case in the JSON, and the same adapted file builds both databases so the
+comparison still holds.

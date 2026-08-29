@@ -2207,3 +2207,280 @@ with the same name, which GitHub displays as the latest — correct in the UI, b
 the run history accumulates. Using `PATCH /check-runs/{id}` would need the run id carried
 across pushes, which the comment marker solves for comments and nothing solves for checks;
 recorded as known, not fixed.
+
+## Rails migrations, rendered by running them (2026-08-28)
+
+The previous section listed the three DSL adapters in the order their cost suggested and put
+Rails last, on the grounds that "no dry-run exists; one has to be built". That was right, and
+I checked it rather than inheriting it: `grep -ni "dry_run|pretend|sql_only|offline"` over
+`activerecord/lib/active_record/migration.rb` and `railties/databases.rake` at v8.0.2 returns
+nothing. There is no `--sql` mode, no pretend mode, and no `rails db:migrate --plan`. Alembic's
+offline rendering has no Rails equivalent, and the reason is structural rather than an
+oversight: `add_column` asks the adapter for a type name, `remove_index` looks an index up by
+its columns, `change_column` reads the column's current type, and a `change_table` block does
+not become statements until it is executed. The SQL does not exist until ActiveRecord renders
+it against a live connection.
+
+So the question was never "how do we avoid running it", it was "what do we record while it
+runs". Three candidates, and the choice between them matters more than any of the code:
+
+**Diffing the schema before and after** — the obvious one, and disqualifying. I ran a migration
+that did `add_index ... algorithm: :concurrently`, `add_column ... default:`, a backfill
+`UPDATE`, and `remove_column`, then compared what each method recovered. The schema diff found
+the added column, the dropped column, and an index reported by `pg_indexes` as
+`CREATE INDEX ... USING btree (email)`. Not `CONCURRENTLY` — the catalog does not record how an
+index was built, because that is a property of the build, not of the index. And the backfill
+`UPDATE` was invisible: it leaves no trace in a schema at all. Nor can a schema say whether the
+whole thing ran inside a transaction. Those three facts are most of what this tool exists to
+judge, so a schema diff would not merely be lossy, it would be lossy in the direction that
+turns a dangerous migration into a clean verdict. In the 217 real migrations I sampled while
+choosing, 23% use `disable_ddl_transaction!`, 20% use `algorithm: :concurrently`, and 21% call
+`execute` — this is the common case, not the tail.
+
+**Reconstructing SQL from ActiveRecord without a database** — the adapter's DDL generation is
+not connection-free (see the list above), so this fails on a large fraction of real migrations
+and, worse, fails silently differently depending on which methods were used.
+
+**Recording the statements as they run**, which is what I built. ActiveRecord publishes every
+statement it executes to the `sql.active_record` ActiveSupport notification; subscribing to it
+and running the migration against a throwaway database yields the exact statements, in order,
+byte for byte. I verified the mechanism in the Rails source rather than from memory:
+`raw_execute` calls `log(...)` which instruments `sql.active_record` (v8.0.2,
+`abstract/database_statements.rb`), and the payload's `:sql` and `:name` keys are unchanged from
+6.1 through 8.0 — later versions *added* `async`, `transaction` and `row_count` and removed
+nothing. `:name` is what makes the stream usable: ActiveRecord tags its own catalog
+introspection `"SCHEMA"`, and `begin_db_transaction`/`commit_db_transaction` emit literal
+`BEGIN`/`COMMIT` tagged `"TRANSACTION"` (6.1 via `execute`, 8.0 via `internal_execute`, both
+through `log`). So transaction structure arrives as real SQL, and `disable_ddl_transaction!`
+arrives as the *absence* of a `BEGIN` — which is exactly right, and unrecoverable any other way.
+
+The empirical check that settled it: the same migration file, one unchanged harness, three
+ActiveRecords — 6.1.7.10, 7.1.5.1 and 8.0.2 — produced byte-identical SQL. And the output goes
+into `parse_migration` with no engine change at all, classifying as
+`create_index_concurrently / alter_table / update / alter_table` with the transaction group
+correctly implicit. That was the stated bar: if the extracted SQL had needed a special case in
+the parser, the extraction would have been wrong.
+
+### What it costs, and the three refusals
+
+Every other part of Blastoise only ever *reads* the branch. This executes it. Rendering a Rails
+migration means `load`-ing a Ruby file that arrived in a pull request and running it, which is
+a different security posture from anything else in the tool, and pretending otherwise would be
+the dishonest part. So:
+
+`rails.extract` defaults to **off**. It is opt-in in `.blastoise.yml`, and a repository that has
+not asked for it keeps the honest not-assessed message. Second, extraction **refuses under
+`pull_request_target`** and no configuration turns that back on: that event runs with the base
+repository's secrets and a writable token against a fork's code, so executing the fork's Ruby
+there would hand over the repository. Third, it **refuses a scratch database on the same host
+and port as the database being assessed**, because extraction creates and drops databases and
+the one unrecoverable mistake is doing that on the server that matters. The scratch connection
+string is named by config and valued by the environment, on the same rule as the assessed one —
+`rails.scratch_url` in a committed file is refused with the reason.
+
+It also has to run under the application's own bundle, which is not a preference. A migration
+declaring `ActiveRecord::Migration[8.1]` raises `Unknown migration version "8.1"` on any older
+ActiveRecord — I confirmed this against 8.0.2 — and the corpus spans compatibility versions 4.2
+through 8.1. `safety_assured` is a method that exists only if the app's strong_migrations is
+loaded; 10% of the sampled migrations call it. So the Rails that renders the SQL must be the
+app's, and the harness opportunistically requires `strong_migrations`, `hairtrigger`, `fx` and
+`scenic` — the gems that extend the migration and schema DSL — each guarded, because an app that
+does not bundle one simply does not get it.
+
+### The pre-state, and two fallbacks
+
+`add_column :users, ...` needs a `users` table, so the migration has to run against the schema
+as it was *before* the change. Not the branch's `db/schema.rb`: Rails regenerates that when a
+developer runs the migration locally and they commit it, so loading the branch's schema and
+then migrating would die on "column already exists" for every migration whose author had ever
+run it. The pre-state is therefore `git show <base>:db/structure.sql` (preferred, because a
+project that moved to it did so when its schema outgrew the Ruby dumper) or `db/schema.rb`.
+
+Two fallbacks, both of which validation forced me to build rather than predict. First, a
+committed schema file that is *absent* falls back to replaying the earlier migrations, capped —
+past 200 the honest answer is that committing a schema file is what makes this assessable.
+Second, and this one I did not see coming: a committed schema file that **will not load**.
+`db/schema.rb` cannot express a function, a trigger, or a custom type. Mastodon's schema.rb
+declares `id` columns with `default: -> { "timestamp_id('accounts'::text)" }` and never creates
+`timestamp_id`, which lives in a migration that calls `Mastodon::Snowflake.define_timestamp_id`.
+That schema does not load standalone — not for Blastoise and not for Mastodon either. So the
+harness reports which *stage* it failed at, and a schema-stage failure retries via replay while
+a migration-stage failure does not, because a migration that raised would raise again.
+
+The third thing validation forced: a pull request that adds two migrations, where the second
+indexes a column the first adds. Assessing each against the base commit's schema alone fails on
+a column the branch creates — which is ordinary Rails, not an edge case. Migrations in one
+change are now ordered by the timestamp in their file name and each is rendered with the earlier
+ones already applied, bucketed by directory so two Rails apps in a monorepo do not precede each
+other. This is a narrow instance of the "no concept of the state after the previous file" gap
+the previous section recorded as owed; it is closed for the Rails pre-state, and still open for
+the assessment engine.
+
+### Validation
+
+The claim is that the extracted SQL does what the migration does, and the only way to check it
+is against real migrations from real applications. For each case: find the commit that added the
+migration, take the schema from its parent, build that pre-state **twice**, run the real
+migration on database A through the shipped harness, apply the SQL that harness extracted to
+database B statement by statement, and compare A and B column by column, index by index,
+constraint by constraint, sequence by sequence. Statements go into B one at a time rather than
+as a script, because `CREATE INDEX CONCURRENTLY` cannot run inside the implicit transaction a
+multi-statement simple query gets — which is itself a small proof that the concurrency survived.
+
+40 migrations from four applications — discourse, mastodon, forem and openfoodnetwork —
+each rendered by **its own** ActiveRecord resolved from its `Gemfile.lock`: 7.2.3.2, 8.0.5,
+8.0.5.1 and 8.1.3.1. The result:
+
+| | cases | verified faithful | wrong SQL | could not render |
+|---|---|---|---|---|
+| discourse (AR 8.0.5.1, `structure.sql`) | 10 | 10 | 0 | 0 |
+| forem (AR 8.0.5, `schema.rb`) | 10 | 9 | 0 | 1 |
+| openfoodnetwork (AR 7.2.3.2, `schema.rb`) | 10 | 8 | 0 | 2 |
+| mastodon (AR 8.1.3.1, `schema.rb`) | 10 | 0 | 0 | 10 |
+| **total** | **40** | **27** | **0** | **13** |
+
+The column that matters is the third one. Extraction never produced SQL that differed from what
+the migration did — not once in 40 real migrations. Every failure was a refusal, and every
+refusal is the honest not-assessed message with its reason rather than a verdict.
+
+What survived extraction, counted across the verified cases: `CREATE INDEX CONCURRENTLY` in 7,
+explicit `BEGIN`/`COMMIT` in 20, backfill `UPDATE` in 3, `DROP INDEX CONCURRENTLY` in 1,
+`ADD CONSTRAINT ... NOT VALID` in 2, `VALIDATE CONSTRAINT` in 1, `DROP COLUMN` in 3. That list
+is the argument against schema diffing restated as evidence: every one of those is a thing a
+before/after schema comparison either cannot see or actively misreports.
+
+The 13 that did not render split into two groups, and the split is the finding. Eleven are my
+validation machine rather than the approach: it is Windows with no Ruby devkit, so `scenic`,
+`hairtrigger` and `neighbor` will not install and pgvector has no Windows build at all. Mastodon
+loads `create_view` (scenic) in its schema, forem has a migration using `t.vector`. In a real
+CI those gems are in the app's bundle and the harness requires them — I could not prove that
+here and am not going to claim it. The other two are real: openfoodnetwork carries Active
+Storage's migrations, and one calls `Rails.configuration.generators` to pick a primary key type.
+That needs the framework booted, not merely ActiveRecord, and it is a genuine gap.
+
+Mastodon deserves its own note because its failure moved. Before I supplied anything it failed
+on `timestamp_id(text) does not exist` — the schema.rb expressiveness gap described above, and
+the reason the schema-stage fallback exists. I then preloaded that function, lifted verbatim
+from Mastodon's own `lib/mastodon/snowflake.rb`, purely to isolate the variable, and the failure
+moved to `create_view`. So Mastodon's schema.rb has *two* things it cannot declare, and in
+production the first one sends it to the replay fallback, where a ~1000-migration history
+exceeds the cap and it is honestly refused. That is the right outcome; it is not a good one.
+
+The corpus earned its keep by finding three defects that no synthetic test would have. The
+first two are in the harness and are fixed:
+
+**Engine-installed migrations were given the wrong class name.** `rails
+railties:install:migrations` copies an engine's migrations in with a scope suffix —
+OpenFoodNetwork carries Active Storage's as
+`20260512062933_create_active_storage_variant_records.active_storage.rb`. Deriving the class by
+splitting on the first underscore and camelizing the remainder produces
+`CreateActiveStorageVariantRecords.activeStorage`, which is not a constant, and three cases
+failed on it. The fix is to use Rails' own filename grammar,
+`/\A([0-9]+)_([_a-z0-9]*)\.?([_a-z0-9]*)?\.rb\z/` — version, name, *scope* — and take the name
+only. There is now a regression test with a scoped filename.
+
+**A gem's probe queries were being reported as the migration's statements.** strong_migrations
+reads `SHOW server_version_num` and `SHOW lock_timeout` before deciding whether to object, and
+those arrive in the notification stream tagged as ordinary statements rather than as schema
+queries, so they landed in the extracted SQL and would have appeared in the verdict table as
+statements the migration runs. `SHOW` is now dropped: it takes no lock, touches no row and
+changes nothing, so it can never be the hazard a report is about. `SET` is deliberately *not*
+dropped, because `SET lock_timeout` in a migration is exactly the kind of thing worth reporting.
+
+The third is the pull-request ordering described above, which showed up as three separate
+"column does not exist" failures before I understood they were all the same thing.
+
+A note on what the comment shows. The per-statement rows cite `L1`, `L2`, `L3`, and for a Rails
+file those are lines of the *rendered* SQL, not of the `.rb`. That is not a leak: the evidence
+bundle's `migration.sql` is the exact SQL that was assessed, so the citations resolve against a
+file the reviewer can read, and the thing being judged is on record rather than being described.
+
+### What is owed, plainly
+
+**Migrations that reference application code do not render.** Mastodon's call to
+`Mastodon::Snowflake` is the clean example: the harness runs under the app's bundle, which puts
+its *gems* on the load path, but does not boot the app, so `lib/` is not autoloaded and model
+constants do not resolve. Booting `config/environment.rb` would fix it and is the obvious next
+step, but it runs the app's initializers — connecting to whatever they connect to — and that is
+a decision about blast radius, not an implementation gap. Roughly 1% of the sampled corpus
+references model constants; Mastodon's case is rarer still and more severe, because it breaks
+the *pre-state* rather than the migration.
+
+**Applications with no committed schema file are not assessable** unless their history is short
+enough to replay. OpenProject commits neither `db/schema.rb` nor `db/structure.sql`, so every one
+of its migrations falls back and then hits the replay cap. That is reported honestly rather than
+worked around.
+
+**Django and Alembic are unchanged.** They keep the old message, and `EXTRACTABLE` is the single
+place that decides which frameworks claim an adapter, so the comment for a Rails file now says
+"Blastoise can render this by running it, but did not here" plus the reason, while Django's still
+says support does not exist. Conflating those two would tell a team to keep waiting for something
+they already have.
+
+**The failure mode is a missing verdict, never a wrong one.** Every path out of extraction that
+is not clean SQL — the harness raising, the schema not loading, the replay cap, the parser
+refusing the output — produces `unsupported` with a reason and holds the run at
+`requires_approval`. Nothing reconstructs, approximates, or guesses at SQL, because a verdict
+about statements the migration never runs is worse than no verdict.
+
+### The Linux re-run, and a wrong attribution corrected (2026-08-29)
+
+I called eleven of the thirteen Windows failures "the machine, not the approach". That was
+wrong, and the way it was wrong is worth recording: I asserted a cause I had not tested. The
+Windows box could not build `scenic`, `hairtrigger` or `neighbor` and has no pgvector, so all
+ten Mastodon cases stopped at the first thing that needed one — and I read "this machine cannot
+install the gem" as "with the gem, it would work". Re-running on a Linux GitHub Actions runner
+where every one of them installs (`artifacts/scripts/rails_extraction_validation_workflow.yml`,
+kept out of `.github/workflows/` so it never runs on a push — it clones four applications; Postgres
+via `pgvector/pgvector:pg17` with `pg_stat_statements` preloaded) settled it:
+
+| run | machine | verified | wrong SQL | failed |
+|---|---|---|---|---|
+| 2026-08-28 | Windows, no devkit, no pgvector | 27/40 | 0 | 13 |
+| 2026-08-29 | Linux, all gems installed | 28/40 | 0 | 12 |
+| 2026-08-29 | Linux, after the two fixes below | **35/40** | **0** | 5 |
+
+The middle row is the finding. With scenic installed *and verified to load*, Mastodon still
+failed on `create_view` — so those ten were never an environment gap. They were two real bugs
+in the harness:
+
+**Requiring a gem is not installing it.** `scenic` adds `create_view` to the adapter from
+`Scenic.load`, which its Railtie calls during application boot. This harness deliberately does
+not boot the application, so the Railtie never runs and the DSL is never installed, however
+correctly the gem loads. The gem list is now a map from gem name to the constant whose `.load`
+installs it, and that installer is called after the require. `fx` has the same shape;
+`hairtrigger`, `neighbor` and `strong_migrations` install themselves on require and are mapped
+to nil.
+
+**Gems assume standard library that a booting Rails already required.** `scenic` references
+`TSort` without requiring `tsort`, exactly as activesupport <= 6.1 references `Logger` without
+requiring `logger`. Both raise `NameError` on load outside a booted application. The harness now
+requires `logger`, `tsort`, `set`, `singleton` and `benchmark` before ActiveRecord, guarded.
+
+Neither is a Rails quirk I could have reasoned my way to; both needed a machine that could
+install the gems. That is the argument for having run this on Linux rather than reporting the
+Windows numbers with a caveat attached.
+
+Of the eleven I mis-attributed: one really was the environment (forem's `t.vector` column needs
+pgvector and `neighbor`, and passes on Linux), seven were the two bugs above, and three turned
+out to be the app-environment limitation that was already recorded — masked on Windows because
+they never got past `create_view` to reach it.
+
+**All five remaining failures are one thing, and it is the limitation already named:** the
+migration, or a gem acting for it, needs the booted application rather than only ActiveRecord.
+Mastodon has two migrations referencing `ApplicationRecord` and one calling
+`Scenic::Definition#to_sql`, which reads a view file relative to `Rails.root` and gets `nil`;
+OpenFoodNetwork has two Active Storage migrations calling `Rails.configuration.generators` to
+choose a primary key type. Nothing in that set is an extraction defect: every one fails loudly
+before producing SQL, and every one falls back to the honest not-assessed message. Extraction
+still produced wrong SQL zero times in forty.
+
+Constructs recovered across the 35 verified cases, which is the schema-diff argument restated
+against a larger sample: `CREATE INDEX CONCURRENTLY` in 10, explicit `BEGIN`/`COMMIT` in 24,
+`DROP INDEX CONCURRENTLY` in 2, backfill `UPDATE` in 3, `ADD CONSTRAINT ... NOT VALID` in 2,
+`VALIDATE CONSTRAINT` in 1, `DROP COLUMN` in 3, `CREATE TABLE` in 7.
+
+Booting the application would close the last five, and remains the decision it was before: it
+runs the app's initializers, against whatever they connect to. Not doing it is why the harness
+is a subprocess with a scratch database and no secrets, and the five files it cannot render say
+so rather than being guessed at.
